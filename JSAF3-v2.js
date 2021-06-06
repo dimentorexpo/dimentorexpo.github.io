@@ -706,7 +706,7 @@ function transfPageButtons(butName) {
 			return
 		}
 	}
-	textFromTable = textFromTable.join(phone)
+	textFromTable = textFromTable.join(указать номер клиента)
 	
 	email = ""
 	textFromTable = textFromTable.split('(email)')
