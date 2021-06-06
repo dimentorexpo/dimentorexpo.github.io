@@ -2649,7 +2649,7 @@ function prepTp() {
 		
 	let buttonGetStat = document.createElement('div');
 	buttonGetStat.id = 'buttonGetStat';
-	buttonGetStat.innerHTML = "Статистика";
+	buttonGetStat.innerHTML = "Стата";
 	buttonGetStat.style.marginLeft = "15px";
 	buttonGetStat.onclick = function() {
 		if(this.textContent == 'Скрыть стату') {
@@ -2658,7 +2658,7 @@ function prepTp() {
 			if(document.getElementById('tableStats') != undefined) {
 				document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
 			}
-			this.textContent = 'Статистика'
+			this.textContent = 'Стата'
 			
 			document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
 			
