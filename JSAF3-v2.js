@@ -2545,7 +2545,7 @@ async function getStats() {
 	str.onclick = checkCSAT
 	document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
 	
-	document.getElementById('buttonGetStat').textContent = 'Скрыть статистику'
+	document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
 	document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
@@ -2652,7 +2652,7 @@ function prepTp() {
 	buttonGetStat.innerHTML = "Статистика";
 	buttonGetStat.style.marginLeft = "15px";
 	buttonGetStat.onclick = function() {
-		if(this.textContent == 'Скрыть статистику') {
+		if(this.textContent == 'Скрыть стату') {
 			if(this.getAttribute('disabled') != null)
 				return
 			if(document.getElementById('tableStats') != undefined) {
