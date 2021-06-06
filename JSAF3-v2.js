@@ -695,7 +695,7 @@ function transfPageButtons(butName) {
 	if(textFromTable == "")
 		return
 	phone = ""
-	textFromTable = textFromTable.split('(указать номер клиента)')
+	textFromTable = textFromTable.split('(phone)')
 	if(textFromTable.length > 1) {
 		if(document.getElementById('phone_tr').value == "")
 			phone = document.getElementById('phone_tr').placeholder
@@ -706,7 +706,7 @@ function transfPageButtons(butName) {
 			return
 		}
 	}
-	textFromTable = textFromTable.join(указать номер клиента)
+	textFromTable = textFromTable.join(phone)
 	
 	email = ""
 	textFromTable = textFromTable.split('(email)')
