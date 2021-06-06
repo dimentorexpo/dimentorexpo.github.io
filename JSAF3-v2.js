@@ -684,14 +684,18 @@ function transfPageButtons(butName) {
 			if(table[l][1] == "Поле") {
 				textFromTable = table[l][2]
 			} else {
+				if(table[l][1] == "Шаблон") {
+					sendAnswerTemplate(table[l][2], table[l][3])
+				} else {
 				msgFromTable(table[l][0])
+				}
 			}
 			break
 		}
 	if(textFromTable == "")
 		return
 	phone = ""
-	textFromTable = textFromTable.split('(phone)')
+	textFromTable = textFromTable.split('(указать номер клиента)')
 	if(textFromTable.length > 1) {
 		if(document.getElementById('phone_tr').value == "")
 			phone = document.getElementById('phone_tr').placeholder
