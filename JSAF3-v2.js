@@ -2545,7 +2545,7 @@ async function getStats() {
 	str.onclick = checkCSAT
 	document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
 	
-	document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
+	document.getElementById('buttonGetStat').textContent = 'Скрыть статистику'
 	document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
@@ -2649,16 +2649,16 @@ function prepTp() {
 		
 	let buttonGetStat = document.createElement('div');
 	buttonGetStat.id = 'buttonGetStat';
-	buttonGetStat.innerHTML = "Стата";
+	buttonGetStat.innerHTML = "Статистика";
 	buttonGetStat.style.marginLeft = "15px";
 	buttonGetStat.onclick = function() {
-		if(this.textContent == 'Скрыть стату') {
+		if(this.textContent == 'Скрыть статистику') {
 			if(this.getAttribute('disabled') != null)
 				return
 			if(document.getElementById('tableStats') != undefined) {
 				document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
 			}
-			this.textContent = 'Стата'
+			this.textContent = 'Статистика'
 			
 			document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
 			
@@ -2675,7 +2675,7 @@ function prepTp() {
 				document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
 			} else {
 				this.textContent = 'Неверная страница'
-				setTimeout(function() { document.getElementById('buttonGetStat').textContent = "Стата" }, 500)
+				setTimeout(function() { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
 				return
 			}
 			getStats()
