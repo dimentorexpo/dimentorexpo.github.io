@@ -2653,10 +2653,10 @@ function prepTp() {
 		
 	let buttonGetStat = document.createElement('div');
 	buttonGetStat.id = 'buttonGetStat';
-	buttonGetStat.innerHTML = "Стат";
+	buttonGetStat.innerHTML = "Статистика";
 	buttonGetStat.style.marginLeft = "15px";
 	buttonGetStat.onclick = function() {
-		if(this.textContent == 'Скрыть стату') {
+		if(this.textContent == 'Скрыть') {
 			if(this.getAttribute('disabled') != null)
 				return
 			if(document.getElementById('tableStats') != undefined) {
