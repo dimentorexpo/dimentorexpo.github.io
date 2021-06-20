@@ -684,9 +684,6 @@ function transfPageButtons(butName) {
 			if(table[l][1] == "Поле") {
 				textFromTable = table[l][2]
 			} else {
-				if(table[l][1] == "Шаблон") {
-					sendAnswerTemplate(table[l][2], table[l][3])
-				} else {
 				msgFromTable(table[l][0])
 				}
 			}
@@ -2656,7 +2653,7 @@ function prepTp() {
 	buttonGetStat.innerHTML = "Статистика";
 	buttonGetStat.style.marginLeft = "15px";
 	buttonGetStat.onclick = function() {
-		if(this.textContent == 'Скрыть') {
+		if(this.textContent == 'Скрыть стату') {
 			if(this.getAttribute('disabled') != null)
 				return
 			if(document.getElementById('tableStats') != undefined) {
