@@ -2549,7 +2549,7 @@ async function getStats() {
 	str.onclick = checkCSAT
 	document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
 	
-	document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
+	document.getElementById('buttonGetStat').textContent = 'Скрыть'
 	document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
