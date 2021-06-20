@@ -2653,7 +2653,7 @@ function prepTp() {
 		
 	let buttonGetStat = document.createElement('div');
 	buttonGetStat.id = 'buttonGetStat';
-	buttonGetStat.innerHTML = "Статистика";
+	buttonGetStat.innerHTML = "Стат";
 	buttonGetStat.style.marginLeft = "15px";
 	buttonGetStat.onclick = function() {
 		if(this.textContent == 'Скрыть стату') {
