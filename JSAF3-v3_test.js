@@ -586,13 +586,7 @@ function move_again_AF() {
 	setInterval(screenshots2, 5000)
 	
 	
-	document.getElementById('KGLadm').addEventListener('click',function(){
-    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
-	})
-	
-	document.getElementById('timetable').addEventListener('click',function(){
-    copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
-})
+
 	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
@@ -604,7 +598,6 @@ function move_again_AF() {
         }
 	}
 	
-
 	
 	
 	if (localStorage.getItem('audio') == 0) {
