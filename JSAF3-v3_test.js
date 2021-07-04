@@ -408,7 +408,7 @@ function move_again_AF() {
 		if(grid.value == "")
 			console.log('Введите id в поле')
 		else {
-				copyToClipboard(lnngr + grid.value);
+				window.open(lnngr + grid.value);
 			};
 			grid.value = "";
 		}
