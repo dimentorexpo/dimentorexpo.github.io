@@ -377,6 +377,15 @@ function move_again_AF() {
 		prepTp()
 	}
 	
+			document.getElementById('KGLadm').addEventListener('click',function(){
+    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
+	});
+	
+	document.getElementById('timetable').addEventListener('click',function(){
+    copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
+});
+	
+	
     document.getElementById('hideMenu').onclick = function () {
 		document.getElementById('AF_helper').style.display = 'none'
 		document.getElementById('scriptBut').style.display = ''
