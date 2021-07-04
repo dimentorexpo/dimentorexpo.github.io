@@ -108,17 +108,7 @@ var win_AFhelper =
 				<button id="switcher">ВКЛ</button>
 			</div>
 			
-			<div style="margin: 5px; width: 300px">
-				<button id="KGLadm">KGLadm</button>
-				<button id="timetable">TT</button>
-				<button id="talksadm">Talks</button>
-				<button id="billingadm">Начислятор</button>
-				<button id="compens">Компенс</button>
-				<button id="useradm">Админка</button>
-				<button id="suggestions">Предложения</button>
-				
-			</div>
-			
+	
 			<div style="margin: 5px; width: 300px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
@@ -135,6 +125,19 @@ var win_AFhelper =
 	</span>
    </div>`;
 	
+		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
+				<div style="margin: 5px; width: 300px">
+				<button id="KGLadm">KGLadm</button>
+				<button id="timetable">TT</button>
+				<button id="talksadm">Talks</button>
+				<button id="billingadm">Начислятор</button>
+				<button id="compens">Компенс</button>
+				<button id="useradm">Админка</button>
+				<button id="suggestions">Предложения</button>
+				
+			</div>
+		</div>
+
 let audio
 
 
@@ -434,6 +437,15 @@ function move_again_AF() {
 		else
 			document.getElementById('set_bar').style.display = ''
 	}
+	
+	    document.getElementById('setting').onclick = function () {
+		if(document.getElementById('set_bar1').style.display == '')
+			document.getElementById('set_bar1').style.display = 'none'
+		else
+			document.getElementById('set_bar1').style.display = ''
+	}
+	
+	
     document.getElementById('sound_save').onclick = function () {
 		localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
 		if(document.getElementById('sound_adr').value == "") 
