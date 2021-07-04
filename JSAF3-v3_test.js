@@ -125,8 +125,16 @@ var win_AFhelper =
 				<button id="CMS">CMS</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
+				</div>
+				
+				<div style="margin: 5px; width: 300px">				
 				<input id="cpuname" placeholder="CPU" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="benchmark">🔎</button>
+				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="groupadm">🔎</button>
+				
+				</div>
+				
 			</div>
 	</span>
 </div>`;
