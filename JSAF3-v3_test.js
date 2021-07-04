@@ -1034,7 +1034,7 @@ function msgFromTable(btnName) {
 						sendAnswerTemplate2(table[l][6])
 					}
 					if(table[l][5] == "Текст") {
-						sendAnswer(transfPageButtons(table[l][6])
+						sendAnswer(transfPageButtons(table[l][6]))
 					}
 					if(table[l][5] == "Шаблон") {
 						sendAnswerTemplate(table[l][6], table[l][7])
