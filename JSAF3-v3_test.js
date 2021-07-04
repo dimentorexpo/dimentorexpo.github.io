@@ -377,16 +377,11 @@ function move_again_AF() {
 		prepTp()
 	}
 		
-		document.getElementById('KGLadm').addEventListener('click',function(){
-    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
-	});
-	
-	document.getElementById('timetable').addEventListener('click',function(){
-    copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
-});
-	<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>;
-	
-	
+			document.getElementById('KGLadm').onclick = function () {
+		let lnkline = 'https://grouplessons-api.skyeng.ru/admin/student';
+				copyToClipboard(lnkline);
+		}
+		
     document.getElementById('hideMenu').onclick = function () {
 		document.getElementById('AF_helper').style.display = 'none'
 		document.getElementById('scriptBut').style.display = ''
