@@ -387,12 +387,12 @@ function move_again_AF() {
 })
 			document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
-		if(groupid.value == "")
+		if(cpuname.value == "")
 			console.log('Введите CPU в поле')
 		else {
 				window.open(lnkgr + cpuname.value);
 			};
-			groupid.value = "";
+			cpuname.value = "";
 		}
 
 			
