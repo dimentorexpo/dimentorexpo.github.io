@@ -108,6 +108,8 @@ var win_AFhelper =
 				<button id="KGLadm">KGLadm</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
+				<button id="billingadm">Начислятор</button>
+				<button id="compens">Компенс</button>
 			</div>
 			
 			<div style="margin: 5px; width: 300px">
@@ -350,7 +352,16 @@ function move_again_AF() {
 	document.getElementById('timetable').addEventListener('click',function(){
     copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
+		document.getElementById('talksadm').addEventListener('click',function(){
+    copyToClipboard("https://vimbox.skyeng.ru/talks/admin/statistics")    // копируем в буфер ссылку на Talks админку
+	})
 	
+	document.getElementById('billingadm').addEventListener('click',function(){
+    copyToClipboard("https://billing-api.skyeng.ru/operations")    // копируем в буфер ссылку на Начислятор
+})
+		document.getElementById('compens').addEventListener('click',function(){
+    copyToClipboard("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Компенсации
+})
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
