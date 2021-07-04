@@ -354,7 +354,7 @@ function move_again_AF() {
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
 	document.getElementById('KGLadm').addEventListener('click',function(){
-    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
+    window.open("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
 	})
 	
 	document.getElementById('timetable').addEventListener('click',function(){
