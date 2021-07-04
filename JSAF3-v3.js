@@ -689,6 +689,7 @@ function transfPageButtons(textFromTable) {
 			name = a[0]
 		else
 			name = 'Имя'
+		return
 	}
 	textFromTable = name + textFromTable
 
