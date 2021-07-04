@@ -368,7 +368,7 @@ function move_again_AF() {
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // копируем в буфер ссылку на Предложения/пожелания
 })
 		document.getElementById('transactions').addEventListener('click',function(){
-    window.open("https://accounting.skyeng.ru/userpayment/search/transaction9")    // копируем в буфер ссылку на Поиск транзакций
+    window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // копируем в буфер ссылку на Поиск транзакций
 })
 	
     document.getElementById('msg').onclick = function () {
