@@ -128,11 +128,12 @@ var win_AFhelper =
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
-				<input id="cpuname" placeholder="CPU" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="benchmark">🔎</button>
 				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="groupadm">🔎</button>
-				
+				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="cmsid">🔎</button>
 				</div>
 				
 			</div>
@@ -411,6 +412,16 @@ function move_again_AF() {
 				window.open(lnngr + grid.value);
 			};
 			grid.value = "";
+		}
+		
+		document.getElementById('cmsid').onclick = function () {
+		let lnkstep = 'content.vimbox.skyeng.ru/cms/step/update/id/';
+		if(cmsstepid.value == "")
+			console.log('Введите stepid в поле')
+		else {
+				window.open(lnkstep + cmsstepid.value);
+			};
+			cmsstepid.value = "";
 		}
 			
     document.getElementById('msg').onclick = function () {
