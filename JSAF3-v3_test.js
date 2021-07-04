@@ -125,6 +125,7 @@ var win_AFhelper =
 				<button id="CMS">CMS</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
+				<button id="kcerrors">Ошибки КЦ</button>
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
@@ -394,6 +395,11 @@ function move_again_AF() {
 		document.getElementById('apelation').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
 })
+
+		document.getElementById('kcerrors').addEventListener('click',function(){
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+})
+
 			document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
@@ -415,7 +421,7 @@ function move_again_AF() {
 		}
 		
 		document.getElementById('cmsid').onclick = function () {
-		let lnkstep = 'https://content.vimbox.skyeng.ru/cms/step/update/id/';
+		let lnkstep = 'https://www.content.vimbox.skyeng.ru/cms/step/update/id/';
 		if(cmsstepid.value == "")
 			console.log('Введите stepid в поле')
 		else {
