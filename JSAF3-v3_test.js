@@ -105,6 +105,9 @@ var win_AFhelper =
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
+			</div>
+			
+			<div style="margin: 5px; width: 300px">
 				<button id="KGLadm">KGLadm</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
