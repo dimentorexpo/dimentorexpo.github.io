@@ -589,13 +589,13 @@ function move_again_AF() {
 	
 	
      document.getElementById('KGLadm').onclick = function () {
-		let KGLlnk = 'https://grouplessons-api.skyeng.ru/admin/student';
-		copyToClipboard(KGLlnk);
+		let lnkline = 'https://grouplessons-api.skyeng.ru/admin/student';
+		copyToClipboard(lnkline);
 		}
 	
       document.getElementById('timetable').onclick = function () {
-		let TTlnk = 'https://timetable.skyeng.ru/';
-		copyToClipboard(TTlnk);
+		let ttlnk = 'https://timetable.skyeng.ru/';
+		copyToClipboard(ttlnk);
 		}
 	
 	
