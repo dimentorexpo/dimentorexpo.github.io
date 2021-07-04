@@ -589,9 +589,16 @@ function move_again_AF() {
 	
 	
      document.getElementById('KGLadm').onclick = function () {
-		let lnkline = 'https://grouplessons-api.skyeng.ru/admin/student';
-		copyToClipboard(lnkline);
+		let KGLlnk = 'https://grouplessons-api.skyeng.ru/admin/student';
+		copyToClipboard(KGLlnk);
 		}
+	
+      document.getElementById('Timetable').onclick = function () {
+		let TTlnk = 'https://timetable.skyeng.ru/';
+		copyToClipboard(TTlnk);
+		}
+	
+	
 	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
