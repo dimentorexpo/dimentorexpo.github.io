@@ -126,7 +126,7 @@ var win_AFhelper =
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
 				<input id="cpuname" placeholder="CPU" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="benchmark">Бенчмарк</button>
+				<button id="benchmark">🔎</button>
 			</div>
 	</span>
 </div>`;
