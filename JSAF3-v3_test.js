@@ -1,5 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script> // подключил скрипт для копирования в буфер
-
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
 
 function mystyles() {
 	let mstl = document.createElement('style');
