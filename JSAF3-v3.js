@@ -64,8 +64,9 @@ var win_AFhelper =
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left: 50px">hide</button>
-					<button id="setting" style="margin-left: 80px">S</button>
+					<button id="hideMenu" style="margin-left: 30px">hide</button>
+					<button id="links" style="margin-left: 40px">L</button>
+					<button id="setting" style="margin-left: 50px">S</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
@@ -92,12 +93,13 @@ var win_AFhelper =
 			<div style="margin: 5px; width: 300px">
 			</div>
 		</div>
-		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
+	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 300px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
 			</div>
+				
 			<div style="margin: 5px; width: 300px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
@@ -105,13 +107,25 @@ var win_AFhelper =
 				<button id="type_TS">TS</button>
 				</p>
 			</div>
+			
 			<div style="margin: 5px; width: 300px" id="testDiv">
 				<button id="takeNewChat">Взять чат</button>
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
+		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
+				<div style="margin: 5px; width: 300px">
+				<button id="KGLadm">KGLadm</button>
+				<button id="timetable">TT</button>
+				<button id="talksadm">Talks</button>
+				<button id="billingadm">Начислятор</button>
+				<button id="compens">Компенс</button>
+				<button id="useradm">Админка</button>
+				<button id="suggestions">Предложения</button>
+				
+			</div>
 	</span>
-    </div>`;
+</div>`;
 	
 let audio
 
@@ -333,6 +347,30 @@ function move_again_AF() {
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
 	
+		document.getElementById('KGLadm').addEventListener('click',function(){
+    window.open("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
+	})
+	
+	document.getElementById('timetable').addEventListener('click',function(){
+    window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
+})
+		document.getElementById('talksadm').addEventListener('click',function(){
+    window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // копируем в буфер ссылку на Talks админку
+	})
+	
+	document.getElementById('billingadm').addEventListener('click',function(){
+    window.open("https://billing-api.skyeng.ru/operations")    // копируем в буфер ссылку на Начислятор
+})
+		document.getElementById('compens').addEventListener('click',function(){
+    window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Компенсации
+})
+		document.getElementById('useradm').addEventListener('click',function(){
+    window.open("https://id.skyeng.ru/admin/users")    // копируем в буфер ссылку на Пользовательская админка
+})
+		document.getElementById('suggestions').addEventListener('click',function(){
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // копируем в буфер ссылку на Предложения/пожелания
+})
+	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
@@ -384,13 +422,20 @@ function move_again_AF() {
     document.getElementById('takeNewChat').onclick = function () {
 		getNewChat()
 	}
-	
+		
     document.getElementById('setting').onclick = function () {
 		if(document.getElementById('set_bar').style.display == '')
 			document.getElementById('set_bar').style.display = 'none'
 		else
 			document.getElementById('set_bar').style.display = ''
 	}
+    document.getElementById('links').onclick = function () {
+		if(document.getElementById('set_bar1').style.display == '')
+			document.getElementById('set_bar1').style.display = 'none'
+		else
+			document.getElementById('set_bar1').style.display = ''
+	}
+	
     document.getElementById('sound_save').onclick = function () {
 		localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
 		if(document.getElementById('sound_adr').value == "") 
