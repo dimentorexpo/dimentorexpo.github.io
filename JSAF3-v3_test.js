@@ -123,7 +123,7 @@ var win_AFhelper =
 				<button id="suggestions">Предложения</button>
 				<button id="transactions">Поиск$</button>
 				<button id="CMS">CMS</button>
-				
+				<button id="badmarks">-оценки</button>
 			</div>
 	</span>
 </div>`;
