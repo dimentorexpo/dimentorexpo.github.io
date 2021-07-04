@@ -125,6 +125,7 @@ var win_AFhelper =
 				<button id="CMS">CMS</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
+				<input id="cpuname" placeholder="CPU" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="benchmark">Бенчмарк</button>
 			</div>
 	</span>
@@ -384,10 +385,16 @@ function move_again_AF() {
 		document.getElementById('apelation').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
 })
-	
-			document.getElementById('benchmark').addEventListener('click',function(){
-    window.open("https://www.cpubenchmark.net/cpu_list.php")    // открываем ссылку в новой вкладке на CPUbenchmark
-})
+			document.getElementById('benchmark').onclick = function () {
+		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
+		if(groupid.value == "")
+			console.log('Введите CPU в поле')
+		else {
+				window.open(lnkgr + cpuname.value);
+			};
+			groupid.value = "";
+		}
+
 			
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
