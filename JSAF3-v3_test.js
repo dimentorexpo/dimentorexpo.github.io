@@ -122,6 +122,7 @@ var win_AFhelper =
 				<button id="useradm">Админка</button>
 				<button id="suggestions">Предложения</button>
 				<button id="transactions">Поиск$</button>
+				<button id="CMS">CMS</button>
 				
 			</div>
 	</span>
@@ -345,30 +346,33 @@ function move_again_AF() {
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
 	document.getElementById('KGLadm').addEventListener('click',function(){
-    window.open("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
+    window.open("https://grouplessons-api.skyeng.ru/admin/student")    // открываем ссылку в новой вкладке на  ГУ админку ученика
 	})
 	
 	document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
 		document.getElementById('talksadm').addEventListener('click',function(){
-    window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // копируем в буфер ссылку на Talks админку
+    window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
 	})
 	
 	document.getElementById('billingadm').addEventListener('click',function(){
-    window.open("https://billing-api.skyeng.ru/operations")    // копируем в буфер ссылку на Начислятор
+    window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
 })
 		document.getElementById('compens').addEventListener('click',function(){
-    window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Компенсации
+    window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
 })
 		document.getElementById('useradm').addEventListener('click',function(){
-    window.open("https://id.skyeng.ru/admin/users")    // копируем в буфер ссылку на Пользовательская админка
+    window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
 })
 		document.getElementById('suggestions').addEventListener('click',function(){
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // копируем в буфер ссылку на Предложения/пожелания
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
 })
 		document.getElementById('transactions').addEventListener('click',function(){
-    window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // копируем в буфер ссылку на Поиск транзакций
+    window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // открываем ссылку в новой вкладке на  Поиск транзакций
+})
+		document.getElementById('CMS').addEventListener('click',function(){
+    window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
 })
 	
     document.getElementById('msg').onclick = function () {
