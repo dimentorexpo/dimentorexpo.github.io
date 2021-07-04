@@ -377,11 +377,6 @@ function move_again_AF() {
 		prepTp()
 	}
 		
-			document.getElementById('KGLadm').onclick = function () {
-		let lnkline = 'https://grouplessons-api.skyeng.ru/admin/student';
-				copyToClipboard(lnkline);
-		}
-		
     document.getElementById('hideMenu').onclick = function () {
 		document.getElementById('AF_helper').style.display = 'none'
 		document.getElementById('scriptBut').style.display = ''
