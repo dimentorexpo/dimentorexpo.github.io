@@ -597,9 +597,7 @@ function move_again_AF() {
         }
 	}
 	
-	document.getElementById('KGLadm').onclick = function () {
-	copyToClipboard(https://grouplessons-api.skyeng.ru/admin/student);
-		}
+
 	
 	
 	if (localStorage.getItem('audio') == 0) {
