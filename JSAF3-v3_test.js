@@ -62,8 +62,8 @@ var win_AFhelper =
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 10px">hide</button>
-					<button id="links" style="margin-left: 20px">L</button>
 					<button id="setting" style="margin-left: 30px">S</button>
+					<button id="links" style="margin-left: 20px">L</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
