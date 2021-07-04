@@ -112,8 +112,7 @@ var win_AFhelper =
 				<button id="type_TS">TS</button>
 				</p>
 			</div>
-			<div style="margin: 5px; width: 300px" id="testDiv">		
-		<div style="margin: 5px; width: 300px" id="testDiv">
+			<div style="margin: 5px; width: 300px" id="testDiv">
 				<button id="takeNewChat">Взять чат</button>
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
