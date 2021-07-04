@@ -387,13 +387,6 @@ function move_again_AF() {
 		getNewChat()
 	}
 	
-	 document.getElementById('links').onclick = function () {
-		if(document.getElementById('set_bar1').style.display == '')
-			document.getElementById('set_bar1').style.display = 'none'
-		else
-			document.getElementById('set_bar1').style.display = ''
-	}
-	
     document.getElementById('setting').onclick = function () {
 		if(document.getElementById('set_bar').style.display == '')
 			document.getElementById('set_bar').style.display = 'none'
