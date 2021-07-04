@@ -1148,6 +1148,7 @@ async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 
 }
 async function sendAnswer(txt, flag = 1, time = "15:00") {
 		//addTimer()
+		console.log(txt)
 		var values = await getInfo(flag)
 		var adr = values[0]; var adr1 = values[1]; var uid = values[2]
 		var txt2 = txt.split('\n')
