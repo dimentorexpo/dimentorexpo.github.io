@@ -62,10 +62,10 @@ var win_AFhelper =
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" style="width:60px">Русский</button>
-					<button id="hideMenu" style="margin-left: 50px">hide</button>
-					<button id="links" style="margin-left: 60px">L</button>
-					<button id="setting" style="margin-left: 70px">S</button>
+					<button id="languageAF" style="width:80px">Русский</button>
+					<button id="hideMenu" style="margin-left: 40px">hide</button>
+					<button id="links" style="margin-left: 50px">L</button>
+					<button id="setting" style="margin-left: 60px">S</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
