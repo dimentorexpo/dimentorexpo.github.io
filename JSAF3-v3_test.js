@@ -123,7 +123,7 @@ var win_AFhelper =
 			</div>
 		</div>
 	</span>
-   </div>`;
+   </div>
 	
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
@@ -136,7 +136,7 @@ var win_AFhelper =
 				<button id="suggestions">Предложения</button>
 				
 			</div>
-		</div>
+		</div>`;
 
 let audio
 
