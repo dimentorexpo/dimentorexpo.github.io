@@ -1,12 +1,5 @@
-function copyToClipboard(text){
-    var copytext=document.createElement('input')
-    if(typeof text=='undefined') copytext.value=window.location.href
-    else copytext.value=text
-    document.body.appendChild(copytext)
-    copytext.select()
-    document.execCommand('copy')
-    document.body.removeChild(copytext)
-}
+<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+
 
 function mystyles() {
 	let mstl = document.createElement('style');
