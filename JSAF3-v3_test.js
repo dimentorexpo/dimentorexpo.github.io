@@ -107,6 +107,7 @@ var win_AFhelper =
 				<button id="switcher">ВКЛ</button>
 				<button id="KGLadm">KGLadm</button>
 				<button id="timetable">TT</button>
+				<button id="talksadm">Talks</button>
 			</div>
 			
 			<div style="margin: 5px; width: 300px">
