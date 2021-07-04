@@ -601,20 +601,7 @@ function move_again_AF() {
 
 	})
 	
-		document.getElementById('talksadm').addEventListener('click',function(){
-    copyToClipboard("https://vimbox.skyeng.ru/talks/admin/statistics")    // копируем в буфер ссылку на Talks
 
-	})
-	
-		document.getElementById('billingadm').addEventListener('click',function(){
-    copyToClipboard("https://billing-api.skyeng.ru/operations")    // копируем в буфер ссылку на Начислятор для проверки баланса
-
-	})
-	
-		document.getElementById('compens').addEventListener('click',function(){
-    copyToClipboard("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Создание операции начисления
-
-	})
 	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
