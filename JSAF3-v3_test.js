@@ -593,7 +593,7 @@ function move_again_AF() {
 		copyToClipboard(KGLlnk);
 		}
 	
-      document.getElementById('Timetable').onclick = function () {
+      document.getElementById('timetable').onclick = function () {
 		let TTlnk = 'https://timetable.skyeng.ru/';
 		copyToClipboard(TTlnk);
 		}
