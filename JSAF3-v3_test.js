@@ -1,3 +1,13 @@
+function copyToClipboard(text){
+    var copytext=document.createElement('input')
+    if(typeof text=='undefined') copytext.value=window.location.href
+    else copytext.value=text
+    document.body.appendChild(copytext)
+    copytext.select()
+    document.execCommand('copy')
+    document.body.removeChild(copytext)
+}
+
 function mystyles() {
 	let mstl = document.createElement('style');
 	document.body.append(mstl);
@@ -331,6 +341,14 @@ function move_again_AF() {
         document.addEventListener('mousemove', listener2);
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
+	
+	document.getElementById('KGLadm').addEventListener('click',function(){
+    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
+	})
+	
+	document.getElementById('timetable').addEventListener('click',function(){
+    copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
+})
 	
 	
     document.getElementById('msg').onclick = function () {
@@ -2891,5 +2909,3 @@ function weWillNotBeSlaves() {
 	localStorage.setItem('scriptAdr', TP_addr2)
 	prepTp()
 }
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
