@@ -403,6 +403,15 @@ function move_again_AF() {
 			cpuname.value = "";
 		}
 
+		document.getElementById('groupadm').onclick = function () {
+		let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
+		if(grid.value == "")
+			console.log('Введите id в поле')
+		else {
+				copyToClipboard(lnngr + grid.value);
+			};
+			grid.value = "";
+		}
 			
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
