@@ -672,13 +672,7 @@ function pageClick(pageId) {
 	document.getElementById(pageId).style.backgroundColor = 'green'
 		document.getElementById(pageId[0] + "page").style.display = ''
 			
-	document.getElementById('KGLadm').addEventListener('click',function(){
-    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")   
-	})
-	
-	document.getElementById('timetable').addEventListener('click',function(){
-    copyToClipboard("https://timetable.skyeng.ru/")   
-	})
+
 	
 }
 
