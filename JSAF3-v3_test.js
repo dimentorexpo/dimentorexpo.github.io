@@ -113,6 +113,9 @@ var win_AFhelper =
 				<button id="talksadm">Talks</button>
 				<button id="billingadm">Начислятор</button>
 				<button id="compens">Компенс</button>
+				<button id="useradm">Админка</button>
+				<button id="suggestions">Предложения</button>
+				
 			</div>
 			
 			<div style="margin: 5px; width: 300px">
@@ -364,6 +367,12 @@ function move_again_AF() {
 })
 		document.getElementById('compens').addEventListener('click',function(){
     copyToClipboard("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Компенсации
+})
+		document.getElementById('useradm').addEventListener('click',function(){
+    copyToClipboard("https://id.skyeng.ru/admin/users")    // копируем в буфер ссылку на Пользовательская админка
+})
+		document.getElementById('suggestions').addEventListener('click',function(){
+    copyToClipboard("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // копируем в буфер ссылку на Предложения/пожелания
 })
 	
     document.getElementById('msg').onclick = function () {
