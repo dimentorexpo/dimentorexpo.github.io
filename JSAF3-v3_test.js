@@ -376,6 +376,7 @@ function move_again_AF() {
 	} else {
 		prepTp()
 	}
+	<script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
 	
 			document.getElementById('KGLadm').addEventListener('click',function(){
     copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
