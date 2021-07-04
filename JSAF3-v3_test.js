@@ -594,7 +594,7 @@ function move_again_AF() {
 	
 	document.getElementById('KGLadm').addEventListener('click',function(){
     copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
-})
+	})
 	
 	document.getElementById('timetable').addEventListener('click',function(){
     copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
@@ -611,7 +611,7 @@ function move_again_AF() {
 
 	})
 	
-		document.getElementById('tcompens').addEventListener('click',function(){
+		document.getElementById('compens').addEventListener('click',function(){
     copyToClipboard("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Создание операции начисления
 
 	})
