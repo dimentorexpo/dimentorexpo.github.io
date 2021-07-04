@@ -588,16 +588,14 @@ function move_again_AF() {
 	setInterval(screenshots2, 5000)
 	
 	
-     document.getElementById('KGLadm').onclick = function () {
-		let lnkline = 'https://grouplessons-api.skyeng.ru/admin/student';
-		copyToClipboard(lnkline);
-		}
+	document.getElementById('KGLadm').addEventListener('click',function(){
+    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")    // текст нужно писать обязательно в кавычках
+})
 	
-      document.getElementById('timetable').onclick = function () {
-		let ttlnk = 'https://timetable.skyeng.ru/';
-		copyToClipboard(ttlnk);
-		}
-	
+	document.getElementById('timetable').addEventListener('click',function(){
+    copyToClipboard("https://timetable.skyeng.ru/")    // текст нужно писать обязательно в кавычках
+})
+
 	
 	
     document.getElementById('switcher').onclick = function () {
