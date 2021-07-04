@@ -19,7 +19,6 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
-
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -66,6 +65,8 @@ var win_AFhelper =
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 50px">hide</button>
 					<button id="setting" style="margin-left: 80px">S</button>
+					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
+                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
 				<div style="margin: 5px;" id="pages">
 				</div>
@@ -800,6 +801,31 @@ function getText() {
    xhr.send()
 }
 function refreshTemplates() {
+	setInterval(function() {
+                        if(document.getElementsByClassName('expert-user_details-list')[0] != undefined) {
+                            if(document.getElementById('phone_tr') != undefined) {
+                                phone = document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText
+                                if(phone == "-") {
+                                    phone = ""
+                                    document.getElementById('phone_tr').placeholder = "Телефон" 
+                                } else 
+                                    document.getElementById('phone_tr').placeholder = phone
+                            }
+                            if(document.getElementById('email_tr') != undefined) {
+                                email = document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText
+                                if(email == "-") {
+                                    email = ""
+                                    document.getElementById('email_tr').placeholder    = "Почта"
+                                }
+                                document.getElementById('email_tr').placeholder    = email
+                            }
+                        } else {
+                            if(document.getElementById('email_tr') != undefined) 
+                                document.getElementById('email_tr').placeholder    = "Почта"
+                            if(document.getElementById('phone_tr') != undefined)
+                                document.getElementById('phone_tr').placeholder = "Телефон" 
+                        }
+                    }, 1000)
 	templatesAF = []
 	while(document.getElementById('pages').children[0] != undefined)
 		document.getElementById('pages').children[0].remove()
@@ -844,57 +870,6 @@ function refreshTemplates() {
 				countOfPages++
 				
 				countOfStr = 1
-				if(pageType == "Переводы") {
-					var newDiv = document.createElement('div')
-					newDiv.id = countOfPages + "page_" + countOfStr + "str"
-					newDiv.style.margin = "5px"
-					
-					var newInputPhone = document.createElement('input')
-					newInputPhone.id = 'phone_tr'
-					newInputPhone.placeholder = 'Телефон'
-					newInputPhone.autocomplete = 'off'
-					newInputPhone.type = 'text'
-					newInputPhone.style = 'text-align: center; width: 100px; color: black; margin-left: 10px'
-					
-					var newInputEmail = document.createElement('input')
-					newInputEmail.id = 'email_tr'
-					newInputEmail.placeholder = 'Почта'
-					newInputEmail.autocomplete = 'off'
-					newInputEmail.type = 'text'
-					newInputEmail.style = 'text-align: center; width: 100px; color: black; margin-left: 10px'
-					
-					newDiv.appendChild(newInputPhone)
-					newDiv.appendChild(newInputEmail)
-					
-					b.lastElementChild.appendChild(newDiv)
-					countOfStr++
-					
-					setInterval(function() {
-						if(document.getElementsByClassName('expert-user_details-list')[0] != undefined) {
-							if(document.getElementById('phone_tr') != undefined) {
-								phone = document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText
-								if(phone == "-") {
-									phone = ""
-									document.getElementById('phone_tr').placeholder = "Телефон" 
-								} else 
-									document.getElementById('phone_tr').placeholder = phone
-							}
-							if(document.getElementById('email_tr') != undefined) {
-								email = document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText
-								if(email == "-") {
-									email = ""
-									document.getElementById('email_tr').placeholder	= "Почта"
-								}
-								document.getElementById('email_tr').placeholder	= email
-							}
-						} else {
-							if(document.getElementById('email_tr') != undefined) 
-								document.getElementById('email_tr').placeholder	= "Почта"
-							if(document.getElementById('phone_tr') != undefined)
-								document.getElementById('phone_tr').placeholder = "Телефон" 
-						}
-					}, 1000)
-				}
 				var newStr = document.createElement('div')
 				newStr.style.margin = "5px"
 				newStr.id = countOfPages + "page_" + countOfStr + "str"
@@ -1034,7 +1009,7 @@ function msgFromTable(btnName) {
 						sendAnswerTemplate2(table[l][6])
 					}
 					if(table[l][5] == "Текст") {
-						sendAnswer(table[l][6])
+						sendAnswer(transfPageButtons(table[l][6]))
 					}
 					if(table[l][5] == "Шаблон") {
 						sendAnswerTemplate(table[l][6], table[l][7])
@@ -1156,7 +1131,6 @@ async function sendAnswer(txt, flag = 1, time = "15:00") {
 		txt3 = txt3.split("\"").join("\\\"")
 		txt3 = txt3.split('<p></p>').join("<p><br></p>")
 		txt3 = txt3.substr(0, txt3.length - 2)
-		
 		if(document.getElementById('msg1').innerHTML == "Доработать" && flag) {
 			resetFlags()
 			document.getElementById('inp').value = txt
