@@ -125,6 +125,7 @@ var win_AFhelper =
 				<button id="CMS">CMS</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
+				<button id="benchmark">Бенчмарк</button>
 			</div>
 	</span>
 </div>`;
@@ -384,6 +385,10 @@ function move_again_AF() {
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
 })
 	
+			document.getElementById('benchmark').addEventListener('click',function(){
+    window.open("https://www.cpubenchmark.net/cpu_list.php")    // открываем ссылку в новой вкладке на CPUbenchmark
+})
+			
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
