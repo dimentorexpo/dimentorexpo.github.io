@@ -594,7 +594,7 @@ function move_again_AF() {
 	
 	document.getElementById('timetable').addEventListener('click',function(){
     copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
-
+})
 	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
