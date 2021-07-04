@@ -92,17 +92,17 @@ var win_AFhelper =
 			<div style="margin: 5px; width: 300px">
 			</div>
 		</div>
+			<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
+			<div style="margin: 5px; width: 200px">
+				<button id="KGLadm">KGLadm</button>
+				<button id="timetable">TT</button>
+			</div>
+			
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 300px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
-			</div>
-			
-			<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
-			<div style="margin: 5px; width: 300px">
-				<button id="KGLadm">KGLadm</button>
-				<button id="timetable">TT</button>
 			</div>
 			
 			<div style="margin: 5px; width: 300px">
@@ -112,13 +112,14 @@ var win_AFhelper =
 				<button id="type_TS">TS</button>
 				</p>
 			</div>
+			
 			<div style="margin: 5px; width: 300px" id="testDiv">
 				<button id="takeNewChat">Взять чат</button>
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
 	</span>
-    </div>`;
+   </div>`;
 	
 let audio
 
