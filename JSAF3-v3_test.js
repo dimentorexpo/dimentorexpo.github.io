@@ -529,15 +529,7 @@ function move_again_AF() {
 			bool = 0;
 		}
 	}
-	
-	document.getElementById('KGLadm').addEventListener('click',function(){
-    copyToClipboard(https://grouplessons-api.skyeng.ru/admin/student)   
-	})
-	
-	document.getElementById('timetable').addEventListener('click',function(){
-    copyToClipboard(https://timetable.skyeng.ru/)   
-	})
-	
+
 	let button1 = document.createElement('div');
 	button1.id = 'scriptBut';
 	button1.innerHTML = "Скрипт";
@@ -679,6 +671,15 @@ function pageClick(pageId) {
 	}
 	document.getElementById(pageId).style.backgroundColor = 'green'
 		document.getElementById(pageId[0] + "page").style.display = ''
+			
+	document.getElementById('KGLadm').addEventListener('click',function(){
+    copyToClipboard("https://grouplessons-api.skyeng.ru/admin/student")   
+	})
+	
+	document.getElementById('timetable').addEventListener('click',function(){
+    copyToClipboard("https://timetable.skyeng.ru/")   
+	})
+	
 }
 
 function bagPageButtons(butId) {
