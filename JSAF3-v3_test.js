@@ -421,7 +421,8 @@ function move_again_AF() {
 		}
 		
 		document.getElementById('cmsid').onclick = function () {
-		let lnkstep = 'https://www.content.vimbox.skyeng.ru/cms/step/update/id/';
+			<base target="_blank" />
+		let lnkstep = 'https://content.vimbox.skyeng.ru/cms/step/update/id/';
 		if(cmsstepid.value == "")
 			console.log('Введите stepid в поле')
 		else {
