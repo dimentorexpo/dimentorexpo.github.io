@@ -587,6 +587,12 @@ function move_again_AF() {
 	screenshots2()
 	setInterval(screenshots2, 5000)
 	
+	
+     document.getElementById('KGLadm').onclick = function () {
+		let lnkline = 'https://grouplessons-api.skyeng.ru/admin/student';
+		copyToClipboard(lnkline);
+		}
+	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
             this.innerHTML = "ВЫКЛ";
