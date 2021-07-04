@@ -1013,7 +1013,7 @@ function msgFromTable(btnName) {
 					sendAnswerTemplate2(table[l][2])
 				}
 				if(table[l][1] == "Текст") {
-					sendAnswer(transfPageButtons(table[l][2]))
+					sendAnswer(table[l][2])
 				}
 				if(table[l][1] == "Шаблон") {
 					sendAnswerTemplate(table[l][2], table[l][3])
@@ -1034,7 +1034,7 @@ function msgFromTable(btnName) {
 						sendAnswerTemplate2(table[l][6])
 					}
 					if(table[l][5] == "Текст") {
-						sendAnswer(transfPageButtons(table[l][6]))
+						sendAnswer(table[l][6])
 					}
 					if(table[l][5] == "Шаблон") {
 						sendAnswerTemplate(table[l][6], table[l][7])
@@ -1148,7 +1148,7 @@ async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 
 }
 async function sendAnswer(txt, flag = 1, time = "15:00") {
 		//addTimer()
-		console.log(txt)
+		txt = transfPageButtons(txt)
 		var values = await getInfo(flag)
 		var adr = values[0]; var adr1 = values[1]; var uid = values[2]
 		var txt2 = txt.split('\n')
@@ -1157,7 +1157,6 @@ async function sendAnswer(txt, flag = 1, time = "15:00") {
 		txt3 = txt3.split("\"").join("\\\"")
 		txt3 = txt3.split('<p></p>').join("<p><br></p>")
 		txt3 = txt3.substr(0, txt3.length - 2)
-		
 		if(document.getElementById('msg1').innerHTML == "Доработать" && flag) {
 			resetFlags()
 			document.getElementById('inp').value = txt
