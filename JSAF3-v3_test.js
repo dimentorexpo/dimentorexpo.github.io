@@ -64,7 +64,7 @@ var win_AFhelper =
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 50px">hide</button>
-					<button id="links" style="margin-left: 30px">L</button>
+					<button id="links" style="margin-left: 60px">L</button>
 					<button id="setting" style="margin-left: 80px">S</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
@@ -98,6 +98,15 @@ var win_AFhelper =
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
 			</div>
+			
+			<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
+			<div style="margin: 5px; width: 300px">
+				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="sound_save">save</button>
+				<button id="switcher">ВКЛ</button>
+			</div>
+			
+			
 			<div style="margin: 5px; width: 300px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
@@ -386,11 +395,12 @@ function move_again_AF() {
 	}
 	
 	 document.getElementById('links').onclick = function () {
-		if(document.getElementById('set_bar').style.display == '')
-			document.getElementById('set_bar').style.display = 'none'
+		if(document.getElementById('set_bar1').style.display == '')
+			document.getElementById('set_bar1').style.display = 'none'
 		else
-			document.getElementById('set_bar').style.display = ''
+			document.getElementById('set_bar1').style.display = ''
 	}
+	
     document.getElementById('setting').onclick = function () {
 		if(document.getElementById('set_bar').style.display == '')
 			document.getElementById('set_bar').style.display = 'none'
