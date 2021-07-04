@@ -358,23 +358,23 @@ function move_again_AF() {
 	})
 	
 	document.getElementById('timetable').addEventListener('click',function(){
-    copyToClipboard("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
+    window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
 		document.getElementById('talksadm').addEventListener('click',function(){
-    copyToClipboard("https://vimbox.skyeng.ru/talks/admin/statistics")    // копируем в буфер ссылку на Talks админку
+    window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // копируем в буфер ссылку на Talks админку
 	})
 	
 	document.getElementById('billingadm').addEventListener('click',function(){
-    copyToClipboard("https://billing-api.skyeng.ru/operations")    // копируем в буфер ссылку на Начислятор
+    window.open("https://billing-api.skyeng.ru/operations")    // копируем в буфер ссылку на Начислятор
 })
 		document.getElementById('compens').addEventListener('click',function(){
-    copyToClipboard("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Компенсации
+    window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Компенсации
 })
 		document.getElementById('useradm').addEventListener('click',function(){
-    copyToClipboard("https://id.skyeng.ru/admin/users")    // копируем в буфер ссылку на Пользовательская админка
+    window.open("https://id.skyeng.ru/admin/users")    // копируем в буфер ссылку на Пользовательская админка
 })
 		document.getElementById('suggestions').addEventListener('click',function(){
-    copyToClipboard("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // копируем в буфер ссылку на Предложения/пожелания
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // копируем в буфер ссылку на Предложения/пожелания
 })
 	
     document.getElementById('msg').onclick = function () {
