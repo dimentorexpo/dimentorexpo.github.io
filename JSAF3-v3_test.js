@@ -64,7 +64,6 @@ var win_AFhelper =
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:80px">Русский</button>
 					<button id="hideMenu" style="margin-left: 40px">hide</button>
-					<button id="links" style="margin-left: 50px">L</button>
 					<button id="setting" style="margin-left: 60px">S</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
@@ -92,17 +91,14 @@ var win_AFhelper =
 			<div style="margin: 5px; width: 300px">
 			</div>
 		</div>
-			<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
-			<div style="margin: 5px; width: 200px">
-				<button id="KGLadm">KGLadm</button>
-				<button id="timetable">TT</button>
-			</div>
-			
+
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 300px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
+				<button id="KGLadm">KGLadm</button>
+				<button id="timetable">TT</button>
 			</div>
 			
 			<div style="margin: 5px; width: 300px">
@@ -128,8 +124,6 @@ if (localStorage.getItem('winTopAF') == null) {
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
-
-
 
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
