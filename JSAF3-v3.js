@@ -707,6 +707,19 @@ function transfPageButtons(textFromTable) {
 		}
 	}
 	textFromTable = textFromTable.join(email)
+	
+	name = ""
+	textFromTable = textFromTable.split('(name)')
+	a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+	a = a.split(' ')
+	const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+	if(textFromTable.length > 1 && cyrillicPattern.test(a[0]))
+			name = a[0]
+		else
+			name = 'Имя'
+	
+	textFromTable = textFromTable.join(name)
+	
 	return textFromTable
 }
 
