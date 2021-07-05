@@ -113,7 +113,7 @@ var win_AFhelper =
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
-		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
+		<div style="border: 2px double black; top: 100px, left: 100 px; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
 				<button id="KGLadm">KGLadm</button>
 				<button id="timetable">TT</button>
