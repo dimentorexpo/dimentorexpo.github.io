@@ -1,3 +1,5 @@
+
+
 function mystyles() {
 	let mstl = document.createElement('style');
 	document.body.append(mstl);
@@ -17,6 +19,7 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
+
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -90,8 +93,7 @@ var win_AFhelper =
 			<div style="margin: 5px; width: 300px">
 			</div>
 		</div>
-
-		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
+	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 300px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
@@ -111,7 +113,6 @@ var win_AFhelper =
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
-
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
 				<button id="KGLadm">KGLadm</button>
@@ -140,7 +141,7 @@ var win_AFhelper =
 			</div>
 	</span>
 </div>`;
-
+	
 let audio
 
 
@@ -148,6 +149,8 @@ if (localStorage.getItem('winTopAF') == null) {
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
+
+
 
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
@@ -358,45 +361,46 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
+	
 	document.getElementById('KGLadm').addEventListener('click',function(){
     window.open("https://grouplessons-api.skyeng.ru/admin/student")    // открываем ссылку в новой вкладке на  ГУ админку ученика
 	})
 	
-		document.getElementById('timetable').addEventListener('click',function(){
+	document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
-		document.getElementById('talksadm').addEventListener('click',function(){
+	document.getElementById('talksadm').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
 	})
 	
-		document.getElementById('billingadm').addEventListener('click',function(){
+	document.getElementById('billingadm').addEventListener('click',function(){
     window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
 })
-		document.getElementById('compens').addEventListener('click',function(){
+	document.getElementById('compens').addEventListener('click',function(){
     window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
 })
-		document.getElementById('useradm').addEventListener('click',function(){
+	document.getElementById('useradm').addEventListener('click',function(){
     window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
 })
-		document.getElementById('suggestions').addEventListener('click',function(){
+	document.getElementById('suggestions').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
 })
-		document.getElementById('transactions').addEventListener('click',function(){
+	document.getElementById('transactions').addEventListener('click',function(){
     window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // открываем ссылку в новой вкладке на  Поиск транзакций
 })
-		document.getElementById('CMS').addEventListener('click',function(){
+	document.getElementById('CMS').addEventListener('click',function(){
     window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
 })
-		document.getElementById('badmarks').addEventListener('click',function(){
+	document.getElementById('badmarks').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSc5-h7kFpda-XmAVnPLeuCTzbbcI5Ds9cgP3FYIyPSE4Ufo2Q/viewform")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
 })
-		document.getElementById('apelation').addEventListener('click',function(){
+	document.getElementById('apelation').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
 })
-		document.getElementById('kcerrors').addEventListener('click',function(){
+	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
-		document.getElementById('benchmark').onclick = function () {
+	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
 			console.log('Введите CPU в поле')
@@ -406,7 +410,7 @@ function move_again_AF() {
 			cpuname.value = "";
 		}
 
-		document.getElementById('groupadm').onclick = function () {
+	document.getElementById('groupadm').onclick = function () {
 		let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
 		if(grid.value == "")
 			console.log('Введите id в поле')
@@ -416,7 +420,7 @@ function move_again_AF() {
 			grid.value = "";
 		}
 		
-		document.getElementById('cmsid').onclick = function () {
+	document.getElementById('cmsid').onclick = function () {
 		let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
 		if(cmsstepid.value == "")
 			console.log('Введите stepid в поле')
@@ -425,7 +429,7 @@ function move_again_AF() {
 			};
 			cmsstepid.value = "";
 		}
-			
+	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
@@ -469,7 +473,7 @@ function move_again_AF() {
 	} else {
 		prepTp()
 	}
-		
+	
     document.getElementById('hideMenu').onclick = function () {
 		document.getElementById('AF_helper').style.display = 'none'
 		document.getElementById('scriptBut').style.display = ''
@@ -477,21 +481,21 @@ function move_again_AF() {
     document.getElementById('takeNewChat').onclick = function () {
 		getNewChat()
 	}
-	
+		
     document.getElementById('setting').onclick = function () {
 		if(document.getElementById('set_bar').style.display == '')
 			document.getElementById('set_bar').style.display = 'none'
 		else
 			document.getElementById('set_bar').style.display = ''
 	}
-	
-	    document.getElementById('links').onclick = function () {
+    document.getElementById('links').onclick = function () {
 		if(document.getElementById('set_bar1').style.display == '')
 			document.getElementById('set_bar1').style.display = 'none'
 		else
 			document.getElementById('set_bar1').style.display = ''
+		document.getElementById('set_bar1).style.top = 100;
+		document.getElementById('set_bar1').style.left = 200;
 	}
-	
 	
     document.getElementById('sound_save').onclick = function () {
 		localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
@@ -631,7 +635,7 @@ function move_again_AF() {
 			bool = 0;
 		}
 	}
-
+	
 	let button1 = document.createElement('div');
 	button1.id = 'scriptBut';
 	button1.innerHTML = "Скрипт";
@@ -687,9 +691,6 @@ function move_again_AF() {
 	screenshots2()
 	setInterval(screenshots2, 5000)
 	
-	
-
-	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
             this.innerHTML = "ВЫКЛ";
@@ -699,7 +700,6 @@ function move_again_AF() {
 			localStorage.setItem('audio', '1');
         }
 	}
-	
 	
 	
 	if (localStorage.getItem('audio') == 0) {
@@ -773,9 +773,6 @@ function pageClick(pageId) {
 	}
 	document.getElementById(pageId).style.backgroundColor = 'green'
 		document.getElementById(pageId[0] + "page").style.display = ''
-			
-
-	
 }
 
 function bagPageButtons(butId) {
@@ -816,6 +813,19 @@ function transfPageButtons(textFromTable) {
 		}
 	}
 	textFromTable = textFromTable.join(email)
+	
+	name = ""
+	textFromTable = textFromTable.split('(name)')
+	a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+	a = a.split(' ')
+	const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+	if(textFromTable.length > 1 && cyrillicPattern.test(a[0]))
+			name = a[0]
+		else
+			name = 'Имя'
+	
+	textFromTable = textFromTable.join(name)
+	
 	return textFromTable
 }
 
@@ -2140,44 +2150,6 @@ async function getNotGoods(stringDate) {
 	firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
 	goNotgood(list, list2, firstDate, secondDate)
 }
-// пытаюсь добавить менюшку с кнопками
-
-function customTemplates(language = '') {
-	if (localStorage.getItem('winCstmLinksTop') == null) {
-		localStorage.setItem('winCstmLinksTop', '120');
-		localStorage.setItem('winCstmLinksLeft', '295');
-	}
-	if(localStorage.getItem('cntLinks' + language) == null)
-		localStorage.setItem('cntLinks' + language, 0)
-	if(document.getElementById('cstmLinks') == undefined) {
-		var cstmTmp = document.createElement('div')
-		cstmTmp.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winCstmLinksTop') + 'px; left: ' + localStorage.getItem('winCstmLinksLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; border-radius:5px; border:1px solid #768d87; ';
-		cstmTmp.id = 'cstmLinks'
-		cstmTmp.style.display = 'none'
-		document.body.append(cstmTmp);
-	} else {
-		cstmTmp = document.getElementById('cstmLinks')
-		while(document.getElementById('cstmLinks').children[0] != undefined)
-			document.getElementById('cstmLinks').children[0].remove()
-	}
-	countOfTemplates = localStorage.getItem('cntLinks' + language)
-	
-var buttonOpeLnkWindow = document.createElement('button')
-	buttonOpenLnkWindow.innerHTML = 'L2'
-	buttonOpenLnkWindow.style.marginLeft = '7px'
-	buttonOpenLnkWindow.onclick = function() {
-		var a = document.getElementById('cstmLinks')
-		if(a.style.display == '')
-			a.style.display = 'none'
-		else
-			a.style.display = ''
-	}
-	var lnkA = document.getElementById('AF_helper').children[0].children[0].children[0].children[0]
-	if(lnkA.children[1].innerHTML != 'L2')
-		lnkA.insertBefore(buttonOpenLnkWindow, lnkA.children[1])
-	
-	lnkA.children[2].style.marginLeft = '15px'
-	lnkA.children[3].style = 'float:right'
 
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
@@ -2198,7 +2170,6 @@ function customTemplates(language = '') {
 			document.getElementById('cstmTmplates').children[0].remove()
 	}
 	countOfTemplates = localStorage.getItem('cntTmplts' + language)
-	
 	
 	
 	var buttonOpenTmpWindow = document.createElement('button')
