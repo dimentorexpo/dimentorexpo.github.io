@@ -2148,7 +2148,11 @@ async function getNotGoods(stringDate) {
 	firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
 	goNotgood(list, list2, firstDate, secondDate)
 }
-
+	var buttonOpenTmpWindow = document.createElement('button')
+	buttonOpenTmpWindow.innerHTML = 'L2'
+	buttonOpenTmpWindow.style.marginLeft = '14px'
+	
+	
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
 		localStorage.setItem('winCstmTmpsTop', '120');
