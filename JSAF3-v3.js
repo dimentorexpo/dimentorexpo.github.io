@@ -122,6 +122,21 @@ var win_AFhelper =
 				<button id="compens">Компенс</button>
 				<button id="useradm">Админка</button>
 				<button id="suggestions">Предложения</button>
+				<button id="transactions">Поиск$</button>
+				<button id="CMS">CMS</button>
+				<button id="badmarks">-оценки</button>
+				<button id="apelation">Апелляции</button>
+				<button id="kcerrors">Ошибки КЦ</button>
+				</div>
+				
+				<div style="margin: 5px; width: 300px">				
+				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="benchmark">🔎</button>
+				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="groupadm">🔎</button>
+				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="cmsid">🔎</button>
+				</div>
 				
 			</div>
 	</span>
@@ -347,29 +362,73 @@ function move_again_AF() {
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
 	
-		document.getElementById('KGLadm').addEventListener('click',function(){
-    window.open("https://grouplessons-api.skyeng.ru/admin/student")    // копируем в буфер ссылку на ГУ админку ученика
+	document.getElementById('KGLadm').addEventListener('click',function(){
+    window.open("https://grouplessons-api.skyeng.ru/admin/student")    // открываем ссылку в новой вкладке на  ГУ админку ученика
 	})
 	
 	document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
-		document.getElementById('talksadm').addEventListener('click',function(){
-    window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // копируем в буфер ссылку на Talks админку
+	document.getElementById('talksadm').addEventListener('click',function(){
+    window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
 	})
 	
 	document.getElementById('billingadm').addEventListener('click',function(){
-    window.open("https://billing-api.skyeng.ru/operations")    // копируем в буфер ссылку на Начислятор
+    window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
 })
-		document.getElementById('compens').addEventListener('click',function(){
-    window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // копируем в буфер ссылку на Компенсации
+	document.getElementById('compens').addEventListener('click',function(){
+    window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
 })
-		document.getElementById('useradm').addEventListener('click',function(){
-    window.open("https://id.skyeng.ru/admin/users")    // копируем в буфер ссылку на Пользовательская админка
+	document.getElementById('useradm').addEventListener('click',function(){
+    window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
 })
-		document.getElementById('suggestions').addEventListener('click',function(){
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // копируем в буфер ссылку на Предложения/пожелания
+	document.getElementById('suggestions').addEventListener('click',function(){
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
 })
+	document.getElementById('transactions').addEventListener('click',function(){
+    window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // открываем ссылку в новой вкладке на  Поиск транзакций
+})
+	document.getElementById('CMS').addEventListener('click',function(){
+    window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
+})
+	document.getElementById('badmarks').addEventListener('click',function(){
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSc5-h7kFpda-XmAVnPLeuCTzbbcI5Ds9cgP3FYIyPSE4Ufo2Q/viewform")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
+})
+	document.getElementById('apelation').addEventListener('click',function(){
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
+})
+	document.getElementById('kcerrors').addEventListener('click',function(){
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+})
+	document.getElementById('benchmark').onclick = function () {
+		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
+		if(cpuname.value == "")
+			console.log('Введите CPU в поле')
+		else {
+				window.open(lnkgr + cpuname.value);
+			};
+			cpuname.value = "";
+		}
+
+	document.getElementById('groupadm').onclick = function () {
+		let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
+		if(grid.value == "")
+			console.log('Введите id в поле')
+		else {
+				window.open(lnngr + grid.value);
+			};
+			grid.value = "";
+		}
+		
+	document.getElementById('cmsid').onclick = function () {
+		let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
+		if(cmsstepid.value == "")
+			console.log('Введите stepid в поле')
+		else {
+				window.open(lnkstep + cmsstepid.value);
+			};
+			cmsstepid.value = "";
+		}
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
