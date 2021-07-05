@@ -2169,18 +2169,7 @@ function customTemplates(language = '') {
 	}
 	countOfTemplates = localStorage.getItem('cntTmplts' + language)
 	
-	// пробую добавить пока месь  кнопку
-		var buttonOpenTmpWindow = document.createElement('button')
-	buttonOpenLinksWindow.innerHTML = 'L2'
-	buttonOpenLinksWindow.style.marginLeft = '7px'
-	buttonOpenLinksWindow.onclick = function() {
-		var a = document.getElementById('cstmTmplates')
-		if(a.style.display == '')
-			a.style.display = 'none'
-		else
-			a.style.display = ''
-	}
-	
+		
 	var buttonOpenTmpWindow = document.createElement('button')
 	buttonOpenTmpWindow.innerHTML = 'tmps'
 	buttonOpenTmpWindow.style.marginLeft = '7px'
