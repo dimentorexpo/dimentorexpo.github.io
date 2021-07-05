@@ -442,7 +442,7 @@ function move_again_AF() {
 		if(hdiget.value == "")
 			console.log('Введите stepid в поле')
 		else {
-				window.open(lnkhdi + hdiget.value; "incognito": true);
+				window.open(lnkhdi + hdiget.value);
 			};
 			hdiget.value = "";
 		}
