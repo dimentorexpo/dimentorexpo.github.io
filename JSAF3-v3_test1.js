@@ -823,9 +823,10 @@ function transfPageButtons(textFromTable) {
 			return
 		}
 		else
-		name = 'Имя'
+			name = 'Имя'
 	}
-	
+	else
+		name = 'Имя'
 	textFromTable = textFromTable.join(name)
 	
 	return textFromTable
