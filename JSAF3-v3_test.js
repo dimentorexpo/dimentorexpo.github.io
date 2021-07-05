@@ -2148,7 +2148,7 @@ async function getNotGoods(stringDate) {
 	firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
 	goNotgood(list, list2, firstDate, secondDate)
 }
-	var buttonOpenLnkWindow = document.createElement('button')
+	var buttonOpenLnkWindow = document.createElement('button1')
 	buttonOpenLnkWindow.innerHTML = 'L2'
 	buttonOpenLnkWindow.style.marginLeft = '14px'
 	
