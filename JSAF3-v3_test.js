@@ -498,7 +498,7 @@ function move_again_AF() {
     document.getElementById('sound_save').onclick = function () {
 		localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
 		if(document.getElementById('sound_adr').value == "") 
-			audio = new Audio("https://drive.google.com/uc?id=1LwgFdGioBanyjccMr3TEvHr9fT5Ai1n3&authuser=0&export=download");	
+			audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");	
 		else
 			audio = new Audio(document.getElementById('sound_adr').value);
 		document.getElementById('sound_adr').value = "";
@@ -2169,6 +2169,17 @@ function customTemplates(language = '') {
 	}
 	countOfTemplates = localStorage.getItem('cntTmplts' + language)
 	
+	// пробую добавить пока месь  кнопку
+		var buttonOpenTmpWindow = document.createElement('button')
+	buttonOpenLinksWindow.innerHTML = 'L2'
+	buttonOpenLinksWindow.style.marginLeft = '7px'
+	buttonOpenLinksWindow.onclick = function() {
+		var a = document.getElementById('cstmTmplates')
+		if(a.style.display == '')
+			a.style.display = 'none'
+		else
+			a.style.display = ''
+	}
 	
 	var buttonOpenTmpWindow = document.createElement('button')
 	buttonOpenTmpWindow.innerHTML = 'tmps'
