@@ -1,16 +1,4 @@
-<div class="dropdown">
-<button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    <a href="#about">About</a>
-    <a href="#base">Base</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-    <a href="#custom">Custom</a>
-    <a href="#support">Support</a>
-    <a href="#tools">Tools</a>
-  </div>
-</div>
+
 
 function mystyles() {
 	let mstl = document.createElement('style');
@@ -32,17 +20,6 @@ function mystyles() {
 		padding:2px 2px;
 	}
 
-	.lnk-btn {
-		display: none;
-		position: absolute;
-		top: 100px;
-		left: 100px;
-		background-color: #f6f6f6;
-		min-width: 230px;
-		overflow: auto;
-		border: 1px solid #ddd;
-		z-index: 1;
-	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -512,21 +489,12 @@ function move_again_AF() {
 			document.getElementById('set_bar').style.display = ''
 	}
     document.getElementById('links').onclick = function () {
-	 <div id="myDropdown" class="lnk-btn">
-    <a href="#about">About</a>
-    <a href="#base">Base</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-    <a href="#custom">Custom</a>
-    <a href="#support">Support</a>
-    <a href="#tools">Tools</a>
-  </div>
+		if(document.getElementById('set_bar1').style.display == '')
+			document.getElementById('set_bar1').style.display = 'none'
+		else
+			document.getElementById('set_bar1').style.display = ''
 	}
 	
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
     document.getElementById('sound_save').onclick = function () {
 		localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
 		if(document.getElementById('sound_adr').value == "") 
@@ -1755,6 +1723,12 @@ function startTimer() {
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
 		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Спасен</a>';
 		btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
+		
+		let btn3 = document.createElement('span');
+		btn3.id = 'SMS'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
+		btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">СМС</a>';
+		btn3.setAttribute('onClick','sendComment("#неприходитсмс");')
 	}
 }
 
@@ -2181,7 +2155,6 @@ async function getNotGoods(stringDate) {
 	goNotgood(list, list2, firstDate, secondDate)
 }
 
-	
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
 		localStorage.setItem('winCstmTmpsTop', '120');
@@ -2202,7 +2175,7 @@ function customTemplates(language = '') {
 	}
 	countOfTemplates = localStorage.getItem('cntTmplts' + language)
 	
-		
+	
 	var buttonOpenTmpWindow = document.createElement('button')
 	buttonOpenTmpWindow.innerHTML = 'tmps'
 	buttonOpenTmpWindow.style.marginLeft = '7px'
@@ -2475,7 +2448,6 @@ function customTemplates(language = '') {
         document.addEventListener('mousemove', listener3);
     }
     cstmTmp.onmouseup = function () {document.removeEventListener('mousemove', listener3);}
-
 	
 	document.getElementById('languageAF').onclick = function () {
         if(this.innerHTML == "Русский") {
