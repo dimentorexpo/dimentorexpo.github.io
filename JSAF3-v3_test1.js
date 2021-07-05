@@ -1728,7 +1728,7 @@ function startTimer() {
 		btn3.id = 'SMS'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
 		btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">СМС</a>';
-		btn3.setAttribute('onClick', 'sendComment('#неприходитсмс')')
+		btn3.setAttribute('onClick','sendComment("#неприходитсмс");')
 	}
 }
 
