@@ -492,7 +492,7 @@ function move_again_AF() {
 		if(document.getElementById('set_bar1').style.display == '')
 			document.getElementById('set_bar1').style.display = 'none'
 		else
-			document.getElementById('set_bar1').style.display = ''
+			document.getElementById('set_bar1').style.display = 'block'
 			document.getElementById('set_bar1').style.top = '300';
 			document.getElementById('set_bar1').style.left = '400';
 	}
