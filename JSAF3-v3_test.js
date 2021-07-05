@@ -2140,6 +2140,44 @@ async function getNotGoods(stringDate) {
 	firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
 	goNotgood(list, list2, firstDate, secondDate)
 }
+// пытаюсь добавить менюшку с кнопками
+
+function customTemplates(language = '') {
+	if (localStorage.getItem('winCstmLinksTop') == null) {
+		localStorage.setItem('winCstmLinksTop', '120');
+		localStorage.setItem('winCstmLinksLeft', '295');
+	}
+	if(localStorage.getItem('cntLinks' + language) == null)
+		localStorage.setItem('cntLinks' + language, 0)
+	if(document.getElementById('cstmLinks') == undefined) {
+		var cstmTmp = document.createElement('div')
+		cstmTmp.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winCstmLinksTop') + 'px; left: ' + localStorage.getItem('winCstmLinksLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; border-radius:5px; border:1px solid #768d87; ';
+		cstmTmp.id = 'cstmLinks'
+		cstmTmp.style.display = 'none'
+		document.body.append(cstmTmp);
+	} else {
+		cstmTmp = document.getElementById('cstmLinks')
+		while(document.getElementById('cstmLinks').children[0] != undefined)
+			document.getElementById('cstmLinks').children[0].remove()
+	}
+	countOfTemplates = localStorage.getItem('cntLinks' + language)
+	
+var buttonOpeLnkWindow = document.createElement('button')
+	buttonOpenLnkWindow.innerHTML = 'L2'
+	buttonOpenLnkWindow.style.marginLeft = '7px'
+	buttonOpenLnkWindow.onclick = function() {
+		var a = document.getElementById('cstmLinks')
+		if(a.style.display == '')
+			a.style.display = 'none'
+		else
+			a.style.display = ''
+	}
+	var lnkA = document.getElementById('AF_helper').children[0].children[0].children[0].children[0]
+	if(lnkA.children[1].innerHTML != 'L2')
+		lnkA.insertBefore(buttonOpenLnkWindow, lnkA.children[1])
+	
+	lnkA.children[2].style.marginLeft = '15px'
+	lnkA.children[3].style = 'float:right'
 
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
@@ -2160,6 +2198,7 @@ function customTemplates(language = '') {
 			document.getElementById('cstmTmplates').children[0].remove()
 	}
 	countOfTemplates = localStorage.getItem('cntTmplts' + language)
+	
 	
 	
 	var buttonOpenTmpWindow = document.createElement('button')
