@@ -115,7 +115,6 @@ var win_AFhelper =
 		</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
-				<button id="KGLadm">KGLadm</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
 				<button id="billingadm">Начислятор</button>
@@ -138,6 +137,8 @@ var win_AFhelper =
 				<button id="groupadm">🔎</button>
 				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="cmsid">🔎</button>
+				<input id="studguid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="sguid">🔎</button>
 				</div>
 				
 			</div>
@@ -364,10 +365,6 @@ function move_again_AF() {
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
 	
-	document.getElementById('KGLadm').addEventListener('click',function(){
-    window.open("https://grouplessons-api.skyeng.ru/admin/student")    // открываем ссылку в новой вкладке на  ГУ админку ученика
-	})
-	
 	document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
@@ -438,6 +435,18 @@ function move_again_AF() {
 			};
 			cmsstepid.value = "";
 		}
+		
+	document.getElementById('sguid').onclick = function () {
+		let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
+		if(studguid.value == "")
+			console.log('Введите id  ученика в поле')
+		else {
+				window.open(lnksgu + studguid.value);
+			};
+			studguid.value = "";
+		}		
+		
+		
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
