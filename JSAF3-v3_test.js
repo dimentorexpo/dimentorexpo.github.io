@@ -137,8 +137,6 @@ var win_AFhelper =
 				<button id="groupadm">🔎</button>
 				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="cmsid">🔎</button>
-				<input id="gethdi" placeholder="hdi" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="hdiget">🔎</button>
 				</div>
 				
 			</div>
@@ -437,16 +435,6 @@ function move_again_AF() {
 			};
 			cmsstepid.value = "";
 		}
-	document.getElementById('gethdi').onclick = function () {
-		let lnkhdi = 'http://hdi.skyeng.ru/autofaq/conversation/-11/';
-		if(hdiget.value == "")
-			console.log('Введите stepid в поле')
-		else {
-				chrome.windows.create({"url": lnkhdi + hdiget.value, "incognito": true});
-			};
-			hdiget.value = "";
-		}
-	
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
