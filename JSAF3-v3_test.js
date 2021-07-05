@@ -2149,114 +2149,7 @@ async function getNotGoods(stringDate) {
 	goNotgood(list, list2, firstDate, secondDate)
 }
 
-	function customLinks(language = '') {
-	if (localStorage.getItem('winCstmLinksTop') == null) {
-		localStorage.setItem('winCstmLinksTop', '120');
-		localStorage.setItem('winCstmLinksLeft', '295');
-	}
-	if(localStorage.getItem('cntLinks' + language) == null)
-		localStorage.setItem('cntLinks' + language, 0)
-	if(document.getElementById('cstmLinks') == undefined) {
-		var cstmLnk = document.createElement('div')
-		cstmLnk.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winCstmLinksTop') + 'px; left: ' + localStorage.getItem('winCstmLinksLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; border-radius:5px; border:1px solid #768d87; ';
-		cstmLnk.id = 'cstmLinks'
-		cstmLnk.style.display = 'none'
-		document.body.append(cstmLnk);
-	} else {
-		cstmLnk = document.getElementById('cstmLinks')
-		while(document.getElementById('cstmLinks').children[0] != undefined)
-			document.getElementById('cstmLinks').children[0].remove()
-	}
-	countOfLinks = localStorage.getItem('cntLinks' + language)
 	
-		
-	var buttonOpenLnkWindow = document.createElement('button')
-	buttonOpenLnkWindow.innerHTML = 'L2'
-	buttonOpenLnkWindow.style.marginLeft = '7px'
-	buttonOpenLnkWindow.onclick = function() {
-		var a = document.getElementById('cstmLinks')
-		if(a.style.display == '')
-			a.style.display = 'none'
-		else
-			a.style.display = ''
-	}
-	var tmpLA = document.getElementById('AF_helper').children[0].children[0].children[0].children[0]
-	if(tmpLA.children[1].innerHTML != 'L2')
-		tmpLA.insertBefore(buttonOpenLnkWindow, tmpLA.children[1])
-	
-	tmpLA.children[2].style.marginLeft = '15px'
-	tmpLA.children[3].style = 'float:right'
-	
-	if (language == "") {
-		if(localStorage.getItem('tmplt11_ru') != null) {
-			countOfLinks++
-			localStorage.setItem('template_' + countOfLinks, localStorage.getItem('tmplt1_ru'))
-			localStorage.setItem('checkbox_' + countOfLinks, false)
-			localStorage.removeItem('tmplt11_ru')
-			localStorage.setItem('cntLinks', countOfLinks)
-		}
-		if(localStorage.getItem('tmplt22_ru') != null) {
-			countOfLinks++
-			localStorage.setItem('template_' + countOfLinks, localStorage.getItem('tmplt2_ru'))
-			localStorage.setItem('checkbox_' + countOfLinks, false)
-			localStorage.removeItem('tmplt22_ru')
-			localStorage.setItem('cntLinks', countOfLinks)
-		}
-		if(localStorage.getItem('tmplt33_ru') != null) {
-			countOfLinks++
-			localStorage.setItem('template_' + countOfLinks, localStorage.getItem('tmplt3_ru'))
-			localStorage.setItem('checkbox_' + countOfLinks, false)
-			localStorage.removeItem('tmplt33_ru')
-			localStorage.setItem('cntLinks', countOfLinks)
-		}
-	} else {
-		if(localStorage.getItem('tmplt11_en') != null) {
-			countOfLinks++
-			localStorage.setItem('template_' + countOfLinks, localStorage.getItem('tmplt1_en'))
-			localStorage.setItem('checkbox_' + countOfLinks, false)
-			localStorage.removeItem('tmplt11_en')
-			localStorage.setItem('cntLinks', countOfLinks)
-		}
-		if(localStorage.getItem('tmplt22_en') != null) {
-			countOfLinks++
-			localStorage.setItem('template_' + countOfLinks, localStorage.getItem('tmplt2_en'))
-			localStorage.setItem('checkbox_' + countOfLinks, false)
-			localStorage.removeItem('tmplt22_en')
-			localStorage.setItem('cntLinks', countOfLinks)
-		}
-		if(localStorage.getItem('tmplt33_en') != null) {
-			countOfLinks++
-			localStorage.setItem('template_' + countOfLinks, localStorage.getItem('tmplt3_en'))
-			localStorage.setItem('checkbox_' + countOfLinks, false)
-			localStorage.removeItem('tmplt33_en')
-			localStorage.setItem('cntLinks', countOfLinks)
-		}
-	}
-	
-	function refreshHotLnks() {
-		while(document.getElementById('6str').children[0] != undefined)
-			document.getElementById('6str').children[0].remove()
-		countOfLinks = localStorage.getItem('cntLinks' + language)
-		for(var i = 1; i <= countOfLinks; i++) {
-			var j = Number(i) - 1
-			if(document.getElementById('cstmLinks').children[j].children[0].checked) {
-				if(localStorage.getItem('lnk_name_' + language + i) == null || localStorage.getItem('lnk_name_' + language + i) == "")
-					continue
-				var a = document.getElementById('6str')
-				var newBut = document.createElement('button')
-				newBut.setAttribute('late', 'late_' + language + i)
-				newBut.style.marginRight = '5px'
-				newBut.style.marginTop = '5px'
-				newBut.innerHTML = localStorage.getItem('lnk_name_' + language + i)
-				a.appendChild(newBut)
-				newBut.onclick = function() {
-					var text = localStorage.getItem(this.getAttribute('late')).split('\\n').join('\n')
-					sendAnswer(text)
-				}
-			}
-		}
-	}
-
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
 		localStorage.setItem('winCstmTmpsTop', '120');
@@ -2550,21 +2443,7 @@ function customTemplates(language = '') {
         document.addEventListener('mousemove', listener3);
     }
     cstmTmp.onmouseup = function () {document.removeEventListener('mousemove', listener3);}
-	
-	// пробуем добавить обработчик и появление окна по нажатию кнопки 
-		var listener4 = function(e , a) {
-        cstmLnk.style.left = Number(e.clientX - myX4) + "px";
-        cstmLnk.style.top = Number(e.clientY - myY4) + "px";
-        localStorage.setItem('winCstmLinksTop', String(Number(e.clientY - myY4)));
-        localStorage.setItem('winCstmLinksLeft', String(Number(e.clientX - myX4)));
-    };
 
-    cstmLnk.lastElementChild.onmousedown = function (a) {
-        window.myX4 = a.layerX; 
-        window.myY4 = a.layerY; 
-        document.addEventListener('mousemove', listener4);
-    }
-    cstmLnk.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	
 	document.getElementById('languageAF').onclick = function () {
         if(this.innerHTML == "Русский") {
