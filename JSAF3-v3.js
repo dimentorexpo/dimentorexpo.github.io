@@ -814,14 +814,18 @@ function transfPageButtons(textFromTable) {
 	
 	name = ""
 	textFromTable = textFromTable.split('(name)')
-	a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-	a = a.split(' ')
-	const cyrillicPattern = /^[\u0400-\u04FF]+$/;
-	if(textFromTable.length > 1 && a.length > 1 && cyrillicPattern.test(a[0]))
+	if(document.getElementsByClassName('expert-user_details-name').length != 0) {
+		a = document.getElementsByClassName('expert-user_details-name')[0].innerText
+		a = a.split(' ')
+		const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+		if(textFromTable.length > 1 && cyrillicPattern.test(a[0])) {
 			name = a[0]
+		}
 		else
 			name = 'Имя'
-	
+	}
+	else
+		name = 'Имя'
 	textFromTable = textFromTable.join(name)
 	
 	return textFromTable
