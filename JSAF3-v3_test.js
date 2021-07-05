@@ -362,14 +362,14 @@ function move_again_AF() {
     window.open("https://grouplessons-api.skyeng.ru/admin/student")    // открываем ссылку в новой вкладке на  ГУ админку ученика
 	})
 	
-	document.getElementById('timetable').addEventListener('click',function(){
+		document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
 		document.getElementById('talksadm').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
 	})
 	
-	document.getElementById('billingadm').addEventListener('click',function(){
+		document.getElementById('billingadm').addEventListener('click',function(){
     window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
 })
 		document.getElementById('compens').addEventListener('click',function(){
@@ -387,20 +387,16 @@ function move_again_AF() {
 		document.getElementById('CMS').addEventListener('click',function(){
     window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
 })
-
 		document.getElementById('badmarks').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSc5-h7kFpda-XmAVnPLeuCTzbbcI5Ds9cgP3FYIyPSE4Ufo2Q/viewform")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
 })
-
 		document.getElementById('apelation').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
 })
-
 		document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
-
-			document.getElementById('benchmark').onclick = function () {
+		document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
 			console.log('Введите CPU в поле')
