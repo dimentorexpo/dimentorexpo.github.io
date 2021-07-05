@@ -128,6 +128,7 @@ var win_AFhelper =
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
 				<button id="trmnew">TRM2</button>
+				<button id="userfeatures">Фичи</button>
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
@@ -404,7 +405,9 @@ function move_again_AF() {
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
 })
-
+	document.getElementById('userfeatures').addEventListener('click',function(){
+    window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
+})
 				
 	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
