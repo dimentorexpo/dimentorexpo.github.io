@@ -442,7 +442,7 @@ function move_again_AF() {
 		if(hdiget.value == "")
 			console.log('Введите stepid в поле')
 		else {
-				chrome.windows.create({"url": lnkhdi + hdiget.value, "incognito": true);
+				chrome.windows.create({"url": lnkhdi + hdiget.value, "incognito": true});
 			};
 			hdiget.value = "";
 		}
