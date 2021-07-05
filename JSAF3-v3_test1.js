@@ -814,7 +814,7 @@ function transfPageButtons(textFromTable) {
 	
 	name = ""
 	textFromTable = textFromTable.split('(name)')
-	if(document.getElementsByClassName('expert-user_info_panel')[0] != null) {
+	if(document.getElementsByClassName('expert-user_info_panel') != null) {
 		a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
 		a = a.split(' ')
 		const cyrillicPattern = /^[\u0400-\u04FF]+$/;
