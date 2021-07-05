@@ -820,7 +820,6 @@ function transfPageButtons(textFromTable) {
 		const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 		if(textFromTable.length > 1 && cyrillicPattern.test(a[0])) {
 			name = a[0]
-			return
 		}
 		else
 			name = 'Имя'
