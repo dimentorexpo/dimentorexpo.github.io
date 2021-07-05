@@ -492,9 +492,8 @@ function move_again_AF() {
 		if(document.getElementById('set_bar1').style.display == '')
 			document.getElementById('set_bar1').style.display = 'none'
 		else
-			document.getElementById('set_bar1').style.display = 'block'
-			document.getElementById('set_bar1').style.top = '300';
-			document.getElementById('set_bar1').style.left = '400';
+			document.getElementById('set_bar1').style.display = ''
+			set_bar1.moveTo(50,50);
 	}
 	
     document.getElementById('sound_save').onclick = function () {
