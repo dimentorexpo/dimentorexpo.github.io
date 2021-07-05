@@ -124,6 +124,7 @@ var win_AFhelper =
 				<button id="transactions">Поиск$</button>
 				<button id="CMS">CMS</button>
 				<button id="trmnew">TRM2</button>
+				<button id="perfectprivacy">PP</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
@@ -402,6 +403,10 @@ function move_again_AF() {
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
 })
+	document.getElementById('perfectprivacy').addEventListener('click',function(){
+    window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
+})	
+	
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
