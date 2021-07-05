@@ -137,7 +137,7 @@ var win_AFhelper =
 				<button id="groupadm">🔎</button>
 				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="cmsid">🔎</button>
-				<input id="studguid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sguid">🔎</button>
 				</div>
 				
