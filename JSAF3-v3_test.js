@@ -2148,10 +2148,7 @@ async function getNotGoods(stringDate) {
 	firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
 	goNotgood(list, list2, firstDate, secondDate)
 }
-	var buttonOpenLnkWindow = document.createElement('button1')
-	buttonOpenLnkWindow.innerHTML = 'L2'
-	buttonOpenLnkWindow.style.marginLeft = '14px'
-	
+
 	
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
@@ -2446,6 +2443,20 @@ function customTemplates(language = '') {
         document.addEventListener('mousemove', listener3);
     }
     cstmTmp.onmouseup = function () {document.removeEventListener('mousemove', listener3);}
+	// пробуем добавить обработчик и появление окна по нажатию кнопки 
+		var listener4 = function(e , a) {
+        cstmLnk.style.left = Number(e.clientX - myX4) + "px";
+        cstmLnk.style.top = Number(e.clientY - myY4) + "px";
+        localStorage.setItem('winCstmLinksTop', String(Number(e.clientY - myY4)));
+        localStorage.setItem('winCstmLinksLeft', String(Number(e.clientX - myX4)));
+    };
+
+    cstmLnk.lastElementChild.onmousedown = function (a) {
+        window.myX4 = a.layerX; 
+        window.myY4 = a.layerY; 
+        document.addEventListener('mousemove', listener4);
+    }
+    cstmLnk.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	
 	document.getElementById('languageAF').onclick = function () {
         if(this.innerHTML == "Русский") {
