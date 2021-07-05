@@ -113,8 +113,7 @@ var win_AFhelper =
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
-		
-		<div style="border: 2px double black; top: 100px, left: 100 px; display: none; background-color: #464451" id="set_bar1">
+		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
 				<button id="KGLadm">KGLadm</button>
 				<button id="timetable">TT</button>
@@ -128,6 +127,8 @@ var win_AFhelper =
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
+				<button id="trmnew">TRM2</button>
+				
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
@@ -137,23 +138,11 @@ var win_AFhelper =
 				<button id="groupadm">🔎</button>
 				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="cmsid">🔎</button>
-				<input id="idhdi" placeholder="chat hash" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="hdi">🔎</button>
 				</div>
 				
 			</div>
 	</span>
 </div>`;
-
-
-if (localStorage.getItem('linkesTop3') == null) {
-    localStorage.setItem('linkesTop3', '120');
-    localStorage.setItem('linkesLeft3', '295');
-}	
-let linkes = document.createElement('div');
-document.body.append(linkes);
-linkes.style = 'min-height: 20px; max-height: 750px; min-width: 35px; max-width: 510px; background: wheat; top: ' + localStorage.getItem('linkesTop3') + 'px; left: ' + localStorage.getItem('linkesLeft3') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wint3.innerHTML = linkes_html3;  	
 	
 let audio
 
@@ -413,6 +402,11 @@ function move_again_AF() {
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
+	document.getElementById('trmnew').addEventListener('click',function(){
+    window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
+})
+
+				
 	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
@@ -442,16 +436,6 @@ function move_again_AF() {
 			};
 			cmsstepid.value = "";
 		}
-		document.getElementById('hdi').onclick = function () {
-		let lnkhdi = 'http://hdi.skyeng.ru/autofaq/conversation/-11/';
-		if(idhdi.value == "")
-			console.log('Введите stepid в поле')
-		else {
-				window.open(lnkhdi + idhdi.value);
-			};
-			idhdi.value = "";
-		}	
-		
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
@@ -837,14 +821,18 @@ function transfPageButtons(textFromTable) {
 	
 	name = ""
 	textFromTable = textFromTable.split('(name)')
-	a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-	a = a.split(' ')
-	const cyrillicPattern = /^[\u0400-\u04FF]+$/;
-	if(textFromTable.length > 1 && cyrillicPattern.test(a[0]))
+	if(document.getElementsByClassName('expert-user_details-name').length != 0) {
+		a = document.getElementsByClassName('expert-user_details-name')[0].innerText
+		a = a.split(' ')
+		const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+		if(textFromTable.length > 1 && cyrillicPattern.test(a[0])) {
 			name = a[0]
+		}
 		else
 			name = 'Имя'
-	
+	}
+	else
+		name = 'Имя'
 	textFromTable = textFromTable.join(name)
 	
 	return textFromTable
