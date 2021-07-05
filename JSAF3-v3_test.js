@@ -113,6 +113,7 @@ var win_AFhelper =
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
+		
 		<div style="border: 2px double black; top: 100px, left: 100 px; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
 				<button id="KGLadm">KGLadm</button>
@@ -136,11 +137,23 @@ var win_AFhelper =
 				<button id="groupadm">🔎</button>
 				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="cmsid">🔎</button>
+				<input id="idhdi" placeholder="chat hash" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="hdi">🔎</button>
 				</div>
 				
 			</div>
 	</span>
 </div>`;
+
+
+if (localStorage.getItem('linkesTop3') == null) {
+    localStorage.setItem('linkesTop3', '120');
+    localStorage.setItem('linkesLeft3', '295');
+}	
+let linkes = document.createElement('div');
+document.body.append(linkes);
+linkes.style = 'min-height: 20px; max-height: 750px; min-width: 35px; max-width: 510px; background: wheat; top: ' + localStorage.getItem('linkesTop3') + 'px; left: ' + localStorage.getItem('linkesLeft3') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wint3.innerHTML = linkes_html3;  	
 	
 let audio
 
@@ -429,6 +442,16 @@ function move_again_AF() {
 			};
 			cmsstepid.value = "";
 		}
+		document.getElementById('hdi').onclick = function () {
+		let lnkhdi = 'http://hdi.skyeng.ru/autofaq/conversation/-11/';
+		if(idhdi.value == "")
+			console.log('Введите stepid в поле')
+		else {
+				window.open(lnkhdi + idhdi.value);
+			};
+			idhdi.value = "";
+		}	
+		
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
