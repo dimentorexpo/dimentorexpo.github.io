@@ -1725,9 +1725,10 @@ function startTimer() {
 		btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
 		
 		let btn3 = document.createElement('span');
-		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
+		btn3.id = 'SMS'
 		btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">СМС</a>';
 		btn3.setAttribute('onClick', sendComment('#неприходитсмс'))
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
 	}
 }
 
