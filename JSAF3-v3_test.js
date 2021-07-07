@@ -123,10 +123,11 @@ var win_AFhelper =
 				<button id="suggestions">Предложения</button>
 				<button id="transactions">Поиск$</button>
 				<button id="CMS">CMS</button>
+				<button id="trmnew">TRM2</button>
+				<button id="perfectprivacy">PP</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
-				<button id="trmnew">TRM2</button>
 				<button id="userfeatures">Фичи</button>
 				</div>
 				
@@ -364,7 +365,6 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
-	
 	document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
@@ -399,13 +399,18 @@ function move_again_AF() {
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
+	
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
 })
+	document.getElementById('perfectprivacy').addEventListener('click',function(){
+    window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
+})	
+	
+	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
 })
-				
 	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
@@ -435,7 +440,7 @@ function move_again_AF() {
 			};
 			cmsstepid.value = "";
 		}
-		
+	
 	document.getElementById('sguid').onclick = function () {
 		let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
 		if(studguid.value == "")
@@ -444,9 +449,7 @@ function move_again_AF() {
 				window.open(lnksgu + studguid.value);
 			};
 			studguid.value = "";
-		}		
-		
-		
+		}	
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
