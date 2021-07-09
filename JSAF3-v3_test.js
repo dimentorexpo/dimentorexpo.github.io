@@ -66,6 +66,7 @@ var win_AFhelper =
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 10px">hide</button>
 					<button id="setting" style="margin-left: 30px">S</button>
+					<button id="addsrc" style="margin-left: 50px">*</button>
 					<button id="links" style="margin-left: 60px">L</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
@@ -113,6 +114,9 @@ var win_AFhelper =
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
+		
+		<div style="border: 2px double black; display: none; background-color: #464451" id="new_window">
+		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
 				<button id="timetable">TT</button>
@@ -514,6 +518,13 @@ function move_again_AF() {
 			document.getElementById('set_bar1').style.display = 'none'
 		else
 			document.getElementById('set_bar1').style.display = ''
+	}
+	
+	    document.getElementById('addsrc').onclick = function () {
+		if(document.getElementById('new_window').style.display == '')
+			document.getElementById('new_window').style.display = 'none'
+		else
+			document.getElementById('new_window').style.display = ''
 	}
 	
     document.getElementById('sound_save').onclick = function () {
@@ -2182,7 +2193,6 @@ async function getNotGoods(stringDate) {
 
 
 	
-
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
 		localStorage.setItem('winCstmTmpsTop', '120');
