@@ -1803,7 +1803,7 @@ function startTimer() {
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
 		btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Мат-Т</a>';
 		btn4.setAttribute('onClick','sendComment("#мат-телефон");')
-	}
+	
 	}
 }
 
