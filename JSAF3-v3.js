@@ -129,6 +129,7 @@ var win_AFhelper =
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
 				<button id="userfeatures">Фичи</button>
+				<button id="paydelay">Рассрочки</button>
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
@@ -407,10 +408,13 @@ function move_again_AF() {
     window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
 })	
 	
-	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
 })
+	document.getElementById('paydelay').addEventListener('click',function(){
+    window.open("https://accounting.skyeng.ru/credit/list")    // открываем ссылку в новой вкладке на проверку рассрочки (поэтапной оплаты) пользователя
+})	
+	
 	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
