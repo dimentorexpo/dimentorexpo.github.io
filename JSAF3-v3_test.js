@@ -2217,13 +2217,13 @@ function customTemplates(language = '') {
 	
 	var cstmTmp1 = document.createElement('div')
 		cstmTmp1.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winCstmTmpsTop') + 'px; left: ' + localStorage.getItem('winCstmTmpsLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; border-radius:5px; border:1px solid #768d87; ';
-		cstmTmp1.id = 'cstmTmplates1'
+		cstmTmp1.id = 'cstmTmplates'
 		cstmTmp1.style.display = 'none'
 		document.body.append(cstmTmp1);
 	} else {
-		cstmTmp = document.getElementById('cstmTmplates1')
-		while(document.getElementById('cstmTmplates1').children[0] != undefined)
-			document.getElementById('cstmTmplates1').children[0].remove()
+		cstmTmp = document.getElementById('cstmTmplates')
+		while(document.getElementById('cstmTmplates').children[0] != undefined)
+			document.getElementById('cstmTmplates').children[0].remove()
 	}
 	
 	var buttonOpenTmpWindow1 = document.createElement('button')
