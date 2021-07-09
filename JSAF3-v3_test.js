@@ -2215,28 +2215,6 @@ function customTemplates(language = '') {
 			a.style.display = ''
 	}
 	
-	var cstmTmp1 = document.createElement('div')
-		cstmTmp1.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winCstmTmpsTop') + 'px; left: ' + localStorage.getItem('winCstmTmpsLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; border-radius:5px; border:1px solid #768d87; ';
-		cstmTmp1.id = 'cstmTmplates'
-		cstmTmp1.style.display = 'none'
-		document.body.append(cstmTmp1);
-	} else {
-		cstmTmp = document.getElementById('cstmTmplates')
-		while(document.getElementById('cstmTmplates').children[0] != undefined)
-			document.getElementById('cstmTmplates').children[0].remove()
-	}
-	
-	var buttonOpenTmpWindow1 = document.createElement('button')
-	buttonOpenTmpWindow1.innerHTML = 'L2'
-	buttonOpenTmpWindow1.style.marginLeft = '10px'
-	buttonOpenTmpWindow1.onclick = function() {
-		var a = document.getElementById('cstmTmplates1')
-		if(a.style.display == '')
-			a.style.display = 'none'
-		else
-			a.style.display = ''
-	}
-	
 	var tmpA = document.getElementById('AF_helper').children[0].children[0].children[0].children[0]
 	if(tmpA.children[1].innerHTML != 'tmps')
 		tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
