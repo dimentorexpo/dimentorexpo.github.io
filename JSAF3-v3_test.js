@@ -132,13 +132,13 @@ var win_AFhelper =
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
-				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="benchmark">🔎</button>
-				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<input id="mainfield" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="benchmark">Cpuname🔎</button>
+			//	<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="groupadm">🔎</button>
-				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+			//	<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="cmsid">🔎</button>
-				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+			//	<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sguid">🔎</button>
 				</div>
 				
@@ -413,42 +413,42 @@ function move_again_AF() {
 })
 	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
-		if(cpuname.value == "")
+		if(mainfield.value == "")
 			console.log('Введите CPU в поле')
 		else {
-				window.open(lnkgr + cpuname.value);
+				window.open(lnkgr + mainfield.value);
 			};
-			cpuname.value = "";
+			mainfield.value = "";
 		}
 
 	document.getElementById('groupadm').onclick = function () {
 		let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
-		if(grid.value == "")
+		if(mainfield.value == "")
 			console.log('Введите id в поле')
 		else {
-				window.open(lnngr + grid.value);
+				window.open(lnngr + mainfield.value);
 			};
-			grid.value = "";
+			mainfield.value = "";
 		}
 		
 	document.getElementById('cmsid').onclick = function () {
 		let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
-		if(cmsstepid.value == "")
+		if(mainfield.value == "")
 			console.log('Введите stepid в поле')
 		else {
-				window.open(lnkstep + cmsstepid.value);
+				window.open(lnkstep + mainfield.value);
 			};
-			cmsstepid.value = "";
+			mainfield.value = "";
 		}
 	
 	document.getElementById('sguid').onclick = function () {
 		let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
-		if(studguid.value == "")
+		if(mainfield.value == "")
 			console.log('Введите id  ученика в поле')
 		else {
-				window.open(lnksgu + studguid.value);
+				window.open(lnksgu + mainfield.value);
 			};
-			studguid.value = "";
+			mainfield.value = "";
 		}	
 	
     document.getElementById('msg').onclick = function () {
