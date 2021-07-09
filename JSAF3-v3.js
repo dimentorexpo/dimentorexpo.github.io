@@ -1756,10 +1756,10 @@ function startTimer() {
 		btn3.setAttribute('onClick','sendComment("#неприходитсмс");')
 		
 		let btn4 = document.createElement('span');
-		btn3.id = 'math'
+		btn4.id = 'math'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
-		btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Мат-Т</a>';
-		btn3.setAttribute('onClick','sendComment("#мат-телефон");')
+		btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Мат-Т</a>';
+		btn4.setAttribute('onClick','sendComment("#мат-телефон");')
 	}
 }
 
