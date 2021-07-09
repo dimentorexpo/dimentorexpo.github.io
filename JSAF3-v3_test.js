@@ -116,6 +116,13 @@ var win_AFhelper =
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="new_window">
+			<div style="margin: 5px; width: 300px">
+				<button id="kibanalnk">Kibana</button>
+				<button id="redashlnk">Redash</button>
+				<button id="grafanalnk">Grafana</button>
+				<button id="customerlnk">Customer</button>
+				</div>
+		
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
 				<div style="margin: 5px; width: 300px">
@@ -369,6 +376,19 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
+	document.getElementById('kibanalnk').addEventListener('click',function(){
+    window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
+})	
+	
+		document.getElementById('redashlnk').addEventListener('click',function(){
+    window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
+})
+	document.getElementById('grafanalnk').addEventListener('click',function(){
+    window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
+})
+	document.getElementById('customerlnk').addEventListener('click',function(){
+    window.open("https://fly.customer.io/env/40281/people")    // копируем в буфер ссылку на Customer
+})
 	document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
