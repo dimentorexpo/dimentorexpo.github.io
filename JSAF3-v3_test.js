@@ -382,9 +382,9 @@ hashBut.onclick = function () {
 }
 let wintLinks = document.createElement('div');
 document.body.append(wintLinks);
-wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintAF.setAttribute('id' ,'AF_Links');
-wintAF.innerHTML = win_Links; 
+wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinks.setAttribute('id' ,'AF_Links');
+wintLinks.innerHTML = win_Links; 
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
@@ -3125,16 +3125,3 @@ function weWillNotBeSlaves() {
 	localStorage.setItem('scriptAdr', TP_addr2)
 	prepTp()
 }
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-{"mode":"full","isActive":false}
