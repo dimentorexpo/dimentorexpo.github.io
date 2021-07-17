@@ -869,17 +869,7 @@ function pageClick(pageId) {
 	document.getElementById(pageId).style.backgroundColor = 'green'
 		document.getElementById(pageId[0] + "page").style.display = ''
 }
-function pageClick1(pageId) {
-	b = document.getElementById('AF_links').childNodes[0].childNodes[1].childNodes[1]
-	for(i = 0; i < b.childElementCount; i++) {
-		try {
-			b.children[1].children[i].style.backgroundColor = '#768d87'
-			document.getElementById(i + "page").style.display = 'none'
-		} catch (e){}
-	}
-	document.getElementById(pageId).style.backgroundColor = 'green'
-		document.getElementById(pageId[0] + "page").style.display = ''
-}
+
 function bagPageButtons(butId) {
 	txt = document.getElementById(butId).parentElement.childNodes[0].textContent
 	for(l = 0; l < table.length; l++)
