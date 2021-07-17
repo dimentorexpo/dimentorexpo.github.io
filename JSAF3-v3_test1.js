@@ -579,10 +579,10 @@ function move_again_AF() {
 			document.getElementById('set_bar').style.display = ''
 	}
     document.getElementById('links').onclick = function () {
-		if(document.getElementById('AF_Links').style.display == 'none')
-			document.getElementById('AF_Links').style.display = 'Flex'
-		else
+		if(document.getElementById('AF_Links').style.display == '')
 			document.getElementById('AF_Links').style.display = 'none'
+		else
+			document.getElementById('AF_Links').style.display = ''
 	}
 	
 	    document.getElementById('addsrc').onclick = function () {
@@ -869,6 +869,16 @@ function pageClick(pageId) {
 	document.getElementById(pageId).style.backgroundColor = 'green'
 		document.getElementById(pageId[0] + "page").style.display = ''
 }
+function pageClick1(pageId) {
+	b = document.getElementById('AF_links').childNodes[0].childNodes[1].childNodes[1]
+	for(i = 0; i < b.childElementCount; i++) {
+		try {
+			b.children[1].children[i].style.backgroundColor = '#768d87'
+			document.getElementById(i + "page").style.display = 'none'
+		} catch (e){}
+	}
+	document.getElementById(pageId).style.backgroundColor = 'green'
+		document.getElementById(pageId[0] + "page").style.display = ''
 
 function bagPageButtons(butId) {
 	txt = document.getElementById(butId).parentElement.childNodes[0].textContent
