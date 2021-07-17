@@ -879,7 +879,7 @@ function pageClick1(pageId) {
 	}
 	document.getElementById(pageId).style.backgroundColor = 'green'
 		document.getElementById(pageId[0] + "page").style.display = ''
-
+}
 function bagPageButtons(butId) {
 	txt = document.getElementById(butId).parentElement.childNodes[0].textContent
 	for(l = 0; l < table.length; l++)
