@@ -1,5 +1,3 @@
-
-
 function mystyles() {
 	let mstl = document.createElement('style');
 	document.body.append(mstl);
@@ -19,7 +17,6 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
-
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -65,8 +62,9 @@ var win_AFhelper =
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 10px">hide</button>
-					<button id="setting" style="margin-left: 30px">S</button>
-					<button id="links" style="margin-left: 60px">L</button>
+					<button id="setting" style="margin-left: 15px">S</button>
+					<button id="addsrc" style="margin-left: 5px">*</button>
+					<button id="links" style="margin-left: 40px">L</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
@@ -113,7 +111,25 @@ var win_AFhelper =
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
 		</div>
-		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
+		
+		<div style="border: 2px double black; display: none; background-color: #464451" id="new_window">
+			<div style="margin: 5px; width: 300px">
+				<button id="kibanalnksvz">K_Связь</button>
+				<button id="kibanalnklk">K_ЛК</button>
+				<button id="kibanalnksrv">K_СерверХешу</button>
+				<button id="redashlnk">Redash</button>
+				<button id="grafanalnk">Grafana</button>
+				<button id="customerlnk">Customer</button>
+			</div>
+		</div>
+		
+	</span>
+</div>`;
+
+var win_Links =  
+    `<div style="display: flex; width: 301px;">
+        <span style="width: 301px">
+			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 300px">
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
@@ -129,7 +145,6 @@ var win_AFhelper =
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
 				<button id="userfeatures">Фичи</button>
-				<button id="paydelay">Рассрочки</button>
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
@@ -141,9 +156,8 @@ var win_AFhelper =
 				<button id="cmsid">🔎</button>
 				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sguid">🔎</button>
-				</div>
-				
-			</div>
+				</div>		
+			</span>
 	</span>
 </div>`;
 	
@@ -154,7 +168,10 @@ if (localStorage.getItem('winTopAF') == null) {
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
-
+if (localStorage.getItem('winTopLinks') == null) {
+    localStorage.setItem('winTopLinks', '120');
+    localStorage.setItem('winTopLinks', '295');
+}
 
 
 if (localStorage.getItem('scriptAdr') == null) {
@@ -333,6 +350,25 @@ hashBut.onclick = function () {
 	}
 	
 }
+let wintLinks = document.createElement('div');
+document.body.append(wintLinks);
+wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinks.setAttribute('id' ,'AF_Links');
+wintLinks.innerHTML = win_Links; 
+
+ var listener4 = function(e , a) {
+        wintLinks.style.left = Number(e.clientX - myX4) + "px";
+        wintLinks.style.top = Number(e.clientY - myY4) + "px";
+        localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
+        localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX4)));
+    };
+
+    wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+        window.myX4 = a.layerX; 
+        window.myY4 = a.layerY; 
+        document.addEventListener('mousemove', listener4);
+    }
+    wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
@@ -366,6 +402,29 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 	
+	document.getElementById('kibanalnksvz').addEventListener('click',function(){
+    window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
+})	
+
+	document.getElementById('kibanalnklk').addEventListener('click',function(){
+    window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:9685821'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana Вход в ЛК
+})	
+
+	document.getElementById('kibanalnksrv').addEventListener('click',function(){
+    window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2020-10-06T13:17:28.478Z',to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20dikuhimaga'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana сервер по хешу комнаты
+})	
+
+
+	
+		document.getElementById('redashlnk').addEventListener('click',function(){
+    window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
+})
+	document.getElementById('grafanalnk').addEventListener('click',function(){
+    window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
+})
+	document.getElementById('customerlnk').addEventListener('click',function(){
+    window.open("https://fly.customer.io/env/40281/people")    // копируем в буфер ссылку на Customer
+})
 	document.getElementById('timetable').addEventListener('click',function(){
     window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
 })
@@ -408,13 +467,10 @@ function move_again_AF() {
     window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
 })	
 	
+	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
 })
-	document.getElementById('paydelay').addEventListener('click',function(){
-    window.open("https://accounting.skyeng.ru/credit/list")    // открываем ссылку в новой вкладке на проверку рассрочки (поэтапной оплаты) пользователя
-})	
-	
 	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
@@ -514,10 +570,17 @@ function move_again_AF() {
 			document.getElementById('set_bar').style.display = ''
 	}
     document.getElementById('links').onclick = function () {
-		if(document.getElementById('set_bar1').style.display == '')
-			document.getElementById('set_bar1').style.display = 'none'
+		if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
 		else
-			document.getElementById('set_bar1').style.display = ''
+			document.getElementById('AF_Links').style.display = ''
+	}
+	
+	    document.getElementById('addsrc').onclick = function () {
+		if(document.getElementById('new_window').style.display == '')
+			document.getElementById('new_window').style.display = 'none'
+		else
+			document.getElementById('new_window').style.display = ''
 	}
 	
     document.getElementById('sound_save').onclick = function () {
@@ -1764,12 +1827,7 @@ function startTimer() {
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
 		btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Мат-Т</a>';
 		btn4.setAttribute('onClick','sendComment("#мат-телефон");')
-		
-		//let btn5 = document.createElement('span');
-		//btn5.id = 'ioscrit'
-		//document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
-		//btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">КрашIOS</a>';
-		//btn5.setAttribute('onClick','sendComment("#крашIOS");')
+	
 	}
 }
 
@@ -2196,6 +2254,8 @@ async function getNotGoods(stringDate) {
 	goNotgood(list, list2, firstDate, secondDate)
 }
 
+
+	
 function customTemplates(language = '') {
 	if (localStorage.getItem('winCstmTmpsTop') == null) {
 		localStorage.setItem('winCstmTmpsTop', '120');
@@ -2215,8 +2275,8 @@ function customTemplates(language = '') {
 			document.getElementById('cstmTmplates').children[0].remove()
 	}
 	countOfTemplates = localStorage.getItem('cntTmplts' + language)
-	
-	
+
+
 	var buttonOpenTmpWindow = document.createElement('button')
 	buttonOpenTmpWindow.innerHTML = 'tmps'
 	buttonOpenTmpWindow.style.marginLeft = '7px'
@@ -2227,6 +2287,7 @@ function customTemplates(language = '') {
 		else
 			a.style.display = ''
 	}
+	
 	var tmpA = document.getElementById('AF_helper').children[0].children[0].children[0].children[0]
 	if(tmpA.children[1].innerHTML != 'tmps')
 		tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
