@@ -158,6 +158,41 @@ var win_AFhelper =
 			</div>
 	</span>
 </div>`;
+
+var win_Links =  
+    `<div style="display: flex; width: 301px;">
+        <span style="width: 301px">
+			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px; width: 300px">
+				<button id="timetable">TT</button>
+				<button id="talksadm">Talks</button>
+				<button id="billingadm">Начислятор</button>
+				<button id="compens">Компенс</button>
+				<button id="useradm">Админка</button>
+				<button id="suggestions">Предложения</button>
+				<button id="transactions">Поиск$</button>
+				<button id="CMS">CMS</button>
+				<button id="trmnew">TRM2</button>
+				<button id="perfectprivacy">PP</button>
+				<button id="badmarks">-оценки</button>
+				<button id="apelation">Апелляции</button>
+				<button id="kcerrors">Ошибки КЦ</button>
+				<button id="userfeatures">Фичи</button>
+				</div>
+				
+				<div style="margin: 5px; width: 300px">				
+				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="benchmark">🔎</button>
+				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="groupadm">🔎</button>
+				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="cmsid">🔎</button>
+				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="sguid">🔎</button>
+				</div>				
+			</div>
+	</span>
+</div>`;
 	
 let audio
 
