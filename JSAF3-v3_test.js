@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@grumstv 
+dimentorexpo
+/
+dimentorexpo.github.io
+1
+00
+Code
+Issues
+Pull requests
+1
+Actions
+Projects
+Wiki
+Security
+Insights
+dimentorexpo.github.io/JSAF3-v3_test1.js /
+@dimentorexpo
+dimentorexpo Update JSAF3-v3_test1.js
+Latest commit 25fcc23 7 hours ago
+ History
+ 1 contributor
+3130 lines (2886 sloc)  129 KB
+  
 
 
 function mystyles() {
@@ -19,7 +50,6 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
-
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -123,7 +153,7 @@ var win_AFhelper =
 				<button id="redashlnk">Redash</button>
 				<button id="grafanalnk">Grafana</button>
 				<button id="customerlnk">Customer</button>
-				</div>
+			</div>
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
@@ -155,7 +185,42 @@ var win_AFhelper =
 				<button id="sguid">🔎</button>
 				</div>
 				
-			</div>
+		</div>
+	</span>
+</div>`;
+
+var win_Links =  
+    `<div style="display: flex; width: 301px;">
+        <span style="width: 301px">
+			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px; width: 300px">
+				<button id="timetable">TT</button>
+				<button id="talksadm">Talks</button>
+				<button id="billingadm">Начислятор</button>
+				<button id="compens">Компенс</button>
+				<button id="useradm">Админка</button>
+				<button id="suggestions">Предложения</button>
+				<button id="transactions">Поиск$</button>
+				<button id="CMS">CMS</button>
+				<button id="trmnew">TRM2</button>
+				<button id="perfectprivacy">PP</button>
+				<button id="badmarks">-оценки</button>
+				<button id="apelation">Апелляции</button>
+				<button id="kcerrors">Ошибки КЦ</button>
+				<button id="userfeatures">Фичи</button>
+				</div>
+				
+				<div style="margin: 5px; width: 300px">				
+				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="benchmark">🔎</button>
+				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="groupadm">🔎</button>
+				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="cmsid">🔎</button>
+				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="sguid">🔎</button>
+				</div>		
+			</span>
 	</span>
 </div>`;
 	
@@ -166,7 +231,10 @@ if (localStorage.getItem('winTopAF') == null) {
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
-
+if (localStorage.getItem('winTopLinks') == null) {
+    localStorage.setItem('winTopLinks', '120');
+    localStorage.setItem('winTopLinks', '295');
+}
 
 
 if (localStorage.getItem('scriptAdr') == null) {
@@ -345,6 +413,11 @@ hashBut.onclick = function () {
 	}
 	
 }
+let wintLinks = document.createElement('div');
+document.body.append(wintLinks);
+wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintAF.setAttribute('id' ,'AF_Links');
+wintAF.innerHTML = win_Links; 
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
@@ -546,10 +619,10 @@ function move_again_AF() {
 			document.getElementById('set_bar').style.display = ''
 	}
     document.getElementById('links').onclick = function () {
-		if(document.getElementById('set_bar1').style.display == '')
-			document.getElementById('set_bar1').style.display = 'none'
+		if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
 		else
-			document.getElementById('set_bar1').style.display = ''
+			document.getElementById('AF_Links').style.display = ''
 	}
 	
 	    document.getElementById('addsrc').onclick = function () {
@@ -3085,3 +3158,16 @@ function weWillNotBeSlaves() {
 	localStorage.setItem('scriptAdr', TP_addr2)
 	prepTp()
 }
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+{"mode":"full","isActive":false}
