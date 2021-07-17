@@ -381,7 +381,7 @@ function move_again_Links() {
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	
-document.getElementById('hideMenu').onclick = function () {
+document.getElementById('hideLinks').onclick = function () {
 	document.getElementById('AF_Links').style.display = 'none'
 	}
 }
