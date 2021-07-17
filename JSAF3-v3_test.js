@@ -136,16 +136,16 @@ var win_Links =
 				<button id="talksadm">Talks</button>
 				<button id="billingadm">Начислятор</button>
 				<button id="compens">Компенс</button>
+				<button id="CMS">CMS</button>
 				<button id="useradm">Админка</button>
 				<button id="suggestions">Предложения</button>
 				<button id="transactions">Поиск$</button>
-				<button id="CMS">CMS</button>
+				<button id="userfeatures">Фичи</button>
 				<button id="trmnew">TRM2</button>
 				<button id="perfectprivacy">PP</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
-				<button id="userfeatures">Фичи</button>
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
