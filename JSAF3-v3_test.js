@@ -356,6 +356,20 @@ wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: 
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
+ var listener4 = function(e , a) {
+        wintLinks.style.left = Number(e.clientX - myX4) + "px";
+        wintLinks.style.top = Number(e.clientY - myY4) + "px";
+        localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
+        localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX4)));
+    };
+
+    wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+        window.myX4 = a.layerX; 
+        window.myY4 = a.layerY; 
+        document.addEventListener('mousemove', listener4);
+    }
+    wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
+
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
 wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
