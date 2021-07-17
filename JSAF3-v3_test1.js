@@ -132,6 +132,9 @@ var win_Links =
     `<div style="display: flex; width: 301px;">
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px;" id="1str">
+					<button id="hidelinks" style="margin-left: 10px">hide</button>
+				</div>
 				<div style="margin: 5px; width: 300px">
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
@@ -377,6 +380,10 @@ function move_again_Links() {
         document.addEventListener('mousemove', listener4);
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
+	
+document.getElementById('hideMenu').onclick = function () {
+	document.getElementById('AF_Links').style.display = 'none'
+	}
 }
 
 let wintAF = document.createElement('div');
