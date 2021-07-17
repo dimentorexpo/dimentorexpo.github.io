@@ -408,6 +408,7 @@ function move_again_Links() {
         document.addEventListener('mousemove', listener4);
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
+}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
