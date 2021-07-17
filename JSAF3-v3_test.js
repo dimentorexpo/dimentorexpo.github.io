@@ -149,7 +149,6 @@ var win_Links =
 				</div>
 				
 				<div style="margin: 5px; width: 300px">		
-				<p>---------------------------------</p>
 				<input id="fillMe" placeholder="CPU name/ID группы/CMS stepId/ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 295px; color: black;">
 				<button id="benchmark">CPU🔎</button>	
 				<button id="groupadm">ГуАдм🔎</button>	
