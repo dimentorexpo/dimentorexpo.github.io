@@ -172,7 +172,7 @@ if (localStorage.getItem('winTopAF') == null) {
 }
 if (localStorage.getItem('winTopLinks') == null) {
     localStorage.setItem('winTopLinks', '120');
-    localStorage.setItem('winLeftLinks', '400');
+    localStorage.setItem('winLeftLinks', '200');
 }
 
 
