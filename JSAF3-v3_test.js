@@ -131,7 +131,7 @@ var win_Links =
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 300px">
-				<button id="hideMe" style="margin-left: 10px; background: #1d49aa;">hide</button>
+				<button id="hideMe" style="background: #1d49aa;">hide</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
 				<button id="billingadm">Начислятор</button>
@@ -572,6 +572,13 @@ function move_again_AF() {
 			document.getElementById('set_bar').style.display = ''
 	}
     document.getElementById('links').onclick = function () {
+		if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
+		else
+			document.getElementById('AF_Links').style.display = ''
+	}
+	
+	   document.getElementById('hideMe').onclick = function () {
 		if(document.getElementById('AF_Links').style.display == '')
 			document.getElementById('AF_Links').style.display = 'none'
 		else
