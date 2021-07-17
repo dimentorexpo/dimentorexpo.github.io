@@ -131,7 +131,7 @@ var win_Links =
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 300px">
-				<button id="hideMe" style="background: #1d49aa;">hide</button>
+				<button id="hideMe" style="background: #008000;">hide</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
 				<button id="billingadm">Начислятор</button>
