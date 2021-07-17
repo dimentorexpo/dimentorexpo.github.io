@@ -402,7 +402,7 @@ function move_again_Links() {
         localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX2)));
     };
 
-    wintAF.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
         window.myX2 = a.layerX; 
         window.myY2 = a.layerY; 
         document.addEventListener('mousemove', listener4);
