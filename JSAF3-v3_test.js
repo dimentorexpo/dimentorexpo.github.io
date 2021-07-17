@@ -149,14 +149,11 @@ var win_Links =
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
-				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="benchmark">🔎</button>
-				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="groupadm">🔎</button>
-				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="cmsid">🔎</button>
-				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="sguid">🔎</button>
+				<input id="fillMe" placeholder="CPU name/ID ГУ/CMS stepId/ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 200px; color: black;">
+				<button id="benchmark">CPU🔎</button>	
+				<button id="groupadm">ГуАдм🔎</button>	
+				<button id="cmsid">CMS🔎</button>
+				<button id="sguid">У_ГУ🔎</button>
 				</div>		
 			</span>
 	</span>
@@ -475,42 +472,42 @@ function move_again_AF() {
 })
 	document.getElementById('benchmark').onclick = function () {
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
-		if(cpuname.value == "")
+		if(fillMe.value == "")
 			console.log('Введите CPU в поле')
 		else {
-				window.open(lnkgr + cpuname.value);
+				window.open(lnkgr + fillMe.value);
 			};
-			cpuname.value = "";
+			fillMe.value = "";
 		}
 
 	document.getElementById('groupadm').onclick = function () {
 		let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
-		if(grid.value == "")
+		if(fillMe.value == "")
 			console.log('Введите id в поле')
 		else {
-				window.open(lnngr + grid.value);
+				window.open(lnngr + fillMe.value);
 			};
-			grid.value = "";
+			fillMe.value = "";
 		}
 		
 	document.getElementById('cmsid').onclick = function () {
 		let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
-		if(cmsstepid.value == "")
+		if(fillMe.value == "")
 			console.log('Введите stepid в поле')
 		else {
-				window.open(lnkstep + cmsstepid.value);
+				window.open(lnkstep + fillMe.value);
 			};
-			cmsstepid.value = "";
+			fillMe.value = "";
 		}
 	
 	document.getElementById('sguid').onclick = function () {
 		let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
-		if(studguid.value == "")
+		if(fillMe.value == "")
 			console.log('Введите id  ученика в поле')
 		else {
-				window.open(lnksgu + studguid.value);
+				window.open(lnksgu + fillMe.value);
 			};
-			studguid.value = "";
+			fillMe.value = "";
 		}	
 	
     document.getElementById('msg').onclick = function () {
