@@ -123,7 +123,7 @@ var win_AFhelper =
 				<button id="redashlnk">Redash</button>
 				<button id="grafanalnk">Grafana</button>
 				<button id="customerlnk">Customer</button>
-				</div>
+			</div>
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
@@ -155,7 +155,7 @@ var win_AFhelper =
 				<button id="sguid">🔎</button>
 				</div>
 				
-			</div>
+		</div>
 	</span>
 </div>`;
 
@@ -189,8 +189,8 @@ var win_Links =
 				<button id="cmsid">🔎</button>
 				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sguid">🔎</button>
-				</div>				
-			</div>
+				</div>		
+			</span>
 	</span>
 </div>`;
 	
