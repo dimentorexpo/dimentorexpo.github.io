@@ -579,10 +579,10 @@ function move_again_AF() {
 			document.getElementById('set_bar').style.display = ''
 	}
     document.getElementById('links').onclick = function () {
-		if(document.getElementById('AF_Links').style.display == '')
-			document.getElementById('AF_Links').style.display = 'none'
+		if(document.getElementById('AF_Links').style.display == 'none')
+			document.getElementById('AF_Links').style.display = 'Flex'
 		else
-			document.getElementById('AF_Links').style.display = ''
+			document.getElementById('AF_Links').style.display = 'none'
 	}
 	
 	    document.getElementById('addsrc').onclick = function () {
