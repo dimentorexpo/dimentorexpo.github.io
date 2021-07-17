@@ -582,7 +582,7 @@ function move_again_AF() {
 	}
     document.getElementById('links').onclick = function () {
 		if(document.getElementById('win_Links').style.display == '')
-			document.getElementById('win_Links').style.display = 'flex'
+			document.getElementById('win_Links').style.display = 'none'
 		else
 			document.getElementById('win_Links').style.display = ''
 	}
