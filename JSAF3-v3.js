@@ -168,6 +168,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="showcaseHW">💾</button>
+					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="gethash">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px">	
@@ -417,7 +419,7 @@ var TP_addr2 = 'https://script.google.com/macros/s/AKfycbxnGXdfgYTfmBiviW_sxBa2Q
 var flagLangBut = 0
 function move_again_AF() {
 
-const copyToClipboard = str => {
+const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
     const el = document.createElement('textarea');
     el.value = str;
     document.body.appendChild(el);
@@ -448,15 +450,12 @@ const copyToClipboard = str => {
 	document.getElementById('kibanalnksvz').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
 })	
-
 	document.getElementById('kibanalnklk').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:9685821'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana Вход в ЛК
 })	
-
 	document.getElementById('kibanalnksrv').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2020-10-06T13:17:28.478Z',to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20dikuhimaga'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana сервер по хешу комнаты
 })	
-
 	document.getElementById('redashlnk').addEventListener('click',function(){
     window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
 })
@@ -471,8 +470,7 @@ const copyToClipboard = str => {
 })
 	document.getElementById('talksadm').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
-	})
-	
+})
 	document.getElementById('billingadm').addEventListener('click',function(){
     window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
 })
@@ -506,7 +504,6 @@ const copyToClipboard = str => {
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
 })
-	
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
 })
@@ -517,7 +514,7 @@ const copyToClipboard = str => {
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
 })
-	document.getElementById('benchmark').onclick = function () {
+	document.getElementById('benchmark').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
 			console.log('Введите CPU в поле')
@@ -527,7 +524,7 @@ const copyToClipboard = str => {
 			cpuname.value = "";
 		}
 
-	document.getElementById('groupadm').onclick = function () {
+	document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
 		let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
 		if(grid.value == "")
 			console.log('Введите id в поле')
@@ -537,7 +534,7 @@ const copyToClipboard = str => {
 			grid.value = "";
 		}
 		
-	document.getElementById('cmsid').onclick = function () {
+	document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
 		let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
 		if(cmsstepid.value == "")
 			console.log('Введите stepid в поле')
@@ -547,7 +544,7 @@ const copyToClipboard = str => {
 			cmsstepid.value = "";
 		}
 	
-	document.getElementById('sguid').onclick = function () {
+	document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
 		let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
 		if(studguid.value == "")
 			console.log('Введите id  ученика в поле')
@@ -557,7 +554,7 @@ const copyToClipboard = str => {
 			studguid.value = "";
 		}	
 		
-	document.getElementById('credits').onclick = function () {
+	document.getElementById('credits').onclick = function () {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
 		let lnkscredits = 'https://accounting.skyeng.ru/credit/list?studentId=';
 		if(creditstatus.value == "")
 			console.log('Введите id  ученика в поле')
@@ -567,7 +564,7 @@ const copyToClipboard = str => {
 			creditstatus.value = "";
 		}	
 	
-	document.getElementById('showcaseHW').onclick = function () {
+	document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
 		let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
 		if(HWstudID.value == "")
 			console.log('Введите id  ученика в поле')
@@ -575,6 +572,16 @@ const copyToClipboard = str => {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
 			HWstudID.value = "";
+		}
+	
+	document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
+		let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
+		if(lookhash.value == "")
+			console.log('Введите hash комнаты в поле')
+		else {
+				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+			};
+			lookhash.value = "";
 		}
 	
     document.getElementById('msg').onclick = function () {
