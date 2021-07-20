@@ -65,11 +65,11 @@ var win_AFhelper =  // описание элементов главного ок
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 10px">hide</button>
-					<button id="setting" style=" float: right; margin-left: 5px">S</button>
-					<button id="links" style="margin-right: 5px">L</button>
-					<button id="addsrc" style="margin-right: 5px">*</button>
+					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
+					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
-                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
+					<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
 				<div style="margin: 5px;" id="pages">
 				</div>
@@ -130,41 +130,41 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 401px;">
-        <span style="width: 401px">
+    `<div style="display: flex; width: 524px;">
+        <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 400px">
-					<button id="hideMe" style="background: #228B22;">hide</button>
+				<div style="margin: 5px; width: 520">
+					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>
 				
-				<div style="margin: 5px; width: 400px">
-					<button id="timetable">TT</button>
-					<button id="talksadm">Talks</button>
-					<button id="billingadm">Начислятор</button>
-					<button id="compens">Компенс</button>
-					<button id="CMS">CMS</button>
-					<button id="useradm">Админка</button>
-					<button id="transactions">Поиск$</button>
-					<button id="suggestions">Предложения</button>
-					<button id="userfeatures">Фичи</button>
-					<button id="trmnew">TRM2</button>
-					<button id="perfectprivacy">PP</button>
-					<button id="badmarks">-оценки</button>
-					<button id="apelation">Апелляции</button>
-					<button id="kcerrors">Ошибки КЦ</button>
-					<button id="browserstack">BrowStk</button>
-				</div>
+				<div style="margin: 5px; width: 520px">
+					<button id="timetable" style="width:100px">TT</button>
+					<button id="talksadm" style="width:100px">Talks</button>
+					<button id="billingadm" style="width:100px">Начислятор</button>
+					<button id="compens" style="width:100px">Компенс</button>
+					<button id="CMS" style="width:100px">CMS</button>
+					<button id="useradm" style="width:100px">Админка</button>
+					<button id="transactions" style="width:100px">Поиск$</button>
+					<button id="suggestions" style="width:100px">Предложения</button>
+					<button id="userfeatures" style="width:100px">Фичи</button>
+					<button id="trmnew" style="width:100px">TRM2</button>
+					<button id="perfectprivacy" style="width:100px">PP</button>
+					<button id="badmarks" style="width:100px">-оценки</button>
+					<button id="apelation" style="width:100px">Апелляции</button>
+					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
+					<button id="browserstack" style="width:100px">BrowStk</button>
+				</div>				
 				
-				<div style="margin: 5px; width: 400px">	
-					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<div style="margin: 5px; width: 520px">	
+					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="groupadm">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="cmsid">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="sguid">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="credits">🔎</button>
 				</div>		
 			</span>
@@ -600,6 +600,10 @@ function move_again_AF() {
     document.getElementById('hideMenu').onclick = function () {
 		document.getElementById('AF_helper').style.display = 'none'
 		document.getElementById('scriptBut').style.display = ''
+	    	if(document.getElementById('cstmTmplates').style.display == '')
+			document.getElementById('cstmTmplates').style.display = 'none'
+	    	if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
 	}
     document.getElementById('takeNewChat').onclick = function () {
 		getNewChat()
