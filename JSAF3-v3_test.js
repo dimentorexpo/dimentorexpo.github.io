@@ -149,6 +149,7 @@ var win_Links =
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
+				<button id="browserstack">BrowStk</button>
 				</div>
 				
 				<div style="margin: 5px; width: 300px">				
@@ -465,6 +466,10 @@ function move_again_AF() {
 })
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+})
+
+	document.getElementById('browserstack').addEventListener('click',function(){
+    window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
 })
 	
 	document.getElementById('trmnew').addEventListener('click',function(){
