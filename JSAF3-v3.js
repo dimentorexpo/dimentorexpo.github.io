@@ -146,13 +146,13 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="useradm" style="width:100px">Админка</button>
 					<button id="transactions" style="width:100px">Поиск $</button>
 					<button id="suggestions" style="width:100px">Предложения</button>
-					<button id="userfeatures" style="width:100px">UserФичи</button>
+					<button id="userfeatures" style="width:100px">User Фичи</button>
 					<button id="trmnew" style="width:100px">TRM2</button>
-					<button id="perfectprivacy" style="width:100px">PerfPriv</button>
+					<button id="perfectprivacy" style="width:100px">PerfectPrivacy</button>
 					<button id="badmarks" style="width:100px">-оценки</button>
 					<button id="apelation" style="width:100px">Апелляции</button>
 					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
-					<button id="browserstack" style="width:100px">BrowserStak</button>
+					<button id="browserstack" style="width:100px">BrowserStaсk</button>
 				</div>				
 				
 				<div style="margin: 5px; width: 520px">	
