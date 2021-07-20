@@ -171,7 +171,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				
 				<div style="margin: 5px; width: 520px">	
-					<button id="restartlesson" style="width:100px">Redo MATH💾</button>
+					<button id="restartlesson" style="width:100px">Redo MAT💾</button>
 				</div>		
 			</span>
 	</span>
