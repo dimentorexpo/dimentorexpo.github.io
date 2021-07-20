@@ -169,9 +169,9 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button type="button" data-secondname="✅" id="showcaseHW ">💾</button>
+					<button data-secondname="✅" id="showcaseHW">💾</button>
 					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button type="button" data-secondname="✅" id="gethash ">💾</button>
+					<button data-secondname="✅" id="gethash">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px">	
