@@ -130,8 +130,8 @@ var win_AFhelper =
 </div>`;
 
 var win_Links =  
-    `<div style="display: flex; width: 301px;">
-        <span style="width: 301px">
+    `<div style="display: flex; width: 400px;">
+        <span style="width: 400px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 300px">
 				<button id="hideMe" style="background: #228B22;">hide</button>
