@@ -136,6 +136,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 520">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>				
+				
 				<div style="margin: 5px; width: 520px">
 					<button id="timetable" style="width:100px">TT</button>
 					<button id="talksadm" style="width:100px">Talks</button>
