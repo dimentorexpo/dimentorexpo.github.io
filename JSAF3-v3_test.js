@@ -511,8 +511,8 @@ document.querySelectorAll("button").forEach(function(el){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
 	document.getElementById('restartlesson').addEventListener('click',function(){
-    copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер для перезапуска урока математики
-	
+    copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
+	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT"}, 1000;
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
