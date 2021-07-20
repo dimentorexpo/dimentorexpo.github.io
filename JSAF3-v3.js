@@ -157,6 +157,8 @@ var win_Links =
 				<button id="cmsid">🔎</button>
 				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sguid">🔎</button>
+				<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="credits">🔎</button>
 				</div>		
 			</span>
 	</span>
@@ -511,6 +513,16 @@ function move_again_AF() {
 				window.open(lnksgu + studguid.value);
 			};
 			studguid.value = "";
+		}	
+		
+	document.getElementById('credits').onclick = function () {
+		let lnkscredits = 'https://accounting.skyeng.ru/credit/list?studentId=';
+		if(creditstatus.value == "")
+			console.log('Введите id  ученика в поле')
+		else {
+				window.open(lnkscredits + creditstatus.value);
+			};
+			creditstatus.value = "";
 		}	
 	
     document.getElementById('msg').onclick = function () {
