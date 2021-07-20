@@ -153,6 +153,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="apelation" style="width:100px">Апелляции</button>
 					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
 					<button id="browserstack" style="width:100px">BrowserStaсk</button>
+					<button id="certificates" style="width:100px">Сертификаты</button>
+					<button id="promocodes" style="width:100px">Промокоды</button>
 				</div>				
 				
 				<div style="margin: 5px; width: 520px">	
@@ -510,6 +512,14 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('perfectprivacy').addEventListener('click',function(){
     window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
 })	
+
+	document.getElementById('certificates').addEventListener('click',function(){
+    window.open("https://billing-marketing.skyeng.ru/certificate/certSearch")    // открываем ссылку в новой вкладке на Подарочные сертификаты
+})
+
+	document.getElementById('promocodes').addEventListener('click',function(){
+    window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
+})
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
@@ -653,7 +663,7 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('AF_Links').style.display = ''
 	}
 	
-	   document.getElementById('hideMe').onclick = function () {
+	   document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
 		if(document.getElementById('AF_Links').style.display == '')
 			document.getElementById('AF_Links').style.display = 'none'
 		else
