@@ -587,7 +587,7 @@ function move_again_AF() {
 		if(lookhash.value == "")
 			console.log('Введите hash комнаты в поле')
 		else {
-				copyToClipboard(hashlnk + lookhash.value + "\"");
+				copyToClipboard(hashlnk + lookhash.value + "\", \{ \} )");
 			};
 			lookhash.value = "";
 		}
