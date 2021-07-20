@@ -130,14 +130,14 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 520px;">
-        <span style="width: 520px">
+    `<div style="display: flex; width: 524px;">
+        <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 516">
+				<div style="margin: 5px; width: 520">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>
 				
-				<div style="margin: 5px; width: 516px">
+				<div style="margin: 5px; width: 520px">
 					<button id="timetable" style="width:100px">TT</button>
 					<button id="talksadm" style="width:100px">Talks</button>
 					<button id="billingadm" style="width:100px">Начислятор</button>
@@ -156,17 +156,17 @@ var win_Links =  // описание элементов окна ссылок
 				</div>
 				
 				
-				<div style="margin: 5px; width: 516px">	
+				<div style="margin: 5px; width: 520px">	
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="benchmark" style="margin-left: 1px">🔎</button>
+					<button id="benchmark" style="margin-left: 0px">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="groupadm" style="margin-left: 1px">🔎</button>
+					<button id="groupadm" style="margin-left: 0px">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="cmsid" style="margin-left: 1px">🔎</button>
+					<button id="cmsid" style="margin-left: 0px">🔎</button>
 					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="sguid" style="margin-left: 1px">🔎</button>
+					<button id="sguid" style="margin-left: 0px">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="credits" style="margin-left: 1px">🔎</button>
+					<button id="credits" style="margin-left: 0px">🔎</button>
 				</div>		
 			</span>
 	</span>
