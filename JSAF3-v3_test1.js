@@ -58,7 +58,7 @@ function mystyles() {
 	mstl.innerHTML = style;
 }
 
-var win_AFhelper =  
+var win_AFhelper =  //описание элементов главного окна расширения
     `<div style="display: flex; width: 301px;">
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
@@ -129,7 +129,7 @@ var win_AFhelper =
 	</span>
 </div>`;
 
-var win_Links =  
+var win_Links =  //описание элементов окна ссылок
     `<div style="display: flex; width: 401px;">
         <span style="width: 401px">
 			<span style="cursor: -webkit-grab;">
@@ -174,11 +174,11 @@ var win_Links =
 let audio
 
 
-if (localStorage.getItem('winTopAF') == null) {
+if (localStorage.getItem('winTopAF') == null) { // Присвоение начальной позиции главного окна если ее нет
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
-if (localStorage.getItem('winTopLinks') == null) {
+if (localStorage.getItem('winTopLinks') == null) { // Присвоение начальной позиции окна ссылок если ее нет
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winTopLinks', '295');
 }
@@ -360,14 +360,21 @@ hashBut.onclick = function () {
 	}
 	
 }
-let wintLinks = document.createElement('div');
+let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
 wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
+ document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие поиска id по хэшу
+ document.getElementById('main_easy_win').ondblclick = function () {
+	if(document.getElementById('hash_type_for_chat').style.display == 'none')
+		document.getElementById('hash_type_for_chat').style.display = '';
+	else
+		document.getElementById('hash_type_for_chat').style.display = 'none';
+	}
 
- var listener4 = function(e , a) {
+ var listener4 = function(e , a) { // сохранение последней позиции окна ссылок
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
         wintLinks.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
