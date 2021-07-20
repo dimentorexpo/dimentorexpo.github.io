@@ -131,7 +131,7 @@ var win_AFhelper =
 </div>`;
 
 var win_Links =  
-    `<div style="display: flex; width: 401px; align-items: center;   justify-content: center; height: 100%;">
+    `<div style="display: flex; width: 401px; align-items: stretch;   justify-content: center; height: 100%;">
         <span style="width: 401px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 400px">
