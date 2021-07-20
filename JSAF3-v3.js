@@ -367,8 +367,8 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
- document.getElementById('btn1_hash').style.display = 'none';
+// document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
+// document.getElementById('btn1_hash').style.display = 'none';
  document.getElementById('main_easy_win').ondblclick = function () {
 	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
 		document.getElementById('hash_type_for_chat').style.display = '';
@@ -2968,6 +2968,7 @@ function firstLoadPage() {
 	if(window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
 		document.getElementById('AF_helper').style.display = 'none';
 		document.getElementById('testUsers').style.display = 'none';
+		document.getElementById('AF_Links').style.display = 'none';
 	} else {
 		mystyles()
 		setTimeout(move_again_AF, 3500)
