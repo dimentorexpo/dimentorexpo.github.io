@@ -175,7 +175,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				
 				<div style="margin: 5px; width: 520px">	
-					<button id="restartlesson" style="width:100px">Redo MAT💾</button>
+					<button type="button" data-secondname="Copied!" id="restartlesson"  style="width:100px">Redo MAT💾</button>
 				</div>		
 			</span>
 	</span>
@@ -430,6 +430,16 @@ const copyToClipboard = str => {           // инициализация фун�
     document.body.removeChild(el);
 }
 
+document.querySelectorAll("button").forEach(function(el){
+  	el.addEventListener("click",function(){
+      if(!this.dataset.secondname)
+        return;
+       var tmp = this.innerHTML;
+       this.innerHTML = this.dataset.secondname;
+       this.dataset.secondname = tmp;
+    },false)
+})
+
     if(window.location.href.indexOf('autofaq') === -1) {
 		document.getElementById('AF_helper').style.display = 'none';
 	}
@@ -502,6 +512,7 @@ const copyToClipboard = str => {           // инициализация фун�
 })
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер для перезапуска урока математики
+	
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
