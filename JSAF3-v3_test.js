@@ -591,8 +591,8 @@ document.querySelectorAll("button").forEach(function(el){
 			console.log('Введите id  ученика в поле')
 		else {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
-				setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			};
+			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			HWstudID.value = "";
 		}
 	
@@ -602,8 +602,8 @@ document.querySelectorAll("button").forEach(function(el){
 			console.log('Введите hash комнаты в поле')
 		else {
 				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
-				setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			};
+			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
 		}
 	
