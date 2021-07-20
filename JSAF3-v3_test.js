@@ -18,7 +18,6 @@ function mystyles() {
 		padding:2px 2px;
 	}
 	button:hover {
-		transform: scale(1.2);
 		background: #120a8f;
 	}
 	.switch-btn {
