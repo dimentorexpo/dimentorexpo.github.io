@@ -367,7 +367,7 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- ocument.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
+ document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
  document.getElementById('btn1_hash').style.display = 'none';
  document.getElementById('main_easy_win').ondblclick = function () {
 	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
