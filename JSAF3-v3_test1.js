@@ -155,6 +155,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="browserstack" style="width:100px">BrowStk</button>
 				</div>
 				
+				
 				<div style="margin: 5px; width: 516px">	
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="benchmark">🔎</button>
