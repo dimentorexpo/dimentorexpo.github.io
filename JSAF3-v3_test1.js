@@ -156,16 +156,16 @@ var win_Links =  // описание элементов окна ссылок
 				</div>				
 				
 				<div style="margin: 5px; width: 520px">	
-					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="benchmark" style="margin-left: 0px">🔎</button>
-					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="groupadm" style="margin-left: 0px">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="cmsid" style="margin-left: 0px">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="sguid" style="margin-left: 0px">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="credits" style="margin-left: 0px">🔎</button>
+					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="benchmark">🔎</button>
+					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="groupadm">🔎</button>
+					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="cmsid">🔎</button>
+					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="sguid">🔎</button>
+					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="credits">🔎</button>
 				</div>		
 			</span>
 	</span>
