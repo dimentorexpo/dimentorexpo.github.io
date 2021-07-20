@@ -130,32 +130,32 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 401px;">
-        <span style="width: 401px">
+    `<div style="display: flex; width: 512px;">
+        <span style="width: 512px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 400px">
-					<button id="hideMe" style="background: #228B22;">hide</button>
+				<div style="margin: 5px; width: 508">
+					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>
 				
-				<div style="margin: 5px; width: 400px">
-					<button id="timetable">TT</button>
-					<button id="talksadm">Talks</button>
-					<button id="billingadm">Начислятор</button>
-					<button id="compens">Компенс</button>
-					<button id="CMS">CMS</button>
-					<button id="useradm">Админка</button>
-					<button id="transactions">Поиск$</button>
-					<button id="suggestions">Предложения</button>
-					<button id="userfeatures">Фичи</button>
-					<button id="trmnew">TRM2</button>
-					<button id="perfectprivacy">PP</button>
-					<button id="badmarks">-оценки</button>
-					<button id="apelation">Апелляции</button>
-					<button id="kcerrors">Ошибки КЦ</button>
-					<button id="browserstack">BrowStk</button>
+				<div style="margin: 5px; width: 508px">
+					<button id="timetable" style="width:100px">TT</button>
+					<button id="talksadm" style="width:100px">Talks</button>
+					<button id="billingadm" style="width:100px">Начислятор</button>
+					<button id="compens" style="width:100px">Компенс</button>
+					<button id="CMS" style="width:100px">CMS</button>
+					<button id="useradm" style="width:100px">Админка</button>
+					<button id="transactions" style="width:100px">Поиск$</button>
+					<button id="suggestions" style="width:100px">Предложения</button>
+					<button id="userfeatures" style="width:100px">Фичи</button>
+					<button id="trmnew" style="width:100px">TRM2</button>
+					<button id="perfectprivacy" style="width:100px">PP</button>
+					<button id="badmarks" style="width:100px">-оценки</button>
+					<button id="apelation" style="width:100px">Апелляции</button>
+					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
+					<button id="browserstack" style="width:100px">BrowStk</button>
 				</div>
 				
-				<div style="margin: 5px; width: 400px">	
+				<div style="margin: 5px; width: 508px">	
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="benchmark">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
