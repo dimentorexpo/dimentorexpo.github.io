@@ -17,7 +17,7 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
-		button: hover {
+		.button: hover {
 		background:#0000ff;
 
 	}
