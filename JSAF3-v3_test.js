@@ -18,7 +18,7 @@ function mystyles() {
 		padding:2px 2px;
 	}
 		button: hover {
-		background-color:#0000ff;
+		background:#0000ff;
 
 	}
 	.switch-btn {
