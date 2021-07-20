@@ -166,6 +166,12 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="sguid">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="credits">🔎</button>
+					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="showcaseHW">💾</button>
+				</div>		
+				
+				<div style="margin: 5px; width: 520px">	
+					<button id="restartlesson" style="width:100px">Reset MATH💾</button>
 				</div>		
 			</span>
 	</span>
@@ -442,9 +448,7 @@ function move_again_AF() {
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2020-10-06T13:17:28.478Z',to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20dikuhimaga'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana сервер по хешу комнаты
 })	
 
-
-	
-		document.getElementById('redashlnk').addEventListener('click',function(){
+	document.getElementById('redashlnk').addEventListener('click',function(){
     window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
 })
 	document.getElementById('grafanalnk').addEventListener('click',function(){
@@ -487,7 +491,9 @@ function move_again_AF() {
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
-
+	document.getElementById('restartlesson').addEventListener('click',function(){
+    copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер для перезапуска урока математики
+})
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
 })
@@ -498,7 +504,6 @@ function move_again_AF() {
 	document.getElementById('perfectprivacy').addEventListener('click',function(){
     window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
 })	
-	
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
@@ -552,6 +557,16 @@ function move_again_AF() {
 			};
 			creditstatus.value = "";
 		}	
+	
+	document.getElementById('showcaseHW').onclick = function () {
+		let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
+		if(HWstudID.value == "")
+			console.log('Введите id  ученика в поле')
+		else {
+				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
+			};
+			HWstudID.value = "";
+		}
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
