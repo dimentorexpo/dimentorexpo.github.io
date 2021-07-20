@@ -167,7 +167,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="showcaseHW">🔎</button>
+					<button id="showcaseHW">💾</button>
 				</div>		
 	
 					<div style="margin: 5px; width: 400px">	
@@ -578,7 +578,7 @@ const copyToClipboard = str => {
 		if(HWstudID.value == "")
 			console.log('Введите id  ученика в поле')
 		else {
-				window.open(hwstidlnk + HWstudID.value + "/homework");
+				CopyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
 			HWstudID.value = "";
 		}
