@@ -158,15 +158,15 @@ var win_Links =  // описание элементов окна ссылок
 				
 				<div style="margin: 5px; width: 516px">	
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="benchmark">🔎</button>
+					<button id="benchmark" style="margin-left: 1px">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="groupadm">🔎</button>
+					<button id="groupadm" style="margin-left: 1px">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="cmsid">🔎</button>
+					<button id="cmsid" style="margin-left: 1px">🔎</button>
 					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="sguid">🔎</button>
+					<button id="sguid" style="margin-left: 1px">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-					<button id="credits">🔎</button>
+					<button id="credits" style="margin-left: 1px">🔎</button>
 				</div>		
 			</span>
 	</span>
