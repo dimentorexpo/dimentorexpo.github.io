@@ -168,6 +168,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="showcaseHW">💾</button>
+					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="gethash">💾</button>
 				</div>		
 	
 					<div style="margin: 5px; width: 400px">	
@@ -578,6 +580,16 @@ function move_again_AF() {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
 			HWstudID.value = "";
+		}
+		
+			document.getElementById('gethash').onclick = function () {
+		let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
+		if(lookhash.value == "")
+			console.log('Введите hash комнаты в поле')
+		else {
+				copyToClipboard(hashlnk + lookhash.value+ "/" + ", {   "method": "GET",   "credentials": "include" });");
+			};
+			lookhash.value = "";
 		}
 		
 	
