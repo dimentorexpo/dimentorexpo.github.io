@@ -600,6 +600,10 @@ function move_again_AF() {
     document.getElementById('hideMenu').onclick = function () {
 		document.getElementById('AF_helper').style.display = 'none'
 		document.getElementById('scriptBut').style.display = ''
+	    	if(document.getElementById('cstmTmplates').style.display == '')
+			document.getElementById('cstmTmplates').style.display = 'none'
+	    	if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
 	}
     document.getElementById('takeNewChat').onclick = function () {
 		getNewChat()
