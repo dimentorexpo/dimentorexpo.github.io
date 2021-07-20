@@ -367,13 +367,18 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- document.getElementById('block-hash').style.display = 'none'; // скрытие поиска id по хэшу
+ ocument.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
+ document.getElementById('btn1_hash').style.display = 'none';
  document.getElementById('main_easy_win').ondblclick = function () {
-	if(document.getElementById('block-hash').style.display == 'none') 
-		document.getElementById('block-hash').style.display = '';
-	else
-		document.getElementById('block-hash').style.display = 'none';
- }
+	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
+		document.getElementById('hash_type_for_chat').style.display = '';
+		document.getElementById('btn1_hash').style.display = '';
+	}
+	else {
+		document.getElementById('hash_type_for_chat').style.display = 'none';
+		document.getElementById('btn1_hash').style.display = 'none';
+		}
+ 	}
 document.getElementById('btn_hide').ondblclick = function () { // скрытие поиска id по хэшу при нажатии кнопки скрыть
 	document.getElementById('hash_type_for_chat').style.display = 'none';
 	document.getElementById('btn1_hash').style.display = 'none';
