@@ -66,8 +66,8 @@ var win_AFhelper =
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 10px">hide</button>
 					<button id="setting" style="margin-left: 15px">S</button>
-					<button id="addsrc" style="margin-left: 35px">*</button>
-					<button id="links" style="margin-left: 5px">L</button>
+					<button id="addsrc" style="margin-left: 38px">*</button>
+					<button id="links" style="margin-left: 2px">L</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
@@ -362,12 +362,12 @@ hashBut.onclick = function () {
 }
 let wintLinks = document.createElement('div');
 document.body.append(wintLinks);
-wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- var listener3 = function(e , a) {
+ var listener4 = function(e , a) {
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
         wintLinks.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
@@ -377,9 +377,9 @@ wintLinks.innerHTML = win_Links;
     wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
         window.myX4 = a.layerX; 
         window.myY4 = a.layerY; 
-        document.addEventListener('mousemove', listener3);
+        document.addEventListener('mousemove', listener4);
     }
-    wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener3);}
+    wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
 document.getElementById('AF_Links').ondblclick = function () {
 	document.getElementById('AF_Links').style.display = 'none';
