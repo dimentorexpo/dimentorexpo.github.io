@@ -58,7 +58,7 @@ function mystyles() {
 	mstl.innerHTML = style;
 }
 
-var win_AFhelper =  
+var win_AFhelper =  // описание элементов главного окна
     `<div style="display: flex; width: 301px;">
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
@@ -129,7 +129,7 @@ var win_AFhelper =
 	</span>
 </div>`;
 
-var win_Links =  
+var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 401px;">
         <span style="width: 401px">
 			<span style="cursor: -webkit-grab;">
@@ -174,11 +174,11 @@ var win_Links =
 let audio
 
 
-if (localStorage.getItem('winTopAF') == null) {
+if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
-if (localStorage.getItem('winTopLinks') == null) {
+if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
 }
@@ -360,14 +360,27 @@ hashBut.onclick = function () {
 	}
 	
 }
-let wintLinks = document.createElement('div');
+let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
 wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- var listener4 = function(e , a) {
+ document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
+ document.getElementById('btn1_hash').style.display = 'none';
+ document.getElementById('main_easy_win').ondblclick = function () {
+	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
+		document.getElementById('hash_type_for_chat').style.display = '';
+		document.getElementById('btn1_hash').style.display = '';
+	}
+	else {
+		document.getElementById('hash_type_for_chat').style.display = 'none';
+		document.getElementById('btn1_hash').style.display = 'none';
+		}
+ 	}
+
+ var listener4 = function(e , a) { // сохранение позиции окна ссылок
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
         wintLinks.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
@@ -381,7 +394,7 @@ wintLinks.innerHTML = win_Links;
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
-document.getElementById('AF_Links').ondblclick = function () {
+document.getElementById('AF_Links').ondblclick = function () { // скрытие окна ссылок по двойному клику
 	document.getElementById('AF_Links').style.display = 'none';
 	}
 
