@@ -153,8 +153,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="apelation" style="width:100px">Апелляции</button>
 					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
 					<button id="browserstack" style="width:100px">BrowStk</button>
-				</div>
-				
+				</div>				
 				
 				<div style="margin: 5px; width: 520px">	
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
