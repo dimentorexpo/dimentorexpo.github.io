@@ -130,7 +130,6 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
