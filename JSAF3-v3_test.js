@@ -583,10 +583,6 @@ const copyToClipboard = str => {
 			HWstudID.value = "";
 		}
 		
-				document.getElementById('showcaseHW').addEventListener('click',function(){
-    window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
-})	
-
 
 	
     document.getElementById('msg').onclick = function () {
