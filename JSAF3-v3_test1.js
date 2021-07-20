@@ -130,10 +130,10 @@ var win_AFhelper =
 </div>`;
 
 var win_Links =  
-    `<div style="display: flex; width: 400px;">
-        <span style="width: 400px">
+    `<div style="display: flex; width: 301px;">
+        <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 400px">
+				<div style="margin: 5px; width: 300px">
 				<button id="hideMe" style="background: #228B22;">hide</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
@@ -152,7 +152,7 @@ var win_Links =
 				<button id="browserstack">BrowStk</button>
 				</div>
 				
-				<div style="margin: 5px; width: 400px">				
+				<div style="margin: 5px; width: 300px">				
 				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="benchmark">🔎</button>
 				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
@@ -359,7 +359,7 @@ hashBut.onclick = function () {
 }
 let wintLinks = document.createElement('div');
 document.body.append(wintLinks);
-wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinks.style = 'min-height: 25px; min-width: 95px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
