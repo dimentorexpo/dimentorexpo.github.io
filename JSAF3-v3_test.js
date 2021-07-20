@@ -134,7 +134,7 @@ var win_Links =  // описание элементов окна ссылок
         <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 520">
-					<button id="hideMe" style="width:50px; background: #228B22; float: right; margin-right: 5px">hide</button> // добавляем кнопку для сокрытия доп окна Links
+					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>				
 				
 				<div style="margin: 5px; width: 520px">
