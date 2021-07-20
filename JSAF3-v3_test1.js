@@ -133,7 +133,7 @@ var win_Links =
     `<div style="display: flex; width: 400px;">
         <span style="width: 400px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 300px">
+				<div style="margin: 5px; width: 400px">
 				<button id="hideMe" style="background: #228B22;">hide</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
@@ -152,7 +152,7 @@ var win_Links =
 				<button id="browserstack">BrowStk</button>
 				</div>
 				
-				<div style="margin: 5px; width: 300px">				
+				<div style="margin: 5px; width: 400px">				
 				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="benchmark">🔎</button>
 				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
