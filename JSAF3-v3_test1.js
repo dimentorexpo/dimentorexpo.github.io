@@ -130,8 +130,8 @@ var win_AFhelper =
 </div>`;
 
 var win_Links =  
-    `<div style="display: flex; width: 501px;">
-        <span style="width: 501px">
+    `<div style="display: flex; width: 401px;">
+        <span style="width: 401px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 400px">
 					<button id="hideMe" style="background: #228B22;">hide</button>
@@ -155,7 +155,7 @@ var win_Links =
 					<button id="browserstack">BrowStk</button>
 				</div>
 				
-				<div style="margin: 5px; width: 500px">				
+				<div style="margin: 5px; width: 400px">				
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="benchmark">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
@@ -382,7 +382,7 @@ wintLinks.innerHTML = win_Links;
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener3);}
 
 document.getElementById('AF_Links').ondblclick = function () {
-	document.getElementById('addTmp').style.display = 'none';
+	document.getElementById('AF_Links').style.display = 'none';
 	}
 
 let wintAF = document.createElement('div');
