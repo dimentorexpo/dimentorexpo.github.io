@@ -58,7 +58,7 @@ function mystyles() {
 	mstl.innerHTML = style;
 }
 
-var win_AFhelper =  //описание элементов главного окна расширения
+var win_AFhelper =  // описание элементов главного окна
     `<div style="display: flex; width: 301px;">
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
@@ -129,7 +129,7 @@ var win_AFhelper =  //описание элементов главного ок�
 	</span>
 </div>`;
 
-var win_Links =  //описание элементов окна ссылок
+var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 401px;">
         <span style="width: 401px">
 			<span style="cursor: -webkit-grab;">
@@ -144,8 +144,8 @@ var win_Links =  //описание элементов окна ссылок
 					<button id="compens">Компенс</button>
 					<button id="CMS">CMS</button>
 					<button id="useradm">Админка</button>
-					<button id="suggestions">Предложения</button>
 					<button id="transactions">Поиск$</button>
+					<button id="suggestions">Предложения</button>
 					<button id="userfeatures">Фичи</button>
 					<button id="trmnew">TRM2</button>
 					<button id="perfectprivacy">PP</button>
@@ -155,7 +155,7 @@ var win_Links =  //описание элементов окна ссылок
 					<button id="browserstack">BrowStk</button>
 				</div>
 				
-				<div style="margin: 5px; width: 400px">				
+				<div style="margin: 5px; width: 400px">	
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="benchmark">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
@@ -174,13 +174,13 @@ var win_Links =  //описание элементов окна ссылок
 let audio
 
 
-if (localStorage.getItem('winTopAF') == null) { // Присвоение начальной позиции главного окна если ее нет
+if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
-if (localStorage.getItem('winTopLinks') == null) { // Присвоение начальной позиции окна ссылок если ее нет
+if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
-    localStorage.setItem('winTopLinks', '295');
+    localStorage.setItem('winLeftLinks', '295');
 }
 
 
@@ -367,24 +367,20 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
- document.getElementById('btn1_hash').style.display = 'none';
- document.getElementById('main_easy_win').ondblclick = function () {
-	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
-		document.getElementById('hash_type_for_chat').style.display = '';
-		document.getElementById('btn1_hash').style.display = '';
-	}
-	else {
-		document.getElementById('hash_type_for_chat').style.display = 'none';
-		document.getElementById('btn1_hash').style.display = 'none';
-		}
- 	}
-document.getElementById('btn_hide').ondblclick = function () { // скрытие поиска id по хэшу при нажатии кнопки скрыть
-	document.getElementById('hash_type_for_chat').style.display = 'none';
-	document.getElementById('btn1_hash').style.display = 'none';
-	}
+// document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
+// document.getElementById('btn1_hash').style.display = 'none';
+// document.getElementById('main_easy_win').ondblclick = function () {
+//	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
+//		document.getElementById('hash_type_for_chat').style.display = '';
+//		document.getElementById('btn1_hash').style.display = '';
+//	}
+//	else {
+//		document.getElementById('hash_type_for_chat').style.display = 'none';
+//		document.getElementById('btn1_hash').style.display = 'none';
+//		}
+//	}
 
- var listener4 = function(e , a) { // сохранение последней позиции окна ссылок
+ var listener4 = function(e , a) { // сохранение позиции окна ссылок
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
         wintLinks.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
@@ -398,7 +394,7 @@ document.getElementById('btn_hide').ondblclick = function () { // скрытие
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
-document.getElementById('AF_Links').ondblclick = function () {
+document.getElementById('AF_Links').ondblclick = function () { // скрытие окна ссылок по двойному клику
 	document.getElementById('AF_Links').style.display = 'none';
 	}
 
@@ -2972,6 +2968,7 @@ function firstLoadPage() {
 	if(window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
 		document.getElementById('AF_helper').style.display = 'none';
 		document.getElementById('testUsers').style.display = 'none';
+		document.getElementById('AF_Links').style.display = 'none';
 	} else {
 		mystyles()
 		setTimeout(move_again_AF, 3500)
