@@ -169,9 +169,9 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button id="showcaseHW">💾</button>
+					<button id="showcaseHW type="button" data-secondname="✅"">💾</button>
 					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button id="gethash">💾</button>
+					<button id="gethash type="button" data-secondname="✅"">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px">	
@@ -591,6 +591,7 @@ document.querySelectorAll("button").forEach(function(el){
 			console.log('Введите id  ученика в поле')
 		else {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
+				setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			};
 			HWstudID.value = "";
 		}
@@ -601,6 +602,7 @@ document.querySelectorAll("button").forEach(function(el){
 			console.log('Введите hash комнаты в поле')
 		else {
 				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+				setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			};
 			lookhash.value = "";
 		}
