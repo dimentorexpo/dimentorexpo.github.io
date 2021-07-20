@@ -575,7 +575,7 @@ function move_again_AF() {
 		if(HWstudID.value == "")
 			console.log('Введите id  ученика в поле')
 		else {
-				CopyToClipboard(hwstidlnk + HWstudID.value + "/homework");
+				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
 			HWstudID.value = "";
 		}
