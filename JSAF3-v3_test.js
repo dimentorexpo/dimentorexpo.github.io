@@ -416,6 +416,15 @@ var TP_addr = 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA
 var TP_addr2 = 'https://script.google.com/macros/s/AKfycbxnGXdfgYTfmBiviW_sxBa2Q1YhhiutNv5FEk9ZVw/exec'
 var flagLangBut = 0
 function move_again_AF() {
+	
+	const copyToClipboard = str => {
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+}
 
     if(window.location.href.indexOf('autofaq') === -1) {
 		document.getElementById('AF_helper').style.display = 'none';
@@ -448,14 +457,6 @@ function move_again_AF() {
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2020-10-06T13:17:28.478Z',to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20dikuhimaga'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana сервер по хешу комнаты
 })	
 
-const copyToClipboard = str => {
-    const el = document.createElement('textarea');
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-}
 	
 		document.getElementById('redashlnk').addEventListener('click',function(){
     window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
@@ -505,7 +506,6 @@ const copyToClipboard = str => {
     copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер
 })
 
-
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
 })
@@ -516,9 +516,6 @@ const copyToClipboard = str => {
 	document.getElementById('perfectprivacy').addEventListener('click',function(){
     window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
 })	
-	
-
-	
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
@@ -583,7 +580,6 @@ const copyToClipboard = str => {
 			HWstudID.value = "";
 		}
 		
-
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
