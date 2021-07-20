@@ -171,7 +171,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 	
 					<div style="margin: 5px; width: 400px">	
-						<button id="restartlesson">Reset MATH</button>
+						<button id="restartlesson">Reset MATH💾</button>
 				    </div>		
 			</span>
 	</span>
