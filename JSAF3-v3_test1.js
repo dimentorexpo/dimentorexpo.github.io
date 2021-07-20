@@ -130,14 +130,14 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 512px;">
-        <span style="width: 512px">
+    `<div style="display: flex; width: 520px;">
+        <span style="width: 520px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 508">
+				<div style="margin: 5px; width: 516">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>
 				
-				<div style="margin: 5px; width: 508px">
+				<div style="margin: 5px; width: 516px">
 					<button id="timetable" style="width:100px">TT</button>
 					<button id="talksadm" style="width:100px">Talks</button>
 					<button id="billingadm" style="width:100px">Начислятор</button>
@@ -155,7 +155,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="browserstack" style="width:100px">BrowStk</button>
 				</div>
 				
-				<div style="margin: 5px; width: 508px">	
+				<div style="margin: 5px; width: 516px">	
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="benchmark">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
