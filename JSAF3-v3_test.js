@@ -138,7 +138,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>
 				
 				<div style="margin: 5px; width: 400px">
-					<button id="timetable">TT</button>
+					<button id="timetable">TimeTable</button>
 					<button id="talksadm">Talks</button>
 					<button id="billingadm">Начислятор</button>
 					<button id="compens">Компенс</button>
@@ -148,7 +148,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="suggestions">Предложения</button>
 					<button id="userfeatures">Фичи</button>
 					<button id="trmnew">TRM2</button>
-					<button id="perfectprivacy">PP</button>
+					<button id="perfectprivacy">PerfPriv</button>
 					<button id="badmarks">-оценки</button>
 					<button id="apelation">Апелляции</button>
 					<button id="kcerrors">Ошибки КЦ</button>
@@ -173,7 +173,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 	
 					<div style="margin: 5px; width: 400px">	
-						<button id="restartlesson">Reset MATH💾</button>
+						<button id="restartlesson">Rerun MATH💾</button>
 				    </div>		
 			</span>
 	</span>
@@ -505,7 +505,7 @@ function move_again_AF() {
 })
 
 	document.getElementById('restartlesson').addEventListener('click',function(){
-    copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер
+    copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер для перезапуска урока
 })
 
 	document.getElementById('browserstack').addEventListener('click',function(){
@@ -587,7 +587,7 @@ function move_again_AF() {
 		if(lookhash.value == "")
 			console.log('Введите hash комнаты в поле')
 		else {
-				copyToClipboard(hashlnk + lookhash.value + '"');
+				copyToClipboard(hashlnk + lookhash.value + "\"");
 			};
 			lookhash.value = "";
 		}
