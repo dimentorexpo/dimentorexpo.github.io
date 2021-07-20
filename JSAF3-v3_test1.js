@@ -366,14 +366,23 @@ wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: 
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
- document.getElementById('block-hash').style.display = 'none'; // скрытие поиска id по хэшу
- document.getElementById('main_easy_win').ondblclick = function () {
-	if(document.getElementById('block-hash').style.display == 'none') 
-		document.getElementById('block-hash').style.display = '';
-	else
-		document.getElementById('block-hash').style.display = 'none';
- }
 
+ document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
+ document.getElementById('btn1_hash').style.display = 'none';
+ document.getElementById('main_easy_win').ondblclick = function () {
+	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
+		document.getElementById('hash_type_for_chat').style.display = '';
+		document.getElementById('btn1_hash').style.display = '';
+	}
+	else {
+		document.getElementById('hash_type_for_chat').style.display = 'none';
+		document.getElementById('btn1_hash').style.display = 'none';
+		}
+ 	}
+document.getElementById('btn_hide').ondblclick = function () { // скрытие поиска id по хэшу при нажатии кнопки скрыть
+	document.getElementById('hash_type_for_chat').style.display = 'none';
+	document.getElementById('btn1_hash').style.display = 'none';
+	}
 
  var listener4 = function(e , a) { // сохранение последней позиции окна ссылок
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
