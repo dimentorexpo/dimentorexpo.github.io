@@ -65,9 +65,9 @@ var win_AFhelper =  // описание элементов главного ок
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 10px">hide</button>
-					<button id="setting" style="margin-left: 15px">S</button>
-					<button id="addsrc" style="margin-left: 35px">*</button>
-					<button id="links" style="margin-left: 2px">L</button>
+					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
+					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
@@ -130,51 +130,51 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 401px;">
-        <span style="width: 401px">
+    `<div style="display: flex; width: 524px;">
+        <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 400px">
-					<button id="hideMe" style="background: #228B22;">hide</button>
-				</div>
+				<div style="margin: 5px; width: 520">
+					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
+				</div>				
 				
-				<div style="margin: 5px; width: 400px">
-					<button id="timetable">TimeTable</button>
-					<button id="talksadm">Talks</button>
-					<button id="billingadm">Начислятор</button>
-					<button id="compens">Компенс</button>
-					<button id="CMS">CMS</button>
-					<button id="useradm">Админка</button>
-					<button id="transactions">Поиск$</button>
-					<button id="suggestions">Предложения</button>
-					<button id="userfeatures">Фичи</button>
-					<button id="trmnew">TRM2</button>
-					<button id="perfectprivacy">PerfPriv</button>
-					<button id="badmarks">-оценки</button>
-					<button id="apelation">Апелляции</button>
-					<button id="kcerrors">Ошибки КЦ</button>
-					<button id="browserstack">BrowStk</button>
-				</div>
+				<div style="margin: 5px; width: 520px">
+					<button id="timetable" style="width:100px">TimeTable</button>
+					<button id="talksadm" style="width:100px">Talks</button>
+					<button id="billingadm" style="width:100px">Начислятор</button>
+					<button id="compens" style="width:100px">Компенсация</button>
+					<button id="CMS" style="width:100px">CMS</button>
+					<button id="useradm" style="width:100px">Админка</button>
+					<button id="transactions" style="width:100px">Поиск $</button>
+					<button id="suggestions" style="width:100px">Предложения</button>
+					<button id="userfeatures" style="width:100px">User Фичи</button>
+					<button id="trmnew" style="width:100px">TRM2</button>
+					<button id="perfectprivacy" style="width:100px">PerfectPrivacy</button>
+					<button id="badmarks" style="width:100px">-оценки</button>
+					<button id="apelation" style="width:100px">Апелляции</button>
+					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
+					<button id="browserstack" style="width:100px">BrowserStaсk</button>
+				</div>				
 				
-				<div style="margin: 5px; width: 400px">	
-					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<div style="margin: 5px; width: 520px">	
+					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="groupadm">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="cmsid">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="sguid">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="credits">🔎</button>
-					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="showcaseHW">💾</button>
-					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="gethash">💾</button>
 				</div>		
-	
-					<div style="margin: 5px; width: 400px">	
-						<button id="restartlesson">Rerun MATH💾</button>
-				    </div>		
+				
+				<div style="margin: 5px; width: 520px">	
+					<button id="restartlesson" style="width:100px">Redo MAT💾</button>
+				</div>		
 			</span>
 	</span>
 </div>`;
@@ -375,18 +375,18 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
- document.getElementById('btn1_hash').style.display = 'none';
- document.getElementById('main_easy_win').ondblclick = function () {
-	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
-		document.getElementById('hash_type_for_chat').style.display = '';
-		document.getElementById('btn1_hash').style.display = '';
-	}
-	else {
-		document.getElementById('hash_type_for_chat').style.display = 'none';
-		document.getElementById('btn1_hash').style.display = 'none';
-		}
- 	}
+// document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
+// document.getElementById('btn1_hash').style.display = 'none';
+// document.getElementById('main_easy_win').ondblclick = function () {
+//	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
+//		document.getElementById('hash_type_for_chat').style.display = '';
+//		document.getElementById('btn1_hash').style.display = '';
+//	}
+//	else {
+//		document.getElementById('hash_type_for_chat').style.display = 'none';
+//		document.getElementById('btn1_hash').style.display = 'none';
+//		}
+//	}
 
  var listener4 = function(e , a) { // сохранение позиции окна ссылок
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -418,8 +418,8 @@ var TP_addr = 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA
 var TP_addr2 = 'https://script.google.com/macros/s/AKfycbxnGXdfgYTfmBiviW_sxBa2Q1YhhiutNv5FEk9ZVw/exec'
 var flagLangBut = 0
 function move_again_AF() {
-	
-	const copyToClipboard = str => {
+
+const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
     const el = document.createElement('textarea');
     el.value = str;
     document.body.appendChild(el);
@@ -450,17 +450,13 @@ function move_again_AF() {
 	document.getElementById('kibanalnksvz').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
 })	
-
 	document.getElementById('kibanalnklk').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:9685821'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana Вход в ЛК
 })	
-
 	document.getElementById('kibanalnksrv').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2020-10-06T13:17:28.478Z',to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20dikuhimaga'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana сервер по хешу комнаты
 })	
-
-	
-		document.getElementById('redashlnk').addEventListener('click',function(){
+	document.getElementById('redashlnk').addEventListener('click',function(){
     window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
 })
 	document.getElementById('grafanalnk').addEventListener('click',function(){
@@ -474,8 +470,7 @@ function move_again_AF() {
 })
 	document.getElementById('talksadm').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
-	})
-	
+})
 	document.getElementById('billingadm').addEventListener('click',function(){
     window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
 })
@@ -503,15 +498,12 @@ function move_again_AF() {
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
-
 	document.getElementById('restartlesson').addEventListener('click',function(){
-    copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер для перезапуска урока
+    copyToClipboard("setStatus('classwork')")    // копируем ссылку в буфер для перезапуска урока математики
 })
-
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
 })
-	
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
 })
@@ -522,7 +514,7 @@ function move_again_AF() {
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
 })
-	document.getElementById('benchmark').onclick = function () {
+	document.getElementById('benchmark').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
 		let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
 		if(cpuname.value == "")
 			console.log('Введите CPU в поле')
@@ -532,7 +524,7 @@ function move_again_AF() {
 			cpuname.value = "";
 		}
 
-	document.getElementById('groupadm').onclick = function () {
+	document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
 		let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
 		if(grid.value == "")
 			console.log('Введите id в поле')
@@ -542,7 +534,7 @@ function move_again_AF() {
 			grid.value = "";
 		}
 		
-	document.getElementById('cmsid').onclick = function () {
+	document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
 		let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
 		if(cmsstepid.value == "")
 			console.log('Введите stepid в поле')
@@ -552,7 +544,7 @@ function move_again_AF() {
 			cmsstepid.value = "";
 		}
 	
-	document.getElementById('sguid').onclick = function () {
+	document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
 		let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
 		if(studguid.value == "")
 			console.log('Введите id  ученика в поле')
@@ -562,7 +554,7 @@ function move_again_AF() {
 			studguid.value = "";
 		}	
 		
-	document.getElementById('credits').onclick = function () {
+	document.getElementById('credits').onclick = function () {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
 		let lnkscredits = 'https://accounting.skyeng.ru/credit/list?studentId=';
 		if(creditstatus.value == "")
 			console.log('Введите id  ученика в поле')
@@ -571,8 +563,8 @@ function move_again_AF() {
 			};
 			creditstatus.value = "";
 		}	
-		
-			document.getElementById('showcaseHW').onclick = function () {
+	
+	document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
 		let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
 		if(HWstudID.value == "")
 			console.log('Введите id  ученика в поле')
@@ -581,8 +573,8 @@ function move_again_AF() {
 			};
 			HWstudID.value = "";
 		}
-		
-			document.getElementById('gethash').onclick = function () {
+	
+	document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
 		let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
 		if(lookhash.value == "")
 			console.log('Введите hash комнаты в поле')
@@ -591,7 +583,6 @@ function move_again_AF() {
 			};
 			lookhash.value = "";
 		}
-		
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
@@ -640,6 +631,10 @@ function move_again_AF() {
     document.getElementById('hideMenu').onclick = function () {
 		document.getElementById('AF_helper').style.display = 'none'
 		document.getElementById('scriptBut').style.display = ''
+	    	if(document.getElementById('cstmTmplates').style.display == '')
+			document.getElementById('cstmTmplates').style.display = 'none'
+	    	if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
 	}
     document.getElementById('takeNewChat').onclick = function () {
 		getNewChat()
@@ -3008,6 +3003,7 @@ function firstLoadPage() {
 	if(window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
 		document.getElementById('AF_helper').style.display = 'none';
 		document.getElementById('testUsers').style.display = 'none';
+		document.getElementById('AF_Links').style.display = 'none';
 	} else {
 		mystyles()
 		setTimeout(move_again_AF, 3500)
