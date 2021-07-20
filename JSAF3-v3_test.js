@@ -17,6 +17,10 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
+		button: hover {
+		background-color:#0000ff;
+
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
