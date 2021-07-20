@@ -166,12 +166,13 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="sguid">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 					<button id="credits">🔎</button>
+					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="showcaseHW">🔎</button>
 				</div>		
-				
+	
 					<div style="margin: 5px; width: 400px">	
-					<button id="restartlesson">Reset MATH</button>
-					<button id="showcaseHW">Просмотр HW У</button>
-				</div>		
+						<button id="restartlesson">Reset MATH</button>
+				    </div>		
 			</span>
 	</span>
 </div>`;
@@ -516,6 +517,8 @@ const copyToClipboard = str => {
     window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
 })	
 	
+
+	
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
@@ -569,6 +572,22 @@ const copyToClipboard = str => {
 			};
 			creditstatus.value = "";
 		}	
+		
+			document.getElementById('showcaseHW').onclick = function () {
+		let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
+		if(HWstudID.value == "")
+			console.log('Введите id  ученика в поле')
+		else {
+				window.open(hwstidlnk + HWstudID.value + "/homework");
+			};
+			HWstudID.value = "";
+		}
+		
+				document.getElementById('showcaseHW').addEventListener('click',function(){
+    window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
+})	
+
+
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
