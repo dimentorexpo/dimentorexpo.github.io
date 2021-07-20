@@ -130,39 +130,42 @@ var win_AFhelper =
 </div>`;
 
 var win_Links =  
-    `<div style="display: flex; width: 301px;">
-        <span style="width: 301px">
+    `<div style="display: flex; width: 501px;">
+        <span style="width: 501px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 300px">
-				<button id="hideMe" style="background: #228B22;">hide</button>
-				<button id="timetable">TT</button>
-				<button id="talksadm">Talks</button>
-				<button id="billingadm">Начислятор</button>
-				<button id="compens">Компенс</button>
-				<button id="CMS">CMS</button>
-				<button id="useradm">Админка</button>
-				<button id="suggestions">Предложения</button>
-				<button id="transactions">Поиск$</button>
-				<button id="userfeatures">Фичи</button>
-				<button id="trmnew">TRM2</button>
-				<button id="perfectprivacy">PP</button>
-				<button id="badmarks">-оценки</button>
-				<button id="apelation">Апелляции</button>
-				<button id="kcerrors">Ошибки КЦ</button>
-				<button id="browserstack">BrowStk</button>
+				<div style="margin: 5px; width: 500px">
+					<button id="hideMe" style="background: #228B22;">hide</button>
 				</div>
 				
-				<div style="margin: 5px; width: 300px">				
-				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="benchmark">🔎</button>
-				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="groupadm">🔎</button>
-				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="cmsid">🔎</button>
-				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="sguid">🔎</button>
-				<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="credits">🔎</button>
+				<div style="margin: 5px; width: 500px">
+					<button id="timetable">TT</button>
+					<button id="talksadm">Talks</button>
+					<button id="billingadm">Начислятор</button>
+					<button id="compens">Компенс</button>
+					<button id="CMS">CMS</button>
+					<button id="useradm">Админка</button>
+					<button id="suggestions">Предложения</button>
+					<button id="transactions">Поиск$</button>
+					<button id="userfeatures">Фичи</button>
+					<button id="trmnew">TRM2</button>
+					<button id="perfectprivacy">PP</button>
+					<button id="badmarks">-оценки</button>
+					<button id="apelation">Апелляции</button>
+					<button id="kcerrors">Ошибки КЦ</button>
+					<button id="browserstack">BrowStk</button>
+				</div>
+				
+				<div style="margin: 5px; width: 500px">				
+					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="benchmark">🔎</button>
+					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="groupadm">🔎</button>
+					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="cmsid">🔎</button>
+					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="sguid">🔎</button>
+					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="credits">🔎</button>
 				</div>		
 			</span>
 	</span>
@@ -359,12 +362,12 @@ hashBut.onclick = function () {
 }
 let wintLinks = document.createElement('div');
 document.body.append(wintLinks);
-wintLinks.style = 'min-height: 25px; min-width: 95px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
- var listener4 = function(e , a) {
+ var listener3 = function(e , a) {
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
         wintLinks.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
@@ -374,9 +377,9 @@ wintLinks.innerHTML = win_Links;
     wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
         window.myX4 = a.layerX; 
         window.myY4 = a.layerY; 
-        document.addEventListener('mousemove', listener4);
+        document.addEventListener('mousemove', listener3);
     }
-    wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
+    wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener3);}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
