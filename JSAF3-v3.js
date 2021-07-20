@@ -138,7 +138,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>				
 				
 				<div style="margin: 5px; width: 520px">
-					<button id="timetable" style="width:100px">TT</button>
+					<button id="timetable" style="width:100px">TimeTable</button>
 					<button id="talksadm" style="width:100px">Talks</button>
 					<button id="billingadm" style="width:100px">Начислятор</button>
 					<button id="compens" style="width:100px">Компенс</button>
@@ -148,7 +148,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="suggestions" style="width:100px">Предложения</button>
 					<button id="userfeatures" style="width:100px">Фичи</button>
 					<button id="trmnew" style="width:100px">TRM2</button>
-					<button id="perfectprivacy" style="width:100px">PP</button>
+					<button id="perfectprivacy" style="width:100px">PerfPriv</button>
 					<button id="badmarks" style="width:100px">-оценки</button>
 					<button id="apelation" style="width:100px">Апелляции</button>
 					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
@@ -171,7 +171,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				
 				<div style="margin: 5px; width: 520px">	
-					<button id="restartlesson" style="width:100px">Reset MATH💾</button>
+					<button id="restartlesson" style="width:100px">Redo MATH💾</button>
 				</div>		
 			</span>
 	</span>
