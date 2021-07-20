@@ -133,11 +133,11 @@ var win_Links =
     `<div style="display: flex; width: 501px;">
         <span style="width: 501px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 500px">
+				<div style="margin: 5px; width: 400px">
 					<button id="hideMe" style="background: #228B22;">hide</button>
 				</div>
 				
-				<div style="margin: 5px; width: 500px">
+				<div style="margin: 5px; width: 400px">
 					<button id="timetable">TT</button>
 					<button id="talksadm">Talks</button>
 					<button id="billingadm">Начислятор</button>
@@ -380,6 +380,10 @@ wintLinks.innerHTML = win_Links;
         document.addEventListener('mousemove', listener3);
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener3);}
+
+document.getElementById('AF_Links').ondblclick = function () {
+	document.getElementById('addTmp').style.display = 'none';
+	}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
