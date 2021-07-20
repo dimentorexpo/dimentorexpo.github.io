@@ -1,5 +1,3 @@
-
-
 function mystyles() {
 	let mstl = document.createElement('style');
 	document.body.append(mstl);
@@ -19,7 +17,9 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
-
+	button:hover {
+		background: #120a8f;
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -123,28 +123,36 @@ var win_AFhelper =
 				<button id="redashlnk">Redash</button>
 				<button id="grafanalnk">Grafana</button>
 				<button id="customerlnk">Customer</button>
-				</div>
+			</div>
 		</div>
 		
-		<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar1">
-				<div style="margin: 5px; width: 300px">
+	</span>
+</div>`;
+
+var win_Links =  
+    `<div style="display: flex; width: 400px;">
+        <span style="width: 400px">
+			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px; width: 400px">
+				<button id="hideMe" style="background: #228B22;">hide</button>
 				<button id="timetable">TT</button>
 				<button id="talksadm">Talks</button>
 				<button id="billingadm">Начислятор</button>
 				<button id="compens">Компенс</button>
+				<button id="CMS">CMS</button>
 				<button id="useradm">Админка</button>
 				<button id="suggestions">Предложения</button>
 				<button id="transactions">Поиск$</button>
-				<button id="CMS">CMS</button>
+				<button id="userfeatures">Фичи</button>
 				<button id="trmnew">TRM2</button>
 				<button id="perfectprivacy">PP</button>
 				<button id="badmarks">-оценки</button>
 				<button id="apelation">Апелляции</button>
 				<button id="kcerrors">Ошибки КЦ</button>
-				<button id="userfeatures">Фичи</button>
+				<button id="browserstack">BrowStk</button>
 				</div>
 				
-				<div style="margin: 5px; width: 300px">				
+				<div style="margin: 5px; width: 400px">				
 				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="benchmark">🔎</button>
 				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
@@ -153,9 +161,10 @@ var win_AFhelper =
 				<button id="cmsid">🔎</button>
 				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sguid">🔎</button>
-				</div>
-				
-			</div>
+				<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="credits">🔎</button>
+				</div>		
+			</span>
 	</span>
 </div>`;
 	
@@ -166,7 +175,10 @@ if (localStorage.getItem('winTopAF') == null) {
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
-
+if (localStorage.getItem('winTopLinks') == null) {
+    localStorage.setItem('winTopLinks', '120');
+    localStorage.setItem('winTopLinks', '295');
+}
 
 
 if (localStorage.getItem('scriptAdr') == null) {
@@ -345,6 +357,26 @@ hashBut.onclick = function () {
 	}
 	
 }
+let wintLinks = document.createElement('div');
+document.body.append(wintLinks);
+wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinks.style.display = 'none';
+wintLinks.setAttribute('id' ,'AF_Links');
+wintLinks.innerHTML = win_Links; 
+
+ var listener4 = function(e , a) {
+        wintLinks.style.left = Number(e.clientX - myX4) + "px";
+        wintLinks.style.top = Number(e.clientY - myY4) + "px";
+        localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
+        localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX4)));
+    };
+
+    wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+        window.myX4 = a.layerX; 
+        window.myY4 = a.layerY; 
+        document.addEventListener('mousemove', listener4);
+    }
+    wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
@@ -435,6 +467,10 @@ function move_again_AF() {
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
+
+	document.getElementById('browserstack').addEventListener('click',function(){
+    window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
+})
 	
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
@@ -485,6 +521,16 @@ function move_again_AF() {
 				window.open(lnksgu + studguid.value);
 			};
 			studguid.value = "";
+		}	
+		
+	document.getElementById('credits').onclick = function () {
+		let lnkscredits = 'https://accounting.skyeng.ru/credit/list?studentId=';
+		if(creditstatus.value == "")
+			console.log('Введите id  ученика в поле')
+		else {
+				window.open(lnkscredits + creditstatus.value);
+			};
+			creditstatus.value = "";
 		}	
 	
     document.getElementById('msg').onclick = function () {
@@ -546,10 +592,17 @@ function move_again_AF() {
 			document.getElementById('set_bar').style.display = ''
 	}
     document.getElementById('links').onclick = function () {
-		if(document.getElementById('set_bar1').style.display == '')
-			document.getElementById('set_bar1').style.display = 'none'
+		if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
 		else
-			document.getElementById('set_bar1').style.display = ''
+			document.getElementById('AF_Links').style.display = ''
+	}
+	
+	   document.getElementById('hideMe').onclick = function () {
+		if(document.getElementById('AF_Links').style.display == '')
+			document.getElementById('AF_Links').style.display = 'none'
+		else
+			document.getElementById('AF_Links').style.display = ''
 	}
 	
 	    document.getElementById('addsrc').onclick = function () {
