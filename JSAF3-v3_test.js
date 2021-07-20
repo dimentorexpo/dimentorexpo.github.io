@@ -175,7 +175,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				
 				<div style="margin: 5px; width: 520px">	
-					<button type="button" data-secondname="Copied!" id="restartlesson" style="width:100px">Redo MAT💾</button>
+					<button data-secondname="Copied!" id="restartlesson" style="width:100px">Redo MAT💾</button>
 				</div>		
 			</span>
 	</span>
