@@ -66,8 +66,8 @@ var win_AFhelper =
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 10px">hide</button>
 					<button id="setting" style="margin-left: 15px">S</button>
-					<button id="addsrc" style="margin-left: 5px">*</button>
-					<button id="links" style="margin-left: 40px">L</button>
+					<button id="addsrc" style="margin-left: 35px">*</button>
+					<button id="links" style="margin-left: 2px">L</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
@@ -130,39 +130,42 @@ var win_AFhelper =
 </div>`;
 
 var win_Links =  
-    `<div style="display: flex; width: 301px;">
-        <span style="width: 301px">
+    `<div style="display: flex; width: 401px;">
+        <span style="width: 401px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 300px">
-				<button id="hideMe" style="background: #228B22;">hide</button>
-				<button id="timetable">TT</button>
-				<button id="talksadm">Talks</button>
-				<button id="billingadm">Начислятор</button>
-				<button id="compens">Компенс</button>
-				<button id="CMS">CMS</button>
-				<button id="useradm">Админка</button>
-				<button id="suggestions">Предложения</button>
-				<button id="transactions">Поиск$</button>
-				<button id="userfeatures">Фичи</button>
-				<button id="trmnew">TRM2</button>
-				<button id="perfectprivacy">PP</button>
-				<button id="badmarks">-оценки</button>
-				<button id="apelation">Апелляции</button>
-				<button id="kcerrors">Ошибки КЦ</button>
-				<button id="browserstack">BrowStk</button>
+				<div style="margin: 5px; width: 400px">
+					<button id="hideMe" style="background: #228B22;">hide</button>
 				</div>
 				
-				<div style="margin: 5px; width: 300px">				
-				<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="benchmark">🔎</button>
-				<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="groupadm">🔎</button>
-				<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="cmsid">🔎</button>
-				<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="sguid">🔎</button>
-				<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="credits">🔎</button>
+				<div style="margin: 5px; width: 400px">
+					<button id="timetable">TT</button>
+					<button id="talksadm">Talks</button>
+					<button id="billingadm">Начислятор</button>
+					<button id="compens">Компенс</button>
+					<button id="CMS">CMS</button>
+					<button id="useradm">Админка</button>
+					<button id="suggestions">Предложения</button>
+					<button id="transactions">Поиск$</button>
+					<button id="userfeatures">Фичи</button>
+					<button id="trmnew">TRM2</button>
+					<button id="perfectprivacy">PP</button>
+					<button id="badmarks">-оценки</button>
+					<button id="apelation">Апелляции</button>
+					<button id="kcerrors">Ошибки КЦ</button>
+					<button id="browserstack">BrowStk</button>
+				</div>
+				
+				<div style="margin: 5px; width: 400px">				
+					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="benchmark">🔎</button>
+					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="groupadm">🔎</button>
+					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="cmsid">🔎</button>
+					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="sguid">🔎</button>
+					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+					<button id="credits">🔎</button>
 				</div>		
 			</span>
 	</span>
@@ -359,7 +362,7 @@ hashBut.onclick = function () {
 }
 let wintLinks = document.createElement('div');
 document.body.append(wintLinks);
-wintLinks.style = 'min-height: 25px; min-width: 95px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winTopLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
@@ -377,6 +380,10 @@ wintLinks.innerHTML = win_Links;
         document.addEventListener('mousemove', listener4);
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
+
+document.getElementById('AF_Links').ondblclick = function () {
+	document.getElementById('AF_Links').style.display = 'none';
+	}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
