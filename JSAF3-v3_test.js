@@ -593,6 +593,7 @@ document.querySelectorAll("button").forEach(function(el){
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
 			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
+			showcaseHW.trigger('reset');
 			HWstudID.value = "";
 		}
 	
