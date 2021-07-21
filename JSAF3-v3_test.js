@@ -20,9 +20,6 @@ function mystyles() {
 	button:hover {
 		background: #120a8f;
 	}
-	buttonnot:hover {
-		background: transparent;
-	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -891,11 +888,6 @@ const copyToClipboard = str => {           // инициализация фун�
 			localStorage.setItem('audio', '1');
         }
 	}
-	
-	    document.getElementById('switchglts').onclick = function () {
-		document.querySelector("button:hover").addClass('buttonnot');
-	}
-	
 	
 	if (localStorage.getItem('audio') == 0) {
 		document.getElementById('switcher').innerHTML = "ВЫКЛ"
