@@ -593,8 +593,8 @@ document.querySelectorAll("button").forEach(function(el){
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
 			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
-			showcaseHW.trigger('reset');
 			HWstudID.value = "";
+			$showcaseHW.trigger('reset');
 		}
 	
 	document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
