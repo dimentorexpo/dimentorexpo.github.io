@@ -600,10 +600,10 @@ const copyToClipboard = str => {           // инициализация фун�
 		}
 	
 	
-	//	document.getElementById('setcolor').onclick = function () {    
-	//		document.getElementById("style").style.backgroundColor = colorId.value;
-	//		colorId.value = "";
-	//	}
+		document.getElementById('setcolor').onclick = function () {    
+			document.getElementById("button:hover").background = colorId.value;
+			colorId.value = "";
+		}
 		
 	//	document.getElementById('highlight').onclick = function () {
 		
