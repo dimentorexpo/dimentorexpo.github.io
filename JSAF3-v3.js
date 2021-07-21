@@ -18,7 +18,7 @@ function mystyles() {
 		padding:2px 2px;
 	}
 	button:hover {
-		background: #120a8f;
+		background: #6A5ACD;
 	}
 	.switch-btn {
 		display: inline-block;
