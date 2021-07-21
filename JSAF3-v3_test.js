@@ -600,13 +600,12 @@ const copyToClipboard = str => {           // инициализация фун�
 		}
 	
 	
-		document.getElementById('setcolor').onclick = function () {    
-			document.getElementById(":hover").style.backgroundColor = colorId.value;
-			colorId.value = "";
-		}
+	//	document.getElementById('setcolor').onclick = function () {    
+	//		document.getElementById("style").style.backgroundColor = colorId.value;
+	//		colorId.value = "";
+	//	}
 		
-		document.getElementById('highlight').onclick = function () {
-			document.getElementById(":hover").style.backgroundColor = "lightblue";
+	//	document.getElementById('highlight').onclick = function () {
 		
 		
     document.getElementById('msg').onclick = function () {
