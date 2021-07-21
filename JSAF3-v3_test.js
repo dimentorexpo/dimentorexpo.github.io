@@ -612,7 +612,7 @@ document.getElementById('highlight').onclick = function () {
         } else {
             this.innerHTML = "подсветка ВКЛ";
             localStorage.setItem('hov', '1');
-
+		}
 		if (localStorage.getItem('hov') == 0) {
         document.getElementById('highlight').innerHTML = "Подсветка ВЫКЛ"
     }
@@ -631,6 +631,7 @@ document.getElementById('highlight').onclick = function () {
                 background: #120a8f;
             }
         }
+}}
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
