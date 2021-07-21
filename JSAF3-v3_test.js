@@ -99,6 +99,9 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
+				<input id="colorId" placeholder="Цвет подсветки" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="setcolor">set</button>
+				<button id="highlight">подсветка</button>
 			</div>
 				
 			<div style="margin: 5px; width: 300px">
@@ -877,6 +880,13 @@ const copyToClipboard = str => {           // инициализация фун�
         } else {
             this.innerHTML = "ВКЛ";
 			localStorage.setItem('audio', '1');
+        }
+	}
+	
+	    document.getElementById('highlight').onclick = function () {
+			button.hover.style.background = #120a8f;
+        } else {
+            button.hover.style.background = #FFFFFF;
         }
 	}
 	
