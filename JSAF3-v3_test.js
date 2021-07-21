@@ -133,11 +133,10 @@ var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 520">
+				<div style="margin: 5px; width: 520;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>				
-				
-				<div style="margin: 5px; width: 520px">
+				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
 					<button id="talksadm" style="width:100px">Talks</button>
 					<button id="billingadm" style="width:100px">Начислятор</button>
@@ -157,7 +156,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="promocodes" style="width:100px">Промокоды</button>
 				</div>				
 				
-				<div style="margin: 5px; width: 520px">	
+				<div style="margin: 5px; width: 520px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="benchmark">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
@@ -174,7 +173,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button data-secondname="✅" id="gethash">💾</button>
 				</div>		
 				
-				<div style="margin: 5px; width: 520px">	
+				<div style="margin: 5px; width: 520px" id="links_butd">	
 					<button data-secondname="Copied!" id="restartlesson" style="width:100px">Redo MAT💾</button>
 				</div>		
 			</span>
@@ -377,18 +376,6 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
-// document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
-// document.getElementById('btn1_hash').style.display = 'none';
-// document.getElementById('main_easy_win').ondblclick = function () {
-//	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
-//		document.getElementById('hash_type_for_chat').style.display = '';
-//		document.getElementById('btn1_hash').style.display = '';
-//	}
-//	else {
-//		document.getElementById('hash_type_for_chat').style.display = 'none';
-//		document.getElementById('btn1_hash').style.display = 'none';
-//		}
-//	}
 
  var listener4 = function(e , a) { // сохранение позиции окна ссылок
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -404,9 +391,15 @@ wintLinks.innerHTML = win_Links;
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
-document.getElementById('AF_Links').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
 	document.getElementById('AF_Links').style.display = 'none';
-	}
+}
+document.getElementById('links_but').ondblclick = function () { // скрытие окна ссылок по двойному клику
+	document.getElementById('AF_Links').style.display = 'none';
+}
+document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
+	document.getElementById('AF_Links').style.display = 'none';
+}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
