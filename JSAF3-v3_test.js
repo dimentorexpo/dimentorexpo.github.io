@@ -600,7 +600,8 @@ const copyToClipboard = str => {           // инициализация фун�
 		}
 	
 		document.getElementById('setcolor').onclick = function () {                     //переход в админку редактора группы
-			button.style.hover.background = colorId.value;
+			style.button.hover.background = colorId.value;
+			colorId.value = "";
 		}
 	
     document.getElementById('msg').onclick = function () {
