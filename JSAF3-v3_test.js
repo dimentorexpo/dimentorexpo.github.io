@@ -607,7 +607,7 @@ const copyToClipboard = str => {           // инициализация фун�
 		}
 		
 		document.getElementById('highlight').onclick = function () {    
-			button.remove('hover');
+			document.getElementById('button').remove('hover');
 		}
 	
     document.getElementById('msg').onclick = function () {
