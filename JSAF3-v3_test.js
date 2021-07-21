@@ -20,6 +20,9 @@ function mystyles() {
 	button:hover {
 		background: #120a8f;
 	}
+	buttonnot:hover {
+		background: transparent;
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -99,8 +102,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
-				<button id="switcherhighlight">ON</button>
-				
+				<button id="switchglts">Highlight</button>
 			</div>
 				
 			<div style="margin: 5px; width: 300px">
@@ -888,6 +890,10 @@ const copyToClipboard = str => {           // инициализация фун�
             this.innerHTML = "ВКЛ";
 			localStorage.setItem('audio', '1');
         }
+	}
+	
+	    document.getElementById('switchglts').onclick = function () {
+		document.querySelector("button:hover".addClass('buttonnot');
 	}
 	
 	
