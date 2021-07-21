@@ -601,35 +601,12 @@ const copyToClipboard = str => {           // инициализация фун�
 	
 	
 		document.getElementById('setcolor').onclick = function () {    
-			$(this).css("background-color", colorId.value);
+			querySelector(":hover").background = colorId.value);
 			colorId.value = "";
 		}
 		
-document.getElementById('highlight').onclick = function () {
-        if(this.innerHTML == "Подсветка ВКЛ") {
-            this.innerHTML = "Подсветка ВЫКЛ";
-            localStorage.setItem('hov', '0');
-        } else {
-            this.innerHTML = "подсветка ВКЛ";
-            localStorage.setItem('hov', '1');
+//document.getElementById('highlight').onclick = function () {
 
-if (localStorage.getItem('hov') == 0) {
-        document.getElementById('highlight').innerHTML = "Подсветка ВЫКЛ"
-    }
-    if (localStorage.getItem('hov') == 1) {
-        document.getElementById('highlight').innerHTML = "Подсветка ВКЛ"
-    }
-if(localStorage.getItem('hov') != null) {
-        if(localStorage.getItem('hov') == '0')
-            document.getElementById('highlight').innerHTML = 'Подсветка ВЫКЛ';
-        else
-            document.getElementById('highlight').innerHTML = 'Подсветка ВКЛ';
-		if(document.getElementById('highlight').innerHTML == "Подсветка ВКЛ")
-        if(window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1){
-            button:hover {
-                background: #120a8f;
-            }
-        }
 		
 		
     document.getElementById('msg').onclick = function () {
