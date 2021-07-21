@@ -404,18 +404,20 @@ wintLinks.innerHTML = win_Links;
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
-document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('1page').ondblclick = function () { // скрытие окна ссылок по двойному клику
 	document.getElementById('AF_Links').style.display = 'none';
+document.getElementById('1page_button').click()
+document.getElementById('1page_input').click()
 	}
-document.getElementById('links_but').ondblclick = function () { // скрытие окна ссылок по двойному клику
-	document.getElementById('AF_Links').style.display = 'none';
-	}
-document.getElementById('links_box').ondblclick = function () { // скрытие окна ссылок по двойному клику
-	document.getElementById('AF_Links').style.display = 'none';
-	}
-document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
-	document.getElementById('AF_Links').style.display = 'none';
-	}
+//document.getElementById('links_but').ondblclick = function () { // скрытие окна ссылок по двойному клику
+//	document.getElementById('AF_Links').style.display = 'none';
+//	}
+//document.getElementById('links_box').ondblclick = function () { // скрытие окна ссылок по двойному клику
+//	document.getElementById('AF_Links').style.display = 'none';
+//	}
+//document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
+//	document.getElementById('AF_Links').style.display = 'none';
+//	}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
