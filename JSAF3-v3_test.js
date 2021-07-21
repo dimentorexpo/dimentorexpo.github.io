@@ -602,7 +602,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	
 		document.getElementById('setcolor').onclick = function () {    
 			var b1 = document.querySelector("button");		//переход в админку редактора группы
-			b1.setAttribute('hover', 'background:'+colorid.value);
+			b1.setAttribute('hover', 'background:#FFFFFF');
 			colorId.value = "";
 		}
 		
