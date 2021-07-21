@@ -103,7 +103,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
-				<button id="switchglts">Highlight</button>
 			</div>
 				
 			<div style="margin: 5px; width: 300px">
@@ -883,15 +882,6 @@ const copyToClipboard = str => {           // инициализация фун�
 	screenshots2()
 	setInterval(screenshots2, 5000)
 	
-	
-    document.getElementById('switchglts').onclick = function () {
-		var astyle = `
-	button:hover {
-		background: #120a8f;
-	}`
-	mstl2.innerHTML = style;
-	}
-
 	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
