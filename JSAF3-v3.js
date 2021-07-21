@@ -115,7 +115,7 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 		</div>
 		
-		<div style="border: 2px double black; display: none; background-color: #464451" id="new_window">
+		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
 			<div style="padding: 5 px; margin: 5px; width: 300px">
 				<button id="kibanalnksvz">Kib_Связь</button>
 				<button id="kibanalnklk">Kib_ЛК</button>
@@ -649,12 +649,16 @@ const copyToClipboard = str => {           // инициализация фун�
 		getNewChat()
 	}
 		
-    document.getElementById('setting').onclick = function () {
+	document.getElementById('setting').onclick = function () {
 		if(document.getElementById('set_bar').style.display == '')
 			document.getElementById('set_bar').style.display = 'none'
-		else
+		else	{
 			document.getElementById('set_bar').style.display = ''
+			document.getElementById('addTmp').style.display = 'none'
+			document.getElementById('linksd').style.display = 'none'
+		}
 	}
+
     document.getElementById('links').onclick = function () {
 		if(document.getElementById('AF_Links').style.display == '')
 			document.getElementById('AF_Links').style.display = 'none'
@@ -669,11 +673,15 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('AF_Links').style.display = ''
 	}
 	
-	    document.getElementById('addsrc').onclick = function () {
-		if(document.getElementById('new_window').style.display == '')
-			document.getElementById('new_window').style.display = 'none'
-		else
-			document.getElementById('new_window').style.display = ''
+	document.getElementById('addsrc').onclick = function () {
+		if(document.getElementById('linksd').style.display == '')
+			document.getElementById('linksd').style.display = 'none'
+		else {
+			document.getElementById('linksd').style.display = ''
+			document.getElementById('addTmp').style.display = 'none'
+			document.getElementById('set_bar').style.display = 'none'
+		}
+			
 	}
 	
     document.getElementById('sound_save').onclick = function () {
@@ -1248,10 +1256,13 @@ function refreshTemplates() {
 		}
 	}	
 	document.getElementById('0page').ondblclick = function () {
-	if(document.getElementById('addTmp').style.display == 'none')
-		document.getElementById('addTmp').style.display = '';
-	else
-		document.getElementById('addTmp').style.display = 'none';
+		if(document.getElementById('addTmp').style.display == 'none') {
+			document.getElementById('addTmp').style.display = '';
+			document.getElementById('set_bar').style.display = 'none'
+			document.getElementById('linksd').style.display = 'none'
+		}
+		else
+			document.getElementById('addTmp').style.display = 'none';
 	}
 	document.getElementById('0page_button').click()
 }
