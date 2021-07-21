@@ -602,7 +602,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	
 		document.getElementById('setcolor').onclick = function () {    
 			let elem = document.getElementById('button');
-			elemstyle.background = colorId.value;
+			buttpn.background = colorId.value;
 			colorId.value = "";
 		}
 		
