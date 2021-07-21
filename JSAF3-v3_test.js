@@ -602,13 +602,12 @@ const copyToClipboard = str => {           // инициализация фун�
 	
 		document.getElementById('setcolor').onclick = function () {    
 			let elem = document.getElementById('button');
-			elem.button.style.background = colorId.value;
+			elemstyle.background = colorId.value;
 			colorId.value = "";
 		}
 		
 		document.getElementById('highlight').onclick = function () {    
-			var b = document.querySelector("button");		//переход в админку редактора группы
-			b.removeAttribute('hover');
+			button.remove('hover');
 		}
 	
     document.getElementById('msg').onclick = function () {
