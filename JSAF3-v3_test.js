@@ -34,10 +34,6 @@ function mystyles() {
 		position: relative;
 		transition-duration: 300ms; /* анимация */
 	}
-	
-	.switch-btn:hover{
-		background: ##9932C;
-	}
 	.switch-btn::after {
 		content: "";
 		height: 36px; /* высота кнопки */
