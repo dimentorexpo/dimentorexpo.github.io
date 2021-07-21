@@ -16,6 +16,7 @@ function mystyles() {
 		border:1px solid #566963; 
 		color:#ffffff; 
 		padding:2px 2px;
+		display: block;
 	}
 	button:hover {
 		background: #120a8f;
@@ -594,7 +595,6 @@ document.querySelectorAll("button").forEach(function(el){
 			};
 			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			HWstudID.value = "";
-			$showcaseHW.trigger('reset');
 		}
 	
 	document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
