@@ -512,7 +512,7 @@ document.querySelectorAll("button").forEach(function(el){
 })
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
-	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT"}, 2000);
+	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 2000);
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
