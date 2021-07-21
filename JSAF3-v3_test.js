@@ -601,12 +601,12 @@ const copyToClipboard = str => {           // инициализация фун�
 	
 	
 		document.getElementById('setcolor').onclick = function () {    
-			document.getElementById('style').button.background = colorId.value;
+			document.getElementById('mstl.innerHTML').button.hover.background = colorId.value;
 			colorId.value = "";
 		}
 		
 		document.getElementById('highlight').onclick = function () {    
-			document.getElementById('style').removeAttribute('hover');
+			document.getElementById('mstl.innerHTML').button.removeAttribute('hover');
 		}
 	
     document.getElementById('msg').onclick = function () {
