@@ -133,11 +133,10 @@ var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
-				<<div style="margin: 5px; width: 520" id="links_1str">
+				<<div style="margin: 5px; width: 520;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>				
-				
-				<div style="margin: 5px; width: 520px" id="links_but">
+				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
 					<button id="talksadm" style="width:100px">Talks</button>
 					<button id="billingadm" style="width:100px">Начислятор</button>
