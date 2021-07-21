@@ -116,11 +116,11 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="new_window">
-			<div style="margin: 5px; width: 300px">
-				<button id="kibanalnksvz">K_Связь</button>
-				<button id="kibanalnklk">K_ЛК</button>
-				<button id="kibanalnksrv">K_СерверХешу</button>
-				<button id="redashlnk">Redash</button>
+			<div style="padding: 5 px; margin: 5px; width: 300px">
+				<button id="kibanalnksvz">Kib_Связь</button>
+				<button id="kibanalnklk">Kib_ЛК</button>
+				<button id="kibanalnksrv">Kib_СервХеш</button>
+				<button id="redashlnk">RedashApp</button>
 				<button id="grafanalnk">Grafana</button>
 				<button id="customerlnk">Customer</button>
 			</div>
