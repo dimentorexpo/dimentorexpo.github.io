@@ -600,8 +600,9 @@ const copyToClipboard = str => {           // инициализация фун�
 		}
 	
 	
-		document.getElementById('setcolor').onclick = function () {                     //переход в админку редактора группы
-			button.setAttribute('hover', 'background: "#" + colorid.value');
+		document.getElementById('setcolor').onclick = function () {    
+			var b = document.querySelector("button");		//переход в админку редактора группы
+			b.setAttribute('hover', 'background: "#" + colorid.value');
 			colorId.value = "";
 		}
 	
