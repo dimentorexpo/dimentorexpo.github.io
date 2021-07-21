@@ -883,16 +883,6 @@ const copyToClipboard = str => {           // инициализация фун�
         }
 	}
 	
-	    document.getElementById('highlight').onclick = function () {
-			if(button.hover.style.background == #120a8f){
-				{console.log('Highlight on');
-				}
-         else {
-            button.hover.style.background = #FFFFFF;
-        }
-	}
-	
-	
 	if (localStorage.getItem('audio') == 0) {
 		document.getElementById('switcher').innerHTML = "ВЫКЛ"
 	}
