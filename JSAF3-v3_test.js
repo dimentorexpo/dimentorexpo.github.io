@@ -572,7 +572,6 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
 		let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
 		if(HWstudID.value == "")
-            document.getElementById('showcaseHW').innerHTML = "❌";
 			console.log('Введите id  ученика в поле')
 		else {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
@@ -585,7 +584,6 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
 		let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
 		if(lookhash.value == "")
-			document.getElementById('gethash').innerHTML = "❌";
 			console.log('Введите hash комнаты в поле')
 		else {
 				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
