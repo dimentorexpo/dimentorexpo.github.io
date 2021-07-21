@@ -576,6 +576,7 @@ const copyToClipboard = str => {           // инициализация фун�
 		else {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
+			document.getElementById('showcaseHW').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			HWstudID.value = "";
 		}
@@ -587,6 +588,7 @@ const copyToClipboard = str => {           // инициализация фун�
 		else {
 				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
 			};
+			document.getElementById('gethash').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
 		}
