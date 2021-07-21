@@ -394,6 +394,7 @@ wintLinks.innerHTML = win_Links;
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
 	document.getElementById('AF_Links').style.display = 'none';
+}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
