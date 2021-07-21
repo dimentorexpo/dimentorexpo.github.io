@@ -116,11 +116,11 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="new_window">
-			<div style="margin: 5px; width: 300px">
-				<button id="kibanalnksvz">K_Связь</button>
-				<button id="kibanalnklk">K_ЛК</button>
-				<button id="kibanalnksrv">K_СерверХешу</button>
-				<button id="redashlnk">Redash</button>
+			<div style="padding: 5 px; margin: 5px; width: 300px">
+				<button id="kibanalnksvz">Kib_Связь</button>
+				<button id="kibanalnklk">Kib_ЛК</button>
+				<button id="kibanalnksrv">Kib_СервХеш</button>
+				<button id="redashlnk">RedashApp</button>
 				<button id="grafanalnk">Grafana</button>
 				<button id="customerlnk">Customer</button>
 			</div>
@@ -133,11 +133,10 @@ var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 520" id="links_1str">
+				<div style="margin: 5px; width: 520;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 				</div>				
-				
-				<div style="margin: 5px; width: 520px" id="links_but">
+				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
 					<button id="talksadm" style="width:100px">Talks</button>
 					<button id="billingadm" style="width:100px">Начислятор</button>
@@ -157,7 +156,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="promocodes" style="width:100px">Промокоды</button>
 				</div>				
 				
-				<div style="margin: 5px; width: 520px" id="links_box">	
+				<div style="margin: 5px; width: 520px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="benchmark">🔎</button>
 					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
@@ -169,13 +168,13 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button data-secondname="✅" id="showcaseHW">💾</button>
+					<button id="showcaseHW">💾</button>
 					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button data-secondname="✅" id="gethash">💾</button>
+					<button id="gethash">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
-					<button data-secondname="Copied!" id="restartlesson" style="width:100px">Redo MAT💾</button>
+					<button id="restartlesson" style="width:100px">Redo MAT💾</button>
 				</div>		
 			</span>
 	</span>
@@ -402,7 +401,6 @@ document.getElementById('links_butd').ondblclick = function () { // скрыти
 	document.getElementById('AF_Links').style.display = 'none';
 }
 
-
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
 wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -424,16 +422,6 @@ const copyToClipboard = str => {           // инициализация фун�
     document.execCommand('copy');
     document.body.removeChild(el);
 }
-
-document.querySelectorAll("button").forEach(function(el){
-  	el.addEventListener("click",function(){
-      if(!this.dataset.secondname)
-        return;
-       var tmp = this.innerHTML;
-       this.innerHTML = this.dataset.secondname;
-       this.dataset.secondname = tmp;
-    },false)
-})
 
     if(window.location.href.indexOf('autofaq') === -1) {
 		document.getElementById('AF_helper').style.display = 'none';
@@ -507,6 +495,7 @@ document.querySelectorAll("button").forEach(function(el){
 })
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
+	document.getElementById('restartlesson').innerHTML = "Copied!";
 	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 2000);
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
@@ -587,6 +576,7 @@ document.querySelectorAll("button").forEach(function(el){
 		else {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
+			document.getElementById('showcaseHW').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			HWstudID.value = "";
 		}
@@ -598,6 +588,7 @@ document.querySelectorAll("button").forEach(function(el){
 		else {
 				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
 			};
+			document.getElementById('gethash').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
 		}
