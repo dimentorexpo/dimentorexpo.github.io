@@ -623,7 +623,7 @@ document.getElementById('highlight').onclick = function () {
             document.getElementById('highlight').innerHTML = 'Подсветка ВКЛ';
 		if(document.getElementById('highlight').innerHTML == "Подсветка ВКЛ")
         if(window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1){
-            button:hover {
+            button:hover 
                 background: #120a8f;
             }
         }
