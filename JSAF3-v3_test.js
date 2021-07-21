@@ -59,7 +59,7 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; width: 301px;">
+    `<div style="display: flex; border-style: groove; width: 301px;">
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
