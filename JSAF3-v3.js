@@ -168,13 +168,13 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button data-secondname="✅" id="showcaseHW">💾</button>
+					<button id="showcaseHW">💾</button>
 					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
-					<button data-secondname="✅" id="gethash">💾</button>
+					<button id="gethash">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
-					<button data-secondname="Copied!" id="restartlesson" style="width:100px">Redo MAT💾</button>
+					<button id="restartlesson" style="width:100px">Redo MAT💾</button>
 				</div>		
 			</span>
 	</span>
@@ -423,16 +423,6 @@ const copyToClipboard = str => {           // инициализация фун�
     document.body.removeChild(el);
 }
 
-document.querySelectorAll("button").forEach(function(el){
-  	el.addEventListener("click",function(){
-      if(!this.dataset.secondname)
-        return;
-       var tmp = this.innerHTML;
-       this.innerHTML = this.dataset.secondname;
-       this.dataset.secondname = tmp;
-    },false)
-})
-
     if(window.location.href.indexOf('autofaq') === -1) {
 		document.getElementById('AF_helper').style.display = 'none';
 	}
@@ -505,6 +495,7 @@ document.querySelectorAll("button").forEach(function(el){
 })
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
+	document.getElementById('restartlesson').innerHTML = "Copied!";
 	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 2000);
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
@@ -585,6 +576,7 @@ document.querySelectorAll("button").forEach(function(el){
 		else {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
+			document.getElementById('showcaseHW').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			HWstudID.value = "";
 		}
@@ -596,6 +588,7 @@ document.querySelectorAll("button").forEach(function(el){
 		else {
 				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
 			};
+			document.getElementById('gethash').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
 		}
