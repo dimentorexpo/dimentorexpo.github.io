@@ -627,7 +627,6 @@ document.getElementById('highlight').onclick = function () {
                 background: #120a8f;
             }
         }
-}
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
