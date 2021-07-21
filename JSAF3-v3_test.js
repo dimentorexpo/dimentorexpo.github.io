@@ -605,9 +605,32 @@ const copyToClipboard = str => {           // инициализация фун�
 			colorId.value = "";
 		}
 		
-		document.getElementById('highlight').onclick = function () {    
-			document.getElementById('mstl.innerHTML').removeAttribute('hover');
-		}
+document.getElementById('highlight').onclick = function () {
+        if(this.innerHTML == "Подсветка ВКЛ") {
+            this.innerHTML = "Подсветка ВЫКЛ";
+            localStorage.setItem('hov', '0');
+        } else {
+            this.innerHTML = "подсветка ВКЛ";
+            localStorage.setItem('hov', '1');
+
+		if (localStorage.getItem('hov') == 0) {
+        document.getElementById('highlight').innerHTML = "Подсветка ВЫКЛ"
+    }
+		if (localStorage.getItem('hov') == 1) {
+        document.getElementById('highlight').innerHTML = "Подсветка ВКЛ"
+    }
+		if(localStorage.getItem('hov') != null) {
+        if(localStorage.getItem('hov') == '0')
+            document.getElementById('highlight').innerHTML = 'Подсветка ВЫКЛ';
+        else
+            document.getElementById('highlight').innerHTML = 'Подсветка ВКЛ';
+		
+		if(document.getElementById('highlight').innerHTML == "Подсветка ВКЛ")
+        if(window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1){
+            button:hover {
+                background: #120a8f;
+            }
+        }
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
@@ -618,6 +641,8 @@ const copyToClipboard = str => {           // инициализация фун�
 			localStorage.setItem('msg', 'Чат')
         }
 	}
+	
+	
     document.getElementById('type_KC').onclick = function () {
 		localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec')
 		document.getElementById('msg1').style.display = 'none'
