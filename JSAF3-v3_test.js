@@ -573,6 +573,7 @@ const copyToClipboard = str => {           // инициализация фун�
 		let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
 		if(HWstudID.value == "")
 			console.log('Введите id  ученика в поле')
+					document.getElementById('showcaseHW').innerHTML = "❌";
 		else {
 				copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
 			};
@@ -585,6 +586,7 @@ const copyToClipboard = str => {           // инициализация фун�
 		let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
 		if(lookhash.value == "")
 			console.log('Введите hash комнаты в поле')
+			document.getElementById('gethash').innerHTML = "❌";
 		else {
 				copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
 			};
