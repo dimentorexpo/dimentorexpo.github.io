@@ -602,6 +602,10 @@ const copyToClipboard = str => {           // инициализация фун�
 			lookhash.value = "";
 		}
 	
+		document.getElementById('setcolor').onclick = function () {                     //переход в админку редактора группы
+			button.hover.background = colorId.value;
+		}
+	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
