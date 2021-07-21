@@ -881,7 +881,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	setInterval(screenshots2, 5000)
 	
 	    document.getElementById('switcherhighlight').onclick = function () {
-		document.querySelector('button:hover').style = " button:hover {background: #000"};
+		document.querySelector('button:hover').style = " button:hover {background: #000}";
 	}
 	
     document.getElementById('switcher').onclick = function () {
