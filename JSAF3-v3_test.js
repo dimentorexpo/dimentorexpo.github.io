@@ -18,7 +18,7 @@ function mystyles() {
 		padding:2px 2px;
 	}
 	button:hover {
-		background: ##9932C;
+		background: #6A5ACD;
 	}
 	.switch-btn {
 		display: inline-block;
@@ -878,7 +878,6 @@ const copyToClipboard = str => {           // инициализация фун�
 	screenshots2()
 	setInterval(screenshots2, 5000)
 	
-	
     document.getElementById('switcher').onclick = function () {
         if(this.innerHTML == "ВКЛ") {
             this.innerHTML = "ВЫКЛ";
@@ -888,7 +887,8 @@ const copyToClipboard = str => {           // инициализация фун�
 			localStorage.setItem('audio', '1');
         }
 	}
-		
+	
+	
 	if (localStorage.getItem('audio') == 0) {
 		document.getElementById('switcher').innerHTML = "ВЫКЛ"
 	}
