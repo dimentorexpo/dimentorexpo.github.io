@@ -103,7 +103,13 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="setcolor">set</button>
 				<button id="highlight">подсветка</button>
 			</div>
-				
+			
+			<div style="margin: 5px; width: 300px">
+				<input id="colorId" placeholder="Цвет подсветки" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="setcolor">set</button>
+				<button id="highlight">подсветка</button>
+							</div>
+							
 			<div style="margin: 5px; width: 300px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
