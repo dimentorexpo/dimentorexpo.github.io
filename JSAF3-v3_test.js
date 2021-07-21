@@ -599,8 +599,9 @@ const copyToClipboard = str => {           // инициализация фун�
 			lookhash.value = "";
 		}
 	
+	
 		document.getElementById('setcolor').onclick = function () {                     //переход в админку редактора группы
-			style.button.hover.background = colorId.value;
+			button.setAttribute('hover', 'background: "#" + colorid.value');
 			colorId.value = "";
 		}
 	
