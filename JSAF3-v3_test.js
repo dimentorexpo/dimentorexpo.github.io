@@ -893,7 +893,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	}
 	
 	    document.getElementById('switchglts').onclick = function () {
-		document.querySelector("button:hover".addClass('buttonnot');
+		document.querySelector("button:hover").addClass('buttonnot');
 	}
 	
 	
