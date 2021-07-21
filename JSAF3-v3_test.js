@@ -59,7 +59,7 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; border-style: groove; width: 301px;">
+    `<div style="display: flex; width: 301px;">
         <span style="width: 301px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
@@ -100,13 +100,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
 			</div>
-			
-			<div style="margin: 5px; width: 300px">
-				<input id="colorId" placeholder="Цвет подсветки" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="setcolor">set</button>
-				<button id="highlight">подсветка</button>
-							</div>
-							
+				
 			<div style="margin: 5px; width: 300px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
@@ -121,12 +115,12 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 		</div>
 		
-		<div style="border: 2px double black; display: none; background-color: #464451" id="new_window">
-			<div style="margin: 5px; width: 300px">
-				<button id="kibanalnksvz">K_Связь</button>
-				<button id="kibanalnklk">K_ЛК</button>
-				<button id="kibanalnksrv">K_СерверХешу</button>
-				<button id="redashlnk">Redash</button>
+		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
+			<div style="padding: 5 px; margin: 5px; width: 300px">
+				<button id="kibanalnksvz">Kib_Связь</button>
+				<button id="kibanalnklk">Kib_ЛК</button>
+				<button id="kibanalnksrv">Kib_СервХеш</button>
+				<button id="redashlnk">RedashApp</button>
 				<button id="grafanalnk">Grafana</button>
 				<button id="customerlnk">Customer</button>
 			</div>
@@ -136,7 +130,7 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; border-style: groove; width: 524px;">
+    `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 520;" id="links_1str">
@@ -599,16 +593,6 @@ const copyToClipboard = str => {           // инициализация фун�
 			lookhash.value = "";
 		}
 	
-	
-
-		document.getElementById('setcolor').onclick = function () {    
-			document.querySelectorAll("mstl.innerHTML", ":hover").background = colorId.value;
-			colorId.value = "";
-		}
-		
-	//	document.getElementById('highlight').onclick = function () {
-		
-		
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
@@ -618,8 +602,6 @@ const copyToClipboard = str => {           // инициализация фун�
 			localStorage.setItem('msg', 'Чат')
         }
 	}
-	
-	
     document.getElementById('type_KC').onclick = function () {
 		localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec')
 		document.getElementById('msg1').style.display = 'none'
@@ -667,12 +649,16 @@ const copyToClipboard = str => {           // инициализация фун�
 		getNewChat()
 	}
 		
-    document.getElementById('setting').onclick = function () {
+	document.getElementById('setting').onclick = function () {
 		if(document.getElementById('set_bar').style.display == '')
 			document.getElementById('set_bar').style.display = 'none'
-		else
+		else	{
 			document.getElementById('set_bar').style.display = ''
+			document.getElementById('addTmp').style.display = 'none'
+			document.getElementById('linksd').style.display = 'none'
+		}
 	}
+
     document.getElementById('links').onclick = function () {
 		if(document.getElementById('AF_Links').style.display == '')
 			document.getElementById('AF_Links').style.display = 'none'
@@ -687,11 +673,15 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('AF_Links').style.display = ''
 	}
 	
-	    document.getElementById('addsrc').onclick = function () {
-		if(document.getElementById('new_window').style.display == '')
-			document.getElementById('new_window').style.display = 'none'
-		else
-			document.getElementById('new_window').style.display = ''
+	document.getElementById('addsrc').onclick = function () {
+		if(document.getElementById('linksd').style.display == '')
+			document.getElementById('linksd').style.display = 'none'
+		else {
+			document.getElementById('linksd').style.display = ''
+			document.getElementById('addTmp').style.display = 'none'
+			document.getElementById('set_bar').style.display = 'none'
+		}
+			
 	}
 	
     document.getElementById('sound_save').onclick = function () {
@@ -897,6 +887,7 @@ const copyToClipboard = str => {           // инициализация фун�
 			localStorage.setItem('audio', '1');
         }
 	}
+	
 	
 	if (localStorage.getItem('audio') == 0) {
 		document.getElementById('switcher').innerHTML = "ВЫКЛ"
@@ -1265,10 +1256,13 @@ function refreshTemplates() {
 		}
 	}	
 	document.getElementById('0page').ondblclick = function () {
-	if(document.getElementById('addTmp').style.display == 'none')
-		document.getElementById('addTmp').style.display = '';
-	else
-		document.getElementById('addTmp').style.display = 'none';
+		if(document.getElementById('addTmp').style.display == 'none') {
+			document.getElementById('addTmp').style.display = '';
+			document.getElementById('set_bar').style.display = 'none'
+			document.getElementById('linksd').style.display = 'none'
+		}
+		else
+			document.getElementById('addTmp').style.display = 'none';
 	}
 	document.getElementById('0page_button').click()
 }
