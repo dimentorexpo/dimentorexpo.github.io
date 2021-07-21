@@ -17,7 +17,7 @@ function mystyles() {
 		color:#ffffff; 
 		padding:2px 2px;
 	}
-	#button:hover {
+	button:hover {
 		background: #120a8f;
 	}
 	.switch-btn {
@@ -602,7 +602,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	
 
 		document.getElementById('setcolor').onclick = function () {    
-			document.querySelector("#button:hover").background = colorId.value;
+			document.querySelector(":hover").background = colorId.value;
 			colorId.value = "";
 		}
 		
