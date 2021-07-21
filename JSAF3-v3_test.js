@@ -135,7 +135,6 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 520;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button id="resetpas" style="width:50px; background: #228B22;">resetpass</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
@@ -668,14 +667,6 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('AF_Links').style.display = 'none'
 		else
 			document.getElementById('AF_Links').style.display = ''
-	}
-	
-		   document.getElementById('resetpas').onclick = function () { // скрытие окна с доп ссылками
-			<form action="/admin/auth/reset-password/step1" method="post"
-                      class="jsResetPasswordForm d-none">
-                    <input type="hidden" name="userId" value="10440109">
-                    <input type="hidden" name="csrfToken" value="hIcok0QBhbWAsJFyYHS1Ah_0gGjm1t3q84qVrcThkHg">
-                </form>
 	}
 	
 	    document.getElementById('addsrc').onclick = function () {
