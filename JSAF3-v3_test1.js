@@ -377,18 +377,6 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id' ,'AF_Links');
 wintLinks.innerHTML = win_Links; 
 
-// document.getElementById('hash_type_for_chat').style.display = 'none'; // скрытие кнопки проверки по хэш
-// document.getElementById('btn1_hash').style.display = 'none';
-// document.getElementById('main_easy_win').ondblclick = function () {
-//	if(document.getElementById('hash_type_for_chat').style.display == 'none') {
-//		document.getElementById('hash_type_for_chat').style.display = '';
-//		document.getElementById('btn1_hash').style.display = '';
-//	}
-//	else {
-//		document.getElementById('hash_type_for_chat').style.display = 'none';
-//		document.getElementById('btn1_hash').style.display = 'none';
-//		}
-//	}
 
  var listener4 = function(e , a) { // сохранение позиции окна ссылок
         wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -404,20 +392,8 @@ wintLinks.innerHTML = win_Links;
     }
     wintLinks.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 
-document.getElementById('1page').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
 	document.getElementById('AF_Links').style.display = 'none';
-document.getElementById('1page_button').click()
-document.getElementById('1page_input').click()
-	}
-//document.getElementById('links_but').ondblclick = function () { // скрытие окна ссылок по двойному клику
-//	document.getElementById('AF_Links').style.display = 'none';
-//	}
-//document.getElementById('links_box').ondblclick = function () { // скрытие окна ссылок по двойному клику
-//	document.getElementById('AF_Links').style.display = 'none';
-//	}
-//document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
-//	document.getElementById('AF_Links').style.display = 'none';
-//	}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
