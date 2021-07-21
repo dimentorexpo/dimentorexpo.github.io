@@ -600,8 +600,9 @@ const copyToClipboard = str => {           // инициализация фун�
 		}
 	
 	
+
 		document.getElementById('setcolor').onclick = function () {    
-			document.getElementById("button:hover").background = colorId.value;
+			document.querySelector("button:hover").background = colorId.value;
 			colorId.value = "";
 		}
 		
