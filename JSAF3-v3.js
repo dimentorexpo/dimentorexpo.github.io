@@ -135,6 +135,7 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 520;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
+					<button id="creds" style="width:50px;">ℹ</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
@@ -516,7 +517,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('promocodes').addEventListener('click',function(){
     window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
 })
-	
+
 	document.getElementById('mobdevices').addEventListener('click',function(){
     window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
@@ -676,6 +677,10 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('AF_Links').style.display = 'none'
 		else
 			document.getElementById('AF_Links').style.display = ''
+	}
+	
+		   document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
+			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: c0?esJ^GPEJ6:Dq5vL3d3m<?");
 	}
 	
 	document.getElementById('addsrc').onclick = function () {
