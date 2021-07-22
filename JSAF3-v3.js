@@ -154,6 +154,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="browserstack" style="width:100px">BrowserStaсk</button>
 					<button id="certificates" style="width:100px">Сертификаты</button>
 					<button id="promocodes" style="width:100px">Промокоды</button>
+					<button id="mobdevices" style="width:100px">Хар моб устр</button>
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -514,6 +515,10 @@ const copyToClipboard = str => {           // инициализация фун�
 
 	document.getElementById('promocodes').addEventListener('click',function(){
     window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
+})
+	
+	document.getElementById('mobdevices').addEventListener('click',function(){
+    window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
