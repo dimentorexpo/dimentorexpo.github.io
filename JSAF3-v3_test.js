@@ -675,7 +675,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	}
 	
 		   document.getElementById('creds').onclick = function () { // скрытие окна с доп ссылками
-			alert("Актуальные креды для BrowserStack:                                  login: ax@skyeng.ru , пароль: c0?esJ^GPEJ6:Dq5vL3d3m<?");
+			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , пароль: c0?esJ^GPEJ6:Dq5vL3d3m<?");
 	}
 	
 	document.getElementById('addsrc').onclick = function () {
