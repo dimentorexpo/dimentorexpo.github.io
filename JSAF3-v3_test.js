@@ -674,6 +674,10 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('AF_Links').style.display = ''
 	}
 	
+		   document.getElementById('creds').onclick = function () { // скрытие окна с доп ссылками
+			alert("Актуальные креды для BrowserStack: login: ax@skyeng.ru , пароль: c0?esJ^GPEJ6:Dq5vL3d3m<?);
+	}
+	
 	document.getElementById('addsrc').onclick = function () {
 		if(document.getElementById('linksd').style.display == '')
 			document.getElementById('linksd').style.display = 'none'
