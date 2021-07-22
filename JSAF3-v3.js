@@ -500,7 +500,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 2000);
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
-    window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
+    window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
 })
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
