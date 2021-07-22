@@ -34,9 +34,6 @@ function mystyles() {
 		position: relative;
 		transition-duration: 300ms; /* анимация */
 	}
-	.switch-btn:hover {
-	background: #6A5ACD;
-	}
 	.switch-btn::after {
 		content: "";
 		height: 36px; /* высота кнопки */
@@ -138,6 +135,7 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 520;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
+					<button id="creds" style="width:50px; background: #228B22;">ℹ</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
