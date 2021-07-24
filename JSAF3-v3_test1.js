@@ -18,7 +18,7 @@ function mystyles() {
 		padding:2px 2px;
 	}
 	button:hover {
-		background: #120a8f;
+		background: #6A5ACD;
 	}
 	.switch-btn {
 		display: inline-block;
@@ -135,6 +135,7 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 520;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
+					<button id="creds" style="width:50px;">ℹ</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
@@ -154,6 +155,10 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="browserstack" style="width:100px">BrowserStaсk</button>
 					<button id="certificates" style="width:100px">Сертификаты</button>
 					<button id="promocodes" style="width:100px">Промокоды</button>
+					<button id="mobdevices" style="width:100px">Хар моб устр</button>
+					<button id="confbugs" style="width:100px">Баги</button>
+					<button id="confbugsm" style="width:100px">Баги Моб.</button>
+
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -171,6 +176,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="showcaseHW">💾</button>
 					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="gethash">💾</button>
+					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="getlessonhash">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -493,13 +500,19 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
 })
+	document.getElementById('confbugs').addEventListener('click',function(){
+    window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
+})
+	document.getElementById('confbugsm').addEventListener('click',function(){
+    window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=114996322")    // открываем ссылку список мобильных багов в confluence
+})
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
 	document.getElementById('restartlesson').innerHTML = "Copied!";
 	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 2000);
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
-    window.open("https://www.browserstack.com/")    // открываем ссылку в новой вкладке на Browserstak
+    window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
 })
 	document.getElementById('trmnew').addEventListener('click',function(){
     window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
@@ -514,6 +527,10 @@ const copyToClipboard = str => {           // инициализация фун�
 
 	document.getElementById('promocodes').addEventListener('click',function(){
     window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
+})
+
+	document.getElementById('mobdevices').addEventListener('click',function(){
+    window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
@@ -592,6 +609,18 @@ const copyToClipboard = str => {           // инициализация фун�
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
 		}
+		
+			document.getElementById('getlessonhash').onclick = function () {               // сохранение в буфере хеша комнаты на урок (при сдвоенных уроках баге)
+		let roomhashdlnk = 'https://vimbox.skyeng.ru/lesson/';
+		if(lessonkhash.value == "")
+			console.log('Введите hash комнаты в поле')
+		else {
+				copyToClipboard(roomhashdlnk + lessonkhash.value + "/start");
+			};
+			document.getElementById('getlessonhash').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getlessonhash').innerHTML = "💾"}, 2000);
+			lessonkhash.value = "";
+		}
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
@@ -649,7 +678,7 @@ const copyToClipboard = str => {           // инициализация фун�
 		getNewChat()
 	}
 		
-    document.getElementById('setting').onclick = function () {
+	document.getElementById('setting').onclick = function () {
 		if(document.getElementById('set_bar').style.display == '')
 			document.getElementById('set_bar').style.display = 'none'
 		else	{
@@ -658,6 +687,7 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('linksd').style.display = 'none'
 		}
 	}
+
     document.getElementById('links').onclick = function () {
 		if(document.getElementById('AF_Links').style.display == '')
 			document.getElementById('AF_Links').style.display = 'none'
@@ -672,7 +702,11 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('AF_Links').style.display = ''
 	}
 	
-	    document.getElementById('addsrc').onclick = function () {
+		   document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
+			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: c0?esJ^GPEJ6:Dq5vL3d3m<?");
+	}
+	
+	document.getElementById('addsrc').onclick = function () {
 		if(document.getElementById('linksd').style.display == '')
 			document.getElementById('linksd').style.display = 'none'
 		else {
@@ -1255,13 +1289,13 @@ function refreshTemplates() {
 		}
 	}	
 	document.getElementById('0page').ondblclick = function () {
-	if(document.getElementById('addTmp').style.display == 'none') {
-		document.getElementById('addTmp').style.display = '';
-		document.getElementById('set_bar').style.display = 'none'
-		document.getElementById('linksd').style.display = 'none'
-	}
-	else
-		document.getElementById('addTmp').style.display = 'none';
+		if(document.getElementById('addTmp').style.display == 'none') {
+			document.getElementById('addTmp').style.display = '';
+			document.getElementById('set_bar').style.display = 'none'
+			document.getElementById('linksd').style.display = 'none'
+		}
+		else
+			document.getElementById('addTmp').style.display = 'none';
 	}
 	document.getElementById('0page_button').click()
 }
