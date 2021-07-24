@@ -2889,7 +2889,7 @@ async function checkCSAT() {
 
 function prepTp() {
 	document.getElementById('msg1').style.display = ''
-	document.getElementById('snd').style.marginLeft = '16px'
+	document.getElementById('snd').style.marginLeft = '36px'
 	document.getElementById('testUsers').style.display = ''
 	document.getElementById('takeNewChat').style.display = ''
 	document.getElementById('howManyChats').style.display = ''
