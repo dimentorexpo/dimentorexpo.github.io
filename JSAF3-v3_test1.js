@@ -74,6 +74,9 @@ var win_AFhelper =  // описание элементов главного ок
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 10px"></input>
 				</div>
 
+				<div style="margin: 5px;">
+				</div>
+
 				<div style="margin: 5px;" id="pages">
 				</div>
 			</span>
