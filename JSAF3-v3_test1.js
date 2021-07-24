@@ -70,7 +70,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
 				</div>
 				<div style="margin: 5px;" id="fields">
-					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px"></input>
+					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 1px"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 10px"></input>
 				</div>
 
@@ -80,7 +80,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px;" id="6str">
 			</div>
 			<div style="margin: 5px;" id="7str">
-				<textarea style="width: 311px; height: 125px;" id="inp"></textarea>
+				<textarea style="width: 331px; height: 125px;" id="inp"></textarea>
 				<button id="msg1" style="width:100px;">Отправить</button>
 				<button id="snd" style="width:50px; margin-left:36px">send</button>
 				<button id="msg" style="width:100px; margin-left:36px">Заметки</button>
