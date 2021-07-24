@@ -34,31 +34,7 @@ function mystyles() {
 		position: relative;
 		transition-duration: 300ms; /* анимация */
 	}
-	.tooltip {
-	border-bottom: 1px dotted #0077AA;
-	cursor: help;
-}
-
-	.tooltip::after {
-	background: rgba(0, 0, 0, 0.8);
-	border-radius: 8px 8px 8px 0px;
-	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-	color: #FFF;
-	content: attr(data-tooltip); /* Главная часть кода, определяющая содержимое всплывающей подсказки */
-	margin-top: -24px;
-	opacity: 0; /* Наш элемент прозрачен... */
-	padding: 3px 7px;
-	position: absolute;
-	visibility: hidden; /* ...и скрыт. */
-			
-	transition: all 0.4s ease-in-out; /* Добавить плавности по вкусу */
-}
-		
-	.tooltip:hover::after {
-	opacity: 1; /* Показываем его */
-	visibility: visible;
-}
-
+	
 	.switch-btn::after {
 		content: "";
 		height: 36px; /* высота кнопки */
@@ -196,9 +172,9 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="credits">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="showcaseHW">💾</button>
-					<input class="tooltip" data-tooltip="хеш комнаты для поиска для кого была создана комната" id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="gethash">💾</button>
-					<input class="tooltip" data-tooltip="хеш комнаты чтобы помочь ученику войти по ссылке на урок" id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="getlessonhash">💾</button>
 				</div>		
 				
