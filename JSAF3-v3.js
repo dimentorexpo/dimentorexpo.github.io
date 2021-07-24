@@ -156,6 +156,9 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="certificates" style="width:100px">Сертификаты</button>
 					<button id="promocodes" style="width:100px">Промокоды</button>
 					<button id="mobdevices" style="width:100px">Хар моб устр</button>
+					<button id="confbugs" style="width:100px">Баги</button>
+					<button id="confbugsm" style="width:100px">Баги Моб.</button>
+
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -494,6 +497,12 @@ const copyToClipboard = str => {           // инициализация фун�
 })
 	document.getElementById('kcerrors').addEventListener('click',function(){
     window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+})
+	document.getElementById('confbugs').addEventListener('click',function(){
+    window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
+})
+	document.getElementById('confbugsm').addEventListener('click',function(){
+    window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=114996322")    // открываем ссылку список мобильных багов в confluence
 })
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
