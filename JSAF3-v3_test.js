@@ -173,6 +173,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="showcaseHW">💾</button>
 					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="gethash">💾</button>
+					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="getlessonhash">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -586,7 +588,8 @@ const copyToClipboard = str => {           // инициализация фун�
 			setTimeout(function() {document.getElementById('showcaseHW').innerHTML = "💾"}, 2000);
 			HWstudID.value = "";
 		}
-	
+		
+
 	document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
 		let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
 		if(lookhash.value == "")
@@ -597,6 +600,18 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('gethash').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
+		}
+		
+	document.getElementById('lessonkhash').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
+		let roomhashdlnk = 'https://vimbox.skyeng.ru/lesson/';
+		if(khashid.value == "")
+			console.log('Введите hash комнаты в поле')
+		else {
+				copyToClipboard(roomhashdlnk + khashid.value + "/start");
+			};
+			document.getElementById('lessonkhash').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('lessonkhash').innerHTML = "💾"}, 2000);
+			khashid.value = "";
 		}
 	
     document.getElementById('msg').onclick = function () {
