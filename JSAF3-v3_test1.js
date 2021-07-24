@@ -75,7 +75,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
 				</div>
 			</span>
-			<div style="margin: 5px;" id="6str">
+			<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="6str">
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 331px; height: 125px;" id="inp"></textarea>
