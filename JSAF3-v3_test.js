@@ -610,7 +610,7 @@ const copyToClipboard = str => {           // инициализация фун�
 				copyToClipboard(roomhashdlnk + lessonkhash.value + "/start");
 			};
 			document.getElementById('getlessonhash').innerHTML = "✅";
-			setTimeout(function() {document.getElementById('lessonkhash').innerHTML = "💾"}, 2000);
+			setTimeout(function() {document.getElementById('getlessonhash').innerHTML = "💾"}, 2000);
 			lessonkhash.value = "";
 		}
 	
