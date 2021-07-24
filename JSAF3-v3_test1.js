@@ -64,7 +64,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left: 50px">hide</button>
+					<button id="hideMenu" style="margin-left: 35px">hide</button>
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; margin-right: 5px">*</button>
@@ -2351,54 +2351,9 @@ function customTemplates(language = '') {
 	if(tmpA.children[1].innerHTML != 'tmps')
 		tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
 	
-	tmpA.children[2].style.marginLeft = '15px'
+	tmpA.children[2].style.marginLeft = '35px'
 	tmpA.children[3].style = 'float:right'
 	
-	if (language == "") {
-		if(localStorage.getItem('tmplt1_ru') != null) {
-			countOfTemplates++
-			localStorage.setItem('template_' + countOfTemplates, localStorage.getItem('tmplt1_ru'))
-			localStorage.setItem('checkbox_' + countOfTemplates, false)
-			localStorage.removeItem('tmplt1_ru')
-			localStorage.setItem('cntTmplts', countOfTemplates)
-		}
-		if(localStorage.getItem('tmplt2_ru') != null) {
-			countOfTemplates++
-			localStorage.setItem('template_' + countOfTemplates, localStorage.getItem('tmplt2_ru'))
-			localStorage.setItem('checkbox_' + countOfTemplates, false)
-			localStorage.removeItem('tmplt2_ru')
-			localStorage.setItem('cntTmplts', countOfTemplates)
-		}
-		if(localStorage.getItem('tmplt3_ru') != null) {
-			countOfTemplates++
-			localStorage.setItem('template_' + countOfTemplates, localStorage.getItem('tmplt3_ru'))
-			localStorage.setItem('checkbox_' + countOfTemplates, false)
-			localStorage.removeItem('tmplt3_ru')
-			localStorage.setItem('cntTmplts', countOfTemplates)
-		}
-	} else {
-		if(localStorage.getItem('tmplt1_en') != null) {
-			countOfTemplates++
-			localStorage.setItem('template_' + countOfTemplates, localStorage.getItem('tmplt1_en'))
-			localStorage.setItem('checkbox_' + countOfTemplates, false)
-			localStorage.removeItem('tmplt1_en')
-			localStorage.setItem('cntTmplts', countOfTemplates)
-		}
-		if(localStorage.getItem('tmplt2_en') != null) {
-			countOfTemplates++
-			localStorage.setItem('template_' + countOfTemplates, localStorage.getItem('tmplt2_en'))
-			localStorage.setItem('checkbox_' + countOfTemplates, false)
-			localStorage.removeItem('tmplt2_en')
-			localStorage.setItem('cntTmplts', countOfTemplates)
-		}
-		if(localStorage.getItem('tmplt3_en') != null) {
-			countOfTemplates++
-			localStorage.setItem('template_' + countOfTemplates, localStorage.getItem('tmplt3_en'))
-			localStorage.setItem('checkbox_' + countOfTemplates, false)
-			localStorage.removeItem('tmplt3_en')
-			localStorage.setItem('cntTmplts', countOfTemplates)
-		}
-	}
 	
 	function refreshHotTmps() {
 		while(document.getElementById('6str').children[0] != undefined)
