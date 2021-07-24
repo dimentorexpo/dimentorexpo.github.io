@@ -155,23 +155,23 @@ var win_Links =  // описание элементов окна ссылок
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
-					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="grid" placeholder="ID группы" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="groupadm">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="cmsstepid" placeholder="CMS stepId" title="вводим степId, чтобы сразу попасть в ЦМС на нужный слайд" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="sguid">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="credits">🔎</button>
-					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
-					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gethash" style="width: 25.23px;">💾</button>
-					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="lessonkhash" placeholder="Хэш урока" title="Хэш для получения ссылки на занятие, чтобы У мог подключиться по ней при баге на сдвоенных уроках" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
-					<input id="enablerAP" placeholder="ID услуги(АП)" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 				</div>		
 				
