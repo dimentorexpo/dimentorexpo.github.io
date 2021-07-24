@@ -68,8 +68,8 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
-					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 10px;  margin-top: 5px;"></input>
-                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px;  margin-top: 5px;"></input>
+					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 10px; margin-top: 5px;"></input>
+                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
 			
 				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
@@ -155,21 +155,21 @@ var win_Links =  // описание элементов окна ссылок
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
-					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="groupadm">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="sguid">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="credits">🔎</button>
-					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
-					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gethash" style="width: 25.23px;">💾</button>
-					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
 				</div>		
 				
