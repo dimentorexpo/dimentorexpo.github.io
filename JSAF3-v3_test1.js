@@ -59,49 +59,44 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; width: 301px;">
-        <span style="width: 301px">
+    `<div style="display: flex; width: 341px;">
+        <span style="width: 341px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left: 10px">hide</button>
+					<button id="hideMenu" style="margin-left: 25px">hide</button>
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
-					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 12px"></input>
-                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 120px; color: black; margin-left: 10px"></input>
 				</div>
+				<div style="margin: 5px;" id="fields">
+					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px"></input>
+                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 10px"></input>
+				</div>
+
 				<div style="margin: 5px;" id="pages">
 				</div>
 			</span>
 			<div style="margin: 5px;" id="6str">
-				<button id="tmplt1_save">save</button>
-				<button id="tmplt1_snd">send</button>
-				
-				<button id="tmplt2_save" style="margin-left: 25px">save</button>
-				<button id="tmplt2_snd">send</button>
-				
-				<button id="tmplt3_save" style="margin-left: 25px">save</button>
-				<button id="tmplt3_snd">send</button>
 			</div>
 			<div style="margin: 5px;" id="7str">
-				<textarea style="width: 291px; height: 125px;" id="inp"></textarea>
+				<textarea style="width: 311px; height: 125px;" id="inp"></textarea>
 				<button id="msg1" style="width:100px;">Отправить</button>
-				<button id="snd" style="width:50px; margin-left:16px">send</button>
-				<button id="msg" style="width:100px; margin-left:16px">Заметки</button>
+				<button id="snd" style="width:50px; margin-left:36px">send</button>
+				<button id="msg" style="width:100px; margin-left:36px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
-			<div style="margin: 5px; width: 300px">
+			<div style="margin: 5px; width: 340px">
 			</div>
 		</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
-			<div style="margin: 5px; width: 300px">
+			<div style="margin: 5px; width: 340px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
 			</div>
 				
-			<div style="margin: 5px; width: 300px">
+			<div style="margin: 5px; width: 340px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
 				<button id="type_TP">ТП</button>
@@ -116,7 +111,7 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
-			<div style="padding: 5 px; margin: 5px; width: 300px">
+			<div style="padding: 5 px; margin: 5px; width: 340px">
 				<button id="kibanalnksvz">Kib_Связь</button>
 				<button id="kibanalnklk">Kib_ЛК</button>
 				<button id="kibanalnksrv">Kib_СервХеш</button>
@@ -737,77 +732,6 @@ const copyToClipboard = str => {           // инициализация фун�
 			}
 		}
 	}
-	
-	
-	if(document.getElementById('tmplt1_save') != undefined)
-		document.getElementById('tmplt1_save').onclick = function () {
-			if(document.getElementById('languageAF').innerHTML == "Русский") {
-				txt = document.getElementById('inp').value
-				localStorage.setItem('tmplt1_ru', txt)
-			} else {
-				txt = document.getElementById('inp').value
-				localStorage.setItem('tmplt1_en', txt)
-			}
-		}
-		
-	if(document.getElementById('tmplt2_save') != undefined)
-		document.getElementById('tmplt2_save').onclick = function () {
-			if(document.getElementById('languageAF').innerHTML == "Русский") {
-				txt = document.getElementById('inp').value
-				localStorage.setItem('tmplt2_ru', txt)
-			} else {
-				txt = document.getElementById('inp').value
-				localStorage.setItem('tmplt2_en', txt)
-			}
-		}
-		
-	if(document.getElementById('tmplt3_save') != undefined)
-		document.getElementById('tmplt3_save').onclick = function () {
-			if(document.getElementById('languageAF').innerHTML == "Русский") {
-				txt = document.getElementById('inp').value
-				localStorage.setItem('tmplt3_ru', txt)
-			} else {
-				txt = document.getElementById('inp').value
-				localStorage.setItem('tmplt3_en', txt)
-			}
-		}
-	
-	if(document.getElementById('tmplt1_snd') != undefined)
-		document.getElementById('tmplt1_snd').onclick = function () {
-			if(document.getElementById('languageAF').innerHTML == "Русский") {
-				txt = localStorage.getItem('tmplt1_ru')
-			} else {
-				txt = localStorage.getItem('tmplt1_en')
-			}
-			if(txt == null || txt == "")
-				document.getElementById('inp').value = "Не введен текст 1 шаблона"
-			else 
-				sendAnswer(txt)
-		}
-	if(document.getElementById('tmplt2_snd') != undefined)
-		document.getElementById('tmplt2_snd').onclick = function () {
-			if(document.getElementById('languageAF').innerHTML == "Русский") {
-				txt = localStorage.getItem('tmplt2_ru')
-			} else {
-				txt = localStorage.getItem('tmplt2_en')
-			}
-			if(txt == null || txt == "")
-				document.getElementById('inp').value = "Не введен текст 2 шаблона"
-			else 
-				sendAnswer(txt)
-		}
-	if(document.getElementById('tmplt3_snd') != undefined)
-		document.getElementById('tmplt3_snd').onclick = function () {
-			if(document.getElementById('languageAF').innerHTML == "Русский") {
-				txt = localStorage.getItem('tmplt3_ru')
-			} else {
-				txt = localStorage.getItem('tmplt3_en')
-			}
-			if(txt == null || txt == "")
-				document.getElementById('inp').value = "Не введен текст 3 шаблона"
-			else 
-				sendAnswer(txt)
-		}
 	
 	
     document.getElementById('msg1').onclick = function () {
