@@ -171,6 +171,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
+					<input id="enablerAP" placeholder="ID услуги(АП)" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -613,6 +615,18 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('getlessonhash').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('getlessonhash').innerHTML = "💾"}, 2000);
 			lessonkhash.value = "";
+		}
+		
+			document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
+		let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
+		if(enablerAP.value == "")
+			console.log('Введите hash комнаты в поле')
+		else {
+				copyToClipboard(enableAPlnk + enablerAP.value);
+			};
+			document.getElementById('getenablerAP').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getenablerAP').innerHTML = "💾"}, 2000);
+			enablerAP.value = "";
 		}
 	
     document.getElementById('msg').onclick = function () {
