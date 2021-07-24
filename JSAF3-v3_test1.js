@@ -2352,7 +2352,7 @@ function customTemplates(language = '') {
 		tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
 	
 	tmpA.children[2].style.marginLeft = '35px'
-	tmpA.children[3].style = 'float:right'
+//	tmpA.children[3].style = 'float:right'
 	
 	
 	function refreshHotTmps() {
