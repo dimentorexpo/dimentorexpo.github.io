@@ -161,7 +161,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="groupadm">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepId" title="вводим степId, чтобы сразу попасть в ЦМС на нужный слайд" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="sguid">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="credits">🔎</button>
