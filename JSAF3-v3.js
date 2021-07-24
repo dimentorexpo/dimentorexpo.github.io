@@ -176,6 +176,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="showcaseHW">💾</button>
 					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
 					<button id="gethash">💾</button>
+					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black;">
+					<button id="getlessonhash">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -606,6 +608,18 @@ const copyToClipboard = str => {           // инициализация фун�
 			document.getElementById('gethash').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
+		}
+		
+			document.getElementById('getlessonhash').onclick = function () {               // сохранение в буфере хеша комнаты на урок (при сдвоенных уроках баге)
+		let roomhashdlnk = 'https://vimbox.skyeng.ru/lesson/';
+		if(lessonkhash.value == "")
+			console.log('Введите hash комнаты в поле')
+		else {
+				copyToClipboard(roomhashdlnk + lessonkhash.value + "/start");
+			};
+			document.getElementById('getlessonhash').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getlessonhash').innerHTML = "💾"}, 2000);
+			lessonkhash.value = "";
 		}
 	
     document.getElementById('msg').onclick = function () {
