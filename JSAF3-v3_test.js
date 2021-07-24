@@ -602,14 +602,14 @@ const copyToClipboard = str => {           // инициализация фун�
 			lookhash.value = "";
 		}
 		
-	document.getElementById('getlessonkhash').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
+	document.getElementById('getlessonhash').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
 		let roomhashdlnk = 'https://vimbox.skyeng.ru/lesson/';
 		if(lessonkhash.value == "")
 			console.log('Введите hash комнаты в поле')
 		else {
 				copyToClipboard(roomhashdlnk + lessonkhash.value + "/start");
 			};
-			document.getElementById('getlessonkhash').innerHTML = "✅";
+			document.getElementById('getlessonhash').innerHTML = "✅";
 			setTimeout(function() {document.getElementById('lessonkhash').innerHTML = "💾"}, 2000);
 			lessonkhash.value = "";
 		}
