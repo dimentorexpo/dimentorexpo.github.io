@@ -34,6 +34,7 @@ function mystyles() {
 		position: relative;
 		transition-duration: 300ms; /* анимация */
 	}
+	
 	.switch-btn::after {
 		content: "";
 		height: 36px; /* высота кнопки */
