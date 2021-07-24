@@ -20,40 +20,6 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
-	
-	input.tegTitle {
-			display: inline-block; /* Строчно-блочный элемент */
-			position: relative; /* Относительное позиционирование */
-			cursor:pointer;
-		   }
-		 
-		.tegTitle:hover::before {
-			 content: "";
-			width: 50px;
-			height: 49px;
-			top: -567%;
-			left: -33%;
-			position: absolute;
-			background: url(info.png) no-repeat;
-			z-index: 2;
-		}
-
-
-		input.tegTitle:hover::after {
-			content: attr(data-title);
-			position: absolute;
-			left: 0%;
-			top: -419%;
-			z-index: 1;
-			font-family: Arial, sans-serif;
-			font-size: 12px;
-			padding: 20px;
-			background: #f1f1f1;
-			border: 1px solid #b9b9b9;
-			width: 300px;
-		}
-
-
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -191,7 +157,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 520px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
-					<input class="tegTitle" id="grid" placeholder="ID группы" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="grid" placeholder="ID группы" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="groupadm">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepId" title="вводим степId, чтобы сразу попасть в ЦМС на нужный слайд" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
