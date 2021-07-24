@@ -59,16 +59,16 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; width: 341px;">
-        <span style="width: 341px">
+    `<div style="display: flex; width: 351px;">
+        <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left: 35px">hide</button>
+					<button id="hideMenu" style="margin-left: 40px">hide</button>
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
-					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 10px; margin-top: 5px;"></input>
+					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
 			
@@ -78,23 +78,23 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px;" id="6str">
 			</div>
 			<div style="margin: 5px;" id="7str">
-				<textarea style="width: 331px; height: 125px;" id="inp"></textarea>
+				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
 				<button id="msg1" style="width:100px;">Отправить</button>
-				<button id="snd" style="width:50px; margin-left:36px">send</button>
-				<button id="msg" style="width:100px; margin-left:36px">Заметки</button>
+				<button id="snd" style="width:50px; margin-left:41px">send</button>
+				<button id="msg" style="width:100px; margin-left:41px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
-			<div style="margin: 5px; width: 340px">
+			<div style="margin: 5px; width: 350px">
 			</div>
 		</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
-			<div style="margin: 5px; width: 340px">
+			<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="switcher">ВКЛ</button>
 			</div>
 				
-			<div style="margin: 5px; width: 340px">
+			<div style="margin: 5px; width: 350px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
 				<button id="type_TP">ТП</button>
@@ -109,7 +109,7 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
-			<div style="padding: 5 px; margin: 5px; width: 340px">
+			<div style="padding: 5 px; margin: 5px; width: 350px">
 				<button id="kibanalnksvz">Kib_Связь</button>
 				<button id="kibanalnklk">Kib_ЛК</button>
 				<button id="kibanalnksrv">Kib_СервХеш</button>
@@ -2351,7 +2351,7 @@ function customTemplates(language = '') {
 	if(tmpA.children[1].innerHTML != 'tmps')
 		tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
 	
-	tmpA.children[2].style.marginLeft = '35px'
+	tmpA.children[2].style.marginLeft = '40px'
 //	tmpA.children[3].style = 'float:right'
 	
 	
@@ -2839,7 +2839,7 @@ async function checkCSAT() {
 
 function prepTp() {
 	document.getElementById('msg1').style.display = ''
-	document.getElementById('snd').style.marginLeft = '36px'
+	document.getElementById('snd').style.marginLeft = '41px'
 	document.getElementById('testUsers').style.display = ''
 	document.getElementById('takeNewChat').style.display = ''
 	document.getElementById('howManyChats').style.display = ''
