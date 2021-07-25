@@ -120,7 +120,7 @@ function fillForm(viewStringify) {
 	button2.style.marginLeft = '5px'
 	button2.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
-		document.getElementById('buttonOpenForm').style.display = ''
+		document.getElementById('buttonOpenForm1').style.display = ''
 	}
 	let button3 = document.createElement('button')
 	button3.textContent = "Закрыть"
@@ -129,7 +129,7 @@ function fillForm(viewStringify) {
 		socket.close()
 		socketOpened = 0
 		this.parentElement.parentElement.remove()
-		document.getElementById('buttonOpenForm').style.display = ''
+		document.getElementById('buttonOpenForm1').style.display = ''
 	}
 	
 	button.onclick = function() {
@@ -160,7 +160,7 @@ function fillForm(viewStringify) {
 		submitSlackView(view)
 		flagFormSubmited = 1
 		document.getElementById('formToSlack').remove()
-		document.getElementById('buttonOpenForm').style.display = ''
+		document.getElementById('buttonOpenForm1').style.display = ''
 		
 	}
 	function validateSlackForm() {
@@ -198,11 +198,11 @@ function fillForm(viewStringify) {
 	console.log("Форма получена и заплонена успешно")
 }
 
-let buttonOpenForm = document.createElement('div');
-buttonOpenForm.id = 'buttonOpenForm';
-buttonOpenForm.textContent = "Unsub";
-buttonOpenForm.style.marginRight = "30px";
-buttonOpenForm.onclick = function() {
+let buttonOpenForm1 = document.createElement('div');
+buttonOpenForm1.id = 'buttonOpenForm';
+buttonOpenForm1.textContent = "Unsub";
+buttonOpenForm1.style.marginRight = "30px";
+buttonOpenForm1.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
 			getSlackToken()
@@ -215,7 +215,7 @@ buttonOpenForm.onclick = function() {
 	this.style.display = 'none'
 }
 var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-btnAdd.insertBefore(buttonOpenForm, btnAdd.children[0])
+btnAdd.insertBefore(buttonOpenForm1, btnAdd.children[0])
 function submitSlackView(view) {
 	console.log(view)
 	let client_token = Number(new Date())
