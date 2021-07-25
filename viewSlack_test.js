@@ -171,20 +171,22 @@ function fillForm(viewStringify) {
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	
-	<input type="radio" name="r1" value="5">Отписать от контентных/маркетинговых рассылок<br>
-	<input type="radio" name="r1" value="13">Отписать от всех рассылок<br>
+	<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 	
-	/*for(let i = 0; i < blocks.length; i++) {
+	<input type="radio" name="r1" value="5"><br></input>
+	<input type="radio" name="r1" value="13"><br>
+	
+	
+	for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
 			let select = document.createElement('select')
 			select.style.width = '100%'
-			select.placeholder = blocks[i].element.placeholder.text
 			select.id = 'formToSlackField' + i
-			if(i == 2 || i == 3) {
+			if(i == 2) {
 				let option = document.createElement('option')
-				option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
+				option.textContent = i == 2 ? 'Отписать от контентных/маркетинговых рассылок *' : 'Отписать от всех рассылок *'
 				select.append(option)
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
@@ -193,9 +195,9 @@ function fillForm(viewStringify) {
 				option.setAttribute('value', j)
 				select.append(option)
 			}
-			newDiv.append(select)
+			ewDiv.append(select)
 		} else {
-			if(blocks[i].label.text == 'URL')
+			if(blocks[i].label.text == '')
 				var input = document.createElement('input')
 			else
 				var input = document.createElement('textarea')
@@ -205,7 +207,8 @@ function fillForm(viewStringify) {
 			newDiv.append(input)
 		}
 		div.append(newDiv)
-	}*/
+	}
+	
 	let newDiv = document.createElement('div')
 	newDiv.style = 'margin:5px'
 	newDiv.style.textAlign = 'center'
