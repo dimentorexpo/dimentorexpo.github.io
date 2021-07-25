@@ -170,12 +170,29 @@ function fillForm(viewStringify) {
         document.addEventListener('mousemove', listener4);
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
-	
-	for(let i = 0; i < blocks.length; i++) {
+
+	let radios = document.querySelectorAll('input[type="radio"]');
+let button = document.querySelector('#button');
+
+button.addEventListener('click', function() {
+	for (let radio of radios) {
+		if (radio.checked) {
+			console.log(radio.value);
+		}
+	}
+});
+
+/*	for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
-			let select = document.createElement('select')
+			let radio1 = document.createElement('radio')
+			radio1.style.width = '100%'
+			let radio = document.createElement('radio')
+			radio2.style.width = '100%'
+			radio1.id = 'formToSlackField'
+			radio1.id = 'formToSlackField' + 1
+			/*let select = document.createElement('select')
 			select.style.width = '100%'
 			select.id = 'formToSlackField' + i
 			if(i == 2) {
@@ -201,7 +218,7 @@ function fillForm(viewStringify) {
 			newDiv.append(input)
 		}
 		div.append(newDiv)
-	}
+	}*/
 	
 	let newDiv = document.createElement('div')
 	newDiv.style = 'margin:5px'
