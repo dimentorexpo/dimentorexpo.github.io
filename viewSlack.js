@@ -61,14 +61,14 @@ function openSlackSocket() {
 		var slackUrlMsg2 = ''
 		socket.onmessage = function(event) {
 			message = JSON.parse(event.data)
-			if(message.type == "view_opened" && message.app_id == 'A014EAVN8SU' && flagReadMessage == 1) {
+			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
 				view = message.view
 				console.log('Форма получена: ' + message.view)
 				fillForm(JSON.stringify(message.view))
 				flagReadMessage = 0
 				return
 			}
-			if(message.type == "message" && message.bot_id == 'B013CE3F6AK') {
+			if(message.type == "message" && message.bot_id == 'BUS628294') {
 				console.log(message)
 				let message2 = JSON.stringify(message)
 				if(flagSlack == 0) {
@@ -133,7 +133,7 @@ function createSlackView() {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryocWaVl7biIt7qfdc",
 	  },
-	  "body": "------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\nV0293N6ERCJ\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nxoxc-3343912521-1311404886341-2109502374229-6af81659eabacfcb8e11a8cfaec8c30f93960cd302586b75b8bac7bb776f7f0b\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"_x_reason\"\r\n\r\nfetchView\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"_x_mode\"\r\n\r\nonline\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"_x_sonic\"\r\n\r\ntrue\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ--\r\n",
+	  "body": "------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"action_id\"\r\n\r\nAa0182QPV4E7\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nAU3S9KSPL\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\n",
 	  "method": "POST",
 	  "credentials": "include"
 	}
