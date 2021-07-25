@@ -262,14 +262,14 @@ function fillForm(viewStringify) {
 		for(let i = 0; i < 7; i++) {
 			if(i == 3 || i == 2) {
 				if(i == 2) {
-					if(document.getElementById('formToSlackField' + i).value == 'Выберите канал *') {
+					if(document.getElementById('formToSlackField' + i).value == 'Отписать от контентных/маркетинговых рассылок *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
 						flag = 1
 					} else 
 						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 				}
 				if (i == 3) {
-					if(document.getElementById('formToSlackField' + i).value == 'Приоритет *') {
+					if(document.getElementById('formToSlackField' + i).value == 'Отписать от всех рассылок *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
 						flag = 1
 					} else 
