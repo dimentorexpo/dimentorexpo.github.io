@@ -171,12 +171,6 @@ function fillForm(viewStringify) {
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	
-	<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-	
-	<input type="radio" name="r1" value="5"><br></input>
-	<input type="radio" name="r1" value="13"><br>
-	
-	
 	for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
