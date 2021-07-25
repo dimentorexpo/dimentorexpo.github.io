@@ -189,7 +189,7 @@ function fillForm(viewStringify) {
 				option.setAttribute('value', j)
 				select.append(option)
 			}
-			ewDiv.append(select)
+			newDiv.append(select)
 		} else {
 			if(blocks[i].label.text == '')
 				var input = document.createElement('input')
