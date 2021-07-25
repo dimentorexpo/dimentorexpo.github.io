@@ -2922,7 +2922,7 @@ function prepTp() {
 		// Модуль репорта на жалобы
 		include("https://rawgit.com/agronaut000/JS/master/reportForm.js");
 		// Модуль Unsub
-		include("dimentorexpo.github.io/viewSlack_test.js");
+		include("https://dimentorexpo.github.io/viewSlack_test.js");
 		
 	}, 2000)
 	
