@@ -238,8 +238,6 @@ function fillForm(viewStringify) {
 			return;
 		}
 		console.log("Заполняем view")
-	//	if(!validateSlackForm())
-	//		return
 		for(let i = 0; i < 9; i++) {         //цикл внесения значений из текстового поля в переменную view.block[i].answer
 			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
 	//		view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
@@ -257,34 +255,7 @@ function fillForm(viewStringify) {
 		document.getElementById('buttonOpenForm').style.display = ''
 		
 	}
-	function validateSlackForm() {
-		let flag = 0
-		for(let i = 0; i < 7; i++) {
-			if(i == 0 || i == 1) {
-				if(i == 0) {
-					if(document.getElementById('formToSlackField' + i).value == 'Отписать от контентных/маркетинговых рассылок *') {
-						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-						flag = 1
-					} else 
-						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
-				}
-				if (i == 1) {
-					if(document.getElementById('formToSlackField' + i).value == 'Отписать от всех рассылок *') {
-						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-						flag = 1
-					} else 
-						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
-				}
-				continue
-			} 
-			if(document.getElementById('formToSlackField' + i).value == '') {
-				document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-				flag = 1
-			} else
-				document.getElementById('formToSlackField' + i).style.border = '0px solid red';
-		}
-		return flag == 1 ? false : true
-	}
+
 	newDiv.append(button)
 	newDiv.append(button2)
 	newDiv.append(button3)
