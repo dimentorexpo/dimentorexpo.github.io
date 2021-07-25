@@ -238,10 +238,10 @@ function fillForm(viewStringify) {
 			return;
 		}
 		console.log("Заполняем view")
-	//	if(!validateSlackForm())
-	//		return
-		for(let i = 0; i < 9; i++) {
-	//		view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
+		if(!validateSlackForm())
+			return
+		for(let i = 0; i < 9; i++) {         //цикл внесения значений из текстового поля в переменную view.block[i].answer
+			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
 	//		view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
 			console.log('view.blocks[i].answer = ' + view.blocks[i].answer)
 			if(view.blocks[i].answer == undefined || view.blocks[i].answer == "undefined") {
