@@ -53,7 +53,8 @@ function openSlackSocket() {          // Функция открытия Сок�
 		}
 	}
 	setTimeout(getUrlAndOpenSocket, 1000)
-	
+}
+
 function createSlackView() {           //функция создания вида из fetch запроса с консоли при открытии бота
 	let client_token = Number(new Date())
 	requestOptions = {
@@ -228,7 +229,7 @@ function fillForm(viewStringify) {
 let buttonOpenForm = document.createElement('div');     // созданеие кнопки открытия формы с именем Баг-репорт
 buttonOpenForm.id = 'buttonOpenForm';
 buttonOpenForm.textContent = "Unsub";
-buttonOpenForm.style.marginRight = "30px";
+buttonOpenForm.style.marginRight = "20px";
 buttonOpenForm.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
