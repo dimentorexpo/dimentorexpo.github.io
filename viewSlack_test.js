@@ -2,7 +2,7 @@
 var socketOpened = 0
 var flagReadMessage = 0
 var problemText = 'justStarted'
-function getSlackToken() {            // функция получения токена Слака по идее трогать не надо
+function getSlackToken() {            // функция получения токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
 	document.getElementById('responseTextarea3').value = 'getSlackToken'
@@ -27,7 +27,7 @@ function getSlackToken() {            // функция получения то�
 	setTimeout(tokenToLocalStorage, 2000)
 }
 
-function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака по идее трогать не надо
+function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
@@ -53,9 +53,81 @@ function openSlackSocket() {          // Функция открытия Сок�
 		}
 	}
 	setTimeout(getUrlAndOpenSocket, 1000)
+	
+	function openSocket(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
+		socket = new WebSocket(url)
+		var flagSlack = 0
+		var slackUrlMsg1 = ''
+		var slackUrlMsg2 = ''
+		socket.onmessage = function(event) {
+			message = JSON.parse(event.data)
+			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
+				view = message.view
+				console.log('Форма получена: ' + message.view)
+				fillForm(JSON.stringify(message.view))
+				flagReadMessage = 0
+				return
+			}
+			if(message.type == "message" && message.bot_id == 'BUS628294') {
+				console.log(message)
+				let message2 = JSON.stringify(message)
+				if(flagSlack == 0) {
+					setTimeout(checkForLink, 5 * 1000)
+					flagSlack = 1
+				}
+				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
+					if(message2.indexOf(problemText) == -1) {
+						console.log("Чужой тред")
+						return
+					}
+					console.log("В этом ответе нет нужный ссылки")
+					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
+					console.log('Предполагаемая ссылка: ' + slackUrlMsg1)
+					return
+				}
+				slackUrlMsg2 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
+				console.log('Ссылка на тред: ' + slackUrlMsg2)
+				sendComment('Ссылка на тред: ' + slackUrlMsg2)
+				document.getElementById('buttonOpenForm').style.display = ''
+				return
+			}
+		}
+		function checkForLink() {
+			flagSlack = 0
+			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
+			let ye = slackUrlMsg1 == slackUrlMsg2 ? 'yes' : 'no'
+			ye = slackUrlMsg2 == '' ? 'idk' : ye 
+			var body = 'entry.1566561060=' + oper + '&entry.1523645757=' + slackUrlMsg1 + '&entry.626388165=' + slackUrlMsg2 + '&entry.181839927=' + ye
+			let options = {
+				  "headers": {
+					"content-type": "application/x-www-form-urlencoded",
+				  },
+				  "body": body,
+				  "method": "POST",
+				}
+				
+			document.getElementById('responseTextarea1').value = JSON.stringify(options)
+			document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLSfhK9cT1l3ZSkbIr6YSNkm4nXIwMMX9E0k_wkPCiiHp7NgzuA/formResponse'
+			document.getElementById('responseTextarea3').value = ''
+			document.getElementById('sendResponse').click()
+			
+			if(ye == 'idk') {
+				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
+			}
+			socket.close()
+		}
+		socket.onopen = function(event) {
+			socketOpened = 1
+			console.log('socket подключен')
+		}
+		socket.onclose = function(event) {
+			socketOpened = 0
+			console.log('Закрыли сокет')
+		}
+	}
 }
 
-function createSlackView() {           //функция создания вида из fetch запроса с консоли при открытии бота
+function createSlackView() {
 	let client_token = Number(new Date())
 	requestOptions = {
 	  "headers": {
@@ -87,12 +159,12 @@ function fillForm(viewStringify) {
 	div.id = 'formToSlack'
 	
 	let div2 = document.createElement('div')
-	div2.style.textAlign = 'center'				// выравнивание текста по центру
+	div2.style.textAlign = 'center'
 	div2.style.color = 'white'
-	div2.textContent = 'Отписаться от рассылки'                   // имя формы по центру сверху
+	div2.textContent = 'Форма'
 	let blocks = view.blocks
 	div.append(div2)
-	var listener4 = function(e , a) {             //функция перемещения формы по экрану
+	var listener4 = function(e , a) {
         div.style.left = Number(e.clientX - myX4) + "px";
         div.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY4)));
@@ -105,7 +177,7 @@ function fillForm(viewStringify) {
         document.addEventListener('mousemove', listener4);
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
-	for(let i = 0; i < blocks.length; i++) {                 //определение полей ввода для передачи в канал (канал, приоритет, URL...)
+	for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
@@ -140,17 +212,17 @@ function fillForm(viewStringify) {
 	let newDiv = document.createElement('div')
 	newDiv.style = 'margin:5px'
 	newDiv.style.textAlign = 'center'
-	let button = document.createElement('button')        // добавление кнопки отправить
+	let button = document.createElement('button')
 	button.textContent = "Отправить"
 	button.id = 'formToSlackSend'
-	let button2 = document.createElement('button')       // добавление кнопки скрыть
+	let button2 = document.createElement('button')
 	button2.textContent = "Скрыть"
 	button2.style.marginLeft = '5px'
 	button2.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
 		document.getElementById('buttonOpenForm').style.display = ''
 	}
-	let button3 = document.createElement('button')       //  добавление кнопки закрыть  
+	let button3 = document.createElement('button')
 	button3.textContent = "Закрыть"
 	button3.style.marginLeft = '5px'
 	button3.onclick = function() {
@@ -226,10 +298,10 @@ function fillForm(viewStringify) {
 	console.log("Форма получена и заплонена успешно")
 }
 
-let buttonOpenForm = document.createElement('div');     // созданеие кнопки открытия формы с именем Баг-репорт
+let buttonOpenForm = document.createElement('div');
 buttonOpenForm.id = 'buttonOpenForm';
 buttonOpenForm.textContent = "Unsub";
-buttonOpenForm.style.marginRight = "20px";
+buttonOpenForm.style.marginRight = "30px";
 buttonOpenForm.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
