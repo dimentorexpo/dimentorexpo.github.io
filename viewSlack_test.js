@@ -199,7 +199,7 @@ function fillForm(viewStringify) {
 }
 
 let buttonOpenForm1 = document.createElement('div');
-buttonOpenForm1.id = 'buttonOpenForm';
+buttonOpenForm1.id = 'buttonOpenForm1';
 buttonOpenForm1.textContent = "Unsub";
 buttonOpenForm1.style.marginRight = "30px";
 buttonOpenForm1.onclick = function() {
