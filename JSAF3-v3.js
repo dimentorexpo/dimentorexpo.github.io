@@ -2918,9 +2918,9 @@ function prepTp() {
 	
 	setTimeout(function() {
 		// Модуль wallentine в АФ
-		include("https://rawgit.com/agronaut000/JS/master/viewSlack.js");
+		include("https://dimentorexpo.github.io/viewSlack.js");
 		// Модуль репорта на жалобы
-		include("https://rawgit.com/agronaut000/JS/master/reportForm.js");
+		include("https://dimentorexpo.github.io/reportForm.js");
 	}, 2000)
 	
 	setTimeout(function() {
