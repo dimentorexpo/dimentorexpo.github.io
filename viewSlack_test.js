@@ -238,8 +238,8 @@ function fillForm(viewStringify) {
 			return;
 		}
 		console.log("Заполняем view")
-		if(!validateSlackForm())
-			return
+	//	if(!validateSlackForm())
+	//		return
 		for(let i = 0; i < 9; i++) {
 			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
 			view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
