@@ -75,9 +75,49 @@ function openSlackSocket() {          // Функция открытия Сок�
 					setTimeout(checkForLink, 5 * 1000)
 					flagSlack = 1
 				}
+				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
+					if(message2.indexOf(problemText) == -1) {
+						return
+					}
+					return
+				}
+				document.getElementById('buttonOpenForm').style.display = ''
+				return
+			}
+		}
+		function checkForLink() {
+			flagSlack = 0
+			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
+			let ye = slackUrlMsg1 == slackUrlMsg2 ? 'yes' : 'no'
+			ye = slackUrlMsg2 == '' ? 'idk' : ye 
+			var body = 'entry.1566561060=' + oper + '&entry.1523645757=' + slackUrlMsg1 + '&entry.626388165=' + slackUrlMsg2 + '&entry.181839927=' + ye
+			let options = {
+				  "headers": {
+					"content-type": "application/x-www-form-urlencoded",
+				  },
+				  "body": body,
+				  "method": "POST",
+				}
+				
+			document.getElementById('responseTextarea1').value = JSON.stringify(options)
+			document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLSfhK9cT1l3ZSkbIr6YSNkm4nXIwMMX9E0k_wkPCiiHp7NgzuA/formResponse'
+			document.getElementById('responseTextarea3').value = ''
+			document.getElementById('sendResponse').click()
+			
+			if(ye == 'idk') {
+				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
+			}
+			socket.close()
+		}
+		socket.onopen = function(event) {
+			socketOpened = 1
+			console.log('socket подключен')
+		}
+		socket.onclose = function(event) {
+			socketOpened = 0
+			console.log('Закрыли сокет')
 		}
 	}
-		
 }
 
 function createSlackView() {
