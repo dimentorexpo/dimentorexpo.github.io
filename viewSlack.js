@@ -2,7 +2,7 @@
 var socketOpened = 0
 var flagReadMessage = 0
 var problemText = 'justStarted'
-function getSlackToken() {
+function getSlackToken() {            // функция получения токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
 	document.getElementById('responseTextarea3').value = 'getSlackToken'
@@ -27,7 +27,7 @@ function getSlackToken() {
 	setTimeout(tokenToLocalStorage, 2000)
 }
 
-function openSlackSocket() {
+function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
@@ -54,7 +54,7 @@ function openSlackSocket() {
 	}
 	setTimeout(getUrlAndOpenSocket, 1000)
 	
-	function openSocket(url) {
+	function openSocket(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
 		socket = new WebSocket(url)
 		var flagSlack = 0
 		var slackUrlMsg1 = ''
