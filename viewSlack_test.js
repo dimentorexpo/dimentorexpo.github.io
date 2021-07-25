@@ -54,6 +54,30 @@ function openSlackSocket() {          // Функция открытия Сок�
 	}
 	setTimeout(getUrlAndOpenSocket, 1000)
 	
+	function openSocket(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
+		socket = new WebSocket(url)
+		var flagSlack = 0
+		var slackUrlMsg1 = ''
+		var slackUrlMsg2 = ''
+		socket.onmessage = function(event) {
+			message = JSON.parse(event.data)
+			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
+				view = message.view
+				console.log('Форма получена: ' + message.view)
+				fillForm(JSON.stringify(message.view))
+				flagReadMessage = 0
+				return
+			}
+			if(message.type == "message" && message.bot_id == 'BUS628294') {
+				console.log(message)
+				let message2 = JSON.stringify(message)
+				if(flagSlack == 0) {
+					setTimeout(checkForLink, 5 * 1000)
+					flagSlack = 1
+				}
+		}
+	}
+		
 }
 
 function createSlackView() {
