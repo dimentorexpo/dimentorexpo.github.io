@@ -61,14 +61,14 @@ function openSlackSocket() {          // Функция открытия Сок�
 		var slackUrlMsg2 = ''
 		socket.onmessage = function(event) {
 			message = JSON.parse(event.data)
-			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
+			if(message.type == "view_opened" && message.app_id == 'A014EAVN8SU' && flagReadMessage == 1) {
 				view = message.view
 				console.log('Форма получена: ' + message.view)
 				fillForm(JSON.stringify(message.view))
 				flagReadMessage = 0
 				return
 			}
-			if(message.type == "message" && message.bot_id == 'BUS628294') {
+			if(message.type == "message" && message.bot_id == 'B013CE3F6AK') {
 				console.log(message)
 				let message2 = JSON.stringify(message)
 				if(flagSlack == 0) {
