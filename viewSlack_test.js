@@ -86,8 +86,8 @@ function openSlackSocket() {          // Функция открытия Сок�
 					return
 				}
 				slackUrlMsg2 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
-				console.log('Ссылка на тред: ' + slackUrlMsg2)
-				sendComment('Ссылка на тред: ' + slackUrlMsg2)
+				console.log('Ссылка на тред: ' + slackUrlMsg2)			// добавляет в лог консоли текст Ссылка на тред и сам линк слака
+				sendComment('Ссылка на тред: ' + slackUrlMsg2)         //добавляет комменты с текстом Ссылка на тред и сам линк слака
 				document.getElementById('buttonOpenForm').style.display = ''
 				return
 			}
@@ -127,7 +127,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 	}
 }
 
-function createSlackView() {
+function createSlackView() {           //функция создания вида из fetch запроса с консоли при открытии бота
 	let client_token = Number(new Date())
 	requestOptions = {
 	  "headers": {
@@ -159,12 +159,12 @@ function fillForm(viewStringify) {
 	div.id = 'formToSlack'
 	
 	let div2 = document.createElement('div')
-	div2.style.textAlign = 'center'
+	div2.style.textAlign = 'center'				// выравнивание текста по центру
 	div2.style.color = 'white'
-	div2.textContent = 'Форма'
+	div2.textContent = 'Форма'                   // имя формы по центру сверху
 	let blocks = view.blocks
 	div.append(div2)
-	var listener4 = function(e , a) {
+	var listener4 = function(e , a) {             //функция перемещения формы по экрану
         div.style.left = Number(e.clientX - myX4) + "px";
         div.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY4)));
@@ -177,7 +177,7 @@ function fillForm(viewStringify) {
         document.addEventListener('mousemove', listener4);
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
-	for(let i = 0; i < blocks.length; i++) {
+	for(let i = 0; i < blocks.length; i++) {                 //определение полей ввода для передачи в канал (канал, приоритет, URL...)
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
@@ -212,17 +212,17 @@ function fillForm(viewStringify) {
 	let newDiv = document.createElement('div')
 	newDiv.style = 'margin:5px'
 	newDiv.style.textAlign = 'center'
-	let button = document.createElement('button')
+	let button = document.createElement('button')        // добавление кнопки отправить
 	button.textContent = "Отправить"
 	button.id = 'formToSlackSend'
-	let button2 = document.createElement('button')
+	let button2 = document.createElement('button')       // добавление кнопки скрыть
 	button2.textContent = "Скрыть"
 	button2.style.marginLeft = '5px'
 	button2.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
 		document.getElementById('buttonOpenForm').style.display = ''
 	}
-	let button3 = document.createElement('button')
+	let button3 = document.createElement('button')       //  добавление кнопки закрыть  
 	button3.textContent = "Закрыть"
 	button3.style.marginLeft = '5px'
 	button3.onclick = function() {
@@ -298,7 +298,7 @@ function fillForm(viewStringify) {
 	console.log("Форма получена и заплонена успешно")
 }
 
-let buttonOpenForm = document.createElement('div');
+let buttonOpenForm = document.createElement('div');     // созданеие кнопки открытия формы с именем Баг-репорт
 buttonOpenForm.id = 'buttonOpenForm';
 buttonOpenForm.textContent = "Баг-репорт";
 buttonOpenForm.style.marginRight = "15px";
