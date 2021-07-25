@@ -172,7 +172,9 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="lessonkhash" placeholder="Хэш урока" title="Хэш для получения ссылки на занятие, чтобы У мог подключиться по ней при баге на сдвоенных уроках" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="getenablerAP" style="width: 25.23px;">💾</button>
+					<button id="getenablerAP" style="width: 25.23px;">💾</button>,
+					<input id="crmoneinfo" placeholder="ID У CRM1" title="вводим ID У, чтобы получить прямую ссылку для просмотра заявки ученика в CRM1" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="gotocrmoneinfo">🔎</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -628,6 +630,16 @@ const copyToClipboard = str => {           // инициализация фун�
 			setTimeout(function() {document.getElementById('getenablerAP').innerHTML = "💾"}, 2000);
 			enablerAP.value = "";
 		}
+		
+			document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
+		let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
+		if(crmoneinfo.value == "")
+			console.log('Введите id  ученика в поле')
+		else {
+				window.open(crmonelnk + crmoneinfo.value);
+			};
+			crmoneinfo.value = "";
+		}	
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
