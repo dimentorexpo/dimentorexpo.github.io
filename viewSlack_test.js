@@ -260,7 +260,7 @@ function fillForm(viewStringify) {
 	function validateSlackForm() {
 		let flag = 0
 		for(let i = 0; i < 7; i++) {
-		/*	if(i == 3 || i == 2) {
+			if(i == 3 || i == 2) {
 				if(i == 0) {
 					if(document.getElementById('formToSlackField' + i).value == 'Отписать от контентных/маркетинговых рассылок *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
@@ -276,7 +276,7 @@ function fillForm(viewStringify) {
 						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 				}
 				continue
-			} */
+			} 
 			if(document.getElementById('formToSlackField' + i).value == '') {
 				document.getElementById('formToSlackField' + i).style.border = '1px solid red';
 				flag = 1
