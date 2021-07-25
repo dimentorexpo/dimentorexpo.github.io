@@ -284,7 +284,7 @@ function fillForm(viewStringify) {
 				document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 		}
 		return flag == 1 ? false : true
-	}
+//	}
 	newDiv.append(button)
 	newDiv.append(button2)
 	newDiv.append(button3)
