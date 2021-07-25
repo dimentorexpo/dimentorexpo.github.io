@@ -238,8 +238,8 @@ function fillForm(viewStringify) {
 			return;
 		}
 		console.log("Заполняем view")
-		if(!validateSlackForm())
-			return
+	//	if(!validateSlackForm())
+	//		return
 		for(let i = 0; i < 9; i++) {         //цикл внесения значений из текстового поля в переменную view.block[i].answer
 			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
 	//		view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
@@ -260,7 +260,7 @@ function fillForm(viewStringify) {
 	function validateSlackForm() {
 		let flag = 0
 		for(let i = 0; i < 7; i++) {
-			if(i == 3 || i == 2) {
+			if(i == 0 || i == 1) {
 				if(i == 0) {
 					if(document.getElementById('formToSlackField' + i).value == 'Отписать от контентных/маркетинговых рассылок *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
