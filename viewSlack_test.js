@@ -27,6 +27,35 @@ function getSlackToken() {            // функция получения то�
 	setTimeout(tokenToLocalStorage, 2000)
 }
 
+function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
+	document.getElementById('responseTextarea1').value = '{}'
+	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
+	document.getElementById('responseTextarea3').value = 'openSlackSocket'
+	
+	document.getElementById('sendResponse').click()
+	setTimeout(showResponse, 1500)
+	function getUrlAndOpenSocket() {
+		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
+		if(result == null)
+			setTimeout(getUrlAndOpenSocket, 1000)
+		else {
+			result = JSON.parse(result)
+			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket')
+			var url = result.url
+			console.log(result)
+			if(url == undefined) {
+				console.log("Не нашёл юрл, повторно запрашиваем юрл")
+				openSlackSocket()
+				return
+			}
+			openSocket(url)
+			console.log('URL для связи с Slack получен')
+		}
+	}
+	setTimeout(getUrlAndOpenSocket, 1000)
+	
+}
+
 function createSlackView() {
 	let client_token = Number(new Date())
 	requestOptions = {
@@ -61,7 +90,7 @@ function fillForm(viewStringify) {
 	let div2 = document.createElement('div')
 	div2.style.textAlign = 'center'
 	div2.style.color = 'white'
-	div2.textContent = 'Форма'
+	div2.textContent = 'Отписаться от рассылок'
 	let blocks = view.blocks
 	div.append(div2)
 	var listener4 = function(e , a) {
@@ -120,7 +149,7 @@ function fillForm(viewStringify) {
 	button2.style.marginLeft = '5px'
 	button2.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	let button3 = document.createElement('button')
 	button3.textContent = "Закрыть"
@@ -129,7 +158,7 @@ function fillForm(viewStringify) {
 		socket.close()
 		socketOpened = 0
 		this.parentElement.parentElement.remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	
 	button.onclick = function() {
@@ -160,7 +189,7 @@ function fillForm(viewStringify) {
 		submitSlackView(view)
 		flagFormSubmited = 1
 		document.getElementById('formToSlack').remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 		
 	}
 	function validateSlackForm() {
@@ -198,11 +227,11 @@ function fillForm(viewStringify) {
 	console.log("Форма получена и заплонена успешно")
 }
 
-let buttonOpenForm1 = document.createElement('div');
-buttonOpenForm1.id = 'buttonOpenForm1';
-buttonOpenForm1.textContent = "Unsub";
-buttonOpenForm1.style.marginRight = "30px";
-buttonOpenForm1.onclick = function() {
+let buttonOpenForm = document.createElement('div');
+buttonOpenForm.id = 'buttonOpenForm';
+buttonOpenForm.textContent = "Unsub";
+buttonOpenForm.style.marginRight = "30px";
+buttonOpenForm.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
 			getSlackToken()
@@ -215,7 +244,7 @@ buttonOpenForm1.onclick = function() {
 	this.style.display = 'none'
 }
 var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-btnAdd.insertBefore(buttonOpenForm1, btnAdd.children[0])
+btnAdd.insertBefore(buttonOpenForm, btnAdd.children[0])
 function submitSlackView(view) {
 	console.log(view)
 	let client_token = Number(new Date())
