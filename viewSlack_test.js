@@ -123,10 +123,10 @@ function openSlackSocket() {          // Функция открытия Сок�
 function createSlackView() {
 	let client_token = Number(new Date())
 	requestOptions = {
-	  "headers": {
-		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryyKJPTlPfb1YqBCtQ",
+	  	  "headers": {
+		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryyKJPTlPfb1YqBCtQ"",
 	  },
-	  "body": "------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\nV0293N6ERCJ\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nA014EAVN8SU\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n",
+	  "body": "------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"action_id\"\r\n\r\nAa013T6RBZSN\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nA014EAVN8SU\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n",
 	  "method": "POST",
 	  "credentials": "include"
 	}
