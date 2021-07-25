@@ -170,7 +170,11 @@ function fillForm(viewStringify) {
         document.addEventListener('mousemove', listener4);
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
-	for(let i = 0; i < blocks.length; i++) {
+	
+	<input type="radio" name="r1" value="5">Отписать от контентных/маркетинговых рассылок<br>
+	<input type="radio" name="r1" value="13">Отписать от всех рассылок<br>
+	
+	/*for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
@@ -201,7 +205,7 @@ function fillForm(viewStringify) {
 			newDiv.append(input)
 		}
 		div.append(newDiv)
-	}
+	}*/
 	let newDiv = document.createElement('div')
 	newDiv.style = 'margin:5px'
 	newDiv.style.textAlign = 'center'
