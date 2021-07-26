@@ -193,8 +193,8 @@ function fillForm(viewStringify) {
 				}
 		} 
 			var input = document.createElement('textarea')
-			newDiv.append(input)
 
+			div.append(newDiv)
 	}
 	
 	let newDiv = document.createElement('div')
