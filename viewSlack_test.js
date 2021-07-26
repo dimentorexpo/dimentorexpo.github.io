@@ -189,7 +189,7 @@ function fillForm(viewStringify) {
 				let radio2 = document.createElement('radio')
 				radio2.textContent = blocks[i].element.options[j].value[j] // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio2.setAttribute('value', j)
-				newDiv.append(radio2);
+			//	newDiv.append(radio2);
 				}
 		} 
 			var input = document.createElement('textarea')
