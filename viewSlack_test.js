@@ -175,11 +175,13 @@ function fillForm(viewStringify) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px', 'width: 100%';
 		if(blocks[i].element.options != undefined) {
-				let r1 = document.createElement('input')
-				let r2 = document.createElement('input')
-				r1.setAttribute("type", "radio")
-				r2.setAttribute("type", "radio")
-				newDiv.append(r1);
+				let radio = document.createElement('input')
+				radio.id = 'formToSlackField' + i
+				if(i ==0 || i == 1) {
+				let option = document.createElement('option')   //  создаем опции выбора  
+				option.textContent = i == 0 ? blocks[i].element.options[0].text : blocks[i].element.options[1].text
+				radio.append(option)
+			}
 			//	r1.textContent = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				newDiv.append(r2);
 			//	r2.textContent = blocks[i].element.options[1].text
