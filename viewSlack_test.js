@@ -55,28 +55,28 @@ function openSlackSocket1() {          // Функция открытия Сок
 	setTimeout(getUrlAndOpenSocket1, 1000)
 	
 	function openSocket1(url1) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
-		socket1 = new WebSocket(url1)
-		var flagSlack1 = 0
+		socket1 = new WebSocket(url)
+		var flagSlack = 0
 		var slackUrlMsg1 = ''
 		var slackUrlMsg2 = ''
 		socket1.onmessage = function(event) {
-			message1 = JSON.parse(event.data)
+			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
-				view1 = message.view
+				view = message.view
 				console.log('Форма получена: ' + message.view)
 				fillForm(JSON.stringify(message.view))
 				flagReadMessage = 0
 				return
 			}
 			if(message.type == "message" && message.bot_id == 'BUS628294') {
-				console.log(message1)
-				let message22 = JSON.stringify(message1)
-				if(flagSlack1 == 0) {
+				console.log(message)
+				let message2 = JSON.stringify(message)
+				if(flagSlack == 0) {
 					setTimeout(checkForLink, 5 * 1000)
-					flagSlack1 = 1
+					flagSlack = 1
 				}
-				if(message22.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
-					if(message22.indexOf(problemText1) == -1) {
+				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
+					if(message2.indexOf(problemText1) == -1) {
 						console.log("Чужой тред")
 						return
 					}
@@ -93,7 +93,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			}
 		}
 		function checkForLink() {
-			flagSlack1 = 0
+			flagSlack = 0
 			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
 			let ye = slackUrlMsg1 == slackUrlMsg2 ? 'yes' : 'no'
 			ye = slackUrlMsg2 == '' ? 'idk' : ye 
