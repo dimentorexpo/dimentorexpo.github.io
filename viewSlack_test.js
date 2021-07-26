@@ -10,17 +10,17 @@ function getSlackToken1() {            // функция получения то
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage1() {
-		var result1 = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
-		if(result1 == null)
+		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
+		if(result == null)
 			setTimeout(tokenToLocalStorage1, 1000)
 		else {
 			document.getElementById('responseTextarea1').removeAttribute('getSlackToken1')
 			try {
-				localStorage.setItem('token', result1.match(/"token":"(.*?)"/)[1])
+				localStorage.setItem('token', result.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
 			} catch (e) {
 				console.log('Ошибка при получении токена: ' + e)
-				console.log(result1)
+				console.log(result)
 			}
 		}
 	}
@@ -30,31 +30,31 @@ function getSlackToken1() {            // функция получения то
 function openSlackSocket1() {          // Функция открытия Сокета и использования токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
-	document.getElementById('responseTextarea3').value = 'openSlackSocket1'
+	document.getElementById('responseTextarea3').value = 'openSlackSocket'
 	
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
-	function getUrlAndOpenSocket1() {
-		var result1 = document.getElementById('responseTextarea1').getAttribute('openSlackSocket1')
-		if(result1 == null)
+	function getUrlAndOpenSocket() {
+		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
+		if(result == null)
 			setTimeout(getUrlAndOpenSocket, 1000)
 		else {
-			result1 = JSON.parse(result1)
-			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket1')
-			var url1 = result1.url1
-			console.log(result1)
-			if(url1 == undefined) {
+			result = JSON.parse(result)
+			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket')
+			var url = result.url
+			console.log(result)
+			if(url == undefined) {
 				console.log("Не нашёл юрл, повторно запрашиваем юрл")
 				openSlackSocket1()
 				return
 			}
-			openSocket1(url1)
+			openSocket1(url)
 			console.log('URL для связи с Slack получен')
 		}
 	}
-	setTimeout(getUrlAndOpenSocket1, 1000)
+	setTimeout(getUrlAndOpenSocket, 1000)
 	
-	function openSocket1(url1) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
+	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
 		socket1 = new WebSocket(url)
 		var flagSlack = 0
 		var slackUrlMsg1 = ''
@@ -148,15 +148,15 @@ function createSlackView() {
 flagFormSubmited = 0
 function fillForm1(viewStringify) {
 	problemText1 = 'justStarted'
-	view1 = JSON.parse(viewStringify)
-	div1 = document.createElement('div')
-	document.body.append(div1)
+	view = JSON.parse(viewStringify)
+	div = document.createElement('div')
+	document.body.append(div)
 	if (localStorage.getItem('viewToSlackFormAFTop') == null) {
 		localStorage.setItem('viewToSlackFormAFTop', '120');
 		localStorage.setItem('viewToSlackFormAFLeft', '295');
 	}
-	div1.style = 'cursor: -webkit-grab;background: #464451; top: ' + localStorage.getItem('viewToSlackFormAFTop') + 'px; left: ' + localStorage.getItem('viewToSlackFormAFLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; width: 18%'
-	div1.id = 'formToSlack'
+	div.style = 'cursor: -webkit-grab;background: #464451; top: ' + localStorage.getItem('viewToSlackFormAFTop') + 'px; left: ' + localStorage.getItem('viewToSlackFormAFLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; width: 18%'
+	div.id = 'formToSlack'
 	
 	let div2 = document.createElement('div')
 	div2.style.textAlign = 'center'
@@ -255,7 +255,7 @@ function fillForm1(viewStringify) {
 				return
 			}
 		}
-		problemText1 = document.getElementById('formToSlackField' + 0).value
+		problemText = document.getElementById('formToSlackField' + 0).value
 		console.log(view)
 		submitSlackView(view)
 		flagFormSubmited = 1
