@@ -192,9 +192,9 @@ function fillForm(viewStringify) {
 				newDiv.append(radio2);
 				}
 		} 
-			var input = document.createElement('textarea')
-			newDiv.append(input)
-		//	div.append(newDiv)
+			//var input = document.createElement('textarea')
+			//newDiv.append(input)
+			div.append(newDiv)
 	}
 	
 	let newDiv = document.createElement('div')
