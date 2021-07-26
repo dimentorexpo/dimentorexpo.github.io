@@ -285,7 +285,7 @@ function submitSlackView(view) {
 	console.log(view)
 	let client_token = Number(new Date())
 	let view_id = view.id
-	let answer = 'Content-Disposition: form-data; name=\"state\":{\"values\":{'
+	let answer = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
 	for(let i = 0; i < view.blocks.length; i++) {
 		if(i > 0)
 			answer += ','
@@ -299,10 +299,10 @@ function submitSlackView(view) {
 	}
 	answer += "}}"
 	requestOptions = {
-	  "headers": {
+	  	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryyKJPTlPfb1YqBCtQ",
 	  },
-	  "body": "------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\nV0293N6ERCJ\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nA014EAVN8SU\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n",
+	  "body": "------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n" + answer + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n',
 	  "method": "POST",
 	  "credentials": "include"
 	}
