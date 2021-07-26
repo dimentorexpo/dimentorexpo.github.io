@@ -238,7 +238,7 @@ for(let i = 0; i < blocks.length; i++) {
 			return;
 		}
 		console.log("Заполняем view")
-		for(let i = 0; i < 9; i++) {         //цикл внесения значений из текстового поля в переменную view.block[i].answer
+		for(let i = 0; i < 2; i++) {         //цикл внесения значений из текстового поля в переменную view.block[i].answer
 			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
 	//		view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
 			console.log('view.blocks[i].answer = ' + view.blocks[i].answer)
