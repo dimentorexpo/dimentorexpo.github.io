@@ -180,7 +180,7 @@ function fillForm(viewStringify) {
 			select.id = 'formToSlackField' + i
 			if(i == 2) {
 				let option = document.createElement('option')
-				option.textContent = i == 2 ? blocks[i].element.options[i].text[i] : blocks[i].element.options[i].text[i]
+				option.textContent = i == 2 ? blocks[i].element.options[i].text[0] : blocks[i].element.options[i].text[1]
 				select.append(option)
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
