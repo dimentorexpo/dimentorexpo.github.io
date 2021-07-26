@@ -176,9 +176,7 @@ function fillForm(viewStringify) {
 		newDiv.style = 'margin:5px', 'width: 100%';
 		if(blocks[i].element.options != undefined) {
 			var input = document.createElement('input')
-			input.style.width = '100%';
 			input.placeholder = blocks[i].label.text;
-			input.id = 'formToSlackField' + i
 
 				let radio = document.createElement('radio')
 				radio.textContent = blocks[i].element.options[i].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
