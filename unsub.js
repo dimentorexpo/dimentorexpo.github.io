@@ -154,7 +154,7 @@ function fillForm(viewStringify) {
 	let div2 = document.createElement('div')
 	div2.style.textAlign = 'center'
 	div2.style.color = 'white'
-	div2.textContent = 'Отписаться от рассылок!'
+	div2.textContent = 'Отписаться от рассылок'
 	let blocks = view.blocks
 	div.append(div2)
 	var listener4 = function(e , a) {
