@@ -177,8 +177,8 @@ function fillForm(viewStringify) {
 		if(blocks[i].element.options != undefined) {
 				let r1 = document.createElement('input')
 				let r2 = document.createElement('input')
-				r1.setAttribute("type", "radio", "value = blocks[i].element.options[0].text")
-				r2.setAttribute("type", "radio","value = blocks[i].element.options[1].text")
+				r1.setAttribute("type", "radio")
+				r2.setAttribute("type", "radio")
 				newDiv.append(r1);
 			//	r1.textContent = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				newDiv.append(r2);
@@ -189,7 +189,7 @@ function fillForm(viewStringify) {
 				let option = document.createElement('option')
 				option.textContent = blocks[i].element.options[j].value[j]  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				option.setAttribute('value', j)
-				input.append(option);
+				//input.append(option);
 				//r1.append(option)
 				//r2.append(option)
 				}
