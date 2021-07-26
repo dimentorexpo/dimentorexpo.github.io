@@ -285,7 +285,7 @@ function submitSlackView(view) {
 	console.log(view)
 	let client_token = Number(new Date())
 	let view_id = view.id
-	let answer = 'Content-Disposition: form-data; name=\"state\":\r\n\r\n{\"values\":{'
+	let answer = 'Content-Disposition: form-data; name=\"state\":{\"values\":{'
 	for(let i = 0; i < view.blocks.length; i++) {
 		if(i > 0)
 			answer += ','
