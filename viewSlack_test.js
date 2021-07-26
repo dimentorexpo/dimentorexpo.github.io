@@ -177,12 +177,12 @@ function fillForm(viewStringify) {
 		if(blocks[i].element.options != undefined) {
 				let r1 = document.createElement('input')
 				let r2 = document.createElement('input')
-				r1.setAttribute("type", "radio")
-				r2.setAttribute("type", "radio")
+				r1.setAttribute("type", "radio", "value = blocks[i].element.options[0].text")
+				r2.setAttribute("type", "radio","value = blocks[i].element.options[1].text")
 				newDiv.append(r1);
-				r1.textContent = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+			//	r1.textContent = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				newDiv.append(r2);
-				r2.textContent = blocks[i].element.options[1].text
+			//	r2.textContent = blocks[i].element.options[1].text
 				
 
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
