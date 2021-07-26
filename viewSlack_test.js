@@ -146,37 +146,37 @@ function createSlackView1() {
 	setTimeout(showResponse1, 1500, 'createSlackView1')
 }
 flagFormSubmited = 0
-function fillForm(viewStringify) {
+function fillForm1(viewStringify) {
 	problemText = 'justStarted'
 	view = JSON.parse(viewStringify)
-	div = document.createElement('div')
-	document.body.append(div)
+	div3 = document.createElement('div')
+	document.body.append(div3)
 	if (localStorage.getItem('viewToSlackFormAFTop') == null) {
 		localStorage.setItem('viewToSlackFormAFTop', '120');
 		localStorage.setItem('viewToSlackFormAFLeft', '295');
 	}
-	div.style = 'cursor: -webkit-grab;background: #464451; top: ' + localStorage.getItem('viewToSlackFormAFTop') + 'px; left: ' + localStorage.getItem('viewToSlackFormAFLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; width: 18%'
-	div.id = 'formToSlack'
+	div3.style = 'cursor: -webkit-grab;background: #464451; top: ' + localStorage.getItem('viewToSlackFormAFTop') + 'px; left: ' + localStorage.getItem('viewToSlackFormAFLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; width: 18%'
+	div3.id = 'formToSlack'
 	
-	let div2 = document.createElement('div')
-	div2.style.textAlign = 'center'
-	div2.style.color = 'white'
-	div2.textContent = 'Форма'
+	let div4 = document.createElement('div')
+	div4.style.textAlign = 'center'
+	div4.style.color = 'white'
+	div4.textContent = 'Форма'
 	let blocks = view.blocks
-	div.append(div2)
+	div3.append(div4)
 	var listener4 = function(e , a) {
-        div.style.left = Number(e.clientX - myX4) + "px";
-        div.style.top = Number(e.clientY - myY4) + "px";
+        div3.style.left = Number(e.clientX - myX4) + "px";
+        div3.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY4)));
         localStorage.setItem('viewToSlackFormAFLeft', String(Number(e.clientX - myX4)));
     };
 
-    div.firstElementChild.onmousedown = function (a) {
+    div3.firstElementChild.onmousedown = function (a) {
         window.myX4 = a.layerX; 
         window.myY4 = a.layerY; 
         document.addEventListener('mousemove', listener4);
     }
-    div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
+    div3.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	for(let i = 0; i < blocks.length; i++) {
 		let newDiv1 = document.createElement('div1')
 		newDiv1.style = 'margin:5px'
