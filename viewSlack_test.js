@@ -61,14 +61,14 @@ function openSlackSocket() {          // Функция открытия Сок�
 		var slackUrlMsg2 = ''
 		socket.onmessage = function(event) {
 			message = JSON.parse(event.data)
-			if(message.type == "view_opened" && message.app_id == 'A014EAVN8SU' && flagReadMessage == 1) {
+			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
 				view = message.view
 				console.log('Форма получена: ' + message.view)
 				fillForm(JSON.stringify(message.view))
 				flagReadMessage = 0
 				return
 			}
-			if(message.type == "message" && message.bot_id == 'B013CE3F6AK') {
+			if(message.type == "message" && message.bot_id == 'BUS628294') {
 				console.log(message)
 				let message2 = JSON.stringify(message)
 				if(flagSlack == 0) {
@@ -77,10 +77,17 @@ function openSlackSocket() {          // Функция открытия Сок�
 				}
 				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
 					if(message2.indexOf(problemText) == -1) {
+						console.log("Чужой тред")
 						return
 					}
+					console.log("В этом ответе нет нужный ссылки")
+					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
+					console.log('Предполагаемая ссылка: ' + slackUrlMsg1)
 					return
 				}
+				slackUrlMsg2 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
+				console.log('Ссылка на тред: ' + slackUrlMsg2)
+				sendComment('Ссылка на тред: ' + slackUrlMsg2)
 				document.getElementById('buttonOpenForm').style.display = ''
 				return
 			}
@@ -123,10 +130,10 @@ function openSlackSocket() {          // Функция открытия Сок�
 function createSlackView() {
 	let client_token = Number(new Date())
 	requestOptions = {
-	  	  "headers": {
-		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryyKJPTlPfb1YqBCtQ",
+	  "headers": {
+		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryocWaVl7biIt7qfdc",
 	  },
-	  "body": "------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"action_id\"\r\n\r\nAa013T6RBZSN\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nA014EAVN8SU\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n",
+	  "body": "------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"action_id\"\r\n\r\nAa0182QPV4E7\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nAU3S9KSPL\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\n",
 	  "method": "POST",
 	  "credentials": "include"
 	}
@@ -154,7 +161,7 @@ function fillForm(viewStringify) {
 	let div2 = document.createElement('div')
 	div2.style.textAlign = 'center'
 	div2.style.color = 'white'
-	div2.textContent = 'Отписаться от рассылок!'
+	div2.textContent = 'Форма'
 	let blocks = view.blocks
 	div.append(div2)
 	var listener4 = function(e , a) {
@@ -170,13 +177,13 @@ function fillForm(viewStringify) {
         document.addEventListener('mousemove', listener4);
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
-	
-for(let i = 0; i < blocks.length; i++) {
+	for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
 			let select = document.createElement('select')   // создаем выпадающее меню выбора
 			select.style.width = '100%'
+			select.placeholder = blocks[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
 			select.id = 'formToSlackField' + i
 			if(i == 2 || i == 3) {
 				let option = document.createElement('option')   //  создаем опции выбора  
@@ -202,7 +209,6 @@ for(let i = 0; i < blocks.length; i++) {
 		}
 		div.append(newDiv)
 	}
-	
 	let newDiv = document.createElement('div')
 	newDiv.style = 'margin:5px'
 	newDiv.style.textAlign = 'center'
@@ -238,9 +244,11 @@ for(let i = 0; i < blocks.length; i++) {
 			return;
 		}
 		console.log("Заполняем view")
-		for(let i = 0; i < 2; i++) {         //цикл внесения значений из текстового поля в переменную view.block[i].answer
+		if(!validateSlackForm())
+			return
+		for(let i = 0; i < 9; i++) {
 			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
-	//		view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
+			view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
 			console.log('view.blocks[i].answer = ' + view.blocks[i].answer)
 			if(view.blocks[i].answer == undefined || view.blocks[i].answer == "undefined") {
 				console.log(i + ' не нахожу текст поля')
@@ -255,7 +263,34 @@ for(let i = 0; i < blocks.length; i++) {
 		document.getElementById('buttonOpenForm').style.display = ''
 		
 	}
-
+	function validateSlackForm() {
+		let flag = 0
+		for(let i = 0; i < 7; i++) {
+			if(i == 3 || i == 2) {
+				if(i == 2) {
+					if(document.getElementById('formToSlackField' + i).value == 'Выберите канал *') {
+						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
+						flag = 1
+					} else 
+						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
+				}
+				if (i == 3) {
+					if(document.getElementById('formToSlackField' + i).value == 'Приоритет *') {
+						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
+						flag = 1
+					} else 
+						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
+				}
+				continue
+			} 
+			if(document.getElementById('formToSlackField' + i).value == '') {
+				document.getElementById('formToSlackField' + i).style.border = '1px solid red';
+				flag = 1
+			} else
+				document.getElementById('formToSlackField' + i).style.border = '0px solid red';
+		}
+		return flag == 1 ? false : true
+	}
 	newDiv.append(button)
 	newDiv.append(button2)
 	newDiv.append(button3)
@@ -265,8 +300,8 @@ for(let i = 0; i < blocks.length; i++) {
 
 let buttonOpenForm = document.createElement('div');
 buttonOpenForm.id = 'buttonOpenForm';
-buttonOpenForm.textContent = "Unsub";
-buttonOpenForm.style.marginRight = "30px";
+buttonOpenForm.textContent = "Баг-репорт";
+buttonOpenForm.style.marginRight = "15px";
 buttonOpenForm.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
@@ -299,10 +334,10 @@ function submitSlackView(view) {
 	}
 	answer += "}}"
 	requestOptions = {
-	  	  "headers": {
-		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryyKJPTlPfb1YqBCtQ",
+	  "headers": {
+		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryIqHa1NymiZdZybBQ",
 	  },
-	  "body": "------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n" + answer + "\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryyKJPTlPfb1YqBCtQ\r\n',
+	  "body": "------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n" + answer + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n',
 	  "method": "POST",
 	  "credentials": "include"
 	}
@@ -326,3 +361,51 @@ function showResponse(attr) {
 	document.getElementById('responseTextarea1').removeAttribute(attr)
 }
 
+function toUTF8Array(str) {
+    var utf8 = [];
+    for (var i=0; i < str.length; i++) {
+        var charcode = str.charCodeAt(i);
+        if (charcode < 0x80) utf8.push(charcode);
+        else if (charcode < 0x800) {
+            utf8.push(0xc0 | (charcode >> 6), 
+                      0x80 | (charcode & 0x3f));
+        }
+        else if (charcode < 0xd800 || charcode >= 0xe000) {
+            utf8.push(0xe0 | (charcode >> 12), 
+                      0x80 | ((charcode>>6) & 0x3f), 
+                      0x80 | (charcode & 0x3f));
+        }
+        // surrogate pair
+        else {
+            i++;
+            // UTF-16 encodes 0x10000-0x10FFFF by
+            // subtracting 0x10000 and splitting the
+            // 20 bits of 0x0-0xFFFFF into two halves
+            charcode = 0x10000 + (((charcode & 0x3ff)<<10)
+                      | (str.charCodeAt(i) & 0x3ff))
+            utf8.push(0xf0 | (charcode >>18), 
+                      0x80 | ((charcode>>12) & 0x3f), 
+                      0x80 | ((charcode>>6) & 0x3f), 
+                      0x80 | (charcode & 0x3f));
+        }
+    }
+    return utf8;
+}
+
+function decToHex(dec)
+{
+	var hexStr = '0123456789ABCDEF';
+	var low = dec % 16;
+	var high = (dec - low)/16;
+	hex = '' + hexStr.charAt(high) + hexStr.charAt(low);
+	return hex;
+}
+
+function textToUTF8String(string) {
+	string = toUTF8Array(string)
+	let string2 = ""
+	for(i = 0; i < string.length; i++) {
+		string2 += "%" + decToHex(string[i])
+	}
+	return string2
+}
