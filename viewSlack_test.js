@@ -180,12 +180,12 @@ function fillForm(viewStringify) {
 			select.id = 'formToSlackField' + i
 			if(i == 2) {
 				let option = document.createElement('option')
-				option.textContent = i == 2 ? 'Отписать от контентных/маркетинговых рассылок *' : 'Отписать от всех рассылок *'
+				option.textContent = i == 2 ? blocks[i].element.options[i].text[i] : blocks[i].element.options[i].text[i]
 				select.append(option)
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
-				radio.textContent = blocks[i].element.options[j].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				radio.textContent = blocks[i].element.options[j].value[j] // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio.setAttribute('value', j)
 				select.append(radio)
 				}
