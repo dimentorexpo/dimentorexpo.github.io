@@ -185,7 +185,7 @@ function fillForm(viewStringify) {
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
-				radio.textContent = blocks[i].element.value[j].text.text
+				radio.textContent = blocks[i].element.options[j]value[j].text.text
 				radio.setAttribute('value', j)
 				select.append(radio)
 				}
