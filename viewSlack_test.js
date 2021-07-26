@@ -88,7 +88,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 				slackUrlMsg2 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
 				console.log('Ссылка на тред: ' + slackUrlMsg2)
 				sendComment('Ссылка на тред: ' + slackUrlMsg2)
-				document.getElementById('buttonOpenForm1').style.display = ''
+				document.getElementById('buttonOpenForm').style.display = ''
 				return
 			}
 		}
@@ -129,7 +129,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 
 function createSlackView() {
 	let client_token = Number(new Date())
-	requestOptions1 = {
+	requestOptions = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryocWaVl7biIt7qfdc",
 	  },
@@ -138,7 +138,7 @@ function createSlackView() {
 	  "credentials": "include"
 	}
 	console.log('Запрашиваем создание формы')
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
+	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/apps.actions.v2.execute?slack_route=T03A3SUFB'
 	document.getElementById('responseTextarea3').value = 'createSlackView'
 	flagReadMessage = 1
@@ -220,7 +220,7 @@ function fillForm(viewStringify) {
 	button2.style.marginLeft = '5px'
 	button2.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	let button3 = document.createElement('button')
 	button3.textContent = "Закрыть"
@@ -229,7 +229,7 @@ function fillForm(viewStringify) {
 		socket.close()
 		socketOpened = 0
 		this.parentElement.parentElement.remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	
 	button.onclick = function() {
@@ -260,7 +260,7 @@ function fillForm(viewStringify) {
 		submitSlackView(view)
 		flagFormSubmited = 1
 		document.getElementById('formToSlack').remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 		
 	}
 	function validateSlackForm() {
@@ -315,7 +315,7 @@ buttonOpenForm1.onclick = function() {
 	this.style.display = 'none'
 }
 var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-btnAdd.insertBefore(buttonOpenForm1, btnAdd.children[0])
+btnAdd.insertBefore(buttonOpenForm, btnAdd.children[0])
 function submitSlackView(view) {
 	console.log(view)
 	let client_token = Number(new Date())
@@ -333,7 +333,7 @@ function submitSlackView(view) {
 			answer += "\",\"value\":\"" + view.blocks[i].answer + "\"}}"
 	}
 	answer += "}}"
-	requestOptions1 = {
+	requestOptions = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryIqHa1NymiZdZybBQ",
 	  },
@@ -341,7 +341,7 @@ function submitSlackView(view) {
 	  "method": "POST",
 	  "credentials": "include"
 	}
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
+	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/views.submit?slack_route=T03A3SUFB&_x_version_ts=1607639215&_x_gantry=true'
 	document.getElementById('responseTextarea3').value = 'submitSlackView'
 	
