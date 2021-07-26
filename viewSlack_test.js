@@ -184,7 +184,7 @@ function fillForm(viewStringify) {
 				radio.textContent = blocks[i].element.options[i].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio.setAttribute('value', j)
 				newDiv.append(input);
-				}
+				
 
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
@@ -194,8 +194,7 @@ function fillForm(viewStringify) {
 				}
 			newDiv.append(input)
 		} 
-
-				var input = document.createElement('textarea')
+			var input = document.createElement('textarea')
 			newDiv.append(input)
 			div.append(newDiv)
 	}
