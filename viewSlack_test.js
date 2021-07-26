@@ -183,8 +183,10 @@ function fillForm(viewStringify) {
 				let x2 = document.createElement('input')
 				x1.setAttribute("type", "radio");
 				x1 = blocks[i].element.options[0].text;
+				document.body.appendChild(x1);
 				x2.setAttribute("type", "radio");
 				x2 = blocks[i].element.options[1].text;
+				document.body.appendChild(x2);
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
