@@ -175,6 +175,10 @@ function fillForm(viewStringify) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px', 'width: 100%';
 		if(blocks[i].element.options != undefined) {
+			var input = document.createElement('input')
+			input.style.width = '100%';
+			input.placeholder = blocks[i].label.text;
+			input.id = 'formToSlackField' + i
 			for(let i = 0; i < blocks[i].element.options.length; i++) {
 				let radio = document.createElement('radio')
 				radio.textContent = blocks[i].element.options[i].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
@@ -190,7 +194,7 @@ function fillForm(viewStringify) {
 				}
 			newDiv.append(input)
 		} 
-				var input = document.createElement('input')
+
 				var input = document.createElement('textarea')
 			newDiv.append(input)
 			div.append(newDiv)
