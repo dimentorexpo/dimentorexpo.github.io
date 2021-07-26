@@ -178,7 +178,7 @@ function fillForm(viewStringify) {
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	for(let i = 0; i < blocks.length; i++) {
-		let newDiv1 = document.createElement('div')
+		let newDiv1 = document.createElement('div1')
 		newDiv1.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
 			let select = document.createElement('select')   // создаем выпадающее меню выбора
@@ -209,7 +209,7 @@ function fillForm(viewStringify) {
 		}
 		div.append(newDiv1)
 	}
-	let newDiv1 = document.createElement('div')
+	let newDiv1 = document.createElement('div1')
 	newDiv1.style = 'margin:5px'
 	newDiv1.style.textAlign = 'center'
 	let button = document.createElement('button')
