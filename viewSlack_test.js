@@ -129,7 +129,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 
 function createSlackView() {
 	let client_token1 = Number(new Date())
-	requestOptions = {
+	requestOptions1 = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryocWaVl7biIt7qfdc",
 	  },
@@ -138,7 +138,7 @@ function createSlackView() {
 	  "credentials": "include"
 	}
 	console.log('Запрашиваем создание формы')
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions)
+	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/apps.actions.v2.execute?slack_route=T03A3SUFB'
 	document.getElementById('responseTextarea3').value = 'createSlackView'
 	flagReadMessage = 1
@@ -333,7 +333,7 @@ function submitSlackView(view) {
 			answer += "\",\"value\":\"" + view.blocks[i].answer + "\"}}"
 	}
 	answer += "}}"
-	requestOptions = {
+	requestOptions1 = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryIqHa1NymiZdZybBQ",
 	  },
@@ -341,7 +341,7 @@ function submitSlackView(view) {
 	  "method": "POST",
 	  "credentials": "include"
 	}
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions)
+	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/views.submit?slack_route=T03A3SUFB&_x_version_ts=1607639215&_x_gantry=true'
 	document.getElementById('responseTextarea3').value = 'submitSlackView'
 	
