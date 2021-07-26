@@ -1,5 +1,5 @@
 // Файл JSAF4.js
-var socketOpened = 0
+var socketOpened1 = 0
 var flagReadMessage = 0
 var problemText = 'justStarted'
 function getSlackToken() {            // функция получения токена Слака
@@ -9,10 +9,10 @@ function getSlackToken() {            // функция получения то�
 
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
-	function tokenToLocalStorage() {
+	function tokenToLocalStorage1() {
 		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken')
 		if(result == null)
-			setTimeout(tokenToLocalStorage, 1000)
+			setTimeout(tokenToLocalStorage1, 1000)
 		else {
 			document.getElementById('responseTextarea1').removeAttribute('getSlackToken')
 			try {
@@ -24,10 +24,10 @@ function getSlackToken() {            // функция получения то�
 			}
 		}
 	}
-	setTimeout(tokenToLocalStorage, 2000)
+	setTimeout(tokenToLocalStorage1, 2000)
 }
 
-function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
+function openSlackSocket1() {          // Функция открытия Сокета и использования токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
@@ -45,7 +45,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 			console.log(result)
 			if(url == undefined) {
 				console.log("Не нашёл юрл, повторно запрашиваем юрл")
-				openSlackSocket()
+				openSlackSocket1()
 				return
 			}
 			openSocket(url)
@@ -54,12 +54,12 @@ function openSlackSocket() {          // Функция открытия Сок�
 	}
 	setTimeout(getUrlAndOpenSocket, 1000)
 	
-	function openSocket(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
-		socket = new WebSocket(url)
+	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
+		socket1 = new WebSocket(url)
 		var flagSlack = 0
 		var slackUrlMsg1 = ''
 		var slackUrlMsg2 = ''
-		socket.onmessage = function(event) {
+		socket1.onmessage = function(event) {
 			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
 				view = message.view
@@ -114,14 +114,14 @@ function openSlackSocket() {          // Функция открытия Сок�
 			if(ye == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
 			}
-			socket.close()
+			socket1.close()
 		}
-		socket.onopen = function(event) {
-			socketOpened = 1
+		socket1.onopen = function(event) {
+			socketOpened1 = 1
 			console.log('socket подключен')
 		}
-		socket.onclose = function(event) {
-			socketOpened = 0
+		socket1.onclose = function(event) {
+			socketOpened1 = 0
 			console.log('Закрыли сокет')
 		}
 	}
@@ -226,8 +226,8 @@ function fillForm(viewStringify) {
 	button3.textContent = "Закрыть"
 	button3.style.marginLeft = '5px'
 	button3.onclick = function() {
-		socket.close()
-		socketOpened = 0
+		socket1.close()
+		socketOpened1 = 0
 		this.parentElement.parentElement.remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
 	}
@@ -303,10 +303,10 @@ buttonOpenForm1.id = 'buttonOpenForm1';
 buttonOpenForm1.textContent = "Баг-репорт";
 buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
-	if(socketOpened == 0) {
+	if(socketOpened1 == 0) {
 		if(localStorage.getItem('token') == undefined)
 			getSlackToken()
-		openSlackSocket()
+		openSlackSocket1()
 	}
 	if(document.getElementById('formToSlack') != undefined) 
 		document.getElementById('formToSlack').style.display = ''
