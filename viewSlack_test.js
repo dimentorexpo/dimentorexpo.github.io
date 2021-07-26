@@ -193,8 +193,8 @@ function fillForm(viewStringify) {
 				r2.append(option)
 				}
 		} 
-			//var input = document.createElement('textarea')
-			//newDiv.append(input)
+			var input = document.createElement('textarea')
+			newDiv.append(input)
 			div.append(newDiv)
 	}
 	
@@ -208,7 +208,7 @@ function fillForm(viewStringify) {
 	button2.textContent = "Скрыть"
 	button2.style.marginLeft = '5px'
 	button2.onclick = function() {
-		this.parentElement.parentElement.style.display = 'none'
+		this.parentElement.parentEle+ment.style.display = 'none'
 		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	let button3 = document.createElement('button')
