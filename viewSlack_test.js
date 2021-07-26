@@ -178,8 +178,12 @@ function fillForm(viewStringify) {
 			var input = document.createElement('input')
 			input.placeholder = blocks[i].label.text;
 
-				let radio = document.createElement('radio')
-				radio.textContent = blocks[i].element.options[i].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				let r1 = document.createElement('input')
+				let r2 = document.createElement('input')
+				r1.setAttribute("type", "radio")
+				r1.textContent = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				r2.setAttribute("type", "radio")
+				r2.textContent = blocks[i].element.options[1].text
 				radio.setAttribute('value', j)
 				newDiv.append(radio);
 				
