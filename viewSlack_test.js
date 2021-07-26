@@ -48,7 +48,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 				openSlackSocket1()
 				return
 			}
-			openSocket(url)
+			openSocket1(url)
 			console.log('URL для связи с Slack получен')
 		}
 	}
