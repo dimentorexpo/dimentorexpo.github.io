@@ -197,8 +197,7 @@ function fillForm(viewStringify) {
 			input.placeholder = blocks[i].label.text + (i < 7 ? ' *' : '')
 			input.id = 'formToSlackField' + i
 			newDiv.append(input)
-		}
-		div.append(newDiv)
+			div.append(newDiv)
 	}
 	
 	let newDiv = document.createElement('div')
