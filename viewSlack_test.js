@@ -178,7 +178,7 @@ function fillForm1(viewStringify) {
     }
     div3.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	for(let i = 0; i < blocks.length; i++) {
-		let newDiv1 = document.createElement('div1')
+		let newDiv1 = document.createElement('div')
 		newDiv1.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
 			let select = document.createElement('select')   // создаем выпадающее меню выбора
@@ -209,7 +209,7 @@ function fillForm1(viewStringify) {
 		}
 		div.append(newDiv1)
 	}
-	let newDiv1 = document.createElement('div1')
+	let newDiv1 = document.createElement('div')
 	newDiv1.style = 'margin:5px'
 	newDiv1.style.textAlign = 'center'
 	let button = document.createElement('button')
@@ -298,7 +298,7 @@ function fillForm1(viewStringify) {
 	console.log("Форма получена и заплонена успешно")
 }
 
-let buttonOpenForm1 = document.createElement('div1');
+let buttonOpenForm1 = document.createElement('div');
 buttonOpenForm1.id = 'buttonOpenForm1';
 buttonOpenForm1.textContent = "Баг-репорт";
 buttonOpenForm1.style.marginRight = "15px";
