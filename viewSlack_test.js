@@ -298,7 +298,7 @@ function fillForm(viewStringify) {
 	console.log("Форма получена и заплонена успешно")
 }
 
-let buttonOpenForm1 = document.createElement('div');
+let buttonOpenForm1 = document.createElement('div1');
 buttonOpenForm1.id = 'buttonOpenForm1';
 buttonOpenForm1.textContent = "Баг-репорт";
 buttonOpenForm1.style.marginRight = "15px";
