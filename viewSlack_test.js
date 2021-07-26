@@ -175,12 +175,24 @@ function fillForm(viewStringify) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px', 'width: 100%';
 		if(blocks[i].element.options != undefined) {
-				let info = blocks[i].label.text == '';
+			
+			function setCheckedValueOfRadioButtonGroup(vRadioObj, vValue) {
+			var radios = document.getElementsByName(vRadioObj.text);
+				for (var i = 0; i < radios.blocks[i].element.options[0].text.length; j++) {
+				if (radios[i].value == vValue) {
+					radios[i].checked = true;
+						break;
+        }
+    }
+}
+
+		/*		let info = blocks[i].label.text == '';
 				let x1 = document.createElement('input')
 				let x2 = document.createElement('input')
-				x1.setAttribute("type", "radio") = blocks[i].element.options[0].text;
-				x2.setAttribute("type", "radio") = blocks[i].element.options[1].text;
-				
+				x1.setAttribute("type", "radio");
+				x1 = blocks[i].element.options[0].text;
+				x2.setAttribute("type", "radio");
+				x2 = blocks[i].element.options[1].text;*/
 			
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
