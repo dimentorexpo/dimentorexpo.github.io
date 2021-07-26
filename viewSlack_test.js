@@ -182,10 +182,7 @@ function fillForm(viewStringify) {
 				option.textContent = i == 0 ? blocks[i].element.options[0].text : blocks[i].element.options[1].text
 				radio.append(option)
 			}
-			//	r1.textContent = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
-				newDiv.append(r2);
-			//	r2.textContent = blocks[i].element.options[1].text
-				
+	
 
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let option = document.createElement('option')
