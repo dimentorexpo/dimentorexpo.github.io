@@ -127,7 +127,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 	}
 }
 
-function createSlackView() {
+function createSlackView1() {
 	let client_token = Number(new Date())
 	requestOptions = {
 	  "headers": {
