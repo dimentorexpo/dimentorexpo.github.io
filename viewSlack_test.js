@@ -1,5 +1,5 @@
 // Файл JSAF4.js
-var socketOpened1 = 0
+var socketOpened = 0
 var flagReadMessage = 0
 var problemText1 = 'justStarted'
 function getSlackToken1() {            // функция получения токена Слака
@@ -117,11 +117,11 @@ function openSlackSocket() {          // Функция открытия Сок�
 			socket1.close()
 		}
 		socket1.onopen = function(event) {
-			socketOpened1 = 1
+			socketOpened = 1
 			console.log('socket подключен')
 		}
 		socket1.onclose = function(event) {
-			socketOpened1 = 0
+			socketOpened = 0
 			console.log('Закрыли сокет')
 		}
 	}
@@ -158,12 +158,12 @@ function fillForm1(viewStringify) {
 	div.style = 'cursor: -webkit-grab;background: #464451; top: ' + localStorage.getItem('viewToSlackFormAFTop') + 'px; left: ' + localStorage.getItem('viewToSlackFormAFLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; width: 18%'
 	div.id = 'formToSlack'
 	
-	let div2 = document.createElement('div')
-	div2.style.textAlign = 'center'
-	div2.style.color = 'white'
-	div2.textContent = 'Форма'
+	let div22 = document.createElement('div')
+	div22.style.textAlign = 'center'
+	div22.style.color = 'white'
+	div22.textContent = 'Форма'
 	let blocks = view.blocks
-	div.append(div2)
+	div.append(div22)
 	var listener4 = function(e , a) {
         div.style.left = Number(e.clientX - myX4) + "px";
         div.style.top = Number(e.clientY - myY4) + "px";
@@ -227,7 +227,7 @@ function fillForm1(viewStringify) {
 	button3.style.marginLeft = '5px'
 	button3.onclick = function() {
 		socket1.close()
-		socketOpened1 = 0
+		socketOpened = 0
 		this.parentElement.parentElement.remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
 	}
@@ -303,7 +303,7 @@ buttonOpenForm1.id = 'buttonOpenForm1';
 buttonOpenForm1.textContent = "Баг-репорт";
 buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
-	if(socketOpened1 == 0) {
+	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
 			getSlackToken1()
 		openSlackSocket()
