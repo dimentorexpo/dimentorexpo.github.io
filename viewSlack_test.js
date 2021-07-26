@@ -8,7 +8,7 @@ function getSlackToken() {            // функция получения то�
 	document.getElementById('responseTextarea3').value = 'getSlackToken'
 
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse, 1500)
+	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage() {
 		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken')
 		if(result == null)
@@ -33,7 +33,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
 	
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse, 1500)
+	setTimeout(showResponse1, 1500)
 	function getUrlAndOpenSocket() {
 		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
 		if(result == null)
@@ -143,7 +143,7 @@ function createSlackView() {
 	document.getElementById('responseTextarea3').value = 'createSlackView'
 	flagReadMessage = 1
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse, 1500, 'createSlackView')
+	setTimeout(showResponse1, 1500, 'createSlackView')
 }
 flagFormSubmited = 0
 function fillForm(viewStringify) {
@@ -349,16 +349,16 @@ function submitSlackView(view) {
 	document.getElementById('sendResponse').click()
 	console.log("Отправили форму")
 	
-	setTimeout(showResponse, 1500, 'submitSlackView')
+	setTimeout(showResponse1, 1500, 'submitSlackView')
 }
-function showResponse(attr) {
-	res = document.getElementById('responseTextarea1').getAttribute(attr)
-	if(res == null) {
-		setTimeout(showResponse, 1000, attr)
+function showResponse1(attr1) {
+	res1 = document.getElementById('responseTextarea1').getAttribute(attr1)
+	if(res1 == null) {
+		setTimeout(showResponse1, 1000, attr1)
 		return
 	}	
-	console.log('Результат запроса' + res)
-	document.getElementById('responseTextarea1').removeAttribute(attr)
+	console.log('Результат запроса' + res1)
+	document.getElementById('responseTextarea1').removeAttribute(attr1)
 }
 
 function toUTF8Array(str) {
