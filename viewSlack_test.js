@@ -170,28 +170,15 @@ function fillForm(viewStringify) {
         document.addEventListener('mousemove', listener4);
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
-
-	let radios = document.querySelectorAll('input[type="radio"]');
-let button = document.querySelector('#button');
-
-button.addEventListener('click', function() {
-	for (let radio of radios) {
-		if (radio.checked) {
-			console.log(radio.value);
-		}
-	}
-});
-
-/*	for(let i = 0; i < blocks.length; i++) {
+	
+	for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
-			let radio1 = document.createElement('radio')
-			radio1.style.width = '100%'
-			let radio = document.createElement('radio')
-			radio2.style.width = '100%'
-			radio1.id = 'formToSlackField'
-			radio1.id = 'formToSlackField' + 1
+			let radio1 = document.createElement('INPUT')
+			radio1.setAttribute("type" , "radio")
+			let radio2 = document.createElement('INPUT')
+			radio2.setAttribute("type" , "radio")
 			/*let select = document.createElement('select')
 			select.style.width = '100%'
 			select.id = 'formToSlackField' + i
@@ -206,7 +193,7 @@ button.addEventListener('click', function() {
 				option.setAttribute('value', j)
 				select.append(option)
 			}
-			newDiv.append(select)
+			newDiv.append(select)*/
 		} else {
 			if(blocks[i].label.text == '')
 				var input = document.createElement('input')
@@ -218,7 +205,7 @@ button.addEventListener('click', function() {
 			newDiv.append(input)
 		}
 		div.append(newDiv)
-	}*/
+	}
 	
 	let newDiv = document.createElement('div')
 	newDiv.style = 'margin:5px'
