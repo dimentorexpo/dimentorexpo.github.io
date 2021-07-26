@@ -10,17 +10,17 @@ function getSlackToken1() {            // функция получения то
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage1() {
-		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
-		if(result == null)
+		var result1 = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
+		if(result1 == null)
 			setTimeout(tokenToLocalStorage1, 1000)
 		else {
 			document.getElementById('responseTextarea1').removeAttribute('getSlackToken1')
 			try {
-				localStorage.setItem('token', result.match(/"token":"(.*?)"/)[1])
+				localStorage.setItem('token', result1.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
 			} catch (e) {
 				console.log('Ошибка при получении токена: ' + e)
-				console.log(result)
+				console.log(result1)
 			}
 		}
 	}
@@ -30,53 +30,53 @@ function getSlackToken1() {            // функция получения то
 function openSlackSocket1() {          // Функция открытия Сокета и использования токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
-	document.getElementById('responseTextarea3').value = 'openSlackSocket'
+	document.getElementById('responseTextarea3').value = 'openSlackSocket1'
 	
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
-	function getUrlAndOpenSocket() {
-		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
-		if(result == null)
+	function getUrlAndOpenSocket1() {
+		var result1 = document.getElementById('responseTextarea1').getAttribute('openSlackSocket1')
+		if(result1 == null)
 			setTimeout(getUrlAndOpenSocket, 1000)
 		else {
-			result = JSON.parse(result)
-			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket')
-			var url = result.url
-			console.log(result)
-			if(url == undefined) {
+			result1 = JSON.parse(result1)
+			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket1')
+			var url1 = result1.url1
+			console.log(result1)
+			if(url1 == undefined) {
 				console.log("Не нашёл юрл, повторно запрашиваем юрл")
 				openSlackSocket1()
 				return
 			}
-			openSocket1(url)
+			openSocket1(url1)
 			console.log('URL для связи с Slack получен')
 		}
 	}
-	setTimeout(getUrlAndOpenSocket, 1000)
+	setTimeout(getUrlAndOpenSocket1, 1000)
 	
-	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
-		socket1 = new WebSocket(url)
-		var flagSlack = 0
+	function openSocket1(url1) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
+		socket1 = new WebSocket(url1)
+		var flagSlack1 = 0
 		var slackUrlMsg1 = ''
 		var slackUrlMsg2 = ''
 		socket1.onmessage = function(event) {
-			message = JSON.parse(event.data)
+			message1 = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
-				view = message.view
+				view1 = message.view
 				console.log('Форма получена: ' + message.view)
 				fillForm(JSON.stringify(message.view))
 				flagReadMessage = 0
 				return
 			}
 			if(message.type == "message" && message.bot_id == 'BUS628294') {
-				console.log(message)
-				let message2 = JSON.stringify(message)
-				if(flagSlack == 0) {
+				console.log(message1)
+				let message22 = JSON.stringify(message1)
+				if(flagSlack1 == 0) {
 					setTimeout(checkForLink, 5 * 1000)
-					flagSlack = 1
+					flagSlack1 = 1
 				}
-				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
-					if(message2.indexOf(problemText1) == -1) {
+				if(message22.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
+					if(message22.indexOf(problemText1) == -1) {
 						console.log("Чужой тред")
 						return
 					}
@@ -93,7 +93,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			}
 		}
 		function checkForLink() {
-			flagSlack = 0
+			flagSlack1 = 0
 			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
 			let ye = slackUrlMsg1 == slackUrlMsg2 ? 'yes' : 'no'
 			ye = slackUrlMsg2 == '' ? 'idk' : ye 
