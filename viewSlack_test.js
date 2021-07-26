@@ -181,16 +181,15 @@ function fillForm(viewStringify) {
 				let radio = document.createElement('radio')
 				radio.textContent = blocks[i].element.options[i].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio.setAttribute('value', j)
-				newDiv.append(input);
+				newDiv.append(radio);
 				
 
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
-				let radio = document.createElement('radio')
-				radio.textContent = blocks[i].element.options[j].value[j] // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
-				radio.setAttribute('value', j)
-				newDiv.append(radio);
+				let radio2 = document.createElement('radio')
+				radio2.textContent = blocks[i].element.options[j].value[j] // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				radio2.setAttribute('value', j)
+				newDiv.append(radio2);
 				}
-			newDiv.append(input)
 		} 
 			var input = document.createElement('textarea')
 			newDiv.append(input)
