@@ -171,31 +171,37 @@ function fillForm(viewStringify) {
     }
     div.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
 	
-	for(let i = 0; i < blocks.length; i++) {
+for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
-		newDiv.style = 'margin:5px', 'width: 100%';
+		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
-				let radio = document.createElement('input')
-				radio.id = 'formToSlackField' + i
-				if(i ==0 || i == 1) {
+			let select = document.createElement('select')   // создаем выпадающее меню выбора
+			select.style.width = '100%'
+			select.placeholder = blocks[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
+			select.id = 'formToSlackField' + i
+			if(i == 2 || i == 3) {
 				let option = document.createElement('option')   //  создаем опции выбора  
-				option.textContent = i == 0 ? blocks[i].element.options[0].text : blocks[i].element.options[1].text
-				radio.append(option)
+				option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
+				select.append(option)
 			}
-	
-
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let option = document.createElement('option')
-				option.textContent = blocks[i].element.options[j].value[j]  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				option.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				option.setAttribute('value', j)
-				//input.append(option);
-				//r1.append(option)
-				//r2.append(option)
-				}
-		} 
-			var input = document.createElement('textarea')
+				select.append(option)
+			}
+			newDiv.append(select)
+		} else {
+			if(blocks[i].label.text == 'URL')
+				var input = document.createElement('input')
+			else
+				var input = document.createElement('textarea')
+			input.style.width = '100%'
+			input.placeholder = blocks[i].label.text + (i < 7 ? ' *' : '')
+			input.id = 'formToSlackField' + i
 			newDiv.append(input)
-			div.append(newDiv)
+		}
+		div.append(newDiv)
 	}
 	
 	let newDiv = document.createElement('div')
