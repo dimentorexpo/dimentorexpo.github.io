@@ -173,8 +173,9 @@ function fillForm(viewStringify) {
 	
 	for(let i = 0; i < blocks.length; i++) {
 		let newDiv = document.createElement('div')
-		newDiv.style = 'margin:5px'
+		newDiv.style = 'margin:5px', 'width: 100%';
 		if(blocks[i].element.options != undefined) {
+				let info = blocks[i].label.text == '';
 				let x1 = document.createElement('input')
 				let x2 = document.createElement('input')
 				x1.setAttribute("type", "radio");
@@ -189,10 +190,8 @@ function fillForm(viewStringify) {
 				document.body.appendChild(radio);
 				}
 			newDiv.append(input)
-		} else {
-			if(blocks[i].label.text == '')
+		} 
 				var input = document.createElement('input')
-			else
 				var input = document.createElement('textarea')
 			input.style.width = '100%'
 			input.placeholder = blocks[i].label.text + (i < 7 ? ' *' : '')
