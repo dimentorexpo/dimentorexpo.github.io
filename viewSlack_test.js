@@ -1,20 +1,20 @@
 // Файл JSAF4.js
 var socketOpened = 0
 var flagReadMessage = 0
-var problemText1 = 'justStarted'
-function getSlackToken1() {            // функция получения токена Слака
+var problemText = 'justStarted'
+function getSlackToken() {            // функция получения токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
-	document.getElementById('responseTextarea3').value = 'getSlackToken1'
+	document.getElementById('responseTextarea3').value = 'getSlackToken'
 
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse1, 1500)
-	function tokenToLocalStorage1() {
-		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
+	setTimeout(showResponse, 1500)
+	function tokenToLocalStorage() {
+		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken')
 		if(result == null)
-			setTimeout(tokenToLocalStorage1, 1000)
+			setTimeout(tokenToLocalStorage, 1000)
 		else {
-			document.getElementById('responseTextarea1').removeAttribute('getSlackToken1')
+			document.getElementById('responseTextarea1').removeAttribute('getSlackToken')
 			try {
 				localStorage.setItem('token', result.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
@@ -24,7 +24,7 @@ function getSlackToken1() {            // функция получения то
 			}
 		}
 	}
-	setTimeout(tokenToLocalStorage1, 2000)
+	setTimeout(tokenToLocalStorage, 2000)
 }
 
 function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
@@ -33,7 +33,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
 	
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse1, 1500)
+	setTimeout(showResponse, 1500)
 	function getUrlAndOpenSocket() {
 		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
 		if(result == null)
@@ -48,18 +48,18 @@ function openSlackSocket() {          // Функция открытия Сок�
 				openSlackSocket()
 				return
 			}
-			openSocket1(url)
+			openSocket(url)
 			console.log('URL для связи с Slack получен')
 		}
 	}
 	setTimeout(getUrlAndOpenSocket, 1000)
 	
-	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
-		socket1 = new WebSocket(url)
+	function openSocket(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
+		socket = new WebSocket(url)
 		var flagSlack = 0
 		var slackUrlMsg1 = ''
 		var slackUrlMsg2 = ''
-		socket1.onmessage = function(event) {
+		socket.onmessage = function(event) {
 			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage == 1) {
 				view = message.view
@@ -76,7 +76,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 					flagSlack = 1
 				}
 				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
-					if(message2.indexOf(problemText1) == -1) {
+					if(message2.indexOf(problemText) == -1) {
 						console.log("Чужой тред")
 						return
 					}
@@ -114,13 +114,13 @@ function openSlackSocket() {          // Функция открытия Сок�
 			if(ye == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
 			}
-			socket1.close()
+			socket.close()
 		}
-		socket1.onopen = function(event) {
+		socket.onopen = function(event) {
 			socketOpened = 1
 			console.log('socket подключен')
 		}
-		socket1.onclose = function(event) {
+		socket.onclose = function(event) {
 			socketOpened = 0
 			console.log('Закрыли сокет')
 		}
@@ -128,26 +128,26 @@ function openSlackSocket() {          // Функция открытия Сок�
 }
 
 function createSlackView() {
-	let client_token1 = Number(new Date())
-	requestOptions1 = {
+	let client_token = Number(new Date())
+	requestOptions = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryocWaVl7biIt7qfdc",
 	  },
-	  "body": "------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"action_id\"\r\n\r\nAa0182QPV4E7\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nAU3S9KSPL\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token1 + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\n",
+	  "body": "------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"action_id\"\r\n\r\nAa0182QPV4E7\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"app_id\"\r\n\r\nAU3S9KSPL\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + "\r\n------WebKitFormBoundaryocWaVl7biIt7qfdc\r\n",
 	  "method": "POST",
 	  "credentials": "include"
 	}
 	console.log('Запрашиваем создание формы')
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
+	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/apps.actions.v2.execute?slack_route=T03A3SUFB'
 	document.getElementById('responseTextarea3').value = 'createSlackView'
 	flagReadMessage = 1
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse1, 1500, 'createSlackView')
+	setTimeout(showResponse, 1500, 'createSlackView')
 }
 flagFormSubmited = 0
-function fillForm1(viewStringify) {
-	problemText1 = 'justStarted'
+function fillForm(viewStringify) {
+	problemText = 'justStarted'
 	view = JSON.parse(viewStringify)
 	div = document.createElement('div')
 	document.body.append(div)
@@ -158,12 +158,12 @@ function fillForm1(viewStringify) {
 	div.style = 'cursor: -webkit-grab;background: #464451; top: ' + localStorage.getItem('viewToSlackFormAFTop') + 'px; left: ' + localStorage.getItem('viewToSlackFormAFLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; width: 18%'
 	div.id = 'formToSlack'
 	
-	let div22 = document.createElement('div')
-	div22.style.textAlign = 'center'
-	div22.style.color = 'white'
-	div22.textContent = 'Форма'
+	let div2 = document.createElement('div')
+	div2.style.textAlign = 'center'
+	div2.style.color = 'white'
+	div2.textContent = 'Форма'
 	let blocks = view.blocks
-	div.append(div22)
+	div.append(div2)
 	var listener4 = function(e , a) {
         div.style.left = Number(e.clientX - myX4) + "px";
         div.style.top = Number(e.clientY - myY4) + "px";
@@ -226,7 +226,7 @@ function fillForm1(viewStringify) {
 	button3.textContent = "Закрыть"
 	button3.style.marginLeft = '5px'
 	button3.onclick = function() {
-		socket1.close()
+		socket.close()
 		socketOpened = 0
 		this.parentElement.parentElement.remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
@@ -299,13 +299,13 @@ function fillForm1(viewStringify) {
 }
 
 let buttonOpenForm1 = document.createElement('div');
-buttonOpenForm1.id = 'buttonOpenForm1';
+buttonOpenForm1.id = 'buttonOpenForm';
 buttonOpenForm1.textContent = "Баг-репорт";
 buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
-			getSlackToken1()
+			getSlackToken()
 		openSlackSocket()
 	}
 	if(document.getElementById('formToSlack') != undefined) 
@@ -333,7 +333,7 @@ function submitSlackView(view) {
 			answer += "\",\"value\":\"" + view.blocks[i].answer + "\"}}"
 	}
 	answer += "}}"
-	requestOptions1 = {
+	requestOptions = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryIqHa1NymiZdZybBQ",
 	  },
@@ -341,7 +341,7 @@ function submitSlackView(view) {
 	  "method": "POST",
 	  "credentials": "include"
 	}
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
+	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/views.submit?slack_route=T03A3SUFB&_x_version_ts=1607639215&_x_gantry=true'
 	document.getElementById('responseTextarea3').value = 'submitSlackView'
 	
@@ -349,16 +349,16 @@ function submitSlackView(view) {
 	document.getElementById('sendResponse').click()
 	console.log("Отправили форму")
 	
-	setTimeout(showResponse1, 1500, 'submitSlackView')
+	setTimeout(showResponse, 1500, 'submitSlackView')
 }
-function showResponse1(attr1) {
-	res1 = document.getElementById('responseTextarea1').getAttribute(attr1)
-	if(res1 == null) {
-		setTimeout(showResponse1, 1000, attr1)
+function showResponse(attr) {
+	res = document.getElementById('responseTextarea1').getAttribute(attr)
+	if(res == null) {
+		setTimeout(showResponse, 1000, attr)
 		return
 	}	
-	console.log('Результат запроса' + res1)
-	document.getElementById('responseTextarea1').removeAttribute(attr1)
+	console.log('Результат запроса' + res)
+	document.getElementById('responseTextarea1').removeAttribute(attr)
 }
 
 function toUTF8Array(str) {
