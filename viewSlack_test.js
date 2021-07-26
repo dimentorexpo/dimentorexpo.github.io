@@ -8,7 +8,7 @@ function getSlackToken() {            // функция получения то�
 	document.getElementById('responseTextarea3').value = 'getSlackToken'
 
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse, 1500)
+	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage() {
 		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken')
 		if(result == null)
@@ -33,7 +33,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
 	
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse, 1500)
+	setTimeout(showResponse1, 1500)
 	function getUrlAndOpenSocket() {
 		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
 		if(result == null)
@@ -143,7 +143,7 @@ function createSlackView1() {
 	document.getElementById('responseTextarea3').value = 'createSlackView1'
 	flagReadMessage = 1
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse, 1500, 'createSlackView1')
+	setTimeout(showResponse1, 1500, 'createSlackView1')
 }
 flagFormSubmited = 0
 function fillForm(viewStringify) {
@@ -319,7 +319,7 @@ btnAdd.insertBefore(buttonOpenForm1, btnAdd.children[0])
 function submitSlackView1(view) {
 	console.log(view)
 	let client_token1 = Number(new Date())
-	let view_id = view.id
+	let view_id1 = view.id
 	let answer = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
 	for(let i = 0; i < view.blocks.length; i++) {
 		if(i > 0)
@@ -337,7 +337,7 @@ function submitSlackView1(view) {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryIqHa1NymiZdZybBQ",
 	  },
-	  "body": "------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n" + answer + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n',
+	  "body": "------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n" + answer + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n',
 	  "method": "POST",
 	  "credentials": "include"
 	}
@@ -349,12 +349,12 @@ function submitSlackView1(view) {
 	document.getElementById('sendResponse').click()
 	console.log("Отправили форму")
 	
-	setTimeout(showResponse, 1500, 'submitSlackView1')
+	setTimeout(showResponse1, 1500, 'submitSlackView1')
 }
-function showResponse(attr) {
+function showResponse1(attr) {
 	res = document.getElementById('responseTextarea1').getAttribute(attr)
 	if(res == null) {
-		setTimeout(showResponse, 1000, attr)
+		setTimeout(showResponse1, 1000, attr)
 		return
 	}	
 	console.log('Результат запроса' + res)
