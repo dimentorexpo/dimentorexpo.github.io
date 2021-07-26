@@ -179,18 +179,18 @@ function fillForm(viewStringify) {
 			input.style.width = '100%';
 			input.placeholder = blocks[i].label.text;
 			input.id = 'formToSlackField' + i
-			for(let i = 0; i < blocks[i].element.options.length; i++) {
+
 				let radio = document.createElement('radio')
 				radio.textContent = blocks[i].element.options[i].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio.setAttribute('value', j)
-				document.body.appendChild(radio);
+				newDiv.append(input);
 				}
 
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
 				radio.textContent = blocks[i].element.options[j].value[j] // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio.setAttribute('value', j)
-				document.body.appendChild(radio);
+				newDiv.append(radio);
 				}
 			newDiv.append(input)
 		} 
