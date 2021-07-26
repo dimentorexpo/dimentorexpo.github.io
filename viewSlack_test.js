@@ -175,12 +175,12 @@ function fillForm(viewStringify) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px', 'width: 100%';
 		if(blocks[i].element.options != undefined) {
-			let r1 = document.createElement('input')
+				let r1 = document.createElement('input')
 				let r2 = document.createElement('input')
 				r1.setAttribute("type", "radio")
-				r1.textContent = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				r1.innerHTML = blocks[i].element.options[0].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				r2.setAttribute("type", "radio")
-				r2.textContent = blocks[i].element.options[1].text
+				r2.innerHTML = blocks[i].element.options[1].text
 				newDiv.append(r1);
 				newDiv.append(r2);
 				
@@ -189,11 +189,11 @@ function fillForm(viewStringify) {
 				let radio2 = document.createElement('radio')
 				radio2.textContent = blocks[i].element.options[j].value[j] // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio2.setAttribute('value', j)
-				newDiv.append(radio2);
+			//	newDiv.append(radio2);
 				}
 		} 
 			var input = document.createElement('textarea')
-
+			newDiv.append(input)
 			div.append(newDiv)
 	}
 	
