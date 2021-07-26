@@ -178,10 +178,9 @@ function fillForm(viewStringify) {
 				let info = blocks[i].label.text == '';
 				let x1 = document.createElement('input')
 				let x2 = document.createElement('input')
-				x1.setAttribute("type", "radio");
-				x1 = blocks[i].element.options[0].text;
-				x2.setAttribute("type", "radio");
-				x2 = blocks[i].element.options[1].text;
+				x1.setAttribute("type", "radio") = blocks[i].element.options[0].text;
+				x2.setAttribute("type", "radio") = blocks[i].element.options[1].text;
+				
 			
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
@@ -193,9 +192,6 @@ function fillForm(viewStringify) {
 		} 
 				var input = document.createElement('input')
 				var input = document.createElement('textarea')
-			input.style.width = '100%'
-			input.placeholder = blocks[i].label.text + (i < 7 ? ' *' : '')
-			input.id = 'formToSlackField' + i
 			newDiv.append(input)
 			div.append(newDiv)
 	}
