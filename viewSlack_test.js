@@ -177,7 +177,6 @@ for(let i = 0; i < blocks.length; i++) {
 		if(blocks[i].element.options != undefined) {
 			let select = document.createElement('select')   // создаем выпадающее меню выбора
 			select.style.width = '100%'
-			select.placeholder = blocks[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
 			select.id = 'formToSlackField' + i
 			if(i == 2 || i == 3) {
 				let option = document.createElement('option')   //  создаем опции выбора  
