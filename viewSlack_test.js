@@ -186,10 +186,10 @@ function fillForm(viewStringify) {
 				
 
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
-				let radio2 = document.createElement('input')
-				radio2.textContent = blocks[i].element.options[j].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
-				radio2.setAttribute('text', j)
-				newDiv.append(radio2);
+				let option = document.createElement('option')
+				option.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				option.setAttribute('value', j)
+				select.append(option)
 				}
 		} 
 			//var input = document.createElement('textarea')
