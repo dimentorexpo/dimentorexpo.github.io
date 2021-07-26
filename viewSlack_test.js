@@ -175,13 +175,16 @@ function fillForm(viewStringify) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
-			let select = document.createElement('select')
+			let select = document.createElement('input')
 			select.style.width = '100%'
 			select.id = 'formToSlackField' + i
-			if(i == 2) {
-				let option = document.createElement('option')
-				option.textContent = i == 2 ? blocks[i].element.options[0].text : blocks[i].element.options[1].text
-				select.append(option)
+			if(i == 1) {
+				let x1 = document.createElement('input')
+				let x2 = document.createElement('input')
+				x1.setAttribute("type", "radio");
+				x1 = blocks[i].element.options[0].text;
+				x2.setAttribute("type", "radio");
+				x2 = blocks[i].element.options[1].text;
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
