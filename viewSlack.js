@@ -181,18 +181,18 @@ function fillForm(viewStringify) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
-			let select = document.createElement('select')
+			let select = document.createElement('select')   // создаем выпадающее меню выбора
 			select.style.width = '100%'
-			select.placeholder = blocks[i].element.placeholder.text
+			select.placeholder = blocks[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
 			select.id = 'formToSlackField' + i
 			if(i == 2 || i == 3) {
-				let option = document.createElement('option')
+				let option = document.createElement('option')   //  создаем опции выбора  
 				option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
 				select.append(option)
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let option = document.createElement('option')
-				option.textContent = blocks[i].element.options[j].text.text
+				option.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text)
 				option.setAttribute('value', j)
 				select.append(option)
 			}
