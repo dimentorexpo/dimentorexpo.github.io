@@ -27,7 +27,7 @@ function getSlackToken1() {            // функция получения то
 	setTimeout(tokenToLocalStorage1, 2000)
 }
 
-function openSlackSocket) {          // Функция открытия Сокета и использования токена Слака
+function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
