@@ -185,7 +185,7 @@ function fillForm(viewStringify) {
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let radio = document.createElement('radio')
-				radio.textContent = blocks[i].element.options[j].value[j]
+				radio.textContent = blocks[i].element.options[j].text // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				radio.setAttribute('value', j)
 				select.append(radio)
 				}
