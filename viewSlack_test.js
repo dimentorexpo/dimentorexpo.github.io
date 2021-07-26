@@ -175,11 +175,7 @@ function fillForm(viewStringify) {
 		let newDiv = document.createElement('div')
 		newDiv.style = 'margin:5px'
 		if(blocks[i].element.options != undefined) {
-			let radio1 = document.createElement('INPUT')
-			radio1.setAttribute("type" , "radio")
-			let radio2 = document.createElement('INPUT')
-			radio2.setAttribute("type" , "radio")
-			/*let select = document.createElement('select')
+			let select = document.createElement('select')
 			select.style.width = '100%'
 			select.id = 'formToSlackField' + i
 			if(i == 2) {
@@ -192,8 +188,15 @@ function fillForm(viewStringify) {
 				option.textContent = blocks[i].element.options[j].text.text
 				option.setAttribute('value', j)
 				select.append(option)
+				
+			let radio1 = document.createElement('INPUT')
+			radio1.setAttribute("type" , "radio")
+			radio.blocks[i].element.value = "mrkt"
+			let radio2 = document.createElement('INPUT')
+			radio2.setAttribute("type" , "radio")
+			radio.blocks[i].element.value = "all"
 			}
-			newDiv.append(select)*/
+			newDiv.append(select)
 		} else {
 			if(blocks[i].label.text == '')
 				var input = document.createElement('input')
