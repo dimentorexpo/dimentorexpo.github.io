@@ -184,18 +184,11 @@ function fillForm(viewStringify) {
 				select.append(option)
 			}
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
-				let option = document.createElement('option')
-				option.textContent = blocks[i].element.options[j].text.text
-				option.setAttribute('value', j)
-				select.append(option)
-				
-			let radio1 = document.createElement('INPUT')
-			radio1.setAttribute("type" , "radio")
-			radio.blocks[i].element.value = "mrkt"
-			let radio2 = document.createElement('INPUT')
-			radio2.setAttribute("type" , "radio")
-			radio.blocks[i].element.value = "all"
-			}
+				let radio = document.createElement('radio')
+				radio.textContent = blocks[i].element.value[j].text.text
+				radio.setAttribute('value', j)
+				select.append(radio)
+				}
 			newDiv.append(select)
 		} else {
 			if(blocks[i].label.text == '')
