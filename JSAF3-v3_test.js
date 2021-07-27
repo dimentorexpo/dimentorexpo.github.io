@@ -2918,11 +2918,11 @@ function prepTp() {
 	
 	setTimeout(function() {
 		// Модуль wallentine в АФ
-		 include("https://dimentorexpo.github.io/viewSlack_test.js");
+		 include("https://dimentorexpo.github.io/viewSlack.js");
 		// Модуль репорта на жалобы
 		include("https://rawgit.com/agronaut000/JS/master/reportForm.js");
 		// Модуль Unsub
-		  include("https://dimentorexpo.github.io/unsub.js");
+		//  include("https://dimentorexpo.github.io/unsub.js");
 		
 	}, 2000)
 	
