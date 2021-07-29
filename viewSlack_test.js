@@ -156,7 +156,7 @@ function fillForm1(viewStringify) {
 		localStorage.setItem('viewToSlackFormAFLeft', '295');
 	}
 	div3.style = 'cursor: -webkit-grab;background: #464451; top: ' + localStorage.getItem('viewToSlackFormAFTop') + 'px; left: ' + localStorage.getItem('viewToSlackFormAFLeft') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; width: 18%'
-	div3.id = 'formToSlack1'
+	div3.id = 'formToSlack'
 	
 	let div4 = document.createElement('div')
 	div4.style.textAlign = 'center'
@@ -239,7 +239,7 @@ function fillForm1(viewStringify) {
 				document.getElementById('formToSlackSend').removeAttribute('disabled')
 		}, 500)
 		flagFormSubmited = 0
-		if(document.getElementById('formToSlack1') == undefined) {
+		if(document.getElementById('formToSlack') == undefined) {
 			console.log("Не вижу форму")
 			return;
 		}
@@ -259,7 +259,7 @@ function fillForm1(viewStringify) {
 		console.log(view)
 		submitSlackView1(view)
 		flagFormSubmited = 1
-		document.getElementById('formToSlack1').remove()
+		document.getElementById('formToSlack').remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
 		
 	}
@@ -308,8 +308,8 @@ buttonOpenForm1.onclick = function() {
 			getSlackToken1()
 		openSlackSocket1()
 	}
-	if(document.getElementById('formToSlack1') != undefined) 
-		document.getElementById('formToSlack1').style.display = ''
+	if(document.getElementById('formToSlack') != undefined) 
+		document.getElementById('formToSlack').style.display = ''
 	else
 		createSlackView()
 	this.style.display = 'none'
