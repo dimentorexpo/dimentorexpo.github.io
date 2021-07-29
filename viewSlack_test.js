@@ -232,7 +232,7 @@ function fillForm1(viewStringify) {
 		document.getElementById('buttonOpenForm1').style.display = ''
 		console.log("форма закрыта");
 		document.getElementById('buttonOpenForm1').innerHTML = "Wait";
-		setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 10000);
+		setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 3000);
 	}
 	
 	button.onclick = function() {
@@ -351,7 +351,8 @@ function submitSlackView(view) {
 
 	document.getElementById('sendResponse').click()
 	console.log("Отправили форму")
-	
+	document.getElementById('buttonOpenForm1').innerHTML = "Wait";
+	setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 5000);
 	setTimeout(showResponse, 1500, 'submitSlackView')
 }
 function showResponse(attr) {
