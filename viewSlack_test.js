@@ -343,13 +343,13 @@ function submitSlackView1(view1) {
 	}
 	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/views.submit?slack_route=T03A3SUFB&_x_version_ts=1607639215&_x_gantry=true'
-	document.getElementById('responseTextarea3').value = 'submitSlackView1'
+	document.getElementById('responseTextarea3').value = 'submitSlackView'
 	
 
 	document.getElementById('sendResponse').click()
 	console.log("Отправили форму")
 	
-	setTimeout(showResponse1, 1500, 'submitSlackView1')
+	setTimeout(showResponse1, 1500, 'submitSlackView')
 }
 function showResponse1(attr) {
 	res = document.getElementById('responseTextarea1').getAttribute(attr)
