@@ -179,8 +179,8 @@ function fillForm1(viewStringify) {
     div3.onmouseup = function () {document.removeEventListener('mousemove', listener5);}
 	
 	for(let i = 0; i < blocks1.length; i++) {
-		let newDiv1 = document.createElement('div')
-		newDiv1.style = 'margin:5px'
+		let newDiv = document.createElement('div')
+		newDiv.style = 'margin:5px'
 		if(blocks1[i].element.options != undefined) {
 			let select1 = document.createElement('select')   // создаем выпадающее меню выбора
 			select1.style.width = '100%'
@@ -197,7 +197,7 @@ function fillForm1(viewStringify) {
 				option1.setAttribute('value', j)
 				select1.append(option1)
 			}
-			newDiv1.append(select1)
+			newDiv.append(select1)
 		} else {
 			if(blocks1[i].label.text == 'URL')
 				var input1 = document.createElement('input')
@@ -206,9 +206,9 @@ function fillForm1(viewStringify) {
 			input1.style.width = '100%'
 			input1.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
 			input1.id = 'formToSlackField' + i
-			newDiv1.append(input1)
+			newDiv.append(input1)
 		}
-		div.append(newDiv1)
+		div.append(newDiv)
 	}
 	let newDiv1 = document.createElement('div')
 	newDiv1.style = 'margin:5px'
