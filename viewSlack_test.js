@@ -161,8 +161,8 @@ function fillForm1(viewStringify) {
 	let div4 = document.createElement('div')
 	div4.style.textAlign = 'center'
 	div4.style.color = 'white'
-	div4.textContent = 'Форма'
-	let blocks = view1.blocks
+	div4.textContent = 'Форма баг-репорта'
+	let blocks1 = view1.blocks
 	div3.append(div4)
 	var listener5 = function(e , a) {
         div3.style.left = Number(e.clientX - myX4) + "px";
@@ -177,20 +177,20 @@ function fillForm1(viewStringify) {
         document.addEventListener('mousemove', listener5);
     }
     div3.onmouseup = function () {document.removeEventListener('mousemove', listener5);}
-	for(let i = 0; i < blocks.length; i++) {
+	for(let i = 0; i < blocks1.length; i++) {
 		let newDiv1 = document.createElement('div')
 		newDiv1.style = 'margin:5px'
-		if(blocks[i].element.options != undefined) {
+		if(blocks1[i].element.options != undefined) {
 			let select = document.createElement('select')   // создаем выпадающее меню выбора
 			select.style.width = '100%'
-			select.placeholder = blocks[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
+			select.placeholder = blocks1[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
 			select.id = 'formToSlackField' + i
 			if(i == 2 || i == 3) {
 				let option = document.createElement('option')   //  создаем опции выбора  
 				option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
 				select.append(option)
 			}
-			for(let j = 0; j < blocks[i].element.options.length; j++) {
+			for(let j = 0; j < blocks1[i].element.options.length; j++) {
 				let option = document.createElement('option')
 				option.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				option.setAttribute('value', j)
@@ -198,12 +198,12 @@ function fillForm1(viewStringify) {
 			}
 			newDiv1.append(select)
 		} else {
-			if(blocks[i].label.text == 'URL')
+			if(blocks1[i].label.text == 'URL')
 				var input = document.createElement('input')
 			else
 				var input = document.createElement('textarea')
 			input.style.width = '100%'
-			input.placeholder = blocks[i].label.text + (i < 7 ? ' *' : '')
+			input.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
 			input.id = 'formToSlackField' + i
 			newDiv1.append(input)
 		}
@@ -247,10 +247,10 @@ function fillForm1(viewStringify) {
 		if(!validateSlackForm1())
 			return
 		for(let i = 0; i < 9; i++) {
-			view1.blocks[i].answer1 = document.getElementById('formToSlackField' + i).value
-			view1.blocks[i].answer1 = view1.blocks[i].answer1.split("\"").join("\\\"")
-			console.log('view.blocks[i].answer1 = ' + view1.blocks[i].answer1)
-			if(view1.blocks[i].answer1 == undefined || view1.blocks[i].answer1 == "undefined") {
+			view1.blocks1[i].answer1 = document.getElementById('formToSlackField' + i).value
+			view1.blocks1[i].answer1 = view1.blocks1[i].answer1.split("\"").join("\\\"")
+			console.log('view.blocks1[i].answer1 = ' + view1.blocks1[i].answer1)
+			if(view1.blocks1[i].answer1 == undefined || view1.blocks1[i].answer1 == "undefined") {
 				console.log(i + ' не нахожу текст поля')
 				return
 			}
@@ -321,16 +321,16 @@ function submitSlackView1(view1) {
 	let client_token1 = Number(new Date())
 	let view_id1 = view1.id
 	let answer1 = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
-	for(let i = 0; i < view1.blocks.length; i++) {
+	for(let i = 0; i < view1.blocks1.length; i++) {
 		if(i > 0)
 			answer1 += ','
-		answer1 += "\"" + view1.blocks[i].block_id
-		answer1 += "\":{\"" + view1.blocks[i].element.action_id
-		answer1 += "\":{\"type\":\"" + view1.blocks[i].element.type 
-		if(view1.blocks[i].element.options != undefined)
-			answer1 += "\",\"selected_option\":{\"text\":{\"type\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer1].text.type + "\",\"text\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer1].text.text + "\",\"emoji\":" + view1.blocks[i].element.options[view1.blocks[i].answer1].text.emoji.toString() + "},\"value\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer1].value + "\"}}}"
+		answer1 += "\"" + view1.blocks1[i].block_id
+		answer1 += "\":{\"" + view1.blocks1[i].element.action_id
+		answer1 += "\":{\"type\":\"" + view1.blocks1[i].element.type 
+		if(view1.blocks1[i].element.options != undefined)
+			answer1 += "\",\"selected_option\":{\"text\":{\"type\":\"" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].text.type + "\",\"text\":\"" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].text.text + "\",\"emoji\":" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].text.emoji.toString() + "},\"value\":\"" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].value + "\"}}}"
 		else
-			answer1 += "\",\"value\":\"" + view1.blocks[i].answer1 + "\"}}"
+			answer1 += "\",\"value\":\"" + view1.blocks1[i].answer1 + "\"}}"
 	}
 	answer1 += "}}"
 	requestOptions1 = {
