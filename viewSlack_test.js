@@ -200,12 +200,12 @@ function fillForm1(viewStringify) {
 			newDiv33.append(select1)
 		} else {
 			if(blocks1[i].label.text == 'URL')
-				var input1 = document.createElement('input')
+				var input = document.createElement('input')
 			else
-				var input1 = document.createElement('textarea')
-			input1.style.width = '100%'
-			input1.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
-			input1.id = 'formToSlackField' + i
+				var input = document.createElement('textarea')
+			input.style.width = '100%'
+			input.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
+			input.id = 'formToSlackField' + i
 			newDiv33.append(input1)
 		}
 		div.append(newDiv33)
