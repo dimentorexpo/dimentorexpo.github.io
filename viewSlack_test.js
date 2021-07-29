@@ -62,7 +62,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 		socket1.onmessage = function(event) {
 			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
-				view = message.view
+				view1 = message.view
 				console.log('Форма получена: ' + message.view)
 				fillForm(JSON.stringify(message.view))
 				flagReadMessage1 = 0
@@ -148,7 +148,7 @@ function createSlackView1() {
 flagFormSubmited1 = 0
 function fillForm1(viewStringify) {
 	problemText1 = 'justStarted'
-	view = JSON.parse(viewStringify)
+	view1 = JSON.parse(viewStringify)
 	div3 = document.createElement('div')
 	document.body.append(div3)
 	if (localStorage.getItem('viewToSlackFormAFTop') == null) {
@@ -162,7 +162,7 @@ function fillForm1(viewStringify) {
 	div4.style.textAlign = 'center'
 	div4.style.color = 'white'
 	div4.textContent = 'Форма'
-	let blocks = view.blocks
+	let blocks = view1.blocks
 	div3.append(div4)
 	var listener5 = function(e , a) {
         div3.style.left = Number(e.clientX - myX4) + "px";
@@ -247,17 +247,17 @@ function fillForm1(viewStringify) {
 		if(!validateSlackForm1())
 			return
 		for(let i = 0; i < 9; i++) {
-			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
-			view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
-			console.log('view.blocks[i].answer = ' + view.blocks[i].answer)
-			if(view.blocks[i].answer == undefined || view.blocks[i].answer == "undefined") {
+			view1.blocks[i].answer = document.getElementById('formToSlackField' + i).value
+			view1.blocks[i].answer = view1.blocks[i].answer.split("\"").join("\\\"")
+			console.log('view.blocks[i].answer = ' + view1.blocks[i].answer)
+			if(view1.blocks[i].answer == undefined || view1.blocks[i].answer == "undefined") {
 				console.log(i + ' не нахожу текст поля')
 				return
 			}
 		}
 		problemText1 = document.getElementById('formToSlackField' + 0).value
-		console.log(view)
-		submitSlackView1(view)
+		console.log(view1)
+		submitSlackView1(view1)
 		flagFormSubmited1 = 1
 		document.getElementById('formToSlack').remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
@@ -316,21 +316,21 @@ buttonOpenForm1.onclick = function() {
 }
 var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
 btnAdd.insertBefore(buttonOpenForm1, btnAdd.children[0])
-function submitSlackView1(view) {
-	console.log(view)
+function submitSlackView1(view1) {
+	console.log(view1)
 	let client_token1 = Number(new Date())
-	let view_id1 = view.id
+	let view_id1 = view1.id
 	let answer = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
-	for(let i = 0; i < view.blocks.length; i++) {
+	for(let i = 0; i < view1.blocks.length; i++) {
 		if(i > 0)
 			answer += ','
-		answer += "\"" + view.blocks[i].block_id
-		answer += "\":{\"" + view.blocks[i].element.action_id
-		answer += "\":{\"type\":\"" + view.blocks[i].element.type 
-		if(view.blocks[i].element.options != undefined)
-			answer += "\",\"selected_option\":{\"text\":{\"type\":\"" + view.blocks[i].element.options[view.blocks[i].answer].text.type + "\",\"text\":\"" + view.blocks[i].element.options[view.blocks[i].answer].text.text + "\",\"emoji\":" + view.blocks[i].element.options[view.blocks[i].answer].text.emoji.toString() + "},\"value\":\"" + view.blocks[i].element.options[view.blocks[i].answer].value + "\"}}}"
+		answer += "\"" + view1.blocks[i].block_id
+		answer += "\":{\"" + view1.blocks[i].element.action_id
+		answer += "\":{\"type\":\"" + view1.blocks[i].element.type 
+		if(view1.blocks[i].element.options != undefined)
+			answer += "\",\"selected_option\":{\"text\":{\"type\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer].text.type + "\",\"text\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer].text.text + "\",\"emoji\":" + view1.blocks[i].element.options[view1.blocks[i].answer].text.emoji.toString() + "},\"value\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer].value + "\"}}}"
 		else
-			answer += "\",\"value\":\"" + view.blocks[i].answer + "\"}}"
+			answer += "\",\"value\":\"" + view1.blocks[i].answer + "\"}}"
 	}
 	answer += "}}"
 	requestOptions1 = {
