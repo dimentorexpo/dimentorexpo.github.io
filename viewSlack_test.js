@@ -81,7 +81,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 						return
 					}
 					console.log("В этом ответе нет нужный ссылки")
-					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
+					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 500000)
 					console.log('Предполагаемая ссылка: ' + slackUrlMsg1)
 					return
 				}
