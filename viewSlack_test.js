@@ -81,7 +81,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 						return
 					}
 					console.log("В этом ответе нет нужный ссылки")
-					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
+					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 10000)
 					console.log('Предполагаемая ссылка: ' + slackUrlMsg1)
 					return
 				}
@@ -349,10 +349,9 @@ function submitSlackView(view) {
 	document.getElementById('responseTextarea3').value = 'submitSlackView'
 	
 
+	
 	document.getElementById('sendResponse').click()
 	console.log("Отправили форму")
-	document.getElementById('buttonOpenForm1').innerHTML = "Wait";
-	setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 5000);
 	setTimeout(showResponse, 1500, 'submitSlackView')
 }
 function showResponse(attr) {
