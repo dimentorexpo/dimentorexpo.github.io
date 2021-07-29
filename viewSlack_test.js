@@ -215,7 +215,7 @@ function fillForm1(viewStringify) {
 	newDiv1.style.textAlign = 'center'
 	let button4 = document.createElement('button')
 	button4.textContent = "Отправить"
-	button4.id = 'formToSlackSend1'
+	button4.id = 'formToSlackSend'
 	let button5 = document.createElement('button')
 	button5.textContent = "Скрыть"
 	button5.style.marginLeft = '5px'
@@ -236,8 +236,8 @@ function fillForm1(viewStringify) {
 	button4.onclick = function() {
 		this.setAttribute('disabled', 'disabled')
 		setTimeout(function() {
-			if(document.getElementById('formToSlackSend1') != null)
-				document.getElementById('formToSlackSend1').removeAttribute('disabled')
+			if(document.getElementById('formToSlackSend') != null)
+				document.getElementById('formToSlackSend').removeAttribute('disabled')
 		}, 500)
 		flagFormSubmited1 = 0
 		if(document.getElementById('formToSlack') == undefined) {
