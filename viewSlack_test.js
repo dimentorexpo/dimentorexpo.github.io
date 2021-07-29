@@ -60,10 +60,10 @@ function openSlackSocket1() {          // Функция открытия Сок
 		var slackUrlMsg11 = ''
 		var slackUrlMsg22 = ''
 		socket.onmessage = function(event) {
-			message = JSON.parse(event.data)
-			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
-				view1 = message.view
-				console.log('Форма получена: ' + message.view)
+			message1 = JSON.parse(event.data)
+			if(message1.type == "view_opened" && message1.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
+				view1 = message1.view
+				console.log('Форма получена: ' + message1.view)
 				fillForm1(JSON.stringify(message.view))
 				flagReadMessage1 = 0
 				return
@@ -179,8 +179,8 @@ function fillForm1(viewStringify) {
     div3.onmouseup = function () {document.removeEventListener('mousemove', listener5);}
 	
 	for(let i = 0; i < blocks1.length; i++) {
-		let newDiv = document.createElement('div')
-		newDiv.style = 'margin:5px'
+		let newDiv33 = document.createElement('div')
+		newDiv33.style = 'margin:5px'
 		if(blocks1[i].element.options != undefined) {
 			let select1 = document.createElement('select')   // создаем выпадающее меню выбора
 			select1.style.width = '100%'
@@ -197,7 +197,7 @@ function fillForm1(viewStringify) {
 				option1.setAttribute('value', j)
 				select1.append(option1)
 			}
-			newDiv.append(select1)
+			newDiv33.append(select1)
 		} else {
 			if(blocks1[i].label.text == 'URL')
 				var input1 = document.createElement('input')
@@ -206,9 +206,9 @@ function fillForm1(viewStringify) {
 			input1.style.width = '100%'
 			input1.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
 			input1.id = 'formToSlackField' + i
-			newDiv.append(input1)
+			newDiv33.append(input1)
 		}
-		div.append(newDiv)
+		div.append(newDiv33)
 	}
 	let newDiv1 = document.createElement('div')
 	newDiv1.style = 'margin:5px'
