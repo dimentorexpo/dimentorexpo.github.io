@@ -127,7 +127,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 	}
 }
 
-function createSlackView1() {
+function createSlackView() {
 	let client_token1 = Number(new Date())
 	requestOptions1 = {
 	  "headers": {
@@ -140,10 +140,10 @@ function createSlackView1() {
 	console.log('Запрашиваем создание формы')
 	document.getElementById('responseTextarea11').value = JSON.stringify(requestOptions1)
 	document.getElementById('responseTextarea21').value = 'https://skyeng.slack.com/api/apps.actions.v2.execute?slack_route=T03A3SUFB'
-	document.getElementById('responseTextarea31').value = 'createSlackView1'
+	document.getElementById('responseTextarea31').value = 'createSlackView'
 	flagReadMessage = 1
 	document.getElementById('sendResponse').click()
-	setTimeout(showResponse1, 1500, 'createSlackView1')
+	setTimeout(showResponse1, 1500, 'createSlackView')
 }
 flagFormSubmited = 0
 function fillForm1(viewStringify) {
@@ -311,7 +311,7 @@ buttonOpenForm1.onclick = function() {
 	if(document.getElementById('formToSlack1') != undefined) 
 		document.getElementById('formToSlack1').style.display = ''
 	else
-		createSlackView1()
+		createSlackView()
 	this.style.display = 'none'
 }
 var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
