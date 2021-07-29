@@ -443,7 +443,7 @@ const copyToClipboard = str => {           // инициализация фун�
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 
-	document.getElementById('sound_test').onclick function () { 
+	document.getElementById('sound_test').onclick = function () { 
 		audio.play()
 	}
 	
