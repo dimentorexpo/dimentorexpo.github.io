@@ -2,8 +2,8 @@
 var socketOpened = 0
 var flagReadMessage = 0
 var problemText = 'justStarted'
-function getSlackToken1() {            // функция получения токена Слака
-	document.getElementById('responseTextarea1').value = '{}'
+function getSlackToken1() {            // функция получения токена Слака, при этом значения респонстекстареа вообще не трогаем
+	document.getElementById('responseTextarea1').value = '{}'  
 	document.getElementById('responseTextarea2').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
 	document.getElementById('responseTextarea3').value = 'getSlackToken1'
 
