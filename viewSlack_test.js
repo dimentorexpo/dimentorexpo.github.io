@@ -244,7 +244,7 @@ function fillForm1(viewStringify) {
 			return;
 		}
 		console.log("Заполняем view")
-		if(!validateSlackForm())
+		if(!validateSlackForm1())
 			return
 		for(let i = 0; i < 9; i++) {
 			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
