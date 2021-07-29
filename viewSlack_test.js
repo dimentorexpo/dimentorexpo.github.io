@@ -2,19 +2,19 @@
 var socketOpened = 0
 var flagReadMessage = 0
 var problemText = 'justStarted'
-function getSlackToken() {            // функция получения токена Слака
+function getSlackToken1() {            // функция получения токена Слака
 	document.getElementById('responseTextarea11').value = '{}'
 	document.getElementById('responseTextarea21').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
-	document.getElementById('responseTextarea31').value = 'getSlackToken'
+	document.getElementById('responseTextarea31').value = 'getSlackToken1'
 
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage() {
-		var result = document.getElementById('responseTextarea11').getAttribute('getSlackToken')
+		var result = document.getElementById('responseTextarea11').getAttribute('getSlackToken1')
 		if(result == null)
 			setTimeout(tokenToLocalStorage, 1000)
 		else {
-			document.getElementById('responseTextarea11').removeAttribute('getSlackToken')
+			document.getElementById('responseTextarea11').removeAttribute('getSlackToken1')
 			try {
 				localStorage.setItem('token', result.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
@@ -305,7 +305,7 @@ buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
-			getSlackToken()
+			getSlackToken1()
 		openSlackSocket()
 	}
 	if(document.getElementById('formToSlack1') != undefined) 
