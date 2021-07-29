@@ -165,15 +165,15 @@ function fillForm1(viewStringify) {
 	let blocks1 = view1.blocks
 	div3.append(div4)
 	var listener5 = function(e , a) {
-        div3.style.left = Number(e.clientX - myX4) + "px";
-        div3.style.top = Number(e.clientY - myY4) + "px";
-        localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY4)));
-        localStorage.setItem('viewToSlackFormAFLeft', String(Number(e.clientX - myX4)));
+        div3.style.left = Number(e.clientX - myX5) + "px";
+        div3.style.top = Number(e.clientY - myY5) + "px";
+        localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY5)));
+        localStorage.setItem('viewToSlackFormAFLeft', String(Number(e.clientX - myX5)));
     };
 
     div3.firstElementChild.onmousedown = function (a) {
-        window.myX4 = a.layerX; 
-        window.myY4 = a.layerY; 
+        window.myX5 = a.layerX; 
+        window.myY5 = a.layerY; 
         document.addEventListener('mousemove', listener5);
     }
     div3.onmouseup = function () {document.removeEventListener('mousemove', listener5);}
@@ -200,13 +200,13 @@ function fillForm1(viewStringify) {
 			newDiv1.append(select1)
 		} else {
 			if(blocks1[i].label.text == 'URL')
-				var input = document.createElement('input')
+				var input1 = document.createElement('input')
 			else
-				var input = document.createElement('textarea')
-			input.style.width = '100%'
-			input.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
-			input.id = 'formToSlackField' + i
-			newDiv1.append(input)
+				var input1 = document.createElement('textarea')
+			input1.style.width = '100%'
+			input1.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
+			input1.id = 'formToSlackField' + i
+			newDiv1.append(input1)
 		}
 		div.append(newDiv1)
 	}
