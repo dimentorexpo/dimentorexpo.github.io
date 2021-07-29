@@ -1901,10 +1901,10 @@ function startTimer() {
 		btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
 		let btn2 = document.createElement('span');
-		btn2.id = 'shkodium'
+		btn2.id = 'kodium'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
 		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
-		btn2.setAttribute('onClick', 'sendComment("#kodium");')
+		btn2.setAttribute('onClick','sendComment("#kodium");')
 
 		let btn3 = document.createElement('span');
 		btn3.id = 'SMS'
