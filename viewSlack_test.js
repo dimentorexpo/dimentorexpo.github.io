@@ -52,7 +52,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			console.log('URL для связи с Slack получен')
 		}
 	}
-	setTimeout(getUrlAndOpenSocket, 1000)
+	setTimeout(getUrlAndOpenSocket1, 1000)
 	
 	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
 		socket = new WebSocket(url)
