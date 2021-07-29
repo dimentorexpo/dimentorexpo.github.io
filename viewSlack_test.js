@@ -114,7 +114,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			if(ye == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg11)
 			}
-			socket1.close1()
+			socket1.close()
 		}
 		socket1.onopen = function(event) {
 			socketOpened1 = 1
