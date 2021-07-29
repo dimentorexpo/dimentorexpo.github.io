@@ -230,6 +230,7 @@ function fillForm1(viewStringify) {
 		socketOpened = 0
 		this.parentElement.parentElement.remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
+		console.log("форма закрыта");
 	}
 	
 	button.onclick = function() {
