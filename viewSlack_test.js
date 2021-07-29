@@ -94,15 +94,15 @@ function openSlackSocket1() {          // Функция открытия Сок
 		}
 		function checkForLink1() {
 			flagSlack1 = 0
-			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
-			let ye = slackUrlMsg11 == slackUrlMsg22 ? 'yes' : 'no'
-			ye = slackUrlMsg22 == '' ? 'idk' : ye 
-			var body = 'entry.1566561060=' + oper + '&entry.1523645757=' + slackUrlMsg11 + '&entry.626388165=' + slackUrlMsg22 + '&entry.181839927=' + ye
-			let options = {
+			let oper1 = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
+			let ye1 = slackUrlMsg11 == slackUrlMsg22 ? 'yes' : 'no'
+			ye1 = slackUrlMsg22 == '' ? 'idk' : ye1 
+			var body1 = 'entry.1566561060=' + oper1 + '&entry.1523645757=' + slackUrlMsg11 + '&entry.626388165=' + slackUrlMsg22 + '&entry.181839927=' + ye
+			let options1 = {
 				  "headers": {
 					"content-type": "application/x-www-form-urlencoded",
 				  },
-				  "body": body,
+				  "body": body1,
 				  "method": "POST",
 				}
 				
@@ -111,7 +111,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			document.getElementById('responseTextarea3').value = ''
 			document.getElementById('sendResponse').click()
 			
-			if(ye == 'idk') {
+			if(ye1 == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg11)
 			}
 			socket1.close()
