@@ -9,10 +9,10 @@ function getSlackToken1() {            // функция получения то
 
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
-	function tokenToLocalStorage() {
+	function tokenToLocalStorage1() {
 		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
 		if(result == null)
-			setTimeout(tokenToLocalStorage, 1000)
+			setTimeout(tokenToLocalStorage1, 1000)
 		else {
 			document.getElementById('responseTextarea1').removeAttribute('getSlackToken1')
 			try {
@@ -24,7 +24,7 @@ function getSlackToken1() {            // функция получения то
 			}
 		}
 	}
-	setTimeout(tokenToLocalStorage, 2000)
+	setTimeout(tokenToLocalStorage1, 2000)
 }
 
 function openSlackSocket1() {          // Функция открытия Сокета и использования токена Слака
