@@ -60,10 +60,10 @@ function openSlackSocket1() {          // Функция открытия Сок
 		var slackUrlMsg11 = ''
 		var slackUrlMsg22 = ''
 		socket.onmessage = function(event) {
-			message1 = JSON.parse(event.data)
-			if(message1.type == "view_opened" && message1.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
-				view1 = message1.view
-				console.log('Форма получена: ' + message1.view)
+			message = JSON.parse(event.data)
+			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
+				view = message.view
+				console.log('Форма получена: ' + message.view)
 				fillForm1(JSON.stringify(message.view))
 				flagReadMessage1 = 0
 				return
