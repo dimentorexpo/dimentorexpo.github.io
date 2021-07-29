@@ -55,11 +55,11 @@ function openSlackSocket1() {          // Функция открытия Сок
 	setTimeout(getUrlAndOpenSocket1, 1000)
 	
 	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
-		socket = new WebSocket(url)
+		socket1 = new WebSocket(url)
 		var flagSlack1 = 0
 		var slackUrlMsg11 = ''
 		var slackUrlMsg22 = ''
-		socket.onmessage = function(event) {
+		socket1.onmessage = function(event) {
 			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
 				view = message.view
@@ -114,13 +114,13 @@ function openSlackSocket1() {          // Функция открытия Сок
 			if(ye == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg11)
 			}
-			socket.close1()
+			socket1.close1()
 		}
-		socket.onopen = function(event) {
+		socke1t.onopen = function(event) {
 			socketOpened1 = 1
 			console.log('socket подключен')
 		}
-		socket.onclose = function(event) {
+		socket1.onclose = function(event) {
 			socketOpened1 = 0
 			console.log('Закрыли сокет')
 		}
@@ -226,7 +226,7 @@ function fillForm1(viewStringify) {
 	button6.textContent = "Закрыть"
 	button6.style.marginLeft = '5px'
 	button6.onclick = function() {
-		socket.close1()
+		socket1.close()
 		socketOpened1 = 0
 		this.parentElement.parentElement.remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
