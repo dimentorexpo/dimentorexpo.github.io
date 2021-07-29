@@ -247,10 +247,10 @@ function fillForm1(viewStringify) {
 		if(!validateSlackForm1())
 			return
 		for(let i = 0; i < 9; i++) {
-			view1.blocks[i].answer = document.getElementById('formToSlackField' + i).value
-			view1.blocks[i].answer = view1.blocks[i].answer.split("\"").join("\\\"")
-			console.log('view.blocks[i].answer = ' + view1.blocks[i].answer)
-			if(view1.blocks[i].answer == undefined || view1.blocks[i].answer == "undefined") {
+			view1.blocks[i].answer1 = document.getElementById('formToSlackField' + i).value
+			view1.blocks[i].answer1 = view1.blocks[i].answer1.split("\"").join("\\\"")
+			console.log('view.blocks[i].answer1 = ' + view1.blocks[i].answer1)
+			if(view1.blocks[i].answer1 == undefined || view1.blocks[i].answer1 == "undefined") {
 				console.log(i + ' не нахожу текст поля')
 				return
 			}
@@ -264,20 +264,20 @@ function fillForm1(viewStringify) {
 		
 	}
 	function validateSlackForm1() {
-		let flag = 0
+		let flag1 = 0
 		for(let i = 0; i < 7; i++) {
 			if(i == 3 || i == 2) {
 				if(i == 2) {
 					if(document.getElementById('formToSlackField' + i).value == 'Выберите канал *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-						flag = 1
+						flag1 = 1
 					} else 
 						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 				}
 				if (i == 3) {
 					if(document.getElementById('formToSlackField' + i).value == 'Приоритет *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-						flag = 1
+						flag1 = 1
 					} else 
 						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 				}
@@ -285,11 +285,11 @@ function fillForm1(viewStringify) {
 			} 
 			if(document.getElementById('formToSlackField' + i).value == '') {
 				document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-				flag = 1
+				flag1 = 1
 			} else
 				document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 		}
-		return flag == 1 ? false : true
+		return flag1 == 1 ? false : true
 	}
 	newDiv1.append(button4)
 	newDiv1.append(button5)
@@ -320,24 +320,24 @@ function submitSlackView1(view1) {
 	console.log(view1)
 	let client_token1 = Number(new Date())
 	let view_id1 = view1.id
-	let answer = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
+	let answer1 = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
 	for(let i = 0; i < view1.blocks.length; i++) {
 		if(i > 0)
-			answer += ','
-		answer += "\"" + view1.blocks[i].block_id
-		answer += "\":{\"" + view1.blocks[i].element.action_id
-		answer += "\":{\"type\":\"" + view1.blocks[i].element.type 
+			answer1 += ','
+		answer1 += "\"" + view1.blocks[i].block_id
+		answer1 += "\":{\"" + view1.blocks[i].element.action_id
+		answer1 += "\":{\"type\":\"" + view1.blocks[i].element.type 
 		if(view1.blocks[i].element.options != undefined)
-			answer += "\",\"selected_option\":{\"text\":{\"type\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer].text.type + "\",\"text\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer].text.text + "\",\"emoji\":" + view1.blocks[i].element.options[view1.blocks[i].answer].text.emoji.toString() + "},\"value\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer].value + "\"}}}"
+			answer1 += "\",\"selected_option\":{\"text\":{\"type\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer1].text.type + "\",\"text\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer1].text.text + "\",\"emoji\":" + view1.blocks[i].element.options[view1.blocks[i].answer1].text.emoji.toString() + "},\"value\":\"" + view1.blocks[i].element.options[view1.blocks[i].answer1].value + "\"}}}"
 		else
-			answer += "\",\"value\":\"" + view1.blocks[i].answer + "\"}}"
+			answer1 += "\",\"value\":\"" + view1.blocks[i].answer1 + "\"}}"
 	}
-	answer += "}}"
+	answer1 += "}}"
 	requestOptions1 = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryIqHa1NymiZdZybBQ",
 	  },
-	  "body": "------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n" + answer + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n',
+	  "body": "------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n" + answer1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n',
 	  "method": "POST",
 	  "credentials": "include"
 	}
