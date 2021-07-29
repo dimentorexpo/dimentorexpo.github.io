@@ -72,7 +72,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 				console.log(message)
 				let message2 = JSON.stringify(message)
 				if(flagSlack == 0) {
-					setTimeout(checkForLink, 5 * 1000)
+					setTimeout(checkForLink1, 5 * 1000)
 					flagSlack = 1
 				}
 				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
@@ -92,7 +92,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 				return
 			}
 		}
-		function checkForLink() {
+		function checkForLink1() {
 			flagSlack = 0
 			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
 			let ye = slackUrlMsg1 == slackUrlMsg2 ? 'yes' : 'no'
@@ -244,7 +244,7 @@ function fillForm1(viewStringify) {
 			return;
 		}
 		console.log("Заполняем view")
-		if(!validateSlackForm())
+		if(!validateSlackForm1())
 			return
 		for(let i = 0; i < 9; i++) {
 			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
@@ -263,7 +263,7 @@ function fillForm1(viewStringify) {
 		document.getElementById('buttonOpenForm1').style.display = ''
 		
 	}
-	function validateSlackForm() {
+	function validateSlackForm1() {
 		let flag = 0
 		for(let i = 0; i < 7; i++) {
 			if(i == 3 || i == 2) {
