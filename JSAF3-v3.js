@@ -1904,7 +1904,7 @@ function startTimer() {
 		btn2.id = 'shkodium'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
 		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
-		btn2.setAttribute('onClick', ''sendComment("#kodium");'')
+		btn2.setAttribute('onClick', 'sendComment("#kodium");')
 		
 
 //		let btn2 = document.createElement('span');
