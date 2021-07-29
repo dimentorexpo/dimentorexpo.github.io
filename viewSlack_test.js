@@ -3,18 +3,18 @@ var socketOpened = 0
 var flagReadMessage = 0
 var problemText = 'justStarted'
 function getSlackToken() {            // функция получения токена Слака
-	document.getElementById('responseTextarea1').value = '{}'
-	document.getElementById('responseTextarea2').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
-	document.getElementById('responseTextarea3').value = 'getSlackToken'
+	document.getElementById('responseTextarea11').value = '{}'
+	document.getElementById('responseTextarea21').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
+	document.getElementById('responseTextarea31').value = 'getSlackToken'
 
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage() {
-		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken')
+		var result = document.getElementById('responseTextarea11').getAttribute('getSlackToken')
 		if(result == null)
 			setTimeout(tokenToLocalStorage, 1000)
 		else {
-			document.getElementById('responseTextarea1').removeAttribute('getSlackToken')
+			document.getElementById('responseTextarea11').removeAttribute('getSlackToken')
 			try {
 				localStorage.setItem('token', result.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
@@ -28,19 +28,19 @@ function getSlackToken() {            // функция получения то�
 }
 
 function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
-	document.getElementById('responseTextarea1').value = '{}'
-	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
-	document.getElementById('responseTextarea3').value = 'openSlackSocket'
+	document.getElementById('responseTextarea11').value = '{}'
+	document.getElementById('responseTextarea21').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
+	document.getElementById('responseTextarea31').value = 'openSlackSocket'
 	
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function getUrlAndOpenSocket() {
-		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
+		var result = document.getElementById('responseTextarea11').getAttribute('openSlackSocket')
 		if(result == null)
 			setTimeout(getUrlAndOpenSocket, 1000)
 		else {
 			result = JSON.parse(result)
-			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket')
+			document.getElementById('responseTextarea11').removeAttribute('openSlackSocket')
 			var url = result.url
 			console.log(result)
 			if(url == undefined) {
@@ -106,9 +106,9 @@ function openSlackSocket() {          // Функция открытия Сок�
 				  "method": "POST",
 				}
 				
-			document.getElementById('responseTextarea1').value = JSON.stringify(options)
-			document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLSfhK9cT1l3ZSkbIr6YSNkm4nXIwMMX9E0k_wkPCiiHp7NgzuA/formResponse'
-			document.getElementById('responseTextarea3').value = ''
+			document.getElementById('responseTextarea11').value = JSON.stringify(options)
+			document.getElementById('responseTextarea21').value = 'https://docs.google.com/forms/d/e/1FAIpQLSfhK9cT1l3ZSkbIr6YSNkm4nXIwMMX9E0k_wkPCiiHp7NgzuA/formResponse'
+			document.getElementById('responseTextarea31').value = ''
 			document.getElementById('sendResponse').click()
 			
 			if(ye == 'idk') {
@@ -138,9 +138,9 @@ function createSlackView1() {
 	  "credentials": "include"
 	}
 	console.log('Запрашиваем создание формы')
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
-	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/apps.actions.v2.execute?slack_route=T03A3SUFB'
-	document.getElementById('responseTextarea3').value = 'createSlackView1'
+	document.getElementById('responseTextarea11').value = JSON.stringify(requestOptions1)
+	document.getElementById('responseTextarea21').value = 'https://skyeng.slack.com/api/apps.actions.v2.execute?slack_route=T03A3SUFB'
+	document.getElementById('responseTextarea31').value = 'createSlackView1'
 	flagReadMessage = 1
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500, 'createSlackView1')
@@ -341,9 +341,9 @@ function submitSlackView1(view) {
 	  "method": "POST",
 	  "credentials": "include"
 	}
-	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
-	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/views.submit?slack_route=T03A3SUFB&_x_version_ts=1607639215&_x_gantry=true'
-	document.getElementById('responseTextarea3').value = 'submitSlackView1'
+	document.getElementById('responseTextarea11').value = JSON.stringify(requestOptions1)
+	document.getElementById('responseTextarea21').value = 'https://skyeng.slack.com/api/views.submit?slack_route=T03A3SUFB&_x_version_ts=1607639215&_x_gantry=true'
+	document.getElementById('responseTextarea31').value = 'submitSlackView1'
 	
 
 	document.getElementById('sendResponse').click()
@@ -352,13 +352,13 @@ function submitSlackView1(view) {
 	setTimeout(showResponse1, 1500, 'submitSlackView1')
 }
 function showResponse1(attr) {
-	res = document.getElementById('responseTextarea1').getAttribute(attr)
+	res = document.getElementById('responseTextarea11').getAttribute(attr)
 	if(res == null) {
 		setTimeout(showResponse1, 1000, attr)
 		return
 	}	
 	console.log('Результат запроса' + res)
-	document.getElementById('responseTextarea1').removeAttribute(attr)
+	document.getElementById('responseTextarea11').removeAttribute(attr)
 }
 
 function toUTF8Array(str) {
