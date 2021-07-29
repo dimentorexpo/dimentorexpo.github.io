@@ -268,7 +268,7 @@ function fillForm1(viewStringify) {
 		document.getElementById('formToSlack').remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
 	document.getElementById('buttonOpenForm1').innerHTML = "Wait";
-	setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 10000);
+	setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 10500);
 		
 	}
 	function validateSlackForm1() {
