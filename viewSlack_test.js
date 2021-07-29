@@ -64,7 +64,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
 				view1 = message.view
 				console.log('Форма получена: ' + message.view)
-				fillForm(JSON.stringify(message.view))
+				fillForm1(JSON.stringify(message.view))
 				flagReadMessage1 = 0
 				return
 			}
