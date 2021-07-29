@@ -5,22 +5,22 @@ var problemText1 = 'justStarted'
 function getSlackToken1() {            // функция получения токена Слака, при этом значения респонстекстареа вообще не трогаем
 	document.getElementById('responseTextarea1').value = '{}'  
 	document.getElementById('responseTextarea2').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
-	document.getElementById('responseTextarea3').value = 'getSlackToken1'
+	document.getElementById('responseTextarea3').value = 'getSlackToken'
 
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage1() {
-		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
-		if(result == null)
+		var result1 = document.getElementById('responseTextarea1').getAttribute('getSlackToken')
+		if(result1 == null)
 			setTimeout(tokenToLocalStorage1, 1000)
 		else {
-			document.getElementById('responseTextarea1').removeAttribute('getSlackToken1')
+			document.getElementById('responseTextarea1').removeAttribute('getSlackToken')
 			try {
-				localStorage.setItem('token', result.match(/"token":"(.*?)"/)[1])
+				localStorage.setItem('token', result1.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
 			} catch (e) {
 				console.log('Ошибка при получении токена: ' + e)
-				console.log(result)
+				console.log(result1)
 			}
 		}
 	}
@@ -35,14 +35,14 @@ function openSlackSocket1() {          // Функция открытия Сок
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function getUrlAndOpenSocket1() {
-		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
-		if(result == null)
+		var result1 = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
+		if(result1 == null)
 			setTimeout(getUrlAndOpenSocket1, 1000)
 		else {
-			result = JSON.parse(result)
+			result1 = JSON.parse(result1)
 			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket')
-			var url = result.url
-			console.log(result)
+			var url = result1.url
+			console.log(result1)
 			if(url == undefined) {
 				console.log("Не нашёл юрл, повторно запрашиваем юрл")
 				openSlackSocket1()
@@ -55,25 +55,25 @@ function openSlackSocket1() {          // Функция открытия Сок
 	setTimeout(getUrlAndOpenSocket1, 1000)
 	
 	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
-		socket = new WebSocket(url)
-		var flagSlack = 0
-		var slackUrlMsg1 = ''
-		var slackUrlMsg2 = ''
-		socket.onmessage = function(event) {
+		socket1 = new WebSocket(url)
+		var flagSlack1 = 0
+		var slackUrlMsg11 = ''
+		var slackUrlMsg22 = ''
+		socket1.onmessage = function(event) {
 			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
-				view = message.view
+				view1 = message.view
 				console.log('Форма получена: ' + message.view)
-				fillForm(JSON.stringify(message.view))
+				fillForm1(JSON.stringify(message.view))
 				flagReadMessage1 = 0
 				return
 			}
 			if(message.type == "message" && message.bot_id == 'BUS628294') {
 				console.log(message)
 				let message2 = JSON.stringify(message)
-				if(flagSlack == 0) {
+				if(flagSlack1 == 0) {
 					setTimeout(checkForLink1, 5 * 1000)
-					flagSlack = 1
+					flagSlack1 = 1
 				}
 				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
 					if(message2.indexOf(problemText1) == -1) {
@@ -81,28 +81,28 @@ function openSlackSocket1() {          // Функция открытия Сок
 						return
 					}
 					console.log("В этом ответе нет нужный ссылки")
-					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
-					console.log('Предполагаемая ссылка: ' + slackUrlMsg1)
+					slackUrlMsg11 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
+					console.log('Предполагаемая ссылка: ' + slackUrlMsg11)
 					return
 				}
-				slackUrlMsg2 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
-				console.log('Ссылка на тред: ' + slackUrlMsg2)
-				sendComment('Ссылка на тред: ' + slackUrlMsg2)
-				document.getElementById('buttonOpenForm1').style.display = ''
+				slackUrlMsg22 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
+				console.log('Ссылка на тред: ' + slackUrlMsg22)
+				sendComment('Ссылка на тред: ' + slackUrlMsg22)
+				document.getElementById('buttonOpenForm').style.display = ''
 				return
 			}
 		}
 		function checkForLink1() {
-			flagSlack = 0
-			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
-			let ye = slackUrlMsg1 == slackUrlMsg2 ? 'yes' : 'no'
-			ye = slackUrlMsg2 == '' ? 'idk' : ye 
-			var body = 'entry.1566561060=' + oper + '&entry.1523645757=' + slackUrlMsg1 + '&entry.626388165=' + slackUrlMsg2 + '&entry.181839927=' + ye
-			let options = {
+			flagSlack1 = 0
+			let oper1 = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
+			let ye1 = slackUrlMsg11 == slackUrlMsg22 ? 'yes' : 'no'
+			ye1 = slackUrlMsg22 == '' ? 'idk' : ye1 
+			var body1 = 'entry.1566561060=' + oper1 + '&entry.1523645757=' + slackUrlMsg11 + '&entry.626388165=' + slackUrlMsg22 + '&entry.181839927=' + ye
+			let options1 = {
 				  "headers": {
 					"content-type": "application/x-www-form-urlencoded",
 				  },
-				  "body": body,
+				  "body": body1,
 				  "method": "POST",
 				}
 				
@@ -111,16 +111,16 @@ function openSlackSocket1() {          // Функция открытия Сок
 			document.getElementById('responseTextarea3').value = ''
 			document.getElementById('sendResponse').click()
 			
-			if(ye == 'idk') {
-				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
+			if(ye1 == 'idk') {
+				sendComment('Ссылка на тред (?): ' + slackUrlMsg11)
 			}
-			socket.close1()
+			socket1.close()
 		}
-		socket.onopen = function(event) {
+		socket1.onopen = function(event) {
 			socketOpened1 = 1
 			console.log('socket подключен')
 		}
-		socket.onclose = function(event) {
+		socket1.onclose = function(event) {
 			socketOpened1 = 0
 			console.log('Закрыли сокет')
 		}
@@ -148,7 +148,7 @@ function createSlackView1() {
 flagFormSubmited1 = 0
 function fillForm1(viewStringify) {
 	problemText1 = 'justStarted'
-	view = JSON.parse(viewStringify)
+	view1 = JSON.parse(viewStringify)
 	div3 = document.createElement('div')
 	document.body.append(div3)
 	if (localStorage.getItem('viewToSlackFormAFTop') == null) {
@@ -161,51 +161,52 @@ function fillForm1(viewStringify) {
 	let div4 = document.createElement('div')
 	div4.style.textAlign = 'center'
 	div4.style.color = 'white'
-	div4.textContent = 'Форма'
-	let blocks = view.blocks
+	div4.textContent = 'Форма баг-репорта'
+	let blocks1 = view1.blocks
 	div3.append(div4)
 	var listener5 = function(e , a) {
-        div3.style.left = Number(e.clientX - myX4) + "px";
-        div3.style.top = Number(e.clientY - myY4) + "px";
-        localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY4)));
-        localStorage.setItem('viewToSlackFormAFLeft', String(Number(e.clientX - myX4)));
+        div3.style.left = Number(e.clientX - myX5) + "px";
+        div3.style.top = Number(e.clientY - myY5) + "px";
+        localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY5)));
+        localStorage.setItem('viewToSlackFormAFLeft', String(Number(e.clientX - myX5)));
     };
 
     div3.firstElementChild.onmousedown = function (a) {
-        window.myX4 = a.layerX; 
-        window.myY4 = a.layerY; 
+        window.myX5 = a.layerX; 
+        window.myY5 = a.layerY; 
         document.addEventListener('mousemove', listener5);
     }
     div3.onmouseup = function () {document.removeEventListener('mousemove', listener5);}
-	for(let i = 0; i < blocks.length; i++) {
+	
+	for(let i = 0; i < blocks1.length; i++) {
 		let newDiv1 = document.createElement('div')
 		newDiv1.style = 'margin:5px'
-		if(blocks[i].element.options != undefined) {
-			let select = document.createElement('select')   // создаем выпадающее меню выбора
-			select.style.width = '100%'
-			select.placeholder = blocks[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
-			select.id = 'formToSlackField' + i
+		if(blocks1[i].element.options != undefined) {
+			let select1 = document.createElement('select')   // создаем выпадающее меню выбора
+			select1.style.width = '100%'
+			select1.placeholder = blocks1[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
+			select1.id = 'formToSlackField' + i
 			if(i == 2 || i == 3) {
-				let option = document.createElement('option')   //  создаем опции выбора  
-				option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
-				select.append(option)
+				let option1 = document.createElement('option')   //  создаем опции выбора  
+				option1.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
+				select1.append(option1)
 			}
-			for(let j = 0; j < blocks[i].element.options.length; j++) {
-				let option = document.createElement('option')
-				option.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
-				option.setAttribute('value', j)
-				select.append(option)
+			for(let j = 0; j < blocks1[i].element.options.length; j++) {
+				let option1 = document.createElement('option')
+				option1.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				option1.setAttribute('value', j)
+				select1.append(option1)
 			}
-			newDiv1.append(select)
+			newDiv1.append(select1)
 		} else {
-			if(blocks[i].label.text == 'URL')
-				var input = document.createElement('input')
+			if(blocks1[i].label.text == 'URL')
+				var input1 = document.createElement('input')
 			else
-				var input = document.createElement('textarea')
-			input.style.width = '100%'
-			input.placeholder = blocks[i].label.text + (i < 7 ? ' *' : '')
-			input.id = 'formToSlackField' + i
-			newDiv1.append(input)
+				var input1 = document.createElement('textarea')
+			input1.style.width = '100%'
+			input1.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
+			input1.id = 'formToSlackField' + i
+			newDiv1.append(input1)
 		}
 		div.append(newDiv1)
 	}
@@ -220,16 +221,16 @@ function fillForm1(viewStringify) {
 	button5.style.marginLeft = '5px'
 	button5.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	let button6 = document.createElement('button')
 	button6.textContent = "Закрыть"
 	button6.style.marginLeft = '5px'
 	button6.onclick = function() {
-		socket.close1()
+		socket1.close()
 		socketOpened1 = 0
 		this.parentElement.parentElement.remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	
 	button4.onclick = function() {
@@ -247,37 +248,37 @@ function fillForm1(viewStringify) {
 		if(!validateSlackForm1())
 			return
 		for(let i = 0; i < 9; i++) {
-			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
-			view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
-			console.log('view.blocks[i].answer = ' + view.blocks[i].answer)
-			if(view.blocks[i].answer == undefined || view.blocks[i].answer == "undefined") {
+			view1.blocks1[i].answer1 = document.getElementById('formToSlackField' + i).value
+			view1.blocks1[i].answer1 = view1.blocks1[i].answer1.split("\"").join("\\\"")
+			console.log('view.blocks1[i].answer1 = ' + view1.blocks1[i].answer1)
+			if(view1.blocks1[i].answer1 == undefined || view1.blocks1[i].answer1 == "undefined") {
 				console.log(i + ' не нахожу текст поля')
 				return
 			}
 		}
 		problemText1 = document.getElementById('formToSlackField' + 0).value
-		console.log(view)
-		submitSlackView1(view)
+		console.log(view1)
+		submitSlackView1(view1)
 		flagFormSubmited1 = 1
 		document.getElementById('formToSlack').remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 		
 	}
 	function validateSlackForm1() {
-		let flag = 0
+		let flag1 = 0
 		for(let i = 0; i < 7; i++) {
 			if(i == 3 || i == 2) {
 				if(i == 2) {
 					if(document.getElementById('formToSlackField' + i).value == 'Выберите канал *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-						flag = 1
+						flag1 = 1
 					} else 
 						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 				}
 				if (i == 3) {
 					if(document.getElementById('formToSlackField' + i).value == 'Приоритет *') {
 						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-						flag = 1
+						flag1 = 1
 					} else 
 						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 				}
@@ -285,11 +286,11 @@ function fillForm1(viewStringify) {
 			} 
 			if(document.getElementById('formToSlackField' + i).value == '') {
 				document.getElementById('formToSlackField' + i).style.border = '1px solid red';
-				flag = 1
+				flag1 = 1
 			} else
 				document.getElementById('formToSlackField' + i).style.border = '0px solid red';
 		}
-		return flag == 1 ? false : true
+		return flag1 == 1 ? false : true
 	}
 	newDiv1.append(button4)
 	newDiv1.append(button5)
@@ -299,7 +300,7 @@ function fillForm1(viewStringify) {
 }
 
 let buttonOpenForm1 = document.createElement('div');
-buttonOpenForm1.id = 'buttonOpenForm1';
+buttonOpenForm1.id = 'buttonOpenForm';
 buttonOpenForm1.textContent = "Баг-репорт";
 buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
@@ -314,42 +315,42 @@ buttonOpenForm1.onclick = function() {
 		createSlackView1()
 	this.style.display = 'none'
 }
-var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-btnAdd.insertBefore(buttonOpenForm1, btnAdd.children[0])
-function submitSlackView1(view) {
-	console.log(view)
+var btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+btnAdd1.insertBefore(buttonOpenForm1, btnAdd1.children[0])
+function submitSlackView1(view1) {
+	console.log(view1)
 	let client_token1 = Number(new Date())
-	let view_id1 = view.id
-	let answer = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
-	for(let i = 0; i < view.blocks.length; i++) {
+	let view_id1 = view1.id
+	let answer1 = 'Content-Disposition: form-data; name=\"state\"\r\n\r\n{\"values\":{'
+	for(let i = 0; i < view1.blocks1.length; i++) {
 		if(i > 0)
-			answer += ','
-		answer += "\"" + view.blocks[i].block_id
-		answer += "\":{\"" + view.blocks[i].element.action_id
-		answer += "\":{\"type\":\"" + view.blocks[i].element.type 
-		if(view.blocks[i].element.options != undefined)
-			answer += "\",\"selected_option\":{\"text\":{\"type\":\"" + view.blocks[i].element.options[view.blocks[i].answer].text.type + "\",\"text\":\"" + view.blocks[i].element.options[view.blocks[i].answer].text.text + "\",\"emoji\":" + view.blocks[i].element.options[view.blocks[i].answer].text.emoji.toString() + "},\"value\":\"" + view.blocks[i].element.options[view.blocks[i].answer].value + "\"}}}"
+			answer1 += ','
+		answer1 += "\"" + view1.blocks1[i].block_id
+		answer1 += "\":{\"" + view1.blocks1[i].element.action_id
+		answer1 += "\":{\"type\":\"" + view1.blocks1[i].element.type 
+		if(view1.blocks1[i].element.options != undefined)
+			answer1 += "\",\"selected_option\":{\"text\":{\"type\":\"" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].text.type + "\",\"text\":\"" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].text.text + "\",\"emoji\":" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].text.emoji.toString() + "},\"value\":\"" + view1.blocks1[i].element.options[view1.blocks1[i].answer1].value + "\"}}}"
 		else
-			answer += "\",\"value\":\"" + view.blocks[i].answer + "\"}}"
+			answer1 += "\",\"value\":\"" + view1.blocks1[i].answer1 + "\"}}"
 	}
-	answer += "}}"
+	answer1 += "}}"
 	requestOptions1 = {
 	  "headers": {
 		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryIqHa1NymiZdZybBQ",
 	  },
-	  "body": "------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n" + answer + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n',
+	  "body": "------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"client_token\"\r\n\r\nweb-" + client_token1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"view_id\"\r\n\r\n" + view_id1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n" + answer1 + "\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n" + localStorage.getItem('token') + '\r\n------WebKitFormBoundaryIqHa1NymiZdZybBQ\r\n',
 	  "method": "POST",
 	  "credentials": "include"
 	}
 	document.getElementById('responseTextarea1').value = JSON.stringify(requestOptions1)
 	document.getElementById('responseTextarea2').value = 'https://skyeng.slack.com/api/views.submit?slack_route=T03A3SUFB&_x_version_ts=1607639215&_x_gantry=true'
-	document.getElementById('responseTextarea3').value = 'submitSlackView1'
+	document.getElementById('responseTextarea3').value = 'submitSlackView'
 	
 
 	document.getElementById('sendResponse').click()
 	console.log("Отправили форму")
 	
-	setTimeout(showResponse1, 1500, 'submitSlackView1')
+	setTimeout(showResponse1, 1500, 'submitSlackView')
 }
 function showResponse1(attr) {
 	res = document.getElementById('responseTextarea1').getAttribute(attr)
