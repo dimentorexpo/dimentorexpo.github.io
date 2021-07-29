@@ -116,7 +116,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			}
 			socket1.close1()
 		}
-		socke1t.onopen = function(event) {
+		socket1.onopen = function(event) {
 			socketOpened1 = 1
 			console.log('socket подключен')
 		}
