@@ -177,26 +177,27 @@ function fillForm1(viewStringify) {
         document.addEventListener('mousemove', listener5);
     }
     div3.onmouseup = function () {document.removeEventListener('mousemove', listener5);}
+	
 	for(let i = 0; i < blocks1.length; i++) {
 		let newDiv1 = document.createElement('div')
 		newDiv1.style = 'margin:5px'
 		if(blocks1[i].element.options != undefined) {
-			let select = document.createElement('select')   // создаем выпадающее меню выбора
-			select.style.width = '100%'
-			select.placeholder = blocks1[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
-			select.id = 'formToSlackField' + i
+			let select1 = document.createElement('select')   // создаем выпадающее меню выбора
+			select1.style.width = '100%'
+			select1.placeholder = blocks1[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
+			select1.id = 'formToSlackField' + i
 			if(i == 2 || i == 3) {
-				let option = document.createElement('option')   //  создаем опции выбора  
-				option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
-				select.append(option)
+				let option1 = document.createElement('option')   //  создаем опции выбора  
+				option1.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
+				select1.append(option1)
 			}
 			for(let j = 0; j < blocks1[i].element.options.length; j++) {
-				let option = document.createElement('option')
-				option.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
-				option.setAttribute('value', j)
-				select.append(option)
+				let option1 = document.createElement('option')
+				option1.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				option1.setAttribute('value', j)
+				select1.append(option1)
 			}
-			newDiv1.append(select)
+			newDiv1.append(select1)
 		} else {
 			if(blocks1[i].label.text == 'URL')
 				var input = document.createElement('input')
