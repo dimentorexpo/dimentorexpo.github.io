@@ -114,7 +114,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			if(ye == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
 			}
-			socket.close()
+			socket.close1()
 		}
 		socket.onopen = function(event) {
 			socketOpened1 = 1
@@ -145,7 +145,7 @@ function createSlackView1() {
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500, 'createSlackView')
 }
-flagFormSubmited = 0
+flagFormSubmited1 = 0
 function fillForm1(viewStringify) {
 	problemText1 = 'justStarted'
 	view = JSON.parse(viewStringify)
@@ -212,33 +212,33 @@ function fillForm1(viewStringify) {
 	let newDiv1 = document.createElement('div')
 	newDiv1.style = 'margin:5px'
 	newDiv1.style.textAlign = 'center'
-	let button = document.createElement('button')
-	button.textContent = "Отправить"
-	button.id = 'formToSlackSend'
-	let button2 = document.createElement('button')
-	button2.textContent = "Скрыть"
-	button2.style.marginLeft = '5px'
-	button2.onclick = function() {
+	let button4 = document.createElement('button')
+	button4.textContent = "Отправить"
+	button4.id = 'formToSlackSend'
+	let button5 = document.createElement('button')
+	button5.textContent = "Скрыть"
+	button5.style.marginLeft = '5px'
+	button5.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
 		document.getElementById('buttonOpenForm1').style.display = ''
 	}
-	let button3 = document.createElement('button')
-	button3.textContent = "Закрыть"
-	button3.style.marginLeft = '5px'
-	button3.onclick = function() {
-		socket.close()
+	let button6 = document.createElement('button')
+	button6.textContent = "Закрыть"
+	button6.style.marginLeft = '5px'
+	button6.onclick = function() {
+		socket.close1()
 		socketOpened1 = 0
 		this.parentElement.parentElement.remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
 	}
 	
-	button.onclick = function() {
+	button4.onclick = function() {
 		this.setAttribute('disabled', 'disabled')
 		setTimeout(function() {
 			if(document.getElementById('formToSlackSend') != null)
 				document.getElementById('formToSlackSend').removeAttribute('disabled')
 		}, 500)
-		flagFormSubmited = 0
+		flagFormSubmited1 = 0
 		if(document.getElementById('formToSlack') == undefined) {
 			console.log("Не вижу форму")
 			return;
@@ -258,7 +258,7 @@ function fillForm1(viewStringify) {
 		problemText1 = document.getElementById('formToSlackField' + 0).value
 		console.log(view)
 		submitSlackView1(view)
-		flagFormSubmited = 1
+		flagFormSubmited1 = 1
 		document.getElementById('formToSlack').remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
 		
@@ -291,9 +291,9 @@ function fillForm1(viewStringify) {
 		}
 		return flag == 1 ? false : true
 	}
-	newDiv1.append(button)
-	newDiv1.append(button2)
-	newDiv1.append(button3)
+	newDiv1.append(button4)
+	newDiv1.append(button5)
+	newDiv1.append(button6)
 	div.append(newDiv1)
 	console.log("Форма получена и заплонена успешно")
 }
