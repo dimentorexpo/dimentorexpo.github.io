@@ -164,7 +164,7 @@ function fillForm1(viewStringify) {
 	div4.textContent = 'Форма'
 	let blocks = view.blocks
 	div3.append(div4)
-	var listener4 = function(e , a) {
+	var listener5 = function(e , a) {
         div3.style.left = Number(e.clientX - myX4) + "px";
         div3.style.top = Number(e.clientY - myY4) + "px";
         localStorage.setItem('viewToSlackFormAFTop', String(Number(e.clientY - myY4)));
@@ -174,9 +174,9 @@ function fillForm1(viewStringify) {
     div3.firstElementChild.onmousedown = function (a) {
         window.myX4 = a.layerX; 
         window.myY4 = a.layerY; 
-        document.addEventListener('mousemove', listener4);
+        document.addEventListener('mousemove', listener5);
     }
-    div3.onmouseup = function () {document.removeEventListener('mousemove', listener4);}
+    div3.onmouseup = function () {document.removeEventListener('mousemove', listener5);}
 	for(let i = 0; i < blocks.length; i++) {
 		let newDiv1 = document.createElement('div')
 		newDiv1.style = 'margin:5px'
