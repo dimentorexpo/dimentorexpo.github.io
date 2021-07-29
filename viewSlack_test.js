@@ -56,9 +56,9 @@ function openSlackSocket1() {          // Функция открытия Сок
 	
 	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
 		socket = new WebSocket(url)
-		var flagSlack = 0
-		var slackUrlMsg1 = ''
-		var slackUrlMsg2 = ''
+		var flagSlack1 = 0
+		var slackUrlMsg11 = ''
+		var slackUrlMsg22 = ''
 		socket.onmessage = function(event) {
 			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
@@ -71,9 +71,9 @@ function openSlackSocket1() {          // Функция открытия Сок
 			if(message.type == "message" && message.bot_id == 'BUS628294') {
 				console.log(message)
 				let message2 = JSON.stringify(message)
-				if(flagSlack == 0) {
+				if(flagSlack1 == 0) {
 					setTimeout(checkForLink1, 5 * 1000)
-					flagSlack = 1
+					flagSlack1 = 1
 				}
 				if(message2.match(/<https:\/\/skyeng.slack.*\|.*>/) == null) {
 					if(message2.indexOf(problemText1) == -1) {
@@ -81,23 +81,23 @@ function openSlackSocket1() {          // Функция открытия Сок
 						return
 					}
 					console.log("В этом ответе нет нужный ссылки")
-					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
-					console.log('Предполагаемая ссылка: ' + slackUrlMsg1)
+					slackUrlMsg11 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 1000000)
+					console.log('Предполагаемая ссылка: ' + slackUrlMsg11)
 					return
 				}
-				slackUrlMsg2 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
-				console.log('Ссылка на тред: ' + slackUrlMsg2)
-				sendComment('Ссылка на тред: ' + slackUrlMsg2)
+				slackUrlMsg22 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
+				console.log('Ссылка на тред: ' + slackUrlMsg22)
+				sendComment('Ссылка на тред: ' + slackUrlMsg22)
 				document.getElementById('buttonOpenForm1').style.display = ''
 				return
 			}
 		}
 		function checkForLink1() {
-			flagSlack = 0
+			flagSlack1 = 0
 			let oper = textToUTF8String(document.querySelector('.user_menu-dropdown-user_name').textContent)
-			let ye = slackUrlMsg1 == slackUrlMsg2 ? 'yes' : 'no'
-			ye = slackUrlMsg2 == '' ? 'idk' : ye 
-			var body = 'entry.1566561060=' + oper + '&entry.1523645757=' + slackUrlMsg1 + '&entry.626388165=' + slackUrlMsg2 + '&entry.181839927=' + ye
+			let ye = slackUrlMsg11 == slackUrlMsg22 ? 'yes' : 'no'
+			ye = slackUrlMsg22 == '' ? 'idk' : ye 
+			var body = 'entry.1566561060=' + oper + '&entry.1523645757=' + slackUrlMsg11 + '&entry.626388165=' + slackUrlMsg22 + '&entry.181839927=' + ye
 			let options = {
 				  "headers": {
 					"content-type": "application/x-www-form-urlencoded",
@@ -112,7 +112,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 			document.getElementById('sendResponse').click()
 			
 			if(ye == 'idk') {
-				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
+				sendComment('Ссылка на тред (?): ' + slackUrlMsg11)
 			}
 			socket.close1()
 		}
