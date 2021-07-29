@@ -55,11 +55,11 @@ function openSlackSocket1() {          // Функция открытия Сок
 	setTimeout(getUrlAndOpenSocket1, 1000)
 	
 	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
-		socket1 = new WebSocket(url)
+		socket = new WebSocket(url)
 		var flagSlack1 = 0
 		var slackUrlMsg11 = ''
 		var slackUrlMsg22 = ''
-		socket1.onmessage = function(event) {
+		socket.onmessage = function(event) {
 			message = JSON.parse(event.data)
 			if(message.type == "view_opened" && message.app_id == 'AU3S9KSPL' && flagReadMessage1 == 1) {
 				view1 = message.view
@@ -114,14 +114,14 @@ function openSlackSocket1() {          // Функция открытия Сок
 			if(ye1 == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg11)
 			}
-			socket1.close()
+			socket.close()
 		}
-		socket1.onopen = function(event) {
-			socketOpened1 = 1
+		socket.onopen = function(event) {
+			socketOpened = 1
 			console.log('socket подключен')
 		}
-		socket1.onclose = function(event) {
-			socketOpened1 = 0
+		socket.onclose = function(event) {
+			socketOpened = 0
 			console.log('Закрыли сокет')
 		}
 	}
