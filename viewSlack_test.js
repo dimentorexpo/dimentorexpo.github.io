@@ -88,7 +88,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 				slackUrlMsg22 = message2.match(/https:\/\/skyeng.slack.*\|.*>/)[0].split('|')[0]
 				console.log('Ссылка на тред: ' + slackUrlMsg22)
 				sendComment('Ссылка на тред: ' + slackUrlMsg22)
-				document.getElementById('buttonOpenForm1').style.display = ''
+				document.getElementById('buttonOpenForm').style.display = ''
 				return
 			}
 		}
@@ -221,7 +221,7 @@ function fillForm1(viewStringify) {
 	button5.style.marginLeft = '5px'
 	button5.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	let button6 = document.createElement('button')
 	button6.textContent = "Закрыть"
@@ -230,7 +230,7 @@ function fillForm1(viewStringify) {
 		socket1.close()
 		socketOpened1 = 0
 		this.parentElement.parentElement.remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 	}
 	
 	button4.onclick = function() {
@@ -261,7 +261,7 @@ function fillForm1(viewStringify) {
 		submitSlackView1(view1)
 		flagFormSubmited1 = 1
 		document.getElementById('formToSlack').remove()
-		document.getElementById('buttonOpenForm1').style.display = ''
+		document.getElementById('buttonOpenForm').style.display = ''
 		
 	}
 	function validateSlackForm1() {
@@ -300,7 +300,7 @@ function fillForm1(viewStringify) {
 }
 
 let buttonOpenForm1 = document.createElement('div');
-buttonOpenForm1.id = 'buttonOpenForm1';
+buttonOpenForm1.id = 'buttonOpenForm';
 buttonOpenForm1.textContent = "Баг-репорт";
 buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
