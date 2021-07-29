@@ -184,7 +184,7 @@ function fillForm1(viewStringify) {
 			let select = document.createElement('select')   // создаем выпадающее меню выбора
 			select.style.width = '100%'
 			select.placeholder = blocks[i].element.placeholder.text  // устанавливаем текст в поле инпута по пути element-placeholder-text
-			select.id = 'formToSlackField' + i
+			select.id = 'formToSlackField1' + i
 			if(i == 2 || i == 3) {
 				let option = document.createElement('option')   //  создаем опции выбора  
 				option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
@@ -204,7 +204,7 @@ function fillForm1(viewStringify) {
 				var input = document.createElement('textarea')
 			input.style.width = '100%'
 			input.placeholder = blocks[i].label.text + (i < 7 ? ' *' : '')
-			input.id = 'formToSlackField' + i
+			input.id = 'formToSlackField1' + i
 			newDiv1.append(input)
 		}
 		div.append(newDiv1)
@@ -247,7 +247,7 @@ function fillForm1(viewStringify) {
 		if(!validateSlackForm())
 			return
 		for(let i = 0; i < 9; i++) {
-			view.blocks[i].answer = document.getElementById('formToSlackField' + i).value
+			view.blocks[i].answer = document.getElementById('formToSlackField1' + i).value
 			view.blocks[i].answer = view.blocks[i].answer.split("\"").join("\\\"")
 			console.log('view.blocks[i].answer = ' + view.blocks[i].answer)
 			if(view.blocks[i].answer == undefined || view.blocks[i].answer == "undefined") {
@@ -255,7 +255,7 @@ function fillForm1(viewStringify) {
 				return
 			}
 		}
-		problemText = document.getElementById('formToSlackField' + 0).value
+		problemText = document.getElementById('formToSlackField1' + 0).value
 		console.log(view)
 		submitSlackView1(view)
 		flagFormSubmited = 1
@@ -268,26 +268,26 @@ function fillForm1(viewStringify) {
 		for(let i = 0; i < 7; i++) {
 			if(i == 3 || i == 2) {
 				if(i == 2) {
-					if(document.getElementById('formToSlackField' + i).value == 'Выберите канал *') {
-						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
+					if(document.getElementById('formToSlackField1' + i).value == 'Выберите канал *') {
+						document.getElementById('formToSlackField1' + i).style.border = '1px solid red';
 						flag = 1
 					} else 
-						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
+						document.getElementById('formToSlackField1' + i).style.border = '0px solid red';
 				}
 				if (i == 3) {
-					if(document.getElementById('formToSlackField' + i).value == 'Приоритет *') {
-						document.getElementById('formToSlackField' + i).style.border = '1px solid red';
+					if(document.getElementById('formToSlackField1' + i).value == 'Приоритет *') {
+						document.getElementById('formToSlackField1' + i).style.border = '1px solid red';
 						flag = 1
 					} else 
-						document.getElementById('formToSlackField' + i).style.border = '0px solid red';
+						document.getElementById('formToSlackField1' + i).style.border = '0px solid red';
 				}
 				continue
 			} 
-			if(document.getElementById('formToSlackField' + i).value == '') {
-				document.getElementById('formToSlackField' + i).style.border = '1px solid red';
+			if(document.getElementById('formToSlackField1' + i).value == '') {
+				document.getElementById('formToSlackField1' + i).style.border = '1px solid red';
 				flag = 1
 			} else
-				document.getElementById('formToSlackField' + i).style.border = '0px solid red';
+				document.getElementById('formToSlackField1' + i).style.border = '0px solid red';
 		}
 		return flag == 1 ? false : true
 	}
