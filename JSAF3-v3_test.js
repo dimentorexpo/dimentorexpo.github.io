@@ -2923,7 +2923,7 @@ function prepTp() {
 	
 	setTimeout(function() {
 		// Модуль wallentine в АФ
-		include("https://dimentorexpo.github.io/viewSlack.js");
+		include("https://dimentorexpo.github.io/viewSlack_test.js");
 		// Модуль репорта на жалобы
 		include("https://dimentorexpo.github.io/reportForm.js");
 		// Модуль репорта на Отписку
