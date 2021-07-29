@@ -10,17 +10,17 @@ function getSlackToken1() {            // функция получения то
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage1() {
-		var result = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
-		if(result == null)
+		var result1 = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
+		if(result1 == null)
 			setTimeout(tokenToLocalStorage1, 1000)
 		else {
 			document.getElementById('responseTextarea1').removeAttribute('getSlackToken1')
 			try {
-				localStorage.setItem('token', result.match(/"token":"(.*?)"/)[1])
+				localStorage.setItem('token', result1.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
 			} catch (e) {
 				console.log('Ошибка при получении токена: ' + e)
-				console.log(result)
+				console.log(result1)
 			}
 		}
 	}
@@ -35,14 +35,14 @@ function openSlackSocket1() {          // Функция открытия Сок
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function getUrlAndOpenSocket1() {
-		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
-		if(result == null)
+		var result1 = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
+		if(result1 == null)
 			setTimeout(getUrlAndOpenSocket1, 1000)
 		else {
-			result = JSON.parse(result)
+			result1 = JSON.parse(result1)
 			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket')
-			var url = result.url
-			console.log(result)
+			var url = result1.url
+			console.log(result1)
 			if(url == undefined) {
 				console.log("Не нашёл юрл, повторно запрашиваем юрл")
 				openSlackSocket1()
