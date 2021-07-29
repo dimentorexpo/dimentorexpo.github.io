@@ -34,10 +34,10 @@ function openSlackSocket1() {          // Функция открытия Сок
 	
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
-	function getUrlAndOpenSocket() {
+	function getUrlAndOpenSocket1() {
 		var result = document.getElementById('responseTextarea1').getAttribute('openSlackSocket')
 		if(result == null)
-			setTimeout(getUrlAndOpenSocket, 1000)
+			setTimeout(getUrlAndOpenSocket1, 1000)
 		else {
 			result = JSON.parse(result)
 			document.getElementById('responseTextarea1').removeAttribute('openSlackSocket')
@@ -48,13 +48,13 @@ function openSlackSocket1() {          // Функция открытия Сок
 				openSlackSocket1()
 				return
 			}
-			openSocket(url)
+			openSocket1(url)
 			console.log('URL для связи с Slack получен')
 		}
 	}
-	setTimeout(getUrlAndOpenSocket, 1000)
+	setTimeout(getUrlAndOpenSocket1, 1000)
 	
-	function openSocket(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
+	function openSocket1(url) {                          // Функция открытия так понимаю нужного бота, по его app_id (для Unsub A014EAVN8SU)  и bot_id (для Unsub B013CE3F6AK)
 		socket = new WebSocket(url)
 		var flagSlack = 0
 		var slackUrlMsg1 = ''
