@@ -81,7 +81,7 @@ function openSlackSocket1() {          // Функция открытия Сок
 						return
 					}
 					console.log("В этом ответе нет нужный ссылки")
-					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 10000)
+					slackUrlMsg1 = 'https://skyeng.slack.com/archives/' + message.channel + '/p' + Number(message.ts * 100000)
 					console.log('Предполагаемая ссылка: ' + slackUrlMsg1)
 					return
 				}
@@ -110,6 +110,9 @@ function openSlackSocket1() {          // Функция открытия Сок
 			document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLSfhK9cT1l3ZSkbIr6YSNkm4nXIwMMX9E0k_wkPCiiHp7NgzuA/formResponse'
 			document.getElementById('responseTextarea3').value = ''
 			document.getElementById('sendResponse').click()
+			
+				document.getElementById('buttonOpenForm1').innerHTML = "Wait";
+				setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 5000);
 			
 			if(ye == 'idk') {
 				sendComment('Ссылка на тред (?): ' + slackUrlMsg1)
@@ -264,6 +267,8 @@ function fillForm1(viewStringify) {
 		flagFormSubmited = 1
 		document.getElementById('formToSlack').remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
+	document.getElementById('buttonOpenForm1').innerHTML = "Wait";
+	setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 5000);
 		
 	}
 	function validateSlackForm1() {
