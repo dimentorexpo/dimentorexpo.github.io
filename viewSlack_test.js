@@ -193,7 +193,7 @@ function fillForm1(viewStringify) {
 			}
 			for(let j = 0; j < blocks1[i].element.options.length; j++) {
 				let option1 = document.createElement('option')
-				option1.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
+				option1.textContent = blocks1[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
 				option1.setAttribute('value', j)
 				select1.append(option1)
 			}
