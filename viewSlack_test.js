@@ -206,7 +206,7 @@ function fillForm1(viewStringify) {
 			input.style.width = '100%'
 			input.placeholder = blocks1[i].label.text + (i < 7 ? ' *' : '')
 			input.id = 'formToSlackField' + i
-			newDiv33.append(input1)
+			newDiv33.append(input)
 		}
 		div.append(newDiv33)
 	}
