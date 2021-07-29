@@ -27,7 +27,7 @@ function getSlackToken1() {            // функция получения то
 	setTimeout(tokenToLocalStorage, 2000)
 }
 
-function openSlackSocket() {          // Функция открытия Сокета и использования токена Слака
+function openSlackSocket11() {          // Функция открытия Сокета и использования токена Слака
 	document.getElementById('responseTextarea1').value = '{}'
 	document.getElementById('responseTextarea2').value = 'https://slack.com/api/rtm.connect?token=' + localStorage.getItem('token')
 	document.getElementById('responseTextarea3').value = 'openSlackSocket'
@@ -45,7 +45,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 			console.log(result)
 			if(url == undefined) {
 				console.log("Не нашёл юрл, повторно запрашиваем юрл")
-				openSlackSocket()
+				openSlackSocket1()
 				return
 			}
 			openSocket(url)
@@ -127,7 +127,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 	}
 }
 
-function createSlackView() {
+function createSlackView1() {
 	let client_token1 = Number(new Date())
 	requestOptions1 = {
 	  "headers": {
@@ -306,12 +306,12 @@ buttonOpenForm1.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
 			getSlackToken1()
-		openSlackSocket()
+		openSlackSocket1()
 	}
 	if(document.getElementById('formToSlack') != undefined) 
 		document.getElementById('formToSlack').style.display = ''
 	else
-		createSlackView()
+		createSlackView1()
 	this.style.display = 'none'
 }
 var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
