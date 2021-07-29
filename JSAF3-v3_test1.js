@@ -36,7 +36,7 @@ function mystyles() {
 	}
 	.switch-btn::after {
 		content: "";
-		height: 36px; /* высота кнопки */
+		height: 36px; /* высота кнопки */9:37 29.07.2021
 		width: 36px; /* ширина кнопки */
 		border-radius: 18px; /* радиус кнопки */
 		background: #fff; /* цвет кнопки */
@@ -91,6 +91,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px; width: 340px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
+				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 			</div>
 				
@@ -441,6 +442,10 @@ const copyToClipboard = str => {           // инициализация фун�
         document.addEventListener('mousemove', listener2);
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
+
+	document.getElementById('sound_test').onclick function () { 
+		audio.play()
+	}
 	
 	document.getElementById('kibanalnksvz').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
