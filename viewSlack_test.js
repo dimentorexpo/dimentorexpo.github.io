@@ -5,16 +5,16 @@ var problemText1 = 'justStarted'
 function getSlackToken1() {            // функция получения токена Слака, при этом значения респонстекстареа вообще не трогаем
 	document.getElementById('responseTextarea1').value = '{}'  
 	document.getElementById('responseTextarea2').value = 'https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1'
-	document.getElementById('responseTextarea3').value = 'getSlackToken1'
+	document.getElementById('responseTextarea3').value = 'getSlackToken'
 
 	document.getElementById('sendResponse').click()
 	setTimeout(showResponse1, 1500)
 	function tokenToLocalStorage1() {
-		var result1 = document.getElementById('responseTextarea1').getAttribute('getSlackToken1')
+		var result1 = document.getElementById('responseTextarea1').getAttribute('getSlackToken')
 		if(result1 == null)
 			setTimeout(tokenToLocalStorage1, 1000)
 		else {
-			document.getElementById('responseTextarea1').removeAttribute('getSlackToken1')
+			document.getElementById('responseTextarea1').removeAttribute('getSlackToken')
 			try {
 				localStorage.setItem('token', result1.match(/"token":"(.*?)"/)[1])
 				console.log('Токен Slack получен и установлен')
@@ -214,7 +214,7 @@ function fillForm1(viewStringify) {
 	newDiv1.style.textAlign = 'center'
 	let button4 = document.createElement('button')
 	button4.textContent = "Отправить"
-	button4.id = 'formToSlackSend'
+	button4.id = 'formToSlackSend1'
 	let button5 = document.createElement('button')
 	button5.textContent = "Скрыть"
 	button5.style.marginLeft = '5px'
@@ -235,8 +235,8 @@ function fillForm1(viewStringify) {
 	button4.onclick = function() {
 		this.setAttribute('disabled', 'disabled')
 		setTimeout(function() {
-			if(document.getElementById('formToSlackSend') != null)
-				document.getElementById('formToSlackSend').removeAttribute('disabled')
+			if(document.getElementById('formToSlackSend1') != null)
+				document.getElementById('formToSlackSend1').removeAttribute('disabled')
 		}, 500)
 		flagFormSubmited1 = 0
 		if(document.getElementById('formToSlack') == undefined) {
