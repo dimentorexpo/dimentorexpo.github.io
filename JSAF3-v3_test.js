@@ -294,11 +294,11 @@ button44.onclick = function() {
 	}
 }
 
-let drop_menu2 = document.createElement('div'); // создание окна ссылок
+let drop_menu3 = document.createElement('div'); // создание окна ссылок
 document.body.append(drop_menu2);
-drop_menu2.style.marginRight = "15px";
-drop_menu2.style.display = 'none';
-wintLinks.innerHTML = 'Меню'; 
+drop_menu3.style.marginRight = "15px";
+drop_menu3.style.display = 'none';
+drop_menu3.innerHTML = 'Меню'; 
 
 let addInfoUser = document.createElement('div')
 
