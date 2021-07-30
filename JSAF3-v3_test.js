@@ -512,9 +512,10 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
 	document.getElementById('restartlesson').innerHTML = "Copied!";
-	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "2"}, 1000);
-	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "1"}, 2000);
-	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 3000);
+	for (let i = 4; i > 0; i--) {
+		setTimeout(function() {document.getElementById('restartlesson').innerHTML = "i"}, i* 1000);
+	}
+	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 2000);
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
