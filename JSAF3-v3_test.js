@@ -294,12 +294,13 @@ button44.onclick = function() {
 	}
 }
 
-let addInfoUser = document.createElement('div')
+let drop_menu2 = document.createElement('div'); // создание окна ссылок
+document.body.append(drop_menu2);
+drop_menu2.style.marginRight = "15px";
+drop_menu2.style.display = 'none';
+wintLinks.innerHTML = 'Меню'; 
 
-let menuBut = document.createElement('div')
-menuBut.id = "menuBut"
-menuBut.innerHTML = "Меню"
-menuBut.style.marginRight = "15px";
+let addInfoUser = document.createElement('div')
 
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
