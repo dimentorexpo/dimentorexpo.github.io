@@ -296,6 +296,11 @@ button44.onclick = function() {
 
 let addInfoUser = document.createElement('div')
 
+let menuBut = document.createElement('div')
+menuBut.id = "menuBut"
+menuBut.innerHTML = "Меню"
+menuBut.style.marginRight = "15px";
+
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
