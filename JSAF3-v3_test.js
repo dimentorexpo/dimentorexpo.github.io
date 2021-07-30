@@ -279,7 +279,7 @@ let addInfoUser = document.createElement('div')
 
 let menuOpenForm = document.createElement('div');
 menuOpenForm.id = 'menuOpenForm';
-menuOpenForm.textContent = "Меню";
+menuOpenForm.innerHTML = "Меню";
 menuOpenForm.style.marginRight = "30px";
 
 let hashBut = document.createElement('div')
