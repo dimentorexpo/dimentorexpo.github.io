@@ -123,6 +123,18 @@ var win_AFhelper =  // описание элементов главного ок
 	</span>
 </div>`;
 
+
+var drop_menu = `
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>`
+
+
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
@@ -282,14 +294,6 @@ menuOpenForm.id = 'menuOpenForm';
 menuOpenForm.innerHTML = "Меню";
 menuOpenForm.style.marginRight = "30px";
 
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
 
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
