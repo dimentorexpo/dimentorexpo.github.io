@@ -512,7 +512,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('restartlesson').addEventListener('click',function(){
     copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
 	document.getElementById('restartlesson').innerHTML = "Copied!";
-	for (let i = 4; i > 0; i--) {
+	for (let i = 0; i < 4; i++) {
 		setTimeout(function() {document.getElementById('restartlesson').innerHTML = i}, i* 1000);
 	}
 	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 5000);
