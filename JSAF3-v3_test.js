@@ -58,11 +58,6 @@ function mystyles() {
 	mstl.innerHTML = style;
 }
 
-let menuOpenForm = document.createElement('div');
-menuOpenForm.id = 'menuOpenForm';
-menuOpenForm.textContent = "Меню";
-menuOpenForm.style.marginRight = "15px";
-
 var win_AFhelper =  // описание элементов главного окна
     `<div style="display: flex; width: 351px;">
         <span style="width: 351px">
@@ -281,6 +276,11 @@ button44.onclick = function() {
 }
 
 let addInfoUser = document.createElement('div')
+
+let menuOpenForm = document.createElement('div');
+menuOpenForm.id = 'menuOpenForm';
+menuOpenForm.textContent = "Меню";
+menuOpenForm.style.marginRight = "30px";
 
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
