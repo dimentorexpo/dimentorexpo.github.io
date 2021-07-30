@@ -123,25 +123,6 @@ var win_AFhelper =  // описание элементов главного ок
 	</span>
 </div>`;
 
-
-var drop_menu = `
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>`;
-
-var drop_menu2 = `<a class="main-item" href="javascript:void(0);" tabindex="1" >Открыть подменю</a> 
-<ul class="sub-menu"> 
-   <li><a href="#1">подпункт 1</a></li> 
-   <li><a href="#2">подпункт 2</a></li> 
-   <li><a href="#3">подпункт 3</a></li> 
-</ul> `;
-
-
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
@@ -294,11 +275,6 @@ button44.onclick = function() {
 	}
 }
 
-let drop_menu3 = document.createElement('div'); // создание окна ссылок
-document.body.append(drop_menu2);
-drop_menu3.style.marginRight = "15px";
-drop_menu3.style.display = 'none';
-drop_menu3.innerHTML = 'Меню'; 
 
 let addInfoUser = document.createElement('div')
 
