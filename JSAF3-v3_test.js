@@ -282,6 +282,15 @@ menuOpenForm.id = 'menuOpenForm';
 menuOpenForm.innerHTML = "Меню";
 menuOpenForm.style.marginRight = "30px";
 
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
