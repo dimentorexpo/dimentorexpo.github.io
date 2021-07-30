@@ -289,13 +289,6 @@ button44.onclick = function() {
 
 let addInfoUser = document.createElement('div')
 
-let drop_menu = document.createElement('div'); // создание окна ссылок
-document.body.append(drop_menu);
-drop_menu.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMenu') + 'px; left: ' + localStorage.getItem('winLeftMenu') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-drop_menu.style.display = 'none';
-drop_menu.innerHTML = drop_menu; 
-
-
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
