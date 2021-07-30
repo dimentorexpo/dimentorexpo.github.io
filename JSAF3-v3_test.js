@@ -134,6 +134,13 @@ var drop_menu = `
   </div>
 </div>`;
 
+var drop_menu2 = `<a class="main-item" href="javascript:void(0);" tabindex="1" >Открыть подменю</a> 
+<ul class="sub-menu"> 
+   <li><a href="#1">подпункт 1</a></li> 
+   <li><a href="#2">подпункт 2</a></li> 
+   <li><a href="#3">подпункт 3</a></li> 
+</ul> `;
+
 
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
