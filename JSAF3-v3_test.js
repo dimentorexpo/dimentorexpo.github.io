@@ -58,6 +58,11 @@ function mystyles() {
 	mstl.innerHTML = style;
 }
 
+let menuOpenForm = document.createElement('div');
+menuOpenForm.id = 'menuOpenForm';
+menuOpenForm.textContent = "Меню";
+menuOpenForm.style.marginRight = "15px";
+
 var win_AFhelper =  // описание элементов главного окна
     `<div style="display: flex; width: 351px;">
         <span style="width: 351px">
