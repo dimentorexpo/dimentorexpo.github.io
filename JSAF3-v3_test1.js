@@ -36,7 +36,7 @@ function mystyles() {
 	}
 	.switch-btn::after {
 		content: "";
-		height: 36px; /* высота кнопки */9:37 29.07.2021
+		height: 36px; /* высота кнопки */
 		width: 36px; /* ширина кнопки */
 		border-radius: 18px; /* радиус кнопки */
 		background: #fff; /* цвет кнопки */
@@ -59,16 +59,16 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; width: 341px;">
-        <span style="width: 341px">
+    `<div style="display: flex; width: 351px;">
+        <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left: 35px">hide</button>
+					<button id="hideMenu" style="margin-left: 40px">hide</button>
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
-					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 10px; margin-top: 5px;"></input>
+					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
 			
@@ -78,24 +78,24 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px;" id="6str">
 			</div>
 			<div style="margin: 5px;" id="7str">
-				<textarea style="width: 331px; height: 125px;" id="inp"></textarea>
+				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
 				<button id="msg1" style="width:100px;">Отправить</button>
-				<button id="snd" style="width:50px; margin-left:36px">send</button>
-				<button id="msg" style="width:100px; margin-left:36px">Заметки</button>
+				<button id="snd" style="width:50px; margin-left:41px">send</button>
+				<button id="msg" style="width:100px; margin-left:41px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
-			<div style="margin: 5px; width: 340px">
+			<div style="margin: 5px; width: 350px">
 			</div>
 		</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
-			<div style="margin: 5px; width: 340px">
+			<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 			</div>
 				
-			<div style="margin: 5px; width: 340px">
+			<div style="margin: 5px; width: 350px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button id="type_KC">КЦ</button>
 				<button id="type_TP">ТП</button>
@@ -110,7 +110,7 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
-			<div style="padding: 5 px; margin: 5px; width: 340px">
+			<div style="padding: 5 px; margin: 5px; width: 350px">
 				<button id="kibanalnksvz">Kib_Связь</button>
 				<button id="kibanalnklk">Kib_ЛК</button>
 				<button id="kibanalnksrv">Kib_СервХеш</button>
@@ -156,22 +156,26 @@ var win_Links =  // описание элементов окна ссылок
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
-					<input id="cpuname" placeholder="CPU name" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID группы" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="grid" placeholder="ID группы" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="groupadm">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepId" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="cmsstepid" placeholder="CMS stepId" title="вводим степId, чтобы сразу попасть в ЦМС на нужный слайд" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="sguid">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="credits">🔎</button>
-					<input id="HWstudID" placeholder="ID У для HW" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="crmoneinfo" placeholder="ID У CRM1" title="вводим ID У, чтобы получить прямую ссылку для просмотра заявки ученика в CRM1" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="gotocrmoneinfo">🔎</button>
+					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
-					<input id="lookhash" placeholder="roomhash" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gethash" style="width: 25.23px;">💾</button>
-					<input id="lessonkhash" placeholder="Хэш урока" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="lessonkhash" placeholder="Хэш урока" title="Хэш для получения ссылки на занятие, чтобы У мог подключиться по ней при баге на сдвоенных уроках" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
+					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -443,7 +447,7 @@ const copyToClipboard = str => {           // инициализация фун�
     }
     wintAF.onmouseup = function () {document.removeEventListener('mousemove', listener2);}
 
-	document.getElementById('sound_test').onclick = function () { 
+	document.getElementById('sound_test').onclick = function () { // кнопка тест звука
 		audio.play()
 	}
 	
@@ -619,6 +623,28 @@ const copyToClipboard = str => {           // инициализация фун�
 			setTimeout(function() {document.getElementById('getlessonhash').innerHTML = "💾"}, 2000);
 			lessonkhash.value = "";
 		}
+		
+			document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
+		let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
+		if(enablerAP.value == "")
+			console.log('Введите hash комнаты в поле')
+		else {
+				copyToClipboard(enableAPlnk + enablerAP.value);
+			};
+			document.getElementById('getenablerAP').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getenablerAP').innerHTML = "💾"}, 2000);
+			enablerAP.value = "";
+		}
+		
+			document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
+		let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
+		if(crmoneinfo.value == "")
+			console.log('Введите id  ученика в поле')
+		else {
+				window.open(crmonelnk + crmoneinfo.value);
+			};
+			crmoneinfo.value = "";
+		}	
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
@@ -1868,18 +1894,18 @@ function startTimer() {
 	}
 	
 	
-	if((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+	if((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('kodium') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
 		let btn1 = document.createElement('span');
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
 		btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
 		btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
 		let btn2 = document.createElement('span');
-		btn2.id = 'continue_chat_button'
+		btn2.id = 'kodium'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Спасен</a>';
-		btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
-		
+		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
+		btn2.setAttribute('onClick','sendComment("#kodium");')
+
 		let btn3 = document.createElement('span');
 		btn3.id = 'SMS'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
@@ -2356,7 +2382,7 @@ function customTemplates(language = '') {
 	if(tmpA.children[1].innerHTML != 'tmps')
 		tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
 	
-	tmpA.children[2].style.marginLeft = '35px'
+	tmpA.children[2].style.marginLeft = '40px'
 //	tmpA.children[3].style = 'float:right'
 	
 	
@@ -2844,7 +2870,7 @@ async function checkCSAT() {
 
 function prepTp() {
 	document.getElementById('msg1').style.display = ''
-	document.getElementById('snd').style.marginLeft = '36px'
+	document.getElementById('snd').style.marginLeft = '41px'
 	document.getElementById('testUsers').style.display = ''
 	document.getElementById('takeNewChat').style.display = ''
 	document.getElementById('howManyChats').style.display = ''
@@ -2897,9 +2923,11 @@ function prepTp() {
 	
 	setTimeout(function() {
 		// Модуль wallentine в АФ
-		include("https://rawgit.com/agronaut000/JS/master/viewSlack.js");
+		include("https://dimentorexpo.github.io/viewSlack.js");
 		// Модуль репорта на жалобы
-		include("https://rawgit.com/agronaut000/JS/master/reportForm.js");
+		include("https://dimentorexpo.github.io/reportForm.js");
+		// Модуль репорта на Отписку
+		include("https://dimentorexpo.github.io/unsub.js")
 	}, 2000)
 	
 	setTimeout(function() {
