@@ -1894,17 +1894,17 @@ function startTimer() {
 	}
 	
 	
-	if((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('kodium') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+	if((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
 		let btn1 = document.createElement('span');
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
 		btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
 		btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
 		let btn2 = document.createElement('span');
-		btn2.id = 'kodium'
+		btn2.id = 'continue_chat_button'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
-		btn2.setAttribute('onClick','sendComment("#kodium");')
+		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Спасен</a>';
+		btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
 
 		let btn3 = document.createElement('span');
 		btn3.id = 'SMS'
@@ -1918,6 +1918,23 @@ function startTimer() {
 		btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Мат-Т</a>';
 		btn4.setAttribute('onClick','sendComment("#мат-телефон");')
 	
+		let btn5 = document.createElement('span');
+		btn5.id = 'kodium'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
+		btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
+		btn5.setAttribute('onClick','sendComment("#kodium");')
+
+		let btn6 = document.createElement('span');
+		btn6.id = 'SStudy'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
+		btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Self-Study</a>';
+		btn6.setAttribute('onClick','sendComment("#Self-Study");')
+
+		let btn7 = document.createElement('span');
+		btn7.id = 'Li'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
+		btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Life</a>';
+		btn7.setAttribute('onClick','sendComment("#Life");')
 	}
 }
 
