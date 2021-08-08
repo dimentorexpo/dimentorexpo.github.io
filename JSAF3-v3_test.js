@@ -649,8 +649,7 @@ const copyToClipboard = str => {           // инициализация фун�
 		
 		// функция для взятия разового пароля
 		
-		    if (request.name === "script_pack") {
-        //checkJWT()
+       //checkJWT()
         let answer;
 		
 		        if (request.question == 'get_one-time_pass') {
@@ -708,7 +707,7 @@ const copyToClipboard = str => {           // инициализация фун�
                 });
             return true;
         }
-			}
+			
 		
 		document.getElementById('mobpass').onclick = function () {
 			document.getElementById('mobpass').style.backgroundColor = 'orange';
