@@ -647,10 +647,72 @@ const copyToClipboard = str => {           // инициализация фун�
 			crmoneinfo.value = "";
 		}	
 		
+		// функция для взятия разового пароля
+		
+		    if (request.name === "script_pack") {
+        //checkJWT()
+        let answer;
+		
+		        if (request.question == 'get_one-time_pass') {
+            fetch('https://crm.skyeng.ru/order/generateLoginLink?userId=' + request.id, {headers: {'x-requested-with': 'XMLHttpRequest'}})
+                .then(response => { if (response.ok === true) { return response.json(); } else { return null; } })
+                .then(json => { 
+                    if (json !== null) {
+                        sendResponse({ answer: json });
+                    } else {
+                        fetch("https://id.skyeng.ru/admin/auth/one-time-password", { "credentials": "include" })
+                            .then(r => r.text())
+                            .then(responce => {
+                                let doc = document.createElement('div');
+                                doc.innerHTML = responce;
+                                fetch("https://id.skyeng.ru/admin/auth/one-time-password", {
+								  "headers": {
+									"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+									"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+									"cache-control": "max-age=0",
+									"content-type": "application/x-www-form-urlencoded",
+									"sec-ch-ua": "\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"",
+									"sec-ch-ua-mobile": "?0",
+									"sec-fetch-dest": "document",
+									"sec-fetch-mode": "navigate",
+									"sec-fetch-site": "same-origin",
+									"sec-fetch-user": "?1",
+									"upgrade-insecure-requests": "1"
+								  },
+								  "body": `user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=${request.id}&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=${doc.querySelector('#login_link_form__token').value}`,
+								    "method": "POST",
+                                    "mode": "cors",
+                                    "credentials": "include"
+                                })
+                                    .then(() => {
+                                        fetch("https://id.skyeng.ru/admin/auth/one-time-password", { "credentials": "include" })
+                                            .then(r => r.text())
+                                            .then(responce => {
+                                                let doc2 = document.createElement('div');
+                                                doc2.innerHTML = responce;
+                                                let link = (doc2.querySelector(`a[href="/admin/users/${request.id}"]`)) ? doc2.querySelector(`a[href="/admin/users/${request.id}"]`).parentElement.parentElement.querySelector('input[onclick="this.select()"]').value : '';
+
+                                                let result =
+                                                {
+                                                    success: (link !== '') ? true : false,
+                                                    data: {
+                                                        link: link,
+                                                        userID: request.id
+                                                    }
+                                                };
+                                                sendResponse({ answer: result });
+                                            });
+                                    });
+                            });
+                    }
+                });
+            return true;
+        }
+			}
 		
 		document.getElementById('mobpass').onclick = function () {
 			document.getElementById('mobpass').style.backgroundColor = 'orange';
-				chrome.runtime.sendMessage({name: "script_pack", question: 'get_login_link', id: id}, function(response) {
+				chrome.runtime.sendMessage({name: "script_pack", question: 'get_one-time_pass', id: id}, function(response) {
 				if (response.answer.success === true) {
 					TrueCopyToClipboard(response.answer.data.link);
 					document.getElementById('mobpass').style.backgroundColor = 'green';
