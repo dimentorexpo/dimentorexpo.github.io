@@ -152,6 +152,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="mobdevices" style="width:100px">Хар моб устр</button>
 					<button id="confbugs" style="width:100px">Баги</button>
 					<button id="confbugsm" style="width:100px">Баги Моб.</button>
+					<button id="mobpass" style="width:100px">Моб.раз.код</button>
 
 				</div>				
 				
@@ -645,6 +646,19 @@ const copyToClipboard = str => {           // инициализация фун�
 			};
 			crmoneinfo.value = "";
 		}	
+		
+		
+		document.getElementById('mobpass').onclick = function () {
+			document.getElementById('mobpass').style.backgroundColor = 'orange';
+				chrome.runtime.sendMessage({name: "script_pack", question: 'get_login_link', id: id}, function(response) {
+				if (response.answer.success === true) {
+					TrueCopyToClipboard(response.answer.data.link);
+					document.getElementById('mobpass').style.backgroundColor = 'green';
+        } else {
+			document.getElementById('mobpass').style.backgroundColor = 'red';
+                            }
+                        });
+                    };
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
