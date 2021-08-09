@@ -727,7 +727,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	}
 	
 		   document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: c0?esJ^GPEJ6:Dq5vL3d3m<?");
+			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: O1385<BXemHx5r0uuN<jPX");
 	}
 	
 	document.getElementById('addsrc').onclick = function () {
