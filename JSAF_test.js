@@ -2926,9 +2926,6 @@ function prepTp() {
 	// var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
 	// btnAdd.insertBefore(buttonGetStat, btnAdd.children[0])
 	
-	//setInterval(checkTicketCountsCrm, 300)
-	setInterval(timerHideButtons, 300)
-	
 	setTimeout(function() {
 		// Модуль wallentine в АФ
 		include("https://dimentorexpo.github.io/viewSlack.js");
