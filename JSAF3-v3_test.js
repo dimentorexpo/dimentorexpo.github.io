@@ -152,7 +152,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="mobdevices" style="width:100px">Хар моб устр</button>
 					<button id="confbugs" style="width:100px">Баги</button>
 					<button id="confbugsm" style="width:100px">Баги Моб.</button>
-					
+
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -180,6 +180,7 @@ var win_Links =  // описание элементов окна ссылок
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
 					<button id="restartlesson" style="width:100px">Redo MAT💾</button>
+					<button id="enableNS" style="width:100px">NS</button>
 				</div>		
 			</span>
 	</span>
@@ -513,6 +514,12 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('restartlesson').innerHTML = "Copied!";
 	setTimeout(function() {document.getElementById('restartlesson').innerHTML = "Redo MAT💾"}, 2000);
 })
+
+	document.getElementById('enableNS').addEventListener('click',function(){
+    copyToClipboard("https://vimbox.skyeng.ru/start?enableNewStudent")   // копируем ссылку в буфер для перезапуска урока математики
+	document.getElementById('enableNS').innerHTML = "Copied!";
+	setTimeout(function() {document.getElementById('enableNS').innerHTML = "NS}, 2000);
+})
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
 })
@@ -645,7 +652,7 @@ const copyToClipboard = str => {           // инициализация фун�
 			};
 			crmoneinfo.value = "";
 		}	
-		
+	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
@@ -727,7 +734,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	}
 	
 		   document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: c0?esJ^GPEJ6:Dq5vL3d3m<?");
+			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: O1385<BXemHx5r0uuN<jPX");
 	}
 	
 	document.getElementById('addsrc').onclick = function () {
@@ -1894,17 +1901,17 @@ function startTimer() {
 	}
 	
 	
-	if((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('kodium') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+	if((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
 		let btn1 = document.createElement('span');
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
 		btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
 		btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
 		let btn2 = document.createElement('span');
-		btn2.id = 'kodium'
+		btn2.id = 'continue_chat_button'
 		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
-		btn2.setAttribute('onClick','sendComment("#kodium");')
+		btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Спасен</a>';
+		btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
 
 		let btn3 = document.createElement('span');
 		btn3.id = 'SMS'
@@ -1918,6 +1925,29 @@ function startTimer() {
 		btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Мат-Т</a>';
 		btn4.setAttribute('onClick','sendComment("#мат-телефон");')
 	
+		let btn5 = document.createElement('span');
+		btn5.id = 'kodium'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
+		btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
+		btn5.setAttribute('onClick','sendComment("#kodium");')
+
+		let btn6 = document.createElement('span');
+		btn6.id = 'SStudy'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
+		btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Self-Study</a>';
+		btn6.setAttribute('onClick','sendComment("#Self-Study");')
+
+		let btn7 = document.createElement('span');
+		btn7.id = 'Li'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
+		btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Life</a>';
+		btn7.setAttribute('onClick','sendComment("#Life");')
+
+		let btn8 = document.createElement('span');
+		btn8.id = 'KCfail'
+		document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
+		btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">КЦ❗</a>';
+		btn8.setAttribute('onClick','sendComment("#очередькц");')
 	}
 }
 
@@ -1943,7 +1973,7 @@ function timerHideButtons() {
 		
 		if(document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
 			for(i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-				if(document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Продажи 1Л")
+				if(document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line")
 					document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
 		if(document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
