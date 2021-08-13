@@ -518,7 +518,7 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('enableNS').addEventListener('click',function(){
     copyToClipboard("https://vimbox.skyeng.ru/start?enableNewStudent")   // копируем ссылку в буфер для перезапуска урока математики
 	document.getElementById('enableNS').innerHTML = "Copied!";
-	setTimeout(function() {document.getElementById('enableNS').innerHTML = "NS}, 2000);
+	setTimeout(function() {document.getElementById('enableNS').innerHTML = "NS"}, 2000);
 })
 	document.getElementById('browserstack').addEventListener('click',function(){
     window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
