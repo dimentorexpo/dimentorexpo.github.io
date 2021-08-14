@@ -189,7 +189,7 @@ var win_Links =  // описание элементов окна ссылок
 	</span>
 </div>`;
 	
-let audio
+let audio;
 
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
