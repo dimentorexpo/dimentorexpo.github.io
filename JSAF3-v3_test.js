@@ -54,7 +54,7 @@ function mystyles() {
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
-	}`
+	}`;
 	mstl.innerHTML = style;
 }
 
