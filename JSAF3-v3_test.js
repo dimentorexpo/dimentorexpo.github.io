@@ -226,56 +226,56 @@ button4.innerHTML = "Info";
 let button44 = document.createElement('p');
 button44.id = 'nextTeacherShowcaseScript';
 button44.innerHTML = "Showcase";
-let template_flag = 0
-let template_flag2 = 0
-let word_text = ""
-let template_text = ""
-let flagggg = 0
+let template_flag = 0;
+let template_flag2 = 0;
+let word_text = "";
+let template_text = "";
+let flagggg = 0;
 
 button2.onclick = function() {
 	if(document.getElementById('btn_hide').style.display != 'none')
-		btn_hide.click()
+		btn_hide.click();
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
 	}
-	btn1_student.click()
-}
+	btn1_student.click();
+};
 button22.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-			copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] + '/showcase')
+			copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] + '/showcase');
 	}
-}
+};
 
 button3.onclick = function() {
 	if(document.getElementById('btn_hide').style.display != 'none')
-		btn_hide.click()
+		btn_hide.click();
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
 	}
-	btn1_student.click()
+	btn1_student.click();
 }
 button33.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-			copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase')
+			copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase');
 	}
-}
+};
 button4.onclick = function() {
 	if(document.getElementById('btn_hide').style.display != 'none')
-		btn_hide.click()
+		btn_hide.click();
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
 	}
-	btn1_student.click()
-}
+	btn1_student.click();
+};
 button44.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-			copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase')
+			copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase');
 	}
 }
 
