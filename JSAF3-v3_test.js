@@ -318,11 +318,6 @@ button44.onclick = function() {
 	}
 }
 
-let menubtn = document.createElement('div')
-menubtn.id = "btn"
-menubtn.innerHTML = "Меню"
-menubtn.style.marginRight = "15px";
-
 
 let addInfoUser = document.createElement('div')
 
@@ -423,6 +418,13 @@ hashBut.onclick = function () {
 	}
 	
 }
+
+let menubtn = document.createElement('div')
+menubtn.id = "btn"
+menubtn.innerHTML = "Меню"
+menubtn.style.marginRight = "15px";
+
+
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
 wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
