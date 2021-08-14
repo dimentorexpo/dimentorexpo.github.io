@@ -10,45 +10,6 @@ function mystyles() {
 		padding: 3px 2px;
 		margin: -2px 1px;
 	}
-		.btn {
-    background-color: #2196F3;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-	}
-
-		.dropdown {
-		position: absolute;
-		display: inline-block;
-	}
-
-	.dropdown-content {
-		display: none;
-		position: absolute;
-		background-color: #f1f1f1;
-		min-width: 120px;
-		z-index: 1;
-	}
-
-	.dropdown-content a {
-		color: black;
-		padding: 12px 16px;
-		text-decoration: none;
-		display: block;
-	}
-
-	.dropdown-content a:hover {background-color: #ddd}
-
-	.dropdown:hover .dropdown-content {
-		display: block;
-	}
-
-	.btn:hover, .dropdown:hover .btn {
-		background-color: #0b7dda;
-	}
-
 	button {
 		background-color:#768d87;
 		border-radius:5px; 
@@ -318,7 +279,6 @@ button44.onclick = function() {
 	}
 }
 
-
 let addInfoUser = document.createElement('div')
 
 let hashBut = document.createElement('div')
@@ -418,13 +378,6 @@ hashBut.onclick = function () {
 	}
 	
 }
-
-let menubtn = document.createElement('div')
-menubtn.id = "btn"
-menubtn.innerHTML = "Меню"
-menubtn.style.marginRight = "15px";
-
-
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
 wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
