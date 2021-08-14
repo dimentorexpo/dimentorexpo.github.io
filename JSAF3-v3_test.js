@@ -319,9 +319,11 @@ button44.onclick = function() {
 }
 
 let menubtn = document.createElement('div')
-menubtn.id = "dropdown"
+div.id = "dropdown"
+menubtn.id = "btn"
 menubtn.innerHTML = "Меню"
 menubtn.style.marginRight = "15px";
+menubtn.style.border-left = "1px solid #0d8bf2";
 
 let addInfoUser = document.createElement('div')
 
