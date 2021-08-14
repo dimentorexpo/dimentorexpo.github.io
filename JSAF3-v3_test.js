@@ -321,7 +321,7 @@ button44.onclick = function() {
 let menubtn = document.createElement('div')
 menubtn.id = "dropdown"
 menubtn.innerHTML = "Меню"
-hashBut.style.marginRight = "15px";
+menubtn.style.marginRight = "15px";
 
 let addInfoUser = document.createElement('div')
 
