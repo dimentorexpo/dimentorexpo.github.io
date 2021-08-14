@@ -10,6 +10,45 @@ function mystyles() {
 		padding: 3px 2px;
 		margin: -2px 1px;
 	}
+		.btn {
+    background-color: #2196F3;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+	}
+
+		.dropdown {
+		position: absolute;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 120px;
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {background-color: #ddd}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.btn:hover, .dropdown:hover .btn {
+		background-color: #0b7dda;
+	}
+
 	button {
 		background-color:#768d87;
 		border-radius:5px; 
@@ -278,6 +317,11 @@ button44.onclick = function() {
 			copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase')
 	}
 }
+
+let menubtn = document.createElement('div')
+menubtn.id = "dropdown"
+menubtn.innerHTML = "Меню"
+hashBut.style.marginRight = "15px";
 
 let addInfoUser = document.createElement('div')
 
