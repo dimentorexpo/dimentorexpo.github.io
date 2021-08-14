@@ -47,6 +47,37 @@ function mystyles() {
 		position: absolute;
 		z-index: 1;
 	}
+	
+		.dropdown {
+		position: absolute;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 120px;
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {background-color: #ddd}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.btn:hover, .dropdown:hover .btn {
+		background-color: #0b7dda;
+	}
+
 	.switch-on {
 		background: #fff;
 		box-shadow: inset 0 0 10px 0 #999999; /* тень */
@@ -63,6 +94,17 @@ var win_AFhelper =  // описание элементов главного ок
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
+										<button class="btn">Хеш</button>
+						<div class="dropdown">
+						  <button class="btn" style="border-left:1px solid #0d8bf2">
+							<i class="fa fa-caret-down"></i>
+						  </button>
+						  <div class="dropdown-content"> 
+							<button id="viewSlack"><a href="#">Баг-репорт</a></button>
+							<button id="reportForm"><a href="#">Жалоба</a></button>
+							<button id="unsub"><a href="#">Unsub</a></button>
+						  </div>
+						</div>
 					<button id="languageAF" style="width:100px">Русский</button>
 					<button id="hideMenu" style="margin-left: 40px">hide</button>
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
