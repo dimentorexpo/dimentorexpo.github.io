@@ -94,7 +94,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<button id="curVeriOS">iOS: 9.25 (1086)</button>
+				<button id="curVeriOS">iOS: 9.27 (1093)</button>
 				<button id="curVerAndroid">Аndroid: 9.25(512)</button>
 			</div>
 				
