@@ -171,6 +171,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="credits">🔎</button>
 					<input id="crmoneinfo" placeholder="ID У CRM1" title="вводим ID У, чтобы получить прямую ссылку для просмотра заявки ученика в CRM1" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gotocrmoneinfo">🔎</button>
+					<input id="iplookup" placeholder="IP У/П" title="вводим IP У/П/Платформы, чтобы получить информацию о месторасположении географического адреса и получения информации о хостинге" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="gotolookip">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -654,7 +656,17 @@ const copyToClipboard = str => {           // инициализация фун�
 				window.open(crmonelnk + crmoneinfo.value);
 			};
 			crmoneinfo.value = "";
-		}	
+		}
+
+			document.getElementById('gotolookip').onclick = function () {                  // проверка заявки ученика в СРМ1
+		let iplink = 'https://check-host.net/ip-info?host=';
+		if(iplookup.value == "")
+			console.log('Введите ip в поле')
+		else {
+				window.open(iplink + iplookup.value);
+			};
+			iplookup.value = "";
+		}		
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
