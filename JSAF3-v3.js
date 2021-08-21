@@ -173,6 +173,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gotocrmoneinfo">🔎</button>
 					<input id="iplookup" placeholder="IP У/П/Vimbox" title="вводим IP У/П/Платформы, чтобы получить информацию о месторасположении географического адреса и получения информации о хостинге" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gotolookip">🔎</button>
+					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="startjirasearch">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -658,7 +660,7 @@ const copyToClipboard = str => {           // инициализация фун�
 			crmoneinfo.value = "";
 		}
 
-			document.getElementById('gotolookip').onclick = function () {                  // проверка заявки ученика в СРМ1
+			document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
 		let iplink = 'https://check-host.net/ip-info?host=';
 		if(iplookup.value == "")
 			console.log('Введите ip в поле')
@@ -666,7 +668,17 @@ const copyToClipboard = str => {           // инициализация фун�
 				window.open(iplink + iplookup.value);
 			};
 			iplookup.value = "";
-		}		
+		}	
+
+			document.getElementById('startjirasearch').onclick = function () {                  // поиск по Jira
+		let jiralink = 'https://jira.skyeng.tech/issues/?filter=21266&jql=project%20in%20(VIM%2C%20MP%2C%20MV%2C%20KIDS%2C%20TS%2C%20ADULT%2C%20AUTH%2C%20BILL%2C%20COMM%2C%20KG%2C%20KIDSMOB%2C%20MATH%2C%20MOB%2C%20MOBACK%2C%20MOBT%2C%20SS%2C%20ST%2C%20SMMOB%2C%20STUDCAB)%20AND%20issuetype%20in%20(Bug%2C%20Task)%20AND%20status%20!%3D%20closed%20AND%20Reports%20%3E0%20AND%20resolution%20%3D%20unresolved%20AND%20text%20~%20%22';
+		if(jirasearch.value == "")
+			console.log('Введите текст в поле')
+		else {
+				window.open(jiralink + jirasearch.value + '%22%20ORDER%20BY%20updated');
+			};
+			jirasearch.value = "";
+		}				
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
