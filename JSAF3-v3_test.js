@@ -94,8 +94,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<button id="curVeriOS">iOS: 9.25 (1086)</button>
-				<button id="curVerAndroid">Аndroid: 9.25(512)</button>
+				<button id="curVeriOS">iOS: 9.29 (1097)</button>
+				<button id="curVerAndroid">Аndroid: 9.27.1(514)</button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -171,6 +171,10 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="credits">🔎</button>
 					<input id="crmoneinfo" placeholder="ID У CRM1" title="вводим ID У, чтобы получить прямую ссылку для просмотра заявки ученика в CRM1" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gotocrmoneinfo">🔎</button>
+					<input id="iplookup" placeholder="IP У/П/Vimbox" title="вводим IP У/П/Платформы, чтобы получить информацию о месторасположении географического адреса и получения информации о хостинге" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="gotolookip">🔎</button>
+					<input id="jirasearch" placeholder="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="startjirasearch">🔎</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -654,7 +658,27 @@ const copyToClipboard = str => {           // инициализация фун�
 				window.open(crmonelnk + crmoneinfo.value);
 			};
 			crmoneinfo.value = "";
+		}
+
+			document.getElementById('gotolookip').onclick = function () {                  // проверка заявки ученика в СРМ1
+		let iplink = 'https://check-host.net/ip-info?host=';
+		if(iplookup.value == "")
+			console.log('Введите ip в поле')
+		else {
+				window.open(iplink + iplookup.value);
+			};
+			iplookup.value = "";
 		}	
+
+			document.getElementById('startjirasearch').onclick = function () {                  // проверка заявки ученика в СРМ1
+		let jiralink = 'https://jira.skyeng.tech/issues/?filter=21266&jql=project%20in%20(VIM%2C%20MP%2C%20MV%2C%20KIDS%2C%20TS%2C%20ADULT%2C%20AUTH%2C%20BILL%2C%20COMM%2C%20CRM2PB%2C%20KG%2C%20KIDSMOB%2C%20C0%2C%20MATH%2C%20MOB%2C%20MOBACK%2C%20MOBT%2C%20SS%2C%20ST%2C%20SMMOB%2C%20STUDCAB%2C%20TTC%2C%20CRM2DEV)%20AND%20issuetype%20in%20(Bug%2C%20Task)%20AND%20status%20!%3D%20closed%20AND%20Reports%20%3E%3D0%20%20AND%20text%20~%20%22';
+		if(jirasearch.value == "")
+			console.log('Введите текст в поле')
+		else {
+				window.open(jiralink + jirasearch.value + '%22%20ORDER%20BY%20updated');
+			};
+			jirasearch.value = "";
+		}				
 	
     document.getElementById('msg').onclick = function () {
         if(this.innerHTML == "Чат") {
