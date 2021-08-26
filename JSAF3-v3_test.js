@@ -369,6 +369,38 @@ maskBackHide.onclick = function () {
 		}
 }
 
+starttestinput.onclick = function() {
+	document.getElementById('responseTextarea1').value = `{
+"headers": {
+    "content-type": "application/x-www-form-urlencoded",
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "same-origin",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1"
+},
+"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=57180&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include"
+}`
+document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+document.getElementById('responseTextarea3').value = 'getmobpwd'
+document.getElementById('sendResponse').click()
+
+function getPassInfo() {
+document.getElementById('responseTextarea1').value = `{}`
+document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+document.getElementById('responseTextarea3').value = ''
+
+ var result222 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+ document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+ var convres = result222.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+console.log(convres[1]); }
+
+setTimeout(getPassInfo, 2000);
+}
+
 
 hashBut.onclick = function () {
 	adr = document.location.href
