@@ -185,7 +185,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 					<input id="testInput" placeholder="ID STD" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="starttestinput" style="width: 25.23px;">M</button>
+					<button id="pushmetotest" style="width: 25.23px;">M</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -369,38 +369,7 @@ maskBackHide.onclick = function () {
 		}
 }
 
-//document.getElementById('customerlnk').addEventListener('click',function(){
-document.getElementById('starttestinput').onclick = function() {
-	document.getElementById('responseTextarea1').value = `{
-"headers": {
-    "content-type": "application/x-www-form-urlencoded",
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1"
-},
-"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=57180&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "include"
-}`
-document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
-document.getElementById('responseTextarea3').value = 'getmobpwd'
-document.getElementById('sendResponse').click()
 
-function getPassInfo() {
-document.getElementById('responseTextarea1').value = `{}`
-document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
-document.getElementById('responseTextarea3').value = ''
-
- var result222 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
- document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
- var convres = result222.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-console.log(convres[1]); }
-
-setTimeout(getPassInfo, 2000);
-}
 
 
 hashBut.onclick = function () {
@@ -594,6 +563,40 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('mobdevices').addEventListener('click',function(){
     window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
+
+document.getElementById('pushmetotest').addEventListener('click',function(){
+	document.getElementById('responseTextarea1').value = `{
+"headers": {
+    "content-type": "application/x-www-form-urlencoded",
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "same-origin",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1"
+},
+"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=57180&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include"
+}`
+document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+document.getElementById('responseTextarea3').value = 'getmobpwd'
+document.getElementById('sendResponse').click()
+
+function getPassInfo() {
+document.getElementById('responseTextarea1').value = `{}`
+document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+document.getElementById('responseTextarea3').value = ''
+
+ var result222 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+ document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+ var convres = result222.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+console.log(convres[1]); }
+
+setTimeout(getPassInfo, 2000);
+}
+
+
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
