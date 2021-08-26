@@ -184,6 +184,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
+					<input id="testInput" placeholder="ID STD" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="starttestinput" style="width: 25.23px;">M</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
