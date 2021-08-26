@@ -214,6 +214,9 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = "Info";
+let buttonmobpas = document.createElement('p');
+buttonmobpas.id = 'copymobpass';
+buttonmobpas.innerHTML = "📱";
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
@@ -245,6 +248,13 @@ button2.onclick = function() {
 			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
 	}
 	btn1_student.click()
+}
+
+buttonmobpas.onclick = function() {
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+		console.log(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]);
+	}
 }
 button22.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
