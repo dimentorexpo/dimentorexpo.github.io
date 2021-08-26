@@ -571,8 +571,6 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
 			console.log('Введите id в поле')
 		else {
 	
-
-	
 	document.getElementById('responseTextarea1').value = `{
 "headers": {
     "content-type": "application/x-www-form-urlencoded",
@@ -582,7 +580,7 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1"
 },
-"body": `firstpartoflink + testInput.value + secondparftoflink`,
+"body": `firstpartoflink` + `testInput.value` + `secondparftoflink`,
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
@@ -591,24 +589,21 @@ document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin
 document.getElementById('responseTextarea3').value = 'getmobpwd'
 document.getElementById('sendResponse').click()
 
-getPassInfo();
-setTimeout(getPassInfo, 2000);
+function getPassInfo() {
+document.getElementById('responseTextarea1').value = `{}`
+document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+document.getElementById('responseTextarea3').value = ''
 
  var result222 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
  document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
  var convres = result222.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
 console.log(convres[1]); }
 
+setTimeout(getPassInfo, 2000);
 			};
 			testInput.value = "";
 })
 
-	function getPassInfo() {
-document.getElementById('responseTextarea1').value = `{}`
-document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
-document.getElementById('responseTextarea3').value = ''
-			}
-			
 
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
