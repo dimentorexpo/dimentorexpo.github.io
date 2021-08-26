@@ -369,7 +369,7 @@ maskBackHide.onclick = function () {
 		}
 }
 
-starttestinput.onclick = function() {
+document.getElementById(starttestinput).onclick = function() {
 	document.getElementById('responseTextarea1').value = `{
 "headers": {
     "content-type": "application/x-www-form-urlencoded",
