@@ -566,7 +566,7 @@ const copyToClipboard = str => {           // инициализация фун�
 
 document.getElementById('pushmetotest').addEventListener('click',function(){
 		//	let firstpartoflink = 'user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=';
-		//	let secondparftoflink = ''
+		//	let secondparftoflink = '&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU'
 		if(testInput.value == "")
 			console.log('Введите id в поле')
 		else {
