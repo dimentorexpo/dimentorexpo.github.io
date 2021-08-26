@@ -571,6 +571,8 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
 			console.log('Введите id в поле')
 		else {
 	
+
+	
 	document.getElementById('responseTextarea1').value = `{
 "headers": {
     "content-type": "application/x-www-form-urlencoded",
@@ -589,21 +591,24 @@ document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin
 document.getElementById('responseTextarea3').value = 'getmobpwd'
 document.getElementById('sendResponse').click()
 
-function getPassInfo() {
-document.getElementById('responseTextarea1').value = `{}`
-document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
-document.getElementById('responseTextarea3').value = ''
+getPassInfo();
+setTimeout(getPassInfo, 2000);
 
  var result222 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
  document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
  var convres = result222.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
 console.log(convres[1]); }
 
-setTimeout(getPassInfo, 2000);
 			};
 			testInput.value = "";
 })
 
+	function getPassInfo() {
+document.getElementById('responseTextarea1').value = `{}`
+document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+document.getElementById('responseTextarea3').value = ''
+			}
+			
 
 	
 	document.getElementById('userfeatures').addEventListener('click',function(){
