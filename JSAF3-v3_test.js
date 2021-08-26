@@ -594,7 +594,7 @@ document.getElementById('responseTextarea3').value = ''
 console.log(convres[1]); }
 
 setTimeout(getPassInfo, 2000);
-}
+})
 
 
 	
