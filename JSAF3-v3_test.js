@@ -579,7 +579,7 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1"
 },
-"body": `firstpartoflink + testInput.value + secondparftoflink`,
+"body": `firstpartoflink.concat(testInput.value, secondparftoflink)`,
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
