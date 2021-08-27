@@ -251,11 +251,15 @@ button2.onclick = function() {
 	btn1_student.click()
 }
 
+var getidfromaf;
 buttonmobpas.onclick = function() {
 	
-
+	
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+			getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+		console.log("getidfromaf = " + ' ' + getidfromaf);
+	}
 	
 		document.getElementById('responseTextarea1').value = `{
 		"headers": {
@@ -266,7 +270,7 @@ buttonmobpas.onclick = function() {
 				"sec-fetch-user": "?1",
 				"upgrade-insecure-requests": "1"
 		},
-		"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+		"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${getidfromaf} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
 			"method": "POST",
 			"mode": "cors",
 			"credentials": "include"
@@ -274,7 +278,7 @@ buttonmobpas.onclick = function() {
 		document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
 		document.getElementById('responseTextarea3').value = 'getmobpwd'
 		document.getElementById('sendResponse').click()
-	}
+
 		function getPassInfo() {
 		document.getElementById('responseTextarea1').value = '{}'
 		document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
