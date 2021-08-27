@@ -253,10 +253,10 @@ button2.onclick = function() {
 
 buttonmobpas.onclick = function() {
 	
-	
+	let getidfromaf;
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-			let getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+			getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
 		console.log("getidfromaf = " + ' ' + getidfromaf);
 	}
 	
