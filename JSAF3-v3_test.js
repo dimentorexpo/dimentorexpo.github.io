@@ -290,6 +290,8 @@ buttonmobpas.onclick = function() {
 		 copyToClipboard1(convertres2[1]);
 		console.log(convertres2[1]); }
 		setTimeout(getPassInfoNew, 1000);
+		document.getElementById('copymobpass').innerHTML = convertres2[1];
+		setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
 
 }
 
