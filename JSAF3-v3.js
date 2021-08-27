@@ -215,9 +215,6 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = "Info";
-let buttonmobpas = document.createElement('p');
-buttonmobpas.id = 'copymobpass';
-buttonmobpas.innerHTML = "Generate code📱";
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
@@ -250,48 +247,6 @@ button2.onclick = function() {
 	}
 	btn1_student.click()
 }
-
-buttonmobpas.onclick = function() {
-	
-	let getidfromaf;
-	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-			getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-		console.log("getidfromaf = " + ' ' + getidfromaf);
-	}
-	
-		document.getElementById('responseTextarea1').value = `{
-		"headers": {
-			"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-		},
-		"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${getidfromaf} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		}`
-		document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-		document.getElementById('responseTextarea3').value = 'getmobpwd'
-		document.getElementById('sendResponse').click()
-
-		function getPassInfo() {
-		document.getElementById('responseTextarea1').value = '{}'
-		document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-		document.getElementById('responseTextarea3').value = ''
-
-		 var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
-		 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
-		 var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-		 setidformobpass.value = convertres[1];
-		 copyToClipboard(convertres[1]);
-		console.log(convertres[1]); }
-		setTimeout(getPassInfo, 1000);
-}
-
 
 button22.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
