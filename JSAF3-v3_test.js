@@ -1,3 +1,5 @@
+<script src="//cdn.jsdelivr.net/clipboard.js/latest/clipboard.min.js"></script>
+
 function mystyles() {
 	let mstl = document.createElement('style');
 	document.body.append(mstl);
