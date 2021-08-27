@@ -176,14 +176,15 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gotolookip">🔎</button>
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
+					<input id="setidformobpass" placeholder="ID У МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getmobpasscode" style="width: 25.23px;">💾</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gethash" style="width: 25.23px;">💾</button>
-					<input id="lessonkhash" placeholder="Хэш урока" title="Хэш для получения ссылки на занятие, чтобы У мог подключиться по ней при баге на сдвоенных уроках" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="getlessonhash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
+
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -214,6 +215,9 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = "Info";
+let buttonmobpas = document.createElement('p');
+buttonmobpas.id = 'copymobpass';
+buttonmobpas.innerHTML = "Generate code📱";
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
@@ -245,6 +249,13 @@ button2.onclick = function() {
 			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
 	}
 	btn1_student.click()
+}
+
+buttonmobpas.onclick = function() {
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+		console.log(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]);
+	}
 }
 button22.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -356,6 +367,8 @@ maskBackHide.onclick = function () {
 			}
 		}
 }
+
+
 
 
 hashBut.onclick = function () {
@@ -549,7 +562,48 @@ const copyToClipboard = str => {           // инициализация фун�
 	document.getElementById('mobdevices').addEventListener('click',function(){
     window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
-	
+
+document.getElementById('getmobpasscode').addEventListener('click',function(){
+		if(setidformobpass.value == "")
+			console.log('Введите id в поле')
+		else {
+			document.getElementById('getmobpasscode').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
+	document.getElementById('responseTextarea1').value = `{
+"headers": {
+    "content-type": "application/x-www-form-urlencoded",
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "same-origin",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1"
+},
+"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include"
+}`
+document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+document.getElementById('responseTextarea3').value = 'getmobpwd'
+document.getElementById('sendResponse').click()
+
+function getPassInfo() {
+document.getElementById('responseTextarea1').value = '{}'
+document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+document.getElementById('responseTextarea3').value = ''
+
+ var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+ document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+ var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+ setidformobpass.value = convertres[1];
+ copyToClipboard(convertres[1]);
+console.log(convertres[1]); }
+setTimeout(getPassInfo, 1000);
+			};
+		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
+			
+})
+
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
 })
@@ -626,19 +680,6 @@ const copyToClipboard = str => {           // инициализация фун�
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
 		}
-		
-			document.getElementById('getlessonhash').onclick = function () {               // сохранение в буфере хеша комнаты на урок (при сдвоенных уроках баге)
-		let roomhashdlnk = 'https://vimbox.skyeng.ru/lesson/';
-		if(lessonkhash.value == "")
-			console.log('Введите hash комнаты в поле')
-		else {
-				copyToClipboard(roomhashdlnk + lessonkhash.value + "/start");
-			};
-			document.getElementById('getlessonhash').innerHTML = "✅";
-			setTimeout(function() {document.getElementById('getlessonhash').innerHTML = "💾"}, 2000);
-			lessonkhash.value = "";
-		}
-		
 			document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
 		let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
 		if(enablerAP.value == "")
@@ -1808,6 +1849,14 @@ function startTimer() {
 				if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
 					btn.appendChild(button22)
 			}
+			
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+				btn.appendChild(buttonmobpas)
+				if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+					btn.appendChild(button22)
+			}
+						
 			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
 				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
 				btn.appendChild(button3)
