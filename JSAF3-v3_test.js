@@ -279,18 +279,17 @@ buttonmobpas.onclick = function() {
 		document.getElementById('responseTextarea3').value = 'getmobpwd'
 		document.getElementById('sendResponse').click()
 
-		function getPassInfo() {
+		function getPassInfoNew() {
 		document.getElementById('responseTextarea1').value = '{}'
 		document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
 		document.getElementById('responseTextarea3').value = ''
 
-		 var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+		 var resprez2 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
 		 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
-		 var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-		 setidformobpass.value = convertres[1];
-		 copyToClipboard(convertres[1]);
-		console.log(convertres[1]); }
-		setTimeout(getPassInfo, 1000);
+		 var convertres2 = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+		 copyToClipboard(convertres2[1]);
+		console.log(convertres2[1]); }
+		setTimeout(getPassInfoNew, 1000);
 
 }
 
