@@ -177,7 +177,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
 					<input id="setidformobpass" placeholder="ID У МП" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="getmobpasscode" style="width: 25.23px;">M</button>
+					<button id="getmobpasscode" style="width: 25.23px;">💾</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -567,6 +567,8 @@ document.getElementById('getmobpasscode').addEventListener('click',function(){
 		if(setidformobpass.value == "")
 			console.log('Введите id в поле')
 		else {
+			document.getElementById('getmobpasscode').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
 	document.getElementById('responseTextarea1').value = `{
 "headers": {
     "content-type": "application/x-www-form-urlencoded",
