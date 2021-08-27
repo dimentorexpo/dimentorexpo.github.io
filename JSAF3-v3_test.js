@@ -570,7 +570,7 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
 		if(testInput.value == "")
 			console.log('Введите id в поле')
 		else {
-	
+		let newTestInput = testInput.value;
 	document.getElementById('responseTextarea1').value = `{
 "headers": {
     "content-type": "application/x-www-form-urlencoded",
@@ -581,7 +581,7 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
         "upgrade-insecure-requests": "1"
 },
 "body": 
-"user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=" + testInput.value + "&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+"user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=\" + newTestInput + \"&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
