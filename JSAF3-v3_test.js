@@ -594,6 +594,7 @@ document.getElementById('responseTextarea3').value = ''
  var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
  document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
  var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+ copyToClipboard(convertres);
 console.log(convertres[1]); }
 
 setTimeout(getPassInfo, 2000);
