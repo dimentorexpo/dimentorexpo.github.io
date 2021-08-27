@@ -594,9 +594,9 @@ document.getElementById('responseTextarea3').value = ''
  var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
  document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
  var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+ setidformobpass.value = convertres[1];
  copyToClipboard(convertres[1]);
 console.log(convertres[1]); }
-setidformobpass.value = convertres[1];
 setTimeout(getPassInfo, 1000);
 			};
 		setTimeout(function() {document.getElementById('setidformobpass').innerHTML = ""}, 10000);
