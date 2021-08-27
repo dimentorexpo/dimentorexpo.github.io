@@ -96,6 +96,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 				<button id="curVeriOS">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid">Аndroid: 9.27.1(514)</button>
+				<div id="clock_js" style="color: white"></div>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -134,6 +135,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button id="creds" style="width:50px;">ℹ</button>
 					<button id="passappgen" style="width:50px;">📲</button>
+					<button id="knoweledgebase" style="width:50px;">📚</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
@@ -513,6 +515,20 @@ const copyToClipboard = str => {           // инициализация фун�
 		audio.play()
 	}
 	
+	setInterval(clock_on_javascript_1, 1000);
+
+function clock_on_javascript_1() {
+var data = new Date();
+hours = data.getHours();
+if(hours < 10){hours = "0" + hours;}
+minutes = data.getMinutes();
+if(minutes < 10){minutes = "0" + minutes;}
+seconds = data.getSeconds();
+if(seconds < 10){seconds = "0" + seconds;}
+time = hours + " : " + minutes + " : " + seconds;
+document.getElementById("clock_js").innerHTML = time;
+}
+	
 	document.getElementById('kibanalnksvz').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
 })	
@@ -845,6 +861,10 @@ setTimeout(getPassInfo, 1000);
 		   document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
 			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: O1385<BXemHx5r0uuN<jPX");
 	}
+	
+			   document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
+			window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
+			}
 	
 		document.getElementById('passappgen').addEventListener('click',function(){
     window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
