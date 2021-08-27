@@ -266,8 +266,7 @@ buttonmobpas.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
 			getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-		console.log("getidfromaf = " + ' ' + getidfromaf);
-	}
+
 	
 		document.getElementById('responseTextarea1').value = `{
 		"headers": {
@@ -299,6 +298,8 @@ buttonmobpas.onclick = function() {
 		 copyToClipboard(convertres[1]);
 		console.log(convertres[1]); }
 		setTimeout(getPassInfo, 1000);
+	console.log("getidfromaf = " + ' ' + getidfromaf);
+	}
 }
 
 
