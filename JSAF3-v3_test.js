@@ -92,7 +92,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="sound_save">save</button>
 				<button id="sound_test">test</button>
-				<div id="clock_js"></div>
+				<div id="clock_js" style="color: white"></div>
 				<button id="switcher">ВКЛ</button>
 				<br>
 				<button id="curVeriOS">iOS: 9.29 (1097)</button>
