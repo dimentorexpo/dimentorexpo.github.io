@@ -286,7 +286,7 @@ buttonmobpas.onclick = function() {
 
 		 var resprez2 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
 		 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
-		 var convertres2 = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+		 var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
 		 copyToClipboard(convertres2[1]);
 		console.log(convertres2[1]); }
 		setTimeout(getPassInfoNew, 1000);
