@@ -599,7 +599,7 @@ document.getElementById('responseTextarea3').value = ''
 console.log(convertres[1]); }
 setTimeout(getPassInfo, 1000);
 			};
-		setTimeout(function() {document.getElementById('setidformobpass').innerHTML = ""}, 10000);
+		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
 			
 })
 
