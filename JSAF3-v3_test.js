@@ -571,7 +571,7 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
 			console.log('Введите id в поле')
 		else {
 		let newTestInput = String(testInput.value);
-	document.getElementById('responseTextarea1').value = `{
+	document.getElementById('responseTextarea1').value = '{
 "headers": {
     "content-type": "application/x-www-form-urlencoded",
         "sec-fetch-dest": "document",
@@ -581,18 +581,18 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
         "upgrade-insecure-requests": "1"
 },
 "body": 
-"user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D=\" + `newTestInput` + \"&user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+`user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + newTestInput + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU`,
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
-}`
-document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+}'
+document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
 document.getElementById('responseTextarea3').value = 'getmobpwd'
 document.getElementById('sendResponse').click()
 
 function getPassInfo() {
-document.getElementById('responseTextarea1').value = `{}`
-document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password'
+document.getElementById('responseTextarea1').value = '{}'
+document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
 document.getElementById('responseTextarea3').value = ''
 
  var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
@@ -605,8 +605,6 @@ setTimeout(getPassInfo, 2000);
 			testInput.value = "";
 })
 
-
-	
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
 })
