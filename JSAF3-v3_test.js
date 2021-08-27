@@ -135,7 +135,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button id="creds" style="width:50px;">ℹ</button>
 					<button id="passappgen" style="width:50px;">📲</button>
-					<button id="knoweledgebase" style="width:50px;">💡</button>
+					<button id="knoweledgebase" style="width:50px;">📚</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
