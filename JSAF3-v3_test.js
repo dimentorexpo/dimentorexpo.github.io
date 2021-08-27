@@ -176,16 +176,15 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gotolookip">🔎</button>
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
+					<input id="setidformobpass" placeholder="ID У МП" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getmobpasscode" style="width: 25.23px;">M</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gethash" style="width: 25.23px;">💾</button>
-					<input id="lessonkhash" placeholder="Хэш урока" title="Хэш для получения ссылки на занятие, чтобы У мог подключиться по ней при баге на сдвоенных уроках" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="getlessonhash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
-					<input id="setidformobpass" placeholder="ID У МП" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="getmobpasscode" style="width: 25.23px;">M</button>
+
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -681,19 +680,6 @@ setTimeout(getPassInfo, 1000);
 			setTimeout(function() {document.getElementById('gethash').innerHTML = "💾"}, 2000);
 			lookhash.value = "";
 		}
-		
-			document.getElementById('getlessonhash').onclick = function () {               // сохранение в буфере хеша комнаты на урок (при сдвоенных уроках баге)
-		let roomhashdlnk = 'https://vimbox.skyeng.ru/lesson/';
-		if(lessonkhash.value == "")
-			console.log('Введите hash комнаты в поле')
-		else {
-				copyToClipboard(roomhashdlnk + lessonkhash.value + "/start");
-			};
-			document.getElementById('getlessonhash').innerHTML = "✅";
-			setTimeout(function() {document.getElementById('getlessonhash').innerHTML = "💾"}, 2000);
-			lessonkhash.value = "";
-		}
-		
 			document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
 		let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
 		if(enablerAP.value == "")
