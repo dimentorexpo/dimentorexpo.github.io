@@ -184,8 +184,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
-					<input id="testInput" placeholder="ID STD" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="pushmetotest" style="width: 25.23px;">M</button>
+					<input id="setidformobpass" placeholder="ID STD" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getmobpasscode" style="width: 25.23px;">M</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -564,8 +564,8 @@ const copyToClipboard = str => {           // инициализация фун�
     window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
 
-document.getElementById('pushmetotest').addEventListener('click',function(){
-		if(testInput.value == "")
+document.getElementById('getmobpasscode').addEventListener('click',function(){
+		if(setidformobpass.value == "")
 			console.log('Введите id в поле')
 		else {
 	document.getElementById('responseTextarea1').value = `{
@@ -577,7 +577,7 @@ document.getElementById('pushmetotest').addEventListener('click',function(){
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1"
 },
-"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${testInput.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
@@ -599,7 +599,9 @@ console.log(convertres[1]); }
 
 setTimeout(getPassInfo, 1000);
 			};
-			testInput.value = "";
+			setidformobpass.value = convertres[1];
+			setTimeout(function() {document.getElementById('setidformobpass').innerHTML = ""}, 10000);
+			
 })
 
 
