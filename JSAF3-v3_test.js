@@ -184,7 +184,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getlessonhash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
-					<input id="setidformobpass" placeholder="ID STD" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="setidformobpass" placeholder="ID У МП" title="test input" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getmobpasscode" style="width: 25.23px;">M</button>
 				</div>		
 				
@@ -596,11 +596,10 @@ document.getElementById('responseTextarea3').value = ''
  var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
  copyToClipboard(convertres[1]);
 console.log(convertres[1]); }
-
+setidformobpass.value = convertres[1];
 setTimeout(getPassInfo, 1000);
 			};
-			setidformobpass.value = convertres[1];
-			setTimeout(function() {document.getElementById('setidformobpass').innerHTML = ""}, 10000);
+		setTimeout(function() {document.getElementById('setidformobpass').innerHTML = ""}, 10000);
 			
 })
 
