@@ -1,4 +1,4 @@
-function mystyles() {
+unction mystyles() {
 	let mstl = document.createElement('style');
 	document.body.append(mstl);
 	var style = `.win_btn {
@@ -96,7 +96,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 				<button id="curVeriOS">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid">Аndroid: 9.27.1(514)</button>
-				<div id="clock_js" style="color: white"></div>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -135,7 +134,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button id="creds" style="width:50px;">ℹ</button>
 					<button id="passappgen" style="width:50px;">📲</button>
-					<button id="knoweledgebase" style="width:50px;">📚</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
@@ -158,7 +156,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="mobdevices" style="width:100px">Хар моб устр</button>
 					<button id="confbugs" style="width:100px">Баги</button>
 					<button id="confbugsm" style="width:100px">Баги Моб.</button>
-
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -186,7 +183,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
-
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -217,9 +213,6 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = "Info";
-//let buttonmobpas = document.createElement('p');
-//buttonmobpas.id = 'copymobpass';
-//buttonmobpas.innerHTML = "Generate code📱";
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
@@ -252,52 +245,6 @@ button2.onclick = function() {
 	}
 	btn1_student.click()
 }
-
-/*var getidfromaf;
-buttonmobpas.onclick = function() {
-	
-	
-	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-			getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-		console.log("getidfromaf = " + ' ' + getidfromaf);
-	}
-	
-		document.getElementById('responseTextarea1').value = `{
-		"headers": {
-			"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-		},
-		"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${getidfromaf} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		}`
-		document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-		document.getElementById('responseTextarea3').value = 'getmobpwd'
-		document.getElementById('sendResponse').click()
-
-		function getPassInfoNew() {
-		document.getElementById('responseTextarea1').value = '{}'
-		document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-		document.getElementById('responseTextarea3').value = ''
-
-		 var resprez2 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
-		 document.getElementById('responseTextarea1').removeAttribute('getmobpwd'); *//
-	//	 var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-	//	 document.getElementById('copymobpass').innerHTML = convertres2[1];
-	//	 copyToClipboard1(convertres2[1]);
-	//	console.log(convertres2[1]); }
-	//	setTimeout(getPassInfoNew, 1000);
-
-	//	setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
-
-// } 
-
 
 button22.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -515,20 +462,6 @@ const copyToClipboard = str => {           // инициализация фун�
 		audio.play()
 	}
 	
-	setInterval(clock_on_javascript_1, 1000);
-
-function clock_on_javascript_1() {
-var data = new Date();
-hours = data.getHours();
-if(hours < 10){hours = "0" + hours;}
-minutes = data.getMinutes();
-if(minutes < 10){minutes = "0" + minutes;}
-seconds = data.getSeconds();
-if(seconds < 10){seconds = "0" + seconds;}
-time = hours + " : " + minutes + " : " + seconds;
-document.getElementById("clock_js").innerHTML = time;
-}
-	
 	document.getElementById('kibanalnksvz').addEventListener('click',function(){
     window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
 })	
@@ -619,46 +552,46 @@ document.getElementById("clock_js").innerHTML = time;
     window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
 
-//document.getElementById('getmobpasscode').addEventListener('click',function(){
-//		if(setidformobpass.value == "")
-//			console.log('Введите id в поле')
-//		else {
-//			document.getElementById('getmobpasscode').innerHTML = "✅";
-//			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
-//	document.getElementById('responseTextarea1').value = `{
-//"headers": {
- //   "content-type": "application/x-www-form-urlencoded",
-  //      "sec-fetch-dest": "document",
-   //     "sec-fetch-mode": "navigate",
-   //     "sec-fetch-site": "same-origin",
-   //     "sec-fetch-user": "?1",
-   //     "upgrade-insecure-requests": "1"
-//},
-//"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
- //   "method": "POST",
-  //  "mode": "cors",
-  //  "credentials": "include"
-//}`
-//document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-//document.getElementById('responseTextarea3').value = 'getmobpwd'
-//document.getElementById('sendResponse').click()
+document.getElementById('getmobpasscode').addEventListener('click',function(){
+		if(setidformobpass.value == "")
+			console.log('Введите id в поле')
+		else {
+			document.getElementById('getmobpasscode').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
+	document.getElementById('responseTextarea1').value = `{
+"headers": {
+    "content-type": "application/x-www-form-urlencoded",
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "same-origin",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1"
+},
+"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include"
+}`
+document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+document.getElementById('responseTextarea3').value = 'getmobpwd'
+document.getElementById('sendResponse').click()
 
-//function getPassInfo() {
-//document.getElementById('responseTextarea1').value = '{}'
-//document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-//document.getElementById('responseTextarea3').value = ''
+function getPassInfo() {
+document.getElementById('responseTextarea1').value = '{}'
+document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+document.getElementById('responseTextarea3').value = ''
 
- //var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
- //document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
- //var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
- //setidformobpass.value = convertres[1];
- //copyToClipboard(convertres[1]);
-//console.log(convertres[1]); }
-//setTimeout(getPassInfo, 1000);
-//			};
-//		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
+ var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+ document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+ var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+ setidformobpass.value = convertres[1];
+ copyToClipboard(convertres[1]);
+console.log(convertres[1]); }
+setTimeout(getPassInfo, 1000);
+			};
+		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
 			
-//})
+})
 
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
@@ -861,10 +794,6 @@ document.getElementById("clock_js").innerHTML = time;
 		   document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
 			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: O1385<BXemHx5r0uuN<jPX");
 	}
-	
-			   document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
-			window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
-			}
 	
 		document.getElementById('passappgen').addEventListener('click',function(){
     window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
