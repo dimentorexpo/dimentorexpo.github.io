@@ -674,9 +674,11 @@ document.getElementById("clock_js").innerHTML = time;
 					setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
 						
 			})
-
-
-			}}}}}
+			}
+			}
+			}
+			})
+			})
 
 }
 
