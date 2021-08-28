@@ -620,34 +620,13 @@ function move_again_AF() {
     })
 
 
-
-    document.getElementById('getmobpasscode').addEventListener('click',function(){
-         function getJWT(teacher = '2314498') {
-            fetch('https://crm.skyeng.ru/order/generateLoginLink?userId=' + teacher, { headers: { 'x-requested-with': 'XMLHttpRequest' } })
-                .then(response => response.text())
-                .then((response) => {
-                    if (response !== 'Login required') {
-                        if (response.ok === true) {
-                            return JSON.parse(response);
-                        } else {
-                            let result = new Promise(function (resolve, reject) {
-                                fetch("https://id.skyeng.ru/admin/auth/login-links", { "credentials": "include" })
-                                    .then(r => r.text())
-                                    .then(responce => {
-                                        let doc = document.createElement('div');
-                                        doc.innerHTML = responce;
-                                    })
-                            })
-                        }
-                    }
-                })
-        }
-        if(setidformobpass.value == "")
-            console.log('Введите id в поле')
-        else {
-            document.getElementById('getmobpasscode').innerHTML = "✅";
-            setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
-            document.getElementById('responseTextarea1').value = `{
+   document.getElementById('getmobpasscode').addEventListener('click',function(){
+		if(setidformobpass.value == "")
+			console.log('Введите id в поле')
+		else {
+			document.getElementById('getmobpasscode').innerHTML = "✅";
+			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
+	document.getElementById('responseTextarea1').value = `{
 			"headers": {
 				"content-type": "application/x-www-form-urlencoded",
 					"sec-fetch-dest": "document",
@@ -656,31 +635,30 @@ function move_again_AF() {
 					"sec-fetch-user": "?1",
 					"upgrade-insecure-requests": "1"
 			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=${doc.querySelector('#login_link_form__token').value}",
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
 				"method": "POST",
 				"mode": "cors",
 				"credentials": "include"
 			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-            document.getElementById('responseTextarea3').value = 'getmobpwd'
-            document.getElementById('sendResponse').click()
+			document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+			document.getElementById('responseTextarea3').value = 'getmobpwd'
+			document.getElementById('sendResponse').click()
 
-            function getPassInfo() {
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-                document.getElementById('responseTextarea3').value = ''
+			function getPassInfo() {
+			document.getElementById('responseTextarea1').value = '{}'
+			document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+			document.getElementById('responseTextarea3').value = ''
 
-                var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
-                document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
-                var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-                setidformobpass.value = convertres[1];
-                copyToClipboard(convertres[1]);
-                console.log(convertres[1]); }
-            setTimeout(getPassInfo, 1000);
-        };
-
-
-        setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
+			 var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+			 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+			 var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+			 setidformobpass.value = convertres[1];
+			 copyToClipboard(convertres[1]);
+			console.log(convertres[1]); }
+			setTimeout(getPassInfo, 1000);
+						};
+		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
+			
 })
 
 document.getElementById('userfeatures').addEventListener('click',function(){
