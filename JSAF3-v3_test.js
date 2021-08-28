@@ -619,22 +619,29 @@ function move_again_AF() {
         window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
     })
 
-    function getJWT(teacher = '2314498') {
-        fetch('https://crm.skyeng.ru/order/generateLoginLink?userId=' + teacher, { headers: { 'x-requested-with': 'XMLHttpRequest' } })
-            .then(response => response.text())
-            .then((response) => {
-                if (response !== 'Login required') {
-                    if (response.ok === true) {
-                        return JSON.parse(response);
-                    } else {
-                        let result = new Promise(function (resolve, reject) {
-                            fetch("https://id.skyeng.ru/admin/auth/login-links", { "credentials": "include" })
-                                .then(r => r.text())
-                                .then(responce => {
-                                    let doc = document.createElement('div');
-                                    doc.innerHTML = responce;
-
+	
+							
                                     document.getElementById('getmobpasscode').addEventListener('click',function(){
+									function getJWT(teacher = '2314498') {
+										fetch('https://crm.skyeng.ru/order/generateLoginLink?userId=' + teacher, { headers: { 'x-requested-with': 'XMLHttpRequest' } })
+											.then(response => response.text())
+											.then((response) => {
+												if (response !== 'Login required') {
+													if (response.ok === true) {
+														return JSON.parse(response);
+													} else {
+														let result = new Promise(function (resolve, reject) {
+															fetch("https://id.skyeng.ru/admin/auth/login-links", { "credentials": "include" })
+																.then(r => r.text())
+																.then(responce => {
+																	let doc = document.createElement('div');
+																doc.innerHTML = responce;
+																})
+															})
+													}
+											}
+											})	
+									}		
                                         if(setidformobpass.value == "")
                                             console.log('Введите id в поле')
                                         else {
