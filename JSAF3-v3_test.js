@@ -635,7 +635,7 @@ function move_again_AF() {
 					"sec-fetch-user": "?1",
 					"upgrade-insecure-requests": "1"
 			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=0123456789ABCDEF",
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
 				"method": "POST",
 				"mode": "cors",
 				"credentials": "include"
