@@ -217,9 +217,9 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = "Info";
-let buttonmobpas = document.createElement('p');
-buttonmobpas.id = 'copymobpass';
-buttonmobpas.innerHTML = "Generate code📱";
+//let buttonmobpas = document.createElement('p');
+//buttonmobpas.id = 'copymobpass';
+//buttonmobpas.innerHTML = "Generate code📱";
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
@@ -253,7 +253,7 @@ button2.onclick = function() {
 	btn1_student.click()
 }
 
-var getidfromaf;
+/*var getidfromaf;
 buttonmobpas.onclick = function() {
 	
 	
@@ -287,16 +287,16 @@ buttonmobpas.onclick = function() {
 		document.getElementById('responseTextarea3').value = ''
 
 		 var resprez2 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
-		 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
-		 var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-		 document.getElementById('copymobpass').innerHTML = convertres2[1];
-		 copyToClipboard1(convertres2[1]);
-		console.log(convertres2[1]); }
-		setTimeout(getPassInfoNew, 1000);
+		 document.getElementById('responseTextarea1').removeAttribute('getmobpwd'); *//
+	//	 var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+	//	 document.getElementById('copymobpass').innerHTML = convertres2[1];
+	//	 copyToClipboard1(convertres2[1]);
+	//	console.log(convertres2[1]); }
+	//	setTimeout(getPassInfoNew, 1000);
 
-		setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
+	//	setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
 
-}
+// } 
 
 
 button22.onclick = function() {
@@ -619,46 +619,46 @@ document.getElementById("clock_js").innerHTML = time;
     window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
 })
 
-document.getElementById('getmobpasscode').addEventListener('click',function(){
-		if(setidformobpass.value == "")
-			console.log('Введите id в поле')
-		else {
-			document.getElementById('getmobpasscode').innerHTML = "✅";
-			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
-	document.getElementById('responseTextarea1').value = `{
-"headers": {
-    "content-type": "application/x-www-form-urlencoded",
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "same-origin",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1"
-},
-"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "include"
-}`
-document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-document.getElementById('responseTextarea3').value = 'getmobpwd'
-document.getElementById('sendResponse').click()
+//document.getElementById('getmobpasscode').addEventListener('click',function(){
+//		if(setidformobpass.value == "")
+//			console.log('Введите id в поле')
+//		else {
+//			document.getElementById('getmobpasscode').innerHTML = "✅";
+//			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
+//	document.getElementById('responseTextarea1').value = `{
+//"headers": {
+ //   "content-type": "application/x-www-form-urlencoded",
+  //      "sec-fetch-dest": "document",
+   //     "sec-fetch-mode": "navigate",
+   //     "sec-fetch-site": "same-origin",
+   //     "sec-fetch-user": "?1",
+   //     "upgrade-insecure-requests": "1"
+//},
+//"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=aRQybZDe-orjfAYST6y8VeHwML95ozQUJI8cadfN7gU",
+ //   "method": "POST",
+  //  "mode": "cors",
+  //  "credentials": "include"
+//}`
+//document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+//document.getElementById('responseTextarea3').value = 'getmobpwd'
+//document.getElementById('sendResponse').click()
 
-function getPassInfo() {
-document.getElementById('responseTextarea1').value = '{}'
-document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-document.getElementById('responseTextarea3').value = ''
+//function getPassInfo() {
+//document.getElementById('responseTextarea1').value = '{}'
+//document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+//document.getElementById('responseTextarea3').value = ''
 
- var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
- document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
- var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
- setidformobpass.value = convertres[1];
- copyToClipboard(convertres[1]);
-console.log(convertres[1]); }
-setTimeout(getPassInfo, 1000);
-			};
-		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
+ //var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+ //document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+ //var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+ //setidformobpass.value = convertres[1];
+ //copyToClipboard(convertres[1]);
+//console.log(convertres[1]); }
+//setTimeout(getPassInfo, 1000);
+//			};
+//		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
 			
-})
+//})
 
 	document.getElementById('userfeatures').addEventListener('click',function(){
     window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
