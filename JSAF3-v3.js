@@ -1,4 +1,5 @@
-unction mystyles() {
+  
+function mystyles() {
 	let mstl = document.createElement('style');
 	document.body.append(mstl);
 	var style = `.win_btn {
