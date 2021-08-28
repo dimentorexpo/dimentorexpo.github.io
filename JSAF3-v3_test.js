@@ -622,8 +622,7 @@ function move_again_AF() {
 
 
     document.getElementById('getmobpasscode').addEventListener('click',function(){
-        var doc;
-        function getJWT(teacher = '2314498') {
+         function getJWT(teacher = '2314498') {
             fetch('https://crm.skyeng.ru/order/generateLoginLink?userId=' + teacher, { headers: { 'x-requested-with': 'XMLHttpRequest' } })
                 .then(response => response.text())
                 .then((response) => {
@@ -635,7 +634,7 @@ function move_again_AF() {
                                 fetch("https://id.skyeng.ru/admin/auth/login-links", { "credentials": "include" })
                                     .then(r => r.text())
                                     .then(responce => {
-                                        doc = document.createElement('div');
+                                        let doc = document.createElement('div');
                                         doc.innerHTML = responce;
                                     })
                             })
