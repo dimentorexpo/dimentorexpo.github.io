@@ -636,7 +636,7 @@ function move_again_AF() {
                                     .then(responce => {
                                         let doc = document.createElement('div');
                                         doc.innerHTML = responce;
-                                    })
+
                             })
                         }
                     }
@@ -678,6 +678,8 @@ function move_again_AF() {
                 console.log(convertres[1]); }
             setTimeout(getPassInfo, 1000);
         };
+
+    })
         setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
 })
 
