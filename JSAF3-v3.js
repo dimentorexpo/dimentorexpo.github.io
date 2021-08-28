@@ -135,6 +135,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button id="creds" style="width:50px;">ℹ</button>
 					<button id="passappgen" style="width:50px;">📲</button>
+					<button id="knoweledgebase" style="width:50px;">📚</button>
 				</div>				
 				<div style="margin: 5px; width: 520px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
@@ -795,6 +796,10 @@ const copyToClipboard = str => {           // инициализация фун�
 		   document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
 			alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: O1385<BXemHx5r0uuN<jPX");
 	}
+	
+				   document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
+			window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
+			}
 	
 		document.getElementById('passappgen').addEventListener('click',function(){
     window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
