@@ -318,7 +318,7 @@ buttonloc.onclick = function() {
 		  },
 		  "referrer": "https://crm2.skyeng.ru/",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "\{\"serviceLocale\"\:\"ru\"\}",
+		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
 		  "method": "PUT",
 		  "mode": "cors",
 		  "credentials": "include"
