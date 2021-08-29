@@ -300,12 +300,11 @@ buttonmobpas.onclick = function() {
     setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
 }
 
-var getidnewfromaf;
 buttonloc.onclick = function() {
 	    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+         let getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
     }
 	
@@ -326,6 +325,7 @@ buttonloc.onclick = function() {
 	 }`
 	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+getidnewfromaf
      document.getElementById('responseTextarea3').value = ''
+	 document.getElementById('sendResponse').click()
 }
 
 
