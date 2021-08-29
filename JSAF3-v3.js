@@ -237,6 +237,9 @@ button4.innerHTML = "Info";
 let button44 = document.createElement('p');
 button44.id = 'nextTeacherShowcaseScript';
 button44.innerHTML = "Showcase";
+let buttonloc = document.createElement('p');
+buttonloc.id = 'changeServiceLocale';
+buttonloc.innerHTML = "Обслуживание->RU";
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -295,7 +298,35 @@ buttonmobpas.onclick = function() {
     setTimeout(getPassInfoNew, 1000);
 
     setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
+}
 
+var getidnewfromaf = 0;
+buttonloc.onclick = function() {
+	    
+		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+         getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
+    }
+	
+	 document.getElementById('responseTextarea1').value = `{
+		   "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+		  "method": "PUT",
+		  "mode": "cors",
+		  "credentials": "include"
+		 
+	 }`
+	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+getidnewfromaf
+     document.getElementById('responseTextarea3').value = ''
+	 document.getElementById('sendResponse').click()
 }
 
 
@@ -1924,6 +1955,14 @@ function startTimer() {
                 if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                     btn.appendChild(button33)
             }
+			
+			 if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttonloc)
+                if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+                    btn.appendChild(button33)
+            }
+			
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button4)
