@@ -1959,8 +1959,6 @@ function startTimer() {
 			 if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonloc)
-                if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                    btn.appendChild(button33)
             }
 			
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
