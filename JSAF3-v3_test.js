@@ -737,16 +737,6 @@ document.getElementById('setservicelocaleru').onclick = function () {
 	 setTimeout(function() {document.getElementById('idforservicelocaleru').value = ""}, 2000);
 }
 
-                 // изменение языка обслуживания в СРМ для заданного У 
-    let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
-    if(idforservicelocaleru.value == "")
-        console.log('Введите stepid в поле')
-    else {
-        window.open(lnkstep + idforservicelocaleru.value);
-    };
-    idforservicelocaleru.value = "";
-}
-
 document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
     let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
     if(studguid.value == "")
