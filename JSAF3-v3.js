@@ -164,10 +164,8 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 520px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID группы" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="grid" placeholder="ID ГУ(ADM)" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="groupadm">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepId" title="вводим степId, чтобы сразу попасть в ЦМС на нужный слайд" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="cmsid">🔎</button>
 					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="sguid">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -178,7 +176,9 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gotolookip">🔎</button>
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
-					<input id="setidformobpass" placeholder="ID У МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="setservicelocaleru">🚀</button>
+					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getmobpasscode" style="width: 25.23px;">💾</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
@@ -186,7 +186,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
-
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -715,14 +714,28 @@ document.getElementById('groupadm').onclick = function () {                     
     grid.value = "";
 }
 
-document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
-    let lnkstep = 'http://content.vimbox.skyeng.ru/cms/step/update/id/';
-    if(cmsstepid.value == "")
-        console.log('Введите stepid в поле')
-    else {
-        window.open(lnkstep + cmsstepid.value);
-    };
-    cmsstepid.value = "";
+document.getElementById('setservicelocaleru').onclick = function () {    
+		 document.getElementById('responseTextarea1').value = `{
+		   "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+		  "method": "PUT",
+		  "mode": "cors",
+		  "credentials": "include"
+		 
+	 }`
+	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+idforservicelocaleru.value
+     document.getElementById('responseTextarea3').value = ''
+	 document.getElementById('sendResponse').click()
+	 document.getElementById('setservicelocaleru').innerHTML = "✅"
+	 idforservicelocaleru.value = "";
+	 setTimeout(function() {document.getElementById('setservicelocaleru').innerHTML = "🚀"}, 2000);
 }
 
 document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
