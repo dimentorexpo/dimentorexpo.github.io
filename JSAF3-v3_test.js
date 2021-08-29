@@ -300,11 +300,12 @@ buttonmobpas.onclick = function() {
     setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
 }
 
+var getidnewfromaf = 0;
 buttonloc.onclick = function() {
 	    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-         let getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+         getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
     }
 	
