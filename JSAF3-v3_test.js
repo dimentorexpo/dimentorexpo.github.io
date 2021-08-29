@@ -177,7 +177,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="setservicelocaleru">✔</button>
+					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getmobpasscode" style="width: 25.23px;">💾</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -733,8 +733,9 @@ document.getElementById('setservicelocaleru').onclick = function () {
 	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+idforservicelocaleru.value
      document.getElementById('responseTextarea3').value = ''
 	 document.getElementById('sendResponse').click()
-	 
+	 document.getElementById('setservicelocaleru').innerHTML = "✅"
 	 setTimeout(function() {document.getElementById('idforservicelocaleru').value = ""}, 2000);
+	 setTimeout(function() {document.getElementById('setservicelocaleru').innerHTML = ""}, 2000);
 }
 
 document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
