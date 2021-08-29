@@ -325,7 +325,7 @@ buttonloc.onclick = function() {
 		 
 	 }`
 	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + getidfromaf
-     document.getElementById('responseTextarea3').value = 'chngsrvlocale'
+     document.getElementById('responseTextarea3').value = ''
 }
 
 
