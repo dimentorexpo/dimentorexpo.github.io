@@ -300,18 +300,18 @@ buttonmobpas.onclick = function() {
     setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
 }
 
+var getidnewfromaf;
 buttonloc.onclick = function() {
 	    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        console.log("getidfromaf = " + ' ' + getidfromaf);
+            getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
     }
 	
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
-			"sec-ch-ua-mobile": "?0",
 			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-site"
@@ -324,7 +324,7 @@ buttonloc.onclick = function() {
 		  "credentials": "include"
 		 
 	 }`
-	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + getidfromaf
+	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+getidnewfromaf
      document.getElementById('responseTextarea3').value = ''
 }
 
