@@ -734,8 +734,8 @@ document.getElementById('setservicelocaleru').onclick = function () {
      document.getElementById('responseTextarea3').value = ''
 	 document.getElementById('sendResponse').click()
 	 document.getElementById('setservicelocaleru').innerHTML = "✅"
-	 setTimeout(function() {document.getElementById('idforservicelocaleru').value = ""}, 2000);
-	 setTimeout(function() {document.getElementById('setservicelocaleru').innerHTML = ""}, 2000);
+	 idforservicelocaleru.value = "";
+	 setTimeout(function() {document.getElementById('setservicelocaleru').innerHTML = "🚀"}, 2000);
 }
 
 document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
