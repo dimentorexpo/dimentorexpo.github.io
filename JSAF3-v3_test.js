@@ -238,7 +238,7 @@ button44.id = 'nextTeacherShowcaseScript';
 button44.innerHTML = "Showcase";
 let buttonloc = document.createElement('p');
 buttonloc.id = 'changeServiceLocale';
-buttonloc.innerHTML = "Обслуживание->RU";
+buttonloc.innerHTML = "Изменить яз.обсл. на RU";
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -301,6 +301,31 @@ buttonmobpas.onclick = function() {
 
 var getidnewfromaf = 0;
 buttonloc.onclick = function() {
+	
+			 document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-ch-ua-mobile": "?0",
+					"sec-fetch-dest": "empty",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://crm2.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": null,
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+		 
+	 }`
+	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/{getidnewfromaf}?crm2=true&debugParam=person-page"
+     document.getElementById('responseTextarea3').value = 'statusofcrmprofile'
+	 document.getElementById('sendResponse').click()
+	
+	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile')
+        document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
+		
+		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == null) {
 	    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
@@ -326,6 +351,11 @@ buttonloc.onclick = function() {
 	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+getidnewfromaf
      document.getElementById('responseTextarea3').value = ''
 	 document.getElementById('sendResponse').click()
+	 
+	 	document.getElementById("buttonloc").innerHTML = "Локаль успешно изменена";
+		} else {
+			document.getElementById("buttonloc").innerHTML = "Локаль уже задана";
+		}
 }
 
 
