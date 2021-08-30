@@ -324,6 +324,8 @@ buttonloc.onclick = function() {
 	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+getidnewfromaf+"?crm2=true&debugParam=person-page"
      document.getElementById('responseTextarea3').value = 'statusofcrmprofile'
 	 document.getElementById('sendResponse').click()
+	 
+	 function getId() {
 	
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
@@ -356,6 +358,8 @@ buttonloc.onclick = function() {
 			document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
 			setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
 		}
+	 } 
+	 setTimeout(getId, 1000);
 }
 
 
