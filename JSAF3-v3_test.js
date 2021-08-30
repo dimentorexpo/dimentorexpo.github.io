@@ -334,6 +334,7 @@ buttonloc.onclick = function() {
 		console.log("proverka statusresult = " + statusResult);
 		
 		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
+			document.getElementById("changeServiceLocale").style.color = "green";
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
@@ -356,6 +357,7 @@ buttonloc.onclick = function() {
 	 	document.getElementById("changeServiceLocale").innerHTML = "Локаль успешно изменена";
 		setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
 		} else {
+			document.getElementById("changeServiceLocale").style.color = "red";
 			document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
 			setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
 		}
