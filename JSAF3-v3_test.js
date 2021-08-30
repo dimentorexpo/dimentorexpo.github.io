@@ -331,7 +331,6 @@ buttonloc.onclick = function() {
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
 		
 		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
-	
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
