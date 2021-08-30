@@ -300,7 +300,8 @@ buttonmobpas.onclick = function() {
 
 var getidnewfromaf = 0;
 buttonloc.onclick = function() {
-		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+	function getId(callback) {
+				for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
          getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
@@ -327,8 +328,10 @@ buttonloc.onclick = function() {
 	
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
-		
-		console.log("proverka statusresult = " + statusResult);
+		return statusResult;
+	}
+	
+	function editLng(statusResult) {
 		
 		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
 	 document.getElementById('responseTextarea1').value = `{
@@ -356,6 +359,13 @@ buttonloc.onclick = function() {
 			document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
 			setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
 		}
+	}		
+		
+	var statusResult;
+	do {
+		statusResult = getId();
+		console.log("proverka statusresult = " + statusResult);
+	} while (statusResult == null) 
 }
 
 
