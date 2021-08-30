@@ -2140,6 +2140,12 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
         btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">КЦ❗</a>';
         btn8.setAttribute('onClick','sendComment("#очередькц");')
+
+	let btn9 = document.createElement('span');
+        btn9.id = 'AFkal'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn9)
+        btn9.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">AF</a>';
+        btn9.setAttribute('onClick','sendComment("#задержкаАФ");')
     }
 }
 
