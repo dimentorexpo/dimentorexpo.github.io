@@ -330,7 +330,7 @@ buttonloc.onclick = function() {
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
 		
-		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == null) {
+		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
 	
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
