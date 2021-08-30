@@ -349,9 +349,9 @@ buttonloc.onclick = function() {
      document.getElementById('responseTextarea3').value = ''
 	 document.getElementById('sendResponse').click()
 	 
-	 	document.getElementById("buttonloc").innerHTML = "Локаль успешно изменена";
+	 	document.getElementById("changeServiceLocale").innerHTML = "Локаль успешно изменена";
 		} else {
-			document.getElementById("buttonloc").innerHTML = "Локаль уже задана";
+			document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
 		}
 }
 
