@@ -351,6 +351,7 @@ buttonloc.onclick = function() {
 	 document.getElementById('sendResponse').click()
 	 
 	 	document.getElementById("changeServiceLocale").innerHTML = "Локаль успешно изменена";
+		setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
 		} else {
 			document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
 			setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
