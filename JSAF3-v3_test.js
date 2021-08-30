@@ -329,7 +329,7 @@ buttonloc.onclick = function() {
 		
 		console.log(statusResult.match(/serviceLocale.*?([a-z]{4})/));
 		
-		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
+		if (statusResult.match(/serviceLocale.*?([a-z]{4})/) == "null") {
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
