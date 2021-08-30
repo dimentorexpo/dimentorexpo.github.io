@@ -323,7 +323,7 @@ buttonloc.onclick = function() {
 	 setTimeout(function() 
 	 {
 		 
-	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/+${getidnewfromaf}+?crm2=true&debugParam=person-page"
+	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/${getidnewfromaf}?crm2=true&debugParam=person-page"
      document.getElementById('responseTextarea3').value = 'statusofcrmprofile'
 	 document.getElementById('sendResponse').click()
 	
