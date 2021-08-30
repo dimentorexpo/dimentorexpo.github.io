@@ -300,6 +300,7 @@ buttonmobpas.onclick = function() {
 }
 
 var getidnewfromaf = 0;
+var newResult;
 buttonloc.onclick = function() {
 	
 			 document.getElementById('responseTextarea1').value = `{
@@ -323,8 +324,8 @@ buttonloc.onclick = function() {
 	 document.getElementById('sendResponse').click()
 	
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile')
-        document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
-		var newResult = statusResult.match(/serviceLocale.*?([a-z]{4})/)[1];
+			document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
+			newResult = statusResult.match(/serviceLocale.*?([a-z]{4})/)[1];
 		
 		if (newResult == "null") {
 	    
