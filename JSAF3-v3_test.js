@@ -300,15 +300,12 @@ buttonmobpas.onclick = function() {
 
 var getidnewfromaf = 0;
 buttonloc.onclick = function() {
-	
-
-	    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
          getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
     }
-			 document.getElementById('responseTextarea1').value = `{
+		document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
 			"sec-ch-ua-mobile": "?0",
@@ -329,6 +326,8 @@ buttonloc.onclick = function() {
 	
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
+		
+		console.log(statusResult.match(/serviceLocale.*?([a-z]{4})/)[1]);
 		
 		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
 	 document.getElementById('responseTextarea1').value = `{
