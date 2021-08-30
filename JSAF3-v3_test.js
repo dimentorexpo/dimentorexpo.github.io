@@ -335,19 +335,19 @@ buttonloc.onclick = function() {
 		
 		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
 			document.getElementById("changeServiceLocale").style.color = "green";
-	 document.getElementById('responseTextarea1').value = `{
-		   "headers": {
-			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
-		  "method": "PUT",
-		  "mode": "cors",
-		  "credentials": "include"
+				document.getElementById('responseTextarea1').value = `{
+				   "headers": {
+					"content-type": "application/json",
+					"sec-fetch-dest": "empty",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://crm2.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+				  "method": "PUT",
+				  "mode": "cors",
+				  "credentials": "include"
 		 
 	 }`
 	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+getidnewfromaf
