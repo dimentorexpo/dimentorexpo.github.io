@@ -158,6 +158,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="mobdevices" style="width:100px">Хар моб устр</button>
 					<button id="confbugs" style="width:100px">Баги</button>
 					<button id="confbugsm" style="width:100px">Баги Моб.</button>
+
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -2174,6 +2175,12 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
         btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">КЦ❗</a>';
         btn8.setAttribute('onClick','sendComment("#очередькц");')
+
+	let btn9 = document.createElement('span');
+        btn9.id = 'AFkal'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn9)
+        btn9.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">AF</a>';
+        btn9.setAttribute('onClick','sendComment("#задержкаАФ");')
     }
 }
 
