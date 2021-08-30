@@ -330,6 +330,8 @@ buttonloc.onclick = function() {
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
 		
+		console.log("proverka statusresult = " + statusResult);
+		
 		if (statusResult.match(/serviceLocale.*?([a-z]{4})/) == "null") {
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
