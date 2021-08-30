@@ -324,8 +324,9 @@ buttonloc.onclick = function() {
 	
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile')
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
+		var newResult = statusResult.match(/serviceLocale.*?([a-z]{4})/)[1];
 		
-		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
+		if (newResult == "null") {
 	    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
@@ -353,11 +354,10 @@ buttonloc.onclick = function() {
 	 document.getElementById('sendResponse').click()
 	 
 	 	document.getElementById("buttonloc").innerHTML = "Локаль успешно изменена";
-		} else 
-			{  if (statusResult.match(/serviceLocale.*?([a-z]{2})/)[1] == "ru") {
-					document.getElementById("buttonloc").innerHTML = "Локаль уже задана";
+		} else 	{  	
+			document.getElementById("buttonloc").innerHTML = "Локаль уже задана";
 		}
-		}
+		
 }
 
 
