@@ -232,10 +232,15 @@ button3.innerHTML = "Info";
 let button33 = document.createElement('p');
 button33.id = 'nextStudentShowcaseScript';
 button33.innerHTML = "Showcase";
-
+let buttonnextstudentid = document.createElement('p');
+buttonnextstudentid.id = 'nextStudentIdChatHistory';
+buttonnextstudentid.innerHTML = "Chat History📋(У)";
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = "Info";
+let buttonnextteacherid = document.createElement('p');
+buttonnextteacherid.id = 'nextTeacherIdChatHistory';
+buttonnextteacherid.innerHTML = "Chat History📋(П)";
 let button44 = document.createElement('p');
 button44.id = 'nextTeacherShowcaseScript';
 button44.innerHTML = "Showcase";
@@ -395,6 +400,16 @@ button3.onclick = function() {
     }
     btn1_student.click()
 }
+
+buttonnextstudentid.onclick = function() {
+    hide_or_display.click()
+    for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            document.getElementById('search_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+    search.click()
+}
+
 button33.onclick = function() {
     for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
@@ -410,6 +425,16 @@ button4.onclick = function() {
     }
     btn1_student.click()
 }
+buttonnextteacherid.onclick = function() {
+    hide_or_display.click()
+    for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            document.getElementById('search_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+    search.click()
+}
+
+
 button44.onclick = function() {
     for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
@@ -2023,10 +2048,15 @@ function startTimer() {
                 if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                     btn.appendChild(button33)
             }
-			
-			 if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+				
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonloc)
+            }
+			
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttonnextstudentid)
             }
 			
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
@@ -2034,6 +2064,11 @@ function startTimer() {
                 btn.appendChild(button4)
                 if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                     btn.appendChild(button44)
+            }
+			
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttonnextteacherid)
             }
         }
     }
