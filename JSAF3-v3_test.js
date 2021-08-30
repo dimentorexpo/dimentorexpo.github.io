@@ -216,6 +216,9 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = "Info";
+let buttonhistory = document.createElement('p');
+buttonhistory.id = 'lookForHistory';
+buttonhistory.innerHTML = "History";
 let buttonmobpas = document.createElement('p');
 buttonmobpas.id = 'copymobpass';
 buttonmobpas.innerHTML = "Generate code📱";
@@ -254,6 +257,15 @@ button2.onclick = function() {
     }
     btn1_student.click()
 }
+
+buttonhistory.onclick = function() {
+    for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+    }
+    search.click()
+}
+
 
 var getidfromaf;
 buttonmobpas.onclick = function() {
@@ -1990,6 +2002,11 @@ function startTimer() {
                 btn.appendChild(button2)
                 if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                     btn.appendChild(button22)
+            }
+			
+		    if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttonhistory)
             }
 
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
