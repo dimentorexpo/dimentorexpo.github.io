@@ -327,7 +327,7 @@ buttonloc.onclick = function() {
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
 		
-		console.log(statusResult.match(/serviceLocale.*?([a-z]{4})/)[1]);
+		console.log(statusResult.match(/serviceLocale.*?([a-z]{4})/));
 		
 		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
 	 document.getElementById('responseTextarea1').value = `{
