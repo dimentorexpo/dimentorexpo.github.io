@@ -300,7 +300,6 @@ buttonmobpas.onclick = function() {
 }
 
 var getidnewfromaf = 0;
-var newResult;
 buttonloc.onclick = function() {
 		    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -331,9 +330,9 @@ buttonloc.onclick = function() {
 	
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile')
 			document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
-			newResult = statusResult.match(/serviceLocale.*?([a-z]{4})/);
+			var newResult = statusResult.match(/serviceLocale.*?([a-z]{4})/)[1];
 		
-		if (newResult[1] == "null") {
+		if (newResult == "null") {
 	
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
