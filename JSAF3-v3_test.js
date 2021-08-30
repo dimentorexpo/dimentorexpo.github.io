@@ -158,7 +158,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="mobdevices" style="width:100px">Хар моб устр</button>
 					<button id="confbugs" style="width:100px">Баги</button>
 					<button id="confbugsm" style="width:100px">Баги Моб.</button>
-
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -301,38 +300,37 @@ buttonmobpas.onclick = function() {
 
 var getidnewfromaf = 0;
 buttonloc.onclick = function() {
-		    
+	
+
+	    
 		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
          getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
     }
-	
-				 document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"accept": "application/json, text/plain, */*",
-					"sec-ch-ua-mobile": "?0",
-					"sec-fetch-dest": "empty",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://crm2.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-		 
+			 document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"sec-ch-ua-mobile": "?0",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+			  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include" 
 	 }`
-	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/+${getidnewfromaf}+?crm2=true&debugParam=person-page"
+	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/${getidnewfromaf}?crm2=true&debugParam=person-page"
      document.getElementById('responseTextarea3').value = 'statusofcrmprofile'
 	 document.getElementById('sendResponse').click()
 	
 	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile')
-			document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
-			var newResult = statusResult.match(/serviceLocale.*?([a-z]{4})/)[1];
+        document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
 		
-		if (newResult == "null") {
+		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == null) {
 	
 	 document.getElementById('responseTextarea1').value = `{
 		   "headers": {
@@ -354,10 +352,9 @@ buttonloc.onclick = function() {
 	 document.getElementById('sendResponse').click()
 	 
 	 	document.getElementById("buttonloc").innerHTML = "Локаль успешно изменена";
-		} else 	{  	
+		} else {
 			document.getElementById("buttonloc").innerHTML = "Локаль уже задана";
 		}
-		
 }
 
 
