@@ -247,6 +247,18 @@ button44.innerHTML = "Showcase";
 let buttonloc = document.createElement('p');
 buttonloc.id = 'changeServiceLocale';
 buttonloc.innerHTML = "Изменить яз.обсл. на RU";
+let buttontechdatastudent = document.createElement('p');
+buttontechdatastudent.id = 'getStudentUserAgentInfo';
+buttontechdatastudent.innerHTML = "Получить инфо об устройстве У";
+let buttontechdatateacher = document.createElement('p');
+buttontechdatateacher.id = 'getTeacherUserAgentInfo';
+buttontechdatateacher.innerHTML = "Получить инфо об устройстве П";
+let buttonoutputfield = document.createElement('p');
+buttonoutputfield.id = 'nextStudentUserAgent';
+buttonoutputfield.innerHTML = "TechScreeningData;
+let buttonoutputfield2 = document.createElement('p');
+buttonoutputfield2.id = 'nextTeacherUserAgent';
+buttonoutputfield2.innerHTML = "TechScreeningData;
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -275,7 +287,6 @@ buttonhistory.onclick = function() {
 
 var getidfromaf;
 buttonmobpas.onclick = function() {
-
 
     for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
@@ -440,6 +451,94 @@ button44.onclick = function() {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase')
     }
+}
+
+var nextuserid = 0;
+buttontechdatastudent.onclick = function() {
+	
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	
+		document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "*/*",
+			"content-type": "application/json",
+			"sec-ch-ua-mobile": "?0",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"+${nextuserid}+\",\"tsFrom\":\"2021-06-01T19:00:00.000Z\",\"tsTo\":\"2021-12-31T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+	 }`		 
+	 document.getElementById('responseTextarea2').value = "https://skyeng.autofaq.ai/api/conversations/history"
+     document.getElementById('responseTextarea3').value = 'getResponseAboutNextUser'
+	 document.getElementById('sendResponse').click()
+	 
+	  function getUserAgentInfo() {
+	
+	        var getMyResult = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
+        document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
+		
+		if (getMyResult.match(/\d+/)[0] > 0 && getMyResult.match(/.{13}система.{108}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {	
+			document.getElementById("nextStudentUserAgent").innerHTML = getMyResult.match(/.{13}система.{108}/)[0];
+			} else if {getMyResult.match(/\d+/)[0] > 0 && getMyResult.match(/.{13}система.{108}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение"
+				document.getElementById("nextStudentUserAgent").innerHTML = getMyResult.match(/.{13}система.{154}/)[0];	
+			} else {
+				document.getElementById("nextStudentUserAgent").innerHTML = "Информации об устройстве не найдено";	
+			}
+	}
+	setTimeout(getUserAgentInfo, 1000);
+}
+
+buttontechdatateacher.onclick = function() {
+	
+	
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	
+		document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "*/*",
+			"content-type": "application/json",
+			"sec-ch-ua-mobile": "?0",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"+${nextuserid}+\",\"tsFrom\":\"2021-06-01T19:00:00.000Z\",\"tsTo\":\"2021-12-31T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+	 }`		 
+	 document.getElementById('responseTextarea2').value = "https://skyeng.autofaq.ai/api/conversations/history"
+     document.getElementById('responseTextarea3').value = 'getResponseAboutNextUser'
+	 document.getElementById('sendResponse').click()
+	 
+	  function getUserAgentInfo() {
+	
+	        var getMyResult = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
+        document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
+		
+		if (getMyResult.match(/\d+/)[0] > 0 && getMyResult.match(/.{13}система.{108}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {	
+			document.getElementById("nextTeacherUserAgent").innerHTML = getMyResult.match(/.{13}система.{108}/)[0];
+			} else if {getMyResult.match(/\d+/)[0] > 0 && getMyResult.match(/.{13}система.{108}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение"
+				document.getElementById("nextTeacherUserAgent").innerHTML = getMyResult.match(/.{13}система.{154}/)[0];	
+			} else {
+				document.getElementById("nextTeacherUserAgent").innerHTML = "Информации об устройстве не найдено";	
+			}
+	}
+	setTimeout(getUserAgentInfo, 1000);
 }
 
 let addInfoUser = document.createElement('div')
@@ -2069,6 +2168,19 @@ function startTimer() {
 			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonnextteacherid)
+            }
+			
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttontechdatastudent)
+				    if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+                    btn.appendChild(buttonoutputfield)
+            }
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttontechdatateacher)
+				    if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+                    btn.appendChild(buttonoutputfield2)
             }
         }
     }
