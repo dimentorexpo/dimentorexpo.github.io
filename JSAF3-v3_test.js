@@ -488,7 +488,7 @@ buttontechdatastudent.onclick = function() {
 		
 		if (getMyResult.match(/\d+/)[0] > 0 && getMyResult.match(/.{13}система.{108}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {	
 			document.getElementById("nextStudentUserAgent").innerHTML = getMyResult.match(/.{13}система.{108}/)[0];
-			} else if {getMyResult.match(/\d+/)[0] > 0 && getMyResult.match(/.{13}система.{108}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение"
+			} else if (getMyResult.match(/\d+/)[0] > 0 && getMyResult.match(/.{13}система.{108}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
 				document.getElementById("nextStudentUserAgent").innerHTML = getMyResult.match(/.{13}система.{154}/)[0];	
 			} else {
 				document.getElementById("nextStudentUserAgent").innerHTML = "Информации об устройстве не найдено";	
