@@ -525,7 +525,7 @@ buttontechdatateacher.onclick = function() {
      document.getElementById('responseTextarea3').value = 'getResponseAboutNextUser'
 	 document.getElementById('sendResponse').click()
 	 
-	  function getUserAgentInfo() {
+	  function getUserAgentInfo2() {
 	
 	        var getMyResult = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
         document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
@@ -538,7 +538,7 @@ buttontechdatateacher.onclick = function() {
 				document.getElementById("nextTeacherUserAgent").innerHTML = "Информации об устройстве не найдено";	
 			}
 	}
-	setTimeout(getUserAgentInfo, 1000);
+	setTimeout(getUserAgentInfo2, 1000);
 }
 
 let addInfoUser = document.createElement('div')
