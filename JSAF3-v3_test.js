@@ -479,7 +479,7 @@ buttontechdatastudent.onclick = function() {
 		  "credentials": "include"
 			})
 			.then (r => r.text())
-			.then (r => {
+			.then (result => {
 				console.log("Для ученика" + " " + result);
 				let newres = result.match((/\d+/)[0])
 				if (newres > 0 ) {
@@ -517,7 +517,7 @@ buttontechdatateacher.onclick = function() {
 		  "credentials": "include"
 			})
 			.then (r => r.text())
-			.then (r => {
+			.then (result => {
 				console.log("Для ученика" + " " + result);
 				let newres = result.match((/\d+/)[0])
 				if (newres > 0 ) {
