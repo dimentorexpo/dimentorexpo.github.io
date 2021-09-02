@@ -464,7 +464,7 @@ buttontechdatastudent.onclick = function() {
     }
 	document.getElementById("getStudentUserAgentInfo").innerHTML = "Получаем информацию...";
 	setTimeout(function(){
-	document.getElementById("getStudentUserAgentInfo").innerHTML ="Получить инфо об устройстве У" } , 7000)
+	document.getElementById("getStudentUserAgentInfo").innerHTML ="Получить инфо об устройстве У" } , 10000)
 	
 	fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
@@ -515,7 +515,7 @@ buttontechdatateacher.onclick = function() {
 	
 		document.getElementById("getTeacherUserAgentInfo").innerHTML = "Получаем информацию...";
 	setTimeout(function(){
-	document.getElementById("getTeacherUserAgentInfo").innerHTML ="Получить инфо об устройстве П" } , 7000)
+	document.getElementById("getTeacherUserAgentInfo").innerHTML ="Получить инфо об устройстве П" } , 10000)
 	
 	console.log("nextuserid prepod" + " " + nextuserid2);
 	
