@@ -898,6 +898,16 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
+document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
+    let chas = setchas.value;
+	let minutka = setminuta.value;
+    setchas.value = "";
+	setminuta.value = "";
+	console.log(chas);
+	console.log(minuta);
+}
+
+
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
     if(grid.value == "")
