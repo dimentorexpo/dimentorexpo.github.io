@@ -483,7 +483,7 @@ buttontechdatastudent.onclick = function() {
 				console.log("Для ученика" + " " + result);
 				result.match((/\d+/)[0] > 0)[0]
 				console.log("Для ученика Total >0?" + " " + result);
-			}
+			})
 }
 
 buttontechdatateacher.onclick = function() {
