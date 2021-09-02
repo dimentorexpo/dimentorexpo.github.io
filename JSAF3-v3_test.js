@@ -94,9 +94,9 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;"> <span style="color white">:</span>
+				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;"> <span style="color: white">:</span>
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;">
-				<button id="setreminder">Set🔔</button>
+				<button id="setreminder">SET🔔</button>
 				<br>
 				<button id="curVeriOS">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid">Аndroid: 9.27.1(514)</button>
