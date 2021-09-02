@@ -529,7 +529,7 @@ buttontechdatateacher.onclick = function() {
 	 
 	  function getUserAgentInfo2() {
 	
-	        var getMyResult 2 = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
+	        var getMyResult2 = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
         document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
 		
 		console.log("Для препода", getMyResult2);
