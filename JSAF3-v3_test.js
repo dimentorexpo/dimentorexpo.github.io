@@ -486,8 +486,12 @@ buttontechdatastudent.onclick = function() {
 				if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
 					console.log("Есть чаты" + newres) 
 					document.getElementById("nextStudentUserAgent").innerHTML = result.match(/.{13}система.{114}/)[0];
+					setTimeout(function(){
+					document.getElementById("nextStudentUserAgent").innerHTML ="" } , 30000)
 				} else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
 					document.getElementById("nextStudentUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];	
+					setTimeout(function(){
+					document.getElementById("nextStudentUserAgent").innerHTML ="" } , 30000)
 				} else {
 					document.getElementById("nextStudentUserAgent").innerHTML = "Нет информации - пользователь не обращался"
 					console.log("Для ученика нет чатов");
@@ -529,8 +533,12 @@ buttontechdatateacher.onclick = function() {
 				if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
 					console.log("Есть чаты" + newres) 
 					document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{114}/)[0];
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)	
 				} else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
-					document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];	
+					document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)					
 				} else {
 					document.getElementById("nextTeacherUserAgent").innerHTML = "Нет информации -  пользователь не обращался"
 					console.log("Для препода нет чатов");
