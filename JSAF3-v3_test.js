@@ -494,6 +494,8 @@ buttontechdatastudent.onclick = function() {
 					document.getElementById("nextStudentUserAgent").innerHTML ="" } , 30000)
 				} else {
 					document.getElementById("nextStudentUserAgent").innerHTML = "Нет информации - пользователь не обращался"
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)
 					console.log("Для ученика нет чатов");
 				}	} , 3000)
 	})
@@ -541,6 +543,8 @@ buttontechdatateacher.onclick = function() {
 					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)					
 				} else {
 					document.getElementById("nextTeacherUserAgent").innerHTML = "Нет информации -  пользователь не обращался"
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)
 					console.log("Для препода нет чатов");
 				 }	} , 3000)
 	})
