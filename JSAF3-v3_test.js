@@ -473,7 +473,7 @@ buttontechdatastudent.onclick = function() {
 		  },
 		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-04-01T19:00:00.000Z\",\"tsTo\":\"2021-10-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-05-01T19:00:00.000Z\",\"tsTo\":\"2021-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
@@ -515,7 +515,7 @@ buttontechdatateacher.onclick = function() {
 		  },
 		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-04-01T19:00:00.000Z\",\"tsTo\":\"2021-10-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-05-01T19:00:00.000Z\",\"tsTo\":\"2021-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
