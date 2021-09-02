@@ -255,10 +255,10 @@ buttontechdatateacher.id = 'getTeacherUserAgentInfo';
 buttontechdatateacher.innerHTML = "Получить инфо об устройстве П";
 let buttonoutputfield = document.createElement('p');
 buttonoutputfield.id = 'nextStudentUserAgent';
-buttonoutputfield.innerHTML = "TechScreeningData У";
+buttonoutputfield.innerHTML = "";
 let buttonoutputfield2 = document.createElement('p');
 buttonoutputfield2.id = 'nextTeacherUserAgent';
-buttonoutputfield2.innerHTML = "TechScreeningData П";
+buttonoutputfield2.innerHTML = "";
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -480,7 +480,6 @@ buttontechdatastudent.onclick = function() {
 			})
 			.then (r => r.text())
 			.then (result => {
-				console.log("Для ученика" + " " + result);
 				let newres = result.match(/\d+/);
 				if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
 					console.log("Есть чаты" + newres) 
@@ -488,7 +487,7 @@ buttontechdatastudent.onclick = function() {
 				} else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
 					document.getElementById("nextStudentUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];	
 				} else {
-					document.getElementById("nextStudentUserAgent").innerHTML = "Пользователь не обращался"
+					document.getElementById("nextStudentUserAgent").innerHTML = "Нет информации - пользователь не обращался"
 					console.log("Для ученика нет чатов");
 				}	
 	})
@@ -522,7 +521,6 @@ buttontechdatateacher.onclick = function() {
 			})
 			.then (r => r.text())
 			.then (result => {
-				console.log("Для препода" + " " + result);
 				let newres = result.match(/\d+/);
 				if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
 					console.log("Есть чаты" + newres) 
@@ -530,7 +528,7 @@ buttontechdatateacher.onclick = function() {
 				} else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
 					document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];	
 				} else {
-					document.getElementById("nextTeacherUserAgent").innerHTML = "Пользователь не обращался"
+					document.getElementById("nextTeacherUserAgent").innerHTML = "Нет информации -  пользователь не обращался"
 					console.log("Для препода нет чатов");
 				}	
 	})
