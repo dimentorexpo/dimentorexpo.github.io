@@ -480,12 +480,12 @@ buttontechdatastudent.onclick = function() {
 			})
 			.then (r => r.text())
 			.then (result => {
-				console.log("Для ученика" + " " + result);
+				console.log("Для препода" + " " + result);
 				let newres = result.match((/\d+/)[0])
 				if (newres > 0 ) {
-					console.log("Есть чаты") 
+					console.log("Есть чаты" + newres ) 
 				} else {
-				console.log("Для ученика Total >0?" + " " + result);
+				console.log("Для ученика Нет чатов");
 					}	
 			})
 }
@@ -518,12 +518,12 @@ buttontechdatateacher.onclick = function() {
 			})
 			.then (r => r.text())
 			.then (result => {
-				console.log("Для ученика" + " " + result);
+				console.log("Для препода" + " " + result);
 				let newres = result.match((/\d+/)[0])
 				if (newres > 0 ) {
-					console.log("Есть чаты") 
+					console.log("Есть чаты" + newres ) 
 				} else {
-				console.log("Для ученика Total >0?" + " " + result);
+				console.log("Для препода Нет чатов");
 					}	
 			})
 }
