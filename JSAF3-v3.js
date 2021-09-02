@@ -215,13 +215,13 @@ if (localStorage.getItem('scriptAdr') == null) {
 
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
-button2.innerHTML = "Info";
+button2.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
 let buttonhistory = document.createElement('p');
 buttonhistory.id = 'lookForHistory';
-buttonhistory.innerHTML = "Chat History📋";
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋</a>';
 let buttonmobpas = document.createElement('p');
 buttonmobpas.id = 'copymobpass';
-buttonmobpas.innerHTML = "Generate code📱";
+buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate code📱</a>';
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
@@ -234,19 +234,31 @@ button33.id = 'nextStudentShowcaseScript';
 button33.innerHTML = "Showcase";
 let buttonnextstudentid = document.createElement('p');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
-buttonnextstudentid.innerHTML = "Chat History📋(У)";
+buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(У)</a>';
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
-button4.innerHTML = "Info";
+button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
 let buttonnextteacherid = document.createElement('p');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
-buttonnextteacherid.innerHTML = "Chat History📋(П)";
+buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
 let button44 = document.createElement('p');
 button44.id = 'nextTeacherShowcaseScript';
 button44.innerHTML = "Showcase";
 let buttonloc = document.createElement('p');
 buttonloc.id = 'changeServiceLocale';
-buttonloc.innerHTML = "Изменить яз.обсл. на RU";
+buttonloc.innerHTML ='<a style="color: black; cursor: pointer;">Изменить яз.обсл. на RU</a>';
+let buttontechdatastudent = document.createElement('p');
+buttontechdatastudent.id = 'getStudentUserAgentInfo';
+buttontechdatastudent.innerHTML = '<a style="color: black; cursor: pointer;">Получить инфо об устройстве У</a>';
+let buttontechdatateacher = document.createElement('p');
+buttontechdatateacher.id = 'getTeacherUserAgentInfo';
+buttontechdatateacher.innerHTML = '<a style="color: black; cursor: pointer;">Получить инфо об устройстве П</a>';
+let buttonoutputfield = document.createElement('p');
+buttonoutputfield.id = 'nextStudentUserAgent';
+buttonoutputfield.innerHTML = "";
+let buttonoutputfield2 = document.createElement('p');
+buttonoutputfield2.id = 'nextTeacherUserAgent';
+buttonoutputfield2.innerHTML = "";
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -275,7 +287,6 @@ buttonhistory.onclick = function() {
 
 var getidfromaf;
 buttonmobpas.onclick = function() {
-
 
     for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
@@ -440,6 +451,110 @@ button44.onclick = function() {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase')
     }
+}
+
+var nextuserid;
+buttontechdatastudent.onclick = function() {
+	
+	document.getElementById("nextStudentUserAgent").innerHTML = ""
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+		console.log("nextuserid student" + " " + nextuserid);
+    }
+	document.getElementById("getStudentUserAgentInfo").innerHTML = "Получаем информацию...";
+	setTimeout(function(){
+	document.getElementById("getStudentUserAgentInfo").innerHTML ="Получить инфо об устройстве У" } , 10000)
+	
+	fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"accept": "*/*",
+			"content-type": "application/json",
+			"sec-ch-ua-mobile": "?0",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-05-01T19:00:00.000Z\",\"tsTo\":\"2021-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+			})
+			.then (r => r.text())
+			.then (result => {
+				setTimeout(function() {
+				let newres = result.match(/\d+/);
+				if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
+					console.log("Есть чаты" + newres) 
+					document.getElementById("nextStudentUserAgent").innerHTML = result.match(/.{13}система.{114}/)[0];
+					setTimeout(function(){
+					document.getElementById("nextStudentUserAgent").innerHTML ="" } , 30000)
+				} else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
+					document.getElementById("nextStudentUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];	
+					setTimeout(function(){
+					document.getElementById("nextStudentUserAgent").innerHTML ="" } , 30000)
+				} else {
+					document.getElementById("nextStudentUserAgent").innerHTML = "Нет информации - пользователь не обращался"
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)
+					console.log("Для ученика нет чатов");
+				}	} , 3000)
+	})
+}
+
+var nextuserid2;
+buttontechdatateacher.onclick = function() {
+	
+	document.getElementById("nextTeacherUserAgent").innerHTML = ""
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	
+		document.getElementById("getTeacherUserAgentInfo").innerHTML = "Получаем информацию...";
+	setTimeout(function(){
+	document.getElementById("getTeacherUserAgentInfo").innerHTML ="Получить инфо об устройстве П" } , 10000)
+	
+	console.log("nextuserid prepod" + " " + nextuserid2);
+	
+	fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"accept": "*/*",
+			"content-type": "application/json",
+			"sec-ch-ua-mobile": "?0",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid2 + "\",\"tsFrom\":\"2021-05-01T19:00:00.000Z\",\"tsTo\":\"2021-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+			})
+			.then (r => r.text())
+			.then (result => {
+				 setTimeout(function() {
+				let newres = result.match(/\d+/);
+				if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
+					console.log("Есть чаты" + newres) 
+					document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{114}/)[0];
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)	
+				} else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
+					document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)					
+				} else {
+					document.getElementById("nextTeacherUserAgent").innerHTML = "Нет информации -  пользователь не обращался"
+					setTimeout(function(){
+					document.getElementById("nextTeacherUserAgent").innerHTML ="" } , 30000)
+					console.log("Для препода нет чатов");
+				 }	} , 3000)
+	})
 }
 
 let addInfoUser = document.createElement('div')
@@ -2069,6 +2184,19 @@ function startTimer() {
 			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonnextteacherid)
+            }
+			
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttontechdatastudent)
+				    if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+                    btn.appendChild(buttonoutputfield)
+            }
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(buttontechdatateacher)
+				    if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+                    btn.appendChild(buttonoutputfield2)
             }
         }
     }
