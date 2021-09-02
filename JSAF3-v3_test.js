@@ -456,6 +456,7 @@ button44.onclick = function() {
 var nextuserid;
 buttontechdatastudent.onclick = function() {
 	
+	document.getElementById("nextStudentUserAgent").innerHTML = ""
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -497,7 +498,7 @@ buttontechdatastudent.onclick = function() {
 var nextuserid2;
 buttontechdatateacher.onclick = function() {
 	
-	
+	document.getElementById("nextTeacherUserAgent").innerHTML = ""
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
