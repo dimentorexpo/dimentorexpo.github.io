@@ -94,9 +94,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; width: 50px; color: black;">
+				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; width: 50px; color: black;"> <span>:</span>
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; width: 50px; color: black;">
-				<br>
 				<button id="setreminder">Set🔔</button>
 				<br>
 				<button id="curVeriOS">iOS: 9.29 (1097)</button>
