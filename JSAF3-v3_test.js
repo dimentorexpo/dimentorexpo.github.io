@@ -483,7 +483,7 @@ buttontechdatastudent.onclick = function() {
 				console.log("Для ученика" + " " + result);
 				let newres = result.match(/\d+/)
 				if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
-					console.log("Есть чаты" + newres ) 
+					console.log("Есть чаты" + newres) 
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{114}/)[0];
 				} else if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{154}/)[0];	
@@ -525,7 +525,7 @@ buttontechdatateacher.onclick = function() {
 				console.log("Для препода" + " " + result);
 				let newres = result.match(/\d+/)
 				if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
-					console.log("Есть чаты" + newres ) 
+					console.log("Есть чаты" + newres) 
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{114}/)[0];
 				} else if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{154}/)[0];	
