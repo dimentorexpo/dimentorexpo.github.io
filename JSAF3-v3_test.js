@@ -481,16 +481,15 @@ buttontechdatastudent.onclick = function() {
 			.then (r => r.text())
 			.then (result => {
 				console.log("Для ученика" + " " + result);
-				let newres = result.match(/\d+/)
-				if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
+				let newres = result.match(/\d+/);
+				if ((newres[0] >) 0 && (newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер")) {
 					console.log("Есть чаты" + newres) 
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{114}/)[0];
-				} else if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
+				} else if ((newres[0] > 0) && (newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение")) {
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{154}/)[0];	
 				} else {
 					console.log("Для ученика нет чатов");
-				}
-					
+				}	
 	})
 }
 
@@ -523,16 +522,15 @@ buttontechdatateacher.onclick = function() {
 			.then (r => r.text())
 			.then (result => {
 				console.log("Для препода" + " " + result);
-				let newres = result.match(/\d+/)
-				if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
+				let newres = result.match(/\d+/);
+				if ((newres[0] >) 0 && (newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер")) {
 					console.log("Есть чаты" + newres) 
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{114}/)[0];
-				} else if (newres[0] > 0 && newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
+				} else if ((newres[0] > 0) && (newres.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение")) {
 					document.getElementById("nextStudentUserAgent").innerHTML = newres.match(/.{13}система.{154}/)[0];	
 				} else {
-					console.log("Для препода Нет чатов");
-				}
-					
+					console.log("Для препода нет чатов");
+				}	
 	})
 }
 
