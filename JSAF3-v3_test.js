@@ -479,14 +479,14 @@ buttontechdatastudent.onclick = function() {
 		  "credentials": "include"
 			})
 			.then (r => r.text())
-			.then (result => {
+			.then (r => {
 				console.log("Для ученика" + " " + result);
 				let newres = result.match((/\d+/)[0])
 				if (newres > 0 ) {
-					console.log("Есть чаты") else {
+					console.log("Есть чаты") 
+				} else {
 				console.log("Для ученика Total >0?" + " " + result);
-					}
-				}	
+					}	
 			})
 }
 
@@ -521,10 +521,10 @@ buttontechdatateacher.onclick = function() {
 				console.log("Для ученика" + " " + result);
 				let newres = result.match((/\d+/)[0])
 				if (newres > 0 ) {
-					console.log("Есть чаты") else {
+					console.log("Есть чаты") 
+				} else {
 				console.log("Для ученика Total >0?" + " " + result);
-					}
-				}	
+					}	
 			})
 }
 
