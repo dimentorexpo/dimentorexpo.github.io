@@ -462,7 +462,7 @@ buttontechdatastudent.onclick = function() {
 		console.log("nextuserid student" + " " + nextuserid);
     }
 	
-		document.getElementById('responseTextarea1').value = `{
+	fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
 			"accept": "*/*",
 			"content-type": "application/json",
@@ -473,31 +473,17 @@ buttontechdatastudent.onclick = function() {
 		  },
 		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"+${nextuserid}+\",\"tsFrom\":\"2021-06-01T19:00:00.000Z\",\"tsTo\":\"2021-12-31T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-04-01T19:00:00.000Z\",\"tsTo\":\"2021-10-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
-	 }`		 
-	 document.getElementById('responseTextarea2').value = "https://skyeng.autofaq.ai/api/conversations/history"
-     document.getElementById('responseTextarea3').value = 'getResponseAboutNextUser'
-	 document.getElementById('sendResponse').click()
-	 
-	  function getUserAgentInfo() {
-	
-	        var getMyResult = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
-        document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
-		
-		console.log("Для ученика" + " " + getMyResult);
-		
-		if ((getMyResult.match(/\d+/)[0] > 0) && (getMyResult.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер")) {	
-			document.getElementById("nextStudentUserAgent").innerHTML = getMyResult.match(/.{13}система.{114}/)[0];
-			} else if ((getMyResult.match(/\d+/)[0] > 0)&& (getMyResult.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение")) {
-				document.getElementById("nextStudentUserAgent").innerHTML = getMyResult.match(/.{13}система.{154}/)[0];	
-			} else {
-				document.getElementById("nextStudentUserAgent").innerHTML = "Информации об устройстве не найдено";	
+			})
+			.then (r => response.text())
+			.then (result => {
+				console.log("Для ученика" + " " + result);
+				result.match((/\d+/)[0] > 0)[0]
+				console.log("Для ученика Total >0?" + " " + result);
 			}
-	}
-	setTimeout(getUserAgentInfo, 8000);
 }
 
 buttontechdatateacher.onclick = function() {
@@ -509,8 +495,8 @@ buttontechdatateacher.onclick = function() {
     }
 	
 	console.log("nextuserid prepod" + " " + nextuserid);
-	
-		document.getElementById('responseTextarea1').value = `{
+
+	fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
 			"accept": "*/*",
 			"content-type": "application/json",
@@ -521,31 +507,17 @@ buttontechdatateacher.onclick = function() {
 		  },
 		  "referrer": "https://skyeng.autofaq.ai/tickets/common",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"+${nextuserid}+\",\"tsFrom\":\"2021-06-01T19:00:00.000Z\",\"tsTo\":\"2021-12-31T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-04-01T19:00:00.000Z\",\"tsTo\":\"2021-10-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
-	 }`		 
-	 document.getElementById('responseTextarea2').value = "https://skyeng.autofaq.ai/api/conversations/history"
-     document.getElementById('responseTextarea3').value = 'getResponseAboutNextUser'
-	 document.getElementById('sendResponse').click()
-	 
-	  function getUserAgentInfo2() {
-	
-	        var getMyResult2 = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
-        document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
-		
-		console.log("Для препода" + " " + getMyResult2);
-		
-		if ((getMyResult2.match(/\d+/)[0] > 0) && (getMyResult2.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер")) {	
-			document.getElementById("nextTeacherUserAgent").innerHTML = getMyResult2.match(/.{13}система.{114}/)[0];
-			} else if (getMyResult2.match(/\d+/)[0] > 0 && getMyResult2.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
-				document.getElementById("nextTeacherUserAgent").innerHTML = getMyResult2.match(/.{13}система.{154}/)[0];	
-			} else {
-				document.getElementById("nextTeacherUserAgent").innerHTML = "Информации об устройстве не найдено";	
-			}
-	}
-	setTimeout(getUserAgentInfo2, 8000);
+			})
+			.then (r => response.text())
+			.then (result => {
+				console.log("Для препода" + " " + result);
+				result.match((/\d+/)[0] > 0)[0]
+				console.log("Для препода Total >0?" + " " + result);
+			})
 }
 
 let addInfoUser = document.createElement('div')
