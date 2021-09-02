@@ -497,7 +497,7 @@ buttontechdatastudent.onclick = function() {
 				document.getElementById("nextStudentUserAgent").innerHTML = "Информации об устройстве не найдено";	
 			}
 	}
-	setTimeout(getUserAgentInfo, 1000);
+	setTimeout(getUserAgentInfo, 8000);
 }
 
 buttontechdatateacher.onclick = function() {
@@ -545,7 +545,7 @@ buttontechdatateacher.onclick = function() {
 				document.getElementById("nextTeacherUserAgent").innerHTML = "Информации об устройстве не найдено";	
 			}
 	}
-	setTimeout(getUserAgentInfo2, 1000);
+	setTimeout(getUserAgentInfo2, 8000);
 }
 
 let addInfoUser = document.createElement('div')
