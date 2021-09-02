@@ -459,6 +459,7 @@ buttontechdatastudent.onclick = function() {
 	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+		console.log("nextuserid student" + " " + nextuserid);
     }
 	
 		document.getElementById('responseTextarea1').value = `{
@@ -486,7 +487,7 @@ buttontechdatastudent.onclick = function() {
 	        var getMyResult = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
         document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
 		
-		console.log("Для ученика", getMyResult);
+		console.log("Для ученика" + " " + getMyResult);
 		
 		if ((getMyResult.match(/\d+/)[0] > 0) && (getMyResult.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер")) {	
 			document.getElementById("nextStudentUserAgent").innerHTML = getMyResult.match(/.{13}система.{114}/)[0];
@@ -506,6 +507,8 @@ buttontechdatateacher.onclick = function() {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
+	
+	console.log("nextuserid prepod" + " " + nextuserid);
 	
 		document.getElementById('responseTextarea1').value = `{
 		  "headers": {
@@ -532,7 +535,7 @@ buttontechdatateacher.onclick = function() {
 	        var getMyResult2 = document.getElementById('responseTextarea1').getAttribute('getResponseAboutNextUser');
         document.getElementById('responseTextarea1').removeAttribute('getResponseAboutNextUser');
 		
-		console.log("Для препода", getMyResult2);
+		console.log("Для препода" + " " + getMyResult2);
 		
 		if ((getMyResult2.match(/\d+/)[0] > 0) && (getMyResult2.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер")) {	
 			document.getElementById("nextTeacherUserAgent").innerHTML = getMyResult2.match(/.{13}система.{114}/)[0];
