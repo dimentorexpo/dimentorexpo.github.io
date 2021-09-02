@@ -904,7 +904,7 @@ document.getElementById('setreminder').onclick = function () {                  
     setchas.value = "";
 	setminuta.value = "";
 	console.log(chas);
-	console.log(minuta);
+	console.log(minutka);
 }
 
 
