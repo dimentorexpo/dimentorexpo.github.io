@@ -478,7 +478,7 @@ buttontechdatastudent.onclick = function() {
 		  "mode": "cors",
 		  "credentials": "include"
 			})
-			.then (r => response.text())
+			.then (r => r.text())
 			.then (result => {
 				console.log("Для ученика" + " " + result);
 				result.match((/\d+/)[0] > 0)[0]
@@ -512,7 +512,7 @@ buttontechdatateacher.onclick = function() {
 		  "mode": "cors",
 		  "credentials": "include"
 			})
-			.then (r => response.text())
+			.then (r => r.text())
 			.then (result => {
 				console.log("Для препода" + " " + result);
 				result.match((/\d+/)[0] > 0)[0]
