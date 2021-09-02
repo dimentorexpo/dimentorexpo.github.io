@@ -462,6 +462,9 @@ buttontechdatastudent.onclick = function() {
             nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 		console.log("nextuserid student" + " " + nextuserid);
     }
+	document.getElementById("getStudentUserAgentInfo").innerHTML = "Получаем информацию...";
+	setTimeout(function(){
+	document.getElementById("getStudentUserAgentInfo").innerHTML ="Получить инфо об устройстве У" } , 7000)
 	
 	fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
@@ -509,6 +512,10 @@ buttontechdatateacher.onclick = function() {
         if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
+	
+		document.getElementById("getTeacherUserAgentInfo").innerHTML = "Получаем информацию...";
+	setTimeout(function(){
+	document.getElementById("getTeacherUserAgentInfo").innerHTML ="Получить инфо об устройстве П" } , 7000)
 	
 	console.log("nextuserid prepod" + " " + nextuserid2);
 	
