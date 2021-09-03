@@ -910,7 +910,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
     setchas.value = "";
 	setminuta.value = "";
-
+	return chronostamp;
 	if (difchas == 0 && difmin == 0) {
 		console.log("Your time is mine and  transformtomilisec =" + " " + chronostamp);
 	} else {
