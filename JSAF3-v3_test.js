@@ -899,12 +899,10 @@ document.getElementById('setreminder').onclick = function () {                  
 			var timearr = new Date()
 			var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
 			localStorage.setItem('chronostamp', chronostamp);
-	//		setchas.value = "";
-	//		setminuta.value = "";
 			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":"  + "00");	
 }
 
-			function setRemindAf() {
+			var betatest = setTimeout (function () {
 		document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
 		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
@@ -924,10 +922,9 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
-			localStorage.setItem('chronostamp', 86400000);
-	}
-		
-	setTimeout(setRemindAf, localStorage.getItem('chronostamp')); 
+				}, localStorage.getItem('chronostamp'));
+
+console.log(betatest);				
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
