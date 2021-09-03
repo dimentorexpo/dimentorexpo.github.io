@@ -905,13 +905,10 @@ document.getElementById('setreminder').onclick = function () {                  
 	let minutka = setminuta.value;
 	let difchas = chas - timearr.getHours();
 	let difmin =  minutka - timearr.getMinutes();
-	let chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
+	chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
     setchas.value = "";
 	setminuta.value = "";
-	console.log("Chas" + " " + chas);
-	console.log("Minutka" + " " + minutka);
-	console.log("difchas" + " " + difchas);
-	console.log("difmin" + " " + difmin);
+
 	if (difchas == 0 && difmin == 0) {
 		console.log("Your time is mine and  transformtomilisec =" + " " + chronostamp);
 	} else {
