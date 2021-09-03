@@ -897,18 +897,8 @@ let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 			localStorage.setItem('setchas', setchas.value);
 			localStorage.setItem('setminuta', setminuta.value);
-			localStorage.setItem('setecond', 0);
 			var timearr = new Date()
-	//		let chas = setchas.value;
-	//		let minutka = setminuta.value;
-	//		const secunda = 0;
-			let difchas = localStorage.getItem('setchas') - timearr.getHours();
-			localStorage.setItem('difchas', difchas);
-			let difmin = localStorage.getItem('setminuta') - timearr.getMinutes();
-			localStorage.setItem('difmin', difmin);
-			let difsec = localStorage.getItem('setsec') - timearr.getSeconds();
-			localStorage.setItem('difsec', difsec);
-			chronostamp = ((localStorage.getItem('difchas') * 60 * 60) + (localStorage.getItem('difmin') * 60) + localStorage.getItem('difsec')) * 1000;
+			chronostamp = ((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + (localStorage.getItem('setminuta') - timearr.getMinutes() * 60) + 0) * 1000;
 			localStorage.setItem('chronostamp', chronostamp);
 	//		setchas.value = "";
 	//		setminuta.value = "";
