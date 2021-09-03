@@ -898,8 +898,6 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
-
-
 let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 	var timearr = new Date()
@@ -911,20 +909,13 @@ document.getElementById('setreminder').onclick = function () {                  
     setchas.value = "";
 	setminuta.value = "";
 	return chronostamp;
-	if (difchas == 0 && difmin == 0) {
-		console.log("Your time is mine and  transformtomilisec =" + " " + chronostamp);
-	} else {
-	console.log("Твое время еще не пришло...transformtomilisec =" + " " + chronostamp);
 	}
-}
-setTimeout(setReminder, chronostamp);
 
-function setReminder() {
+setTimeout(setRemindAf, chronostamp);
+
+function setRemindAf() {
 		alert("it works");
 	}
-
-
-
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
