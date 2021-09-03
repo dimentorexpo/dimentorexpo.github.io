@@ -908,8 +908,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			setminuta.value = "";
 			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
 			function setRemindAf() {
-				document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "cyan";
-
+				document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
 			"accept": "*/*",
@@ -926,11 +925,8 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
-			})							
-			
+			});							
 			alert("Время ставить занят!");
-
-;
 	}
 	setTimeout(setRemindAf, chronostamp);
 }
