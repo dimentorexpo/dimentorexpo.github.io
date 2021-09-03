@@ -893,12 +893,11 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
-let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 			localStorage.setItem('setchas', setchas.value);
 			localStorage.setItem('setminuta', setminuta.value);
 			var timearr = new Date()
-			chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+			var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
 			localStorage.setItem('chronostamp', chronostamp);
 	//		setchas.value = "";
 	//		setminuta.value = "";
