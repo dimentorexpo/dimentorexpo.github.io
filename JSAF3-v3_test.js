@@ -909,7 +909,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	console.log("Chas" + " " + chas);
 	console.log("Minutka" + " " + minutka);
 	console.log("difchas" + " " + difchas);
-	console.load("difmin" + " " + difmin);
+	console.log("difmin" + " " + difmin);
 }
 
 
