@@ -217,6 +217,7 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
+
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
@@ -594,8 +595,6 @@ maskBack.onclick = function () {
     }
 }
 
-
-
 let maskBackHide = document.createElement('span')
 maskBackHide.id = "maskBackHide"
 maskBackHide.innerHTML = "Скрыть"
@@ -633,9 +632,6 @@ maskBackHide.onclick = function () {
             }
         }
 }
-
-
-
 
 hashBut.onclick = function () {
     adr = document.location.href
@@ -912,7 +908,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			setminuta.value = "";
 			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
 			function setRemindAf() {
-				alert("Время ставить занят!");
+				document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
 			"accept": "*/*",
@@ -929,10 +925,8 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
-		 
-			})
-
-;
+			});							
+			alert("Время ставить занят!");
 	}
 	setTimeout(setRemindAf, chronostamp);
 }
