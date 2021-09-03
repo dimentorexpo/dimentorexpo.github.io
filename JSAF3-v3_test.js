@@ -903,7 +903,6 @@ document.getElementById('setreminder').onclick = function () {                  
 			var timearr = new Date()
 			let chas = setchas.value;
 			let minutka = setminuta.value;
-
 			const secunda = 0;
 			let difchas = chas - timearr.getHours();
 			let difmin =  minutka - timearr.getMinutes();
