@@ -898,6 +898,8 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
+setTimeout(setReminder, chronostamp);
+
 let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 	var timearr = new Date()
@@ -920,7 +922,7 @@ function setReminder() {
 		alert("it works");
 	}
 
-setTimeout(setReminder, chronostamp);
+
 
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
