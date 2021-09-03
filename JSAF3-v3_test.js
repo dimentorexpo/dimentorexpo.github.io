@@ -912,7 +912,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	console.log("difchas" + " " + difchas);
 	console.log("difmin" + " " + difmin);
 	if (difchas == 0 && difmin == 0) {
-		console.log("Your soul is mine and  transformtomilisec =" + " " + transformtomilisec);
+		console.log("Your time is mine and  transformtomilisec =" + " " + transformtomilisec);
 	} else {
 	console.log("Твое время еще не пришло...");
 	}
