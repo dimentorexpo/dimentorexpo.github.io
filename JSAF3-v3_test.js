@@ -911,7 +911,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	alert("Будильник установлен на" + chas + ":" + minutka);
 	function setRemindAf() {
 		alert("Время ставить занят!");
-		If (timearr.getHours() == chas && timearr.getMinutes()== minutka) {
+		if (timearr.getHours() == chas && timearr.getMinutes() == minutka) {
 		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
   "headers": {
     "accept": "*/*",
