@@ -98,8 +98,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px; width: 30px; color: black">
 				<button id="setreminder" style="margin: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.29 (1097)</button>
-				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.27.1(514)</button>
+				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
+				<button id="curVerAndroid" style="margin-top: 3px">Аndroid: 9.27.1(514)</button>
 				<div id="clock_js" style="color: white"></div>
 			</div>
 				
