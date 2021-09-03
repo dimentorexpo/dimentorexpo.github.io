@@ -925,10 +925,11 @@ document.getElementById('setreminder').onclick = function () {                  
 			});							
 			alert("Время ставить занят!");
 			localStorage.removeItem('chronostamp');
+			if (localStorage.getItem('chronostamp' == null) {
 			clearTimeout(setTimeout(setRemindAf, localStorage.getItem('chronostamp')));
+			}
 	}
-	
-	if (localStorage.getItem('chronostamp' != null) 
+		
 	setTimeout(setRemindAf, localStorage.getItem('chronostamp')); 
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
