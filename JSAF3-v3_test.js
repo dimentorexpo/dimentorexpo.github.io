@@ -904,6 +904,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	let minutka = setminuta.value;
 	let difchas = chas - timearr.getHours();
 	let difmin =  minutka - timearr.getMinutes();
+	let transformtomilisec = (difchas * 60 * 60) + (difmin * 60)
     setchas.value = "";
 	setminuta.value = "";
 	console.log("Chas" + " " + chas);
@@ -911,7 +912,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	console.log("difchas" + " " + difchas);
 	console.log("difmin" + " " + difmin);
 	if (difchas == 0 && difmin == 0) {
-		console.log("Your soul is mine");
+		console.log("Your soul is mine and  transformtomilisec =" + " " + transformtomilisec);
 	} else {
 	console.log("Твое время еще не пришло...");
 	}
