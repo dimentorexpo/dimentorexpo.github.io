@@ -908,8 +908,10 @@ document.getElementById('setreminder').onclick = function () {                  
 	chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
     setchas.value = "";
 	setminuta.value = "";
+	alert("Будильник установлен на" + chas + ":" + minutka);
 	function setRemindAf() {
 		alert("Время ставить занят!");
+		If (chas == timearr.getHours() && minutka == timearr.getMinutes()) {
 		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
   "headers": {
     "accept": "*/*",
@@ -926,7 +928,8 @@ document.getElementById('setreminder').onclick = function () {                  
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
-});
+})
+	}
 	}
 	setTimeout(setRemindAf, chronostamp);
 	}
