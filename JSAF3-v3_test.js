@@ -217,10 +217,6 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
-window.onload(function() {
-	document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "lightgreen";
-document.getElementsByClassName("ant-avatar user_menu-dropdown-avatar ant-avatar-lg ant-avatar-circle")[0].style.backgroundColor = "green";
-})
 
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
