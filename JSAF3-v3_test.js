@@ -931,6 +931,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	}
 	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
 }
+setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
 
 
 
