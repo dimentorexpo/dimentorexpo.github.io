@@ -906,7 +906,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			localStorage.setItem('difchas', difchas);
 			let difmin = localStorage.getItem('setminuta') - timearr.getMinutes();
 			localStorage.setItem('difmin', difmin);
-			let difsec = localStorage.getItem('setchas')- timearr.getSeconds();
+			let difsec = localStorage.getItem('setsec') - timearr.getSeconds();
 			localStorage.setItem('difsec', difsec);
 			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000;
 			localStorage.setItem('chronostamp', chronostamp);
@@ -934,7 +934,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			});							
 			alert("Время ставить занят!");
 	}
-	setTimeout(setRemindAf, localstorage.getItem('chronostamp'));
+	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
 }
 
 
