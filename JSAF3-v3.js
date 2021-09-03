@@ -94,6 +94,10 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
+				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;"> <span style="color: white">:</span>
+				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;">
+				<button id="setreminder">SET🔔</button>
+				<br>
 				<button id="curVeriOS">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid">Аndroid: 9.27.1(514)</button>
 				<div id="clock_js" style="color: white"></div>
@@ -893,6 +897,47 @@ document.getElementById('benchmark').onclick = function () {                  //
     };
     cpuname.value = "";
 }
+
+let chronostamp;
+document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
+			var timearr = new Date()
+			let chas = setchas.value;
+			let minutka = setminuta.value;
+			const secunda = 0;
+			let difchas = chas - timearr.getHours();
+			let difmin =  minutka - timearr.getMinutes();
+			let difsec= secunda - timearr.getSeconds();
+			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000
+			setchas.value = "";
+			setminuta.value = "";
+			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
+			function setRemindAf() {
+				alert("Время ставить занят!");
+				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+		  "headers": {
+			"accept": "*/*",
+			"cache-control": "max-age=0",
+			"content-type": "application/json",
+			"sec-ch-ua-mobile": "?0",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		 
+			})
+
+;
+	}
+	setTimeout(setRemindAf, chronostamp);
+}
+
+
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
