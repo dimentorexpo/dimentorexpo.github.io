@@ -898,7 +898,7 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
-setTimeout(setReminder, chronostamp);
+
 
 let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
@@ -917,6 +917,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	console.log("Твое время еще не пришло...transformtomilisec =" + " " + chronostamp);
 	}
 }
+setTimeout(setReminder, chronostamp);
 
 function setReminder() {
 		alert("it works");
