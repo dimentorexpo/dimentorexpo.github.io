@@ -900,39 +900,37 @@ document.getElementById('benchmark').onclick = function () {                  //
 
 let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
-	var timearr = new Date()
-    let chas = setchas.value;
-	let minutka = setminuta.value;
-	let difchas = chas - timearr.getHours();
-	let difmin =  minutka - timearr.getMinutes();
-	chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
-    setchas.value = "";
-	setminuta.value = "";
-	alert("Будильник установлен на" + chas + ":" + minutka);
-	function setRemindAf() {
-		alert("Время ставить занят!");
-		if (timearr.getHours() == chas && timearr.getMinutes() == minutka) {
-		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
-  "headers": {
-    "accept": "*/*",
-    "cache-control": "max-age=0",
-    "content-type": "application/json",
-    "sec-ch-ua-mobile": "?0",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin"
-  },
-  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-})
-	}
+			var timearr = new Date()
+			let chas = setchas.value;
+			let minutka = setminuta.value;
+			let difchas = chas - timearr.getHours();
+			let difmin =  minutka - timearr.getMinutes();
+			chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
+			setchas.value = "";
+			setminuta.value = "";
+			alert("Будильник установлен на" + chas + ":" + minutka);
+			function setRemindAf() {
+				alert("Время ставить занят!");
+				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+		  "headers": {
+			"accept": "*/*",
+			"cache-control": "max-age=0",
+			"content-type": "application/json",
+			"sec-ch-ua-mobile": "?0",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+});
 	}
 	setTimeout(setRemindAf, chronostamp);
-	}
+}
 
 
 
