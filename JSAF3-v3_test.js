@@ -914,7 +914,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	if (difchas == 0 && difmin == 0) {
 		console.log("Your time is mine and  transformtomilisec =" + " " + transformtomilisec);
 	} else {
-	console.log("Твое время еще не пришло...transformtomilisec =" + " " + transformtomilisec");
+	console.log("Твое время еще не пришло...transformtomilisec =" + " " + transformtomilisec);
 	}
 }
 
