@@ -909,7 +909,24 @@ document.getElementById('setreminder').onclick = function () {                  
     setchas.value = "";
 	setminuta.value = "";
 	function setRemindAf() {
-		alert("it works");
+		alert("Время ставить занят!");
+		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+  "headers": {
+    "accept": "*/*",
+    "cache-control": "max-age=0",
+    "content-type": "application/json",
+    "sec-ch-ua-mobile": "?0",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin"
+  },
+  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+});
 	}
 	setTimeout(setRemindAf, chronostamp);
 	}
