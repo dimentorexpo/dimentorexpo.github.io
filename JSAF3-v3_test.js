@@ -920,9 +920,8 @@ document.getElementById('setreminder').onclick = function () {                  
 }
 
 function setReminder() {
-		alert("it works")
-	});
-}
+		alert("it works");
+	}
 
 setTimeout(setReminder, chronostamp);
 
