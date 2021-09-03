@@ -925,9 +925,9 @@ document.getElementById('setreminder').onclick = function () {                  
 			});							
 			alert("Время ставить занят!");
 			localStorage.removeItem('chronostamp');
-			if (localStorage.getItem('chronostamp' == null) {
+			if (localStorage.getItem('chronostamp' == null) { 
 			clearTimeout(setTimeout(setRemindAf, localStorage.getItem('chronostamp')));
-			}
+			} else { console.log("no data"); }
 	}
 		
 	setTimeout(setRemindAf, localStorage.getItem('chronostamp')); 
