@@ -94,12 +94,12 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;"> <span style="color: white">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;">
-				<button id="setreminder">SET🔔</button>
+				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; margin: 5px; width: 30px; color: black;"> <span style="color: white; margin: 5px">:</span>
+				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin: 5px; width: 30px; color: black;">
+				<button id="setreminder" style="margin: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS">iOS: 9.29 (1097)</button>
-				<button id="curVerAndroid">Аndroid: 9.27.1(514)</button>
+				<button id="curVeriOS" style="margin: 5px">iOS: 9.29 (1097)</button>
+				<button id="curVerAndroid" style="margin: 5px">Аndroid: 9.27.1(514)</button>
 				<div id="clock_js" style="color: white"></div>
 			</div>
 				
