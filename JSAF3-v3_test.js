@@ -898,7 +898,7 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
-let chronostamp = 0;
+let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 	var timearr = new Date()
     let chas = setchas.value;
