@@ -929,7 +929,7 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
-	}), localStorage.getItem('chronostamp'));
+	}), localStorage.getItem('chronostamp');
 }
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
