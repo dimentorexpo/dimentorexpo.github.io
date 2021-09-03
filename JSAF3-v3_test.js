@@ -897,6 +897,7 @@ document.getElementById('benchmark').onclick = function () {                  //
     };
     cpuname.value = "";
 }
+
 let chronostamp = 0;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 	var timearr = new Date()
@@ -917,6 +918,13 @@ document.getElementById('setreminder').onclick = function () {                  
 	console.log("Твое время еще не пришло...transformtomilisec =" + " " + chronostamp);
 	}
 }
+
+function setReminder() {
+		alert("it works")
+	});
+}
+
+setTimeout(setReminder, chronostamp);
 
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
