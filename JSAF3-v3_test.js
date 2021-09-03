@@ -910,6 +910,9 @@ document.getElementById('setreminder').onclick = function () {                  
 	console.log("Minutka" + " " + minutka);
 	console.log("difchas" + " " + difchas);
 	console.log("difmin" + " " + difmin);
+	if (difchas == 0 && difmin <= 5) {
+		console.log(true);
+	}
 }
 
 
