@@ -906,7 +906,8 @@ document.getElementById('setreminder').onclick = function () {                  
 			localStorage.setItem('chronostamp', chronostamp);
 			setchas.value = "";
 			setminuta.value = "";
-			alert("Будильник установлен на" + localStorage.getItem('setchas') + ":" + localStorage.getItem('setminuta') + ":"  + "0" + localStorage.getItem('setchas'));
+			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
+			
 			function setRemindAf() {
 				document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
