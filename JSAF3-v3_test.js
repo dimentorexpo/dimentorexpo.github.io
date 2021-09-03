@@ -908,7 +908,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			localStorage.setItem('difmin', difmin);
 			let difsec = localStorage.getItem('setsec') - timearr.getSeconds();
 			localStorage.setItem('difsec', difsec);
-			chronostamp = ((localStorage.getItem('difchas') * 60 * 60) + (localStorage.getItem('difmin') * 60) + localstorage.getItem('difsec')) * 1000;
+			chronostamp = ((localStorage.getItem('difchas') * 60 * 60) + (localStorage.getItem('difmin') * 60) + localStorage.getItem('difsec')) * 1000;
 			localStorage.setItem('chronostamp', chronostamp);
 	//		setchas.value = "";
 	//		setminuta.value = "";
