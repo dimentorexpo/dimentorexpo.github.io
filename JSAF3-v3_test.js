@@ -903,13 +903,13 @@ document.getElementById('setreminder').onclick = function () {                  
 	//		let minutka = setminuta.value;
 	//		const secunda = 0;
 			let difchas = localStorage.getItem('setchas') - timearr.getHours();
-			localstorage.setItem('difchas', difchas);
+			localStorage.setItem('difchas', difchas);
 			let difmin = localStorage.getItem('setminuta') - timearr.getMinutes();
-			localstorage.setItem('difmin', difmin);
+			localStorage.setItem('difmin', difmin);
 			let difsec = localStorage.getItem('setchas')- timearr.getSeconds();
-			localstorage.setItem('difsec', difsec);
+			localStorage.setItem('difsec', difsec);
 			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000;
-			localstorage.setItem('chronostamp', chronostamp);
+			localStorage.setItem('chronostamp', chronostamp);
 			setchas.value = "";
 			setminuta.value = "";
 			alert("Будильник установлен на" + localStorage.getItem('setchas') + ":" + localStorage.getItem('setminuta') + ":"  + "0" + localStorage.getItem('setchas'));
