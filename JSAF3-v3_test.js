@@ -230,7 +230,6 @@ buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate cod
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
-
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
@@ -896,17 +895,24 @@ document.getElementById('benchmark').onclick = function () {                  //
 
 let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
+			localStorage.setItem('setchas', setchas.value);
+			localStorage.setItem('setminuta', setminuta.value);
+			localStorage.setItem('setecond', 0);
 			var timearr = new Date()
-			let chas = setchas.value;
-			let minutka = setminuta.value;
-			const secunda = 0;
-			let difchas = chas - timearr.getHours();
-			let difmin =  minutka - timearr.getMinutes();
-			let difsec= secunda - timearr.getSeconds();
-			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000
+	//		let chas = setchas.value;
+	//		let minutka = setminuta.value;
+	//		const secunda = 0;
+			let difchas = localStorage.getItem('setchas') - timearr.getHours();
+			localstorage.setItem('difchas', difchas);
+			let difmin = localStorage.getItem('setminuta') - timearr.getMinutes();
+			localstorage.setItem('difmin', difmin);
+			let difsec = localStorage.getItem('setchas')- timearr.getSeconds();
+			localstorage.setItem('difsec', difsec);
+			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000;
+			localstorage.setItem('chronostamp', chronostamp);
 			setchas.value = "";
 			setminuta.value = "";
-			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
+			alert("Будильник установлен на" + localStorage.getItem('setchas') + ":" + localStorage.getItem('setminuta') + ":"  + "0" + localStorage.getItem('setchas'));
 			function setRemindAf() {
 				document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
@@ -928,7 +934,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			});							
 			alert("Время ставить занят!");
 	}
-	setTimeout(setRemindAf, chronostamp);
+	setTimeout(setRemindAf, localstorage.getItem('chronostamp'));
 }
 
 
