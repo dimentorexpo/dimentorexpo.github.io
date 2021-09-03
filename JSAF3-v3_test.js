@@ -927,7 +927,9 @@ document.getElementById('setreminder').onclick = function () {                  
 			localStorage.removeItem('chronostamp');
 	}
 	
-	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+	if (localStorage.getItem('chronostamp' != null) {
+	var tester = setTimeout(setRemindAf, localStorage.getItem('chronostamp')); 
+	} else clearTimeout(tester); 
 	
 
 
