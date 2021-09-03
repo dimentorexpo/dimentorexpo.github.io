@@ -899,12 +899,17 @@ document.getElementById('benchmark').onclick = function () {                  //
 }
 
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
+	var timearr = new Date()
     let chas = setchas.value;
 	let minutka = setminuta.value;
+	let difchas = chas - timearr.getHours();
+	let difmin =  minutka - timearr.getMinutes();
     setchas.value = "";
 	setminuta.value = "";
-	console.log(chas);
-	console.log(minutka);
+	console.log("Chas" + " " + chas);
+	console.log("Minutka" + " " + minutka);
+	console.log("difchas" + " " + difchas);
+	console.load("difmin" + " " + difmin);
 }
 
 
