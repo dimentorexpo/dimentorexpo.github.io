@@ -700,8 +700,6 @@ document.body.append(wintAF);
 wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintAF.setAttribute('id' ,'AF_helper');
 wintAF.innerHTML = win_AFhelper;
-document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "lightgreen"; 
-document.getElementsByClassName("ant-avatar user_menu-dropdown-avatar ant-avatar-lg ant-avatar-circle")[0].style.backgroundColor = "green";
 var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
