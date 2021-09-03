@@ -908,14 +908,13 @@ document.getElementById('setreminder').onclick = function () {                  
 	chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
     setchas.value = "";
 	setminuta.value = "";
-	return chronostamp;
-	}
-
-setTimeout(setRemindAf, chronostamp);
-
-function setRemindAf() {
+	function setRemindAf() {
 		alert("it works");
 	}
+	setTimeout(setRemindAf, chronostamp);
+	}
+
+
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
