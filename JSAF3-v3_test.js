@@ -894,7 +894,6 @@ document.getElementById('benchmark').onclick = function () {                  //
 }
 
 let chronostamp;
-let timerstamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 			localStorage.setItem('setchas', setchas.value);
 			localStorage.setItem('setminuta', setminuta.value);
@@ -903,12 +902,12 @@ document.getElementById('setreminder').onclick = function () {                  
 			localStorage.setItem('chronostamp', chronostamp);
 	//		setchas.value = "";
 	//		setminuta.value = "";
-			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":"  + "00");
-		
-		timerstamp = setTimeout(	
+			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":"  + "00");	
+}
+
 			function setRemindAf() {
-				document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
-				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+		document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
+		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
 			"accept": "*/*",
 			"cache-control": "max-age=0",
@@ -926,9 +925,11 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
-	}, localStorage.getItem('chronostamp'));
-}
-setTimeout(timerstamp,localStorage.getItem('chronostamp'));
+	}
+	
+	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+	
+
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
