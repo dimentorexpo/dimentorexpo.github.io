@@ -931,9 +931,6 @@ document.getElementById('setreminder').onclick = function () {                  
 	}
 	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
 }
-setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
-
-
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
