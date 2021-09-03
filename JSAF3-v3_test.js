@@ -908,7 +908,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			let difchas = chas - timearr.getHours();
 			let difmin =  minutka - timearr.getMinutes();
 			let difsec= secunda - timearr.getSeconds();
-			chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
+			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000
 			setchas.value = "";
 			setminuta.value = "";
 			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
