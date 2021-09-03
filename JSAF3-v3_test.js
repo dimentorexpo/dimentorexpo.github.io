@@ -895,19 +895,13 @@ document.getElementById('benchmark').onclick = function () {                  //
 
 let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
-			localStorage.setItem('setchas', setchas.value);
-			localStorage.setItem('setminuta', setminuta.value);
-			localStorage.setItem('setecond', 0);
 			var timearr = new Date()
-	//		let chas = setchas.value;
-	//		let minutka = setminuta.value;
-	//		const secunda = 0;
-			let difchas = localStorage.getItem('setchas') - timearr.getHours();
-			localStorage.setItem('difchas', difchas);
-			let difmin = localStorage.getItem('setminuta') - timearr.getMinutes();
-			localStorage.setItem('difmin', difmin);
-			let difsec = localStorage.getItem('setsec') - timearr.getSeconds();
-			localStorage.setItem('difsec', difsec);
+			let chas = setchas.value;
+			let minutka = setminuta.value;
+			const secunda = 0;
+			let difchas = chas - timearr.getHours();
+			let difmin =  minutka - timearr.getMinutes();
+			let difsec= secunda - timearr.getSeconds();
 			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000;
 			localStorage.setItem('chronostamp', chronostamp);
 			setchas.value = "";
