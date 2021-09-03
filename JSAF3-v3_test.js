@@ -924,6 +924,7 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
+			localstorage.removeItem('chronostamp');
 	}
 	
 	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
