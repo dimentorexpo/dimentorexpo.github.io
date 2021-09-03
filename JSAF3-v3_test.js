@@ -910,7 +910,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	console.log("Minutka" + " " + minutka);
 	console.log("difchas" + " " + difchas);
 	console.log("difmin" + " " + difmin);
-	if (difchas == 0 && difmin = 0) {
+	if (difchas == 0 && difmin == 0) {
 		console.log("Your soul is mine");
 	} else {
 	console.log("Твое время еще не пришло...");
