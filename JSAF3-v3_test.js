@@ -907,7 +907,8 @@ document.getElementById('setreminder').onclick = function () {                  
 			setchas.value = "";
 			setminuta.value = "";
 			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
-			
+		
+		setTimeout(	
 			function setRemindAf() {
 				document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
@@ -928,8 +929,7 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
-	}
-	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+	}), localStorage.getItem('chronostamp'));
 }
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
