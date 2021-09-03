@@ -903,12 +903,15 @@ document.getElementById('setreminder').onclick = function () {                  
 			var timearr = new Date()
 			let chas = setchas.value;
 			let minutka = setminuta.value;
+
+			const secunda = 0;
 			let difchas = chas - timearr.getHours();
 			let difmin =  minutka - timearr.getMinutes();
+			let difsec= secunda - timearr.getSeconds();
 			chronostamp = ((difchas * 60 * 60) + (difmin * 60)) * 1000
 			setchas.value = "";
 			setminuta.value = "";
-			alert("Будильник установлен на" + chas + ":" + minutka);
+			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
 			function setRemindAf() {
 				alert("Время ставить занят!");
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
