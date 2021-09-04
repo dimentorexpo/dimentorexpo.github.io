@@ -939,7 +939,7 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "mode": "cors",
 		  "credentials": "include"
 			});							
-			alert("Время ставить занят!");
+			alert("Время ставить занят! :D");
 			if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "green") {
 			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange"; 
 			} else if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "green") { 			
