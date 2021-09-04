@@ -912,7 +912,6 @@ document.getElementById('setreminder').onclick = function () {                  
 			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
 		
 		function setRemindAf() {
-				alert("Время ставить занят!");
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
 			"accept": "*/*",
@@ -931,6 +930,8 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 		 
 			})
+		alert("Время ставить занят!");
+		document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange";
 	}
 	setTimeout(setRemindAf, chronostamp);
 }
