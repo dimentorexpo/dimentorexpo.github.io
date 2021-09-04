@@ -940,11 +940,11 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
-			if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "darkred" || document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "red") {
+			if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "green") {
 			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange"; 
-			} else if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor == "darkred" || document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor == "red") { 			
+			} else if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "green") { 			
 			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange";
-			} 			
+			} else console.log("Нет подходящего элемента или цвета");			
 			localStorage.removeItem('chronostamp');
 			setchas.value = "";
 			setminuta.value = "";
