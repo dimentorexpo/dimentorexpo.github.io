@@ -1076,7 +1076,7 @@ document.getElementById('getlgsinfo').onclick = function () {                  /
     if(lgssearch.value == "")
         console.log('Введите текст в поле')
     else {
-        window.open(lgslink + lgssearch.value +);
+        window.open(lgslink + lgssearch.value);
     };
     lgssearch.value = "";
 }
