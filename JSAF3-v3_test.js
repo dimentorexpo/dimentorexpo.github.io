@@ -94,12 +94,12 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; margin-top: 5px; width: 30px; color: black"> <span style="color: white">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px; width: 30px; color: black">
-				<button id="setreminder" style="margin: 5px">SET🔔</button>
+				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;"> <span style="color: white">:</span>
+				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; width: 30px; color: black;">
+				<button id="setreminder">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
-				<button id="curVerAndroid" style="margin-top: 3px">Аndroid: 9.27.1(514)</button>
+				<button id="curVeriOS">iOS: 9.29 (1097)</button>
+				<button id="curVerAndroid">Аndroid: 9.27.1(514)</button>
 				<div id="clock_js" style="color: white"></div>
 			</div>
 				
@@ -162,7 +162,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="mobdevices" style="width:100px">Хар моб устр</button>
 					<button id="confbugs" style="width:100px">Баги</button>
 					<button id="confbugsm" style="width:100px">Баги Моб.</button>
-
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
@@ -217,7 +216,6 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
-
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
@@ -230,6 +228,7 @@ buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate cod
 let button22 = document.createElement('p');
 button22.id = 'userShowcaseScript';
 button22.innerHTML = "Showcase";
+
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
@@ -594,6 +593,8 @@ maskBack.onclick = function () {
     }
 }
 
+
+
 let maskBackHide = document.createElement('span')
 maskBackHide.id = "maskBackHide"
 maskBackHide.innerHTML = "Скрыть"
@@ -631,6 +632,9 @@ maskBackHide.onclick = function () {
             }
         }
 }
+
+
+
 
 hashBut.onclick = function () {
     adr = document.location.href
@@ -893,20 +897,22 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
+let chronostamp;
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
-			localStorage.setItem('setchas', setchas.value);
-			localStorage.setItem('setminuta', setminuta.value);
 			var timearr = new Date()
-			var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
-			localStorage.setItem('chronostamp', chronostamp);
-	//		setchas.value = "";
-	//		setminuta.value = "";
-			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":"  + "00");	
-}
-
+			let chas = setchas.value;
+			let minutka = setminuta.value;
+			const secunda = 0;
+			let difchas = chas - timearr.getHours();
+			let difmin =  minutka - timearr.getMinutes();
+			let difsec= secunda - timearr.getSeconds();
+			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000
+			setchas.value = "";
+			setminuta.value = "";
+			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
 			function setRemindAf() {
-		document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange";
-		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+				alert("Время ставить занят!");
+				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
 			"accept": "*/*",
 			"cache-control": "max-age=0",
@@ -922,12 +928,14 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
-			});							
-			alert("Время ставить занят!");
+		 
+			})
+
+;
 	}
-	
-	setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
-	
+	setTimeout(setRemindAf, chronostamp);
+}
+
 
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
