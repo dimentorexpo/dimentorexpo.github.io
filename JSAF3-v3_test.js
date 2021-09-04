@@ -909,7 +909,9 @@ document.getElementById('setreminder').onclick = function () {                  
 			var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
 }		
 			function refreshTimerReminder() {
-				if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') >  0) {
+				if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') >  0) {	
+					setchas.value = localStorage.getItem('setchas');
+					setminuta.value = localStorage.getItem('setminuta');
 					var timearr = new Date()
 					var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
 					localStorage.setItem('chronostamp2', chronostamp2);
