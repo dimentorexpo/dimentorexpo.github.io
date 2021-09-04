@@ -910,7 +910,8 @@ document.getElementById('setreminder').onclick = function () {                  
 			setchas.value = "";
 			setminuta.value = "";
 			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
-			function setRemindAf() {
+		
+		function setRemindAf() {
 				alert("Время ставить занят!");
 				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
@@ -930,8 +931,6 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 		 
 			})
-
-;
 	}
 	setTimeout(setRemindAf, chronostamp);
 }
