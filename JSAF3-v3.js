@@ -939,9 +939,12 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "mode": "cors",
 		  "credentials": "include"
 			});							
-			alert("Время ставить занят!");
-			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
-			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange"; 			
+			alert("Время ставить занят! :D");
+			if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "green") {
+			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange"; 
+			} else if (document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor == "green") { 			
+			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange";
+			} else console.log("Нет подходящего элемента или цвета");			
 			localStorage.removeItem('chronostamp');
 			setchas.value = "";
 			setminuta.value = "";
