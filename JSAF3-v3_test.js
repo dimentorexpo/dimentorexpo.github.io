@@ -915,6 +915,7 @@ document.getElementById('setreminder').onclick = function () {                  
 	//		setchas.value = "";
 	//		setminuta.value = "";
 			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":"  + "00");	
+			var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
 }
 
 			function setRemindAf() {
@@ -936,11 +937,11 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
-			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange"; 
+			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange"; 
 			clearTimeout(abortTimeOut);
 	}
 	
-	var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+
 
 
 
