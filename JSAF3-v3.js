@@ -175,6 +175,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gotocrmoneinfo">🔎</button>
 					<input id="iplookup" placeholder="IP У/П/Vimbox" title="вводим IP У/П/Платформы, чтобы получить информацию о месторасположении географического адреса и получения информации о хостинге" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="gotolookip">🔎</button>
+					<input id="lgssearch" placeholder="LGS ID Group" title="Введите ID LGS группы для просмотра информации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getlgsinfo">🔎</button>
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -1067,6 +1069,16 @@ document.getElementById('startjirasearch').onclick = function () {              
         window.open(jiralink + jirasearch.value + '%22%20ORDER%20BY%20updated');
     };
     jirasearch.value = "";
+}
+
+document.getElementById('getlgsinfo').onclick = function () {                  // открытие админки LGS по ID группы
+    let lgslink = 'https://learning-groups-storage.skyeng.ru/group/';
+    if(lgssearch.value == "")
+        console.log('Введите текст в поле')
+    else {
+        window.open(lgslink + lgssearch.value);
+    };
+    lgssearch.value = "";
 }
 
 document.getElementById('msg').onclick = function () {
