@@ -69,7 +69,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
-                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
+                    <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
 			
 				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
@@ -94,8 +94,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; margin-top: 5px; width: 30px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px;  width: 30px; color: black;">
+				<input id="setchas" type="number" placeholder="HH" autocomplete="off" type="text" style="text-align: center; margin-top: 5px; width: 30px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input id="setminuta" type="number" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px;  width: 30px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
 				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
