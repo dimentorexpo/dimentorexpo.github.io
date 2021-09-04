@@ -913,7 +913,7 @@ document.getElementById('setreminder').onclick = function () {                  
 					var timearr = new Date()
 					var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
 					localStorage.setItem('chronostamp2', chronostamp2);
-					setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
+				var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
 				} else {
 					clearTimeout(abortTimeOut);
 				}
