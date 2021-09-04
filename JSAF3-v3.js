@@ -940,7 +940,8 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "credentials": "include"
 			});							
 			alert("Время ставить занят!");
-			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange"; 
+			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
+			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange"; 			
 			localStorage.removeItem('chronostamp');
 			setchas.value = "";
 			setminuta.value = "";
