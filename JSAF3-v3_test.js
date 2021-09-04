@@ -899,7 +899,7 @@ document.getElementById('benchmark').onclick = function () {                  //
 
 window.onload = function() {
 	if (localStorage.getItem('chronostamp') !== null) {
-		chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
+		var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
 		localStorage.setItem('chronostamp', chronostamp);
 	} else {
 	clearTimeout(abortTimeOut);
