@@ -944,7 +944,8 @@ document.getElementById('setreminder').onclick = function () {                  
 			alert("Время ставить занят!");
 			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange"; 
 			localStorage.removeItem('chronostamp');
-			clearTimeout(abortTimeOut);
+			setchas.value = "";
+			setminuta.value = "";
 	}
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
