@@ -935,9 +935,9 @@ document.getElementById('setreminder').onclick = function () {                  
 	
 window.onload = function() {
 	if (localStorage.getItem('chronostamp') !== null) {
-		var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
-		localStorage.setItem('chronostamp', chronostamp);
-		setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+		var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+		localStorage.setItem('chronostamp2', chronostamp2);
+		setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
 	} else {
 		clearTimeout(abortTimeOut);
 	}
