@@ -929,6 +929,7 @@ document.getElementById('setreminder').onclick = function () {                  
 			});							
 			alert("Время ставить занят!");
 			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange"; 
+			localStorage.removeItem('chronostamp');
 			clearTimeout(abortTimeOut);
 	}
 	
