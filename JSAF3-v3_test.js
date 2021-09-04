@@ -897,15 +897,6 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
-window.onload = function() {
-	if (localStorage.getItem('chronostamp') !== null) {
-		var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
-		localStorage.setItem('chronostamp', chronostamp);
-	} else {
-	clearTimeout(abortTimeOut);
-	}
-}
-
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
 			localStorage.setItem('setchas', setchas.value);
 			localStorage.setItem('setminuta', setminuta.value);
@@ -941,7 +932,15 @@ document.getElementById('setreminder').onclick = function () {                  
 			clearTimeout(abortTimeOut);
 	}
 	
-
+window.onload = function() {
+	if (localStorage.getItem('chronostamp') !== null) {
+		var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
+		localStorage.setItem('chronostamp', chronostamp);
+		setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+	} else {
+		clearTimeout(abortTimeOut);
+	}
+}
 
 
 
