@@ -907,7 +907,18 @@ document.getElementById('setreminder').onclick = function () {                  
 	//		setminuta.value = "";
 			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":"  + "00");	
 			var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
-}
+}		
+			function refreshTimerReminder() {
+				if (localStorage.getItem('chronostamp') !== null) {
+					var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+					localStorage.setItem('chronostamp2', chronostamp2);
+					setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
+				} else {
+					clearTimeout(abortTimeOut);
+				}
+			}
+			
+			refreshTimerReminder();
 
 			function setRemindAf() {
 			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
@@ -932,18 +943,6 @@ document.getElementById('setreminder').onclick = function () {                  
 			localStorage.removeItem('chronostamp');
 			clearTimeout(abortTimeOut);
 	}
-	
-window.onload = function() {
-	if (localStorage.getItem('chronostamp') !== null) {
-		var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
-		localStorage.setItem('chronostamp2', chronostamp2);
-		setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
-	} else {
-		clearTimeout(abortTimeOut);
-	}
-}
-
-
 
 document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
     let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
