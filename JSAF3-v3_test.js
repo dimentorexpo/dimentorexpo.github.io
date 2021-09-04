@@ -897,22 +897,28 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 
-let chronostamp;
+window.onload = function() {
+	if (localStorage.getItem('chronostamp') !== null {
+		chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
+		localStorage.setItem('chronostamp', chronostamp);
+	} else {
+	clearTimeout(abortTimeOut);
+	}
+}
+
 document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
+			localStorage.setItem('setchas', setchas.value);
+			localStorage.setItem('setminuta', setminuta.value);
 			var timearr = new Date()
-			let chas = setchas.value;
-			let minutka = setminuta.value;
-			const secunda = 0;
-			let difchas = chas - timearr.getHours();
-			let difmin =  minutka - timearr.getMinutes();
-			let difsec= secunda - timearr.getSeconds();
-			chronostamp = ((difchas * 60 * 60) + (difmin * 60) + difsec) * 1000
-			setchas.value = "";
-			setminuta.value = "";
-			alert("Будильник установлен на" + chas + ":" + minutka + ":"  + "0" + secunda);
-		
-		function setRemindAf() {
-				fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+			var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (-10 - timearr.getSeconds())) * 1000;
+			localStorage.setItem('chronostamp', chronostamp);
+	//		setchas.value = "";
+	//		setminuta.value = "";
+			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":"  + "00");	
+}
+
+			function setRemindAf() {
+			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		  "headers": {
 			"accept": "*/*",
 			"cache-control": "max-age=0",
@@ -928,13 +934,13 @@ document.getElementById('setreminder').onclick = function () {                  
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
-		 
-			})
-		alert("Время ставить занят!");
-		document.getElementsByClassName("ant-btn ant-dropdown-trigger")[1].style.backgroundColor = "orange";
+			});							
+			alert("Время ставить занят!");
+			document.getElementsByClassName("ant-btn ant-dropdown-trigger")[2].style.backgroundColor = "orange"; 
+			clearTimeout(abortTimeOut);
 	}
-	setTimeout(setRemindAf, chronostamp);
-}
+	
+	var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
 
 
 
