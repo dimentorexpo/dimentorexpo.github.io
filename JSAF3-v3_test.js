@@ -16,6 +16,10 @@ function mystyles() {
 		border:1px solid #566963; 
 		color:#ffffff; 
 		padding:2px 2px;
+		transition:all 0.3s;
+		text-align:center;
+		text-decoration:none;
+		display:block;
 	}
 	button:hover {
 		background: #6A5ACD;
