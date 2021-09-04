@@ -3089,7 +3089,7 @@ function customTemplates(language = '') {
     }
 }
 
-async function getStats() {
+async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
