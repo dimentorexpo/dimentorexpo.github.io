@@ -3089,7 +3089,7 @@ function customTemplates(language = '') {
     }
 }
 
-async function getStats() {
+async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
@@ -3249,7 +3249,7 @@ async function getStats() {
     newDivForStats.append(table)
     document.getElementById('root').children[0].children[1].children[0].children[1].append(newDivForStats)
 
-    let str = document.createElement('button')
+    let str = document.createElement('button') // кнопка для запуска проверки КСАТ и тематики чатов 
     str.textContent = 'Проверить CSAT + тематики чатов'
     str.id = 'buttonCheckStats'
     str.style.marginLeft = '50px'
@@ -3260,7 +3260,7 @@ async function getStats() {
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
-async function checkCSAT() {
+async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
     if(document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
@@ -3358,7 +3358,7 @@ function prepTp() {
     customTemplates()
     whoAmI()
 
-    let buttonGetStat = document.createElement('div');
+    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
     buttonGetStat.id = 'buttonGetStat';
     buttonGetStat.innerHTML = "Статистика";
     buttonGetStat.style.marginLeft = "15px";
@@ -3410,37 +3410,12 @@ function prepTp() {
         include("https://dimentorexpo.github.io/unsub.js")
     }, 2000)
 
-    setTimeout(function() {
-        if(localStorage.getItem('inspector') == 'yes') {
-            var but = document.createElement('button')
-            but.style.marginLeft = '5px'
-            but.textContent = "Нотгуды"
-            but.id = 'buttonForNotgoods'
-            var newinput = document.createElement('input')
-            newinput.style.marginLeft = '5px'
-            newinput.style.textAlign = "center"
-            newinput.id = 'inputForNotgoods'
-            var curDate = new Date()
-            curDate.setTime(curDate - 24 * 60 * 60 * 1000)
-            newinput.placeholder = curDate.getDate() + "." + (curDate.getMonth() + 1) + "." + curDate.getFullYear()
-            document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.appendChild(newinput)
-            document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.appendChild(but)
-
-            document.getElementById('buttonForNotgoods').onclick = function () {
-                if(document.getElementById('inputForNotgoods').value != "")
-                    getNotGoods(document.getElementById('inputForNotgoods').value)
-                else
-                    getNotGoods(document.getElementById('inputForNotgoods').placeholder)
-            }
-        }
-    }, 2500)
 }
 function include(url) {
     var script = document.createElement('script');
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
 }
-
 
 function firstLoadPage() {
     if(window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
