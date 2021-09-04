@@ -3410,37 +3410,12 @@ function prepTp() {
         include("https://dimentorexpo.github.io/unsub.js")
     }, 2000)
 
-    setTimeout(function() {
-        if(localStorage.getItem('inspector') == 'yes') {
-            var but = document.createElement('button')
-            but.style.marginLeft = '5px'
-            but.textContent = "Нотгуды"
-            but.id = 'buttonForNotgoods'
-            var newinput = document.createElement('input')
-            newinput.style.marginLeft = '5px'
-            newinput.style.textAlign = "center"
-            newinput.id = 'inputForNotgoods'
-            var curDate = new Date()
-            curDate.setTime(curDate - 24 * 60 * 60 * 1000)
-            newinput.placeholder = curDate.getDate() + "." + (curDate.getMonth() + 1) + "." + curDate.getFullYear()
-            document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.appendChild(newinput)
-            document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.appendChild(but)
-
-            document.getElementById('buttonForNotgoods').onclick = function () {
-                if(document.getElementById('inputForNotgoods').value != "")
-                    getNotGoods(document.getElementById('inputForNotgoods').value)
-                else
-                    getNotGoods(document.getElementById('inputForNotgoods').placeholder)
-            }
-        }
-    }, 2500)
 }
 function include(url) {
     var script = document.createElement('script');
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
 }
-
 
 function firstLoadPage() {
     if(window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
