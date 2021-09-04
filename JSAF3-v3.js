@@ -105,9 +105,7 @@ var win_AFhelper =  // описание элементов главного ок
 				
 			<div style="margin: 5px; width: 350px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
-				<button id="type_KC">КЦ</button>
 				<button id="type_TP">ТП</button>
-				<button id="type_TS">TS</button>
 				</p>
 			</div>
 			
@@ -1076,30 +1074,12 @@ document.getElementById('msg').onclick = function () {
         localStorage.setItem('msg', 'Чат')
     }
 }
-document.getElementById('type_KC').onclick = function () {
-    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec')
-    document.getElementById('msg1').style.display = 'none'
-    document.getElementById('snd').style.marginLeft = '120px'
-    document.getElementById('msg1').innerHTML = 'Доработать'
-    document.getElementById('testUsers').style.display = 'none'
-    document.getElementById('takeNewChat').style.display = 'none'
-    document.getElementById('howManyChats').style.display = 'none'
-    getText()
-}
+
 document.getElementById('type_TP').onclick = function () {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec')
     prepTp()
 }
-document.getElementById('type_TS').onclick = function () {
-    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec')
-    document.getElementById('msg1').style.display = 'none'
-    document.getElementById('snd').style.marginLeft = '120px'
-    document.getElementById('msg1').innerHTML = 'Доработать'
-    document.getElementById('testUsers').style.display = 'none'
-    document.getElementById('takeNewChat').style.display = 'none'
-    document.getElementById('howManyChats').style.display = 'none'
-    getText()
-}
+
 if(localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2) {
     document.getElementById('msg1').style.display = 'none'
     document.getElementById('snd').style.marginLeft = '120px'
