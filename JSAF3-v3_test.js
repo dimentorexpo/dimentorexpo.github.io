@@ -3249,7 +3249,7 @@ async function getStats() {
     newDivForStats.append(table)
     document.getElementById('root').children[0].children[1].children[0].children[1].append(newDivForStats)
 
-    let str = document.createElement('button')
+    let str = document.createElement('button') // кнопка для запуска проверки КСАТ и тематики чатов 
     str.textContent = 'Проверить CSAT + тематики чатов'
     str.id = 'buttonCheckStats'
     str.style.marginLeft = '50px'
