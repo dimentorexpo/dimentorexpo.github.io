@@ -3260,7 +3260,7 @@ async function getStats() {
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
-async function checkCSAT() {
+async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
     if(document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
@@ -3358,7 +3358,7 @@ function prepTp() {
     customTemplates()
     whoAmI()
 
-    let buttonGetStat = document.createElement('div');
+    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
     buttonGetStat.id = 'buttonGetStat';
     buttonGetStat.innerHTML = "Статистика";
     buttonGetStat.style.marginLeft = "15px";
