@@ -745,10 +745,11 @@ function move_again_AF() {
 			} else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') > minutes) {
 				time = (localStorage.getItem('setchas') - hours) + " : " + (localStorage.getItem('setminuta') - minutes) + " : " + (60 - seconds);
 				document.getElementById("clock_remin").innerHTML = time;
-			} else {			
-				time = "00" + " : " + "00" + " : " + "00"; 
-				document.getElementById("clock_remin").innerHTML = time;
-				}
+			} 
+			//else {			
+			//	time = "00" + " : " + "00" + " : " + "00"; 
+			//	document.getElementById("clock_remin").innerHTML = time;
+			//	}
 		}
 		
 
