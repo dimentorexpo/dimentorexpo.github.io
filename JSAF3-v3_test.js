@@ -730,7 +730,7 @@ function move_again_AF() {
         if(minutes < 10){minutes = "0" + minutes;}
         seconds = data.getSeconds();
         if(seconds < 10){seconds = "0" + seconds;}
-        time = (localStorage.getItem('setchas') - hours) + " : " + (localStorage.getItem('setminuta') - minutes) + " : " + (0 - seconds);
+        time = (localStorage.getItem('setchas') - hours) + " : " + (localStorage.getItem('setminuta') - minutes) + " : " + (60 - seconds);
         document.getElementById("clock_remin").innerHTML = time;
     }
 
