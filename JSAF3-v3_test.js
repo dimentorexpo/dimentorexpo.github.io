@@ -734,7 +734,7 @@ function move_again_AF() {
 			time = "00" + " : " + "00" + " : " + "00" 
 			document.getElementById("clock_remin").innerHTML = time;
 			} else {
-        time = (localStorage.getItem('setchas') - hours) + " : " + (localStorage.getItem('setminuta') - minutes) + " : " + (60 - seconds);
+        time = (localStorage.getItem('setchas') - hours) + " : " + (localStorage.getItem('setminuta') - minutes-1) + " : " + (60 - seconds);
         document.getElementById("clock_remin").innerHTML = time;
 			}
 		}
