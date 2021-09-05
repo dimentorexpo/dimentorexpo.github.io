@@ -737,7 +737,8 @@ function move_again_AF() {
 				if (localStorage.getItem('setchas') - hours < 0 || localStorage.getItem('setminuta') - minutes < 0) {
 				time = "00" + " : " + "00" + " : " + "00" 
 				document.getElementById("clock_remin").innerHTML = time;
-			
+				}
+			}
 		}
 
     document.getElementById('kibanalnksvz').addEventListener('click',function(){
