@@ -184,7 +184,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="getmobpasscode" style="width: 25.23px;">💾</button>
+					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -848,7 +848,7 @@ function move_again_AF() {
 			console.log('Введите id в поле')
 		else {
 			document.getElementById('getmobpasscode').innerHTML = "✅";
-			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
+			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "🚀"}, 2000);
 	document.getElementById('responseTextarea1').value = `{
 			"headers": {
 				"content-type": "application/x-www-form-urlencoded",
