@@ -725,11 +725,8 @@ function move_again_AF() {
 	    function clock_on_javascript_2() {
         var data = new Date();
         hours = data.getHours();
-        if(hours < 10){hours = "0" + hours;}
         minutes = data.getMinutes();
-        if(minutes < 10){minutes = "0" + minutes;}
         seconds = data.getSeconds();
-        if(seconds < 10){seconds = "0" + seconds;}
 		if (localStorage.getItem('chronostamp') === null) {
 			time = "00" + " : " + "00" + " : " + "00" ;
 			document.getElementById("clock_remin").innerHTML = time;
