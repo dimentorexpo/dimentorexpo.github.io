@@ -98,11 +98,11 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px;  width: 30px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
-				<button id="curVerAndroid" style="margin-top: 3px">Аndroid: 9.28.2 (519)</button>
+				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.29 (1097)</button>
+				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.28.2 (519)</button>
 				<br>
-				<button id="clock_js" style="color: white; margin-top: 3px"></button>
-				<button id="clock_remin" style="color: lightgreen; margin-top: 3px"></button>
+				<button id="clock_js" style="color: white; margin-top: 5px"></button>
+				<button id="clock_remin" style="color: lightgreen; margin-top: 5px"></button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -184,7 +184,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
-					<button id="getmobpasscode" style="width: 25.23px;">💾</button>
+					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
 					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="showcaseHW" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -316,11 +316,10 @@ buttonmobpas.onclick = function() {
         document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
         var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
         document.getElementById('copymobpass').innerHTML = convertres2[1];
-        copyToClipboard1(convertres2[1]);
-        console.log(convertres2[1]); }
+			}
     setTimeout(getPassInfoNew, 1000);
 
-    setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
+    setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 15000);
 }
 
 var getidnewfromaf = 0;
@@ -849,7 +848,7 @@ function move_again_AF() {
 			console.log('Введите id в поле')
 		else {
 			document.getElementById('getmobpasscode').innerHTML = "✅";
-			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "💾"}, 2000);
+			setTimeout(function() {document.getElementById('getmobpasscode').innerHTML = "🚀"}, 2000);
 	document.getElementById('responseTextarea1').value = `{
 			"headers": {
 				"content-type": "application/x-www-form-urlencoded",
@@ -877,11 +876,10 @@ function move_again_AF() {
 			 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
 			 var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
 			 setidformobpass.value = convertres[1];
-			 copyToClipboard(convertres[1]);
-			console.log(convertres[1]); }
+				}				
 			setTimeout(getPassInfo, 1000);
 						};
-		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
+		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 15000);
 			
 })
 
