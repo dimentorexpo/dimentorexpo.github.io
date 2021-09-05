@@ -147,21 +147,21 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="billingadm" style="width:100px">Начислятор</button>
 					<button id="compens" style="width:100px">Компенсация</button>
 					<button id="CMS" style="width:100px">CMS</button>
-					<button id="useradm" style="width:100px">Админка</button>
-					<button id="transactions" style="width:100px">Поиск $</button>
-					<button id="suggestions" style="width:100px">Предложения</button>
-					<button id="userfeatures" style="width:100px">User Фичи</button>
-					<button id="trmnew" style="width:100px">TRM2</button>
-					<button id="perfectprivacy" style="width:100px">PerfectPrivacy</button>
-					<button id="badmarks" style="width:100px">-оценки</button>
-					<button id="apelation" style="width:100px">Апелляции</button>
-					<button id="kcerrors" style="width:100px">Ошибки КЦ</button>
-					<button id="browserstack" style="width:100px">BrowserStaсk</button>
-					<button id="certificates" style="width:100px">Сертификаты</button>
-					<button id="promocodes" style="width:100px">Промокоды</button>
-					<button id="mobdevices" style="width:100px">Хар моб устр</button>
-					<button id="confbugs" style="width:100px">Баги</button>
-					<button id="confbugsm" style="width:100px">Баги Моб.</button>
+					<button id="useradm" style="width:100px; margin-top: 5px">Админка</button>
+					<button id="transactions" style="width:100px; margin-top: 5px">Поиск $</button>
+					<button id="suggestions" style="width:100px; margin-top: 5px">Предложения</button>
+					<button id="userfeatures" style="width:100px; margin-top: 5px">User Фичи</button>
+					<button id="trmnew" style="width:100px; margin-top: 5px">TRM2</button>
+					<button id="perfectprivacy" style="width:100px; margin-top: 5px">PerfectPrivacy</button>
+					<button id="badmarks" style="width:100px; margin-top: 5px">-оценки</button>
+					<button id="apelation" style="width:100px; margin-top: 5px">Апелляции</button>
+					<button id="kcerrors" style="width:100px; margin-top: 5px">Ошибки КЦ</button>
+					<button id="browserstack" style="width:100px; margin-top: 5px">BrowserStaсk</button>
+					<button id="certificates" style="width:100px; margin-top: 5px">Сертификаты</button>
+					<button id="promocodes" style="width:100px; margin-top: 5px">Промокоды</button>
+					<button id="mobdevices" style="width:100px; margin-top: 5px">Хар моб устр</button>
+					<button id="confbugs" style="width:100px; margin-top: 5px">Баги</button>
+					<button id="confbugsm" style="width:100px; margin-top: 5px">Баги Моб.</button>
 				</div>				
 				
 				<div style="margin: 5px; width: 520px" id="links_box">
