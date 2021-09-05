@@ -733,11 +733,11 @@ function move_again_AF() {
 			} else if (localStorage.getItem('setchas') - hours >= 0 || localStorage.getItem('setminuta') - minutes >= 0) {
 				time = "0" + (localStorage.getItem('setchas') - hours) + " : " + "0" + (localStorage.getItem('setminuta') - minutes-1) + " : " + (60 - seconds);
 				document.getElementById("clock_remin").innerHTML = time; 
-			} else if (localStorage.getItem('setchas') - hours <= 0 && localStorage.getItem('setminuta') - minutes <= 0  && (60-second) <= 0) {
+					if (localStorage.getItem('setminuta') - minutes < 0) {
 				time = "00" + " : " + "00" + " : " + "00";
 				document.getElementById("clock_remin").innerHTML = time; 
+				}
 			}
-			
 		}
 
     document.getElementById('kibanalnksvz').addEventListener('click',function(){
