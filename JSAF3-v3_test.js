@@ -727,10 +727,8 @@ function move_again_AF() {
         hours = data.getHours();
         minutes = data.getMinutes();
         seconds = data.getSeconds();
-		time = "00" + " : " + "00" + " : " + "00"; 
-		document.getElementById("clock_remin").innerHTML = time;
 		if (localStorage.getItem('setchas') - hours >= 0 || localStorage.getItem('setminuta') - minutes >= 0) {
-				time = "0" + (localStorage.getItem('setchas') - hours) + " : " + (localStorage.getItem('setminuta') - minutes-1) + " : " + (60 - seconds);
+				time = "0" + (localStorage.getItem('setchas') - hours-1) + " : " + (localStorage.getItem('setminuta') - minutes-1) + " : " + (60 - seconds);
 				document.getElementById("clock_remin").innerHTML = time; 
 			} 
 		}
