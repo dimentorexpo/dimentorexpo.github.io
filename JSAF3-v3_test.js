@@ -748,7 +748,7 @@ function move_again_AF() {
 			} else {			
 				time = "00" + " : " + "00" + " : " + "00"; 
 				document.getElementById("clock_remin").innerHTML = time;
-			}
+				}
 		}
 		
 
@@ -3102,7 +3102,7 @@ async function getStats() {           // функция получения ст�
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы", "Обращений от П", "Обращений от У"]
+    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы"]
     let trHead = document.createElement('tr')
     for(let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
@@ -3207,7 +3207,7 @@ async function getStats() {           // функция получения ст�
     let tbody = document.createElement('tbody')
     for(let i = 0; i < array.length; i++) {
         var tr = document.createElement('tr')
-        for(let j = 0; j < 7; j++) {
+        for(let j = 0; j < 5; j++) {
             var td = document.createElement('td')
             switch(j) {
                 case 0:
@@ -3234,12 +3234,6 @@ async function getStats() {           // функция получения ст�
                     averageHandlingTime = averageHandlingTime < 60 ? averageHandlingTime : Math.floor(averageHandlingTime / 60) + ':' + ((averageHandlingTime % 60) < 10 ? '0' + (averageHandlingTime % 60) : (averageHandlingTime % 60))
                     td.textContent = averageHandlingTime;
                     break;
-				case 5:
-					td.textContent = array[i].userType.value == "teacher";
-					break;
-				case 6:
-					td.textContent = array[i].userType.value == "student";
-					break;
             }
             tr.append(td)
         }
