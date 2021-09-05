@@ -90,7 +90,7 @@ var win_AFhelper =  // описание элементов главного ок
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="sound_save">save</button>
+				<button id="sound_save">save</button> 
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
@@ -100,6 +100,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid" style="margin-top: 3px">Аndroid: 9.27.1(514)</button>
+				<br>
 				<button id="clock_js" style="color: white"></button>
 				<button id="clock_remin" style="color: red"></button>
 			</div>
