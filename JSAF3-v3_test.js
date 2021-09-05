@@ -100,8 +100,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid" style="margin-top: 3px">Аndroid: 9.27.1(514)</button>
-				<div id="clock_js" style="color: white"></div>
-				<span id="clock_remin" style="color: red"></span>
+				<button id="clock_js" style="color: white"></button>
+				<button id="clock_remin" style="color: red"></button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
