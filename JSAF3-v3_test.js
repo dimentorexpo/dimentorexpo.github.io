@@ -732,8 +732,9 @@ function move_again_AF() {
         if(seconds < 10){seconds = "0" + seconds;}
 		if (localStorage.getItem('chronostamp') === null) {
 			time = "00" + " : " + "00" + " : " + "00" ;
-		} else if (localStorage.getItem('setchas') - hours <= 0 || localStorage.getItem('setminuta') - minutes <= 0) {
-        time = (localStorage.getItem('setchas') - hours-1) + " : " + (localStorage.getItem('setminuta') - minutes-1+60) + " : " + (60 - seconds);
+			document.getElementById("clock_remin").innerHTML = time;
+		} else if (localStorage.getItem('setchas') - hours == 0 && localStorage.getItem('setminuta') - minutes => 0) {
+        time = "00" + " : " + (localStorage.getItem('setminuta') - minutes-1) + " : " + (60 - seconds);
         document.getElementById("clock_remin").innerHTML = time;
 			} else if (localStorage.getItem('setchas') - hours < 0 || localStorage.getItem('setminuta') - minutes < 0) {
 				time = "00" + " : " + "00" + " : " + "00"; 
