@@ -225,16 +225,9 @@ buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;">Chat Histor
 let buttonmobpas = document.createElement('p');
 buttonmobpas.id = 'copymobpass';
 buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate code📱</a>';
-let button22 = document.createElement('p');
-button22.id = 'userShowcaseScript';
-button22.innerHTML = "Showcase";
-
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
-let button33 = document.createElement('p');
-button33.id = 'nextStudentShowcaseScript';
-button33.innerHTML = "Showcase";
 let buttonnextstudentid = document.createElement('p');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
 buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(У)</a>';
@@ -244,9 +237,6 @@ button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
 let buttonnextteacherid = document.createElement('p');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
-let button44 = document.createElement('p');
-button44.id = 'nextTeacherShowcaseScript';
-button44.innerHTML = "Showcase";
 let buttonloc = document.createElement('p');
 buttonloc.id = 'changeServiceLocale';
 buttonloc.innerHTML ='<a style="color: black; cursor: pointer;">Изменить яз.обсл. на RU</a>';
@@ -397,14 +387,6 @@ buttonloc.onclick = function() {
 	 setTimeout(getId, 1000);
 }
 
-
-button22.onclick = function() {
-    for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] + '/showcase')
-    }
-}
-
 button3.onclick = function() {
     if(document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
@@ -424,12 +406,6 @@ buttonnextstudentid.onclick = function() {
     search.click()
 }
 
-button33.onclick = function() {
-    for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase')
-    }
-}
 button4.onclick = function() {
     if(document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
@@ -446,14 +422,6 @@ buttonnextteacherid.onclick = function() {
             document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     search.click()
-}
-
-
-button44.onclick = function() {
-    for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            copyToClipboard1('https://profile.skyeng.ru/profile/' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText + '/showcase')
-    }
 }
 
 var nextuserid;
@@ -2191,8 +2159,6 @@ function startTimer() {
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button2)
-                if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                    btn.appendChild(button22)
             }
 			
 		    if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -2203,15 +2169,11 @@ function startTimer() {
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonmobpas)
-                if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                    btn.appendChild(button22)
             }
 
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button3)
-                if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                    btn.appendChild(button33)
             }
 				
 			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -2227,8 +2189,6 @@ function startTimer() {
             if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button4)
-                if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                    btn.appendChild(button44)
             }
 			
 			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
