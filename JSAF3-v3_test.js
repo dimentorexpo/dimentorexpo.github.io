@@ -3235,10 +3235,10 @@ async function getStats() {           // функция получения ст�
                     td.textContent = averageHandlingTime;
                     break;
 				case 5:
-					td.textContent = array[i].userType == "teacher";
+					td.textContent = array[i].userType.value == "teacher";
 					break;
 				case 6:
-					td.textContent = array[i].userType == "student";
+					td.textContent = array[i].userType.value == "student";
 					break;
             }
             tr.append(td)
