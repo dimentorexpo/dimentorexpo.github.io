@@ -316,11 +316,10 @@ buttonmobpas.onclick = function() {
         document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
         var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
         document.getElementById('copymobpass').innerHTML = convertres2[1];
-        copyToClipboard1(convertres2[1]);
-        console.log(convertres2[1]); }
+			}
     setTimeout(getPassInfoNew, 1000);
 
-    setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 10000);
+    setTimeout(function() {document.getElementById('copymobpass').innerHTML = "Generate Code📱"}, 15000);
 }
 
 var getidnewfromaf = 0;
@@ -877,11 +876,10 @@ function move_again_AF() {
 			 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
 			 var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
 			 setidformobpass.value = convertres[1];
-			 copyToClipboard(convertres[1]);
-			console.log(convertres[1]); }
+				}				
 			setTimeout(getPassInfo, 1000);
 						};
-		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 10000);
+		setTimeout(function() {document.getElementById('setidformobpass').value = ""}, 15000);
 			
 })
 
