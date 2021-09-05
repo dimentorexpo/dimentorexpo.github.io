@@ -748,7 +748,7 @@ function move_again_AF() {
 			} else {			
 				time = "00" + " : " + "00" + " : " + "00"; 
 				document.getElementById("clock_remin").innerHTML = time;
-				}
+			}
 		}
 		
 
