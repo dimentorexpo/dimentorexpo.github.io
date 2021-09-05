@@ -101,6 +101,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid" style="margin-top: 3px">Аndroid: 9.27.1(514)</button>
 				<div id="clock_js" style="color: white"></div>
+				<div id="clock_remin" style="color: red"></div>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -707,6 +708,7 @@ function move_again_AF() {
     }
 
     setInterval(clock_on_javascript_1, 1000);
+	setInterval(clock_on_javascript_2, 1000);
 
     function clock_on_javascript_1() {
         var data = new Date();
@@ -719,6 +721,24 @@ function move_again_AF() {
         time = hours + " : " + minutes + " : " + seconds;
         document.getElementById("clock_js").innerHTML = time;
     }
+	
+	    function clock_on_javascript_2() {
+        var data = new Date();
+        hours = data.getHours();
+        minutes = data.getMinutes();
+        seconds = data.getSeconds();
+		if (localStorage.getItem('setchas') - hours < 0 || localStorage.getItem('setminuta') - minutes < 0) {
+			time = "00" + " : " + "00" + " : " + "00"; 
+			document.getElementById("clock_remin").innerHTML = time;
+			} else if (localStorage.getItem('setchas') - hours >= 0 || localStorage.getItem('setminuta') - minutes >= 0) {
+				time = "0" + (localStorage.getItem('setchas') - hours) + " : " + "0" + (localStorage.getItem('setminuta') - minutes-1) + " : " + (60 - seconds);
+				document.getElementById("clock_remin").innerHTML = time; 
+			} else {
+				time = "00" + " : " + "00" + " : " + "00";
+				document.getElementById("clock_remin").innerHTML = time; 
+				}
+			}
+
 
     document.getElementById('kibanalnksvz').addEventListener('click',function(){
         window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
