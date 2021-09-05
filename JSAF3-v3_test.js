@@ -3102,7 +3102,7 @@ async function getStats() {           // функция получения ст�
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы", "Обращений от П"]
+    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы", "Обращений от П", "Обращений от У"]
     let trHead = document.createElement('tr')
     for(let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
@@ -3207,7 +3207,7 @@ async function getStats() {           // функция получения ст�
     let tbody = document.createElement('tbody')
     for(let i = 0; i < array.length; i++) {
         var tr = document.createElement('tr')
-        for(let j = 0; j < 6; j++) {
+        for(let j = 0; j < 7; j++) {
             var td = document.createElement('td')
             switch(j) {
                 case 0:
