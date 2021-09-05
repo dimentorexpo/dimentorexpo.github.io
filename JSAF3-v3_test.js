@@ -101,6 +101,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="curVeriOS" style="margin-top: 3px">iOS: 9.29 (1097)</button>
 				<button id="curVerAndroid" style="margin-top: 3px">Аndroid: 9.27.1(514)</button>
 				<div id="clock_js" style="color: white"></div>
+				<div id="clock_remin" style="color: red"></div>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -707,6 +708,7 @@ function move_again_AF() {
     }
 
     setInterval(clock_on_javascript_1, 1000);
+	setInterval(clock_on_javascript_2, 1000);
 
     function clock_on_javascript_1() {
         var data = new Date();
@@ -718,6 +720,18 @@ function move_again_AF() {
         if(seconds < 10){seconds = "0" + seconds;}
         time = hours + " : " + minutes + " : " + seconds;
         document.getElementById("clock_js").innerHTML = time;
+    }
+	
+	    function clock_on_javascript_2() {
+        var data = new Date();
+        hours = data.getHours();
+        if(hours < 10){hours = "0" + hours;}
+        minutes = data.getMinutes();
+        if(minutes < 10){minutes = "0" + minutes;}
+        seconds = data.getSeconds();
+        if(seconds < 10){seconds = "0" + seconds;}
+        time = (localStorage.getItem('setchas') - hours) + " : " + (localStorage.getItem('setminuta') - minutes) + " : " + (0 - seconds);
+        document.getElementById("clock_remin").innerHTML = time;
     }
 
     document.getElementById('kibanalnksvz').addEventListener('click',function(){
