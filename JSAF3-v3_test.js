@@ -3539,6 +3539,7 @@ function textToUTF8String(string) {
     }
     return string2
 }
+
 function repaint() {
 	if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor == "red"){
 	document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white";} // делает подсветку кнопки Написать пользователю белой.
@@ -3547,7 +3548,6 @@ function repaint() {
 	} else document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "red";
 }
 
-setInterval(repaint, 1000);
 function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
     prepTp()
