@@ -3548,7 +3548,8 @@ function repaint() {
 		document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "white";
 	} else document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "red";
 }
-setInterval(repaint, 500);
+
+setTimeout(repaint, 1000);
 
 function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
