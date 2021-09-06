@@ -3538,7 +3538,7 @@ function textToUTF8String(string) {
         string2 += "%" + decToHex(string[i])
     }
     return string2
-}
+} 
 
 function repaint() {
 	if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor == "red"){
