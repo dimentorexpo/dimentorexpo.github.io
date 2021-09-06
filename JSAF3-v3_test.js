@@ -3538,7 +3538,8 @@ function textToUTF8String(string) {
         string2 += "%" + decToHex(string[i])
     }
     return string2
-} 
+}
+
 
 function repaint() {
 	if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor == "red"){
@@ -3547,6 +3548,7 @@ function repaint() {
 		document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "white";
 	} else document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "red";
 }
+setInterval(repaint, 500);
 
 function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
