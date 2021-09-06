@@ -3540,7 +3540,11 @@ function textToUTF8String(string) {
     return string2
 }
 function repaint() {
-	document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"; // делает подсветку кнопки Написать пользователю белой
+	if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor == "red"){
+	document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white";} // делает подсветку кнопки Написать пользователю белой.
+	if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].textContent == "Взять запрос (0)") {
+		document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "white";
+	} else document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "red";
 }
 
 setInterval(repaint, 1000);
