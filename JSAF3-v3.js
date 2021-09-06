@@ -3539,8 +3539,11 @@ function textToUTF8String(string) {
     }
     return string2
 }
+function repaint() {
+	document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"; // делает подсветку кнопки Написать пользователю белой
+}
 
-document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"; // делает подсветку кнопки Написать пользователю белой
+setInterval(repaint, 1000);
 function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
     prepTp()
