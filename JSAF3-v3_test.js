@@ -152,7 +152,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="suggestions" style="width:100px; margin-top: 3px">Предложения</button>
 					<button id="userfeatures" style="width:100px; margin-top: 3px">User Фичи</button>
 					<button id="trmnew" style="width:100px; margin-top: 3px">TRM2</button>
-					<button id="testroom" style="width:100px; margin-top: 3px">TestRoomAdm</button>
+					<button id="testroom" style="width:100px; margin-top: 3px">TestRooms</button>
 					<button id="badmarks" style="width:100px; margin-top: 3px">-оценки</button>
 					<button id="apelation" style="width:100px; margin-top: 3px">Апелляции</button>
 					<button id="kcerrors" style="width:100px; margin-top: 3px">Ошибки КЦ</button>
@@ -828,7 +828,7 @@ function move_again_AF() {
         window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
     })
     document.getElementById('testroom').addEventListener('click',function(){
-        window.open("https://api-chess.skyeng.ru/admin/platform/room/create")    // открываем ссылку в админку тестовых комнат
+        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")    // открываем ссылку в админку тестовых комнат
     })
 
     document.getElementById('certificates').addEventListener('click',function(){
