@@ -2410,7 +2410,7 @@ function startTimer() {
 	let btn10 = document.createElement('span');
         btn10.id = 'ishod'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
-        btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход🔝</a>';
+        btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
         btn10.setAttribute('onClick','sendComment("#Передача на исход");')
     }
 }
