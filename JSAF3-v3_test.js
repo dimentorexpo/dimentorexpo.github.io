@@ -152,7 +152,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="suggestions" style="width:100px; margin-top: 3px">Предложения</button>
 					<button id="userfeatures" style="width:100px; margin-top: 3px">User Фичи</button>
 					<button id="trmnew" style="width:100px; margin-top: 3px">TRM2</button>
-					<button id="perfectprivacy" style="width:100px; margin-top: 3px">PerfectPrivacy</button>
+					<button id="testroom" style="width:100px; margin-top: 3px">TestRoomAdmin</button>
 					<button id="badmarks" style="width:100px; margin-top: 3px">-оценки</button>
 					<button id="apelation" style="width:100px; margin-top: 3px">Апелляции</button>
 					<button id="kcerrors" style="width:100px; margin-top: 3px">Ошибки КЦ</button>
@@ -827,8 +827,8 @@ function move_again_AF() {
     document.getElementById('trmnew').addEventListener('click',function(){
         window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
     })
-    document.getElementById('perfectprivacy').addEventListener('click',function(){
-        window.open("http://bvl.usedocs.com/article/19155")    // открываем ссылку в новой вкладке на настройку корп ВПН Perfect Privacy
+    document.getElementById('testroom').addEventListener('click',function(){
+        window.open("https://api-chess.skyeng.ru/admin/dashboard")    // открываем ссылку в админку тестовых комнат
     })
 
     document.getElementById('certificates').addEventListener('click',function(){
@@ -1144,7 +1144,7 @@ document.getElementById('hideMe').onclick = function () { // скрытие ок
 }
 
 document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-    alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: O1385<BXemHx5r0uuN<jPX");
+    alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: O1385<BXemHx5r0uuN<jPX                                                                                                               Настройка PerfectPrivacy http://bvl.usedocs.com/article/19155");
 }
 
 document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
