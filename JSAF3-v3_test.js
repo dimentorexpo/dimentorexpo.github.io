@@ -3350,9 +3350,9 @@ async function checkChatCountQue() { // функция проверки коли
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
-			}).then(r => r.text()).then(result => {
+			}).then(r1 => r1.text()).then(result1 => {
 										setTimeout(function() {
-				let newres2 = result.match(/total.*?(\d+).*/)[1];
+				let newres2 = result1.match(/total.*?(\d+).*/)[1];
 				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
 					} , 2000)
 				})			
