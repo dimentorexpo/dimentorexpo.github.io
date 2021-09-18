@@ -3314,7 +3314,6 @@ async function checkChatCountQue() { // функция проверки коли
         day2 = date2.getDate()
 
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-	while(true) {
 	 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 			  "headers": {
 				"accept": "*/*",
@@ -3356,7 +3355,6 @@ async function checkChatCountQue() { // функция проверки коли
 				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
 					} , 2000)
 				})			
-	}
 }
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
