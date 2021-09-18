@@ -3335,7 +3335,7 @@ async function checkChatCountQue() { // функция проверки коли
 				str.innerHTML = 'Количество чатов в работе КЦ: ' + newres;
 					} , 1000)
 				})
-				
+		setTimeout(function() {	
 		 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 			  "headers": {
 				"accept": "*/*",
@@ -3351,7 +3351,7 @@ async function checkChatCountQue() { // функция проверки коли
 			  "mode": "cors",
 			  "credentials": "include"
 			}).then(r1 => r1.text()).then(result1 => {
-										setTimeout(function() {
+										
 				let newres2 = result1.match(/total.*?(\d+).*/)[1];
 				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
 					} , 2000)
