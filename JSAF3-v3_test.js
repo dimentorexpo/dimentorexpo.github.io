@@ -3339,6 +3339,27 @@ async function checkChatCountQue() { // функция проверки коли
 				str.innerHTML = 'Количество чатов в работе КЦ: ' + newres;
 					} , 1000)
 				})
+				
+		 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+			  "headers": {
+				"accept": "*/*",
+				"content-type": "application/json",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			  },
+			  "referrer": "https://skyeng.autofaq.ai/logs",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body":"{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",		  
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}).then(r => r.text()).then(result => {
+										setTimeout(function() {
+				let newres2 = result.match(/total.*?(\d+).*/)[1];
+				str.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
+					} , 1000)
+				})			
 }
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
