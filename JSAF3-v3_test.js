@@ -3288,10 +3288,6 @@ async function checkChatCountQue() { // функция проверки коли
     str2.style.paddingLeft = '50px'
 	let str3 = document.createElement('p')
     str3.style.paddingLeft = '50px'
-    if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-    document.getElementById('buttonQueChatsCount').textContent = 'Загрузка'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
     var date = new Date()
     day = month = ""
     if(date.getMonth() < 9)
@@ -3357,7 +3353,7 @@ async function checkChatCountQue() { // функция проверки коли
 			}).then(r => r.text()).then(result => {
 										setTimeout(function() {
 				let newres2 = result.match(/total.*?(\d+).*/)[1];
-				str.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
+				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
 					} , 1000)
 				})			
 }
