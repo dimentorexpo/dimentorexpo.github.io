@@ -3284,6 +3284,7 @@ async function getStats() {           // функция получения ст�
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
     var date = new Date()
     day = month = ""
     if(date.getMonth() < 9)
