@@ -3284,10 +3284,6 @@ async function getStats() {           // функция получения ст�
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-	let str2 = document.createElement('p')
-    str2.style.paddingLeft = '50px'
-	let str3 = document.createElement('p')
-    str3.style.paddingLeft = '50px'
     var date = new Date()
     day = month = ""
     if(date.getMonth() < 9)
@@ -3331,7 +3327,6 @@ async function checkChatCountQue() { // функция проверки коли
 			}).then(r => r.text()).then(result => {
 										setTimeout(function() {
 				let newres = result.match(/total.*?(\d+).*/)[1];
-				str.innerHTML = 'Количество чатов в работе КЦ: ' + newres;
 					} , 1000)
 				})
 		
@@ -3352,9 +3347,10 @@ async function checkChatCountQue() { // функция проверки коли
 			}).then(r1 => r1.text()).then(result1 => {
 										setTimeout(function() {	
 				let newres2 = result1.match(/total.*?(\d+).*/)[1];
-				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
+
 					} , 2000)
-				})			
+				})	
+			str.innerHTML = 'Количество чатов в работе КЦ: ' + newres + 'Количество чатов в работе ТП: ' + newres2;				
 }
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
