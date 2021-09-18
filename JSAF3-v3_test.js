@@ -3324,14 +3324,14 @@ async function checkChatCountQue() { // функция проверки коли
 			  },
 			  "referrer": "https://skyeng.autofaq.ai/logs",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body":"{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"119646\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",	  			  
+			  "body":"{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}", 
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
 			}).then(r => r.text()).then(result => {
 										setTimeout(function() {
 				let newres = result.match(/total.*?(\d+).*/)[1];
-				str.innerHTML = 'Количество чатов в работе КЦ: ' + newres;
+				str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
 					} , 1000)
 				})
 		
@@ -3345,14 +3345,14 @@ async function checkChatCountQue() { // функция проверки коли
 			  },
 			  "referrer": "https://skyeng.autofaq.ai/logs",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body":"{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",		  
+			  "body":"{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
 			}).then(r1 => r1.text()).then(result1 => {
 										setTimeout(function() {	
 				let newres2 = result1.match(/total.*?(\d+).*/)[1];
-				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;			
+				str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
 					} , 1000)
 				})	
 	
