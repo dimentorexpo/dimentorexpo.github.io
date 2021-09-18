@@ -3284,9 +3284,13 @@ async function getStats() {           // функция получения ст�
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if(document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
+	let str2 = document.createElement('p')
+    str2.style.paddingLeft = '50px'
+	let str3 = document.createElement('p')
+    str3.style.paddingLeft = '50px'
+    if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-    document.getElementById('buttonCheckStats').textContent = 'Загрузка'
+    document.getElementById('buttonQueChatsCount').textContent = 'Загрузка'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
     var date = new Date()
     day = month = ""
@@ -3325,15 +3329,15 @@ async function checkChatCountQue() { // функция проверки коли
 			  },
 			  "referrer": "https://skyeng.autofaq.ai/logs",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",
+			  "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"119646\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate +,\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",	  
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
 			}).then(r => r.text()).then(result => {
 										setTimeout(function() {
 				let newres = result.match(/total.*?(\d+).*/)[1];
-				str.innerHTML = 'Количество чатов в работе КЦ + ТП: ' + newres;
-					} , 2000)
+				str.innerHTML = 'Количество чатов в работе КЦ: ' + newres;
+					} , 1000)
 				})
 }
 
