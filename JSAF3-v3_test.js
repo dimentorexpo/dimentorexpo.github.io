@@ -3274,7 +3274,7 @@ async function getStats() {           // функция получения ст�
     quechatscount.textContent = 'Узнать кол-во чатов в очереди'
     quechatscount.id = 'buttonQueChatsCount'
     quechatscount.style.marginLeft = '50px'
-    quechatscount.onclick = checkCSAT
+    quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
 
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
