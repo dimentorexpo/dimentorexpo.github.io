@@ -3332,7 +3332,6 @@ async function checkChatCountQue() { // функция проверки коли
 			}).then(r => r.text()).then(result => {
 										setTimeout(function() {
 				let newres = result.match(/total.*?(\d+).*/)[1];
-				str.innerHTML = 'Количество чатов в работе КЦ: ' + newres;
 					} , 1000)
 				})
 		setTimeout(function() {	
@@ -3353,9 +3352,11 @@ async function checkChatCountQue() { // функция проверки коли
 			}).then(r1 => r1.text()).then(result1 => {
 										
 				let newres2 = result1.match(/total.*?(\d+).*/)[1];
-				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;
+
 					} , 2000)
-				})			
+				})		
+				str.innerHTML = 'Количество чатов в работе КЦ: ' + newres;
+				str2.innerHTML = 'Количество чатов в работе ТП: ' + newres2;				
 }
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
