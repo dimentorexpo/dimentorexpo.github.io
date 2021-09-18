@@ -3353,7 +3353,7 @@ async function checkChatCountQue() { // функция проверки коли
 										setTimeout(function() {	
 				let newres2 = result1.match(/total.*?(\d+).*/)[1];
 				str.innerHTML = 'Количество чатов в работе ТП: ' + newres2;			
-					} , 1000)
+					} , 2000)
 				})	
 	
 }
