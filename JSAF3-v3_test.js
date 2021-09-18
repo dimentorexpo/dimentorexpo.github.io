@@ -3269,6 +3269,13 @@ async function getStats() {           // функция получения ст�
     str.style.marginLeft = '50px'
     str.onclick = checkCSAT
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+	
+	let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+    quechatscount.textContent = 'Узнать количетсво чатов в очереди'
+    quechatscount.id = 'buttonQueChatsCount'
+    quechatscount.style.marginLeft = '50px'
+    quechatscount.onclick = checkCSAT
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
 
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
