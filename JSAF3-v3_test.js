@@ -3329,7 +3329,7 @@ async function checkChatCountQue() { // функция проверки коли
 			  },
 			  "referrer": "https://skyeng.autofaq.ai/logs",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"119646\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate +,\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",	  
+			  "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"119646\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",	  
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
