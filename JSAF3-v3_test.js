@@ -3336,7 +3336,7 @@ async function checkChatCountQue() { // функция проверки коли
 					} , 1000)
 				})
 		setTimeout(function() {	
-		 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+			fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 			  "headers": {
 				"accept": "*/*",
 				"content-type": "application/json",
