@@ -3334,7 +3334,7 @@ async function checkChatCountQue() { // функция проверки коли
 				let newres = result.match(/total.*?(\d+).*/)[1];
 				str.innerHTML = 'Количество чатов в работе КЦ + ТП: ' + newres;
 					} , 2000)
-				}
+				})
 }
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
