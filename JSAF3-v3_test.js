@@ -3271,7 +3271,7 @@ async function getStats() {           // функция получения ст�
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
 	
 	let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
-    quechatscount.textContent = 'Узнать количетсво чатов в очереди'
+    quechatscount.textContent = 'Узнать кол-во чатов в очереди'
     quechatscount.id = 'buttonQueChatsCount'
     quechatscount.style.marginLeft = '50px'
     quechatscount.onclick = checkCSAT
@@ -3279,6 +3279,62 @@ async function getStats() {           // функция получения ст�
 
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
+}
+
+async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
+	let str = document.createElement('p')
+    str.style.paddingLeft = '50px'
+    if(document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+    document.getElementById('buttonCheckStats').textContent = 'Загрузка'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+    var date = new Date()
+    day = month = ""
+    if(date.getMonth() < 9)
+        month = "0" + (date.getMonth() + 1)
+    else
+        month = (date.getMonth() + 1)
+    if(date.getDate() < 10)
+        day = "0" + date.getDate()
+    else
+        day = date.getDate()
+
+    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
+    date = date - 24 * 60 * 60 * 1000
+    var date2 = new Date()
+    date2.setTime(date)
+
+    if(date2.getMonth() < 9)
+        month2 = "0" + (date2.getMonth() + 1)
+    else
+        month2 = (date2.getMonth() + 1)
+    if(date2.getDate() < 10)
+        day2 = "0" + date2.getDate()
+    else
+        day2 = date2.getDate()
+
+    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
+	
+	 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+			  "headers": {
+				"accept": "*/*",
+				"content-type": "application/json",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			  },
+			  "referrer": "https://skyeng.autofaq.ai/logs",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"AssignedToOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}).then(r => r.text()).then(result => {
+										setTimeout(function() {
+				let newres = result.match(/total.*?(\d+).*/)[1];
+				str.innerHTML = 'Количество чатов в работе КЦ + ТП: ' + newres;
+					} , 2000)
+				}
 }
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
