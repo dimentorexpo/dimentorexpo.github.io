@@ -3293,6 +3293,8 @@ async function getStats() {           // функция получения ст�
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
+let chatneraspcount=0;
+let chattpquecount=0;
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
@@ -3344,8 +3346,8 @@ async function checkChatCountQue() { // функция проверки коли
 			  "credentials": "include"
 			}).then(r => r.text()).then(result => {
 										setTimeout(function() {
-				let newres = result.match(/total.*?(\d+).*/)[1];
-				str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
+				chatneraspcount = result.match(/total.*?(\d+).*/)[1];
+		//		str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
 					} , 1000)
 				})
 		
@@ -3365,10 +3367,11 @@ async function checkChatCountQue() { // функция проверки коли
 			  "credentials": "include"
 			}).then(r1 => r1.text()).then(result1 => {
 										setTimeout(function() {	
-				let newres2 = result1.match(/total.*?(\d+).*/)[1];
-				str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
+				chattpquecount = result1.match(/total.*?(\d+).*/)[1];
+		//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
 					} , 1000)
 				})	
+					str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + 'Количество чатов в очереди ТП: ' + chattpquecount;		
 	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
