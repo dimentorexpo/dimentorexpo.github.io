@@ -3299,7 +3299,6 @@ let chattpquecount=0;
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
 	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     var date = new Date()
@@ -3369,7 +3368,9 @@ async function checkChatCountQue() { // функция проверки коли
 		//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
 					} , 1000)
 				})	
-					str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;		
+			document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+			str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;		
+
 	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
