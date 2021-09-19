@@ -3294,8 +3294,8 @@ async function getStats() {           // функция получения ст�
 	
 }
 
-let chatneraspcount=0;
-let chattpquecount=0;
+let chatneraspcount;
+let chattpquecount;
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
@@ -3367,12 +3367,16 @@ async function checkChatCountQue() { // функция проверки коли
 				chattpquecount = result1.match(/total.*?(\d+).*/)[1];
 		//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
 					} , 1000)
-				})	
+				})
+			
+			setTimeout(function() {				
 			document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-			str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;		
+			str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;	
+			} , 1000)	
 
 	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
+
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
