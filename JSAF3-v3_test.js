@@ -3299,11 +3299,8 @@ async function checkChatCountQue() { // функция проверки коли
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-	let str2 = document.createElement('p')
-    str2.style.paddingLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str2)
-	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку'){
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()}
+	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     var date = new Date()
     day = month = ""
     if(date.getMonth() < 9)
@@ -3371,7 +3368,7 @@ async function checkChatCountQue() { // функция проверки коли
 		//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
 					} , 1000)
 				})	
-					str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + 'Количество чатов в очереди ТП: ' + chattpquecount;		
+					str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + 'Количество чатов в очереди ТП: ' + chattpquecount;		
 	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
