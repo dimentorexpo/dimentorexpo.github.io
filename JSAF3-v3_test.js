@@ -3366,9 +3366,12 @@ async function checkChatCountQue() { // функция проверки коли
 				chattpquecount = result1.match(/total.*?(\d+).*/)[1];
 		//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
 					} , 1000)
-				})	
+				})
+			
+			setTimeout(function() {				
 			document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-			str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;		
+			str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;	
+			} , 1000)	
 
 	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
