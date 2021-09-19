@@ -181,6 +181,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getlgsinfo">🔎</button>
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
+					<input id="cmsstepid" placeholder="CMS group ID" title="вводим group Id, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="cmsid">🔎</button>
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -960,6 +962,16 @@ document.getElementById('groupadm').onclick = function () {                     
         window.open(lnngr + grid.value);
     };
     grid.value = "";
+}
+
+document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
+    let lnkstep = 'https://cms-vimbox.skyeng.ru/vim/update/lesson/';
+    if(cmsstepid.value == "")
+        console.log('Введите lessonid в поле')
+    else {
+        window.open(lnkstep + cmsstepid.value);
+    };
+    cmsstepid.value = "";
 }
 
 document.getElementById('setservicelocaleru').onclick = function () {    
