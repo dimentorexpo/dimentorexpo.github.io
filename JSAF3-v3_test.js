@@ -3302,7 +3302,6 @@ async function checkChatCountQue() { // функция проверки коли
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str2)
 	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-	document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     var date = new Date()
     day = month = ""
     if(date.getMonth() < 9)
