@@ -3299,8 +3299,6 @@ async function checkChatCountQue() { // функция проверки коли
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     var date = new Date()
     day = month = ""
     if(date.getMonth() < 9)
@@ -3370,6 +3368,8 @@ async function checkChatCountQue() { // функция проверки коли
 				})	
 					str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;		
 	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
+	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
 }
 
 async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
