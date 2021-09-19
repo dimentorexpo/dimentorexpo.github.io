@@ -3368,7 +3368,7 @@ async function checkChatCountQue() { // функция проверки коли
 		//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
 					} , 1000)
 				})	
-					str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + "\n" + 'Количество чатов в очереди ТП: ' + chattpquecount;		
+					str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount +  '\n Количество чатов в очереди ТП: ' + chattpquecount;		
 	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
