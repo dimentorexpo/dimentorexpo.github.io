@@ -3296,8 +3296,6 @@ async function getStats() {           // функция получения ст�
 let chatneraspcount;
 let chattpquecount;
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
-	chattpquecount=0;
-	chattpquecount=0;
 	let str = document.createElement('p')
     str.style.paddingLeft = '50px'
 	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
