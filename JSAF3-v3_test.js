@@ -2424,6 +2424,12 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
         btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
         btn10.setAttribute('onClick','sendComment("#Передача на исход");')
+		
+	let btn11 = document.createElement('span');
+        btn11.id = 'operatormistake'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
+        btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
+        btn11.setAttribute('onClick','sendComment("#оо");')
     }
 }
 
