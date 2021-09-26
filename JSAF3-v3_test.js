@@ -11,7 +11,7 @@ function mystyles() {
 		margin: -2px 1px;
 	}
 	.ant-btn.expert-get_ticket.ant-btn-block {
-		background-color: #000 !important;
+		background-color: #fff !important;
 	}
 	button {
 		background-color:#768d87;
