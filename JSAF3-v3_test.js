@@ -105,7 +105,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px;  width: 30px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.34</button>
+				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.35</button>
 				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.32</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
@@ -2482,9 +2482,6 @@ function timerHideButtons() {
     }
 }
 
-const z = document.querySelectorAll('.expert-get_ticket');
-
-
 function requestsRed() {
     document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
         txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
@@ -2492,7 +2489,6 @@ function requestsRed() {
             document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
         else
             document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
-			z[0].style.backgroundColor = "white";
     });
 }
 
