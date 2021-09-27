@@ -3590,8 +3590,8 @@ const z = document.querySelectorAll('.ant-btn.expert-get_ticket.ant-btn-block');
 
 function repaint() {
     if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].textContent == "Взять запрос (0)") {
-        else z.classList.remove('new-color');
-    } else z.classList.add('new-color');
+        else z[1].classList.remove('new-color');
+    } else z[1].classList.add('new-color');
 } 
 
 setInterval(repaint, 800);
