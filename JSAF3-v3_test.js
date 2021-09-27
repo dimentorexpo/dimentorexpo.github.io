@@ -3594,7 +3594,7 @@ function repaint() {
     } else z[1].classList.add('new-color');
 } 
 
-setInterval(repaint, 800);
+setInterval(repaint, 2000);
 
 
 function weWillNotBeSlaves() {
