@@ -3595,9 +3595,10 @@ function textToUTF8String(string) {
 
 //document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"
 
-const z = document.querySelectorAll('.ant-btn.expert-get_ticket.ant-btn-block');
+
 
 function repaint() {
+	const z = document.querySelectorAll('.ant-btn.expert-get_ticket.ant-btn-block');
 			if (z.classList.contains('.ant-btn.expert-get_ticket.ant-btn-block')) {
 				if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].textContent == "Взять запрос (0)") {
 						z[1].classList.remove('new-color');
