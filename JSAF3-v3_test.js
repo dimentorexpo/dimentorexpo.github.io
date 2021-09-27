@@ -3581,7 +3581,7 @@ function textToUTF8String(string) {
     return string2
 }
 
-document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"
+//document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"
 
 function repaint() {
     if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor == "red"){
