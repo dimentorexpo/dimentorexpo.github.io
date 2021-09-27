@@ -17,15 +17,7 @@ function mystyles() {
 		padding: 3px 2px;
 		margin: -2px 1px;
 	}
-	
-	.ant-btn.expert-get_ticket.ant-btn-block {
-		background-color: #fff !important;
-	}
-	.new-color {
-		background-color: #F34723 !important;
-	}
-	
-		button {
+	button {
 		background-color:#768d87;
 		border-radius:5px; 
 		border:1px solid #566963; 
@@ -3593,9 +3585,8 @@ function textToUTF8String(string) {
     return string2
 }
 
-//document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"
-
-
+//document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white*
+/*
 const z = document.querySelectorAll('.ant-btn.expert-get_ticket.ant-btn-block');
 function repaint() {
 			if (z[1].classList.contains('ant-btn-block')) {
@@ -3608,7 +3599,7 @@ function repaint() {
 }
 
 setInterval(repaint, 2000);
-
+*/
 
 
 function weWillNotBeSlaves() {
