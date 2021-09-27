@@ -13,6 +13,9 @@ function mystyles() {
 	.ant-btn.expert-get_ticket.ant-btn-block {
 		background-color: #fff !important;
 	}
+	.new-color {
+		background-color: #red;
+	}
 	button {
 		background-color:#768d87;
 		border-radius:5px; 
@@ -3583,10 +3586,12 @@ function textToUTF8String(string) {
 
 //document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"
 
+const z = document.querySelectorAll('.ant-btn.expert-get_ticket.ant-btn-block');
+
 function repaint() {
     if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].textContent == "Взять запрос (0)") {
-        document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "white";
-    } else document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].style.backgroundColor = "red";
+        else z.classList.remove('new-color');
+    } else z.classList.add('new-color');
 } 
 
 setInterval(repaint, 800);
