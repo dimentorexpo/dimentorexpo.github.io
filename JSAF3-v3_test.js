@@ -2,7 +2,7 @@
 		background-color: #fff !important;
 	}
 	.new-color {
-		background-color: #red;
+		background-color: #F34723;
 	}
 	*/
 function mystyles() {
@@ -16,6 +16,13 @@ function mystyles() {
 		font-size: 12px;
 		padding: 3px 2px;
 		margin: -2px 1px;
+	}
+	
+	.ant-btn.expert-get_ticket.ant-btn-block {
+		background-color: #fff !important;
+	}
+	.new-color {
+		background-color: #F34723;
 	}
 
 	button {
@@ -3587,18 +3594,19 @@ function textToUTF8String(string) {
 }
 
 //document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white"
-/*
+
 const z = document.querySelectorAll('.ant-btn.expert-get_ticket.ant-btn-block');
 
 function repaint() {
     if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].textContent == "Взять запрос (0)") {
 		z[1].classList.remove('new-color');
 	}
-	else {z[1].classList.add('new-color');}
+	else {
+	z[1].classList.add('new-color');}
 } 
 
 setInterval(repaint, 2000);
-*/
+
 
 function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
