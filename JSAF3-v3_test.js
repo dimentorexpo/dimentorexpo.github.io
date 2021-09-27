@@ -2482,6 +2482,9 @@ function timerHideButtons() {
     }
 }
 
+const z = document.querySelectorAll('.expert-get_ticket');
+
+
 function requestsRed() {
     document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
         txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
@@ -2489,6 +2492,7 @@ function requestsRed() {
             document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
         else
             document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
+			z[0].style.backgroundColor = "white";
     });
 }
 
@@ -3584,6 +3588,8 @@ function textToUTF8String(string) {
     }
     return string2
 }
+
+
 
 //document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white*
 /*
