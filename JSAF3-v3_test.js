@@ -22,7 +22,7 @@ function mystyles() {
 		background-color: #fff !important;
 	}
 	.new-color {
-		background-color: #F34723;
+		background-color: #F34723 !important;
 	}
 	
 		button {
