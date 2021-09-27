@@ -3603,7 +3603,7 @@ function repaint() {
 						z[1].classList.remove('new-color');
 					} else {
 						z[1].classList.add('new-color');
-					} else return;
+					}
 }
 }
 
