@@ -269,6 +269,8 @@ let word_text = ""
 let template_text = ""
 let flagggg = 0
 
+document.getElementsByClassName('ant-btn expert-chat-header-button ant-dropdown-trigger ant-btn-icon-only')[2].remove()
+
 button2.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
