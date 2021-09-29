@@ -1475,20 +1475,12 @@ async function buttonsFromDoc(butName) {
             count = await checkHistory(uid.split(',')[0])
             if (count > 1 && flagggg == 0) {
                 if (document.getElementById('languageAF').innerHTML == "Русский") {
-                    if (localStorage.getItem('scriptAdr') == TS_addr)
-                        txt = 'Помогите мне'
                     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                        txt = "Подождите ТП"
-                    if (localStorage.getItem('scriptAdr') == KC_addr)
-                        txt = "Сейчас я вам помогу"
+                        txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут"
                 }
                 else {
-                    if (localStorage.getItem('scriptAdr') == TS_addr)
-                        txt = "I’m going to help you now."
                     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                        txt = "Подождите (англ)"
-                    if (localStorage.getItem('scriptAdr') == KC_addr)
-                        txt = "Подождите (англ)"
+                        txt = "Please wait a few minutes."
                 }
                 flagggg = 1
             } else {
