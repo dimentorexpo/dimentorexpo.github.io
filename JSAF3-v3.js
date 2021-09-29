@@ -1475,7 +1475,7 @@ async function buttonsFromDoc(butName) {
                     if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
                         txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
                     else
-                        txt = "Здравствуйте!"
+                        txt = "Здравствуйте!  Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
                 else
                     txt = "Hello. Please wait a few minutes."
             }
@@ -1485,7 +1485,7 @@ async function buttonsFromDoc(butName) {
             else
                 txt = "Hello. Please wait a few minutes."
         }
-        if (txt == "I’m going to help you now.")
+        if (txt == "lease wait a few minutes.")
             sendAnswer(txt)
         else
             sendAnswerTemplate2(txt)
