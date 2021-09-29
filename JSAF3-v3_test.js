@@ -1472,7 +1472,7 @@ async function buttonsFromDoc(butName) {
             adr = adr1 = uid = ""
             var values = await getInfo(0).then(values => { adr = values[0]; adr1 = values[1]; uid = values[2]; });
 
-            count = await checkHistory(uid.split(',')[0])
+/*count = await checkHistory(uid.split(',')[0])
             if (count > 1 && flagggg == 0) {
                 if (document.getElementById('languageAF').innerHTML == "Русский") {
                     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
@@ -1482,7 +1482,7 @@ async function buttonsFromDoc(butName) {
                     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                         txt = "Please wait a few minutes."
                 }
-            } else {
+            } else {*/
                 flagggg = 0
                 a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
                 a = a.split(' ')
