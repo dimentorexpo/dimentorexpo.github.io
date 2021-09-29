@@ -1476,7 +1476,7 @@ async function buttonsFromDoc(butName) {
             if (count > 1 && flagggg == 0) {
                 if (document.getElementById('languageAF').innerHTML == "Русский") {
                     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                        txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут"
+                        txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
                 }
                 else {
                     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
@@ -1490,9 +1490,9 @@ async function buttonsFromDoc(butName) {
 
                 if (document.getElementById('languageAF').innerHTML == "Русский")
                     if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
-                        txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+                        txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
                     else
-                        txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+                        txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
                 else
                     txt = "Hello. Please wait a few minutes."
             }
