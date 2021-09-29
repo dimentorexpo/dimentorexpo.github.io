@@ -1444,33 +1444,33 @@ function transfPageButtons(textFromTable) {
 }
 
 async function buttonsFromDoc(butName) {
-    if(butName == "ус+брауз")
-        if(user == 'student')
+    if (butName == "ус+брауз")
+        if (user == 'student')
             butName = "ус+брауз (У)"
         else
             butName = "ус+брауз (П)"
 
-    if(butName == 'Привет') {
-        try{
+    if (butName == 'Привет') {
+        try {
             adr = adr1 = uid = ""
-            var values = await getInfo(0).then(values => {adr = values[0]; adr1 = values[1]; uid = values[2];});
+            var values = await getInfo(0).then(values => { adr = values[0]; adr1 = values[1]; uid = values[2]; });
 
             count = await checkHistory(uid.split(',')[0])
-            if(count > 1 && flagggg == 0) {
-                if(document.getElementById('languageAF').innerHTML == "Русский") {
-                    if(localStorage.getItem('scriptAdr') == TS_addr)
+            if (count > 1 && flagggg == 0) {
+                if (document.getElementById('languageAF').innerHTML == "Русский") {
+                    if (localStorage.getItem('scriptAdr') == TS_addr)
                         txt = 'Помогите мне'
-                    if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+                    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                         txt = "Подождите ТП"
-                    if(localStorage.getItem('scriptAdr') == KC_addr)
+                    if (localStorage.getItem('scriptAdr') == KC_addr)
                         txt = "Сейчас я вам помогу"
                 }
                 else {
-                    if(localStorage.getItem('scriptAdr') == TS_addr)
+                    if (localStorage.getItem('scriptAdr') == TS_addr)
                         txt = "I’m going to help you now."
-                    if(localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+                    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                         txt = "Подождите (англ)"
-                    if(localStorage.getItem('scriptAdr') == KC_addr)
+                    if (localStorage.getItem('scriptAdr') == KC_addr)
                         txt = "Подождите (англ)"
                 }
                 flagggg = 1
@@ -1480,21 +1480,21 @@ async function buttonsFromDoc(butName) {
                 a = a.split(' ')
                 const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-                if(document.getElementById('languageAF').innerHTML == "Русский")
-                    if(cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
-                        txt = "Здравствуйте, " + a[0] + "!"
+                if (document.getElementById('languageAF').innerHTML == "Русский")
+                    if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
+                        txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
                     else
                         txt = "Здравствуйте!"
                 else
-                    txt = "Hello!"
+                    txt = "Hello. Please wait a few minutes."
             }
-        } catch(e) {
-            if(document.getElementById('languageAF').innerHTML == "Русский")
-                txt = "Здравствуйте!"
+        } catch (e) {
+            if (document.getElementById('languageAF').innerHTML == "Русский")
+                txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут"
             else
-                txt = "Hello!"
+                txt = "Hello. Please wait a few minutes."
         }
-        if(txt == "I’m going to help you now.")
+        if (txt == "I’m going to help you now.")
             sendAnswer(txt)
         else
             sendAnswerTemplate2(txt)
