@@ -1498,7 +1498,7 @@ async function buttonsFromDoc(butName) {
             }
         } catch (e) {
             if (document.getElementById('languageAF').innerHTML == "Русский")
-                txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут"
+                txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
             else
                 txt = "Hello. Please wait a few minutes."
         }
