@@ -1499,7 +1499,7 @@ async function buttonsFromDoc(butName) {
 
                 if (document.getElementById('languageAF').innerHTML == "Русский")
                     if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
-                        txt = "Здравствуйте, " + a[0] + "!"
+                        txt = "Здравствуйте, " + a[0] + "!" + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут"
                     else
                         txt = "Здравствуйте!"
                 else
@@ -1507,7 +1507,7 @@ async function buttonsFromDoc(butName) {
             }
         } catch (e) {
             if (document.getElementById('languageAF').innerHTML == "Русский")
-                txt = "Здравствуйте!"
+                txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут"
             else
                 txt = "Hello!"
         }
