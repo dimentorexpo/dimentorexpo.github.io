@@ -1482,7 +1482,6 @@ async function buttonsFromDoc(butName) {
                     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
                         txt = "Please wait a few minutes."
                 }
-                flagggg = 1
             } else {
                 flagggg = 0
                 a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
@@ -1493,7 +1492,7 @@ async function buttonsFromDoc(butName) {
                     if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
                         txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
                     else
-                        txt = "Здравствуйте!"
+                        txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
                 else
                     txt = "Hello. Please wait a few minutes."
             }
@@ -1503,7 +1502,7 @@ async function buttonsFromDoc(butName) {
             else
                 txt = "Hello. Please wait a few minutes."
         }
-        if (txt == "I’m going to help you now.")
+        if (txt == "Please wait a few minutes.")
             sendAnswer(txt)
         else
             sendAnswerTemplate2(txt)
