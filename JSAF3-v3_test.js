@@ -358,8 +358,6 @@ buttonloc.onclick = function () {
     document.getElementById('responseTextarea3').value = 'statusofcrmprofile'
     document.getElementById('sendResponse').click()
 	
-	document.getElementById("changeServiceLocale").style.color = "white";
-
     function getId() {
 
         var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
@@ -391,10 +389,12 @@ buttonloc.onclick = function () {
 			document.getElementById("changeServiceLocale").style.color = "green";
             document.getElementById("changeServiceLocale").innerHTML = "Локаль успешно изменена";
             setTimeout(function () { document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU" }, 3000);
+			setTimeout(function () { document.getElementById("changeServiceLocale").style.color = "white"; }, 3000);
         } else {
             document.getElementById("changeServiceLocale").style.color = "red";
             document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
             setTimeout(function () { document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU" }, 3000);
+			setTimeout(function () { document.getElementById("changeServiceLocale").style.color = "white"; }, 3000);
         }
     }
     setTimeout(getId, 1000);
