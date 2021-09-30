@@ -99,7 +99,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
 				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.35</button>
-				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.32</button>
+				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.33.1</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" style="color: lightgreen; margin-top: 5px"></button>
