@@ -3456,6 +3456,7 @@ function prepTp() {
         include("https://dimentorexpo.github.io/reportForm.js");
         // Модуль репорта на Отписку
         include("https://dimentorexpo.github.io/unsub.js")
+		include("https://dimentorexpo.github.io/snow.js")
     }, 2000)
 
 }
