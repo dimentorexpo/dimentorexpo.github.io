@@ -76,7 +76,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
-                    			<input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
+                    <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
 			
 				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
