@@ -119,7 +119,7 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			
 			  <div>
-				<input type="color" id="head" name="colorofhover" value="#656ee6">
+				<input type="color" id="colorofhover" name="colorofhover" value="#656ee6">
 				<button onclick="changeInit()">ChangeBG</button>
 			  </div>
 			
