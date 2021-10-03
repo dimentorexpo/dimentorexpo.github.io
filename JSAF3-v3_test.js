@@ -18,23 +18,20 @@ function mystyles() {
 		margin: -2px 1px;
 	}
 	button {
-  display: inline-block;
+  position: relative;
   font-weight: bold;
-  color: #fff;
+  color: white;
   text-decoration: none;
-  text-shadow: 0 -1px rgba(0,0,0,.5);
+  text-shadow: 0 -1px 1px #cc5500;
   user-select: none;
-  padding: .7em 1.5em;
-  border: 1px solid rgb(80,32,0);
-  border-radius: 5px;
+  padding: .8em 2em;
   outline: none;
-  background: rgb(147,80,36) linear-gradient(rgb(106,58,26), rgb(147,80,36) 80%);
-  box-shadow:
-   0 6px rgb(86,38,6),
-   0 3px 15px rgba(0,0,0,.4),
-   inset 0 1px rgba(255,255,255,.3),
-   inset 0 0 3px rgba(255,255,255,.5);
-  transition: .2s;
+  border-radius: 1px;
+  background: linear-gradient(to left, rgba(0,0,0,.3), rgba(0,0,0,.0) 50%, rgba(0,0,0,.3)), linear-gradient(#d77d31, #fe8417, #d77d31);
+  background-size: 100% 100%, auto;
+  background-position: 50% 50%;
+  box-shadow: inset #ebab00 0 -1px 1px, inset 0 1px 1px #ffbf00, #cc7722 0 0 0 1px, #000 0 10px 15px -10px;
+  transition: 0.2s;
 	}
 	button:hover {
 		background: #6A5ACD;
