@@ -18,20 +18,11 @@ function mystyles() {
 		margin: -2px 1px;
 	}
 	button {
-  position: relative;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  text-shadow: 0 -1px 1px #cc5500;
-  user-select: none;
-  padding: .8em 2em;
-  outline: none;
-  border-radius: 1px;
-  background: linear-gradient(to left, rgba(0,0,0,.3), rgba(0,0,0,.0) 50%, rgba(0,0,0,.3)), linear-gradient(#d77d31, #fe8417, #d77d31);
-  background-size: 100% 100%, auto;
-  background-position: 50% 50%;
-  box-shadow: inset #ebab00 0 -1px 1px, inset 0 1px 1px #ffbf00, #cc7722 0 0 0 1px, #000 0 10px 15px -10px;
-  transition: 0.2s;
+		background-color:#768d87;
+		border-radius:5px; 
+		border:1px solid #566963; 
+		color:#ffffff; 
+		padding:2px 2px;
 	}
 	button:hover {
 		background: #6A5ACD;
