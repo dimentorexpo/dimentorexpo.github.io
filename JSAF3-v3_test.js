@@ -118,6 +118,11 @@ var win_AFhelper =  // описание элементов главного ок
 				</p>
 			</div>
 			
+			  <div>
+				<input type="color" id="head" name="colorofhover" value="#656ee6">
+				<button onclick="changeInit()">ChangeBG</button>
+			  </div>
+			
 			<div style="margin: 5px; width: 300px" id="testDiv">
 				<button id="takeNewChat">Взять чат</button>
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
@@ -288,7 +293,32 @@ buttonhistory.onclick = function () {
     search.click()
 }
 
+    function changeInit() {
+      localStorage.setItem('colordata', document.getElementById('colorofhover').value)
+    }
+	window.onload = setClassToBtn;
 
+    function setClassToBtn() {
+      let btns = document.getElementsByTagName('button')
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].onmouseover = setColor;
+        btns[i].onmouseout = setPrevColor;
+      }
+    }
+
+    function setPrevColor() {
+      let btns = document.getElementsByTagName('button')
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].removeAttribute('style')
+      }
+    }
+
+    function setColor(eventObj) {
+      eventObj.preventDefault();
+      var colordata = eventObj.target;
+      colordata.style.background = localStorage.getItem('colordata')
+    }
+	
 var getidfromaf;
 buttonmobpas.onclick = function () {
 
