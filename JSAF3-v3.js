@@ -3230,9 +3230,9 @@ async function checkChatCountQue() { // функция проверки коли
     else
         month2 = (date2.getMonth() + 1)
     if(date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
+        day2 = "0" + (date2.getDate() - 1)
     else
-        day2 = date2.getDate()
+        day2 = (ate2.getDate() - 1)
 
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
 	 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
