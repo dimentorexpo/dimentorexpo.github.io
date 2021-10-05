@@ -353,16 +353,16 @@ buttonloc.onclick = function() {
      document.getElementById('responseTextarea3').value = 'statusofcrmprofile'
 	 document.getElementById('sendResponse').click()
 	 
-	 function getId() {
-	
-	        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
+    function getId() {
+
+        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
         document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
-		
-		console.log("proverka statusresult = " + statusResult);
-		
-		if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
-			document.getElementById("changeServiceLocale").style.color = "green";
-				document.getElementById('responseTextarea1').value = `{
+
+        console.log("proverka statusresult = " + statusResult);
+
+        if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
+            
+            document.getElementById('responseTextarea1').value = `{
 				   "headers": {
 					"content-type": "application/json",
 					"sec-fetch-dest": "empty",
@@ -377,19 +377,22 @@ buttonloc.onclick = function() {
 				  "credentials": "include"
 		 
 	 }`
-	 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/"+getidnewfromaf
-     document.getElementById('responseTextarea3').value = ''
-	 document.getElementById('sendResponse').click()
-	 
-	 	document.getElementById("changeServiceLocale").innerHTML = "Локаль успешно изменена";
-		setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
-		} else {
-			document.getElementById("changeServiceLocale").style.color = "red";
-			document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
-			setTimeout(function() {document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU"}, 3000);
-		}
-	 } 
-	 setTimeout(getId, 1000);
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + getidnewfromaf
+            document.getElementById('responseTextarea3').value = ''
+            document.getElementById('sendResponse').click()
+
+			document.getElementById("changeServiceLocale").style.color = "green";
+            document.getElementById("changeServiceLocale").innerHTML = "Локаль успешно изменена";
+            setTimeout(function () { document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU" }, 3000);
+			setTimeout(function () { document.getElementById("changeServiceLocale").style.color = "black"; }, 3000);
+        } else {
+            document.getElementById("changeServiceLocale").style.color = "red";
+            document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
+            setTimeout(function () { document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU" }, 3000);
+			setTimeout(function () { document.getElementById("changeServiceLocale").style.color = "black"; }, 3000);
+        }
+    }
+    setTimeout(getId, 1000);
 }
 
 button3.onclick = function() {
