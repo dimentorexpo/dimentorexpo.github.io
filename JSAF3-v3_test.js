@@ -200,6 +200,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
+					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getskipAP" style="width: 25.23px;">💾</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -1071,6 +1073,18 @@ function move_again_AF() {
         document.getElementById('getenablerAP').innerHTML = "✅";
         setTimeout(function () { document.getElementById('getenablerAP').innerHTML = "💾" }, 2000);
         enablerAP.value = "";
+    }
+	
+	    document.getElementById('getskipAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
+        let skipAPlnk = 'https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId=';
+        if (skipAP.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard(skipAPlnk + skipAP.value);
+        };
+        document.getElementById('getskipAP').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
+        skipAP.value = "";
     }
 
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
