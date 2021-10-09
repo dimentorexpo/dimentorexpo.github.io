@@ -1135,7 +1135,7 @@ function move_again_AF() {
             document.getElementById('AF_Jira').style.display = ''
             console.log(testJira.value)
 			setTimeout(getJiraTask, 1000);
-			    function getJiraTask() {
+			   async function getJiraTask() {
                 document.getElementById('responseTextarea1').value = `{
 					  "headers": {
 						 "__amdmodulename": "jira/issue/utils/xsrf-token-header",
