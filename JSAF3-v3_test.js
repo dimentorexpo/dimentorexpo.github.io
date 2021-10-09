@@ -1130,9 +1130,9 @@ function move_again_AF() {
         skipAP.value = "";
     }
 	
-		    document.getElementById('getJiraTasks').onclick = function () {               // сохранение в буфере ссылки для активации АП
-		console.log("Correctly!");
-    }
+	//	    document.getElementById('getJiraTasks').onclick = function () {               // сохранение в буфере ссылки для активации АП
+	//	console.log("Correctly!");
+    //}
 
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
