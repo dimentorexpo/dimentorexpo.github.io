@@ -1159,7 +1159,12 @@ function move_again_AF() {
 					   else {
 			   rezissuetable = JSON.parse(rezissuetable)
 			   document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-			   document.getElementById('issuetable').innerHTML = rezissuetable.issueTable
+			   
+			   let issues =[];
+			   for (let i==0; i<10; i==) {
+				   issues += rezissuetable.issueTable.issueKeys[i] + '</br>'				   
+			   }
+			   document.getElementById('issuetable').innerHTML = issues
 			   console.log(rezissuetable.issueTable.issueKeys);
 			   testJira.value = "";	
 			   return
