@@ -1131,7 +1131,6 @@ function move_again_AF() {
         skipAP.value = "";
     }
 	
-	let rezissuetable;
 		    document.getElementById('getJiraTasks').onclick = function () { 
             document.getElementById('AF_Jira').style.display = ''
             console.log(testJira.value)
@@ -1155,7 +1154,7 @@ function move_again_AF() {
                 document.getElementById('responseTextarea3').value = 'getissuetable'
 				document.getElementById('sendResponse').click()
 
-                rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
+                let rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
 				rezissuetable = JSON.parse(rezissuetable);
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 				console.log(rezissuetable);
