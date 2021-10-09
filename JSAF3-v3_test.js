@@ -1161,7 +1161,7 @@ function move_again_AF() {
 			   document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 			   
 			   let issues =[];
-			   for (let i==0; i<10; i==) {
+			   for (let i=0; i<10; i++) {
 				   issues += rezissuetable.issueTable.issueKeys[i] + '</br>'				   
 			   }
 			   document.getElementById('issuetable').innerHTML = issues
