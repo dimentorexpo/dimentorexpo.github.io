@@ -202,6 +202,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getskipAP" style="width: 25.23px;">💾</button>
+					<input id="testJira" placeholder="Testing Jira Tasks Search" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 				</div>		
 				
 				<div style="margin: 5px; width: 520px" id="links_butd">	
@@ -210,6 +212,22 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 			</span>
 	</span>
+</div>`;
+
+var win_Jira =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 524px;">
+        <span style="width: 524px">
+			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px; width: 520;" id="links_1str">
+					<button id="hideMej" style="width:50px; background: #228B22;">hide</button>
+				</div>				
+				<div style="margin: 5px; width: 520px" id="jira_tasks_box">
+				<button>Test</button>
+				</div>	
+				<div style="margin: 5px; width: 520px;" id="links_but">			
+				</div>		
+			</span>
+		</span>
 </div>`;
 
 let audio
@@ -222,6 +240,10 @@ if (localStorage.getItem('winTopAF') == null) { // началоное полож
 if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
+}
+if (localStorage.getItem('winTopJira') == null) { // началоное положение окна ссылок (если не задано ранее)
+    localStorage.setItem('winTopJira', '120');
+    localStorage.setItem('winLeftJira', '295');
 }
 
 
@@ -661,6 +683,12 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id', 'AF_Links');
 wintLinks.innerHTML = win_Links;
 
+let wintJira = document.createElement('div'); // создание окна ссылок
+document.body.append(wintJira);
+wintJira.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopJira') + 'px; left: ' + localStorage.getItem('winLeftJira') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintJira.style.display = 'none';
+wintJira.setAttribute('id', 'AF_Jira');
+wintJira.innerHTML = win_Jira;
 
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -673,6 +701,21 @@ wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = fu
     window.myX4 = a.layerX;
     window.myY4 = a.layerY;
     document.addEventListener('mousemove', listener4);
+}
+wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listener4); }
+
+
+var listener5 = function (e, a) { // сохранение позиции окна ссылок
+    wintJira.style.left = Number(e.clientX - myX4) + "px";
+    wintJira.style.top = Number(e.clientY - myY4) + "px";
+    localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
+    localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX4)));
+};
+
+wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX4 = a.layerX;
+    window.myY4 = a.layerY;
+    document.addEventListener('mousemove', listener5);
 }
 wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listener4); }
 
@@ -1086,6 +1129,18 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
+	
+		    document.getElementById('getJiraTasks').onclick = function () {               // сохранение в буфере ссылки для активации АП
+        let skipAPlnk = 'https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId=';
+        if (skipAP.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard(skipAPlnk + skipAP.value);
+        };
+        document.getElementById('getskipAP').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
+        skipAP.value = "";
+    }
 
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
@@ -1181,12 +1236,26 @@ function move_again_AF() {
         else
             document.getElementById('AF_Links').style.display = ''
     }
+	
+	    document.getElementById('getJiraTasks').onclick = function () {
+        if (document.getElementById('AF_Jira').style.display == '')
+            document.getElementById('AF_Jira').style.display = 'none'
+        else
+            document.getElementById('AF_Jira').style.display = ''
+    }
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
         else
             document.getElementById('AF_Links').style.display = ''
+    }
+	
+	    document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Jira').style.display == '')
+            document.getElementById('AF_Jira').style.display = 'none'
+        else
+            document.getElementById('AF_Jira').style.display = ''
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
