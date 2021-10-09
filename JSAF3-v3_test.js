@@ -1165,7 +1165,7 @@ function move_again_AF() {
 
                 rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-				console.log(rezissuetable);
+				console.log(rezissuetable.json());
 				}
 				
             }         
