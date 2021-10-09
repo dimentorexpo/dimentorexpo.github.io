@@ -1156,7 +1156,7 @@ function move_again_AF() {
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 				console.log(rezissuetable);
 				testJira.value = "";	
-				}, 1000)
+				}, 3000)
 
 			}      
     
