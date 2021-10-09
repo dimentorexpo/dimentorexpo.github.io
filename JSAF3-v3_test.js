@@ -1159,8 +1159,8 @@ function move_again_AF() {
 				document.getElementById('sendResponse').click()
 
                 var rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
-                document.getElementById('responseTextarea1').removeAttribute('getissuetable');
 				var reztojson = JSON.parse(rezissuetable)
+                document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 				console.log(reztojson);
 				}
 				setTimeout(getJiraTask, 1000);
