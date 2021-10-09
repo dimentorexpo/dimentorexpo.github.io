@@ -1155,14 +1155,13 @@ function move_again_AF() {
 
 			   document.getElementById('AF_Jira').style.display = ''
 			   let rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
-								   if(rezissuetable == null)
+								   if(rezissuetable == null || rezissuetable !=null)
 					   setTimeout(getJiraTask, 1000)
 					   else {
 			   rezissuetable = JSON.parse(rezissuetable)
 			   document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 			   console.log(rezissuetable);
 			   testJira.value = "";	
-			   rezissuetable = null;
 			}}, 500)
 		   }      
     
