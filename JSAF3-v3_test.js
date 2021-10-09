@@ -1135,7 +1135,7 @@ function move_again_AF() {
 		    document.getElementById('getJiraTasks').onclick = function () { 
             document.getElementById('AF_Jira').style.display = ''
             console.log(testJira.value)
-			   async function getJiraTask() {
+			 setTimeout(function getJiraTask() {
                 document.getElementById('responseTextarea1').value = `{
 					  "headers": {
 						 "__amdmodulename": "jira/issue/utils/xsrf-token-header",
@@ -1159,7 +1159,7 @@ function move_again_AF() {
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 				console.log(rezissuetable);
 				testJira.value = "";	
-				}
+				}, 1000)
 
             }         
     
