@@ -1130,9 +1130,8 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-	
-		    document.getElementById('getJiraTasks').onclick = function () { 
-            document.getElementById('AF_Jira').style.display = ''
+	          document.getElementById('getJiraTasks').onclick = function () { 
+        //    document.getElementById('AF_Jira').style.display = ''
             console.log(testJira.value)
 			setTimeout(getJiraTask, 1000);
 			   async function getJiraTask() {
@@ -1252,10 +1251,13 @@ function move_again_AF() {
     }
 
     document.getElementById('links').onclick = function () {
-        if (document.getElementById('AF_Links').style.display == '')
-            document.getElementById('AF_Links').style.display = 'none'
-        else
-            document.getElementById('AF_Links').style.display = ''
+        if (document.getElementById('AF_Links').style.display == '' && document.getElementById('AF_Jira').style.display == ''){
+            document.getElementById('AF_Links').style.display = 'none';
+			document.getElementById('AF_Jira').style.display == 'none';
+		} else {
+            document.getElementById('AF_Links').style.display = '';
+			document.getElementById('AF_Jira').style.display == '';
+			}
     }
 
 
