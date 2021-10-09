@@ -1171,7 +1171,7 @@ function move_again_AF() {
 						templable = JSON.parse(templabel);
 											}, 500)
 						
-				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="">' + rezissuetable.issueTable.issueKeys[i]'</a> + "templabel.issue.summary[i]"</br>'			   
+				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="">' + rezissuetable.issueTable.issueKeys[i]'</a>'${templabel.issue.summary[i]}'</br>'			   
 			   }
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
