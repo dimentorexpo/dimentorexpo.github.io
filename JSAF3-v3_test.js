@@ -715,7 +715,7 @@ wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = fun
     window.myY5 = a.layerY;
     document.addEventListener('mousemove', listener5);
 }
-wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listener4); }
+wintJira.onmouseup = function () { document.removeEventListener('mousemove', listener5); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -725,6 +725,9 @@ document.getElementById('links_but').ondblclick = function () { // скрыти�
 }
 document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
+}
+document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Jira').style.display = 'none';
 }
 
 let wintAF = document.createElement('div');
