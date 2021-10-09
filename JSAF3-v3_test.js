@@ -1134,7 +1134,7 @@ function move_again_AF() {
 		    document.getElementById('getJiraTasks').onclick = function () { 
             document.getElementById('AF_Jira').style.display = ''
             console.log(testJira.value)
-			setTimeout(getJiraTask, 1500);
+			setTimeout(getJiraTask, 2000);
 			    function getJiraTask() {
                 document.getElementById('responseTextarea1').value = `{
 					  "headers": {
