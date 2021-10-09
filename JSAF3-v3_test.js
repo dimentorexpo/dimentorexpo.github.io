@@ -1162,12 +1162,10 @@ function move_again_AF() {
 			   
 			   let issues =[];
 			   for (let i=0; i<10; i++) {
-				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick=window.open"">' + rezissuetable.issueTable.issueKeys[i] + '</a></br>'				   
+				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="">' + rezissuetable.issueTable.issueKeys[i] + '</a></br>			   
 			   }
 			  document.getElementById('issuetable').innerHTML = issues
 			   console.log(rezissuetable.issueTable.issueKeys);
-			   testJira.value = "";	
-			   return
 			}}, 500)
 		   }      
     
