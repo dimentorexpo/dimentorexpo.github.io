@@ -1143,7 +1143,7 @@ function move_again_AF() {
             console.log(text_container)
 			};
 			testJira.value = "";	
-			setTimeout(getJiraTask, 1000);
+			setTimeout(getJiraTask, 1500);
 			    function getJiraTask() {
                 document.getElementById('responseTextarea1').value = `{
 					  "headers": {
@@ -1164,10 +1164,11 @@ function move_again_AF() {
 				document.getElementById('sendResponse').click()
 
                 rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
+				rezissuetable = JSON.parse(rezissuetable);
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-
-				}
 				console.log(rezissuetable);
+				}
+
             }         
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
