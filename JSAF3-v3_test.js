@@ -217,17 +217,15 @@ var win_Links =  // описание элементов окна ссылок
 var win_Jira =  // описание элементов окна ссылок
     `<div style="display: flex; width: 524px;">
         <span style="width: 524px">
-			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 520;" id="links_1str">
-					<button id="hideMej" style="width:50px; background: #228B22;">hide</button>
-				</div>				
-				<div style="margin: 5px; width: 520px" id="jira_tasks_box">
-				<button>Test</button>
-				</div>	
-				<div style="margin: 5px; width: 520px;" id="links_but">			
-				</div>		
-			</span>
-		</span>
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 520;" id="jira_1str">
+                                <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+                        <div style="margin: 5px; width: 520px" id="jira_tasks_box">
+                                <button>Test</button>
+                        </div>
+                </span>
+        </span>
 </div>`;
 
 let audio
