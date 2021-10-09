@@ -1165,9 +1165,9 @@ function move_again_AF() {
 
                 rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-				console.log(JSON.parse(rezissuetable));
+
 				}
-				
+				console.log(rezissuetable);
             }         
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
