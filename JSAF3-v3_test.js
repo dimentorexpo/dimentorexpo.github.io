@@ -1135,7 +1135,7 @@ function move_again_AF() {
 		    document.getElementById('getJiraTasks').onclick = function () { 
             if(document.getElementById('AF_Jira').style.display = 'none'){
 			document.getElementById('AF_Jira').style.display = '';}
-            console.log(testJira.value)
+			else {
 			 setTimeout(function getJiraTask() {
                 document.getElementById('responseTextarea1').value = `{
 					  "headers": {
@@ -1161,7 +1161,8 @@ function move_again_AF() {
 				testJira.value = "";	
 				}, 1000)
 
-            }         
+            }  
+			}      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
