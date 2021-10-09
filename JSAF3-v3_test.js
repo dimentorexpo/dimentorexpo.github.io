@@ -222,7 +222,7 @@ var win_Jira =  // описание элементов окна ссылок
                                 <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 520px" id="jira_tasks_box">
-                                <p id="issuetable"></p>
+                                <p id="issuetable" style="color: white"></p>
                         </div>
                 </span>
         </span>
