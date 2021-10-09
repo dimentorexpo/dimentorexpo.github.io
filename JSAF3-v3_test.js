@@ -706,8 +706,8 @@ wintLinks.onmouseup = function () { document.removeEventListener('mousemove', li
 var listener5 = function (e, a) { // сохранение позиции окна ссылок
     wintJira.style.left = Number(e.clientX - myX5) + "px";
     wintJira.style.top = Number(e.clientY - myY5) + "px";
-    localStorage.setItem('winTopLinks', String(Number(e.clientY - myY5)));
-    localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX5)));
+    localStorage.setItem('winTopJira', String(Number(e.clientY - myY5)));
+    localStorage.setItem('winLeftJira', String(Number(e.clientX - myX5)));
 };
 
 wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
