@@ -1132,13 +1132,11 @@ function move_again_AF() {
     }
 	
 		    document.getElementById('getJiraTasks').onclick = function () { 
-        if (document.getElementById('AF_Jira').style.display == '')
-            document.getElementById('AF_Jira').style.display = 'none'
-        else
             document.getElementById('AF_Jira').style.display = ''	
-       if (testJira.value == "")
+			if (testJira.value == "") {
             console.log('Введите поле для поиска')
-        else {
+			}
+			else {
             console.log(testJira.value)
         };
         testJira.value = "";		
