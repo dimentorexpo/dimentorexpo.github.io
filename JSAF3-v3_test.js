@@ -1134,15 +1134,7 @@ function move_again_AF() {
 	let rezissuetable;
 		    document.getElementById('getJiraTasks').onclick = function () { 
             document.getElementById('AF_Jira').style.display = ''
-			
-			let text_container = testJira.value;
-			if (text_container == "") {
-            console.log('Введите поле для поиска')
-			}
-			else {
-            console.log(text_container)
-			};
-			testJira.value = "";	
+            console.log(testJira.value)
 			setTimeout(getJiraTask, 1500);
 			    function getJiraTask() {
                 document.getElementById('responseTextarea1').value = `{
@@ -1154,7 +1146,7 @@ function move_again_AF() {
 						"x-atlassian-token": "no-check",
 						"x-requested-with": "XMLHttpRequest"
 					  },
-					  "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOB%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${text_container}+%22+ORDER+BY+updated&layoutKey=list-view",
+					  "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOB%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
 					  "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1167,6 +1159,7 @@ function move_again_AF() {
 				rezissuetable = JSON.parse(rezissuetable);
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 				console.log(rezissuetable);
+				testJira.value = "";	
 				}
 
             }         
