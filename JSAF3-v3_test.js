@@ -1132,7 +1132,6 @@ function move_again_AF() {
     }
 	
 		    document.getElementById('getJiraTasks').onclick = function () { 
-						console.log("Correctly!");
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
         else
