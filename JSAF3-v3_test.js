@@ -1132,11 +1132,12 @@ function move_again_AF() {
     }
 	
 		    document.getElementById('getJiraTasks').onclick = function () { 
+						console.log("Correctly!");
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
         else
             document.getElementById('AF_Jira').style.display = ''			
-			console.log("Correctly!");
+
     }
 
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
