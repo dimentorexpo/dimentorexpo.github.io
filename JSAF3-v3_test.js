@@ -1162,7 +1162,16 @@ function move_again_AF() {
 			   
 			   let issues =[];
 			   for (let i=0; i<10; i++) {
-				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="">' + rezissuetable.issueTable.issueKeys[i] + '</a></br>'			   
+					setTimeout(function() { document.getElementById('responseTextarea1').value = `{{}`
+											document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[i]
+											document.getElementById('responseTextarea3').value = 'getlabels'					
+											document.getElementById('sendResponse').click()
+
+						let templabel = document.getElementById('responseTextarea1').getAttribute('getlabels');
+						templable = JSON.parse(templabel);
+											}, 500)
+						
+				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="">' + rezissuetable.issueTable.issueKeys[i] + templabel.issue.summary[i] '</a></br>'			   
 			   }
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
