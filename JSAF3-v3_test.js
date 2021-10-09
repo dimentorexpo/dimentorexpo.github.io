@@ -1136,13 +1136,12 @@ function move_again_AF() {
     }
 
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
-        let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
-        if (crmoneinfo.value == "")
-            console.log('Введите id  ученика в поле')
+         if (testJira.value == "")
+            console.log('Введите поле для поиска')
         else {
-            window.open(crmonelnk + crmoneinfo.value);
+            console.log(testJira.value)
         };
-        crmoneinfo.value = "";
+        testJira.value = "";
     }
 
     document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
