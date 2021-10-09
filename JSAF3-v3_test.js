@@ -1158,7 +1158,6 @@ function move_again_AF() {
 				testJira.value = "";	
 				}, 1000)
 
-            }  
 			}      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
