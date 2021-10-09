@@ -1133,7 +1133,8 @@ function move_again_AF() {
 	         
 	
 		    document.getElementById('getJiraTasks').onclick = function () { 
-            document.getElementById('AF_Jira').style.display = ''
+            if(document.getElementById('AF_Jira').style.display = 'none'){
+			document.getElementById('AF_Jira').style.display = '';}
             console.log(testJira.value)
 			 setTimeout(function getJiraTask() {
                 document.getElementById('responseTextarea1').value = `{
