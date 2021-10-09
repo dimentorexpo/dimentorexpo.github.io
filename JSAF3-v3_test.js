@@ -222,7 +222,7 @@ var win_Jira =  // описание элементов окна ссылок
                                 <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 520px" id="jira_tasks_box">
-                                <button>Test</button>
+                                <p id="issuetable"></p>
                         </div>
                 </span>
         </span>
@@ -1159,7 +1159,8 @@ function move_again_AF() {
 					   else {
 			   rezissuetable = JSON.parse(rezissuetable)
 			   document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-			   console.log(rezissuetable);
+			   document.getElementById('issuetable').innerHTML = rezissuetable.issueTable
+			   console.log(rezissuetable.issueTable.issueKeys);
 			   testJira.value = "";	
 			   return
 			}}, 500)
