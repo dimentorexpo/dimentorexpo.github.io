@@ -1131,15 +1131,7 @@ function move_again_AF() {
     }
 	
 		    document.getElementById('getJiraTasks').onclick = function () {               // сохранение в буфере ссылки для активации АП
-        let skipAPlnk = 'https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId=';
-        if (skipAP.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard(skipAPlnk + skipAP.value);
-        };
-        document.getElementById('getskipAP').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
-        skipAP.value = "";
+		console.log("Correctly!");
     }
 
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
@@ -1236,19 +1228,21 @@ function move_again_AF() {
         else
             document.getElementById('AF_Links').style.display = ''
     }
-	
-	    document.getElementById('getJiraTasks').onclick = function () {
-        if (document.getElementById('AF_Jira').style.display == '')
-            document.getElementById('AF_Jira').style.display = 'none'
-        else
-            document.getElementById('AF_Jira').style.display = ''
-    }
+
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
         else
             document.getElementById('AF_Links').style.display = ''
+    }
+	
+		
+	    document.getElementById('getJiraTasks').onclick = function () {
+        if (document.getElementById('AF_Jira').style.display == '')
+            document.getElementById('AF_Jira').style.display = 'none'
+        else
+            document.getElementById('AF_Jira').style.display = ''
     }
 	
 	    document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
