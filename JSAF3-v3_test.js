@@ -1136,17 +1136,24 @@ function move_again_AF() {
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
         else
-            document.getElementById('AF_Jira').style.display = ''			
-
-    }
-
-    document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
-         if (testJira.value == "")
+            document.getElementById('AF_Jira').style.display = ''	
+       if (testJira.value == "")
             console.log('Введите поле для поиска')
         else {
             console.log(testJira.value)
         };
-        testJira.value = "";
+        testJira.value = "";		
+
+    }
+
+    document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
+        let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
+        if (crmoneinfo.value == "")
+            console.log('Введите id  ученика в поле')
+        else {
+            window.open(crmonelnk + crmoneinfo.value);
+        };
+        crmoneinfo.value = "";
     }
 
     document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
