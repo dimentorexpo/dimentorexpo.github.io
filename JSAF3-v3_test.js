@@ -706,15 +706,15 @@ wintLinks.onmouseup = function () { document.removeEventListener('mousemove', li
 
 
 var listener5 = function (e, a) { // сохранение позиции окна ссылок
-    wintJira.style.left = Number(e.clientX - myX4) + "px";
-    wintJira.style.top = Number(e.clientY - myY4) + "px";
-    localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
-    localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX4)));
+    wintJira.style.left = Number(e.clientX - myX5) + "px";
+    wintJira.style.top = Number(e.clientY - myY5) + "px";
+    localStorage.setItem('winTopLinks', String(Number(e.clientY - myY5)));
+    localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX5)));
 };
 
 wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX4 = a.layerX;
-    window.myY4 = a.layerY;
+    window.myX5 = a.layerX;
+    window.myY5 = a.layerY;
     document.addEventListener('mousemove', listener5);
 }
 wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listener4); }
