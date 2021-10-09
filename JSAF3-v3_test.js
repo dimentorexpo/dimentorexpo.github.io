@@ -1154,8 +1154,7 @@ function move_again_AF() {
                 document.getElementById('responseTextarea3').value = 'getissuetable'
 				document.getElementById('sendResponse').click()
 
-                let rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
-				rezissuetable = JSON.parse(rezissuetable);
+                let rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 				console.log(rezissuetable);
 				testJira.value = "";	
