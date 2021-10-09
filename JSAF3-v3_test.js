@@ -1164,6 +1164,8 @@ function move_again_AF() {
 			   testJira.value = "";	
 			} else if (rezissuetable) {
 				setTimeout(getJiraTask, 1000)
+			    rezissuetable = JSON.parse(rezissuetable)
+			 
 			}
 			
 			}, 500)
