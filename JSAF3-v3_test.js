@@ -1131,8 +1131,12 @@ function move_again_AF() {
         skipAP.value = "";
     }
 	
-		    document.getElementById('getJiraTasks').onclick = function () {               // сохранение в буфере ссылки для активации АП
-		console.log("Correctly!");
+		    document.getElementById('getJiraTasks').onclick = function () { 
+        if (document.getElementById('AF_Jira').style.display == '')
+            document.getElementById('AF_Jira').style.display = 'none'
+        else
+            document.getElementById('AF_Jira').style.display = ''			
+			console.log("Correctly!");
     }
 
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
@@ -1237,14 +1241,7 @@ function move_again_AF() {
             document.getElementById('AF_Links').style.display = ''
     }
 	
-		
-	    document.getElementById('getJiraTasks').onclick = function () {
-        if (document.getElementById('AF_Jira').style.display == '')
-            document.getElementById('AF_Jira').style.display = 'none'
-        else
-            document.getElementById('AF_Jira').style.display = ''
-    }
-	
+			
 	    document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
