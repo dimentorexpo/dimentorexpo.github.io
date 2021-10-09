@@ -1131,8 +1131,10 @@ function move_again_AF() {
         skipAP.value = "";
     }
 	
+	let rezissuetable;
 		    document.getElementById('getJiraTasks').onclick = function () { 
             document.getElementById('AF_Jira').style.display = ''
+			
 			let text_container = testJira.value;
 			if (text_container == "") {
             console.log('Введите поле для поиска')
@@ -1161,9 +1163,9 @@ function move_again_AF() {
                 document.getElementById('responseTextarea3').value = 'getissuetable'
 				document.getElementById('sendResponse').click()
 
-                var rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
+                rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
                 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-				console.log(rezissuetable.issueTable);
+				console.log(rezissuetable);
 				}
 				
             }         
