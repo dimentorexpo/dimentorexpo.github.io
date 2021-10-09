@@ -1131,7 +1131,6 @@ function move_again_AF() {
         skipAP.value = "";
     }
 	         
-	
 		document.getElementById('getJiraTasks').onclick = function () { 
 			setTimeout(function getJiraTask() {
 			   document.getElementById('responseTextarea1').value = `{
@@ -1151,19 +1150,19 @@ function move_again_AF() {
 			   document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
 			   document.getElementById('responseTextarea3').value = 'getissuetable'
 			   document.getElementById('sendResponse').click()
-				   setTimeout(getJiraTask, 1000)
+				   
 
 			   document.getElementById('AF_Jira').style.display = ''
 			   let rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
-					//			   if(rezissuetable == null)
-					//   setTimeout(getJiraTask, 1000)
-					//   else {
+								   if(rezissuetable == null)
+					   setTimeout(getJiraTask, 1000)
+					   else {
 			   rezissuetable = JSON.parse(rezissuetable)
 			   document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 			   console.log(rezissuetable);
 			   testJira.value = "";	
-		//	}
-			}, 500)
+			   return
+			}}, 500)
 		   }      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
