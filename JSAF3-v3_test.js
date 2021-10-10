@@ -1172,9 +1172,9 @@ function move_again_AF() {
 						}
 												
 						let barray = document.querySelectorAll('.jiraissues')
-						for (i=0;i<barray.length;i++) {
-							barray[i].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i]))
-						}
+						//for (i=0;i<barray.length;i++) {
+							barray[0].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[0]))
+						//}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
