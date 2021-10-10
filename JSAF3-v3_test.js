@@ -58,6 +58,10 @@ function mystyles() {
 		background: #fff;
 		box-shadow: inset 0 0 10px 0 #999999; /* тень */
 	}
+	
+	.issuetbl a {
+		color = white;
+	}
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
@@ -222,7 +226,7 @@ var win_Jira =  // описание элементов окна ссылок
                                 <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 520px" id="jira_tasks_box">
-                                <p id="issuetable" style="color: white"></p>
+                                <p id="issuetable" class="issuetbl" style="color: white"></p>
                         </div>
                 </span>
         </span>
