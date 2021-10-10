@@ -1164,7 +1164,7 @@ function move_again_AF() {
 			   let issues =[];
 			   let arraytmpl=[];
 			   for (let i=0; i<10; i++) {
-				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.table.match(/browse.*?(\D+\d+".\D+<\/a>)/gm) + '" onclick="">' + rezissuetable.issueTable.table.match(/browse.*?(\D+\d+".\D+<\/a>)/gm) + '</a></br>'			   
+				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="">' + rezissuetable.issueTable.table.match(/browse.*?(\D+\d+".\D+<\/a>)/gm) + '</a></br>'			   
 			   }
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
