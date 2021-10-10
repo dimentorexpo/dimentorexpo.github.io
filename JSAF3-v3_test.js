@@ -727,6 +727,9 @@ document.getElementById('links_butd').ondblclick = function () { // скрыти
 document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
+document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Jira').style.display = 'none';
+}
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
