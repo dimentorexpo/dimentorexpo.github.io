@@ -1138,6 +1138,8 @@ function move_again_AF() {
 	         
 			document.getElementById('getJiraTasks').onclick = function () {
 				let rezissuetable;
+				document.getElementById('secondpage').style.color = "#00FFFF";
+				document.getElementById('firstpage').style.color = "#C0C0C0";
 				getJiraTask();
 				function getJiraTask() {
 					document.getElementById('responseTextarea1').value = `{
