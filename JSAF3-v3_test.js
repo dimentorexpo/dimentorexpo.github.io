@@ -1128,9 +1128,9 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-					let rezissuetable;         
+	         
 			document.getElementById('getJiraTasks').onclick = function () {
-
+				let rezissuetable;
 				document.getElementById('secondpage').style.color = "#00FFFF";
 				document.getElementById('firstpage').style.color = "#C0C0C0";
 				getJiraTask();
@@ -1173,8 +1173,7 @@ function move_again_AF() {
 
 						let barray = document.getElementsByClassName('jiraissues')
 						for (i=0;i<barray.length;i++) {
-					//		barray[i].addEventListener('onclick', sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]))
-							barray[i].setAttribute('onClick', 'sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]);')
+							barray[i].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]))
 						}
 
 
