@@ -1174,11 +1174,11 @@ function move_again_AF() {
 
 						document.getElementById('issuetable').innerHTML = issues;
 						let barray = document.querySelectorAll('.jiraissues')
-						//for (i=0;i<barray.length;i++) {
-							barray[0].onclick = function() {
-								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[0])
+						for (i=0;i<barray.length;i++) {
+							barray[i].onclick = function() {
+								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i])
 							}
-						//}
+						}
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 
