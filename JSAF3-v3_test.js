@@ -1180,11 +1180,12 @@ function move_again_AF() {
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 					
 					commentsarr = document.getElementsByClassName('sendcomments');
-					for(i=0;i<commentsarr.length;i++){
 						commentsarr[i].addEventListener('click', function () {
 						console.log(commentsarr[i] + " " + "clicked");
-						})
-					}
+						}
+						)
+						
+					
 						
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
