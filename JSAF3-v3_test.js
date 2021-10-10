@@ -226,8 +226,8 @@ var win_Jira =  // описание элементов окна ссылок
                         </div>
 						
 						<div style="width: 524px class="pagesswitcher" >
-						<span id="firstpage"> <a style="margin-right: 5px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">1</a>';</span>
-						<span id="secondpage"> <a style="margin-right: 5px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">2</a>';</span>
+						<a id="firstpage style="margin-right: 5px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">1</a>;
+						<a id="secondpage" style="margin-right: 5px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">2</a>;
 						<div>
                 </span>
         </span>
