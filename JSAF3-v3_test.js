@@ -1172,7 +1172,7 @@ function move_again_AF() {
 						let issues =[];
 						for (let i=0; i<10; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<p style="color: #00FA9A">&#5129;</p>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
@@ -1186,7 +1186,7 @@ function move_again_AF() {
 						document.getElementById('firstpage').style.color = "#00FFFF";
 						for (let i=10; i<20; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<p style="color: #00FA9A">&#5129;</p>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
@@ -1200,7 +1200,7 @@ function move_again_AF() {
 						document.getElementById('firstpage').style.color = "#C0C0C0";
 						for (let i=0; i<10; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<p style="color: #00FA9A">&#5129;</p>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
