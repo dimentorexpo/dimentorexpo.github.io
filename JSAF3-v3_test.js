@@ -1138,9 +1138,8 @@ function move_again_AF() {
 	         
 			document.getElementById('getJiraTasks').onclick = function () {
 				let rezissuetable;
-				if (document.getElementById('secondpage').style.color == "#C0C0C0"){
-				document.getElementById('firstpage').style.color = "##C0C0C0"; 
-				document.getElementById('secondpage').style.color = "#00FFFF";} else {
+				document.getElementById('secondpage').style.color = "#00FFFF";
+				document.getElementById('firstpage').style.color = "#C0C0C0";
 				getJiraTask();
 				function getJiraTask() {
 					document.getElementById('responseTextarea1').value = `{
@@ -1172,6 +1171,7 @@ function move_again_AF() {
 
 						let issues =[];
 						for (let i=0; i<10; i++) {
+							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
 							issues += '&#5129;' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
@@ -1207,7 +1207,7 @@ function move_again_AF() {
 			}
 
 			setTimeout(getJiraTask, 1000)
-			}}		
+			}		
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
