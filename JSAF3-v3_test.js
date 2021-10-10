@@ -58,7 +58,7 @@ function mystyles() {
 		background: #fff;
 		box-shadow: inset 0 0 10px 0 #999999; /* тень */
 	}
-	a .active {
+	.active a {
 		color: #C0C0C0;
 	}
 	.switch-on::after {
