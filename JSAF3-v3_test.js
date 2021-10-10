@@ -1179,12 +1179,14 @@ function move_again_AF() {
 						let issues =[];
 						if (rezissuetable.issueTable.issueKeys.length > 10 && rezissuetable.issueTable.issueKeys.length <20){
 						document.getElementById('issuetable').innerHTML = "";
+						document.getElementById('secondpage').style.color = "#C0C0C0";
+						document.getElementById('firstpage').style.color = "#00FFFF";
 						for (let i=10; i<20; i++) {
 							issues += '&#5129;' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
-						setTimeout(function () { testJira.value= ""; rezissuetable=null; issues=[]; }, 5000)}
+						setTimeout(function () { testJira.value= ""; }, 5000)}
 				})
 			}
 
