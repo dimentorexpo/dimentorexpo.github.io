@@ -1154,11 +1154,11 @@ function move_again_AF() {
 				   
 
 			   document.getElementById('AF_Jira').style.display = ''
-			   rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
+			   rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
 								   if(rezissuetable == null)
 					   setTimeout(getJiraTask, 1000)
 					   else {
-			   rezissuetable = JSON.parse(rezissuetable)
+			//   rezissuetable = JSON.parse(rezissuetable)
 			   document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 			   
 			   let issues =[];
@@ -1169,8 +1169,7 @@ function move_again_AF() {
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
 			    setTimeout(function () { testJira.value= ""; }, 10000)  	
-			}}, 500)
-					issues=[];				
+			}}, 500)			
 		   }      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
