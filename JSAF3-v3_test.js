@@ -1170,7 +1170,7 @@ function move_again_AF() {
 			   console.log(rezissuetable.issueTable.issueKeys);
 			    setTimeout(function () { testJira.value= ""; }, 10000)  	
 			}}, 500)
-					rezissuetable="";				
+					issues=[];				
 		   }      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
