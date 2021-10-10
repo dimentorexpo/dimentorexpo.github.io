@@ -1171,11 +1171,12 @@ function move_again_AF() {
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'					
 						}
 												
+
+						document.getElementById('issuetable').innerHTML = issues;
 						let barray = document.querySelectorAll('.jiraissues')
 						//for (i=0;i<barray.length;i++) {
 							barray[0].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[0]))
 						//}
-						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 
