@@ -1175,7 +1175,9 @@ function move_again_AF() {
 						document.getElementById('issuetable').innerHTML = issues;
 						let barray = document.querySelectorAll('.jiraissues')
 						//for (i=0;i<barray.length;i++) {
-							barray[0].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[0]))
+							barray[0].onclick = function() {
+								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[0])
+							}
 						//}
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
