@@ -1168,7 +1168,7 @@ function move_again_AF() {
 			   }
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
-			    setTimeout(function () { testJira.value= ""; }, 10000)  	
+			    setTimeout(function () { testJira.value= ""; rezissuetable=null; issues=[]; }, 10000)  	
 			}}, 500)			
 		   }      
     
