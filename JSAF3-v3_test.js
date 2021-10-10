@@ -1171,7 +1171,7 @@ function move_again_AF() {
 
 						let templabel = await document.getElementById('responseTextarea1').getAttribute('getlabels');
 						arraytmpl += templabel;
-						console.log(arraytmpl[i].issue.summary);
+
 						document.getElementById('responseTextarea1').removeAttribute('getlabels')
 					//	arraytmpl += templabel
 											}, 1000)
@@ -1183,8 +1183,9 @@ function move_again_AF() {
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
 			    setTimeout(function () { testJira.value= ""; }, 10000)  	
-
+				console.log(arraytmpl[i]);
 			}}, 500)
+									
 		   }      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
