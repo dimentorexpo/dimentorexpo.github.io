@@ -1180,8 +1180,8 @@ function move_again_AF() {
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 					
 					commentsarr = document.getElementsByClassName('sendcomments');
-						commentsarr[i].addEventListener('click', function () {
-						console.log(commentsarr[i] + " " + "clicked");
+						commentsarr.addEventListener('click', function () {
+						console.log(commentsarr + " " + "clicked");
 						}
 						)
 						
