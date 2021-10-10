@@ -1181,7 +1181,7 @@ function move_again_AF() {
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 					
 						function commentClicked() {
-							sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i);
+							sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]);
 						}
 					
 					document.getElementById('secondpage').addEventListener('click', function () {
