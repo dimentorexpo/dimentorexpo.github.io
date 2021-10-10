@@ -1173,7 +1173,7 @@ function move_again_AF() {
 			}
 			}
 			
-			setTimeout(getJiraTask, 500)			
+			setTimeout(getJiraTask, 1000)			
 		}      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
