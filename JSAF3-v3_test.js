@@ -1132,6 +1132,7 @@ function move_again_AF() {
     }
 	         
 		document.getElementById('getJiraTasks').onclick = function () { 
+		getJiraTask();
 		let rezissuetable;
 		function getJiraTask() {
 			   document.getElementById('responseTextarea1').value = `{
