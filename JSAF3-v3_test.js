@@ -1128,9 +1128,9 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-	         
+					let rezissuetable;         
 			document.getElementById('getJiraTasks').onclick = function () {
-				let rezissuetable;
+
 				document.getElementById('secondpage').style.color = "#00FFFF";
 				document.getElementById('firstpage').style.color = "#C0C0C0";
 				getJiraTask();
