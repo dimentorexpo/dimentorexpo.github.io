@@ -1132,6 +1132,7 @@ function move_again_AF() {
     }
 	         
 		document.getElementById('getJiraTasks').onclick = function () { 
+		let rezissuetable;
 			setTimeout(function getJiraTask() {
 			   document.getElementById('responseTextarea1').value = `{
 					 "headers": {
@@ -1153,7 +1154,7 @@ function move_again_AF() {
 				   
 
 			   document.getElementById('AF_Jira').style.display = ''
-			   let rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
+			   rezissuetable = document.getElementById('responseTextarea1').getAttribute('getissuetable')
 								   if(rezissuetable == null)
 					   setTimeout(getJiraTask, 1000)
 					   else {
@@ -1164,7 +1165,7 @@ function move_again_AF() {
 			   let arraytmpl=[];
 			   for (let i=0; i<10; i++) {
 					setTimeout(function() { document.getElementById('responseTextarea1').value = `{}`
-											document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey=VIM-14649"
+											document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[i]
 											document.getElementById('responseTextarea3').value = 'getlabels'					
 											document.getElementById('sendResponse').click()
 
