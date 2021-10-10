@@ -202,7 +202,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getskipAP" style="width: 25.23px;">💾</button>
-					<input id="testJira" placeholder="Testing Jira Tasks Bar" title="введите слово или фразу для поиска по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
+					<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 				</div>		
 				
