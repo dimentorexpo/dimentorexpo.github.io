@@ -1216,10 +1216,10 @@ function move_again_AF() {
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
-						let barray = document.querySelectorAll('.jiraissues')
-						for (let j=0;j<barray.length;j++) {
-							barray[j].onclick = function() {
-								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
+						let barray2 = document.querySelectorAll('.jiraissues')
+						for (let k=0;j<barray2.length;k++) {
+							barray2[k].onclick = function() {
+								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i])
 							}
 						}
 						console.log(rezissuetable.issueTable.issueKeys);
