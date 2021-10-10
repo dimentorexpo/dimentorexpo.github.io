@@ -1128,9 +1128,8 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-	         
+				let rezissuetable;	         
 			document.getElementById('getJiraTasks').onclick = function () {
-				let rezissuetable;
 				document.getElementById('secondpage').style.color = "#00FFFF";
 				document.getElementById('firstpage').style.color = "#C0C0C0";
 				getJiraTask();
@@ -1171,10 +1170,7 @@ function move_again_AF() {
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 
-						let barray = document.getElementsByClassName('jiraissues')
-						for (i=0;i<barray.length;i++) {
-							barray[i].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]))
-						}
+
 
 
 					document.getElementById('secondpage').addEventListener('click', function () {
@@ -1210,6 +1206,12 @@ function move_again_AF() {
 			setTimeout(getJiraTask, 1000)
 			}		
     
+					let barray = document.getElementsByClassName('jiraissues')
+						for (i=0;i<barray.length;i++) {
+							barray[i].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]))
+						}
+	
+	
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
         if (crmoneinfo.value == "")
