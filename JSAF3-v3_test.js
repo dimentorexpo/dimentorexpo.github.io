@@ -1176,6 +1176,7 @@ function move_again_AF() {
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 
 					document.getElementById('secondpage').addEventListener('click', function () {
+						let issues =[];
 						if (rezissuetable.issueTable.issueKeys.length > 10 && rezissuetable.issueTable.issueKeys.length <20){
 						document.getElementById('issuetable').innerHTML = "";
 						for (let i=10; i<20; i++) {
