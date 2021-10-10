@@ -1173,7 +1173,7 @@ function move_again_AF() {
 
 						let barray = document.getElementsByClassName('jiraissues')
 						for (i=0;i<barray.length;i++) {
-							barray[i].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]))
+							barray[i].addEventListener('onclick', sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]))
 								
 						}
 
