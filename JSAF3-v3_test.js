@@ -1170,6 +1170,7 @@ function move_again_AF() {
 											document.getElementById('sendResponse').click()
 
 						let templabel = document.getElementById('responseTextarea1').getAttribute('getlabels');
+						templabel = JSON.parse(templabel)
 						console.log(templabel)	
 						document.getElementById('responseTextarea1').removeAttribute('getlabels')
 					//	arraytmpl += templabel
@@ -1182,7 +1183,6 @@ function move_again_AF() {
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
 			    setTimeout(function () { testJira.value= ""; }, 10000)  	
-				console.log(arraytmpl[i]);
 			}}, 500)
 									
 		   }      
