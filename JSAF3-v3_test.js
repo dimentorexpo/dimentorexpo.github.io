@@ -1200,12 +1200,13 @@ function move_again_AF() {
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; }, 5000)
 				})
-				
-			}
-						let barray = document.getElementsByClassName('jiraissues')
+										let barray = document.getElementsByClassName('jiraissues')
 						for (i=0;i<barray.length;i++) {
 							barray[i].addEventListener('click', sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]))
 						}
+				
+			}
+
 			setTimeout(getJiraTask, 1000)
 			}		
     
