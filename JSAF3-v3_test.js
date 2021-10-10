@@ -1180,7 +1180,7 @@ function move_again_AF() {
 					
 					document.getElementById('sendascomment').addEventListener('click', function () {
 						console.log("clicked");
-					}
+					})
 						
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
