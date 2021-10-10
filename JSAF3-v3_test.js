@@ -679,6 +679,22 @@ hashBut.onclick = function () {
     }
 
 }
+async function sendComment(txt) {
+    var values = await getInfo(0)
+    adr = values[0]; adr1 = values[1]; uid = values[2]
+    var txt2 = txt.split('\n').join('\\n')
+    var txt2 = txt2.split("\"").join("\\\"")
+    resetFlags()
+    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+        "headers": {
+            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+        },
+        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt2 + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+        "method": "POST",
+        "credentials": "include"
+    });
+}
+
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
 wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -1173,10 +1189,9 @@ function move_again_AF() {
 						let issues =[];
 						for (let i=0; i<10; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)				
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a>' + '<span onclick="sendComment("https://jira.skyeng.tech/browse/");" class="sendcomments">💬</span></br>'
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a>' + '<span onclick="sendComment("Test");" class="sendcomments">💬</span></br>'
 						}
 
-						commentsarr = document.getElementsByClassName('sendcomments');
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}			
@@ -2067,21 +2082,7 @@ async function getInfo(flag1 = 1) {
     }
     return [adr, adr1, sessionId]
 }
-async function sendComment(txt) {
-    var values = await getInfo(0)
-    adr = values[0]; adr1 = values[1]; uid = values[2]
-    var txt2 = txt.split('\n').join('\\n')
-    var txt2 = txt2.split("\"").join("\\\"")
-    resetFlags()
-    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-        "headers": {
-            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-        },
-        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt2 + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-        "method": "POST",
-        "credentials": "include"
-    });
-}
+
 idk = 0
 var tmrs = []
 function addTimer() {
