@@ -58,9 +58,6 @@ function mystyles() {
 		background: #fff;
 		box-shadow: inset 0 0 10px 0 #999999; /* тень */
 	}
-	.active a {
-		color: #C0C0C0;
-	}
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
@@ -229,7 +226,7 @@ var win_Jira =  // описание элементов окна ссылок
                         </div>
 						
 						<div style="width: 524px class="pagesswitcher" >
-						<a id="firstpage" class="active" style="margin-left: 246px; margin-right: 2px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">1</a>;
+						<a id="firstpage" class="active" style="margin-left: 246px; margin-right: 2px; margin-top: 10px; color: #C0C0C0; text-align: center; font-size: 16px; cursor: pointer;">1</a>;
 						<a id="secondpage" style="margin-right: 5px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">2</a>;
 						<div>
                 </span>
