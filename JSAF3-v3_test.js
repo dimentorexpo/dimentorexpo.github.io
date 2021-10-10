@@ -1171,10 +1171,10 @@ function move_again_AF() {
 						let templabel = document.getElementById('responseTextarea1').getAttribute('getlabels');
 						templabel = JSON.parse(templabel);
 						document.getElementById('responseTextarea1').removeAttribute('getlabels')
-						arraytmpl = templabel.issue.summary[i]
+						//arraytmpl = templabel.issue.summary[i]
 											}, 500)
 											
-											console.log(arraytmpl);
+											console.log(templabel);
 						
 	//			   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i]  '" onclick="">' + rezissuetable.issueTable.issueKeys[i] + templabel.issue.summary[i]'</a></br>'			   
 			   }
