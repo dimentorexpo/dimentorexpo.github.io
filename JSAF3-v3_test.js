@@ -1182,7 +1182,7 @@ function move_again_AF() {
 					commentsarr = document.getElementsByClassName('sendcomments');
 					for(i=0;i<commentsarr.length;i++){
 						commentsarr[i].addEventListener('click', function () {
-						console.log("clicked");
+						console.log(commentsarr[i] + " " + "clicked");
 						})
 					}
 						
