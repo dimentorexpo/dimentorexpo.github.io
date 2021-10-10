@@ -1138,8 +1138,9 @@ function move_again_AF() {
 	         
 			document.getElementById('getJiraTasks').onclick = function () {
 				let rezissuetable;
-				document.getElementById('secondpage').style.color = "#00FFFF";
-				document.getElementById('firstpage').style.color = "#C0C0C0";
+				if (document.getElementById('secondpage').style.color == "#C0C0C0"){
+				document.getElementById('firstpage').style.color = "##C0C0C0"; 
+				document.getElementById('secondpage').style.color = "#00FFFF";} else {
 				getJiraTask();
 				function getJiraTask() {
 					document.getElementById('responseTextarea1').value = `{
@@ -1206,7 +1207,7 @@ function move_again_AF() {
 			}
 
 			setTimeout(getJiraTask, 1000)
-			}		
+			}}		
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
