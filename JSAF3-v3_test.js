@@ -1174,7 +1174,7 @@ function move_again_AF() {
 						console.log(templabel);
 						document.getElementById('responseTextarea1').removeAttribute('getlabels')
 					//	arraytmpl += templabel
-											}, 500)
+											}, 1000)
 											
 
 						
