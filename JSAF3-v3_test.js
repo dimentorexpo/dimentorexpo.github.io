@@ -1133,7 +1133,7 @@ function move_again_AF() {
 	         
 		document.getElementById('getJiraTasks').onclick = function () { 
 		let rezissuetable;
-		//	setTimeout(function getJiraTask() {
+			setTimeout(function getJiraTask() {
 			   document.getElementById('responseTextarea1').value = `{
 					 "headers": {
 						"__amdmodulename": "jira/issue/utils/xsrf-token-header",
@@ -1170,8 +1170,8 @@ function move_again_AF() {
 			   console.log(rezissuetable.issueTable.issueKeys);
 			    setTimeout(function () { testJira.value= ""; rezissuetable=null; issues=[]; }, 10000)  	
 			}
-		//}, 500)			
-		   }      
+			}, 500)			
+		}      
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
