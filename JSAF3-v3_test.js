@@ -1168,20 +1168,29 @@ function move_again_AF() {
 			   document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 			   
 			   let issues =[];
-			   if (rezissuetable.issueTable.issueKeys.length <10){
 			   for (let i=0; i<10; i++) {
-				   issues += "*" + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'			   
+				   issues += '&#5129;' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'			   
 			   }
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
-			   setTimeout(function () { testJira.value= ""; rezissuetable=null; issues=[]; }, 5000)} else {
-				   console.log("Больше 10");
-			   }  	
-			}
+			    setTimeout(function () { testJira.value= ""; rezissuetable=null; issues=[]; }, 5000)}  
+				
+				document.getElementById('secondpage').addEventListener('click', function () {
+				if (rezissuetable.issueTable.issueKeys.length > 10 && rezissuetable.issueTable.issueKeys.length <20){){
+					document.getElementById('issuetable').innerHTML = "";
+					 for (let i=10; i<20; i++) {
+				   issues += '&#5129;' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a></br>'			   
+			   }
+			  document.getElementById('issuetable').innerHTML = issues;
+			   console.log(rezissuetable.issueTable.issueKeys);
+			    setTimeout(function () { testJira.value= ""; rezissuetable=null; issues=[]; }, 5000)}  
+				}
+				}
 			}
 			
 			setTimeout(getJiraTask, 1000)			
-		}      
+		}   
+		}		
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
