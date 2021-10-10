@@ -224,6 +224,11 @@ var win_Jira =  // описание элементов окна ссылок
                         <div style="margin: 5px; width: 520px" id="jira_tasks_box">
                                 <p id="issuetable"></p>
                         </div>
+						
+						<div style="width: 524px class="pagesswitcher" >
+						<span id="firstpage"> <a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">1</a>';</span>
+						<span id="secondpage"> <a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">2</a>';</span>
+						<div>
                 </span>
         </span>
 </div>`;
