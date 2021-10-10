@@ -1170,7 +1170,7 @@ function move_again_AF() {
 												
 						let barray = document.querySelectorAll('.jiraissues')
 							for (i=0;i<barray.length;i++) {
-								barray[i].setAttribute('onClick', 'sendComment("https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}");')
+								barray[i].setAttribute('onClick', 'sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i]");')
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
