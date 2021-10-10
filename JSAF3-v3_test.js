@@ -1169,9 +1169,8 @@ function move_again_AF() {
 											document.getElementById('responseTextarea3').value = 'getlabels'					
 											document.getElementById('sendResponse').click()
 
-						let templabel[i] = await document.getElementById('responseTextarea1').getAttribute('getlabels');
-						arraytmpl += templabel[i];
-
+						let templabel = document.getElementById('responseTextarea1').getAttribute('getlabels');
+						console.log(templabel.issue.summary)	
 						document.getElementById('responseTextarea1').removeAttribute('getlabels')
 					//	arraytmpl += templabel
 											}, 1000)
