@@ -1183,8 +1183,8 @@ function move_again_AF() {
 					for(i=0;i<commentsarr.length;i++){
 						commentsarr[i].addEventListener('click', function () {
 						console.log("clicked");
-						}
-					})
+						})
+					}
 						
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
