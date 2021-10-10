@@ -1198,7 +1198,7 @@ function move_again_AF() {
 						
 						let secpage = document.querySelectorAll('.jiraissues')
 						for (let d=0;d<secpage.length;d++) {
-							barray[d].onclick = function() {
+							secpage[d].onclick = function() {
 								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[d])
 							}
 						}
