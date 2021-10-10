@@ -1170,7 +1170,7 @@ function move_again_AF() {
 											document.getElementById('sendResponse').click()
 
 						let templabel[i] = await document.getElementById('responseTextarea1').getAttribute('getlabels');
-						templabel = JSON.parse(templabel);
+						templabel[i] = JSON.parse(templabel[i]);
 						console.log(templabel[i].issue.summary);
 						document.getElementById('responseTextarea1').removeAttribute('getlabels')
 					//	arraytmpl += templabel
