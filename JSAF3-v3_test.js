@@ -1173,7 +1173,7 @@ function move_again_AF() {
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
-						setTimeout(function () { testJira.value= ""; rezissuetable=null; issues=[]; }, 5000)}
+						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 
 					document.getElementById('secondpage').addEventListener('click', function () {
 						if (rezissuetable.issueTable.issueKeys.length > 10 && rezissuetable.issueTable.issueKeys.length <20){
