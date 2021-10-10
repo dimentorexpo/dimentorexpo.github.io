@@ -1177,7 +1177,7 @@ function move_again_AF() {
 
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
-						if (rezissuetable.issueTable.issueKeys.length > 10 && rezissuetable.issueTable.issueKeys.length <20){
+						if (rezissuetable.issueTable.issueKeys.length > 10){
 						document.getElementById('issuetable').innerHTML = "";
 						document.getElementById('secondpage').style.color = "#C0C0C0";
 						document.getElementById('firstpage').style.color = "#00FFFF";
