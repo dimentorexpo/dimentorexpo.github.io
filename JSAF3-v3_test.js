@@ -1173,10 +1173,11 @@ function move_again_AF() {
 												
 
 						document.getElementById('issuetable').innerHTML = issues;
+						
 						let barray = document.querySelectorAll('.jiraissues')
-						for (i=0;i<barray.length;i++) {
-							barray[i].onclick = function() {
-								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i])
+						for (let j=0;j<barray.length;j++) {
+							barray[j].onclick = function() {
+								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
 							}
 						}
 						console.log(rezissuetable.issueTable.issueKeys);
