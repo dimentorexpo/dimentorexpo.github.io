@@ -1175,14 +1175,15 @@ function move_again_AF() {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)				
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+\W+\d+">(\D+)<\/a>/gm)[i] + '</a>' + '<span onclick="commentClicked();" class="sendcomments">💬</span></br>'
 						}
+						function commentClicked(){
+						sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]);
+						}
 						commentsarr = document.getElementsByClassName('sendcomments');
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 					
-						function commentClicked() {
-							sendComment("https://jira.skyeng.tech/browse/"+rezissuetable.issueTable.issueKeys[i]);
-						}
+
 					
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
