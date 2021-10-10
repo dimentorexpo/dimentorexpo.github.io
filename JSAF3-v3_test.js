@@ -58,10 +58,6 @@ function mystyles() {
 		background: #fff;
 		box-shadow: inset 0 0 10px 0 #999999; /* тень */
 	}
-	
-	.issuetbl a {
-		color = white;
-	}
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
@@ -226,7 +222,7 @@ var win_Jira =  // описание элементов окна ссылок
                                 <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 520px" id="jira_tasks_box">
-                                <p id="issuetable" class="issuetbl" style="color: white"></p>
+                                <p id="issuetable"></p>
                         </div>
                 </span>
         </span>
@@ -1168,7 +1164,7 @@ function move_again_AF() {
 			   let issues =[];
 			   let arraytmpl=[];
 			   for (let i=0; i<10; i++) {
-				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="">' + rezissuetable.issueTable.table.match(/browse.*?(\D+\d+".\D+)<\/a>/gm)[i] + '</a></br>'			   
+				   issues += '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" style="color: yellow">' + rezissuetable.issueTable.table.match(/browse.*?(\D+\d+".\D+)<\/a>/gm)[i] + '</a></br>'			   
 			   }
 			  document.getElementById('issuetable').innerHTML = issues;
 			   console.log(rezissuetable.issueTable.issueKeys);
