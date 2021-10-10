@@ -1181,14 +1181,12 @@ function move_again_AF() {
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 					
 						for(i=0;i<commentsarr.length;i++) {
-						commentsarr[i].addEventListener('click', function () {
-						console.log(commentsarr + " " + "clicked");
+							commentsarr[i].addEventListener('click', function () {
+								console.log(commentsarr + " " + "clicked");
+							}
+							)
 						}
-						}
-						)
-						
 					
-						
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
 						if (rezissuetable.issueTable.issueKeys.length > 10){
