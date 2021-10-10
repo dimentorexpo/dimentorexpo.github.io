@@ -1132,8 +1132,8 @@ function move_again_AF() {
     }
 	         
 		document.getElementById('getJiraTasks').onclick = function () { 
-		getJiraTask();
 		let rezissuetable;
+		getJiraTask();
 		function getJiraTask() {
 			   document.getElementById('responseTextarea1').value = `{
 					 "headers": {
