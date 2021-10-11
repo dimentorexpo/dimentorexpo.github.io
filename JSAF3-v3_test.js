@@ -1183,7 +1183,7 @@ function move_again_AF() {
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 
-
+					let temparr=[];
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
 						if (rezissuetable.issueTable.issueKeys.length > 10){
@@ -1193,7 +1193,7 @@ function move_again_AF() {
 						for (let i=10; i<20; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>';
-									
+							temparr += rezissuetable.issueTable.issueKeys[i];
 						}
 						
 						document.getElementById('issuetable').innerHTML = issues;
@@ -1201,9 +1201,7 @@ function move_again_AF() {
 						let secpagearray = document.querySelectorAll('.jiraissues2')
 						for (let k=0;k<secpagearray.length;k++) {
 							secpagearray[k].onclick = function() {
-								for (let i=10; i<20; i++) {
-								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i])
-							}
+								 sendComment("https://jira.skyeng.tech/browse/" + temparr[i])
 							}
 						}
 						
