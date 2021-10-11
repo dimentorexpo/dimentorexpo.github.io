@@ -1193,6 +1193,10 @@ function move_again_AF() {
 						for (let i=10; i<20; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>';
+									
+						}
+						
+						document.getElementById('issuetable').innerHTML = issues;
 						
 						let secpagearray = document.querySelectorAll('.jiraissues2')
 						for (let j=0;j<secpagearray.length;j++) {
@@ -1201,14 +1205,11 @@ function move_again_AF() {
 							}
 						}
 						
-						}
-						document.getElementById('issuetable').innerHTML = issues;
-						
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; }, 5000)}
 				})
 				
-					document.getElementById('firstpage').addEventListener('click', function () {
+						document.getElementById('firstpage').addEventListener('click', function () {
 						let issues =[];
 						document.getElementById('issuetable').innerHTML = "";
 						document.getElementById('secondpage').style.color = "#00FFFF";
@@ -1217,10 +1218,11 @@ function move_again_AF() {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues3" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'
 						}
+						
 						document.getElementById('issuetable').innerHTML = issues;
 						
-						let barray = document.querySelectorAll('.jiraissues')
-						for (let j=0;j<barray.length;j++) {
+						let firstpagearray = document.querySelectorAll('.jiraissues3')
+						for (let j=0;j<firstpagearray.length;j++) {
 							barray[j].onclick = function() {
 								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
 							}
