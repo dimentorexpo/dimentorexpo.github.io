@@ -1201,7 +1201,7 @@ function move_again_AF() {
 						let secpagearray = document.querySelectorAll('.jiraissues2')
 						for (let k=0;k<secpagearray.length;k++) {
 							secpagearray[k].onclick = function() {
-								 sendComment("https://jira.skyeng.tech/browse/" + temparr[i])
+								 sendComment("https://jira.skyeng.tech/browse/" + temparr[k])
 							}
 						}
 						
