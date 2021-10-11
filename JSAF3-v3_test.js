@@ -1136,9 +1136,8 @@ function move_again_AF() {
 				let rezissuetable;
 				document.getElementById('secondpage').style.color = "#00FFFF";
 				document.getElementById('firstpage').style.color = "#C0C0C0";
-				getJiraTask();
-				function getJiraTask() {
-					document.getElementById('responseTextarea1').value = `{
+				
+				document.getElementById('responseTextarea1').value = `{
 								 "headers": {
 									"__amdmodulename": "jira/issue/utils/xsrf-token-header",
 								   "accept": "*/*",
@@ -1155,6 +1154,13 @@ function move_again_AF() {
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
 					document.getElementById('responseTextarea3').value = 'getissuetable'
 					document.getElementById('sendResponse').click()
+
+				function getJiraTask() {
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()		
+					
 
 
 					document.getElementById('AF_Jira').style.display = ''
