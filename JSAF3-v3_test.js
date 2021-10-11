@@ -1369,7 +1369,7 @@ document.getElementById('getJiraTasks').onclick = function () {
                         document.getElementById('responseTextarea1').removeAttribute('reportscount3')
 
                         count3 = repcount3.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-                        count3 = parseInt(count);
+                        count3 = parseInt(count3);
                         increasedcount3 = count3 + 1;
 						increasedcount3 = increasedcount3.toString();
                         console.log("count=" + count3 + " increasedcount " + increasedcount3);
