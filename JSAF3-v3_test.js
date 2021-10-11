@@ -1187,7 +1187,7 @@ function move_again_AF() {
 							}
 						}
 						
-						let refreshissuesarr = document.querySelectorAll('refreshissues');
+						let refreshissuesarr = document.getElementsByClassName('refreshissues');
 												for (let i=0;i<refreshissuesarr.length;i++) {
 													refreshissuesarr[i].onClick =  function() {
 														console.log(refreshissuesarr[i] +" " + "Clicked");
