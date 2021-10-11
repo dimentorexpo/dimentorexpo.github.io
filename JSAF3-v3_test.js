@@ -1229,8 +1229,8 @@ document.getElementById('getJiraTasks').onclick = function () {
                             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                             document.getElementById('responseTextarea3').value = ''
                             document.getElementById('sendResponse').click()
-                        }), 1000);
-                    }), 1000)
+                        }, 1000);
+                    }, 1000)
             }
         }
 
