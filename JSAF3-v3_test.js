@@ -132,16 +132,16 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 524px;">
-        <span style="width: 524px">
+    `<div style="display: flex; width: 540px;">
+        <span style="width: 540px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 520;" id="links_1str">
+				<div style="margin: 5px; width: 540;" id="links_1str">
 					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button id="creds" style="width:50px;">ℹ</button>
 					<button id="passappgen" style="width:50px;">📲</button>
 					<button id="knoweledgebase" style="width:50px;">📚</button>
 				</div>				
-				<div style="margin: 5px; width: 520px;" id="links_but">
+				<div style="margin: 5px; width: 540px;" id="links_but">
 					<button id="timetable" style="width:100px">TimeTable</button>
 					<button id="talksadm" style="width:100px">Talks</button>
 					<button id="billingadm" style="width:100px">Начислятор</button>
@@ -164,7 +164,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="confbugsm" style="width:100px; margin-top: 3px">Баги Моб.</button>
 				</div>				
 				
-				<div style="margin: 5px; width: 520px" id="links_box">
+				<div style="margin: 5px; width: 540px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
 					<input id="grid" placeholder="ID ГУ(ADM)" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 97px; color: black; margin-top: 5px">
@@ -199,7 +199,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 				</div>		
 				
-				<div style="margin: 5px; width: 520px" id="links_butd">	
+				<div style="margin: 5px; width: 540px" id="links_butd">	
 					<button id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button id="enableNS" style="width:100px">Enable NS💾</button>
 				</div>		
@@ -208,18 +208,18 @@ var win_Links =  // описание элементов окна ссылок
 </div>`;
 
 var win_Jira =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 524px;">
-        <span style="width: 524px">
+    `<div style="display: flex; width: 540px;">
+        <span style="width: 540px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 520;" id="jira_1str">
+                        <div style="margin: 5px; width: 540;" id="jira_1str">
                                 <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; width: 520px" id="jira_tasks_box">
+                        <div style="margin: 5px; width: 540px" id="jira_tasks_box">
                                 <p id="issuetable"></p>
                         </div>
 						
-						<div style="width: 524px class="pagesswitcher" >
-						<a id="firstpage" class="active" style="margin-left: 246px; margin-right: 2px; margin-top: 10px; color: #C0C0C0; text-align: center; font-size: 16px; cursor: pointer;">1</a>;
+						<div style="width: 540px class="pagesswitcher" >
+						<a id="firstpage" style="margin-left: 253px; margin-right: 2px; margin-top: 10px; color: #C0C0C0; text-align: center; font-size: 16px; cursor: pointer;">1</a>;
 						<a id="secondpage" style="margin-right: 5px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">2</a>;
 						<div>
                 </span>
