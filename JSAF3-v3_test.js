@@ -1168,7 +1168,7 @@ function move_again_AF() {
 						let issues =[];
 						for (let i=0; i<10; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+.)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'					
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'					
 						}
 												
 
@@ -1192,7 +1192,7 @@ function move_again_AF() {
 						document.getElementById('firstpage').style.color = "#00FFFF";
 						for (let i=10; i<20; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+.)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						
@@ -1207,7 +1207,7 @@ function move_again_AF() {
 						document.getElementById('firstpage').style.color = "#C0C0C0";
 						for (let i=0; i<10; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+.)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues3" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues3" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>'
 						}
 						document.getElementById('issuetable').innerHTML = issues;
 						console.log(rezissuetable.issueTable.issueKeys);
