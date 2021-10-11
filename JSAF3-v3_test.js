@@ -1209,6 +1209,7 @@ function move_again_AF() {
 					document.getElementById('responseTextarea1').removeAttribute('reportscount')
 	
 					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+					count = parseInt(count);
 					console.log("count=" + count + " increasedcount " + (count+1));
 					
 			/*					function setReportPlusOne() {
