@@ -3611,6 +3611,7 @@ async function checkChatCountQue() { // функция проверки коли
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
         "headers": {
             "accept": "*/*",
+			"cache-control": "max-age=0",
             "content-type": "application/json",
             "sec-fetch-dest": "empty",
             "sec-fetch-mode": "cors",
@@ -3632,6 +3633,7 @@ async function checkChatCountQue() { // функция проверки коли
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
         "headers": {
             "accept": "*/*",
+			"cache-control": "max-age=0",
             "content-type": "application/json",
             "sec-fetch-dest": "empty",
             "sec-fetch-mode": "cors",
