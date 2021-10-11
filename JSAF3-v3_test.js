@@ -1197,6 +1197,7 @@ function move_again_AF() {
 					document.getElementById('sendResponse').click()		
 					
 					let count;
+					let jira_token;
 					setTimeout(function() {
 					document.getElementById('responseTextarea1').value = '{}'
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId="+rezissuetable.issueTable.issueIds[f]
@@ -1204,10 +1205,11 @@ function move_again_AF() {
 					document.getElementById('sendResponse').click()	
 
 					let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+					jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
 					document.getElementById('responseTextarea1').removeAttribute('reportscount')
 	
 					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-					console.log("count=" + count);
+					console.log("count=" + count + "jira_token" + jira_token);
 					
 			/*					function setReportPlusOne() {
 													document.getElementById('responseTextarea1').value = `{
