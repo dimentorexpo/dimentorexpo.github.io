@@ -1193,9 +1193,10 @@ function move_again_AF() {
 					
 					document.getElementById('responseTextarea1').value = '{}'
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[f]
-					document.getElementById('responseTextarea3').value = 'reportscount'
+					document.getElementById('responseTextarea3').value = ''
 					document.getElementById('sendResponse').click()		
 					
+					let count;
 					setTimeout(function() {
 					document.getElementById('responseTextarea1').value = '{}'
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[f]
@@ -1204,7 +1205,7 @@ function move_again_AF() {
 
 					let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
 					document.getElementById('responseTextarea1').removeAttribute('reportscount')
-					let count;
+	
 					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
 					console.log("count=" + count);
 					}, 1000)
