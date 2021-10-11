@@ -1191,9 +1191,12 @@ function move_again_AF() {
 						document.getElementById('secondpage').style.color = "#C0C0C0";
 						document.getElementById('firstpage').style.color = "#00FFFF";
 						for (let i=10; i<20; i++) {
-							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
+							if(rezissuetable.issueTable.issueKeys[i] !=undefined){
 							temparr += rezissuetable.issueTable.issueKeys[i];
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>';
+							} else {
+								console.log("undefined values");
+							}
 
 						}
 						
