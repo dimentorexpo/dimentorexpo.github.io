@@ -1189,7 +1189,7 @@ function move_again_AF() {
 						
 						let refreshissuesarr = document.querySelectorAll('.refreshissues');
 								for (let f=0;f<refreshissuesarr.length;f++) {
-											refreshissuesarr[f].onClick =  function() {
+											refreshissuesarr[f].onclick =  function() {
 											console.log("Clicked");
 											}
 									}
@@ -1225,6 +1225,13 @@ function move_again_AF() {
 								}	
 						}
 						
+						let refreshissuesarrsecpage = document.querySelectorAll('.refreshissues2');
+								for (let f=0;f<refreshissuesarrsecpage.length;f++) {
+											refreshissuesarrsecpage[f].onclick =  function() {
+											console.log("Clicked");
+											}
+									}
+						
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; }, 5000)}
 				})
@@ -1247,6 +1254,13 @@ function move_again_AF() {
 								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
 							}
 						}
+						
+								let refreshissuesarrfirstpage = document.querySelectorAll('.refreshissues3');
+								for (let f=0;f<refreshissuesarrfirstpage.length;f++) {
+											refreshissuesarrfirstpage[f].onclick =  function() {
+											console.log("Clicked");
+											}
+									}
 						
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; }, 5000)
