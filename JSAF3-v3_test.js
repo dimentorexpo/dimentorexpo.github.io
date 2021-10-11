@@ -1192,14 +1192,14 @@ function move_again_AF() {
 											refreshissuesarr[f].onclick =  function() {
 					
 					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[f]
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId="+rezissuetable.issueTable.issueId[f]
 					document.getElementById('responseTextarea3').value = 'reportscount'
 					document.getElementById('sendResponse').click()		
 					
 					let count;
 					setTimeout(function() {
 					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[f]
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId="+rezissuetable.issueTable.issueId[f]
 					document.getElementById('responseTextarea3').value = 'reportscount'
 					document.getElementById('sendResponse').click()	
 
@@ -1208,6 +1208,15 @@ function move_again_AF() {
 	
 					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
 					console.log("count=" + count);
+					
+			/*					function setReportPlusOne() {
+													document.getElementById('responseTextarea1').value = `{
+
+						   }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+					document.getElementById('responseTextarea3').value = 'increaseissue'
+					document.getElementById('sendResponse').click()
+								} */
 					}, 1000)
 											}
 								}
