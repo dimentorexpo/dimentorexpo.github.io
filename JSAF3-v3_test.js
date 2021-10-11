@@ -1198,6 +1198,7 @@ function move_again_AF() {
 					
 					let count;
 					let jira_token;
+					let increasedcount;
 					setTimeout(function() {
 					document.getElementById('responseTextarea1').value = '{}'
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId="+rezissuetable.issueTable.issueIds[f]
@@ -1210,7 +1211,8 @@ function move_again_AF() {
 	
 					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
 					count = parseInt(count);
-					console.log("count=" + count + " increasedcount " + (count+1));
+					increasedcount = count+1;
+					console.log("count=" + count + " increasedcount " + increasedcount);
 					
 			/*					function setReportPlusOne() {
 					document.getElementById('responseTextarea1').value = `{
