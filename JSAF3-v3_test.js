@@ -1200,7 +1200,7 @@ function move_again_AF() {
 						
 						let secpagearray = document.querySelectorAll('.jiraissues2')
 						for (let j=0;j<secpagearray.length;j++) {
-							barray[j].onclick = function() {
+							secpagearray[j].onclick = function() {
 								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i])
 							}
 						}
@@ -1223,7 +1223,7 @@ function move_again_AF() {
 						
 						let firstpagearray = document.querySelectorAll('.jiraissues3')
 						for (let j=0;j<firstpagearray.length;j++) {
-							barray[j].onclick = function() {
+							firstpagearray[j].onclick = function() {
 								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
 							}
 						}
