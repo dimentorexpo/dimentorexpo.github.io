@@ -1221,6 +1221,10 @@ document.getElementById('getJiraTasks').onclick = function () {
 
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+						    "sec-fetch-mode": "cors",
+							"sec-fetch-site": "same-origin",
+							"x-requested-with": "XMLHttpRequest",
+							"x-sitemesh-off": "true"
 									},
 						"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
 						  "method": "POST",
