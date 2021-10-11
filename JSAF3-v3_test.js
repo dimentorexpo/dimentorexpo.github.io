@@ -1197,14 +1197,17 @@ function move_again_AF() {
 						
 						document.getElementById('issuetable').innerHTML = issues;
 						
+						let temparr=[];
+						for (let i = 10; i<20;i++) {
+						temparr += fack.issueTable.issueKeys[i] + ","
+						}
+						temparr = temparr.split(',')
 			
 						let secpagearray = document.querySelectorAll('.jiraissues2')
 						for (let k=0;k<secpagearray.length;k++) {
 							secpagearray[k].onclick = function() {
-								for (let i=10;i<20;i++) {
-								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i])
-								}
-							}
+								 sendComment("https://jira.skyeng.tech/browse/" + temparr[k])
+								}	
 						}
 						
 						console.log(rezissuetable.issueTable.issueKeys);
