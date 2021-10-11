@@ -1214,25 +1214,23 @@ document.getElementById('getJiraTasks').onclick = function () {
                         increasedcount = count + 1;
                         console.log("count=" + count + " increasedcount " + increasedcount);
 
-                        setTimeout(function () {
+						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
 
-          "headers": {
-            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-          },
-        "body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-          "method": "POST",
-          "mode": "cors",
-          "credentials": "include"
-
+			"headers": {
+					"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+				  },
+				"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
                }`
                             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                             document.getElementById('responseTextarea3').value = ''
                             document.getElementById('sendResponse').click()
-                        }, 1000);
-                    }) 
-        }, 1000)
+                        }), 1000);
+                    }), 1000)
             }
         }
 
