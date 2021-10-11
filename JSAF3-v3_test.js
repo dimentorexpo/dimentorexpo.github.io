@@ -1346,17 +1346,55 @@ document.getElementById('getJiraTasks').onclick = function () {
 
         document.getElementById('issuetable').innerHTML = issues;
 
-        let firstpagearray = document.querySelectorAll('.jiraissues3')
-        for (let j = 0; j < firstpagearray.length; j++) {
-            firstpagearray[j].onclick = function () {
-                sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
-            }
-        }
+         let refreshissuesarr3 = document.querySelectorAll('.refreshissues3');
+            for (let f = 0; f < refreshissuesarr3.length; f++) {
+                refreshissuesarr3[f].onclick = function () {
 
-        let refreshissuesarrfirstpage = document.querySelectorAll('.refreshissues3');
-        for (let f = 0; f < refreshissuesarrfirstpage.length; f++) {
-            refreshissuesarrfirstpage[f].onclick = function () {
-                console.log("Clicked");
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                    document.getElementById('responseTextarea3').value = 'reportscount3'
+                    document.getElementById('sendResponse').click()
+
+                    let count3;
+                    let jira_token3;
+                    let increasedcount3;
+                    setTimeout(function () {
+                        document.getElementById('responseTextarea1').value = '{}'
+                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                        document.getElementById('responseTextarea3').value = 'reportscount3'
+                        document.getElementById('sendResponse').click()
+
+                        let repcount3 = document.getElementById('responseTextarea1').getAttribute('reportscount3')
+                        jira_token3 = repcount3.match(/"atl_token":"(.*lin)/)[1]
+                        document.getElementById('responseTextarea1').removeAttribute('reportscount3')
+
+                        count3 = repcount3.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                        count3 = parseInt(count);
+                        increasedcount3 = count3 + 1;
+						increasedcount3 = increasedcount3.toString();
+                        console.log("count=" + count3 + " increasedcount " + increasedcount3);
+
+						setTimeout(function () {
+
+                            document.getElementById('responseTextarea1').value = `{
+
+						"headers": {
+							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+						    "sec-fetch-mode": "cors",
+							"sec-fetch-site": "same-origin",
+							"x-requested-with": "XMLHttpRequest",
+							"x-sitemesh-off": "true"
+									},
+						"body": "customfield_15410=${increasedcount3}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token3}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+						  "method": "POST",
+						  "mode": "cors",
+						  "credentials": "include"
+							}`
+                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                            document.getElementById('responseTextarea3').value = ''
+                            document.getElementById('sendResponse').click()
+                        }, 1000);
+                    }, 1000)
             }
         }
 
