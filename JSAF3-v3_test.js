@@ -1192,7 +1192,7 @@ function move_again_AF() {
 						document.getElementById('firstpage').style.color = "#00FFFF";
 						for (let i=10; i<20; i++) {
 							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style=" width:20px; background:#C0C0C0">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>'+ '</br>';
+							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style=" width:20px; background:#C0C0C0">'+ "SupTab Count:" + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>'+ '</br>';
 						}
 						
 						document.getElementById('issuetable').innerHTML = issues;
