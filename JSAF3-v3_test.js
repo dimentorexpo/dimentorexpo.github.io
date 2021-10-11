@@ -1209,13 +1209,21 @@ function move_again_AF() {
 					document.getElementById('responseTextarea1').removeAttribute('reportscount')
 	
 					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-					console.log("count=" + count + "jira_token" + jira_token);
+					console.log("count=" + count + " increasedcount " + (count+1));
 					
 			/*					function setReportPlusOne() {
-													document.getElementById('responseTextarea1').value = `{
+					document.getElementById('responseTextarea1').value = `{
+
+					  "headers": {
+						"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+					  },
+					  "body": "customfield_15410=237&issueId=234524&atl_token=B8VA-6KZ3-W640-1AJO_95e31a6188a5397286d2163bff6a56f8cc570bd7_lin&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+					  "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
 
 						   }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
 					document.getElementById('responseTextarea3').value = 'increaseissue'
 					document.getElementById('sendResponse').click()
 								} */
