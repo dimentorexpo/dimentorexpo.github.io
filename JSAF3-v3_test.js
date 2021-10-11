@@ -3610,13 +3610,7 @@ async function checkChatCountQue() { // функция проверки коли
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
-			"accept": "*/*",
-			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-			"cache-control": "max-age=0",
 			"content-type": "application/json",
-			"sec-ch-ua": "\"Chromium\";v=\"94\", \"Google Chrome\";v=\"94\", \";Not A Brand\";v=\"99\"",
-			"sec-ch-ua-mobile": "?0",
-			"sec-ch-ua-platform": "\"Windows\"",
 			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-origin"
@@ -3636,13 +3630,7 @@ async function checkChatCountQue() { // функция проверки коли
 
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 				  "headers": {
-					"accept": "*/*",
-					"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-					"cache-control": "max-age=0",
 					"content-type": "application/json",
-					"sec-ch-ua": "\"Chromium\";v=\"94\", \"Google Chrome\";v=\"94\", \";Not A Brand\";v=\"99\"",
-					"sec-ch-ua-mobile": "?0",
-					"sec-ch-ua-platform": "\"Windows\"",
 					"sec-fetch-dest": "empty",
 					"sec-fetch-mode": "cors",
 					"sec-fetch-site": "same-origin"
