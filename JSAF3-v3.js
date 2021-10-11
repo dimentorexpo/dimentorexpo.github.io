@@ -3222,84 +3222,82 @@ async function getStats() {           // функция получения ст�
 let chatneraspcount;
 let chattpquecount;
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
-	let str = document.createElement('p')
+    let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-	if(document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+    if (document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     var date = new Date()
     day = month = ""
-    if(date.getMonth() < 9)
+    if (date.getMonth() < 9)
         month = "0" + (date.getMonth() + 1)
     else
         month = (date.getMonth() + 1)
-    if(date.getDate() < 10)
+    if (date.getDate() < 10)
         day = "0" + date.getDate()
     else
         day = date.getDate()
 
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
+    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059Z"
     date = date - 24 * 60 * 60 * 1000
     var date2 = new Date()
     date2.setTime(date)
 
-    if(date2.getMonth() < 9)
+    if (date2.getMonth() < 9)
         month2 = "0" + (date2.getMonth() + 1)
     else
         month2 = (date2.getMonth() + 1)
-    if(date2.getDate() < 10)
+    if (date2.getDate() < 10)
         day2 = "0" + (date2.getDate() - 1)
     else
         day2 = (date2.getDate() - 1)
 
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-	 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-			  "headers": {
-				"accept": "*/*",
-				"content-type": "application/json",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			  },
-			  "referrer": "https://skyeng.autofaq.ai/logs",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body":"{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}", 
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}).then(r => r.text()).then(result => {
-										setTimeout(function() {
-				chatneraspcount = result.match(/total.*?(\d+).*/)[1];
-		//		str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
-					} , 1000)
-				})
-		
-		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-			  "headers": {
-				"accept": "*/*",
-				"content-type": "application/json",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			  },
-			  "referrer": "https://skyeng.autofaq.ai/logs",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body":"{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":1000}",
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}).then(r1 => r1.text()).then(result1 => {
-										setTimeout(function() {	
-				chattpquecount = result1.match(/total.*?(\d+).*/)[1];
-		//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
-					} , 1000)
-				})
-			
-			setTimeout(function() {				
-			document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-			str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;	
-			} , 1000)	
+    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
+    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/logs",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+    }).then(r => r.text()).then(result => {
+        setTimeout(function () {
+            chatneraspcount = result.match(/total.*?(\d+).*/)[1];
+            //		str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
+        }, 1000)
+    })
 
-	 document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
+    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-dest": "empty",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-origin"
+				  },
+				  "referrer": "https://skyeng.autofaq.ai/logs",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+    }).then(r1 => r1.text()).then(result1 => {
+        setTimeout(function () {
+            chattpquecount = result1.match(/total.*?(\d+).*/)[1];
+            //		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;			
+        }, 1000)
+    })
+
+    setTimeout(function () {
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+        str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;
+    }, 1000)
+
+    document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
 
