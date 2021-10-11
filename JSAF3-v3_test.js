@@ -1187,16 +1187,16 @@ function move_again_AF() {
 							}
 						}
 						
-						let refreshissuesarr = document.querySelectorAll('.refreshissues');
+						let refreshissuesarr = document.querySelectorAll('refreshissues');
 												for (let i=0;i<refreshissuesarr.length;i++) {
 													refreshissuesarr[i].onClick =  function() {
-														console.log("Clicked");
+														console.log(refreshissuesarr[i] +" " + "Clicked");
 													}
 												}
 						
 						
 						console.log(rezissuetable.issueTable.issueKeys);
-						setTimeout(function () { issues=[]; }, 5000)}
+						setTimeout(function () { issues=[]; testJira.value= "";  }, 5000)}
 
 
 					document.getElementById('secondpage').addEventListener('click', function () {
