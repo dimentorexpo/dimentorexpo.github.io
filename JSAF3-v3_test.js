@@ -1326,12 +1326,13 @@ document.getElementById('getJiraTasks').onclick = function () {
                             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                             document.getElementById('responseTextarea3').value = ''
                             document.getElementById('sendResponse').click()
+										let newinfocount2 = document.querySelectorAll('.newcount2');
+										newinfocount2[f].innerHTML = increasedcount2;
                         }, 1000);
                     }, 1000)
             }
         }
-			let newinfocount2 = document.querySelectorAll('.newcount2');
-			newinfocount2[f].innerHTML = increasedcount2;
+
             console.log(rezissuetable.issueTable.issueKeys);
             setTimeout(function () { testJira.value = ""; }, 5000)
         }
@@ -1396,12 +1397,13 @@ document.getElementById('getJiraTasks').onclick = function () {
                             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                             document.getElementById('responseTextarea3').value = ''
                             document.getElementById('sendResponse').click()
+										let newinfocount3 = document.querySelectorAll('.newcount3');
+										newinfocount3[f].innerHTML = increasedcount3;
                         }, 1000);
                     }, 1000)
             }
         }
-			let newinfocount3 = document.querySelectorAll('.newcount3');
-			newinfocount3[f].innerHTML = increasedcount3;
+
         console.log(rezissuetable.issueTable.issueKeys);
         setTimeout(function () { testJira.value = ""; }, 5000)
     })
