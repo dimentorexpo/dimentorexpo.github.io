@@ -1204,9 +1204,9 @@ function move_again_AF() {
 
 					let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
 					document.getElementById('responseTextarea1').removeAttribute('reportscount')
-					//let count;
-					//count = repcount.fields[51].editHtml.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-					console.log("repcount=" + repcount);
+					let count;
+					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+					console.log("count=" + count);
 					}, 1000)
 											}
 								}
