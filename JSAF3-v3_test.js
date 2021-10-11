@@ -1132,187 +1132,189 @@ function move_again_AF() {
         skipAP.value = "";
     }
 	         
-			document.getElementById('getJiraTasks').onclick = function () {
-				let rezissuetable;
-				document.getElementById('secondpage').style.color = "#00FFFF";
-				document.getElementById('firstpage').style.color = "#C0C0C0";
-				
-				document.getElementById('responseTextarea1').value = `{
-								 "headers": {
-									"__amdmodulename": "jira/issue/utils/xsrf-token-header",
-								   "accept": "*/*",
-									"sec-fetch-mode": "cors",
-								   "sec-fetch-site": "same-origin",
-								   "x-atlassian-token": "no-check",
-								   "x-requested-with": "XMLHttpRequest"
-								 },
-								 "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOB%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
-								 "method": "POST",
-								 "mode": "cors",
-								 "credentials": "include"
-						   }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-					document.getElementById('responseTextarea3').value = 'getissuetable'
-					document.getElementById('sendResponse').click()
+document.getElementById('getJiraTasks').onclick = function () {
+    let rezissuetable;
+    document.getElementById('secondpage').style.color = "#00FFFF";
+    document.getElementById('firstpage').style.color = "#C0C0C0";
 
-				function getJiraTask() {
-					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()		
-					
+    document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOB%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
+    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+    document.getElementById('responseTextarea3').value = 'getissuetable'
+    document.getElementById('sendResponse').click()
 
-
-					document.getElementById('AF_Jira').style.display = ''
-					rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-					if(rezissuetable == null)
-						setTimeout(getJiraTask, 1000)
-					else {
-						//   rezissuetable = JSON.parse(rezissuetable)
-						document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-
-						let issues =[];
-						for (let i=0; i<10; i++) {
-							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style="width:20px; margin-left: 5px; background:#3CB371">'+ rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'					
-						}
-												
-
-						document.getElementById('issuetable').innerHTML = issues;
-						
-						let barray = document.querySelectorAll('.jiraissues');
-						for (let j=0;j<barray.length;j++) {
-							barray[j].onclick = function() {
-								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
-							}
-						}
-						
-						let refreshissuesarr = document.querySelectorAll('.refreshissues');
-								for (let f=0;f<refreshissuesarr.length;f++) {
-											refreshissuesarr[f].onclick =  function() {
-					
-					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId="+rezissuetable.issueTable.issueIds[f]
-					document.getElementById('responseTextarea3').value = 'reportscount'
-					document.getElementById('sendResponse').click()		
-					
-					let count;
-					let jira_token;
-					let increasedcount;
-					setTimeout(function() {
-					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId="+rezissuetable.issueTable.issueIds[f]
-					document.getElementById('responseTextarea3').value = 'reportscount'
-					document.getElementById('sendResponse').click()	
-
-					let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
-					jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-					document.getElementById('responseTextarea1').removeAttribute('reportscount')
-	
-					count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-					count = parseInt(count);
-					increasedcount = count+1;
-					console.log("count=" + count + " increasedcount " + increasedcount);
-					
-							setTimeout(function () {
-				
-					document.getElementById('responseTextarea1').value = `{
-
-					  "headers": {
-						"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-					  },
-					"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-					  "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-
-						   }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-							}, 1000);
-								} 
-					}, 1000)
-											}
-								}
-												
-						console.log(rezissuetable.issueTable.issueKeys);
-						setTimeout(function () { issues=[]; testJira.value= "";  }, 5000)}
+    function getJiraTask() {
+        document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+        document.getElementById('responseTextarea3').value = ''
+        document.getElementById('sendResponse').click()
 
 
 
-					document.getElementById('secondpage').addEventListener('click', function () {
-						let issues =[];
-						if (rezissuetable.issueTable.issueKeys.length > 10){
-						document.getElementById('issuetable').innerHTML = "";
-						document.getElementById('secondpage').style.color = "#C0C0C0";
-						document.getElementById('firstpage').style.color = "#00FFFF";
-						for (let i=10; i<20; i++) {
-							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues2" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>';
-						}
-						
-						document.getElementById('issuetable').innerHTML = issues;
-						
-						let temparr=[];
-						for (let i = 10; i<20;i++) {
-						temparr += rezissuetable.issueTable.issueKeys[i] + ","
-						}
-						temparr = temparr.split(',')
-			
-						let secpagearray = document.querySelectorAll('.jiraissues2')
-						for (let k=0;k<secpagearray.length;k++) {
-							secpagearray[k].onclick = function() {
-								 sendComment("https://jira.skyeng.tech/browse/" + temparr[k])
-								}	
-						}
-						
-						let refreshissuesarrsecpage = document.querySelectorAll('.refreshissues2');
-								for (let f=0;f<refreshissuesarrsecpage.length;f++) {
-											refreshissuesarrsecpage[f].onclick =  function() {
-											console.log("Clicked");
-											}
-									}
-						
-						console.log(rezissuetable.issueTable.issueKeys);
-						setTimeout(function () { testJira.value= ""; }, 5000)}
-				})
-				
-						document.getElementById('firstpage').addEventListener('click', function () {
-						let issues =[];
-						document.getElementById('issuetable').innerHTML = "";
-						document.getElementById('secondpage').style.color = "#00FFFF";
-						document.getElementById('firstpage').style.color = "#C0C0C0";
-						for (let i=0; i<10; i++) {
-							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
-							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues3" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style="width:20px; margin-left: 5px; background:#3CB371">'+ rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues3" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>' 
-						}
-						
-						document.getElementById('issuetable').innerHTML = issues;
-						
-						let firstpagearray = document.querySelectorAll('.jiraissues3')
-						for (let j=0;j<firstpagearray.length;j++) {
-							firstpagearray[j].onclick = function() {
-								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
-							}
-						}
-						
-								let refreshissuesarrfirstpage = document.querySelectorAll('.refreshissues3');
-								for (let f=0;f<refreshissuesarrfirstpage.length;f++) {
-											refreshissuesarrfirstpage[f].onclick =  function() {
-											console.log("Clicked");
-											}
-									}
-						
-						console.log(rezissuetable.issueTable.issueKeys);
-						setTimeout(function () { testJira.value= ""; }, 5000)
-				})
+        document.getElementById('AF_Jira').style.display = ''
+        rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+        if (rezissuetable == null)
+            setTimeout(getJiraTask, 1000)
+        else {
+            //   rezissuetable = JSON.parse(rezissuetable)
+            document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 
-				
-			}
+            let issues = [];
+            for (let i = 0; i < 10; i++) {
+                if (rezissuetable.issueTable.issueKeys[i] != undefined)
+                    issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+            }
 
-			setTimeout(getJiraTask, 1000)
-			}		
+
+            document.getElementById('issuetable').innerHTML = issues;
+
+            let barray = document.querySelectorAll('.jiraissues');
+            for (let j = 0; j < barray.length; j++) {
+                barray[j].onclick = function () {
+                    sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
+                }
+            }
+
+            let refreshissuesarr = document.querySelectorAll('.refreshissues');
+            for (let f = 0; f < refreshissuesarr.length; f++) {
+                refreshissuesarr[f].onclick = function () {
+
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                    document.getElementById('responseTextarea3').value = 'reportscount'
+                    document.getElementById('sendResponse').click()
+
+                    let count;
+                    let jira_token;
+                    let increasedcount;
+                    setTimeout(function () {
+                        document.getElementById('responseTextarea1').value = '{}'
+                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                        document.getElementById('responseTextarea3').value = 'reportscount'
+                        document.getElementById('sendResponse').click()
+
+                        let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+                        jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                        document.getElementById('responseTextarea1').removeAttribute('reportscount')
+
+                        count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                        count = parseInt(count);
+                        increasedcount = count + 1;
+                        console.log("count=" + count + " increasedcount " + increasedcount);
+
+                        setTimeout(function () {
+
+                            document.getElementById('responseTextarea1').value = `{
+
+          "headers": {
+            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          },
+        "body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+          "method": "POST",
+          "mode": "cors",
+          "credentials": "include"
+
+               }`
+                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                            document.getElementById('responseTextarea3').value = ''
+                            document.getElementById('sendResponse').click()
+                        }, 1000);
+                    }) 
+        }, 1000)
+            }
+        }
+
+        console.log(rezissuetable.issueTable.issueKeys);
+        setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+    }
+
+
+
+    document.getElementById('secondpage').addEventListener('click', function () {
+        let issues = [];
+        if (rezissuetable.issueTable.issueKeys.length > 10) {
+            document.getElementById('issuetable').innerHTML = "";
+            document.getElementById('secondpage').style.color = "#C0C0C0";
+            document.getElementById('firstpage').style.color = "#00FFFF";
+            for (let i = 10; i < 20; i++) {
+                if (rezissuetable.issueTable.issueKeys[i] != undefined)
+                    issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues2" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>';
+            }
+
+            document.getElementById('issuetable').innerHTML = issues;
+
+            let temparr = [];
+            for (let i = 10; i < 20; i++) {
+                temparr += rezissuetable.issueTable.issueKeys[i] + ","
+            }
+            temparr = temparr.split(',')
+
+            let secpagearray = document.querySelectorAll('.jiraissues2')
+            for (let k = 0; k < secpagearray.length; k++) {
+                secpagearray[k].onclick = function () {
+                    sendComment("https://jira.skyeng.tech/browse/" + temparr[k])
+                }
+            }
+
+            let refreshissuesarrsecpage = document.querySelectorAll('.refreshissues2');
+            for (let f = 0; f < refreshissuesarrsecpage.length; f++) {
+                refreshissuesarrsecpage[f].onclick = function () {
+                    console.log("Clicked");
+                }
+            }
+
+            console.log(rezissuetable.issueTable.issueKeys);
+            setTimeout(function () { testJira.value = ""; }, 5000)
+        }
+    })
+
+    document.getElementById('firstpage').addEventListener('click', function () {
+        let issues = [];
+        document.getElementById('issuetable').innerHTML = "";
+        document.getElementById('secondpage').style.color = "#00FFFF";
+        document.getElementById('firstpage').style.color = "#C0C0C0";
+        for (let i = 0; i < 10; i++) {
+            if (rezissuetable.issueTable.issueKeys[i] != undefined)
+                issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues3" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues3" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+        }
+
+        document.getElementById('issuetable').innerHTML = issues;
+
+        let firstpagearray = document.querySelectorAll('.jiraissues3')
+        for (let j = 0; j < firstpagearray.length; j++) {
+            firstpagearray[j].onclick = function () {
+                sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
+            }
+        }
+
+        let refreshissuesarrfirstpage = document.querySelectorAll('.refreshissues3');
+        for (let f = 0; f < refreshissuesarrfirstpage.length; f++) {
+            refreshissuesarrfirstpage[f].onclick = function () {
+                console.log("Clicked");
+            }
+        }
+
+        console.log(rezissuetable.issueTable.issueKeys);
+        setTimeout(function () { testJira.value = ""; }, 5000)
+    })
+
+
+}
+
+setTimeout(getJiraTask, 1000)
+}	
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
