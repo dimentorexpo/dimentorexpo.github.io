@@ -1193,7 +1193,7 @@ function move_again_AF() {
 					
 					document.getElementById('responseTextarea1').value = '{}'
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[f]
-					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('responseTextarea3').value = 'reportscount'
 					document.getElementById('sendResponse').click()		
 					
 					let count;
