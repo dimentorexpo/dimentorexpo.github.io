@@ -1279,7 +1279,7 @@ document.getElementById('getJiraTasks').onclick = function () {
 
             let refreshissuesarr2 = document.querySelectorAll('.refreshissues2');
             for (let f = 0; f < refreshissuesarr2.length; f++) {
-                refreshissuesarr[f].onclick = function () {
+                refreshissuesarr2[f].onclick = function () {
 
                     document.getElementById('responseTextarea1').value = '{}'
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + temparrissueIds[f]
