@@ -3617,7 +3617,7 @@ async function checkChatCountQue() { // функция проверки коли
 		  },
 		  "referrer": "https://skyeng.autofaq.ai/logs",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"2021-10-08T21:00:00.000Z\",\"tsTo\":\"2021-10-11T20:59:59.059Z\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"2021-10-08T21:00:00.000Z\",\"tsTo\":\"2021-10-11T20:59:59.059Z\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
@@ -3637,7 +3637,7 @@ async function checkChatCountQue() { // функция проверки коли
 				  },
 				  "referrer": "https://skyeng.autofaq.ai/logs",
 				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"2021-10-08T21:00:00.000Z\",\"tsTo\":\"2021-10-11T20:59:59.059Z\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+				  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"2021-10-08T21:00:00.000Z\",\"tsTo\":\"2021-10-11T20:59:59.059Z\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
 				  "method": "POST",
 				  "mode": "cors",
 				  "credentials": "include"
