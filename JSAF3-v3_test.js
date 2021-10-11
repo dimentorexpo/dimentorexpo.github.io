@@ -1196,10 +1196,11 @@ function move_again_AF() {
 						
 						
 						console.log(rezissuetable.issueTable.issueKeys);
-						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
+						setTimeout(function () { issues=[]; }, 5000)}
 
 
 					document.getElementById('secondpage').addEventListener('click', function () {
+						getJiraTask();
 						let issues =[];
 						if (rezissuetable.issueTable.issueKeys.length > 10){
 						document.getElementById('issuetable').innerHTML = "";
