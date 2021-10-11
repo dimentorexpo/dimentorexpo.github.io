@@ -1199,7 +1199,7 @@ function move_again_AF() {
 						document.getElementById('issuetable').innerHTML = issues;
 						
 						let secpagearray = document.querySelectorAll('.jiraissues2')
-						for (let j=0;j<secpagearray.length;j++) {
+						for (let j=10;j<secpagearray.length;j++) {
 							secpagearray[j].onclick = function() {
 								 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[i])
 							}
