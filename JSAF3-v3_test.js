@@ -1183,7 +1183,7 @@ function move_again_AF() {
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { testJira.value= ""; issues=[]; }, 5000)}
 
-					let temparr=[];
+
 					document.getElementById('secondpage').addEventListener('click', function () {
 						let issues =[];
 						if (rezissuetable.issueTable.issueKeys.length > 10){
@@ -1191,16 +1191,16 @@ function move_again_AF() {
 						document.getElementById('secondpage').style.color = "#C0C0C0";
 						document.getElementById('firstpage').style.color = "#00FFFF";
 						for (let i=10; i<20; i++) {
-							if(rezissuetable.issueTable.issueKeys[i] !=undefined){
-							temparr += rezissuetable.issueTable.issueKeys[i];
+							if(rezissuetable.issueTable.issueKeys[i] !=undefined)
 							issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #FFE4C4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues2" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>';
-							} else {
-								console.log("undefined values");
-							}
-
 						}
 						
 						document.getElementById('issuetable').innerHTML = issues;
+						
+						let temparr=[];
+						for(let d=10; d<20; d++) {
+							temparr += rezissuetable.issueTable.issueKeys[d];
+						}
 						
 						let secpagearray = document.querySelectorAll('.jiraissues2')
 						for (let k=0;k<secpagearray.length;k++) {
