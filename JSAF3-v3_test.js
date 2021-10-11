@@ -1214,22 +1214,24 @@ function move_again_AF() {
 					increasedcount = count+1;
 					console.log("count=" + count + " increasedcount " + increasedcount);
 					
-			/*					function setReportPlusOne() {
+							setTimeout(function () {
+				
 					document.getElementById('responseTextarea1').value = `{
 
 					  "headers": {
 						"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 					  },
-					  "body": "customfield_15410=237&issueId=234524&atl_token=B8VA-6KZ3-W640-1AJO_95e31a6188a5397286d2163bff6a56f8cc570bd7_lin&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+					"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
 					  "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
 
 						   }`
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-					document.getElementById('responseTextarea3').value = 'increaseissue'
+					document.getElementById('responseTextarea3').value = ''
 					document.getElementById('sendResponse').click()
-								} */
+							}, 1000);
+								} 
 					}, 1000)
 											}
 								}
