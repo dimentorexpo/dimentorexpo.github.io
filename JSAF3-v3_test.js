@@ -1199,7 +1199,7 @@ function move_again_AF() {
 						
 						let temparr=[];
 						for (let i = 10; i<20;i++) {
-						temparr += fack.issueTable.issueKeys[i] + ","
+						temparr += rezissuetable.issueTable.issueKeys[i] + ","
 						}
 						temparr = temparr.split(',')
 			
