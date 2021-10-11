@@ -1174,7 +1174,7 @@ document.getElementById('getJiraTasks').onclick = function () {
             let issues = [];
             for (let i = 0; i < 10; i++) {
                 if (rezissuetable.issueTable.issueKeys[i] != undefined)
-                    issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+                    issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/\w+-\d+">(.*?\D+..)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
             }
 
 
@@ -1234,7 +1234,7 @@ document.getElementById('getJiraTasks').onclick = function () {
                             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                             document.getElementById('responseTextarea3').value = ''
                             document.getElementById('sendResponse').click()
-							let newinfocount = document.querySelectorAll('.jiraissues');
+							let newinfocount = document.querySelectorAll('.newcount');
 							newinfocount[f].innerHTML = increasedcount;
                         }, 1000);
                     }, 1000)
