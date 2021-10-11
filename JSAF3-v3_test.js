@@ -1190,7 +1190,18 @@ function move_again_AF() {
 						let refreshissuesarr = document.querySelectorAll('.refreshissues');
 								for (let f=0;f<refreshissuesarr.length;f++) {
 											refreshissuesarr[f].onclick =  function() {
-											console.log("Clicked");
+					
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[f]
+					document.getElementById('responseTextarea3').value = 'reportscount'
+					document.getElementById('sendResponse').click()		
+												
+					let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+					document.getElementById('responseTextarea1').removeAttribute('reportscount')
+					let count;
+					count = repcount.fields[51].editHtml.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+					console.log("count=" + count);
+					
 											}
 									}
 												
