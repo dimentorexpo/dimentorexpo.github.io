@@ -1197,20 +1197,19 @@ function move_again_AF() {
 					document.getElementById('sendResponse').click()		
 					
 					setTimeout(function() {
-											document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea1').value = '{}'
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction!default.jspa?issueKey="+rezissuetable.issueTable.issueKeys[f]
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()		
-					}, 1000)
-												
+					document.getElementById('responseTextarea3').value = 'reportscount'
+					document.getElementById('sendResponse').click()	
+
 					let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
 					document.getElementById('responseTextarea1').removeAttribute('reportscount')
 					let count;
 					count = repcount.fields[51].editHtml.match(/customfield_15410.*?value=.*?(\d+)/)[1];
 					console.log("count=" + count);
-					
+					}, 1000)
 											}
-									}
+								}
 												
 						console.log(rezissuetable.issueTable.issueKeys);
 						setTimeout(function () { issues=[]; testJira.value= "";  }, 5000)}
