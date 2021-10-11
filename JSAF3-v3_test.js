@@ -1200,7 +1200,6 @@ function move_again_AF() {
 
 
 					document.getElementById('secondpage').addEventListener('click', function () {
-						getJiraTask();
 						let issues =[];
 						if (rezissuetable.issueTable.issueKeys.length > 10){
 						document.getElementById('issuetable').innerHTML = "";
