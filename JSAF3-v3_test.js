@@ -98,7 +98,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px;  width: 30px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.35</button>
+				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.36</button>
 				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.33.1</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
@@ -1482,12 +1482,13 @@ setTimeout(getJiraTask, 1000)
 
     document.getElementById('hideMenu').onclick = function () {
         document.getElementById('AF_helper').style.display = 'none'
-	document.getElementById('AF_Jira').style.display = 'none'
-        document.getElementById('scriptBut').style.display = ''
+	document.getElementById('scriptBut').style.display = ''
         if (document.getElementById('cstmTmplates').style.display == '')
             document.getElementById('cstmTmplates').style.display = 'none'
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
+	if (document.getElementById('AF_Jira').style.display == '')
+            document.getElementById('AF_Jira').style.display = 'none'
     }
     document.getElementById('takeNewChat').onclick = function () {
         getNewChat()
