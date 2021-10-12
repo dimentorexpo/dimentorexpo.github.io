@@ -1482,6 +1482,7 @@ setTimeout(getJiraTask, 1000)
 
     document.getElementById('hideMenu').onclick = function () {
         document.getElementById('AF_helper').style.display = 'none'
+	document.getElementById('AF_Jira').style.display = 'none'
         document.getElementById('scriptBut').style.display = ''
         if (document.getElementById('cstmTmplates').style.display == '')
             document.getElementById('cstmTmplates').style.display = 'none'
@@ -1511,8 +1512,10 @@ setTimeout(getJiraTask, 1000)
 
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Links').style.display == '')
-            document.getElementById('AF_Links').style.display = 'none'
+        if (document.getElementById('AF_Links').style.display == '') {
+		document.getElementById('AF_Links').style.display = 'none'
+		document.getElementById('AF_Jira').style.display = 'none'
+	}
         else
             document.getElementById('AF_Links').style.display = ''
     }
