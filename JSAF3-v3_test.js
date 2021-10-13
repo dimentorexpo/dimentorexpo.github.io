@@ -2696,6 +2696,17 @@ function startTimer() {
 										}
 					}
 					}
+					
+					let userTypeName = document.createElement('span')
+					userTypeName.id = "userTypeId"
+					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
+						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+								document.getElementById('userTypeId').innerText = (П) 
+								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherd") {
+									document.getElementById('userTypeId').innerText = (У) 
+								}			
+					}
 
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
