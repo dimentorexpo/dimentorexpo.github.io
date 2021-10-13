@@ -2714,16 +2714,6 @@ function startTimer() {
 								} 		
 					}
 					
-					let id_ext_btn = document.createElement('span')
-				    let id_ext_field = document.createElement('span')
-                    id_ext_btn.textContent = 'id_ext:'
-					id_ext_field.id =  "field_id"
-					document.getElementById('id_ext').onclick = function () {
-						let temphash = document.URL.split('/')[5];
-						fetch("https://skyeng.autofaq.ai/api/conversations/"+temphash, {}).then (r => r.json()).then(r => data = r)
-						document.getElementById('field_id') = data.channelUser.id;
-					}
-						
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
                     b.style.marginRight = '10px'
