@@ -2690,7 +2690,8 @@ function startTimer() {
 					copyCrmFromName.onclick = function() {
 						 for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
                                         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-											copyToClipboard1("https://crm2.skyeng.ru/persons/" + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent)
+											  let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+											copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
 										}
 					}
 					}
