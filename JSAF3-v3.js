@@ -2683,6 +2683,30 @@ function startTimer() {
                             }
                         }
                     }
+					
+					let copyCrmFromName = document.createElement('span')
+                    copyCrmFromName.textContent = '📝'
+					copyCrmFromName.style.cursor = "pointer"
+					document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
+					copyCrmFromName.onclick = function() {
+						 for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+											  let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+											copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
+										}
+					}
+					}
+					
+					let userTypeName = document.createElement('span')
+					userTypeName.id = "userTypeId"
+					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
+						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+								document.getElementById('userTypeId').innerText = "(П)" 
+								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+									document.getElementById('userTypeId').innerText = "(У)" 
+								}			
+					}
 
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
