@@ -2686,6 +2686,7 @@ function startTimer() {
 					
 					let copyCrmFromName = document.createElement('span')
                     copyCrmFromName.textContent = '📝'
+					copyCrmFromName.style.cursor = "pointer"
 					document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
 					copyCrmFromName.onclick = function() {
 						 for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
