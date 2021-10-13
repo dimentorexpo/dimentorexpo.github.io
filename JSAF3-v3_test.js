@@ -2572,8 +2572,8 @@ function startTimer() {
 			
 		   if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(id_ext)
-				 btn.appendChild(id_ext_field)
+                btn.appendChild(id_ext_btn)
+				btn.appendChild(id_ext_field)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
