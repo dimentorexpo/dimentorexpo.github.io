@@ -2703,7 +2703,7 @@ function startTimer() {
 						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
 								document.getElementById('userTypeId').innerText = (П) 
-								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherd") {
+								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
 									document.getElementById('userTypeId').innerText = (У) 
 								}			
 					}
