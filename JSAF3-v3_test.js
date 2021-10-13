@@ -2713,7 +2713,7 @@ function startTimer() {
 									document.getElementById('userTypeId').style.color = "#DC143C"	
 								} 		
 					}
-					
+
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
                     b.style.marginRight = '10px'
