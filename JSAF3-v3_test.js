@@ -2569,6 +2569,12 @@ function startTimer() {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button2)
             }
+			
+		   if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(id_ext)
+				 btn.appendChild(id_ext_field)
+            }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
@@ -2713,7 +2719,17 @@ function startTimer() {
 									document.getElementById('userTypeId').style.color = "#DC143C"	
 								} 		
 					}
-
+					
+					let id_ext_btn = document.createElement('span')
+				    let id_ext_field = document.createElement('span')
+                    id_ext.textContent = 'id_ext:'
+					id_ext_field.id =  "field_id"
+					document.getElementById('id_ext').onclick = function () {
+						let temphash = document.URL.split('/')[5];
+						fetch("https://skyeng.autofaq.ai/api/conversations/"+temphash, {}).then (r => r.json()).then(r => data = r)
+						document.getElementById('field_id') = data.channelUser.id;
+					}
+						
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
                     b.style.marginRight = '10px'
