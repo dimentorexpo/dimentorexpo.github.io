@@ -2702,9 +2702,11 @@ function startTimer() {
 					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
 						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-								document.getElementById('userTypeId').innerText = "(П)" 
+								document.getElementById('userTypeId').innerText = "(П)"
+								document.getElementById('userTypeId').style.color = "#1E90FF"
 								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-									document.getElementById('userTypeId').innerText = "(У)" 
+									document.getElementById('userTypeId').innerText = "(У)"
+									document.getElementById('userTypeId').style.color = "#DC143C"									
 								}			
 					}
 
