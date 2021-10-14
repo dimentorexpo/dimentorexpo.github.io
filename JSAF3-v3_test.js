@@ -800,9 +800,7 @@ function move_again_AF() {
         if (minutes < 10) { minutes = "0" + minutes; }
         seconds = data.getSeconds();
         if (seconds < 10) { seconds = "0" + seconds; }
-		if (JSON.parse(localStorage.getItem('setminuta')) != 0) {
-        var summin = JSON.parse(localStorage.getItem('setminuta')) + 60; 
-		} else {console.log("Задайте не нулевое значение")}
+        var summin = JSON.parse(localStorage.getItem('setminuta')) + 60;
         if (localStorage.getItem('chronostamp') === null) {
             time = "00" + " : " + "00" + " : " + "00";
             document.getElementById("clock_remin").innerHTML = time;
@@ -985,7 +983,12 @@ var abortTimeOut = ''								// перменная для отмены буди�
     function refreshTimerReminder() {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             setchas.value = localStorage.getItem('setchas');
+			if(setminuta.value != "00") {
             setminuta.value = localStorage.getItem('setminuta');
+			} else {
+				alert("Введите не нулевое значение минуты")
+				setminuta.value ="";
+				}
             var timearr = new Date()
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
