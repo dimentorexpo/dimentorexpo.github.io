@@ -140,6 +140,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="creds" style="width:50px;">ℹ</button>
 					<button id="passappgen" style="width:50px;">📲</button>
 					<button id="knoweledgebase" style="width:50px;">📚</button>
+					<button id="datsyurl" style="width:50px;">📆</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button id="timetable" style="width:105px">TimeTable</button>
@@ -1548,6 +1549,10 @@ setTimeout(getJiraTask, 1000)
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
+    }
+	
+	document.getElementById('datsyurl').onclick = function () { // открытие Календаря
+        window.open("https://datsy.ru/")
     }
 
     document.getElementById('passappgen').addEventListener('click', function () {
