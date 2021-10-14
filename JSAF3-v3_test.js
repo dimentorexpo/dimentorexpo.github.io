@@ -1864,7 +1864,7 @@ async function buttonsFromDoc(butName) {
         else
             sendAnswerTemplate2(txt)
         return
-    }
+    
 
     msgFromTable(butName)
     if (butName == "Серверные")
