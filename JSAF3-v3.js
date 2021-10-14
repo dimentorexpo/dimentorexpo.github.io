@@ -98,8 +98,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px;  width: 30px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.36</button>
-				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.33.1</button>
+				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.38</button>
+				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.34</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" style="color: lightgreen; margin-top: 5px"></button>
@@ -2683,6 +2683,36 @@ function startTimer() {
                             }
                         }
                     }
+					
+					let copyCrmFromName = document.createElement('span')
+                    copyCrmFromName.textContent = '📝'
+					copyCrmFromName.style.cursor = "pointer"
+					document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
+					copyCrmFromName.onclick = function() {
+						 for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+											  let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+											copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
+										}
+					}
+					}
+					
+					let userTypeName = document.createElement('span')
+					userTypeName.id = "userTypeId"
+					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
+						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
+								document.getElementById('userTypeId').innerText = "(П)"
+								document.getElementById('userTypeId').style.color = "#1E90FF"
+								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student") {
+									document.getElementById('userTypeId').innerText = "(У)"
+									document.getElementById('userTypeId').style.color = "#DC143C"									
+								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent")
+								{
+								    document.getElementById('userTypeId').innerText = "(РУ)"
+									document.getElementById('userTypeId').style.color = "#DC143C"	
+								} 		
+					}
 
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
