@@ -992,7 +992,7 @@ function move_again_AF() {
 
 	document.getElementById('clock_remin').ondblclick = function () {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0){
-		setTimeout(setRemindAf, localStorage.getItem('chronostamp'))
+		localStorage.getItem('chronostamp') = 0
 		alert("Будильник удален")
 	}
     }
