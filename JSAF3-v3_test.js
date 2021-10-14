@@ -1839,7 +1839,7 @@ async function buttonsFromDoc(butName) {
      //               if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
     //                    txt = "Hello. Please wait a few minutes."
      //           }
-      //     } else {
+     //     } else {
      //           flagggg = 0
                             a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
                a = a.split(' ')
