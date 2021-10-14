@@ -966,7 +966,7 @@ function move_again_AF() {
         cpuname.value = "";
     }
 
-Var abortTimeOut 									// перменная для отмены будильника
+Var abortTimeOut = ''									// перменная для отмены будильника
 
     document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
         localStorage.setItem('setchas', setchas.value);
