@@ -2685,7 +2685,7 @@ function startTimer() {
                     }
 					
 					let copyCrmFromName = document.createElement('span')
-                    copyCrmFromName.textContent = '📝'
+                    copyCrmFromName.textContent = '💾'
 					copyCrmFromName.style.cursor = "pointer"
 					document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
 					copyCrmFromName.onclick = function() {
