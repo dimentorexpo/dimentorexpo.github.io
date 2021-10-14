@@ -993,6 +993,7 @@ function move_again_AF() {
 	document.getElementById('clock_remin').ondblclick = function () {		
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0){
 		localStorage.removeItem('chronostamp');
+		localStorage.removeItem('chronostamp2');
         	setchas.value = "";
         	setminuta.value = "";
 		alert("Будильник удален")
