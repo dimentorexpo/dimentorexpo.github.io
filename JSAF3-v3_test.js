@@ -68,6 +68,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
+					<button id="reminderstatus" style="width:16px; float: right; margin-right: 5px"></button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -970,8 +971,11 @@ function move_again_AF() {
     }
 
 var abortTimeOut = ''								// перменная для отмены будильника
-
-    document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
+	if (localStorage.getItem('chronostamp') == null) {
+		document.getElementById('reminderstatus').textContent = "🔕":
+	}
+    document.getElementById('setreminder').onclick = function () {  // выставляем будильник
+		document.getElementById('reminderstatus').textContent = "🔔":
         localStorage.setItem('setchas', setchas.value);
 		if(setminuta.value == "00") {
 			setminuta.value  = 0;
@@ -987,6 +991,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
     }
     function refreshTimerReminder() {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+			document.getElementById('reminderstatus').textContent = "🔔":
             setchas.value = localStorage.getItem('setchas');
             setminuta.value = localStorage.getItem('setminuta');
             var timearr = new Date()
@@ -995,6 +1000,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
             abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
         } else {
             clearTimeout(abortTimeOut);
+			document.getElementById('reminderstatus').textContent = "🔕":
         }
     }
 
