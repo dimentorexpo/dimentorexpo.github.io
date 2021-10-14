@@ -1831,16 +1831,16 @@ async function buttonsFromDoc(butName) {
 
        //     count = await checkHistory(uid.split(',')[0])
        //     if (count > 1 && flagggg == 0) {
-                if (document.getElementById('languageAF').innerHTML == "Русский") {
-                    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                        txt = "Здравствуйте, " + a[0] + "!" + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
-                }
-                else {
-                    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                        txt = "Hello. Please wait a few minutes."
-                }
+           //     if (document.getElementById('languageAF').innerHTML == "Русский") {
+       //             if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+      //                  txt = "Здравствуйте, " + a[0] + "!" + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
+      //          }
+     //           else {
+     //               if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
+    //                    txt = "Hello. Please wait a few minutes."
+     //           }
       //     } else {
-                flagggg = 0
+     //           flagggg = 0
                a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
                a = a.split(' ')
               const cyrillicPattern = /^[\u0400-\u04FF]+$/;
