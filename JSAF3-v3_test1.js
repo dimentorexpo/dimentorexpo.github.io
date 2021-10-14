@@ -58,8 +58,6 @@ function mystyles() {
     mstl.innerHTML = style;
 }
 
-var abortTimeOut = ''
-
 var win_AFhelper =  // описание элементов главного окна
     `<div style="display: flex; width: 351px;">
         <span style="width: 351px">
@@ -968,6 +966,8 @@ function move_again_AF() {
         cpuname.value = "";
     }
 
+Var abortTimeOut 									// перменная для отмены будильника
+
     document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
         localStorage.setItem('setchas', setchas.value);
         localStorage.setItem('setminuta', setminuta.value);
@@ -992,13 +992,15 @@ function move_again_AF() {
         }
     }
 
-	document.getElementById('clock_remin').ondblclick = function () {
-		clearTimeout(abortTimeOut)
-		localStorage.removeItem('chronostamp')
-		localStorage.removeItem('chronostamp2')
-        	setchas.value = ""
-        	setminuta.value = ""
-		alert("Будильник удален")
+	document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника
+		if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+			clearTimeout(abortTimeOut)	
+			localStorage.removeItem('chronostamp')
+			localStorage.removeItem('chronostamp2')
+        		setchas.value = ""
+        		setminuta.value = ""
+			alert("Будильник удален")
+	}
     }
 
     refreshTimerReminder();
