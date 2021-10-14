@@ -1852,7 +1852,7 @@ async function buttonsFromDoc(butName) {
     //                   txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
                else
                    txt = "Hello. Please wait a few minutes."
-            }
+     
      //   } catch (e) {
      //       if (document.getElementById('languageAF').innerHTML == "Русский")
      //          txt = "Здравствуйте!" + " + Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
@@ -1864,7 +1864,8 @@ async function buttonsFromDoc(butName) {
         else
             sendAnswerTemplate2(txt)
         return
-    }
+    
+	   }
 
     msgFromTable(butName)
     if (butName == "Серверные")
@@ -1872,8 +1873,8 @@ async function buttonsFromDoc(butName) {
             sendComment(document.getElementById('serversInp').value)
             newTag(1370)
         }
-
-
+	}
+	
 var bool = 0;
 var table
 function getText() {
