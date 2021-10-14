@@ -58,6 +58,8 @@ function mystyles() {
     mstl.innerHTML = style;
 }
 
+var abortTimeOut = ''
+
 var win_AFhelper =  // описание элементов главного окна
     `<div style="display: flex; width: 351px;">
         <span style="width: 351px">
@@ -975,7 +977,7 @@ function move_again_AF() {
         //		setchas.value = "";
         //		setminuta.value = "";
         alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
-        var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+        abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
     }
     function refreshTimerReminder() {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
@@ -984,13 +986,14 @@ function move_again_AF() {
             var timearr = new Date()
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
-            var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
+            abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
         } else {
             clearTimeout(abortTimeOut);
         }
     }
 
 	document.getElementById('clock_remin').ondblclick = function () {
+		clearTimeout(abortTimeOut)
 		localStorage.removeItem('chronostamp')
 		localStorage.removeItem('chronostamp2')
         	setchas.value = ""
