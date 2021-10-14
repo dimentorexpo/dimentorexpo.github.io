@@ -816,8 +816,8 @@ function move_again_AF() {
         } else if (((localStorage.getItem('setchas') - hours) > 0) && localStorage.getItem('setminuta') > minutes) {
             time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) == 0) && ((localStorage.getItem('setminuta') - minutes)== 0) && seconds > 0) {
-            time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes) + " : " + (60 - seconds);
+        } else if (((localStorage.getItem('setchas') - hours) == 1) && ((localStorage.getItem('setminuta') - minutes)== 0) && seconds > 0) {
+            time = "00" + " : " + ((60+localStorage.getItem('setminuta')) - minutes - 1) + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
         }else {
             time = "00" + " : " + "00" + " : " + "00";
