@@ -972,10 +972,10 @@ function move_again_AF() {
 
 var abortTimeOut = ''								// перменная для отмены будильника
 	if (localStorage.getItem('chronostamp') == null) {
-		document.getElementById('reminderstatus').textContent = "🔕":
+		document.getElementById('reminderstatus').textContent = "🔕";
 	}
     document.getElementById('setreminder').onclick = function () {  // выставляем будильник
-		document.getElementById('reminderstatus').textContent = "🔔":
+		document.getElementById('reminderstatus').textContent = "🔔";
         localStorage.setItem('setchas', setchas.value);
 		if(setminuta.value == "00") {
 			setminuta.value  = 0;
@@ -991,7 +991,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
     }
     function refreshTimerReminder() {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-			document.getElementById('reminderstatus').textContent = "🔔":
+			document.getElementById('reminderstatus').textContent = "🔔";
             setchas.value = localStorage.getItem('setchas');
             setminuta.value = localStorage.getItem('setminuta');
             var timearr = new Date()
@@ -1000,7 +1000,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
             abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
         } else {
             clearTimeout(abortTimeOut);
-			document.getElementById('reminderstatus').textContent = "🔕":
+			document.getElementById('reminderstatus').textContent = "🔕";
         }
     }
 
