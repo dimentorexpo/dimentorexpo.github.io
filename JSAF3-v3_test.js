@@ -1848,8 +1848,8 @@ async function buttonsFromDoc(butName) {
                 if (document.getElementById('languageAF').innerHTML == "Русский")
                     if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
                         txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
-                    else
-                        txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
+                  //  else
+                  //     txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
                 else
                     txt = "Hello. Please wait a few minutes."
             }
