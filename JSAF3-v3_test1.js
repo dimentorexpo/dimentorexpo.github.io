@@ -990,10 +990,11 @@ function move_again_AF() {
         }
     }
 
-	document.getElementById('clock_remin').ondblclick = function () {
+	document.getElementById('clock_remin').ondblclick = function () {		
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0){
-		localStorage.setItem('setchas', 0)
-		localStorage.setItem('setminuta', 0)
+		localStorage.removeItem('chronostamp');
+        	setchas.value = "";
+        	setminuta.value = "";
 		alert("Будильник удален")
 	}
     }
