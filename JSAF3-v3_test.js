@@ -98,9 +98,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="number" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.36</button>
-				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.33.1</button>
-				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" title="Двойной клик = удаление таймера" style="color: lightgreen; margin-top: 5px"></button>
 			</div>
@@ -203,6 +200,8 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button id="enableNS" style="width:105px">Enable NS💾</button>
+					<button id="curVeriOS" style="margin-top: 5px">iOS: 9.38</button>
+			  	    <button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.34</button>
 				</div>		
 			</span>
 	</span>
