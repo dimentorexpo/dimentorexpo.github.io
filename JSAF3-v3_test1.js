@@ -990,8 +990,7 @@ function move_again_AF() {
         }
     }
 
-	document.getElementById('clock_remin').ondblclick = function () {		
-        	clearTimeout(abortTimeOut)
+	document.getElementById('clock_remin').ondblclick = function () {
 		localStorage.removeItem('chronostamp')
 		localStorage.removeItem('chronostamp2')
         	setchas.value = ""
