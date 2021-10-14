@@ -800,7 +800,7 @@ function move_again_AF() {
         if (minutes < 10) { minutes = "0" + minutes; }
         seconds = data.getSeconds();
         if (seconds < 10) { seconds = "0" + seconds; }
-		if (localStorage.getItem('setminuta') != 0) {
+		if (JSON.parse(localStorage.getItem('setminuta')) != 0) {
         var summin = JSON.parse(localStorage.getItem('setminuta')) + 60; 
 		} else {console.log("Задайте не нулевое значение")}
         if (localStorage.getItem('chronostamp') === null) {
