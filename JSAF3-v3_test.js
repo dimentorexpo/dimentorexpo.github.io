@@ -1840,18 +1840,18 @@ async function buttonsFromDoc(butName) {
                         txt = "Hello. Please wait a few minutes."
                 }
       //     } else {
-      //          flagggg = 0
-       //         a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-       //         a = a.split(' ')
-        //        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+                flagggg = 0
+               a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+               a = a.split(' ')
+              const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-  //              if (document.getElementById('languageAF').innerHTML == "Русский")
- //                    if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
-    //                    txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
-                  //  else
-                  //     txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
-      //          else
-      //              txt = "Hello. Please wait a few minutes."
+               if (document.getElementById('languageAF').innerHTML == "Русский")
+                   if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
+                       txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
+    //                else
+    //                   txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
+               else
+                   txt = "Hello. Please wait a few minutes."
             }
      //   } catch (e) {
      //       if (document.getElementById('languageAF').innerHTML == "Русский")
@@ -1864,7 +1864,7 @@ async function buttonsFromDoc(butName) {
         else
             sendAnswerTemplate2(txt)
         return
-    
+    }
 
     msgFromTable(butName)
     if (butName == "Серверные")
@@ -1872,7 +1872,7 @@ async function buttonsFromDoc(butName) {
             sendComment(document.getElementById('serversInp').value)
             newTag(1370)
         }
-}
+
 
 var bool = 0;
 var table
