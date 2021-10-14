@@ -985,7 +985,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
             setchas.value = localStorage.getItem('setchas');
 			if(setminuta.value != "00") {
             setminuta.value = localStorage.getItem('setminuta');
-			} else {
+			} else if (setminuta.value == "00"){
 				setminuta.value ="0";
 				}
             var timearr = new Date()
