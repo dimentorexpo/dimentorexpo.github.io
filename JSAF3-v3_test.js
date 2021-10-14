@@ -94,15 +94,15 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="text" style="text-align: center; margin-top: 5px; width: 30px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" type="text" style="text-align: center; margin-top: 5px;  width: 30px; color: black;">
+				<input id="setchas" placeholder="HH" autocomplete="off" type="number" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input id="setminuta" placeholder="MM" autocomplete="off" type="number" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.38</button>
-				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.34</button>
+				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.36</button>
+				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.33.1</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
-				<button id="clock_remin" style="color: lightgreen; margin-top: 5px"></button>
+				<button id="clock_remin" title="Двойной клик = удаление таймера" style="color: lightgreen; margin-top: 5px"></button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -966,6 +966,8 @@ function move_again_AF() {
         cpuname.value = "";
     }
 
+var abortTimeOut = ''								// перменная для отмены будильника
+
     document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
         localStorage.setItem('setchas', setchas.value);
         localStorage.setItem('setminuta', setminuta.value);
@@ -975,7 +977,7 @@ function move_again_AF() {
         //		setchas.value = "";
         //		setminuta.value = "";
         alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
-        var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+        abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
     }
     function refreshTimerReminder() {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
@@ -984,10 +986,21 @@ function move_again_AF() {
             var timearr = new Date()
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
-            var abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
+            abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
         } else {
             clearTimeout(abortTimeOut);
         }
+    }
+
+	document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника
+		if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+			clearTimeout(abortTimeOut)	
+			localStorage.removeItem('chronostamp')
+			localStorage.removeItem('chronostamp2')
+        		setchas.value = ""
+        		setminuta.value = ""
+			alert("Будильник удален")
+	}
     }
 
     refreshTimerReminder();
@@ -1851,8 +1864,8 @@ async function buttonsFromDoc(butName) {
             sendComment(document.getElementById('serversInp').value)
             newTag(1370)
         }
-	}
-	
+}
+
 var bool = 0;
 var table
 function getText() {
