@@ -971,6 +971,9 @@ var abortTimeOut = ''								// перменная для отмены буди�
 
     document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
         localStorage.setItem('setchas', setchas.value);
+		if(setminuta.value == "00") {
+			setminuta.value  = 0;
+		}
         localStorage.setItem('setminuta', setminuta.value);
         var timearr = new Date()
         var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
@@ -983,11 +986,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
     function refreshTimerReminder() {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             setchas.value = localStorage.getItem('setchas');
-			if(setminuta.value != "00") {
             setminuta.value = localStorage.getItem('setminuta');
-			} else if (setminuta.value == "00"){
-				setminuta.value ="0";
-				}
             var timearr = new Date()
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
