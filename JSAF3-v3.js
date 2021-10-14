@@ -68,6 +68,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
+					<div id="reminderstatus" style="width:16px; float: right; margin-right: 5px"></div>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -97,9 +98,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="setchas" placeholder="HH" autocomplete="off" type="number" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 				<input id="setminuta" placeholder="MM" autocomplete="off" type="number" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
-				<br>
-				<button id="curVeriOS" style="margin-top: 5px">iOS: 9.36</button>
-				<button id="curVerAndroid" style="margin-top: 5px">Аndroid: 9.33.1</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" title="Двойной клик = удаление таймера" style="color: lightgreen; margin-top: 5px"></button>
@@ -203,6 +201,8 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button id="enableNS" style="width:105px">Enable NS💾</button>
+					<button id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.38</button>
+			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.34</button>
 				</div>		
 			</span>
 	</span>
@@ -807,16 +807,19 @@ function move_again_AF() {
         } else if (((localStorage.getItem('setchas') - hours) == 0) && ((localStorage.getItem('setminuta') > minutes))) {
             time = "00" + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) >= 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
+        } else if (((localStorage.getItem('setchas') - hours) > 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
             time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') <= minutes) {
+        } else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') < minutes) {
             time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
         } else if (((localStorage.getItem('setchas') - hours) > 0) && localStorage.getItem('setminuta') > minutes) {
             time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
-        } else {
+        } else if (((localStorage.getItem('setchas') - hours) == 1) && (localStorage.getItem('setminuta') - minutes)==0) {
+            time = localStorage.getItem('setchas') - hours + " : " + "00" + " : " + (60 - seconds);
+            document.getElementById("clock_remin").innerHTML = time;
+        }else {
             time = "00" + " : " + "00" + " : " + "00";
             document.getElementById("clock_remin").innerHTML = time;
         }
@@ -968,8 +971,11 @@ function move_again_AF() {
     }
 
 var abortTimeOut = ''								// перменная для отмены будильника
-
-    document.getElementById('setreminder').onclick = function () {                  // выставляем будильник
+	if (localStorage.getItem('chronostamp') == null) {
+		document.getElementById('reminderstatus').textContent = "🔕";
+	}
+    document.getElementById('setreminder').onclick = function () {  // выставляем будильник
+		document.getElementById('reminderstatus').textContent = "🔔";
         localStorage.setItem('setchas', setchas.value);
 		if(setminuta.value == "00") {
 			setminuta.value  = 0;
@@ -985,6 +991,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
     }
     function refreshTimerReminder() {
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+			document.getElementById('reminderstatus').textContent = "🔔";
             setchas.value = localStorage.getItem('setchas');
             setminuta.value = localStorage.getItem('setminuta');
             var timearr = new Date()
@@ -993,6 +1000,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
             abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
         } else {
             clearTimeout(abortTimeOut);
+			document.getElementById('reminderstatus').textContent = "🔕";
         }
     }
 
@@ -1004,6 +1012,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
         		setchas.value = ""
         		setminuta.value = ""
 			alert("Будильник удален")
+			document.getElementById('reminderstatus').textContent = "🔕";
 	}
     }
 
