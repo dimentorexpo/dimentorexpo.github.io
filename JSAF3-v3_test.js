@@ -986,8 +986,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
 			if(setminuta.value != "00") {
             setminuta.value = localStorage.getItem('setminuta');
 			} else {
-				alert("Введите не нулевое значение минуты")
-				setminuta.value ="";
+				setminuta.value ="0";
 				}
             var timearr = new Date()
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
