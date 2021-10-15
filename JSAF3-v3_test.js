@@ -355,7 +355,7 @@ gettacherphoto.onclick = async function() {
 //	document.getElementById('URLphoto').remove();
 //	document.getElementById('getphototeacher').textContent="Get photo";
 //}
-	setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
+//	setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
 }
 
 
