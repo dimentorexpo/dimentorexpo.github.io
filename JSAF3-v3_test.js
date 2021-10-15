@@ -317,6 +317,35 @@ buttonhistory.onclick = function () {
 }
 
 
+let getteacheridformaf;
+gettacherphoto.onclick = function() {
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        console.log("getidfromaf = " + ' ' + getidfromaf);
+    }
+	
+    document.getElementById('responseTextarea1').value = '{}'
+    document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
+    document.getElementById('responseTextarea3').value = 'imageurl'
+    document.getElementById('sendResponse').click()
+	
+	    function getImageUrl() {
+        document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
+        document.getElementById('responseTextarea3').value = 'imageurl'
+
+        var rezresp = document.getElementById('responseTextarea1').getAttribute('imageurl')
+        document.getElementById('responseTextarea1').removeAttribute('imageurl');
+        var convertrezresp= rezresp.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+    }
+    setTimeout(getImageUrl, 1000);
+	
+	teacherphoto.src = convertrezresp;
+	document.getElementById('getphototeacher').append(teacherphoto)
+}
+
+
 var getidfromaf;
 buttonmobpas.onclick = function () {
 
