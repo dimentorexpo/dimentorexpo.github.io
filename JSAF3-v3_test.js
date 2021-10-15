@@ -345,7 +345,7 @@ gettacherphoto.onclick = async function() {
 	
 	await document.getElementById('getphototeacher').appendChild(teacherphoto)
 	if (document.getElementById('URLphoto') !=null || undefined) {
-		document.getElementById('getphototeacher').textContent = "Скрыть фото"
+		document.getElementById('getphototeacher').innerHTML = "Скрыть фото"
 	}
 
 	
