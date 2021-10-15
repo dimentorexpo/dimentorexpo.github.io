@@ -264,7 +264,6 @@ let teacherphoto = document.createElement('img');
 teacherphoto.id = 'URLphoto';
 teacherphoto.style.width = "150px";
 teacherphoto.style.height = "180px";
-teacherphoto.onclick = removephoto();
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
@@ -317,11 +316,6 @@ buttonhistory.onclick = function () {
     search.click()
 }
 
-function removephoto() {
-	if (document.getElementById('URLphoto') !=null || document.getElementById('URLphoto') != undefined)
-	document.getElementById('URLphoto').remove();
-}
-
 let getteacheridformaf;
 gettacherphoto.onclick = async function() {
 	//	document.getElementById('getphototeacher').textContent="Скрыть фото";
@@ -350,6 +344,9 @@ gettacherphoto.onclick = async function() {
 	
 	document.getElementById('getphototeacher').replaceWith(teacherphoto)
 	
+	document.querySelector('#URLphoto').onClick = function() {
+			document.getElementById('URLphoto').remove();
+	}
 //	let removephoto = document.getElementById('URLphoto');
 	//removephoto.onclick = function () {
 //	document.getElementById('URLphoto').remove();
@@ -2779,7 +2776,7 @@ function startTimer() {
 									  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
 											if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
 											{
-												document.getElementsByClassName('expert-user_details-row')[4].append(gettacherphoto)
+												document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].append(gettacherphoto)
 											}
 										}
 								
