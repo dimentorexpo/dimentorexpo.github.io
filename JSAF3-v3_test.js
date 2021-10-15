@@ -321,9 +321,7 @@ buttonhistory.onclick = function () {
 let getteacheridformaf;
 gettacherphoto.onclick = function() {
 	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student" ||document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent") {
-			document.getElementById('getphototeacher').remove()
-		} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {						
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {						
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
@@ -2760,11 +2758,13 @@ function startTimer() {
 								document.getElementById('userTypeId').style.color = "#1E90FF"
 								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student") {
 									document.getElementById('userTypeId').innerText = "(У)"
-									document.getElementById('userTypeId').style.color = "#DC143C"									
+									document.getElementById('userTypeId').style.color = "#DC143C"			
+									document.getElementById('getphototeacher').remove()									
 								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent")
 								{
 								    document.getElementById('userTypeId').innerText = "(РУ)"
 									document.getElementById('userTypeId').style.color = "#DC143C"	
+									document.getElementById('getphototeacher').remove()
 								} 		
 					}
 
