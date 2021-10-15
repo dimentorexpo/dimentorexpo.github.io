@@ -347,12 +347,12 @@ gettacherphoto.onclick = function() {
 		teacherphoto.src = convertrezresp;
     }
     setTimeout(getImageUrl, 1000);
-	
+		}
 	document.getElementById('getphototeacher').append(teacherphoto)
 	document.getElementById('getphototeacher').textContent = "Скрыть фото";
 		}
 		}
-	}
+	
 }
 
 var getidfromaf;
