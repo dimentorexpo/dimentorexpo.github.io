@@ -343,7 +343,7 @@ gettacherphoto.onclick = function() {
     setTimeout(getImageUrl, 1000);
 	
 	document.getElementById('getphototeacher').append(teacherphoto)
-	document.getElementById('getphototeacher').textContent="Скрыть фото";
+//	document.getElementById('getphototeacher').textContent="Скрыть фото";
 	
 //	let removephoto = document.getElementById('URLphoto');
 	//removephoto.onclick = function () {
