@@ -2609,6 +2609,17 @@ function startTimer() {
                 }
             }
         }
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(gettacherphoto)
+            }
+			}
+		}
+			
+			
 
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -2616,12 +2627,7 @@ function startTimer() {
                 btn.appendChild(button2)
             }
 			
-			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher")
-                btn.appendChild(gettacherphoto)
-            }}
+
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
