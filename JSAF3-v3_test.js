@@ -317,11 +317,8 @@ buttonhistory.onclick = function () {
 }
 
 
-		
 let getteacheridformaf;
 gettacherphoto.onclick = function() {
-	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {						
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
@@ -344,13 +341,12 @@ gettacherphoto.onclick = function() {
 		teacherphoto.src = convertrezresp;
     }
     setTimeout(getImageUrl, 1000);
-	 
+	
 	document.getElementById('getphototeacher').append(teacherphoto)
-	setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
-		} 
-	}
+	setTimeout(function() {document.getElementById('URLphoto').remove()}, 5000);
 }
- 
+
+
 var getidfromaf;
 buttonmobpas.onclick = function () {
 
@@ -1285,6 +1281,7 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
+
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -1376,6 +1373,7 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
+
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -1446,6 +1444,7 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
+
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -2618,10 +2617,10 @@ function startTimer() {
             }
 			
 			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher")
                 btn.appendChild(gettacherphoto)
-            }
+            }}
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
