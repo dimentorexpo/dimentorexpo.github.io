@@ -345,19 +345,9 @@ gettacherphoto.onclick = function() {
 	document.getElementById('getphototeacher').replaceWith(teacherphoto)
 	
 	document.querySelector('#URLphoto').onclick = function() {
-	//		document.querySelector('#URLphoto').remove();
 	document.querySelector('#URLphoto').replaceWith(gettacherphoto)
 	}
-//	let removephoto = document.getElementById('URLphoto');
-	//removephoto.onclick = function () {
-//	document.getElementById('URLphoto').remove();
-//	document.getElementById('getphototeacher').textContent="Get photo";
-//}
-//	setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
 }
-
-
-
 
 var getidfromaf;
 buttonmobpas.onclick = function () {
@@ -2780,7 +2770,6 @@ function startTimer() {
 												document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].append(gettacherphoto)
 											}
 										}
-								
 								}
 					}
 					
