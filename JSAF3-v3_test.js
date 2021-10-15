@@ -264,6 +264,7 @@ let teacherphoto = document.createElement('img');
 teacherphoto.id = 'URLphoto';
 teacherphoto.style.width = "150px";
 teacherphoto.style.height = "180px";
+teacherphoto.onclick = removephoto();
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
@@ -316,6 +317,9 @@ buttonhistory.onclick = function () {
     search.click()
 }
 
+function removephoto() {
+	document.getElementById('URLphoto').remove();
+}
 
 let getteacheridformaf;
 gettacherphoto.onclick = async function() {
@@ -343,18 +347,14 @@ gettacherphoto.onclick = async function() {
     }
     setTimeout(getImageUrl, 1000);
 	
-	await document.getElementById('getphototeacher').appendChild(teacherphoto)
-	if (document.getElementById('URLphoto') !=null || undefined) {
-		document.getElementById('getphototeacher').innerHTML = "Скрыть фото"
-	}
-
+	document.getElementById('getphototeacher').append(teacherphoto)
 	
 //	let removephoto = document.getElementById('URLphoto');
 	//removephoto.onclick = function () {
 //	document.getElementById('URLphoto').remove();
 //	document.getElementById('getphototeacher').textContent="Get photo";
 //}
-	//setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
+	setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
 }
 
 
