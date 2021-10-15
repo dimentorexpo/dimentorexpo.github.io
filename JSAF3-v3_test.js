@@ -343,7 +343,7 @@ gettacherphoto.onclick = async function() {
     setTimeout(getImageUrl, 1000);
 	
 	await document.getElementById('getphototeacher').append(teacherphoto)
-	document.getElementById('getphototeacher').textContent="Скрыть фото";
+	await document.getElementById('getphototeacher').textContent="Скрыть фото";
 	
 //	let removephoto = document.getElementById('URLphoto');
 	//removephoto.onclick = function () {
