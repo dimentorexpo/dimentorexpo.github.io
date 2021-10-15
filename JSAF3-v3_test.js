@@ -319,9 +319,6 @@ buttonhistory.onclick = function () {
 
 let getteacheridformaf;
 gettacherphoto.onclick = function() {
-	if (document.getElementById('getphototeacher').textContent == "Get photo") {
-	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {						
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
@@ -346,16 +343,8 @@ gettacherphoto.onclick = function() {
     setTimeout(getImageUrl, 1000);
 	
 	document.getElementById('getphototeacher').append(teacherphoto)
-	document.getElementById('getphototeacher').textContent = "Скрыть фото";
-		}
-		}
-	}
-	
-	else if (document.getElementById('getphototeacher').textContent == "Скрыть фото") {
-		document.getElementById('URLphoto').remove();
-		document.getElementById('getphototeacher').textContent = "Get photo";
-	}
 }
+
 
 var getidfromaf;
 buttonmobpas.onclick = function () {
