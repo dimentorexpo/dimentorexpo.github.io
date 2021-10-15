@@ -316,7 +316,10 @@ buttonhistory.onclick = function () {
     search.click()
 }
 
-
+if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student" ||document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent") {
+			document.getElementById('getphototeacher').remove()
+		}
+		
 let getteacheridformaf;
 gettacherphoto.onclick = function() {
 	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -346,9 +349,7 @@ gettacherphoto.onclick = function() {
 	 
 	document.getElementById('getphototeacher').append(teacherphoto)
 	setTimeout(function() {document.getElementById('URLphoto').remove())}, 10000);
-		} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student" ||document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent") {
-			document.getElementById('getphototeacher').remove()
-		}
+		} 
 	}
 }
  
