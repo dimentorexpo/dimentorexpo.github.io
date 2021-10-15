@@ -318,6 +318,7 @@ buttonhistory.onclick = function () {
 }
 
 function removephoto() {
+	if (document.getElementById('URLphoto') !=null || document.getElementById('URLphoto') != undefined)
 	document.getElementById('URLphoto').remove();
 }
 
