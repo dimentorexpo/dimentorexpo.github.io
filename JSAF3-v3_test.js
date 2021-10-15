@@ -346,17 +346,18 @@ gettacherphoto.onclick = function() {
 	
 	document.getElementById('getphototeacher').append(teacherphoto)
 	document.getElementById('getphototeacher').textContent = "Скрыть фото";
+
+	
+		}
+	}
+}
+
 	if (document.getElementById('getphototeacher').textContent == "Скрыть фото") {
 		document.getElementById('getphototeacher').addEventListener('click', function() {
 			document.getElementById('URLphoto').remove();
 			document.getElementById('getphototeacher').textContent = "Get photo"
 		})
 	}
-	
-		}
-	}
-}
-
 
 
 var getidfromaf;
