@@ -348,7 +348,7 @@ gettacherphoto.onclick = async function() {
     }
     setTimeout(getImageUrl, 1000);
 	
-	document.getElementById('getphototeacher').append(teacherphoto)
+	document.getElementById('getphototeacher').replaceWith(teacherphoto)
 	
 //	let removephoto = document.getElementById('URLphoto');
 	//removephoto.onclick = function () {
