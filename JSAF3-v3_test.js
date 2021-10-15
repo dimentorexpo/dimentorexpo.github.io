@@ -2772,8 +2772,6 @@ function startTimer() {
 								}
 					}
 					
-					ПИСУЛЬКА
-
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
                     b.style.marginRight = '10px'
