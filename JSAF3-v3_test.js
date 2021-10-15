@@ -345,12 +345,11 @@ gettacherphoto.onclick = function() {
 	document.getElementById('getphototeacher').append(teacherphoto)
 	document.getElementById('getphototeacher').textContent="Скрыть фото";
 	
-	let removephoto = document.getElementById('URLphoto');
-	removephoto.onclick = function () {
-	document.getElementById('URLphoto').remove();
-	document.getElementById('getphototeacher').textContent="Get photo";
-	
-}
+//	let removephoto = document.getElementById('URLphoto');
+	//removephoto.onclick = function () {
+//	document.getElementById('URLphoto').remove();
+//	document.getElementById('getphototeacher').textContent="Get photo";
+//}
 	//setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
 }
 
