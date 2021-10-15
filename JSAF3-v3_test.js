@@ -344,15 +344,17 @@ gettacherphoto.onclick = function() {
 	
 	document.getElementById('getphototeacher').append(teacherphoto)
 	document.getElementById('getphototeacher').textContent="Скрыть фото";
-	//setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
-}
-
-let removephoto = document.getElementById('URLphoto');
-removephoto.onclick = function () {
+	
+	let removephoto = document.getElementById('URLphoto');
+	removephoto.onclick = function () {
 	document.getElementById('URLphoto').remove();
 	document.getElementById('getphototeacher').textContent="Get photo";
 	
 }
+	//setTimeout(function() {document.getElementById('URLphoto').remove()}, 10000);
+}
+
+
 
 
 var getidfromaf;
