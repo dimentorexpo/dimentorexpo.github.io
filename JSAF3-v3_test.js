@@ -319,6 +319,7 @@ buttonhistory.onclick = function () {
 
 let getteacheridformaf;
 gettacherphoto.onclick = async function() {
+		document.getElementById('getphototeacher').textContent="Скрыть фото";
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
@@ -342,8 +343,11 @@ gettacherphoto.onclick = async function() {
     }
     setTimeout(getImageUrl, 1000);
 	
-	await document.getElementById('getphototeacher').append(teacherphoto)
-	await document.getElementById('getphototeacher').textContent="Скрыть фото";
+	await document.getElementById('getphototeacher').appendChild(teacherphoto)
+	if (document.getElementById('URLphoto') !=null || undefined) {
+		document.getElementById('getphototeacher').textContent = "Скрыть фото"
+	}
+
 	
 //	let removephoto = document.getElementById('URLphoto');
 	//removephoto.onclick = function () {
