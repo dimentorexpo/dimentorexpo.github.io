@@ -319,6 +319,8 @@ buttonhistory.onclick = function () {
 
 let getteacheridformaf;
 gettacherphoto.onclick = function() {
+	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {						
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
@@ -343,8 +345,9 @@ gettacherphoto.onclick = function() {
     setTimeout(getImageUrl, 1000);
 	
 	document.getElementById('getphototeacher').append(teacherphoto)
+		}
+	}
 }
-
 
 var getidfromaf;
 buttonmobpas.onclick = function () {
