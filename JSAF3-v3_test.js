@@ -319,6 +319,9 @@ buttonhistory.onclick = function () {
 
 let getteacheridformaf;
 gettacherphoto.onclick = function() {
+	if (document.getElementById('getphototeacher').textContent == "Скрыть фото") {
+		document.getElementById('URLphoto').remove();
+	} else {
 	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {						
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -346,6 +349,7 @@ gettacherphoto.onclick = function() {
 	
 	document.getElementById('getphototeacher').append(teacherphoto)
 	document.getElementById('getphototeacher').textContent = "Скрыть фото";
+		}
 		}
 	}
 }
