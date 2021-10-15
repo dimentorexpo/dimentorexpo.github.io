@@ -345,7 +345,8 @@ gettacherphoto.onclick = function() {
 	document.getElementById('getphototeacher').replaceWith(teacherphoto)
 	
 	document.querySelector('#URLphoto').onclick = function() {
-			document.querySelector('#URLphoto').remove();
+	//		document.querySelector('#URLphoto').remove();
+	document.querySelector('#URLphoto').replaceWith(gettacherphoto)
 	}
 //	let removephoto = document.getElementById('URLphoto');
 	//removephoto.onclick = function () {
