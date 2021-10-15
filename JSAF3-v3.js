@@ -257,13 +257,6 @@ buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;">Chat Histor
 let buttonmobpas = document.createElement('p');
 buttonmobpas.id = 'copymobpass';
 buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate code📱</a>';
-let gettacherphoto = document.createElement('p');
-gettacherphoto.id = 'getphototeacher';
-gettacherphoto.innerHTML = '<a style="color: black; cursor: pointer;">Get photo</a>';
-let teacherphoto = document.createElement('img');
-teacherphoto.id = 'URLphoto';
-teacherphoto.style.width = "150px";
-teacherphoto.style.height = "180px";
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
@@ -314,38 +307,6 @@ buttonhistory.onclick = function () {
             document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
     }
     search.click()
-}
-
-let getteacheridformaf;
-gettacherphoto.onclick = function() {
-	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {						
-	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        console.log("getteacheridformaf = " + ' ' + getteacheridformaf);
-    }
-	
-		document.getElementById('responseTextarea1').value = '{}'
-		document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
-		document.getElementById('responseTextarea3').value = 'imageurl'
-		document.getElementById('sendResponse').click()
-	
-	    function getImageUrl() {
-        document.getElementById('responseTextarea1').value = '{}'
-        document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
-        document.getElementById('responseTextarea3').value = 'imageurl'
-
-        var rezresp = document.getElementById('responseTextarea1').getAttribute('imageurl')
-        var convertrezresp= rezresp.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
-		document.getElementById('responseTextarea1').removeAttribute('imageurl');
-		teacherphoto.src = convertrezresp;
-    }
-    setTimeout(getImageUrl, 1000);
-	
-	document.getElementById('getphototeacher').append(teacherphoto)
-		}
-	}
 }
 
 
@@ -1283,7 +1244,6 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
-
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -1375,7 +1335,6 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
-
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -1446,7 +1405,6 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
-
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -2616,11 +2574,6 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button2)
-            }
-			
-			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(gettacherphoto)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
