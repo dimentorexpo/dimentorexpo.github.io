@@ -95,8 +95,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="number" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" type="number" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+				<input id="setchas" placeholder="HH" autocomplete="off" type="number" max="23" maxlength="2" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input id="setminuta" placeholder="MM" autocomplete="off" type="number" max="59" maxlength="2" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
@@ -297,7 +297,7 @@ let word_text = ""
 let template_text = ""
 let flagggg = 0
 
-button2.onclick = function () {
+button2.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -307,7 +307,7 @@ button2.onclick = function () {
     btn1_student.click()
 }
 
-buttonhistory.onclick = function () {
+buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
     hide_or_display.click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
@@ -317,8 +317,7 @@ buttonhistory.onclick = function () {
 }
 
 let getteacheridformaf;
-gettacherphoto.onclick = function() {
-	//	document.getElementById('getphototeacher').textContent="Скрыть фото";
+gettacherphoto.onclick = function() {  //функция добычи фото П из ТРМ и отображении в АФ по нажатию на Get photo
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
@@ -1283,7 +1282,6 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
-
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -1375,7 +1373,6 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
-
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -1446,7 +1443,6 @@ document.getElementById('getJiraTasks').onclick = function () {
 						setTimeout(function () {
 
                             document.getElementById('responseTextarea1').value = `{
-
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -2762,7 +2758,7 @@ function startTimer() {
 								} 		
 					}
 					
-					for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+					for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) { //добавление кнопки Get Photo
 								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
 									  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
 											if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
