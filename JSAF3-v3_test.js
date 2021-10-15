@@ -257,6 +257,13 @@ buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;">Chat Histor
 let buttonmobpas = document.createElement('p');
 buttonmobpas.id = 'copymobpass';
 buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate code📱</a>';
+let gettacherphoto = document.createElement('p');
+gettacherphoto.id = 'getphototeacher';
+gettacherphoto.innerHTML = '<a style="color: black; cursor: pointer;">Get photo</a>';
+let teacherphoto = document.createElement('img');
+teacherphoto.id = 'URLphoto';
+teacherphoto.style.width = "150px";
+teacherphoto.style.height = "180px";
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
@@ -2577,6 +2584,11 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button2)
+            }
+			
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.prepend(gettacherphoto)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
