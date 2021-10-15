@@ -350,7 +350,7 @@ gettacherphoto.onclick = function() {
 		document.getElementById('getphototeacher').addEventListener('click', function() {
 			document.getElementById('URLphoto').remove();
 			document.getElementById('getphototeacher').textContent = "Get photo"
-		}
+		})
 	}
 	
 		}
