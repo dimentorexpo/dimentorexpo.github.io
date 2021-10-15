@@ -337,7 +337,7 @@ gettacherphoto.onclick = function() {
 
         var rezresp = document.getElementById('responseTextarea1').getAttribute('imageurl')
         document.getElementById('responseTextarea1').removeAttribute('imageurl');
-        var convertrezresp= rezresp.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+        var convertrezresp= rezresp.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/);
 		teacherphoto.src = convertrezresp;
     }
     setTimeout(getImageUrl, 1000);
