@@ -122,7 +122,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="kibanalnksrv">Kib_СервХеш</button>
 				<button id="redashlnk">RedashApp</button>
 				<button id="grafanalnk">Grafana</button>
-				<button id="customerlnk">Customer</button>
 			</div>
 		</div>
 		
@@ -878,9 +877,6 @@ function move_again_AF() {
     })
     document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
-    })
-    document.getElementById('customerlnk').addEventListener('click', function () {
-        window.open("https://fly.customer.io/env/40281/people")    // копируем в буфер ссылку на Customer
     })
     document.getElementById('timetable').addEventListener('click', function () {
         window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
