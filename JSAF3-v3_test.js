@@ -1470,6 +1470,14 @@ document.getElementById('getJiraTasks').onclick = function () {
 
 setTimeout(getJiraTask, 1000)
 }	
+
+let searchJiraByEnter = document.querySelector('#testJira');
+searchJiraByEnter.addEventListener('keydown', event => {
+     if(event.key === "Enter") {
+        document.querySelector('#getJiraTasks').click()            
+}
+})
+
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
