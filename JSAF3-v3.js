@@ -845,7 +845,7 @@ function move_again_AF() {
             time = "00" + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
         } else if (((localStorage.getItem('setchas') - hours) > 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
-            time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
+            time = (localStorage.getItem('setchas') - hours) + " : " + "00" + " : " + (60 - seconds);
             document.getElementById("clock_remin").innerHTML = time;
         } else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') < minutes) {
             time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
@@ -1477,6 +1477,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
         document.querySelector('#getJiraTasks').click()            
 }
 })
+
     
     document.getElementById('gotocrmoneinfo').onclick = function () {                  // проверка заявки ученика в СРМ1
         let crmonelnk = 'https://cabinet.skyeng.ru/orderV2/student/id/';
