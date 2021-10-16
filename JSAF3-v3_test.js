@@ -837,7 +837,7 @@ function move_again_AF() {
         if (minutes < 10) { minutes = "0" + minutes; }
         seconds = data.getSeconds();
         if (seconds < 10) { seconds = "0" + seconds; }
-        var summin = JSON.parse(localStorage.getItem('setminuta')) + 60;
+        var summin = JSON.parse(localStorage.getItem('setminuta')) + 59;
         if (localStorage.getItem('chronostamp') === null) {
             time = "00" + " : " + "00" + " : " + "00";
             document.getElementById("clock_remin").innerHTML = time;
