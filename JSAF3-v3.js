@@ -201,7 +201,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button id="enableNS" style="width:105px">Enable NS💾</button>
 					<button id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.38</button>
-			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.34</button>
+			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.35.5</button>
 				</div>		
 			</span>
 	</span>
