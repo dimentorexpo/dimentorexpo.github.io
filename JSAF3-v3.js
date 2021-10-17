@@ -2732,6 +2732,7 @@ function startTimer() {
                         }
                     }
 					
+					setTimeout(function() {
 					let copyCrmFromName = document.createElement('span')
                     copyCrmFromName.textContent = ' 💾'
 					copyCrmFromName.style.cursor = "pointer"
@@ -2745,7 +2746,7 @@ function startTimer() {
 					}
 					}
 					
-					let userTypeName = document.createElement('span')
+					 let userTypeName = document.createElement('span')
 					userTypeName.id = "userTypeId"
 					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
 						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2772,6 +2773,7 @@ function startTimer() {
 										}
 								}
 					}
+					} , 2000)
 					
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'

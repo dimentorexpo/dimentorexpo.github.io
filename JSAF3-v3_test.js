@@ -2731,7 +2731,7 @@ function startTimer() {
                             }
                         }
                     }
-					
+					setTimeout(function() {
 					let copyCrmFromName = document.createElement('span')
                     copyCrmFromName.textContent = ' 💾'
 					copyCrmFromName.style.cursor = "pointer"
@@ -2745,7 +2745,7 @@ function startTimer() {
 					}
 					}
 					
-					setTimeout(function() { let userTypeName = document.createElement('span')
+					let userTypeName = document.createElement('span')
 					userTypeName.id = "userTypeId"
 					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
 						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
