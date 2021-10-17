@@ -95,8 +95,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" type="number" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" type="number" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+				<input id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
@@ -227,6 +227,12 @@ var win_Jira =  // описание элементов окна ссылок
 </div>`;
 
 let audio
+
+function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
+  {
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+  }
 
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
