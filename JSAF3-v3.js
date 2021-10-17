@@ -1595,7 +1595,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: 4jCgoFWS2jHrsOwuSLYguCiYl7");
+        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: cxi7E82p0IY1SW?D^BHDwMuwC\a5cvhu");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
