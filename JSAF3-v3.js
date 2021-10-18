@@ -2779,7 +2779,7 @@ function startTimer() {
 										}
 								}
 					}
-					} , 2000)
+					} , 3000)
 					
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
