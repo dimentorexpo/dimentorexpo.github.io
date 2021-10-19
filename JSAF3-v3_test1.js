@@ -2145,7 +2145,7 @@ function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
         if (document.getElementById('languageAF').innerHTML == "Русский") {
             if (btnName == table[l][0]) {
-                if (table[l][9] !== null){
+                if (table[l][8] !== null){
                     newTag(table[l][9])
                 }
                 if (table[l][1] == "Быстрый шаблон") {
