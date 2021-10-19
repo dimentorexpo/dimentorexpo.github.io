@@ -1927,10 +1927,12 @@ async function buttonsFromDoc(butName) {
 //            newTag(1370)
 //        }
 }
-async function servFromDoc1(butName) {
+function servFromDoc1(butName) {
+    but = butName
+    msgFromTable(but)
     if (document.getElementById('avariyalink').value !== null)
-    sendComment(document.getElementById('avariyalink').value);
-    return
+        sendComment(document.getElementById('avariyalink').value);
+
 }
 var bool = 0;
 var table
