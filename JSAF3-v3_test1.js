@@ -2164,7 +2164,7 @@ function msgFromTable(btnName) {
                 }
                 break
             }
-            } else {            
+             else {            
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
