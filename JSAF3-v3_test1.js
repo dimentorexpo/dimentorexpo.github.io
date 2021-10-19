@@ -2143,10 +2143,6 @@ function newTag(valueId) {
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
-        if (btnName == table[l][0]) {
-            if (table[l][8] !== null){
-                newTag(table[l][8])
-            }
         if (document.getElementById('languageAF').innerHTML == "Русский") {
             if (btnName == table[l][0]) {
                 if (table[l][8] !== null){
@@ -2168,7 +2164,11 @@ function msgFromTable(btnName) {
                 }
                 break
             }
-        } else {            
+        } else {
+            if (btnName == table[l][0]) {
+                if (table[l][8] !== null){
+                    newTag(table[l][8])
+                }
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
