@@ -2143,11 +2143,11 @@ function newTag(valueId) {
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
-        if (document.getElementById('languageAF').innerHTML == "Русский") {
-            if (btnName == table[l][0]) {
-                if (table[l][8] !== null){
-                    newTag(table[l][8])
-                }
+        if (btnName == table[l][0]) {
+            if (table[l][8] !== null){
+                newTag(table[l][8])
+            }
+            if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -2164,12 +2164,7 @@ function msgFromTable(btnName) {
                 }
                 break
             }
-        } else {
-            if (btnName == table[l][0]) {
-                autotagg = table[l][9]
-                if (autotagg !== null){
-                    newTag(autotagg)
-                }
+            } else {            
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
