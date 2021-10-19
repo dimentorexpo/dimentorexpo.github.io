@@ -2144,46 +2144,45 @@ function newTag(valueId) {
 }
 
 function msgFromTable(btnName) {
-    for (var l = 0; l < table.length; l++) {
-        if (document.getElementById('languageAF').innerHTML == "Русский") {
-            if (btnName == table[l][0]) {
-                if (table[l][1] == "Быстрый шаблон") {
-                    sendAnswerTemplate2(table[l][2])
-                }
-                if (table[l][1] == "Текст") {
-                    sendAnswer(transfPageButtons(table[l][2]))
-                }
-                if (table[l][1] == "Шаблон") {
-                    sendAnswerTemplate(table[l][2], table[l][3])
-                }
-                if (table[l][1].indexOf("Рандом") != -1) {
-                    var count = table[l][1][7]
-                    var newL = Math.floor(Math.random() * (count)) + l
-                    sendAnswer(table[newL][2])
-                }
-                break
-            }
-        } else {
-            if (btnName == table[l][0]) {
-                if (table[l][4] == "") {
-                    document.getElementById('inp').value = "Нет такого шаблона"
-                } else {
-                    if (table[l][5] == "Быстрый шаблон") {
-                        sendAnswerTemplate2(table[l][6])
-                    }
-                    if (table[l][5] == "Текст") {
-                        sendAnswer(transfPageButtons(table[l][6]))
-                    }
-                    if (table[l][5] == "Шаблон") {
-                        sendAnswerTemplate(table[l][6], table[l][7])
-                    }
-                    break
-                }
-            }
-        }
-    }
+	for(var l = 0; l < table.length; l++) {
+		if(document.getElementById('languageAF').innerHTML == "Русский") {
+			if(btnName == table[l][0]) {
+				if(table[l][1] == "Быстрый шаблон") {
+					sendAnswerTemplate2(table[l][2])
+				}
+				if(table[l][1] == "Текст") {
+					sendAnswer(table[l][2])
+				}
+				if(table[l][1] == "Шаблон") {
+					sendAnswerTemplate(table[l][2], table[l][3])
+				}
+				if(table[l][1].indexOf("Рандом") != -1) {
+					var count = table[l][1][7]
+					var newL = Math.floor(Math.random() * (count)) + l
+					sendAnswer(table[newL][2])
+				}
+				break
+			}
+		} else {
+			if(btnName == table[l][0]) {
+				if(table[l][4] == "") {
+					document.getElementById('inp').value = "Нет такого шаблона"
+				} else {
+					if(table[l][5] == "Быстрый шаблон") {
+						sendAnswerTemplate2(table[l][6])
+					}
+					if(table[l][5] == "Текст") {
+						sendAnswer(table[l][6])
+					}
+					if(table[l][5] == "Шаблон") {
+						sendAnswerTemplate(table[l][6], table[l][7])
+					}
+					break
+				}
+			}
+		}
+	}
 }
-
 var templatesAF = []
 async function loadTemplates(template, word) {
     return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
