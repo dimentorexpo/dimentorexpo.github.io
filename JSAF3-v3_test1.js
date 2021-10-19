@@ -2146,7 +2146,7 @@ function msgFromTable(btnName) {
         if (document.getElementById('languageAF').innerHTML == "Русский") {
             if (btnName == table[l][0]) {
                 if (table[l][8] !== null){
-                    newTag(table[l][9])
+                    newTag(table[l][8])
                 }
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
