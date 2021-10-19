@@ -2142,7 +2142,7 @@ function newTag(valueId) {
 }
 
 function msgFromTable(btnName) {
-    autotagg = ''
+    let autotagg = ''
     for (var l = 0; l < table.length; l++) {
         if (document.getElementById('languageAF').innerHTML == "Русский") {
             if (btnName == table[l][0]) {
