@@ -1928,7 +1928,7 @@ async function buttonsFromDoc(butName) {
 //        }
 }
 async function servFromDoc1(butName) {
-    if document.getElementById('avariyalink').value ='' 
+    if document.getElementById('avariyalink').length = 0
             msgFromTable(btnName)
         else {
             msgFromTable(btnName)
