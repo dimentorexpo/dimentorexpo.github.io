@@ -2145,11 +2145,8 @@ function newTag(valueId) {
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
-        if (btnName == table[l][0]) {
-            if (table[l][8] != null){
-                newTag(table[l][8])
-            }
         if (document.getElementById('languageAF').innerHTML == "Русский") {
+            if (btnName == table[l][0]) {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -2159,8 +2156,15 @@ function msgFromTable(btnName) {
                 if (table[l][1] == "Шаблон") {
                     sendAnswerTemplate(table[l][2], table[l][3])
                 }
+                if (table[l][1].indexOf("Рандом") != -1) {
+                    var count = table[l][1][7]
+                    var newL = Math.floor(Math.random() * (count)) + l
+                    sendAnswer(table[newL][2])
+                }
                 break
-        } else {            
+            }
+        } else {
+            if (btnName == table[l][0]) {
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
