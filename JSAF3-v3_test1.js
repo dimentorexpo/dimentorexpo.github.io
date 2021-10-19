@@ -1919,15 +1919,8 @@ async function buttonsFromDoc(butName) {
         return
     
 	   }
-
-//    msgFromTable(butName)
-//    if (butName == "Серверные")
-//        if (document.getElementById('msg1').innerHTML != "Доработать") {
-//            sendComment(document.getElementById('serversInp').value)
-//            newTag(1370)
-//        }
 }
-function servFromDoc1(butName) {
+function servFromDoc(butName) {
     but = butName
     msgFromTable(but)
     if (document.getElementById('avariyalink').value !== null)
@@ -2040,7 +2033,7 @@ function refreshTemplates() {
 					newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
 					newInputAlink.autocomplete = 'off'
 					newInputAlink.type = 'text'
-					newInputAlink.style = 'text-align: center; width: 100px; color: black; margin-left: 10px'
+					newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
 					
 					newDiv.appendChild(newInputAlink)
 					
@@ -2082,19 +2075,6 @@ function refreshTemplates() {
                             newBut.innerText = "ус+брауз"
                         if (newBut.innerText == 'ус+брауз (П)')
                             continue
- //                       if (newBut.innerText == 'Серверные') {
- //                           var newInput = document.createElement('input')
- //                           newInput.placeholder = 'Ссылка'
- //                           newInput.id = 'serversInp'
- //                           newInput.style.marginRight = '5px'
- //                           var newDiv = document.createElement('div')
- //                           newDiv.style.margin = '5px'
- //                           newBut.id = 'serversBut'
- //                           newDiv.append(newInput)
- //                           newDiv.append(newBut)
- //                           document.getElementById('addTmp').children[0].appendChild(newDiv)
- //                           continue
- //                       }
                         if (addTmpFlag == 0)
                             b.lastElementChild.lastElementChild.appendChild(newBut)
                         else {
@@ -2106,7 +2086,7 @@ function refreshTemplates() {
                             var newBut = document.createElement('button')
                             newBut.innerText = c[0]
                             newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'servFromDoc1(this.innerText)')
+                            newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
                             b.lastElementChild.lastElementChild.appendChild(newBut)
                             break
                     case 'Темы':
