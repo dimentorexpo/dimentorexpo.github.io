@@ -1929,9 +1929,9 @@ async function buttonsFromDoc(butName) {
 }
 async function servFromDoc1(butName) {
     if (document.getElementById('avariyalink').value == null)
-            msgFromTable(btnName)
+            msgFromTable(txt)
         else {
-            msgFromTable(btnName)
+            msgFromTable(txt)
             sendComment(document.getElementById('avariyalink').value)
         }
 }
