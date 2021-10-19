@@ -2023,6 +2023,24 @@ function refreshTemplates() {
                 countOfPages++
 
                 countOfStr = 1
+
+                if(pageType == "Серверные") {
+					var newDiv = document.createElement('div')
+					newDiv.id = countOfPages + "page_" + countOfStr + "str"
+					newDiv.style.margin = "5px"
+					
+					var newInputAlink = document.createElement('input')
+					newInputAlink.id = 'avariyalink'
+					newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
+					newInputAlink.autocomplete = 'off'
+					newInputAlink.type = 'text'
+					newInputAlink.style = 'text-align: center; width: 100px; color: black; margin-left: 10px'
+					
+					newDiv.appendChild(newInputAlink)
+					
+					b.lastElementChild.appendChild(newDiv)
+					countOfStr++
+				}
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
                 newStr.id = countOfPages + "page_" + countOfStr + "str"
