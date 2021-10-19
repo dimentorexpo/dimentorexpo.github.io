@@ -2751,7 +2751,7 @@ function startTimer() {
 										}
 					}
 					}
-					
+				 	
 					 let userTypeName = document.createElement('span')
 					userTypeName.id = "userTypeId"
 					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
@@ -2779,7 +2779,7 @@ function startTimer() {
 										}
 								}
 					}
-					} , 2000)
+					} , 3000)
 					
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
