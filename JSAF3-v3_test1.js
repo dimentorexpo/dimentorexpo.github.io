@@ -2143,8 +2143,13 @@ function newTag(valueId) {
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
+        autotagg = ''
         if (document.getElementById('languageAF').innerHTML == "Русский") {
             if (btnName == table[l][0]) {
+                autotagg = table[l][9]
+                if (autotagg !== null){
+                    newTag(autotagg)
+                }
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -2163,6 +2168,10 @@ function msgFromTable(btnName) {
             }
         } else {
             if (btnName == table[l][0]) {
+                autotagg = table[l][9]
+                if (autotagg !== null){
+                    newTag(autotagg)
+                }
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
