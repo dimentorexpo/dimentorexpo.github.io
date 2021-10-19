@@ -1928,12 +1928,9 @@ async function buttonsFromDoc(butName) {
 //        }
 }
 async function servFromDoc1(butName) {
-    if (document.getElementById('avariyalink').value == null)
-            msgFromTable(txt)
-        else {
-            msgFromTable(txt)
-            sendComment(document.getElementById('avariyalink').value)
-        }
+    if (document.getElementById('avariyalink').value !== null)
+    sendComment(document.getElementById('avariyalink').value);
+    return
 }
 var bool = 0;
 var table
