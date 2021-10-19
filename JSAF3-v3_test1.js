@@ -2146,7 +2146,7 @@ function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
         if (document.getElementById('languageAF').innerHTML == "Русский") {
             if (btnName == table[l][0]) {
-                autotagg = table[l][9]
+                autotagg = (table[l][9]).value
                 if (autotagg !== null){
                     newTag(autotagg)
                 }
