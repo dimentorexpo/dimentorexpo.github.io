@@ -2158,7 +2158,6 @@ function msgFromTable(btnName) {
                     sendAnswerTemplate(table[l][2], table[l][3])
                 }
                 break
-            }
         } else {            
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
