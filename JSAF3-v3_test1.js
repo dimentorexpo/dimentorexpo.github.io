@@ -2107,7 +2107,7 @@ function refreshTemplates() {
                             var newBut = document.createElement('button')
                             newBut.innerText = c[0]
                             newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', servFromDoc1'(this.innerText)')
+                            newBut.setAttribute('onclick', 'servFromDoc1(this.innerText)')
                             b.lastElementChild.lastElementChild.appendChild(newBut)
                             break
                     case 'Темы':
