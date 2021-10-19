@@ -1921,12 +1921,12 @@ async function buttonsFromDoc(butName) {
 	   }
 }
 
-function servFromDoc(butName) {
-    but = butName
-    msgFromTable(but)
-    if (document.getElementById('avariyalink').value !== null)
-        sendComment(document.getElementById('avariyalink').value);
-}
+//function servFromDoc(butName) {
+//    but = butName
+//    msgFromTable(but)
+//    if (document.getElementById('avariyalink').value !== null)
+//        sendComment(document.getElementById('avariyalink').value);
+//}
 
 var bool = 0;
 var table
@@ -2024,23 +2024,23 @@ function refreshTemplates() {
 
                 countOfStr = 1
 
-                if(pageType == "Серверные") {
-					var newDiv = document.createElement('div')
-					newDiv.id = countOfPages + "page_" + countOfStr + "str"
-					newDiv.style.margin = "5px"
-					
-					var newInputAlink = document.createElement('input')
-					newInputAlink.id = 'avariyalink'
-					newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
-					newInputAlink.autocomplete = 'off'
-					newInputAlink.type = 'text'
-					newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
-					
-					newDiv.appendChild(newInputAlink)
-					
-					b.lastElementChild.appendChild(newDiv)
-					countOfStr++
-				}
+//                if(pageType == "Серверные") {
+//					var newDiv = document.createElement('div')
+//					newDiv.id = countOfPages + "page_" + countOfStr + "str"
+//					newDiv.style.margin = "5px"
+//					
+//					var newInputAlink = document.createElement('input')
+//					newInputAlink.id = 'avariyalink'
+//					newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
+//					newInputAlink.autocomplete = 'off'
+//					newInputAlink.type = 'text'
+//					newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+//					
+//					newDiv.appendChild(newInputAlink)
+//					
+//					b.lastElementChild.appendChild(newDiv)
+//					countOfStr++
+//				}
 
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
@@ -2084,13 +2084,13 @@ function refreshTemplates() {
                             document.getElementById('addTmp').children[0].appendChild(newBut)
                         }
                         break
-                    case 'Серверные':
-                            var newBut = document.createElement('button')
-                            newBut.innerText = c[0]
-                            newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
-                        break
+ //                   case 'Серверные':
+ //                           var newBut = document.createElement('button')
+ //                           newBut.innerText = c[0]
+ //                           newBut.style.marginRight = '4px'
+ //                           newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
+ //                           b.lastElementChild.lastElementChild.appendChild(newBut)
+ //                       break
                     case 'Темы':
                         var newBut = document.createElement('button')
                         newBut.innerText = c[0]
