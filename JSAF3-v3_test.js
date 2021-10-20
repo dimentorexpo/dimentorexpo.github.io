@@ -2748,7 +2748,6 @@ function startTimer() {
                         }
                     }
 					
-					setTimeout(function() {
 					let copyCrmFromName = document.createElement('span')
                     copyCrmFromName.textContent = ' 💾'
 					copyCrmFromName.style.cursor = "pointer"
@@ -2789,7 +2788,7 @@ function startTimer() {
 										}
 								}
 					}
-					} , 3000)
+
 					
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
