@@ -3902,7 +3902,7 @@ function prepTp() {
         // Модуль wallentine в АФ
         include("https://dimentorexpo.github.io/viewSlack.js");
         // Модуль репорта на жалобы
-        include("https://dimentorexpo.github.io/reportForm.js");
+        // include("https://dimentorexpo.github.io/reportForm.js"); пока работает не правильно, временно отключаю.
         // Модуль репорта на Отписку
         include("https://dimentorexpo.github.io/unsub.js")
     }, 2000)
