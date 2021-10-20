@@ -915,7 +915,7 @@ function move_again_AF() {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
     })
     document.getElementById('kcerrors').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSewOcI6Qqq83_gSqn25lXf72KtPls_01WApBQiZopwv30hkHA/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
     })
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
