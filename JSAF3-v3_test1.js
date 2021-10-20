@@ -95,8 +95,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="sound_test">test</button>
 				<button id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type = "number" maxlength = "2" min = "0" max = "23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type = "number" maxlength = "2" min = "0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+				<input id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
 				<button id="clock_js" style="color: white; margin-top: 5px"></button>
@@ -201,7 +201,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button id="enableNS" style="width:105px">Enable NS💾</button>
 					<button id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.38</button>
-			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.34</button>
+			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.35.5</button>
 				</div>		
 			</span>
 	</span>
@@ -1601,7 +1601,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: 4jCgoFWS2jHrsOwuSLYguCiYl7");
+        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: cxi7E82p0IY1SW?D^BHDwMuwC\a5cvhu");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
@@ -1919,14 +1919,15 @@ async function buttonsFromDoc(butName) {
         return
     
 	   }
-}
-function servFromDoc(butName) {
-    but = butName
-    msgFromTable(but)
-    if (document.getElementById('avariyalink').value !== null)
-        sendComment(document.getElementById('avariyalink').value);
 
+    msgFromTable(butName)
+    if (butName == "Серверные")
+        if (document.getElementById('msg1').innerHTML != "Доработать") {
+            sendComment(document.getElementById('serversInp').value)
+            newTag(1370)
+        }
 }
+
 var bool = 0;
 var table
 function getText() {
@@ -2022,24 +2023,6 @@ function refreshTemplates() {
                 countOfPages++
 
                 countOfStr = 1
-
-                if(pageType == "Серверные") {
-					var newDiv = document.createElement('div')
-					newDiv.id = countOfPages + "page_" + countOfStr + "str"
-					newDiv.style.margin = "5px"
-					
-					var newInputAlink = document.createElement('input')
-					newInputAlink.id = 'avariyalink'
-					newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
-					newInputAlink.autocomplete = 'off'
-					newInputAlink.type = 'text'
-					newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
-					
-					newDiv.appendChild(newInputAlink)
-					
-					b.lastElementChild.appendChild(newDiv)
-					countOfStr++
-				}
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
                 newStr.id = countOfPages + "page_" + countOfStr + "str"
@@ -2075,6 +2058,19 @@ function refreshTemplates() {
                             newBut.innerText = "ус+брауз"
                         if (newBut.innerText == 'ус+брауз (П)')
                             continue
+                        if (newBut.innerText == 'Серверные') {
+                            var newInput = document.createElement('input')
+                            newInput.placeholder = 'Ссылка'
+                            newInput.id = 'serversInp'
+                            newInput.style.marginRight = '5px'
+                            var newDiv = document.createElement('div')
+                            newDiv.style.margin = '5px'
+                            newBut.id = 'serversBut'
+                            newDiv.append(newInput)
+                            newDiv.append(newBut)
+                            document.getElementById('addTmp').children[0].appendChild(newDiv)
+                            continue
+                        }
                         if (addTmpFlag == 0)
                             b.lastElementChild.lastElementChild.appendChild(newBut)
                         else {
@@ -2082,13 +2078,12 @@ function refreshTemplates() {
                             document.getElementById('addTmp').children[0].appendChild(newBut)
                         }
                         break
-                    case 'Серверные':
-                            var newBut = document.createElement('button')
-                            newBut.innerText = c[0]
-                            newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
-                            break
+                    case 'Переводы':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
                     case 'Темы':
                         var newBut = document.createElement('button')
                         newBut.innerText = c[0]
@@ -2143,11 +2138,8 @@ function newTag(valueId) {
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
-        if (btnName == table[l][0]) {
-            if (table[l][8] != null){
-                newTag(table[l][8])
-            }
         if (document.getElementById('languageAF').innerHTML == "Русский") {
+            if (btnName == table[l][0]) {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -2157,8 +2149,15 @@ function msgFromTable(btnName) {
                 if (table[l][1] == "Шаблон") {
                     sendAnswerTemplate(table[l][2], table[l][3])
                 }
+                if (table[l][1].indexOf("Рандом") != -1) {
+                    var count = table[l][1][7]
+                    var newL = Math.floor(Math.random() * (count)) + l
+                    sendAnswer(table[newL][2])
+                }
                 break
-        } else {            
+            }
+        } else {
+            if (btnName == table[l][0]) {
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
@@ -2739,8 +2738,9 @@ function startTimer() {
                         }
                     }
 					
+					setTimeout(function() {
 					let copyCrmFromName = document.createElement('span')
-                    copyCrmFromName.textContent = '💾'
+                    copyCrmFromName.textContent = ' 💾'
 					copyCrmFromName.style.cursor = "pointer"
 					document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
 					copyCrmFromName.onclick = function() {
@@ -2751,8 +2751,8 @@ function startTimer() {
 										}
 					}
 					}
-					
-					let userTypeName = document.createElement('span')
+				 	
+					 let userTypeName = document.createElement('span')
 					userTypeName.id = "userTypeId"
 					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
 						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2779,6 +2779,7 @@ function startTimer() {
 										}
 								}
 					}
+					} , 3000)
 					
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
