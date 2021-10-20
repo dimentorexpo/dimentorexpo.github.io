@@ -138,6 +138,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="passappgen" style="width:50px;">📲</button>
 					<button id="knoweledgebase" style="width:50px;">📚</button>
 					<button id="datsyurl" style="width:50px;">📆</button>
+                    <button id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
+					<button id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button id="timetable" style="width:105px">TimeTable</button>
@@ -158,8 +160,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
 					<button id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
 					<button id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
-					<button id="confbugs" style="width:105px; margin-top: 3px">Баги</button>
-					<button id="confbugsm" style="width:105px; margin-top: 3px">Баги Моб.</button>
+					<button id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
+					<button id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
 				</div>				
 				
 				<div style="margin: 5px; width: 550px" id="links_box">
@@ -915,7 +917,7 @@ function move_again_AF() {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
     })
     document.getElementById('kcerrors').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdwL8MOAh0F_byUEIuFmTdsq_COOYgdhZZ1hDj91v_kwKEt2w/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSewOcI6Qqq83_gSqn25lXf72KtPls_01WApBQiZopwv30hkHA/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
     })
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
@@ -954,6 +956,14 @@ function move_again_AF() {
 
     document.getElementById('mobdevices').addEventListener('click', function () {
         window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
+    })
+
+    document.getElementById('TCQnew').addEventListener('click', function () {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfZbw1GkZzerHWQGGbYslV6AsGTGxEKhNZFC1LV-TySHca9Fw/viewform")    // открываем ссылку в новой вкладке на форму для внесения вопросов от П TC
+    })
+
+    document.getElementById('TCQtable').addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
     })
 
 
@@ -2138,8 +2148,11 @@ function newTag(valueId) {
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
-        if (document.getElementById('languageAF').innerHTML == "Русский") {
-            if (btnName == table[l][0]) {
+        if (btnName == table[l][0]) {
+            if (table[l][8] != null){
+                newTag(table[l][8])
+            }
+             if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -2155,9 +2168,7 @@ function msgFromTable(btnName) {
                     sendAnswer(table[newL][2])
                 }
                 break
-            }
-        } else {
-            if (btnName == table[l][0]) {
+             } else {
                 if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
@@ -2176,7 +2187,6 @@ function msgFromTable(btnName) {
         }
     }
 }
-
 var templatesAF = []
 async function loadTemplates(template, word) {
     return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
@@ -3902,7 +3912,7 @@ function prepTp() {
         // Модуль wallentine в АФ
         include("https://dimentorexpo.github.io/viewSlack.js");
         // Модуль репорта на жалобы
-        include("https://dimentorexpo.github.io/reportForm.js");
+        // include("https://dimentorexpo.github.io/reportForm.js"); пока работает не правильно, временно отключаю.
         // Модуль репорта на Отписку
         include("https://dimentorexpo.github.io/unsub.js")
     }, 2000)
