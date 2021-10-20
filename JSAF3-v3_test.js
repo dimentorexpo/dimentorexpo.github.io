@@ -138,6 +138,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="passappgen" style="width:50px;">📲</button>
 					<button id="knoweledgebase" style="width:50px;">📚</button>
 					<button id="datsyurl" style="width:50px;">📆</button>
+                    <button id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
+					<button id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button id="timetable" style="width:105px">TimeTable</button>
@@ -158,10 +160,10 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
 					<button id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
 					<button id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
-					<button id="confbugs" style="width:105px; margin-top: 3px">Баги</button>
-					<button id="confbugsm" style="width:105px; margin-top: 3px">Баги Моб.</button>
-				</div>				
-				
+					<button id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
+					<button id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
+				</div>	
+
 				<div style="margin: 5px; width: 550px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
@@ -954,6 +956,14 @@ function move_again_AF() {
 
     document.getElementById('mobdevices').addEventListener('click', function () {
         window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
+    })
+
+    document.getElementById('TCQnew').addEventListener('click', function () {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfZbw1GkZzerHWQGGbYslV6AsGTGxEKhNZFC1LV-TySHca9Fw/viewform")    // открываем ссылку в новой вкладке на форму для внесения вопросов от П TC
+    })
+
+    document.getElementById('TCQtable').addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
     })
 
 
