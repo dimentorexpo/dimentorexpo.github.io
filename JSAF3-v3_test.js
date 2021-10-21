@@ -1925,13 +1925,13 @@ async function buttonsFromDoc(butName) {
         return
     
 	   }
+}
 
-    msgFromTable(butName)
-    if (butName == "Серверные")
-        if (document.getElementById('msg1').innerHTML != "Доработать") {
-            sendComment(document.getElementById('serversInp').value)
-            newTag(1370)
-        }
+function servFromDoc(butName) {
+    but = butName
+    msgFromTable(but)
+    if (document.getElementById('avariyalink').value !== null)
+        sendComment(document.getElementById('avariyalink').value);
 }
 
 var bool = 0;
@@ -2029,6 +2029,27 @@ function refreshTemplates() {
                 countOfPages++
 
                 countOfStr = 1
+				
+				
+                if(pageType == "Серверные") {
+					var newDiv = document.createElement('div')
+					newDiv.id = countOfPages + "page_" + countOfStr + "str"
+					newDiv.style.margin = "5px"
+
+					var newInputAlink = document.createElement('input')
+					newInputAlink.id = 'avariyalink'
+					newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
+					newInputAlink.autocomplete = 'off'
+					newInputAlink.type = 'text'
+					newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+
+					newDiv.appendChild(newInputAlink)
+
+					b.lastElementChild.appendChild(newDiv)
+					countOfStr++
+				}
+
+				
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
                 newStr.id = countOfPages + "page_" + countOfStr + "str"
@@ -2063,20 +2084,7 @@ function refreshTemplates() {
                         if (newBut.innerText == 'ус+брауз (У)')
                             newBut.innerText = "ус+брауз"
                         if (newBut.innerText == 'ус+брауз (П)')
-                            continue
-                        if (newBut.innerText == 'Серверные') {
-                            var newInput = document.createElement('input')
-                            newInput.placeholder = 'Ссылка'
-                            newInput.id = 'serversInp'
-                            newInput.style.marginRight = '5px'
-                            var newDiv = document.createElement('div')
-                            newDiv.style.margin = '5px'
-                            newBut.id = 'serversBut'
-                            newDiv.append(newInput)
-                            newDiv.append(newBut)
-                            document.getElementById('addTmp').children[0].appendChild(newDiv)
-                            continue
-                        }
+                          	continue 
                         if (addTmpFlag == 0)
                             b.lastElementChild.lastElementChild.appendChild(newBut)
                         else {
@@ -2084,12 +2092,14 @@ function refreshTemplates() {
                             document.getElementById('addTmp').children[0].appendChild(newBut)
                         }
                         break
-                    case 'Переводы':
-                        var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
-                        newBut.style.marginRight = '4px'
-                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                    case 'Серверные':
+                            var newBut = document.createElement('button')
+                            newBut.innerText = c[0]
+                            newBut.style.marginRight = '4px'
+                            newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
+                            b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
+
                     case 'Темы':
                         var newBut = document.createElement('button')
                         newBut.innerText = c[0]
