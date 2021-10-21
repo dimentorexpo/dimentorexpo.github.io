@@ -116,7 +116,7 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
-			<div style="padding: 5px; margin: 5px; width: 350px">
+			<div style="margin: 5px; width: 350px">
 				<button id="kibanalnksvz">Kib_Связь</button>
 				<button id="kibanalnklk">Kib_ЛК</button>
 				<button id="kibanalnksrv">Kib_СервХеш</button>
