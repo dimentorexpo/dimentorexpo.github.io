@@ -4034,21 +4034,6 @@ function textToUTF8String(string) {
     return string2
 }
 
-//document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[0].style.backgroundColor = "white*
-/*
-const z = document.querySelectorAll('.ant-btn.expert-get_ticket.ant-btn-block');
-function repaint() {
-			if (z[1].classList.contains('ant-btn-block')) {
-				if (document.getElementsByClassName('ant-btn expert-get_ticket ant-btn-block')[1].textContent == "Взять запрос (0)") {
-						z[1].classList.remove('new-color');
-					} else {
-						z[1].classList.add('new-color');
-					}
-	}
-}
-setInterval(repaint, 2000);
-*/
-
 function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
     prepTp()
