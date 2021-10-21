@@ -258,9 +258,6 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
-let buttonhistory = document.createElement('p');
-buttonhistory.id = 'lookForHistory';
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋</a>';
 let buttonmobpas = document.createElement('p');
 buttonmobpas.id = 'copymobpass';
 buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate code📱</a>';
@@ -274,15 +271,9 @@ teacherphoto.style.height = "180px";
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
-let buttonnextstudentid = document.createElement('p');
-buttonnextstudentid.id = 'nextStudentIdChatHistory';
-buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(У)</a>';
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
-let buttonnextteacherid = document.createElement('p');
-buttonnextteacherid.id = 'nextTeacherIdChatHistory';
-buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
 //let buttonloc = document.createElement('p');
 //buttonloc.id = 'changeServiceLocale';
 //buttonloc.innerHTML = '<a style="color: black; cursor: pointer;">Изменить яз.обсл. на RU</a>';
@@ -312,23 +303,6 @@ button2.onclick = function () { //функция Info по нажатию на �
             document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
     }
     btn1_student.click()
-}
-
-buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
-if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-    hide_or_display.click()
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-    }
-    search.click()
-} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-    }
-	search.click()
-}
 }
 
 
@@ -484,23 +458,6 @@ button3.onclick = function () {
     btn1_student.click()
 }
 
-buttonnextstudentid.onclick = function () {
-	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-    hide_or_display.click()
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-	search.click()
- } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-	search.click()
-}
-}
-
 
 button4.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
@@ -512,22 +469,6 @@ button4.onclick = function () {
     btn1_student.click()
 }
 
-buttonnextteacherid.onclick = function () {
-	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-    hide_or_display.click()
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-	search.click()
- } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-	search.click()
-}
-}
 
 var nextuserid;
 buttontechdatastudent.onclick = function () {
@@ -3936,6 +3877,7 @@ function prepTp() {
         // include("https://dimentorexpo.github.io/reportForm.js"); пока работает не правильно, временно отключаю.
         // Модуль репорта на Отписку
         include("https://dimentorexpo.github.io/unsub.js")
+        include("https://dimentorexpo.github.io/ChatHistory.js")
     }, 2000)
 
 }
