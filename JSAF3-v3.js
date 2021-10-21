@@ -181,7 +181,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getlgsinfo">🔎</button>
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
-					<input id="cmsstepid" placeholder="CMS group ID" title="вводим group Id, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setservicelocaleru">🚀</button>
@@ -1104,9 +1104,9 @@ var abortTimeOut = ''								// перменная для отмены буди�
     }
 
     document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
-        let lnkstep = 'https://cms-vimbox.skyeng.ru/vim/update/lesson/';
+        let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
         if (cmsstepid.value == "")
-            console.log('Введите lessonid в поле')
+            console.log('Введите stepUUID в поле')
         else {
             window.open(lnkstep + cmsstepid.value);
         };
