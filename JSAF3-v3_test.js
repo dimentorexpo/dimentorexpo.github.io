@@ -3511,7 +3511,6 @@ function prepTp() {
 		include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
 		include("https://dimentorexpo.github.io/GetPhoto.js") // модуль получения фотографии из профиля П
 		include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-		include("https://dimentorexpo.github.io/UserType.js") // модуль добавления типа пользоватяле (У) (П) (РУ)
     }, 2000)
 
 }
