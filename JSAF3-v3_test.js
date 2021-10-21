@@ -220,7 +220,7 @@ var win_Jira =  // описание элементов окна ссылок
                                 <p id="issuetable"></p>
                         </div>
 						
-						<div style="width: 550px class="pagesswitcher" >
+						<div style="width: 550px;" class="pagesswitcher" >
 						<a id="firstpage" style="margin-left: 253px; margin-right: 2px; margin-top: 10px; color: #C0C0C0; text-align: center; font-size: 16px; cursor: pointer;">1</a>;
 						<a id="secondpage" style="margin-right: 5px; margin-top: 10px; color: #00FFFF; text-align: center; font-size: 16px; cursor: pointer;">2</a>;
 						<div>
