@@ -1570,13 +1570,6 @@ async function buttonsFromDoc(butName) {
         return
     
 	   }
-
-    msgFromTable(butName)
-    if (butName == "Серверные")
-        if (document.getElementById('msg1').innerHTML != "Доработать") {
-            sendComment(document.getElementById('serversInp').value)
-            newTag(1370)
-        }
 }
 
 var bool = 0;
