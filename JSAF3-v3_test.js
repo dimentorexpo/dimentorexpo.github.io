@@ -2399,26 +2399,9 @@ function startTimer() {
 											  let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
 											copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
 										}
+								}
 					}
-					}
-				 	
-					 let userTypeName = document.createElement('span')
-					userTypeName.id = "userTypeId"
-					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
-						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
-								document.getElementById('userTypeId').innerText = "(П)"
-								document.getElementById('userTypeId').style.color = "#1E90FF"
-								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student") {
-									document.getElementById('userTypeId').innerText = "(У)"
-									document.getElementById('userTypeId').style.color = "#DC143C"									
-								} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent")
-								{
-								    document.getElementById('userTypeId').innerText = "(РУ)"
-									document.getElementById('userTypeId').style.color = "#DC143C"	
-								} 		
-					}
-							
+			 								
                     let b = document.createElement('span')
                     b.textContent = 'Найти Talks'
                     b.style.marginRight = '10px'
@@ -3548,6 +3531,7 @@ function prepTp() {
 		include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
 		include("https://dimentorexpo.github.io/GetPhoto.js") // модуль получения фотографии из профиля П
 		include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
+		include("https://dimentorexpo.github.io/UserType.js") // модуль добавления типа пользоватяле (У) (П) (РУ)
     }, 2000)
 
 }
