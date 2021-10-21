@@ -476,13 +476,22 @@ button3.onclick = function () {
 }
 
 buttonnextstudentid.onclick = function () {
+	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
     hide_or_display.click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
-    search.click()
+	search.click()
+ } else {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	search.click()
 }
+}
+
 
 button4.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
@@ -493,6 +502,7 @@ button4.onclick = function () {
     }
     btn1_student.click()
 }
+
 buttonnextteacherid.onclick = function () {
 	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
     hide_or_display.click()
