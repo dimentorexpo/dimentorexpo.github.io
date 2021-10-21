@@ -2419,6 +2419,46 @@ function startTimer() {
 								} 		
 					}
 							
+                    let b = document.createElement('span')
+                    b.textContent = 'Найти Talks'
+                    b.style.marginRight = '10px'
+                    function generateTalksInfo() {
+                        console.log('here')
+                        var talks = JSON.parse(document.getElementById('responseTextarea1').getAttribute('talks')).data.talks
+                        document.getElementById('responseTextarea1').removeAttribute('talks')
+                        var userId = ""
+                        var stringInfo = ""
+                        for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                                userId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]
+                                break
+                            }
+                        }
+                        for (i = 0; i < talks.length; i++) {
+                            if (userId == talks[i].studentId || userId == talks[i].teacherId) {
+                                stringInfo = "student: " + talks[i].studentId + "|teacher: " + talks[i].teacherId + "|hash: " + talks[i].roomHash + "|status: " + talks[i].currentStatus
+                                document.getElementsByClassName('expert-user_details-list')[1].children[0].children[0].remove()
+
+                                let newSpan = document.createElement('span')
+                                newSpan.textContent = stringInfo
+                                document.getElementsByClassName('expert-user_details-list')[1].children[0].children[0].replaceWith(newSpan)
+                                break
+                            }
+                        }
+                    }
+                    b.onclick = function () {
+                        this.textContent = ''
+                        this.parentElement.children[0].textContent = ''
+                        document.getElementById('responseTextarea1').value = '{ "credentials": "include" }'
+                        document.getElementById('responseTextarea2').value = "https://talks-platform.skyeng.ru/api/v1/talks/stats"
+                        document.getElementById('responseTextarea3').value = 'talks'
+                        document.getElementById('sendResponse').click()
+                        setTimeout(generateTalksInfo, 1000)
+                    }
+                    c.append(a)
+                    c.append(b)
+
+                    document.getElementsByClassName('expert-user_details-list')[1].prepend(c)
                 }
             }
         }
