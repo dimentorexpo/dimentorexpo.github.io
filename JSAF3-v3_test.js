@@ -2427,7 +2427,7 @@ function refreshTimer() {
                 var cT = new Date();
                 var curT1 = tmrs[i][3]
                 var curT2 = Number(cT);
-                var curT3 = (10.5 * 60) - Math.floor((curT2 - curT1) / 1000);
+                var curT3 = (10 * 60) - Math.floor((curT2 - curT1) / 1000);
                 if (curT3 < 0)
                     btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA"
             }
