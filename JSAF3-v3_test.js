@@ -238,8 +238,8 @@ var win_Stat =  // описание элементов окна ссылок
                         </div>
                         <div style="margin: 5px; width: 550px" id="statbox">
                                 <p id="stattable"></p>
-								 <span style="color:bisque">Начальная дата <input type="date" style="color:black" name="StartData" id="dateFrom"></span>
-								 <span style="color:bisque">Конечная дата <input type="date" style="color:black" name="EndData" id="dateTo"</span>
+								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
+								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
                         </div>
 						
                 </span>
