@@ -2665,7 +2665,7 @@ document.getElementById('getstatfromperiod').onclick = async function() {
             "mode": "cors",
             "credentials": "include"
         }).then(r => r.json()).then(data => sumchatcount = data)
-		allchatcount.innerText = "Количество чатов:" + sumchatcount;
+		allchatcount.innerText = "Количество чатов:" + sumchatcount.total;
 }
 
 async function sendAnswerTemplate2(word, flag = 0) {
