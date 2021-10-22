@@ -202,7 +202,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button id="enableNS" style="width:105px">Enable NS💾</button>
-					<button id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.38</button>
+					<button id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.39</button>
 			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.35.5</button>
 				</div>		
 			</span>
@@ -258,13 +258,46 @@ if (localStorage.getItem('scriptAdr') == null) {
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
+let buttonhistory = document.createElement('p');
+buttonhistory.id = 'lookForHistory';
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋</a>';
+let buttonmobpas = document.createElement('p');
+buttonmobpas.id = 'copymobpass';
+buttonmobpas.innerHTML = '<a style="color: black; cursor: pointer;">Generate code📱</a>';
+let gettacherphoto = document.createElement('p');
+gettacherphoto.id = 'getphototeacher';
+gettacherphoto.innerHTML = '<a style="color: black; cursor: pointer;">Get photo</a>';
+let teacherphoto = document.createElement('img');
+teacherphoto.id = 'URLphoto';
+teacherphoto.style.width = "150px";
+teacherphoto.style.height = "180px";
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
+let buttonnextstudentid = document.createElement('p');
+buttonnextstudentid.id = 'nextStudentIdChatHistory';
+buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(У)</a>';
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
-
+let buttonnextteacherid = document.createElement('p');
+buttonnextteacherid.id = 'nextTeacherIdChatHistory';
+buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
+//let buttonloc = document.createElement('p');
+//buttonloc.id = 'changeServiceLocale';
+//buttonloc.innerHTML = '<a style="color: black; cursor: pointer;">Изменить яз.обсл. на RU</a>';
+let buttontechdatastudent = document.createElement('p');
+buttontechdatastudent.id = 'getStudentUserAgentInfo';
+buttontechdatastudent.innerHTML = '<a style="color: black; cursor: pointer;">Получить инфо об устройстве У</a>';
+let buttontechdatateacher = document.createElement('p');
+buttontechdatateacher.id = 'getTeacherUserAgentInfo';
+buttontechdatateacher.innerHTML = '<a style="color: black; cursor: pointer;">Получить инфо об устройстве П</a>';
+let buttonoutputfield = document.createElement('p');
+buttonoutputfield.id = 'nextStudentUserAgent';
+buttonoutputfield.innerHTML = "";
+let buttonoutputfield2 = document.createElement('p');
+buttonoutputfield2.id = 'nextTeacherUserAgent';
+buttonoutputfield2.innerHTML = "";
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -281,6 +314,166 @@ button2.onclick = function () { //функция Info по нажатию на �
     btn1_student.click()
 }
 
+buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
+if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+    hide_or_display.click()
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+    }
+    search.click()
+} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+    }
+	search.click()
+}
+}
+
+
+let getteacheridformaf;
+gettacherphoto.onclick = function() {  //функция добычи фото П из ТРМ и отображении в АФ по нажатию на Get photo
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        console.log("getteacheridformaf = " + ' ' + getteacheridformaf);
+    }
+	
+		document.getElementById('responseTextarea1').value = '{}'
+		document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
+		document.getElementById('responseTextarea3').value = 'imageurl'
+		document.getElementById('sendResponse').click()
+	
+	    function getImageUrl() {
+        document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
+        document.getElementById('responseTextarea3').value = 'imageurl'
+
+        var rezresp = document.getElementById('responseTextarea1').getAttribute('imageurl')
+        var convertrezresp= rezresp.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+		document.getElementById('responseTextarea1').removeAttribute('imageurl');
+		teacherphoto.src = convertrezresp;
+    }
+    setTimeout(getImageUrl, 1000);
+	
+	document.getElementById('getphototeacher').replaceWith(teacherphoto)
+	
+	document.querySelector('#URLphoto').onclick = function() {
+	document.querySelector('#URLphoto').replaceWith(gettacherphoto)
+	}
+}
+
+var getidfromaf;
+buttonmobpas.onclick = function () {
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            getidfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        console.log("getidfromaf = " + ' ' + getidfromaf);
+    }
+
+    document.getElementById('responseTextarea1').value = `{
+		"headers": {
+			"content-type": "application/x-www-form-urlencoded",
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1"
+		},
+		"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${getidfromaf} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+		}`
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+    document.getElementById('responseTextarea3').value = 'getmobpwd'
+    document.getElementById('sendResponse').click()
+
+    function getPassInfoNew() {
+        document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+        document.getElementById('responseTextarea3').value = ''
+
+        var resprez2 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+        document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+        var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+        document.getElementById('copymobpass').innerHTML = convertres2[1];
+    }
+    setTimeout(getPassInfoNew, 1000);
+
+    setTimeout(function () { document.getElementById('copymobpass').innerHTML = "Generate Code📱" }, 15000);
+}
+
+ //Функция изменения языка обслуживания с АФ интерфейса
+//var getidnewfromaf = 0;
+//buttonloc.onclick = function () {
+//    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+//        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+//            getidnewfromaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+//        console.log("getidnewfromaf = " + ' ' + getidnewfromaf);
+//    }
+//    document.getElementById('responseTextarea1').value = `{
+//		  "headers": {
+//			"accept": "application/json, text/plain, */*",
+//			"sec-fetch-mode": "cors",
+//			"sec-fetch-site": "same-site"
+//			  },
+//		  "referrer": "https://crm2.skyeng.ru/",
+//		  "referrerPolicy": "strict-origin-when-cross-origin",
+//		  "body": null,
+//		  "method": "GET",
+//		  "mode": "cors",
+//		  "credentials": "include" 
+//	 }`
+
+//    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + getidnewfromaf + "?crm2=true&debugParam=person-page"
+//    document.getElementById('responseTextarea3').value = 'statusofcrmprofile'
+//   document.getElementById('sendResponse').click()
+	
+//    function getId() {
+
+//        var statusResult = document.getElementById('responseTextarea1').getAttribute('statusofcrmprofile');
+//        document.getElementById('responseTextarea1').removeAttribute('statusofcrmprofile');
+
+//        console.log("proverka statusresult = " + statusResult);
+
+//        if (statusResult.match(/serviceLocale.*?([a-z]{4})/)[1] == "null") {
+            
+//            document.getElementById('responseTextarea1').value = `{
+//				   "headers": {
+//					"content-type": "application/json",
+//					"sec-fetch-dest": "empty",
+//					"sec-fetch-mode": "cors",
+//					"sec-fetch-site": "same-site"
+//				  },
+//				  "referrer": "https://crm2.skyeng.ru/",
+//				  "referrerPolicy": "strict-origin-when-cross-origin",
+//				  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+//				  "method": "PUT",
+//				  "mode": "cors",
+//				  "credentials": "include"
+		 
+//	 }`
+//            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + getidnewfromaf
+//            document.getElementById('responseTextarea3').value = ''
+//            document.getElementById('sendResponse').click()
+
+//			document.getElementById("changeServiceLocale").style.color = "green";
+//            document.getElementById("changeServiceLocale").innerHTML = "Локаль успешно изменена";
+//            setTimeout(function () { document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU" }, 3000);
+//			setTimeout(function () { document.getElementById("changeServiceLocale").style.color = "black"; }, 3000);
+//        } else {
+//           document.getElementById("changeServiceLocale").style.color = "red";
+//            document.getElementById("changeServiceLocale").innerHTML = "Локаль уже задана";
+//            setTimeout(function () { document.getElementById('changeServiceLocale').innerHTML = "Изменить яз.обсл. на RU" }, 3000);
+//			setTimeout(function () { document.getElementById("changeServiceLocale").style.color = "black"; }, 3000);
+//        }
+//    }
+//    setTimeout(getId, 1000);
+//}
+
 button3.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
@@ -289,6 +482,23 @@ button3.onclick = function () {
             document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     btn1_student.click()
+}
+
+buttonnextstudentid.onclick = function () {
+	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+    hide_or_display.click()
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	search.click()
+ } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	search.click()
+}
 }
 
 
@@ -302,6 +512,136 @@ button4.onclick = function () {
     btn1_student.click()
 }
 
+buttonnextteacherid.onclick = function () {
+	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+    hide_or_display.click()
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	search.click()
+ } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+	search.click()
+}
+}
+
+var nextuserid;
+buttontechdatastudent.onclick = function () {
+
+    document.getElementById("nextStudentUserAgent").innerHTML = ""
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+        console.log("nextuserid student" + " " + nextuserid);
+    }
+    document.getElementById("getStudentUserAgentInfo").innerHTML = "Получаем информацию...";
+    setTimeout(function () {
+        document.getElementById("getStudentUserAgentInfo").innerHTML = "Получить инфо об устройстве У"
+    }, 10000)
+
+    fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+        "headers": {
+            "accept": "*/*",
+            "content-type": "application/json",
+            "sec-ch-ua-mobile": "?0",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin"
+        },
+        "referrer": "https://skyeng.autofaq.ai/tickets/common",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid + "\",\"tsFrom\":\"2021-05-01T19:00:00.000Z\",\"tsTo\":\"2021-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    })
+        .then(r => r.text())
+        .then(result => {
+            setTimeout(function () {
+                let newres = result.match(/\d+/);
+                if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
+                    console.log("Есть чаты" + newres)
+                    document.getElementById("nextStudentUserAgent").innerHTML = result.match(/.{13}система.{114}/)[0];
+                    setTimeout(function () {
+                        document.getElementById("nextStudentUserAgent").innerHTML = ""
+                    }, 30000)
+                } else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
+                    document.getElementById("nextStudentUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];
+                    setTimeout(function () {
+                        document.getElementById("nextStudentUserAgent").innerHTML = ""
+                    }, 30000)
+                } else {
+                    document.getElementById("nextStudentUserAgent").innerHTML = "Нет информации - пользователь не обращался"
+                    setTimeout(function () {
+                        document.getElementById("nextTeacherUserAgent").innerHTML = ""
+                    }, 30000)
+                    console.log("Для ученика нет чатов");
+                }
+            }, 3000)
+        })
+}
+
+var nextuserid2;
+buttontechdatateacher.onclick = function () {
+
+    document.getElementById("nextTeacherUserAgent").innerHTML = ""
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            nextuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+
+    document.getElementById("getTeacherUserAgentInfo").innerHTML = "Получаем информацию...";
+    setTimeout(function () {
+        document.getElementById("getTeacherUserAgentInfo").innerHTML = "Получить инфо об устройстве П"
+    }, 10000)
+
+    console.log("nextuserid prepod" + " " + nextuserid2);
+
+    fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+        "headers": {
+            "accept": "*/*",
+            "content-type": "application/json",
+            "sec-ch-ua-mobile": "?0",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin"
+        },
+        "referrer": "https://skyeng.autofaq.ai/tickets/common",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + nextuserid2 + "\",\"tsFrom\":\"2021-05-01T19:00:00.000Z\",\"tsTo\":\"2021-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    })
+        .then(r => r.text())
+        .then(result => {
+            setTimeout(function () {
+                let newres = result.match(/\d+/);
+                if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Веб-браузер") {
+                    console.log("Есть чаты" + newres)
+                    document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{114}/)[0];
+                    setTimeout(function () {
+                        document.getElementById("nextTeacherUserAgent").innerHTML = ""
+                    }, 30000)
+                } else if (newres[0] > 0 && result.match(/.{13}система.{114}/)[0].split('<br/>')[1] == "Тип клиентского приложения: Мобильное приложение") {
+                    document.getElementById("nextTeacherUserAgent").innerHTML = result.match(/.{13}система.{154}/)[0];
+                    setTimeout(function () {
+                        document.getElementById("nextTeacherUserAgent").innerHTML = ""
+                    }, 30000)
+                } else {
+                    document.getElementById("nextTeacherUserAgent").innerHTML = "Нет информации -  пользователь не обращался"
+                    setTimeout(function () {
+                        document.getElementById("nextTeacherUserAgent").innerHTML = ""
+                    }, 30000)
+                    console.log("Для препода нет чатов");
+                }
+            }, 3000)
+        })
+}
 
 let addInfoUser = document.createElement('div')
 
@@ -650,6 +990,47 @@ function move_again_AF() {
 
     document.getElementById('TCQtable').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
+    })
+
+
+    document.getElementById('getmobpasscode').addEventListener('click', function () {
+        if (setidformobpass.value == "")
+            console.log('Введите id в поле')
+        else {
+            document.getElementById('getmobpasscode').innerHTML = "✅";
+            setTimeout(function () { document.getElementById('getmobpasscode').innerHTML = "🚀" }, 2000);
+            document.getElementById('responseTextarea1').value = `{
+			"headers": {
+				"content-type": "application/x-www-form-urlencoded",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+			},
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+            document.getElementById('responseTextarea3').value = 'getmobpwd'
+            document.getElementById('sendResponse').click()
+
+            function getPassInfo() {
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+                document.getElementById('responseTextarea3').value = ''
+
+                var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+                document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+                var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+                setidformobpass.value = convertres[1];
+            }
+            setTimeout(getPassInfo, 1000);
+        };
+        setTimeout(function () { document.getElementById('setidformobpass').value = "" }, 15000);
+
     })
 
     document.getElementById('userfeatures').addEventListener('click', function () {
@@ -1570,6 +1951,13 @@ async function buttonsFromDoc(butName) {
         return
     
 	   }
+
+    msgFromTable(butName)
+    if (butName == "Серверные")
+        if (document.getElementById('msg1').innerHTML != "Доработать") {
+            sendComment(document.getElementById('serversInp').value)
+            newTag(1370)
+        }
 }
 
 var bool = 0;
@@ -2392,10 +2780,10 @@ function startTimer() {
 											  let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
 											copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
 										}
-								}
 					}
-					
-				    let userTypeName = document.createElement('span')
+					}
+				 	
+					 let userTypeName = document.createElement('span')
 					userTypeName.id = "userTypeId"
 					document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
 						for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2411,8 +2799,57 @@ function startTimer() {
 									document.getElementById('userTypeId').style.color = "#DC143C"	
 								} 		
 					}
+					
+					for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) { //добавление кнопки Get Photo
+								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
+									  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+											if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
+											{
+												document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].append(gettacherphoto)
+											}
+										}
+								}
+					}
 
+					
+                    let b = document.createElement('span')
+                    b.textContent = 'Найти Talks'
+                    b.style.marginRight = '10px'
+                    function generateTalksInfo() {
+                        console.log('here')
+                        var talks = JSON.parse(document.getElementById('responseTextarea1').getAttribute('talks')).data.talks
+                        document.getElementById('responseTextarea1').removeAttribute('talks')
+                        var userId = ""
+                        var stringInfo = ""
+                        for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                                userId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]
+                                break
+                            }
+                        }
+                        for (i = 0; i < talks.length; i++) {
+                            if (userId == talks[i].studentId || userId == talks[i].teacherId) {
+                                stringInfo = "student: " + talks[i].studentId + "|teacher: " + talks[i].teacherId + "|hash: " + talks[i].roomHash + "|status: " + talks[i].currentStatus
+                                document.getElementsByClassName('expert-user_details-list')[1].children[0].children[0].remove()
+
+                                let newSpan = document.createElement('span')
+                                newSpan.textContent = stringInfo
+                                document.getElementsByClassName('expert-user_details-list')[1].children[0].children[0].replaceWith(newSpan)
+                                break
+                            }
+                        }
+                    }
+                    b.onclick = function () {
+                        this.textContent = ''
+                        this.parentElement.children[0].textContent = ''
+                        document.getElementById('responseTextarea1').value = '{ "credentials": "include" }'
+                        document.getElementById('responseTextarea2').value = "https://talks-platform.skyeng.ru/api/v1/talks/stats"
+                        document.getElementById('responseTextarea3').value = 'talks'
+                        document.getElementById('sendResponse').click()
+                        setTimeout(generateTalksInfo, 1000)
+                    }
                     c.append(a)
+                    c.append(b)
 
                     document.getElementsByClassName('expert-user_details-list')[1].prepend(c)
                 }
@@ -3499,11 +3936,6 @@ function prepTp() {
         // include("https://dimentorexpo.github.io/reportForm.js"); пока работает не правильно, временно отключаю.
         // Модуль репорта на Отписку
         include("https://dimentorexpo.github.io/unsub.js")
-        include("https://dimentorexpo.github.io/ChatHistory.js") // модуль подключения по нажатию кнопки поиска по истории чата
-		// include("https://dimentorexpo.github.io/ChangeServiceLocale.js") // модуль кнопки в инфо о пользователе позволяющее поменять локаль ученика
-		include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
-		include("https://dimentorexpo.github.io/GetPhoto.js") // модуль получения фотографии из профиля П
-		include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
     }, 2000)
 
 }
