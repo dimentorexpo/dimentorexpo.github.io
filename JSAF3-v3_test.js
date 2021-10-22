@@ -1017,7 +1017,6 @@ document.getElementById('getJiraTasks').onclick = function () {
     }
 
 
-
     document.getElementById('secondpage').addEventListener('click', function () {
         let issues = [];
         if (rezissuetable.issueTable.issueKeys.length > 10) {
