@@ -240,9 +240,13 @@ var win_Stat =  // описание элементов окна ссылок
                                 <p id="stattable"></p>
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
-								 <button id="getstatfromperiod">Получить статистику</button>
                         </div>
-						
+						<div>
+							 <button id="getstatfromperiod">Получить статистику</button>
+					    </div>
+						<div>
+							 <span id="sumchatcount">Количество чатов:</span>
+						</div>
                 </span>
         </span>
 </div>`;
