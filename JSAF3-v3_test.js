@@ -2644,6 +2644,30 @@ async function whoAmI() {
 
 // Тут будет функция запуска получения информации о статистики
 
+document.getElementById('getstatfromperiod').onclick = async function() {
+	let datefrom = document.getElementById('dateFrom').value;
+	let dateto = document.getElementById('dateTo').value;
+	let allchatcount = document.getElementById('sumchatcount')
+	await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                "cache-control": "max-age=0",
+                "content-type": "application/json",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/logs",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        }).then(r => r.json()).then(data => sumchatcount = data)
+		allchatcount.innerText = "Количество чатов:" + sumchatcount;
+}
+
 async function sendAnswerTemplate2(word, flag = 0) {
     var tmpTxt = ""
     var adr = `https://skyeng.autofaq.ai/tickets/assigned/`
