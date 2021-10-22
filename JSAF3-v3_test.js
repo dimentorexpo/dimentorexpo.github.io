@@ -245,7 +245,9 @@ var win_Stat =  // описание элементов окна ссылок
 							 <button id="getstatfromperiod">Получить статистику</button>
 					    </div>
 						<div>
-							 <span id="sumchatcount" style="margin-left: 5px; color:bisque;">Количество чатов:</span>
+							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
+							 <br>
+							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 						</div>
                 </span>
         </span>
@@ -2665,7 +2667,7 @@ document.getElementById('getstatfromperiod').onclick = async function() {
             "mode": "cors",
             "credentials": "include"
         }).then(r => r.json()).then(data => sumchatcount = data)
-		allchatcount.innerText = "Количество чатов:" + sumchatcount.total;
+		allchatcount.innerText = "Количество пощупаных чатов: " + sumchatcount.total;
 }
 
 async function sendAnswerTemplate2(word, flag = 0) {
