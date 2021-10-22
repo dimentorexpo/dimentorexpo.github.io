@@ -1805,6 +1805,7 @@ function newTag(valueId) {
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
+            console.log(table[l][8])
             if (table[l][8] != null||table[l][8] != ""){
                 newTag(table[l][8])
             }
