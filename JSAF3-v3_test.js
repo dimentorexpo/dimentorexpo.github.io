@@ -1318,7 +1318,6 @@ searchJiraByEnter.addEventListener('keydown', event => {
     }
 	
 	
-
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
     })
