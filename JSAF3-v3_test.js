@@ -2648,14 +2648,11 @@ async function whoAmI() {
 document.getElementById('getstatfromperiod').onclick = async function() {
 	let datefrom = document.getElementById('dateFrom').value + "T20:59:59.059z";
 	let dateto = document.getElementById('dateTo').value + "T21:00:00.000Z";
-	let allchatcount = document.getElementById('sumchatcounttouched')
+	let allchatcounttouched = document.getElementById('sumchatcounttouched')
+	let allchatcountclosed = document.getElementById('sumchatcountclosed')
 	await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
-                "accept": "*/*",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                "cache-control": "max-age=0",
                 "content-type": "application/json",
-                "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin"
             },
@@ -2665,8 +2662,24 @@ document.getElementById('getstatfromperiod').onclick = async function() {
             "method": "POST",
             "mode": "cors",
             "credentials": "include"
-        }).then(r => r.json()).then(data => sumchatcount = data)
-		allchatcount.innerText = "Количество пощупаных чатов: " + sumchatcount.total;
+        }).then(r => r.json()).then(data => sumchatcounttouched = data)
+		allchatcounttouched.innerText = "Количество пощупаных чатов: " + sumchatcounttouched.total;
+		
+		
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"content-type": "application/json",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/logs",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r1 => r1.json()).then(data1 => sumchatcountclosed = data1)
+		allchatcountclosed.innerText = "Количество закрытых чатов: " + sumchatcountclosed.total;
 }
 
 async function sendAnswerTemplate2(word, flag = 0) {
