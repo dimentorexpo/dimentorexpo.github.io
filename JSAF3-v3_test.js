@@ -2649,7 +2649,9 @@ document.getElementById('getstatfromperiod').onclick = async function() {
 	let datefrom = document.getElementById('dateFrom').value + "T20:59:59.059z";
 	let dateto = document.getElementById('dateTo').value + "T21:00:00.000Z";
 	let allchatcounttouched = document.getElementById('sumchatcounttouched')
+	allchatcounttouched.textContent ="Загрузка"
 	let allchatcountclosed = document.getElementById('sumchatcountclosed')
+	allchatcountclosed.textContent ="Загрузка"
 	await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
                 "content-type": "application/json",
