@@ -2643,7 +2643,7 @@ async function whoAmI() {
     })
 }
 
-// Тут будет функция запуска получения информации о статистики 
+// Тут будет функция запуска получения информации о статистики
 
 document.getElementById('getstatfromperiod').onclick = async function() {
 	let datefrom = document.getElementById('dateFrom').value + "T20:59:59.059z";
