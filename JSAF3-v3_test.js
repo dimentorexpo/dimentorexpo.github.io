@@ -245,7 +245,7 @@ var win_Stat =  // описание элементов окна ссылок
 							 <button id="getstatfromperiod">Получить статистику</button>
 					    </div>
 						<div>
-							 <span id="sumchatcount">Количество чатов:</span>
+							 <span id="sumchatcount" style="margin-left: 5px; color:bisque;">Количество чатов:</span>
 						</div>
                 </span>
         </span>
