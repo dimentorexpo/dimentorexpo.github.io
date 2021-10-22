@@ -237,14 +237,13 @@ var win_Stat =  // описание элементов окна ссылок
                                 <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="statbox">
-                                <p id="stattable"></p>
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
                         </div>
 						<div>
 							 <button id="getstatfromperiod">Получить статистику</button>
 					    </div>
-						<div>
+						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
@@ -517,6 +516,11 @@ document.getElementById('issuetable').ondblclick = function () { // скрыти
 document.getElementById('statdata').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
 }
+document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Stat').style.display = 'none';
+}
+
+
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
