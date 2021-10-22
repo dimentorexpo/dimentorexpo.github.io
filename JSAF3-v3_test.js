@@ -245,9 +245,9 @@ var win_Stat =  // описание элементов окна ссылок
 							 <button id="getstatfromperiod">Получить статистику</button>
 					    </div>
 						<div>
-							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;">Количество пощупанных чатов:</span>
+							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
-							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;">Количество закрытых чатов:</span>
+							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 						</div>
                 </span>
         </span>
@@ -2648,7 +2648,7 @@ async function whoAmI() {
 document.getElementById('getstatfromperiod').onclick = async function() {
 	let datefrom = document.getElementById('dateFrom').value + "T20:59:59.059z";
 	let dateto = document.getElementById('dateTo').value + "T21:00:00.000Z";
-	let allchatcount = document.getElementById('sumchatcount')
+	let allchatcount = document.getElementById('sumchatcounttouched')
 	await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
                 "accept": "*/*",
