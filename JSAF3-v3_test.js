@@ -138,6 +138,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="passappgen" style="width:50px;">📲</button>
 					<button id="knoweledgebase" style="width:50px;">📚</button>
 					<button id="datsyurl" style="width:50px;">📆</button>
+					<button id="getStats" style="width: 50px;">📋</button>
                     <button id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
 					<button id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
@@ -228,6 +229,21 @@ var win_Jira =  // описание элементов окна ссылок
         </span>
 </div>`;
 
+var win_Stat =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 550;" id="jira_1str">
+                                <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+                        <div style="margin: 5px; width: 550px" id="statbox">
+                                <p id="stattable"></p>
+                        </div>
+						
+                </span>
+        </span>
+</div>`;
+
 let audio
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
@@ -249,6 +265,11 @@ if (localStorage.getItem('winTopJira') == null) { // началоное поло
     localStorage.setItem('winTopJira', '120');
     localStorage.setItem('winLeftJira', '295');
 }
+if (localStorage.getItem('winTopStat') == null) { // началоное положение окна ссылок (если не задано ранее)
+    localStorage.setItem('winTopStat', '120');
+    localStorage.setItem('winLeftStat', '295');
+}
+
 
 
 if (localStorage.getItem('scriptAdr') == null) {
@@ -418,6 +439,13 @@ wintJira.style.display = 'none';
 wintJira.setAttribute('id', 'AF_Jira');
 wintJira.innerHTML = win_Jira;
 
+let wintStat = document.createElement('div'); // создание окна ссылок
+document.body.append(wintStat);
+wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStat.style.display = 'none';
+wintStat.setAttribute('id', 'AF_Stat');
+wintStat.innerHTML = win_Stat;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -447,6 +475,21 @@ wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = fun
 }
 wintJira.onmouseup = function () { document.removeEventListener('mousemove', listener5); }
 
+
+var listener6 = function (e, a) { // сохранение позиции окна ссылок
+    wintStat.style.left = Number(e.clientX - myX6) + "px";
+    wintStat.style.top = Number(e.clientY - myY6) + "px";
+    localStorage.setItem('winTopStat', String(Number(e.clientY - myY6)));
+    localStorage.setItem('winLeftStat', String(Number(e.clientX - myX6)));
+};
+
+wintStat.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX6 = a.layerX;
+    window.myY6 = a.layerY;
+    document.addEventListener('mousemove', listener6);
+}
+wintStat.onmouseup = function () { document.removeEventListener('mousemove', listener6); }
+
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
@@ -461,6 +504,9 @@ document.getElementById('jira_1str').ondblclick = function () { // скрыти�
 }
 document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
+}
+document.getElementById('statbox').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Stat').style.display = 'none';
 }
 
 let wintAF = document.createElement('div');
@@ -1261,7 +1307,18 @@ searchJiraByEnter.addEventListener('keydown', event => {
 	
 	document.getElementById('datsyurl').onclick = function () { // открытие Календаря
         window.open("https://datsy.ru/")
+    }	
+	
+	
+	document.getElementById('getStats').onclick = function () { // открытие Календаря
+         if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
+        else
+            document.getElementById('AF_Stat').style.display = ''
     }
+	
+	
+	
 
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
