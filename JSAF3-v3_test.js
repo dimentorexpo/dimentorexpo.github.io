@@ -233,11 +233,13 @@ var win_Stat =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;" id="jira_1str">
+                        <div style="margin: 5px; width: 550;" id="statdata">
                                 <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="statbox">
                                 <p id="stattable"></p>
+								 <span style="color:bisque">Начальная дата <input type="date" style="color:black" name="StartData" id="dateFrom"></span>
+								 <span style="color:bisque">Конечная дата <input type="date" style="color:black" name="EndData" id="dateTo"</span>
                         </div>
 						
                 </span>
@@ -1257,6 +1259,8 @@ searchJiraByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Links').style.display = 'none'
 	if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
+			if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
     }
     document.getElementById('takeNewChat').onclick = function () {
         getNewChat()
@@ -1296,6 +1300,14 @@ searchJiraByEnter.addEventListener('keydown', event => {
         else
             document.getElementById('AF_Jira').style.display = ''
     }
+	
+		document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
+        else
+            document.getElementById('AF_Stat').style.display = ''
+    }
+	
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
         alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: cxi7E82p0IY1SW?D^BHDwMuwC\a5cvhu");
@@ -1318,8 +1330,6 @@ searchJiraByEnter.addEventListener('keydown', event => {
     }
 	
 	
-	
-
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
     })
