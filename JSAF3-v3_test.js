@@ -1795,11 +1795,11 @@ function msgFromTable(btnName) {
                 if (table[l][1] == "Шаблон") {
                     sendAnswerTemplate(table[l][2], table[l][3])
                 }
-                if (table[l][1].indexOf("Рандом") != -1) {
-                    var count = table[l][1][7]
-                    var newL = Math.floor(Math.random() * (count)) + l
-                    sendAnswer(table[newL][2])
-                }
+                // if (table[l][1].indexOf("Рандом") != -1) {
+                    // var count = table[l][1][7]
+                    // var newL = Math.floor(Math.random() * (count)) + l
+                    // sendAnswer(table[newL][2])
+                // }
                 break
             }
         } else {
