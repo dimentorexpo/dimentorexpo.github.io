@@ -514,7 +514,7 @@ document.getElementById('jira_1str').ondblclick = function () { // скрыти�
 document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
-document.getElementById('statbox').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('statdata').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
 }
 
