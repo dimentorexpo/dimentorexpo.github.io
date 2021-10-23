@@ -255,9 +255,9 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
-							 <p id="chatsinfoout" style="width:550px; height:0px; color:bisque; margin-left:5px"></p>
+							 <p id="chatsinfoout" style="width:550px;  color:bisque; margin-left:5px"></p>
 							 <p id="lowCSATcount" style="width:550px; height:0px; color:bisque; margin-left:5px; overflow:auto"></p>
-							 <p id="chatcommentsdata" style="width:550px;color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px;color:bisque; height:0px; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
@@ -2871,7 +2871,7 @@ document.getElementById('parsechat').onclick = async function() {
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
-		stylecmt.setAttribute('style','height:400px');
+		stylecmt.setAttribute('style','width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto');
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
 		            if ((test.total / 100) > pagecmt && pagecmt==1) {
@@ -2948,7 +2948,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
 					
-			strcsatnew.setAttribute('style','height:400px');
+			strcsatnew.setAttribute('style','width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto');
 			
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
 
