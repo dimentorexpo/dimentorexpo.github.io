@@ -1345,7 +1345,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
             bool = 0;
         }
     }
-
+ 
     let dropmenu = document.createElement('button');
     dropmenu.id = 'scriptmenu';
     dropmenu.innerHTML = "Меню";
