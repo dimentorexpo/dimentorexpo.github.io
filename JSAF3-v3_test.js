@@ -242,7 +242,7 @@ var win_Stat =  // описание элементов окна ссылок
                         </div>
 						
 						<div>
-							<input id="commenttosearch" placeholder="Слово для поиска среди чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
+							<input id="commenttosearch" placeholder="Слово или фраза для поиска среди закрытых чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
 						</div>
 												
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
