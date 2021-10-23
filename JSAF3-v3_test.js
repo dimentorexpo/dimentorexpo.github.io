@@ -2867,8 +2867,7 @@ document.getElementById('parsechat').onclick = async function() {
                     }
                     if (flagComment == 1)
                         stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#ADFF2F;">' + data.id + '</a></br>'
-					
-                })
+		         })
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
