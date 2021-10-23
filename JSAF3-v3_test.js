@@ -2533,6 +2533,17 @@ function startTimer() {
 									document.getElementById('userTypeId').style.color = "#DC143C"	
 								} 		
 					}
+					
+					for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) { //добавление кнопки Get Photo
+								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
+									  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+											if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
+											{
+												document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].append(gettacherphoto)
+											}
+										}
+								}
+					}
 
                     c.append(a)
 
