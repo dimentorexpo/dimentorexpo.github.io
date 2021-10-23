@@ -2655,6 +2655,7 @@ document.getElementById('getstatfromperiod').onclick = async function() {
 	let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
 	let strnew = document.getElementById('chatsinfoout');
 	let allchatcounttouched = document.getElementById('sumchatcounttouched')
+	document.getElementById('getstatfromperiod').textContent = "Загрузка"
 	allchatcounttouched.textContent ="Загрузка"
 	let allchatcountclosed = document.getElementById('sumchatcountclosed')
 	allchatcountclosed.textContent ="Загрузка"
@@ -2752,6 +2753,7 @@ document.getElementById('getstatfromperiod').onclick = async function() {
 			} else if ((test.total / 100) > pagenew && pagenew==9) {
                 pagenew++;
 			} else {
+				document.getElementById('getstatfromperiod').textContent = "Получить статистику"
                 break
             }
         }
