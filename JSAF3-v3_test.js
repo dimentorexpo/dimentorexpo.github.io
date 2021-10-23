@@ -2932,13 +2932,12 @@ document.getElementById('parsechat').onclick = async function() {
 }
 
 				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
+				document.getElementById('getfile').onclick = function() {
 				var link = document.createElement("a");
 				link.id="getfiletotxt";
 				link.setAttribute("href", URL.createObjectURL(blob));
 				link.setAttribute("download", "my-text.txt");
-				let btngetfile = document.getElementById('getfiletotxt');
-				document.getElementById('getfile').onclick = function() {
-					btngetfile.click();
+				link.click();
 				}
 
 
