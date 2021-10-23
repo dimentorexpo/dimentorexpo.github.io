@@ -1378,10 +1378,10 @@ searchJiraByEnter.addEventListener('keydown', event => {
 	document.getElementById('getStats').onclick = function () { // открытие Календаря
 	let getcurdate = new Date()
 	let getyear = getcurdate.getFullYear();
-	let getmonnth = (getcurdate.getMonth()+1)
+	let getcurmonth = (getcurdate.getMonth()+1)
 	let today = getcurdate.getDate();
-	document.getElementById('dateFrom').value = getyear + "-" + getmonth + "-" + (today-1)
-	document.getElementById('dateTo').value = getyear + "-" + getmonth + "-" + today
+	document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today-1)
+	document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today
 	if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
         else
