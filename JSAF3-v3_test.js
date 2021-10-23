@@ -2873,7 +2873,7 @@ document.getElementById('parsechat').onclick = async function() {
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
-		stylecmt.setAttribute('height', '400px');
+		stylecmt.setAttribute('style','height:400px');
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
 		            if ((test.total / 100) > pagecmt && pagecmt==1) {
@@ -2950,7 +2950,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
 					
-			strcsatnew.setAttribute('height','400px');
+			strcsatnew.setAttribute('style','height:400px');
 			
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
 
