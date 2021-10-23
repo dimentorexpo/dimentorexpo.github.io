@@ -2937,8 +2937,8 @@ document.getElementById('parsechat').onclick = async function() {
 				link.setAttribute("href", URL.createObjectURL(blob));
 				link.setAttribute("download", "my-text.txt");
 				let btngetfile = document.getElementById('getfiletotxt');
-				btngetfile.onclick = function() {
-					link.click();
+				document.getElementById('getfile').onclick = function() {
+					btngetfile.click();
 				}
 
 
