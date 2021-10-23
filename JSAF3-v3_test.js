@@ -2892,7 +2892,7 @@ document.getElementById('parsechat').onclick = async function() {
 					}
 			}			
 								
-		
+			}
 		            if ((test.total / 100) > pagecmt && pagecmt==1) {
                 pagecmt++;
 			} else if ((test.total / 100) > pagecmt && pagecmt==2) {
