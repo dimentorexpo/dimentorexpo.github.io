@@ -2973,7 +2973,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 			
 					let csatcontainer = document.querySelectorAll('.lowcsatschats');
 					let csatchattids = document.querySelectorAll('.csatchatids');
-							for (let j = 0; j < chatscontainer.length; j++) {
+							for (let j = 0; j < csatcontainer.length; j++) {
 								csatcontainer[j].onclick = function () {
 									
 									if (document.querySelector('#hide_or_display').textContent != "свернуть") {
