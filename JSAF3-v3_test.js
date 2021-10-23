@@ -2823,6 +2823,15 @@ document.getElementById('getstatfromperiod').onclick = async function() {
     }
 }
 
+
+//Функция очищения выведенной информации после поиска 
+document.getElementById('clearall')/onclick = function() {
+	document.querySelector('#sumchatcounttouched').innerText = ""
+	document.querySelector('#sumchatcountclosed').innerText = ""
+	document.querySelector('#chatsinfoout').innerText = ""
+	document.querySelector('#lowCSATcount').innerText = ""
+}
+
 //Функция получения чатов с низким КСАТ
 document.getElementById('getlowcsat').onclick = async function() {
 	let datefrom1 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
