@@ -2825,7 +2825,7 @@ document.getElementById('getstatfromperiod').onclick = async function() {
 
 
 //Функция очищения выведенной информации после поиска 
-document.getElementById('clearall')/onclick = function() {
+document.getElementById('clearall').onclick = function() {
 	document.querySelector('#sumchatcounttouched').innerText = ""
 	document.querySelector('#sumchatcountclosed').innerText = ""
 	document.querySelector('#chatsinfoout').innerText = ""
