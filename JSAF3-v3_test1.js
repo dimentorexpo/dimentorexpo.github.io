@@ -1392,6 +1392,24 @@ searchJiraByEnter.addEventListener('keydown', event => {
     dropmenu.style.marginRight = "15px";
     dropmenu.style.display = ''
 
+    function openmenu() {
+        document.getElementById("scriptmenu").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+      
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
