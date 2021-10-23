@@ -2923,13 +2923,8 @@ document.getElementById('parsechat').onclick = async function() {
 				document.getElementById('parsechat').textContent = "Найти по комменту"
                 break
             }
-				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
-				var link = document.createElement("a");
-				link.id="getfiletotxt";
-				link.setAttribute("href", URL.createObjectURL(blob));
-				link.setAttribute("download", "my-text.txt");
-				link.click();
-
+			
+			
      }
 	} catch {
         console.log('Что-то пошло не так.')
@@ -2941,7 +2936,11 @@ document.getElementById('parsechat').onclick = async function() {
 				link.id="getfiletotxt";
 				link.setAttribute("href", URL.createObjectURL(blob));
 				link.setAttribute("download", "my-text.txt");
-				link.click();
+				let btngetfile = document.getElementById('getfiletotxt');
+				btngetfile.onclick = function() {
+					link.click();
+				}
+
 
 
 				
