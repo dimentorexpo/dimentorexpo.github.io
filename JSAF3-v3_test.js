@@ -2766,36 +2766,36 @@ document.getElementById('getstatfromperiod').onclick = async function() {
 
 //Функция получения чатов с низким КСАТ
 document.getElementById('getlowcsat').onclick = async function() {
-	let datefrom = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
-	let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	let datefrom1 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
+	let dateto1 = document.getElementById('dateTo').value + "T20:59:59.059Z";
 	let strcsatnew = document.getElementById('lowCSATcount');
 	strcsatnew.textContent ="Загрузка"
+	document.getElementById('getlowcsat').textContent = "Загрузка";
 		
 		// блок с расчетом КСАТ и чатов без тематики
 		    try {
         pagenewlowcsat = 1
-        csatScoreNew = 0
-		stringChatsWithLowCsat = "";
+      //  csatScoreNew = 0
+		let stringChatsWithLowCsat = "";
         while (true) {
             test = ''
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
                 "headers": {
                     "content-type": "application/json",
                 },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagenew + ",\"limit\":100}",
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + datefrom1 + "\",\"tsTo\":\"" + dateto1 + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagenewlowcsat + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
             for (let i = 0; i < test.items.length; i++) {
-                let flagCsat = 0
-                let flagTopic = 0
+                let flagCsat1 = 0
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
                         if (r.operatorId == operatorId) {
-                            flagCsat = 1
+                            flagCsat1 = 1
                         }
                     })
-                if (flagCsat == 1)
+                if (flagCsat1 == 1)
                     if (test.items[i].stats.rate != undefined)
                         if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate >3) {
 
