@@ -2884,13 +2884,12 @@ document.getElementById('parsechat').onclick = async function() {
 					
 					if (document.querySelector('#hide_or_display').textContent != "свернуть") {
 					hide_or_display.click()
-							document.getElementById('chat_id').value = data.id;
-					}
+				    document.getElementById('chat_id').value = data.id;
 					search.click()
 				} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
 							document.getElementById('chat_id').value = data.id;
-					}
 					search.click()
+					}
 			}			
 								
 		
