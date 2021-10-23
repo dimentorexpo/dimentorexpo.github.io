@@ -284,7 +284,7 @@ if (localStorage.getItem('winTopJira') == null) { // началоное поло
     localStorage.setItem('winTopJira', '120');
     localStorage.setItem('winLeftJira', '295');
 }
-if (localStorage.getItem('winTopStat') == null) { // началоное положение окна ссылок (если не задано ранее)
+if (localStorage.getItem('winTopStat') == null) { // началоное положение окна статистики (если не задано ранее)
     localStorage.setItem('winTopStat', '120');
     localStorage.setItem('winLeftStat', '295');
 }
@@ -564,10 +564,10 @@ document.getElementById('jira_1str').ondblclick = function () { // скрыти�
 document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
-document.getElementById('statdata').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('statdata').ondblclick = function () { // скрытие окна статистики по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
 }
-document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна статистики по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
 }
 
