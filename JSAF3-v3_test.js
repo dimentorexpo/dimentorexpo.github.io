@@ -2732,11 +2732,9 @@ document.getElementById('getstatfromperiod').onclick = async function() {
                 stringChatsWithoutTopic2 = ' нет таких'
             strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
 
-            if (test.total > 100 && test.total <= 200 && pagenew == 1) {
-                pagenew = 2
-            } else if (test.total > 200 && test.total <= 300 && pagenew == 2) {
-                pagenew = 3
-            } else {
+            if ((test.total / 100) > pagenew) {
+                pagenew++;
+			} else {
                 break
             }
         }
