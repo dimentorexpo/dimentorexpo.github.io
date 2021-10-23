@@ -264,6 +264,9 @@ var win_Stat =  // описание элементов окна ссылок
         </span>
 </div>`;
 
+
+
+
 let audio
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
@@ -291,7 +294,6 @@ if (localStorage.getItem('winTopStat') == null) { // началоное поло
 }
 
 
-
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
@@ -312,6 +314,8 @@ let teacherphoto = document.createElement('img');
 teacherphoto.id = 'URLphoto';
 teacherphoto.style.width = "150px";
 teacherphoto.style.height = "180px";
+
+
 
 let template_flag = 0
 let template_flag2 = 0
@@ -535,7 +539,6 @@ wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = fun
 }
 wintJira.onmouseup = function () { document.removeEventListener('mousemove', listener5); }
 
-
 var listener6 = function (e, a) { // сохранение позиции окна ссылок
     wintStat.style.left = Number(e.clientX - myX6) + "px";
     wintStat.style.top = Number(e.clientY - myY6) + "px";
@@ -571,8 +574,6 @@ document.getElementById('statdata').ondblclick = function () { // скрытие
 document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна статистики по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
 }
-
-
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
@@ -1073,6 +1074,7 @@ document.getElementById('getJiraTasks').onclick = function () {
     }
 
 
+
     document.getElementById('secondpage').addEventListener('click', function () {
         let issues = [];
         if (rezissuetable.issueTable.issueKeys.length > 10) {
@@ -1321,8 +1323,6 @@ searchJiraByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Links').style.display = 'none'
 	if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
-			if (document.getElementById('AF_Stat').style.display == '')
-            document.getElementById('AF_Stat').style.display = 'none'
     }
     document.getElementById('takeNewChat').onclick = function () {
         getNewChat()
@@ -1369,7 +1369,6 @@ searchJiraByEnter.addEventListener('keydown', event => {
         else
             document.getElementById('AF_Stat').style.display = ''
     }
-	
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
         alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: cxi7E82p0IY1SW?D^BHDwMuwC\a5cvhu");
@@ -1381,10 +1380,9 @@ searchJiraByEnter.addEventListener('keydown', event => {
 	
 	document.getElementById('datsyurl').onclick = function () { // открытие Календаря
         window.open("https://datsy.ru/")
-    }	
+    }
 	
-	
-	document.getElementById('getStats').onclick = function () { // открытие Статистики
+		document.getElementById('getStats').onclick = function () { // открытие Статистики
 	let getcurdate = new Date()
 	let getyear = getcurdate.getFullYear();
 	let getcurmonth = (getcurdate.getMonth()+1)
@@ -1398,8 +1396,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
         else
             document.getElementById('AF_Stat').style.display = ''
     }
-	
-	
+
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
     })
@@ -1711,6 +1708,13 @@ async function buttonsFromDoc(butName) {
 	       msgFromTable(butName)
 }
 
+function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
+    but = butName
+    msgFromTable(but) // вызов функции отправки сообщения
+    if (document.getElementById('avariyalink').value !== null) // проверка есть ли значение в поле ссылки
+        sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
+}
+
 var bool = 0;
 var table
 function getText() {
@@ -1806,6 +1810,25 @@ function refreshTemplates() {
                 countOfPages++
 
                 countOfStr = 1
+
+                if(pageType == "Серверные") { // дорисоква инпута для ссылки на серверные
+					var newDiv = document.createElement('div')
+					newDiv.id = countOfPages + "page_" + countOfStr + "str"
+					newDiv.style.margin = "5px"
+					
+					var newInputAlink = document.createElement('input')
+					newInputAlink.id = 'avariyalink'
+					newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
+					newInputAlink.autocomplete = 'off'
+					newInputAlink.type = 'text'
+					newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+					
+					newDiv.appendChild(newInputAlink)
+					
+					b.lastElementChild.appendChild(newDiv)
+					countOfStr++
+				}
+
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
                 newStr.id = countOfPages + "page_" + countOfStr + "str"
@@ -1841,19 +1864,6 @@ function refreshTemplates() {
                             newBut.innerText = "ус+брауз"
                         if (newBut.innerText == 'ус+брауз (П)')
                             continue
-                        if (newBut.innerText == 'Серверные') {
-                            var newInput = document.createElement('input')
-                            newInput.placeholder = 'Ссылка'
-                            newInput.id = 'serversInp'
-                            newInput.style.marginRight = '5px'
-                            var newDiv = document.createElement('div')
-                            newDiv.style.margin = '5px'
-                            newBut.id = 'serversBut'
-                            newDiv.append(newInput)
-                            newDiv.append(newBut)
-                            document.getElementById('addTmp').children[0].appendChild(newDiv)
-                            continue
-                        }
                         if (addTmpFlag == 0)
                             b.lastElementChild.lastElementChild.appendChild(newBut)
                         else {
@@ -1865,6 +1875,13 @@ function refreshTemplates() {
                         var newBut = document.createElement('button')
                         newBut.innerText = c[0]
                         newBut.style.marginRight = '4px'
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
+                    case 'Серверные': // обработка нажатия на кнопку на странице серверные
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
                     case 'Темы':
@@ -1879,8 +1896,7 @@ function refreshTemplates() {
                 }
                 break
         }
-    }
-    document.getElementById('0page').ondblclick = function () {
+    }    document.getElementById('0page').ondblclick = function () {
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
             document.getElementById('set_bar').style.display = 'none'
@@ -1921,8 +1937,13 @@ function newTag(valueId) {
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
-        if (document.getElementById('languageAF').innerHTML == "Русский") {
-            if (btnName == table[l][0]) {
+        if (btnName == table[l][0]) {
+            if (table[l][8] == undefined || table[l][8] == null || table[l][8] == " " || table[l][8] == ""){
+                console.log("Не значения тематики")
+            }else {
+                newTag(table[l][8])
+            }
+            if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -1932,28 +1953,21 @@ function msgFromTable(btnName) {
                 if (table[l][1] == "Шаблон") {
                     sendAnswerTemplate(table[l][2], table[l][3])
                 }
-                // if (table[l][1].indexOf("Рандом") != -1) {
-                    // var count = table[l][1][7]
-                    // var newL = Math.floor(Math.random() * (count)) + l
-                    // sendAnswer(table[newL][2])
-                // }
                 break
-            }
         } else {
-            if (btnName == table[l][0]) {
-                if (table[l][4] == "") {
-                    document.getElementById('inp').value = "Нет такого шаблона"
-                } else {
-                    if (table[l][5] == "Быстрый шаблон") {
-                        sendAnswerTemplate2(table[l][6])
-                    }
-                    if (table[l][5] == "Текст") {
-                        sendAnswer(transfPageButtons(table[l][6]))
-                    }
-                    if (table[l][5] == "Шаблон") {
-                        sendAnswerTemplate(table[l][6], table[l][7])
-                    }
-                    break
+            if (table[l][4] == "") {
+                document.getElementById('inp').value = "Нет такого шаблона"
+            } else {
+                if (table[l][5] == "Быстрый шаблон") {
+                    sendAnswerTemplate2(table[l][6])
+                }
+                if (table[l][5] == "Текст") {
+                    sendAnswer(transfPageButtons(table[l][6]))
+                }
+                if (table[l][5] == "Шаблон") {
+                    sendAnswerTemplate(table[l][6], table[l][7])
+                }
+                break
                 }
             }
         }
@@ -2551,7 +2565,7 @@ function startTimer() {
 								} 		
 					}
 					
-					for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) { //добавление кнопки Get Photo
+										for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) { //добавление кнопки Get Photo
 								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
 									  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
 											if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
@@ -2843,6 +2857,7 @@ document.getElementById('clearall').onclick = function() {
 	document.querySelector('#chatcommentsdata').innerText = ""
 	document.querySelector('#chatcommentsdata').style.display = "none"
 	document.querySelector('#commenttosearch').value =""
+	
 }
 
 //Функция парсинга чатов по заданному коменту
@@ -2875,14 +2890,9 @@ document.getElementById('parsechat').onclick = async function() {
                         stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#E6E6FA;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' +'</br>'
 					
 		         })
-				 
-				
-
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
-					
-			
 		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
@@ -2924,15 +2934,13 @@ document.getElementById('parsechat').onclick = async function() {
 				document.getElementById('parsechat').textContent = "Найти по комменту"
                 break
             }
-			
-			
+		
      }
 	} catch {
         console.log('Что-то пошло не так.')
     }
 }
 
-				
 				document.getElementById('getfile').onclick = function() {
 				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
 				var link = document.createElement("a");
@@ -2943,8 +2951,6 @@ document.getElementById('parsechat').onclick = async function() {
 				}
 
 
-
-				
 //Функция получения чатов с низким КСАТ
 document.getElementById('getlowcsat').onclick = async function() {
 	let datefrom1 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
@@ -3039,7 +3045,6 @@ document.getElementById('getlowcsat').onclick = async function() {
         console.log('Что-то пошло не так.')
     }
 }
-
 
 async function sendAnswerTemplate2(word, flag = 0) {
     var tmpTxt = ""
