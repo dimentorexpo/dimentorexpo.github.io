@@ -2883,7 +2883,8 @@ document.getElementById('getlowcsat').onclick = async function() {
             }
         }
     } finally {
-        strcsatnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
+		document.getElementById('getlowcsat').textContent = "Чаты с КСАТ<4"
+        console.log('Что-то пошло не так.')
     }
 }
 
