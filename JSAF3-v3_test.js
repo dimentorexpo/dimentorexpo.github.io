@@ -2846,8 +2846,8 @@ document.getElementById('clearall').onclick = function() {
 }
 
 //Функция парсинга чатов по заданному коменту
-document.getElementById('parsechat').onclick = async function() {
-    let stringChatsWithComment = ""
+let stringChatsWithComment = ""
+document.getElementById('parsechat').onclick = async function() {  
 	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
 	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
 	document.getElementById('parsechat').textContent = "Идёт поиск"
@@ -2928,15 +2928,20 @@ document.getElementById('parsechat').onclick = async function() {
 				link.id="getfiletotxt";
 				link.setAttribute("href", URL.createObjectURL(blob));
 				link.setAttribute("download", "my-text.txt");
-				let arsoz = document.getElementById('getfiletotxt');
-				document.getElementById('getfile').onlick = function() {
-					arsoz.click();
-				}
+				link.click();
+
      }
 	} catch {
         console.log('Что-то пошло не так.')
     }
 }
+
+				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
+				var link = document.createElement("a");
+				link.id="getfiletotxt";
+				link.setAttribute("href", URL.createObjectURL(blob));
+				link.setAttribute("download", "my-text.txt");
+				link.click();
 
 
 				
