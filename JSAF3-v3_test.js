@@ -2882,7 +2882,7 @@ document.getElementById('getlowcsat').onclick = async function() {
                 break
             }
         }
-    } catch {
+    } finally {
         strcsatnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
 }
