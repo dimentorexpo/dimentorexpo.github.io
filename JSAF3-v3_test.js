@@ -2931,8 +2931,9 @@ document.getElementById('parsechat').onclick = async function() {
     }
 }
 
-				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
+				
 				document.getElementById('getfile').onclick = function() {
+				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
 				var link = document.createElement("a");
 				link.id="getfiletotxt";
 				link.setAttribute("href", URL.createObjectURL(blob));
