@@ -242,10 +242,10 @@ var win_Stat =  // описание элементов окна ссылок
                         </div>
 						
 						<div>
-							<input id="commenttosearch" placeholder="Слово для поиска среди чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 200px; color: black;">
+							<input id="commenttosearch" placeholder="Слово для поиска среди чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
 						</div>
 												
-						<div style="display:flex; justify-content:space-evenly;">
+						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
 							 <button id="getstatfromperiod">Получить статистику</button>
 							 <button id="getlowcsat">Чаты с КСАТ<4</button>
 							 <button id="parsechat">Найти по коменту</button>
