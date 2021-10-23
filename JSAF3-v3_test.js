@@ -2861,12 +2861,12 @@ document.getElementById('parsechat').onclick = async function() {
                             flagComment = 1
                     }
                     if (flagComment == 1)
-                        stringChatsWithComment += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '</a></br>'
+                        stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#ADFF2F;">' + data.id + '</a></br>'
                 })
         }
-        document.getElementById('chatcommentsdata').innerHTML = stringChatsWithComment;
+        document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' stringChatsWithComment;
     } catch {
-        console.log('Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста')
+        console.log('Что-то пошло не так.')
     }
 }
 
