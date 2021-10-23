@@ -2732,14 +2732,22 @@ document.getElementById('getstatfromperiod').onclick = async function() {
                 stringChatsWithoutTopic2 = ' нет таких'
             strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
 
-            if ((test.total / 100) > pagenew) {
+            if ((test.total / 100) > pagenew && pagenew==1) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==2) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==3) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==4) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==5) {
                 pagenew++;
 			} else {
                 break
             }
         }
     } catch {
-        str.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
+        strnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
 }
 
