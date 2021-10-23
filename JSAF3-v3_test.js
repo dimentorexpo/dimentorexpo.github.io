@@ -3821,7 +3821,6 @@ function prepTp() {
         include("https://dimentorexpo.github.io/ChatHistory.js") // модуль подключения по нажатию кнопки поиска по истории чата
 		// include("https://dimentorexpo.github.io/ChangeServiceLocale.js") // модуль кнопки в инфо о пользователе позволяющее поменять локаль ученика
 		include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
-	//	include("https://dimentorexpo.github.io/GetPhoto.js") // модуль получения фотографии из профиля П
 		include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
     }, 2000)
 
