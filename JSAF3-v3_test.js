@@ -2848,10 +2848,10 @@ document.getElementById('getlowcsat').onclick = async function() {
                     })
                 if (flagCsat1 == 1)
                     if (test.items[i].stats.rate != undefined)
-                        if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate >3) {
+                        if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate <4) {
 							 csatScoreNewLow += test.items[i].stats.rate.rate
 							 
-						stringChatsWithLowCsat += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
+						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
                         }
             }
 			            if (stringChatsWithLowCsat == "")
