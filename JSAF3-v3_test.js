@@ -2875,14 +2875,16 @@ document.getElementById('parsechat').onclick = async function() {
 		         })
 				 
 				
+
+        }
+							if (stringChatsWithComment == "")
+						stringChatsWithComment = ' нет таких'
+					
 				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
 				var link = document.createElement("a");
 				link.setAttribute("href", URL.createObjectURL(blob));
 				link.setAttribute("download", "my-text.txt");
-				//link.click();
-        }
-							if (stringChatsWithComment == "")
-						stringChatsWithComment = ' нет таких'
+				link.click();
 		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
