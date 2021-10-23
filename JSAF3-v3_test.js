@@ -240,10 +240,15 @@ var win_Stat =  // описание элементов окна ссылок
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
                         </div>
-						<div style="display:flex; justify-content:space-evenly;">
+						
+						<div>
+							<input id="commenttosearch" placeholder="Слово или фраза для поиска среди закрытых чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
+						</div>
+												
+						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
 							 <button id="getstatfromperiod">Получить статистику</button>
 							 <button id="getlowcsat">Чаты с КСАТ<4</button>
-							 <button id="parsechat">Найти по коменту</button>
+							 <button id="parsechat">Найти по комменту</button>
 							 <button id="clearall">Очистить</button>
 					    </div>
 						<div id="chatcoutnsinfo">
@@ -251,7 +256,8 @@ var win_Stat =  // описание элементов окна ссылок
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
-							 <p id="lowCSATcount" style="width:550px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="lowCSATcount" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
@@ -2822,6 +2828,82 @@ document.getElementById('getstatfromperiod').onclick = async function() {
         strnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
 }
+
+
+//Функция очищения выведенной информации после поиска 
+document.getElementById('clearall').onclick = function() {
+	document.querySelector('#sumchatcounttouched').innerText = ""
+	document.querySelector('#sumchatcountclosed').innerText = ""
+	document.querySelector('#chatsinfoout').innerText = ""
+	document.querySelector('#lowCSATcount').innerText = ""
+	document.querySelector('#chatcommentsdata').innerText = ""
+}
+
+//Функция парсинга чатов по заданному коменту
+document.getElementById('parsechat').onclick = async function() {
+    let stringChatsWithComment = ""
+	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
+	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	document.getElementById('parsechat').textContent = "Идёт поиск"
+    try {
+		pagecmt = 1
+		while (true) {
+        test = ''
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"" + pagecmt + "\":1,\"limit\":100}",
+            "method": "POST",
+        }).then(r => r.json()).then(r => test = r)
+        for (let i = 0; i < test.items.length; i++) {
+            let flagComment = 0
+            await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                .then(response => response.json()).then(data => {
+                    for (let j = 0; j < data.messages.length; j++) {
+                        if (data.messages[j].tpe == "OperatorComment" && data.messages[j].txt == document.getElementById('commenttosearch').value)
+                            flagComment = 1
+                    }
+                    if (flagComment == 1)
+                        stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#ADFF2F;">' + data.id + '</a></br>'
+					
+
+                })
+        }
+							if (stringChatsWithComment == "")
+						stringChatsWithComment = ' нет таких'
+		
+        document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
+		
+		            if ((test.total / 100) > pagecmt && pagecmt==1) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==2) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==3) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==4) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==5) {
+                pagecmtpagecmt
+			} else if ((test.total / 100) > pagecmt && pagecmt==6) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==7) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==8) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==9) {
+                pagecmt++;
+			} else {
+				document.getElementById('parsechat').textContent = "Найти по комменту"
+                break
+            }
+		
+     }
+	} catch {
+        console.log('Что-то пошло не так.')
+    }
+}
+
 
 //Функция получения чатов с низким КСАТ
 document.getElementById('getlowcsat').onclick = async function() {
