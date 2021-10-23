@@ -1346,7 +1346,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
         }
     }
 
-    let dropmenu = document.createElement('button');
+    let dropmenu = document.createElement('dropbtn');
     dropmenu.id = 'scriptmenu';
     dropmenu.innerHTML = "Меню";
     dropmenu.style.marginRight = "15px";
