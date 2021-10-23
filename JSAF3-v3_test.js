@@ -250,6 +250,7 @@ var win_Stat =  // описание элементов окна ссылок
 							 <button id="getlowcsat">Чаты с КСАТ<4</button>
 							 <button id="parsechat">Найти по комменту</button>
 							 <button id="clearall">Очистить</button>
+							 <button id="getfile">🔰</button>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
@@ -2880,11 +2881,7 @@ document.getElementById('parsechat').onclick = async function() {
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
 					
-				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
-				var link = document.createElement("a");
-				link.setAttribute("href", URL.createObjectURL(blob));
-				link.setAttribute("download", "my-text.txt");
-				link.click();
+			
 		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
@@ -2926,14 +2923,21 @@ document.getElementById('parsechat').onclick = async function() {
 				document.getElementById('parsechat').textContent = "Найти по комменту"
                 break
             }
-		
+				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
+				var link = document.createElement("a");
+				link.id="getfiletotxt";
+				link.setAttribute("href", URL.createObjectURL(blob));
+				link.setAttribute("download", "my-text.txt");
      }
 	} catch {
         console.log('Что-то пошло не так.')
     }
 }
 
-
+				document.getElementById('getfile').onlick = function() {
+					document.getElementById('getfiletotxt').click();
+				}
+				
 //Функция получения чатов с низким КСАТ
 document.getElementById('getlowcsat').onclick = async function() {
 	let datefrom1 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
