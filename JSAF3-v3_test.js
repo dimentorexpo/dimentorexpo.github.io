@@ -2928,8 +2928,9 @@ document.getElementById('parsechat').onclick = async function() {
 				link.id="getfiletotxt";
 				link.setAttribute("href", URL.createObjectURL(blob));
 				link.setAttribute("download", "my-text.txt");
+				let arsoz = document.getElementById('getfiletotxt');
 				document.getElementById('getfile').onlick = function() {
-					document.getElementById('getfiletotxt').click();
+					arsoz.click();
 				}
      }
 	} catch {
