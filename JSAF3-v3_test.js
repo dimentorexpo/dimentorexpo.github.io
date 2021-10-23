@@ -2870,13 +2870,29 @@ document.getElementById('parsechat').onclick = async function() {
                             flagComment = 1
                     }
                     if (flagComment == 1)
-                        stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#ADFF2F;">' + data.id + '</a></br>'
+                        stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#ADFF2F;">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">🗨</span>' +'</br>'
 		         })
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
 		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
+		
+		let chatscontainer = document.querySelectorAll('.chatswithcomments');
+            for (let j = 0; j < chatscontainer.length; j++) {
+                chatscontainer[j].onclick = function () {
+					
+					if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+					hide_or_display.click()
+							document.getElementById('chat_id').value = data.id;
+					}
+					search.click()
+				} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+							document.getElementById('chat_id').value = data.id;
+					}
+					search.click()
+			}			
+								
 		
 		            if ((test.total / 100) > pagecmt && pagecmt==1) {
                 pagecmt++;
@@ -2946,7 +2962,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 							}
 									
 						if(csatScoreNewLow == 1)	 
-						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#ADFF2F;">' + test.items[i].conversationId + '</a></br>'
+						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#ADFF2F;">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">🗨</span>' + '</br>'
                         }
             
 			            if (stringChatsWithLowCsat == "")
