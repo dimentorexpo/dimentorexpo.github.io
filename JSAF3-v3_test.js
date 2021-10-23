@@ -2861,24 +2861,24 @@ document.getElementById('getlowcsat').onclick = async function() {
 
             strcsatnew.innerHTML = 'Чаты с плохими оценками: ' + '<br>' + stringChatsWithLowCsat
 
-            if ((test.total / 100) > pagenew && pagenew==1) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==2) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==3) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==4) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==5) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==6) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==7) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==8) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==9) {
-                pagenew++;
+            if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==1) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==2) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==3) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==4) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==5) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==6) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==7) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==8) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==9) {
+                pagenewlowcsat++;
 			} else {
 				document.getElementById('getlowcsat').textContent = "Чаты с КСАТ<4"
                 break
