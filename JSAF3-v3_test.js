@@ -2848,6 +2848,7 @@ document.getElementById('clearall').onclick = function() {
 //Функция парсинга чатов по заданному коменту
 let stringChatsWithComment = ""
 document.getElementById('parsechat').onclick = async function() {  
+	stringChatsWithComment="";
 	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
 	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
 	document.getElementById('parsechat').textContent = "Идёт поиск"
