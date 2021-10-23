@@ -2951,6 +2951,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 						stringChatsWithLowCsat = ' нет таких'
 					
 			strcsatnew.setAttribute('height','400px');
+			
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
 
             if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==1) {
