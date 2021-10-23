@@ -2857,7 +2857,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
 
-            strcsatnew.innerHTML = 'Чаты с плохими оценками: ' + '<br>'
+            strcsatnew.innerHTML = 'Чаты с плохими оценками: ' + '<br>' + stringChatsWithLowCsat
 
             if ((test.total / 100) > pagenew && pagenew==1) {
                 pagenew++;
