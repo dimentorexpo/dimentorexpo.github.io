@@ -2928,15 +2928,16 @@ document.getElementById('parsechat').onclick = async function() {
 				link.id="getfiletotxt";
 				link.setAttribute("href", URL.createObjectURL(blob));
 				link.setAttribute("download", "my-text.txt");
+				document.getElementById('getfile').onlick = function() {
+					document.getElementById('getfiletotxt').click();
+				}
      }
 	} catch {
         console.log('Что-то пошло не так.')
     }
 }
 
-				document.getElementById('getfile').onlick = function() {
-					document.getElementById('getfiletotxt').click();
-				}
+
 				
 //Функция получения чатов с низким КСАТ
 document.getElementById('getlowcsat').onclick = async function() {
