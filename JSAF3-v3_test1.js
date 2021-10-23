@@ -54,7 +54,46 @@ function mystyles() {
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
-	}`
+	}
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+    }
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown a:hover {background-color: #ddd;}
+    
+    .show {display: block;}
+    `
     mstl.innerHTML = style;
 }
 
@@ -1351,8 +1390,6 @@ searchJiraByEnter.addEventListener('keydown', event => {
     dropmenu.innerHTML = "Меню";
     dropmenu.style.marginRight = "15px";
     dropmenu.style.display = ''
-    var btnAddd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    btnAddd.insertBefore(dropmenu, btnAddd.children[0])
 
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
@@ -3552,6 +3589,7 @@ function firstLoadPage() {
 
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            btnAdd1.insertBefore(scriptmenu, btnAdd1.children[0])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
         }, 2000)
