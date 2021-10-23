@@ -248,7 +248,7 @@ var win_Stat =  // описание элементов окна ссылок
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
 							 <button id="getstatfromperiod">Получить статистику</button>
 							 <button id="getlowcsat">Чаты с КСАТ<4</button>
-							 <button id="parsechat">Найти по коменту</button>
+							 <button id="parsechat">Найти по комменту</button>
 							 <button id="clearall">Очистить</button>
 					    </div>
 						<div id="chatcoutnsinfo">
@@ -257,6 +257,7 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
 							 <p id="lowCSATcount" style="width:550px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px; color:bisque; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
