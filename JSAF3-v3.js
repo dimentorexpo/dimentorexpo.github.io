@@ -1373,6 +1373,21 @@ searchJiraByEnter.addEventListener('keydown', event => {
 	document.getElementById('datsyurl').onclick = function () { // открытие Календаря
         window.open("https://datsy.ru/")
     }
+	
+		document.getElementById('getStats').onclick = function () { // открытие Статистики
+	let getcurdate = new Date()
+	let getyear = getcurdate.getFullYear();
+	let getcurmonth = (getcurdate.getMonth()+1)
+	let today = getcurdate.getDate();
+	document.querySelector('#chatcommentsdata').style.display = "none"
+	document.querySelector('#lowCSATcount').style.display = "none"
+	document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today-1)
+	document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today
+	if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
+        else
+            document.getElementById('AF_Stat').style.display = ''
+    }
 
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей

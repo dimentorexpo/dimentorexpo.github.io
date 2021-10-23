@@ -1383,7 +1383,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
     }	
 	
 	
-	document.getElementById('getStats').onclick = function () { // открытие Календаря
+	document.getElementById('getStats').onclick = function () { // открытие Статистики
 	let getcurdate = new Date()
 	let getyear = getcurdate.getFullYear();
 	let getcurmonth = (getcurdate.getMonth()+1)
