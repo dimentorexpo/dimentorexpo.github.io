@@ -241,13 +241,13 @@ var win_Stat =  // описание элементов окна ссылок
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
                         </div>
 						<div>
-							 <button id="getstatfromperiod">Получить статистику</button>
+							 <button id="getstatfromperiod" style="position: relative;left: 40%;">Получить статистику</button>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
-							 <p id="chatsinfoout" style="width:550px; color:bisque"></p>
+							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
 						</div>
                 </span>
         </span>
@@ -2658,6 +2658,7 @@ document.getElementById('getstatfromperiod').onclick = async function() {
 	allchatcounttouched.textContent ="Загрузка"
 	let allchatcountclosed = document.getElementById('sumchatcountclosed')
 	allchatcountclosed.textContent ="Загрузка"
+	strnew.textContent ="Загрузка"
 	await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
                 "content-type": "application/json",
