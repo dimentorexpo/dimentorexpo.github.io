@@ -2858,7 +2858,7 @@ document.getElementById('parsechat').onclick = async function() {
             "headers": {
                 "content-type": "application/json",
             },
-            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagecmt +",\"limit\":100}",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\,\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagecmt +",\"limit\":100}",
             "method": "POST",
         }).then(r => r.json()).then(r => test = r)
         for (let i = 0; i < test.items.length; i++) {
