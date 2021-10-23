@@ -2848,16 +2848,16 @@ document.getElementById('getlowcsat').onclick = async function() {
                     })
                 if (flagCsat1 == 1)
                     if (test.items[i].stats.rate != undefined)
-                        if (test.items[i].stats.rate != undefined && test.items[i].stats.rate.rate >3) {
-							 csatScoreNewLow += test.items[i].stats.rate
+                        if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate >3) {
+							 csatScoreNewLow += test.items[i].stats.rate.rate
 							 
-						stringChatsWithLowCsat += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>' + "Оценка:" +  csatScoreNewLow 
+						stringChatsWithLowCsat += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
                         }
             }
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
 
-            strcsatnew.innerHTML = 'Чаты с плохими оценками: ' + '<br>' + stringChatsWithLowCsat
+            strcsatnew.innerHTML = 'Чаты с плохими оценками: ' + '<br>'
 
             if ((test.total / 100) > pagenew && pagenew==1) {
                 pagenew++;
