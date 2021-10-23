@@ -2846,12 +2846,14 @@ document.getElementById('parsechat').onclick = async function() {
 	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
 	document.getElementById('parsechat').textContent = "Идёт поиск"
     try {
+		pagecmt = 1
+		while (true) {
         test = ''
         await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
                 "content-type": "application/json",
             },
-            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":100}",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"" + pagecmt + "\":1,\"limit\":100}",
             "method": "POST",
         }).then(r => r.json()).then(r => test = r)
         for (let i = 0; i < test.items.length; i++) {
@@ -2870,9 +2872,34 @@ document.getElementById('parsechat').onclick = async function() {
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
-		document.getElementById('parsechat').textContent = "Найти по комменту"
+		
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
-    } catch {
+		
+		            if ((test.total / 100) > pagecmt && pagecmt==1) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==2) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==3) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==4) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==5) {
+                pagecmtpagecmt
+			} else if ((test.total / 100) > pagecmt && pagecmt==6) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==7) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==8) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==9) {
+                pagecmt++;
+			} else {
+				document.getElementById('parsechat').textContent = "Найти по комменту"
+                break
+            }
+		
+     }
+	} catch {
         console.log('Что-то пошло не так.')
     }
 }
