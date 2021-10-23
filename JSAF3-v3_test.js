@@ -255,9 +255,9 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
-							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
-							 <p id="lowCSATcount" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
-							 <p id="chatcommentsdata" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatsinfoout" style="width:550px; height:0px; color:bisque; margin-left:5px"></p>
+							 <p id="lowCSATcount" style="width:550px; height:0px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px;color:bisque; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
@@ -2844,6 +2844,7 @@ document.getElementById('parsechat').onclick = async function() {
     let stringChatsWithComment = ""
 	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
 	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	let stylecmt = document.getElementById('chatcommentsdata');
 	document.getElementById('parsechat').textContent = "Идёт поиск"
     try {
 		pagecmt = 1
@@ -2872,7 +2873,7 @@ document.getElementById('parsechat').onclick = async function() {
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
-		
+		stylecmt.setAttribute('height', '400px');
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
 		            if ((test.total / 100) > pagecmt && pagecmt==1) {
@@ -2948,7 +2949,8 @@ document.getElementById('getlowcsat').onclick = async function() {
             
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
-
+					
+			strcsatnew.setAttribute('height','400px');
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
 
             if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==1) {
