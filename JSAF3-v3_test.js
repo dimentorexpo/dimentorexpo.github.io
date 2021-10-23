@@ -247,6 +247,7 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
+							 <p id="chatsinfoout" style="width:50px;"></p>
 						</div>
                 </span>
         </span>
@@ -2652,6 +2653,7 @@ async function whoAmI() {
 document.getElementById('getstatfromperiod').onclick = async function() {
 	let datefrom = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
 	let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	let strnew = document.getElementById('chatsinfoout');
 	let allchatcounttouched = document.getElementById('sumchatcounttouched')
 	allchatcounttouched.textContent ="Загрузка"
 	let allchatcountclosed = document.getElementById('sumchatcountclosed')
@@ -2686,6 +2688,61 @@ document.getElementById('getstatfromperiod').onclick = async function() {
 		  "credentials": "include"
 		}).then(r1 => r1.json()).then(data1 => sumchatcountclosed = data1)
 		allchatcountclosed.innerText = "Количество закрытых чатов: " + sumchatcountclosed.total;
+		
+		// блок с расчетом КСАТ и чатов без тематики
+		    try {
+        pagenew = 1
+        let stringChatsWithoutTopic2 = ""
+        csatScoreNew = 0
+        csatCountNew = 0
+        while (true) {
+            test = ''
+            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagenew + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            for (let i = 0; i < test.items.length; i++) {
+                let flagCsat = 0
+                let flagTopic = 0
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(r => r.json())
+                    .then(r => {
+                        if (r.operatorId == operatorId) {
+                            flagCsat = 1
+                            if (r.payload != undefined)
+                                if (r.payload.topicId != undefined)
+                                    if (r.payload.topicId.value == "")
+                                        flagTopic = 1
+                        }
+                    })
+                if (flagCsat == 1)
+                    if (test.items[i].stats.rate != undefined)
+                        if (test.items[i].stats.rate.rate != undefined) {
+                            csatScoreNew += test.items[i].stats.rate.rate
+                            csatCountNew++
+                        }
+                if (flagTopic == 1)
+                    stringChatsWithoutTopic2 += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
+            }
+
+            if (stringChatsWithoutTopic2 == "")
+                stringChatsWithoutTopic2 = ' нет таких'
+            strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
+
+            if (test.total > 100 && test.total <= 200 && pagenew == 1) {
+                pagenew = 2
+            } else if (test.total > 200 && test.total <= 300 && pagenew == 2) {
+                pagenew = 3
+            } else {
+                break
+            }
+        }
+    } catch {
+        str.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
+    }
 }
 
 async function sendAnswerTemplate2(word, flag = 0) {
