@@ -1346,9 +1346,10 @@ searchJiraByEnter.addEventListener('keydown', event => {
         }
     }
 
-    let dropmenu = document.createElement('dropbtn');
+    let dropmenu = document.createElement('button');
     dropmenu.id = 'scriptmenu';
     dropmenu.innerHTML = "Меню";
+    dropmenu.class = "ant-btn ant-dropdown-trigger"
     dropmenu.style.marginRight = "15px";
     dropmenu.style.display = 'none'
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
