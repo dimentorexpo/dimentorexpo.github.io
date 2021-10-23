@@ -2742,6 +2742,14 @@ document.getElementById('getstatfromperiod').onclick = async function() {
                 pagenew++;
 			} else if ((test.total / 100) > pagenew && pagenew==5) {
                 pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==6) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==7) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==8) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==9) {
+                pagenew++;
 			} else {
                 break
             }
