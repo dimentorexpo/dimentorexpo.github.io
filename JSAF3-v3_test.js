@@ -240,11 +240,11 @@ var win_Stat =  // описание элементов окна ссылок
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
                         </div>
-						<div>
-							 <button id="getstatfromperiod" style="position: relative;left: 20%;">Получить статистику</button>
-							 <button id="getlowcsat" style="position: relative;left: 40%;">Чаты с КСАТ<4</button>
-							 <button id="parsechat" style="position: relative;left: 60%;">Найти по коменту</button>
-							 <button id="clearall" style="position: relative;left: 80%;">Очистить</button>
+						<div style="display:flex; justify-content:space-evenly;">
+							 <button id="getstatfromperiod">Получить статистику</button>
+							 <button id="getlowcsat">Чаты с КСАТ<4</button>
+							 <button id="parsechat">Найти по коменту</button>
+							 <button id="clearall">Очистить</button>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
