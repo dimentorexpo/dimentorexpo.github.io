@@ -2853,7 +2853,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 							}
 									
 						if(csatScoreNewLow == 1)	 
-						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#ADFF2F;">Хеши: ' + test.items[i].conversationId + '</a></br>'
+						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#ADFF2F;">' + test.items[i].conversationId + '</a></br>'
                         }
             
 			            if (stringChatsWithLowCsat == "")
