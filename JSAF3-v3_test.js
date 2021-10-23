@@ -2838,6 +2838,39 @@ document.getElementById('clearall').onclick = function() {
 	document.querySelector('#lowCSATcount').innerText = ""
 }
 
+//Функция парсинга чатов по заданному коменту
+document.getElementById('parsechat').onclick = async function() {
+    let stringChatsWithComment = ""
+	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
+	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
+    try {
+        test = ''
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"participatingOperatorsIds\":[\"${operatorId}\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":100}",
+            "method": "POST",
+        }).then(r => r.json()).then(r => test = r)
+        for (let i = 0; i < test.items.length; i++) {
+            let flagComment = 0
+            await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                .then(response => response.json()).then(data => {
+                    for (let j = 0; j < data.messages.length; j++) {
+                        if (data.messages[j].tpe == "OperatorComment" && data.messages[j].txt == document.getElementById('commenttosearch').value)
+                            flagComment = 1
+                    }
+                    if (flagComment == 1)
+                        stringChatsWithComment += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '</a></br>'
+                })
+        }
+        document.getElementById('chatcommentsdata').innerHTML = stringChatsWithComment;
+    } catch {
+        console.log('Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста')
+    }
+}
+
+
 //Функция получения чатов с низким КСАТ
 document.getElementById('getlowcsat').onclick = async function() {
 	let datefrom1 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
