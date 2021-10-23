@@ -2845,13 +2845,13 @@ document.getElementById('parsechat').onclick = async function() {
 	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
     try {
         test = ''
-        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", `{
             "headers": {
                 "content-type": "application/json",
             },
             "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"participatingOperatorsIds\":[\"${operatorId}\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":100}",
             "method": "POST",
-        }).then(r => r.json()).then(r => test = r)
+        }`).then(r => r.json()).then(r => test = r)
         for (let i = 0; i < test.items.length; i++) {
             let flagComment = 0
             await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
