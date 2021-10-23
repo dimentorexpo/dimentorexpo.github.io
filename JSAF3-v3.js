@@ -2861,7 +2861,7 @@ document.getElementById('clearall').onclick = function() {
 }
 
 //Функция парсинга чатов по заданному коменту
-let stringChatsWithComment = ""
+let stringChatsWithComment;
 document.getElementById('parsechat').onclick = async function() {  
 	stringChatsWithComment="";
 	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
@@ -2941,17 +2941,9 @@ document.getElementById('parsechat').onclick = async function() {
     }
 }
 
-				document.getElementById('getfile').onclick = function() {
-				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
-				var link = document.createElement("a");
-				link.id="getfiletotxt";
-				link.setAttribute("href", URL.createObjectURL(blob));
-				link.setAttribute("download", "my-text.txt");
-				link.click();
-				}
-
 
 //Функция получения чатов с низким КСАТ
+let stringChatsWithLowCsat;
 document.getElementById('getlowcsat').onclick = async function() {
 	let datefrom1 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
 	let dateto1 = document.getElementById('dateTo').value + "T20:59:59.059Z";
@@ -2962,7 +2954,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 		// блок с расчетом КСАТ и чатов без тематики
 		    try {
         pagenewlowcsat = 1
-		let stringChatsWithLowCsat = "";
+		stringChatsWithLowCsat = "";
         while (true) {
             test = ''
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
@@ -3045,6 +3037,22 @@ document.getElementById('getlowcsat').onclick = async function() {
         console.log('Что-то пошло не так.')
     }
 }
+
+				document.getElementById('getfile').onclick = function() {
+					if (stringChatsWithComment !=null || stringChatsWithComment !=undefined) {
+						var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
+						var link = document.createElement("a");
+						link.setAttribute("href", URL.createObjectURL(blob));
+						link.setAttribute("download", "my-text.txt");
+						link.click();
+				} else if (stringChatsWithLowCsat !=null || stringChatsWithLowCsat !=undefined) {
+						var blob = new Blob([stringChatsWithLowCsat], {type: "text/plain"});
+						var link = document.createElement("a");
+						link.setAttribute("href", URL.createObjectURL(blob));
+						link.setAttribute("download", "my-text.txt");
+						link.click();
+				}
+				}
 
 async function sendAnswerTemplate2(word, flag = 0) {
     var tmpTxt = ""
