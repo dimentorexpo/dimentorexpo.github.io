@@ -2844,6 +2844,7 @@ document.getElementById('parsechat').onclick = async function() {
     let stringChatsWithComment = ""
 	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
 	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	document.getElementById('parsechat').textContent = "Идёт поиск"
     try {
         test = ''
         await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -2864,10 +2865,12 @@ document.getElementById('parsechat').onclick = async function() {
                     if (flagComment == 1)
                         stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#ADFF2F;">' + data.id + '</a></br>'
 					
-					if (stringChatsWithComment == "")
-						stringChatsWithComment = ' нет таких'
+
                 })
         }
+							if (stringChatsWithComment == "")
+						stringChatsWithComment = ' нет таких'
+		document.getElementById('parsechat').textContent = "Найти по комменту"
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
     } catch {
         console.log('Что-то пошло не так.')
