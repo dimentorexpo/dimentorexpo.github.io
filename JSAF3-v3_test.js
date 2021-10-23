@@ -2878,6 +2878,22 @@ document.getElementById('parsechat').onclick = async function() {
 		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
+		let chatscontainer = document.querySelectorAll('.chatswithcomments');
+            for (let j = 0; j < chatscontainer.length; j++) {
+                chatscontainer[j].onclick = function () {
+					
+					if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+					hide_or_display.click()
+							document.getElementById('chat_id').value = data.id;
+					}
+					search.click()
+				} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+							document.getElementById('chat_id').value = data.id;
+					}
+					search.click()
+			}			
+								
+		
 		            if ((test.total / 100) > pagecmt && pagecmt==1) {
                 pagecmt++;
 			} else if ((test.total / 100) > pagecmt && pagecmt==2) {
