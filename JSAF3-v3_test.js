@@ -2885,10 +2885,10 @@ document.getElementById('parsechat').onclick = async function() {
 					
 					if (document.querySelector('#hide_or_display').textContent != "свернуть") {
 					hide_or_display.click()
-				    document.getElementById('chat_id').value = chatids[j];
+				    document.getElementById('chat_id').value = chatids[j].innerText;
 					search.click()
 				} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-							document.getElementById('chat_id').value = chatids[j];
+							document.getElementById('chat_id').value = chatids[j].innerText;
 					search.click()
 					}
 			}			
