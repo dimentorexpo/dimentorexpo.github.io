@@ -256,8 +256,8 @@ var win_Stat =  // описание элементов окна ссылок
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 							 <p id="chatsinfoout" style="width:550px;  color:bisque; margin-left:5px"></p>
-							 <p id="lowCSATcount" style="width:550px; height:0px; color:bisque; margin-left:5px; overflow:auto"></p>
-							 <p id="chatcommentsdata" style="width:550px;color:bisque; height:0px; margin-left:5px; overflow:auto"></p>
+							 <p id="lowCSATcount" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
@@ -1388,6 +1388,8 @@ searchJiraByEnter.addEventListener('keydown', event => {
 	let getyear = getcurdate.getFullYear();
 	let getcurmonth = (getcurdate.getMonth()+1)
 	let today = getcurdate.getDate();
+	document.querySelector('#chatcommentsdata').style.display = "none"
+	document.querySelector('#lowCSATcount').style.display = "none"
 	document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today-1)
 	document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today
 	if (document.getElementById('AF_Stat').style.display == '')
@@ -2836,7 +2838,10 @@ document.getElementById('clearall').onclick = function() {
 	document.querySelector('#sumchatcountclosed').innerText = ""
 	document.querySelector('#chatsinfoout').innerText = ""
 	document.querySelector('#lowCSATcount').innerText = ""
+	document.querySelector('#lowCSATcount').style.display = "none"
 	document.querySelector('#chatcommentsdata').innerText = ""
+	document.querySelector('#chatcommentsdata').style.display = "none"
+	
 }
 
 //Функция парсинга чатов по заданному коменту
@@ -2844,7 +2849,6 @@ document.getElementById('parsechat').onclick = async function() {
     let stringChatsWithComment = ""
 	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
 	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
-	let stylecmt = document.getElementById('chatcommentsdata');
 	document.getElementById('parsechat').textContent = "Идёт поиск"
     try {
 		pagecmt = 1
@@ -2871,7 +2875,7 @@ document.getElementById('parsechat').onclick = async function() {
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
-		stylecmt.setAttribute('style','width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto');
+		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
 		            if ((test.total / 100) > pagecmt && pagecmt==1) {
@@ -2948,8 +2952,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
 					
-			strcsatnew.setAttribute('style','width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto');
-			
+			document.querySelector('#lowCSATcount').style.display = ""					
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
 
             if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==1) {
