@@ -354,7 +354,7 @@ scriptmenu.id = 'scriptmenu';
 scriptmenu.innerHTML = "Меню";
 scriptmenu.setAttribute('class','dropbtn');
 scriptmenu.style.marginRight = "15px";
-scriptmenu.style.display = ''
+scriptmenu.style.display = '';
 
 function openmenu() {
     document.getElementById("scriptmenu").classList.toggle("show");
