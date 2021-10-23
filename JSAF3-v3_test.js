@@ -256,8 +256,8 @@ var win_Stat =  // описание элементов окна ссылок
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
-							 <p id="lowCSATcount" style="width:550px; color:bisque; margin-left:5px; overflow:auto"></p>
-							 <p id="chatcommentsdata" style="width:550px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="lowCSATcount" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
