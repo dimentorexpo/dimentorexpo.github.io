@@ -296,6 +296,13 @@ button3.innerHTML = "Info";
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
+let gettacherphoto = document.createElement('p');
+gettacherphoto.id = 'getphototeacher';
+gettacherphoto.innerHTML = '<a style="color: black; cursor: pointer;">Get photo</a>';
+let teacherphoto = document.createElement('img');
+teacherphoto.id = 'URLphoto';
+teacherphoto.style.width = "150px";
+teacherphoto.style.height = "180px";
 
 let template_flag = 0
 let template_flag2 = 0
@@ -332,6 +339,39 @@ button4.onclick = function () {
             document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     btn1_student.click()
+}
+
+let getteacheridformaf;
+gettacherphoto.onclick = function() {
+	//	document.getElementById('getphototeacher').textContent="Скрыть фото";
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            getteacheridformaf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        console.log("getteacheridformaf = " + ' ' + getteacheridformaf);
+    }
+
+		document.getElementById('responseTextarea1').value = '{}'
+		document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
+		document.getElementById('responseTextarea3').value = 'imageurl'
+		document.getElementById('sendResponse').click()
+
+	    function getImageUrl() {
+        document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/"+getteacheridformaf
+        document.getElementById('responseTextarea3').value = 'imageurl'
+
+        var rezresp = document.getElementById('responseTextarea1').getAttribute('imageurl')
+        var convertrezresp= rezresp.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+		document.getElementById('responseTextarea1').removeAttribute('imageurl');
+		teacherphoto.src = convertrezresp;
+    }
+    setTimeout(getImageUrl, 1000);
+
+	document.getElementById('getphototeacher').replaceWith(teacherphoto)
+
+	document.querySelector('#URLphoto').onclick = function() {
+	document.querySelector('#URLphoto').replaceWith(gettacherphoto)
+	}
 }
 
 
@@ -3770,7 +3810,7 @@ function prepTp() {
         include("https://dimentorexpo.github.io/ChatHistory.js") // модуль подключения по нажатию кнопки поиска по истории чата
 		// include("https://dimentorexpo.github.io/ChangeServiceLocale.js") // модуль кнопки в инфо о пользователе позволяющее поменять локаль ученика
 		include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
-		include("https://dimentorexpo.github.io/GetPhoto.js") // модуль получения фотографии из профиля П
+	//	include("https://dimentorexpo.github.io/GetPhoto.js") // модуль получения фотографии из профиля П
 		include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
     }, 2000)
 
