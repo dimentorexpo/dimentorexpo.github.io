@@ -2868,9 +2868,10 @@ document.getElementById('parsechat').onclick = async function() {
                     for (let j = 0; j < data.messages.length; j++) {
                         if (data.messages[j].tpe == "OperatorComment" && data.messages[j].txt == document.getElementById('commenttosearch').value)
                             flagComment = 1
-                    }
+                    
                     if (flagComment == 1)
                         stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#E6E6FA;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' +'</br>'
+				}
 		         })
         }
 							if (stringChatsWithComment == "")
@@ -2960,9 +2961,11 @@ document.getElementById('getlowcsat').onclick = async function() {
                         if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate <4) {
 							 csatScoreNewLow = 1;
 							}
-                        }
+									
 						if(csatScoreNewLow == 1)	 
 						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#E6E6FA;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
+					
+                        }
             
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
