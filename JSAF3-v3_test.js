@@ -243,6 +243,8 @@ var win_Stat =  // описание элементов окна ссылок
 						<div>
 							 <button id="getstatfromperiod" style="position: relative;left: 20%;">Получить статистику</button>
 							 <button id="getlowcsat" style="position: relative;left: 40%;">Чаты с КСАТ<4</button>
+							 <button id="parsechat" style="position: relative;left: 60%;">Найти по коменту</button>
+							 <button id="clearall" style="position: relative;left: 80%;">Очистить</button>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
