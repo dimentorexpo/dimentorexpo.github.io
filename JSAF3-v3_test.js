@@ -247,7 +247,7 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
-							 <p id="chatsinfoout" style="width:50px;"></p>
+							 <p id="chatsinfoout" style="width:550px; color:bisque"></p>
 						</div>
                 </span>
         </span>
