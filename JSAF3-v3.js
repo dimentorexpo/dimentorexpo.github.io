@@ -1361,6 +1361,13 @@ searchJiraByEnter.addEventListener('keydown', event => {
         else
             document.getElementById('AF_Jira').style.display = ''
     }
+	
+		document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
+        else
+            document.getElementById('AF_Stat').style.display = ''
+    }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
         alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: cxi7E82p0IY1SW?D^BHDwMuwC\a5cvhu");
