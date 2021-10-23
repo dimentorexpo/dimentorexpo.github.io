@@ -1352,8 +1352,8 @@ searchJiraByEnter.addEventListener('keydown', event => {
     dropmenu.class = "ant-btn ant-dropdown-trigger"
     dropmenu.style.marginRight = "15px";
     dropmenu.style.display = 'none'
-    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    btnAdd.insertBefore(dropmenu, btnAdd.children[0])
+    var btnAddd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+    btnAddd.insertBefore(dropmenu, btnAddd.children[0])
 
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
