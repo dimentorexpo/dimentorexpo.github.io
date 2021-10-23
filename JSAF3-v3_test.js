@@ -2836,6 +2836,7 @@ document.getElementById('clearall').onclick = function() {
 	document.querySelector('#sumchatcountclosed').innerText = ""
 	document.querySelector('#chatsinfoout').innerText = ""
 	document.querySelector('#lowCSATcount').innerText = ""
+	document.querySelector('#chatcommentsdata').innerText = ""
 }
 
 //Функция парсинга чатов по заданному коменту
