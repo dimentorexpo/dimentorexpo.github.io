@@ -2951,7 +2951,7 @@ document.getElementById('getlowcsat').onclick = async function() {
             
 			            if (stringChatsWithLowCsat == "")
 						stringChatsWithLowCsat = ' нет таких'
-					
+					 
 			document.querySelector('#lowCSATcount').style.display = ""					
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
 
