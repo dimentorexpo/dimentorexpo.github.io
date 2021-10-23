@@ -2826,7 +2826,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 		// блок с расчетом КСАТ и чатов без тематики
 		    try {
         pagenewlowcsat = 1
-      //  csatScoreNew = 0
+        csatScoreNewLow = 0
 		let stringChatsWithLowCsat = "";
         while (true) {
             test = ''
@@ -2849,8 +2849,9 @@ document.getElementById('getlowcsat').onclick = async function() {
                 if (flagCsat1 == 1)
                     if (test.items[i].stats.rate != undefined)
                         if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate >3) {
-
-						stringChatsWithLowCsat += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
+							 csatScoreNewLow += test.items[i].stats.rate.rate
+							 
+						stringChatsWithLowCsat += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>' + "Оценка:" +  csatScoreNewLow 
                         }
             }
 			            if (stringChatsWithLowCsat == "")
