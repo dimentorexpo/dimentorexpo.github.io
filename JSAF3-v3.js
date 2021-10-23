@@ -138,6 +138,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="passappgen" style="width:50px;">📲</button>
 					<button id="knoweledgebase" style="width:50px;">📚</button>
 					<button id="datsyurl" style="width:50px;">📆</button>
+					<button id="getStats" style="width: 50px;">📋</button>
                     <button id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
 					<button id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
@@ -228,6 +229,43 @@ var win_Jira =  // описание элементов окна ссылок
         </span>
 </div>`;
 
+var win_Stat =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 550;" id="statdata">
+                                <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+                        <div style="margin: 5px; width: 550px" id="statbox">
+								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
+								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
+                        </div>
+						
+						<div>
+							<input id="commenttosearch" placeholder="Слово или фраза для поиска среди закрытых чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
+						</div>
+												
+						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
+							 <button id="getstatfromperiod">Получить статистику</button>
+							 <button id="getlowcsat">Чаты с КСАТ<4</button>
+							 <button id="parsechat">Найти по комменту</button>
+							 <button id="clearall">Очистить</button>
+					    </div>
+						<div id="chatcoutnsinfo">
+							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
+							 <br>
+							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
+							 <p id="chatsinfoout" style="width:550px;  color:bisque; margin-left:5px"></p>
+							 <p id="lowCSATcount" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto"></p>
+						</div>
+                </span>
+        </span>
+</div>`;
+
+
+
+
 let audio
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
@@ -248,6 +286,10 @@ if (localStorage.getItem('winTopLinks') == null) { // началоное пол�
 if (localStorage.getItem('winTopJira') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopJira', '120');
     localStorage.setItem('winLeftJira', '295');
+}
+if (localStorage.getItem('winTopStat') == null) { // началоное положение окна статистики (если не задано ранее)
+    localStorage.setItem('winTopStat', '120');
+    localStorage.setItem('winLeftStat', '295');
 }
 
 
@@ -460,6 +502,13 @@ wintJira.style.display = 'none';
 wintJira.setAttribute('id', 'AF_Jira');
 wintJira.innerHTML = win_Jira;
 
+let wintStat = document.createElement('div'); // создание окна ссылок
+document.body.append(wintStat);
+wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStat.style.display = 'none';
+wintStat.setAttribute('id', 'AF_Stat');
+wintStat.innerHTML = win_Stat;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -489,6 +538,20 @@ wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = fun
 }
 wintJira.onmouseup = function () { document.removeEventListener('mousemove', listener5); }
 
+var listener6 = function (e, a) { // сохранение позиции окна ссылок
+    wintStat.style.left = Number(e.clientX - myX6) + "px";
+    wintStat.style.top = Number(e.clientY - myY6) + "px";
+    localStorage.setItem('winTopStat', String(Number(e.clientY - myY6)));
+    localStorage.setItem('winLeftStat', String(Number(e.clientX - myX6)));
+};
+
+wintStat.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX6 = a.layerX;
+    window.myY6 = a.layerY;
+    document.addEventListener('mousemove', listener6);
+}
+wintStat.onmouseup = function () { document.removeEventListener('mousemove', listener6); }
+
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
@@ -503,6 +566,12 @@ document.getElementById('jira_1str').ondblclick = function () { // скрыти�
 }
 document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
+}
+document.getElementById('statdata').ondblclick = function () { // скрытие окна статистики по двойному клику
+    document.getElementById('AF_Stat').style.display = 'none';
+}
+document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна статистики по двойному клику
+    document.getElementById('AF_Stat').style.display = 'none';
 }
 
 let wintAF = document.createElement('div');
@@ -2638,6 +2707,309 @@ async function whoAmI() {
             }
         })
     })
+}
+
+// Тут будет функция запуска получения информации о статистики
+
+document.getElementById('getstatfromperiod').onclick = async function() {
+	let datefrom = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
+	let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	let strnew = document.getElementById('chatsinfoout');
+	let allchatcounttouched = document.getElementById('sumchatcounttouched')
+	document.getElementById('getstatfromperiod').textContent = "Загрузка"
+	allchatcounttouched.textContent ="Загрузка"
+	let allchatcountclosed = document.getElementById('sumchatcountclosed')
+	allchatcountclosed.textContent ="Загрузка"
+	strnew.textContent ="Загрузка"
+	await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "content-type": "application/json",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/logs",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        }).then(r => r.json()).then(data => sumchatcounttouched = data)
+		allchatcounttouched.innerText = "Количество пощупаных чатов: " + sumchatcounttouched.total;
+		
+		
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"content-type": "application/json",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/logs",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r1 => r1.json()).then(data1 => sumchatcountclosed = data1)
+		allchatcountclosed.innerText = "Количество закрытых чатов: " + sumchatcountclosed.total;
+		
+		// блок с расчетом КСАТ и чатов без тематики
+		    try {
+        pagenew = 1
+        let stringChatsWithoutTopic2 = ""
+        csatScoreNew = 0
+        csatCountNew = 0
+        while (true) {
+            test = ''
+            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagenew + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            for (let i = 0; i < test.items.length; i++) {
+                let flagCsat = 0
+                let flagTopic = 0
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(r => r.json())
+                    .then(r => {
+                        if (r.operatorId == operatorId) {
+                            flagCsat = 1
+                            if (r.payload != undefined)
+                                if (r.payload.topicId != undefined)
+                                    if (r.payload.topicId.value == "")
+                                        flagTopic = 1
+                        }
+                    })
+                if (flagCsat == 1)
+                    if (test.items[i].stats.rate != undefined)
+                        if (test.items[i].stats.rate.rate != undefined) {
+                            csatScoreNew += test.items[i].stats.rate.rate
+                            csatCountNew++
+                        }
+                if (flagTopic == 1)
+                    stringChatsWithoutTopic2 += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
+            }
+
+            if (stringChatsWithoutTopic2 == "")
+                stringChatsWithoutTopic2 = ' нет таких'
+            strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
+
+            if ((test.total / 100) > pagenew && pagenew==1) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==2) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==3) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==4) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==5) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==6) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==7) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==8) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==9) {
+                pagenew++;
+			} else {
+				document.getElementById('getstatfromperiod').textContent = "Получить статистику"
+                break
+            }
+        }
+    } catch {
+        strnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
+    }
+}
+
+
+//Функция очищения выведенной информации после поиска 
+document.getElementById('clearall').onclick = function() {
+	document.querySelector('#sumchatcounttouched').innerText = ""
+	document.querySelector('#sumchatcountclosed').innerText = ""
+	document.querySelector('#chatsinfoout').innerText = ""
+	document.querySelector('#lowCSATcount').innerText = ""
+	document.querySelector('#lowCSATcount').style.display = "none"
+	document.querySelector('#chatcommentsdata').innerText = ""
+	document.querySelector('#chatcommentsdata').style.display = "none"
+	
+}
+
+//Функция парсинга чатов по заданному коменту
+document.getElementById('parsechat').onclick = async function() {
+    let stringChatsWithComment = ""
+	let datefrom2 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
+	let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	document.getElementById('parsechat').textContent = "Идёт поиск"
+    try {
+		pagecmt = 1
+		while (true) {
+        test = ''
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom2 + "\",\"tsTo\":\"" + dateto2 + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagecmt +",\"limit\":100}",
+            "method": "POST",
+        }).then(r => r.json()).then(r => test = r)
+        for (let i = 0; i < test.items.length; i++) {
+            let flagComment = 0
+            await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                .then(response => response.json()).then(data => {
+                    for (let j = 0; j < data.messages.length; j++) {
+                        if (data.messages[j].tpe == "OperatorComment" && data.messages[j].txt == document.getElementById('commenttosearch').value)
+                            flagComment = 1
+                    }
+                    if (flagComment == 1)
+                        stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#E6E6FA;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' +'</br>'
+					
+		         })
+        }
+							if (stringChatsWithComment == "")
+						stringChatsWithComment = ' нет таких'
+		document.querySelector('#chatcommentsdata').style.display = ""
+        document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
+		
+		let chatscontainer = document.querySelectorAll('.chatswithcomments');
+		let chatids = document.querySelectorAll('.chatids');
+            for (let j = 0; j < chatscontainer.length; j++) {
+                chatscontainer[j].onclick = function () {
+					
+					if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+					hide_or_display.click()
+				    document.getElementById('chat_id').value = chatids[j].innerText;
+					search.click()
+				} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+							document.getElementById('chat_id').value = chatids[j].innerText;
+					search.click()
+					}
+			}			
+								
+			}
+		            if ((test.total / 100) > pagecmt && pagecmt==1) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==2) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==3) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==4) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==5) {
+                pagecmtpagecmt
+			} else if ((test.total / 100) > pagecmt && pagecmt==6) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==7) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==8) {
+                pagecmt++;
+			} else if ((test.total / 100) > pagecmt && pagecmt==9) {
+                pagecmt++;
+			} else {
+				document.getElementById('parsechat').textContent = "Найти по комменту"
+                break
+            }
+		
+     }
+	} catch {
+        console.log('Что-то пошло не так.')
+    }
+}
+
+
+//Функция получения чатов с низким КСАТ
+document.getElementById('getlowcsat').onclick = async function() {
+	let datefrom1 = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
+	let dateto1 = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	let strcsatnew = document.getElementById('lowCSATcount');
+	strcsatnew.textContent ="Загрузка"
+	document.getElementById('getlowcsat').textContent = "Загрузка";
+		
+		// блок с расчетом КСАТ и чатов без тематики
+		    try {
+        pagenewlowcsat = 1
+		let stringChatsWithLowCsat = "";
+        while (true) {
+            test = ''
+            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + datefrom1 + "\",\"tsTo\":\"" + dateto1 + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagenewlowcsat + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            for (let i = 0; i < test.items.length; i++) {
+                let flagCsat1 = 0
+				csatScoreNewLow = 0
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(r => r.json())
+                    .then(r => {
+                        if (r.operatorId == operatorId) {
+                            flagCsat1 = 1
+                        }
+                    })
+                if (flagCsat1 == 1)
+                    if (test.items[i].stats.rate != undefined)
+                        if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate <4) {
+							 csatScoreNewLow = 1;
+							}
+									
+						if(csatScoreNewLow == 1)	 
+						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#E6E6FA;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
+					
+                        }
+            
+			            if (stringChatsWithLowCsat == "")
+						stringChatsWithLowCsat = ' нет таких'
+					 
+			document.querySelector('#lowCSATcount').style.display = ""					
+            strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
+			
+					let csatcontainer = document.querySelectorAll('.lowcsatschats');
+					let csatchattids = document.querySelectorAll('.csatchatids');
+							for (let j = 0; j < csatcontainer.length; j++) {
+								csatcontainer[j].onclick = function () {
+									
+									if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+									hide_or_display.click()
+									document.getElementById('chat_id').value = csatchattids[j].innerText;
+									search.click()
+								} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+											document.getElementById('chat_id').value = csatchattids[j].innerText;
+									search.click()
+									}
+							}							
+			}
+			
+			
+
+            if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==1) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==2) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==3) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==4) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==5) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==6) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==7) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==8) {
+                pagenewlowcsat++;
+			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==9) {
+                pagenewlowcsat++;
+			} else {
+				document.getElementById('getlowcsat').textContent = "Чаты с КСАТ<4"
+                break
+            }
+        }
+    } finally {
+		document.getElementById('getlowcsat').textContent = "Чаты с КСАТ<4"
+        console.log('Что-то пошло не так.')
+    }
 }
 
 async function sendAnswerTemplate2(word, flag = 0) {
