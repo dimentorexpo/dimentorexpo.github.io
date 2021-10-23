@@ -2873,6 +2873,13 @@ document.getElementById('parsechat').onclick = async function() {
                         stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#E6E6FA;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' +'</br>'
 					
 		         })
+				 
+				
+				var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
+				var link = document.createElement("a");
+				link.setAttribute("href", URL.createObjectURL(blob));
+				link.setAttribute("download", "my-text.txt");
+				//link.click();
         }
 							if (stringChatsWithComment == "")
 						stringChatsWithComment = ' нет таких'
