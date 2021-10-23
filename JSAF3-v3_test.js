@@ -2841,7 +2841,7 @@ document.getElementById('clearall').onclick = function() {
 	document.querySelector('#lowCSATcount').style.display = "none"
 	document.querySelector('#chatcommentsdata').innerText = ""
 	document.querySelector('#chatcommentsdata').style.display = "none"
-	
+	document.querySelector('#commenttosearch').value =""
 }
 
 //Функция парсинга чатов по заданному коменту
