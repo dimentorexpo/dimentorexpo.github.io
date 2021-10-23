@@ -2962,7 +2962,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 							}
 									
 						if(csatScoreNewLow == 1)	 
-						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#ADFF2F;">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">🗨</span>' + '</br>'
+						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#ADFF2F;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">🗨</span>' + '</br>'
                         }
             
 			            if (stringChatsWithLowCsat == "")
@@ -2970,6 +2970,24 @@ document.getElementById('getlowcsat').onclick = async function() {
 					 
 			document.querySelector('#lowCSATcount').style.display = ""					
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
+			
+					let csatcontainer = document.querySelectorAll('.lowcsatschats');
+					let csatchattids = document.querySelectorAll('.csatchatids');
+							for (let j = 0; j < chatscontainer.length; j++) {
+								csatcontainer[j].onclick = function () {
+									
+									if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+									hide_or_display.click()
+									document.getElementById('chat_id').value = csatchattids[j].innerText;
+									search.click()
+								} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+											document.getElementById('chat_id').value = csatchattids[j].innerText;
+									search.click()
+									}
+							}							
+			}
+			
+			
 
             if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==1) {
                 pagenewlowcsat++;
