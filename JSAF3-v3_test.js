@@ -241,13 +241,15 @@ var win_Stat =  // описание элементов окна ссылок
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
                         </div>
 						<div>
-							 <button id="getstatfromperiod" style="position: relative;left: 40%;">Получить статистику</button>
+							 <button id="getstatfromperiod" style="position: relative;left: 20%;">Получить статистику</button>
+							 <button id="getlowcsat" style="position: relative;left: 40%;">Чаты с КСАТ<4</button>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
+							 <p id="lowCSATcount"></p>
 						</div>
                 </span>
         </span>
@@ -2761,6 +2763,78 @@ document.getElementById('getstatfromperiod').onclick = async function() {
         strnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
 }
+
+//Функция получения чатов с низким КСАТ
+document.getElementById('getlowcsat').onclick = async function() {
+	let datefrom = document.getElementById('dateFrom').value+ "T21:00:00.000Z"; 
+	let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
+	let strcsatnew = document.getElementById('lowCSATcount');
+	strcsatnew.textContent ="Загрузка"
+		
+		// блок с расчетом КСАТ и чатов без тематики
+		    try {
+        pagenewlowcsat = 1
+        csatScoreNew = 0
+		stringChatsWithLowCsat = "";
+        while (true) {
+            test = ''
+            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + pagenew + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            for (let i = 0; i < test.items.length; i++) {
+                let flagCsat = 0
+                let flagTopic = 0
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(r => r.json())
+                    .then(r => {
+                        if (r.operatorId == operatorId) {
+                            flagCsat = 1
+                        }
+                    })
+                if (flagCsat == 1)
+                    if (test.items[i].stats.rate != undefined)
+                        if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate >3) {
+
+						stringChatsWithLowCsat += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
+                        }
+            }
+			            if (stringChatsWithLowCsat == "")
+						stringChatsWithLowCsat = ' нет таких'
+
+            strcsatnew.innerHTML = 'Чаты с плохими оценками: ' + '<br>' + stringChatsWithLowCsat
+
+            if ((test.total / 100) > pagenew && pagenew==1) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==2) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==3) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==4) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==5) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==6) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==7) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==8) {
+                pagenew++;
+			} else if ((test.total / 100) > pagenew && pagenew==9) {
+                pagenew++;
+			} else {
+				document.getElementById('getlowcsat').textContent = "Чаты с КСАТ<4"
+                break
+            }
+        }
+    } catch {
+        strcsatnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
+    }
+}
+
 
 async function sendAnswerTemplate2(word, flag = 0) {
     var tmpTxt = ""
