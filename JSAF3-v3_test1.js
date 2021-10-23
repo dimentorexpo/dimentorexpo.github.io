@@ -1350,7 +1350,6 @@ searchJiraByEnter.addEventListener('keydown', event => {
     dropmenu.id = 'scriptmenu';
     dropmenu.innerHTML = "Меню";
     dropmenu.style.marginRight = "15px";
-    dropmenu.style.display = 'none'
     var btnAddd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAddd.insertBefore(dropmenu, btnAddd.children[0])
 
