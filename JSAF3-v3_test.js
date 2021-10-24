@@ -1240,10 +1240,17 @@ document.getElementById('getJiraTasks').onclick = function () {
 setTimeout(getJiraTask, 1000)
 }	
 
-let searchJiraByEnter = document.querySelector('#testJira');
+let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
 searchJiraByEnter.addEventListener('keydown', event => {
      if(event.key === "Enter") {
         document.querySelector('#getJiraTasks').click()            
+}
+})
+
+let searchCommentsByEnter = document.querySelector('#commenttosearch'); //по Enter запускает поиск по комментариям
+searchCommentsByEnter.addEventListener('keydown', event => {
+     if(event.key === "Enter") {
+        document.querySelector('#parsechat').click()            
 }
 })
 
