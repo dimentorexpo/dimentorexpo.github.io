@@ -1315,7 +1315,7 @@ searchJiraByEnter.addEventListener('keydown', event => {
     }
 
     document.getElementById('hideMenu').onclick = function () {
-        document.getElementById('AF_helper').style.display = 'none'
+    document.getElementById('AF_helper').style.display = 'none'
 	document.getElementById('scriptBut').style.display = ''
         if (document.getElementById('cstmTmplates').style.display == '')
             document.getElementById('cstmTmplates').style.display = 'none'
@@ -1323,6 +1323,9 @@ searchJiraByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Links').style.display = 'none'
 	if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
+			if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
+		
     }
     document.getElementById('takeNewChat').onclick = function () {
         getNewChat()
