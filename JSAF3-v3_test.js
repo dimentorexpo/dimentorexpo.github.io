@@ -2924,7 +2924,7 @@ document.getElementById('parsechat').onclick = async function() {
 			}
 			
 			
-			  if ((test.total / 100) > page) {
+			  if ((test.total / 100) > pagecmt) {
                 pagecmt++;
 			} else {
 				document.getElementById('parsechat').textContent = "Найти по комменту"
