@@ -3004,13 +3004,13 @@ document.getElementById('getlowcsat').onclick = async function() {
 						var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
 						var link = document.createElement("a");
 						link.setAttribute("href", URL.createObjectURL(blob));
-						link.setAttribute("download", "FoundComments.txt");
+						link.setAttribute("download", "FoundComments.html");
 						link.click();
 				} else if (stringChatsWithLowCsat !=null || stringChatsWithLowCsat !=undefined) {
 						var blob = new Blob([stringChatsWithLowCsat], {type: "text/plain"});
 						var link = document.createElement("a");
 						link.setAttribute("href", URL.createObjectURL(blob));
-						link.setAttribute("download", "LowCSAT.txt");
+						link.setAttribute("download", "LowCSAT.html");
 						link.click();
 				}
 				}
