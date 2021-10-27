@@ -2828,23 +2828,7 @@ document.getElementById('getstatfromperiod').onclick = async function() {
                 stringChatsWithoutTopic2 = ' нет таких'
             strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
 
-            if ((test.total / 100) > pagenew && pagenew==1) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==2) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==3) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==4) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==5) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==6) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==7) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==8) {
-                pagenew++;
-			} else if ((test.total / 100) > pagenew && pagenew==9) {
+			  if ((test.total / 100) > pagenew) {
                 pagenew++;
 			} else {
 				document.getElementById('getstatfromperiod').textContent = "Получить статистику"
@@ -2919,26 +2903,9 @@ document.getElementById('parsechat').onclick = async function() {
 							document.getElementById('chat_id').value = chatids[j].innerText;
 					search.click()
 					}
+			}										
 			}			
-								
-			}
-		            if ((test.total / 100) > pagecmt && pagecmt==1) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==2) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==3) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==4) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==5) {
-                pagecmtpagecmt
-			} else if ((test.total / 100) > pagecmt && pagecmt==6) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==7) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==8) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==9) {
+			  if ((test.total / 100) > pagecmt) {
                 pagecmt++;
 			} else {
 				document.getElementById('parsechat').textContent = "Найти по комменту"
@@ -3019,23 +2986,7 @@ document.getElementById('getlowcsat').onclick = async function() {
 			
 			
 
-            if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==1) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==2) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==3) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==4) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==5) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==6) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==7) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==8) {
-                pagenewlowcsat++;
-			} else if ((test.total / 100) > pagenewlowcsat && pagenewlowcsat==9) {
+   			  if ((test.total / 100) > pagenewlowcsat) {
                 pagenewlowcsat++;
 			} else {
 				document.getElementById('getlowcsat').textContent = "Чаты с КСАТ<4"
@@ -3053,13 +3004,13 @@ document.getElementById('getlowcsat').onclick = async function() {
 						var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
 						var link = document.createElement("a");
 						link.setAttribute("href", URL.createObjectURL(blob));
-						link.setAttribute("download", "my-text.txt");
+						link.setAttribute("download", "FoundComments.txt");
 						link.click();
 				} else if (stringChatsWithLowCsat !=null || stringChatsWithLowCsat !=undefined) {
 						var blob = new Blob([stringChatsWithLowCsat], {type: "text/plain"});
 						var link = document.createElement("a");
 						link.setAttribute("href", URL.createObjectURL(blob));
-						link.setAttribute("download", "my-text.txt");
+						link.setAttribute("download", "LowCSAT.txt");
 						link.click();
 				}
 				}
