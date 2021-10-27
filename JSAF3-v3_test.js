@@ -2922,23 +2922,9 @@ document.getElementById('parsechat').onclick = async function() {
 			}			
 								
 			}
-		            if ((test.total / 100) > pagecmt && pagecmt==1) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==2) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==3) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==4) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==5) {
-                pagecmtpagecmt
-			} else if ((test.total / 100) > pagecmt && pagecmt==6) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==7) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==8) {
-                pagecmt++;
-			} else if ((test.total / 100) > pagecmt && pagecmt==9) {
+			
+			
+			  if ((test.total / 100) > page) {
                 pagecmt++;
 			} else {
 				document.getElementById('parsechat').textContent = "Найти по комменту"
