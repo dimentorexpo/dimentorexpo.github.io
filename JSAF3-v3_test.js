@@ -2825,7 +2825,8 @@ document.getElementById('getstatfromperiod').onclick = async function() {
             }
 
             if (stringChatsWithoutTopic2 == "")
-                stringChatsWithoutTopic2 = ' нет таких'
+                stringChatsWithoutTopic2 = ' нет таких' + '<br>'
+			
             strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
 
 			  if ((test.total / 100) > pagenew) {
@@ -2886,7 +2887,8 @@ document.getElementById('parsechat').onclick = async function() {
 		         })
         }
 							if (stringChatsWithComment == "")
-						stringChatsWithComment = ' нет таких'
+						stringChatsWithComment = ' нет таких' + '<br>'
+					
 		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
@@ -2963,7 +2965,7 @@ document.getElementById('getlowcsat').onclick = async function() {
                         }
             
 			            if (stringChatsWithLowCsat == "")
-						stringChatsWithLowCsat = ' нет таких'
+						stringChatsWithLowCsat = ' нет таких'  + '<br>'
 					 
 			document.querySelector('#lowCSATcount').style.display = ""					
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
