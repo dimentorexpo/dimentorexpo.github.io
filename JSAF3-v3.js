@@ -2821,11 +2821,12 @@ document.getElementById('getstatfromperiod').onclick = async function() {
                             csatCountNew++
                         }
                 if (flagTopic == 1)
-                    stringChatsWithoutTopic2 += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#E6E6FA;">' + test.items[i].conversationId + '</a></br>'
+                    stringChatsWithoutTopic2 += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;">' + test.items[i].conversationId + '</a></br>'
             }
 
             if (stringChatsWithoutTopic2 == "")
-                stringChatsWithoutTopic2 = ' нет таких'
+                stringChatsWithoutTopic2 = ' нет таких' + '<br>'
+			
             strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
 
 			  if ((test.total / 100) > pagenew) {
@@ -2881,12 +2882,13 @@ document.getElementById('parsechat').onclick = async function() {
                             flagComment = 1
                     }
                     if (flagComment == 1)
-                        stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#E6E6FA;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' +'</br>'
+                        stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' +'</br>'
 					
 		         })
         }
 							if (stringChatsWithComment == "")
-						stringChatsWithComment = ' нет таких'
+						stringChatsWithComment = ' нет таких' + '<br>'
+					
 		document.querySelector('#chatcommentsdata').style.display = ""
         document.getElementById('chatcommentsdata').innerHTML ='Чаты с найденными комментариями' + '<br>' + stringChatsWithComment;
 		
@@ -2958,12 +2960,12 @@ document.getElementById('getlowcsat').onclick = async function() {
 							}
 									
 						if(csatScoreNewLow == 1)	 
-						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#E6E6FA;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
+						stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
 					
                         }
             
 			            if (stringChatsWithLowCsat == "")
-						stringChatsWithLowCsat = ' нет таких'
+						stringChatsWithLowCsat = ' нет таких'  + '<br>'
 					 
 			document.querySelector('#lowCSATcount').style.display = ""					
             strcsatnew.innerHTML = 'Чаты с плохими оценками: (открывать в режиме инкогнито!) ' + '<br>' + stringChatsWithLowCsat
@@ -3004,13 +3006,13 @@ document.getElementById('getlowcsat').onclick = async function() {
 						var blob = new Blob([stringChatsWithComment], {type: "text/plain"});
 						var link = document.createElement("a");
 						link.setAttribute("href", URL.createObjectURL(blob));
-						link.setAttribute("download", "FoundComments.txt");
+						link.setAttribute("download", "FoundComments.html");
 						link.click();
 				} else if (stringChatsWithLowCsat !=null || stringChatsWithLowCsat !=undefined) {
 						var blob = new Blob([stringChatsWithLowCsat], {type: "text/plain"});
 						var link = document.createElement("a");
 						link.setAttribute("href", URL.createObjectURL(blob));
-						link.setAttribute("download", "LowCSAT.txt");
+						link.setAttribute("download", "LowCSAT.html");
 						link.click();
 				}
 				}
