@@ -1044,7 +1044,7 @@ document.getElementById('getidstudent').onclick = function () {
 			for (let i = 0; i<servicearr.data.length; i++) {
 			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 				
-			tinfo += Object.entries(testik.data[i].teacher.general) + "<br>";
+			tinfo += Object.entries(servicearr.data[i].teacher.general) + "<br>";
 			servinfo += 'ID Услуги: ' + servicearr.data[i].id + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px;">';
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
