@@ -1051,7 +1051,7 @@ document.getElementById('getidstudent').onclick = function () {
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
-			document.getElementById('servicetable').innerHTML = '<span style="color:#00FF7F;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF;">Информация об услуге:</span><br>' + servinfo + "<hr>"
+			document.getElementById('servicetable').innerHTML = '<span style="color:#00FF7F;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF;">Информация об услуге:</span><br>' + servinfo + '<hr style="width:260px;">'
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			document.getElementById('idstudent').value = ""
