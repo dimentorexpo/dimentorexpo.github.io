@@ -1232,6 +1232,13 @@ searchCommentsByEnter.addEventListener('keydown', event => {
         else
             document.getElementById('AF_Links').style.display = ''
     }
+	
+	    document.getElementById('links').onclick = function () {
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
+    }
 
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
@@ -1249,6 +1256,13 @@ searchCommentsByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Jira').style.display = 'none'
         else
             document.getElementById('AF_Jira').style.display = ''
+    }
+	
+		    document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
     }
 	
 		document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
