@@ -1053,6 +1053,13 @@ document.getElementById('getidstudent').onclick = function () {
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			document.getElementById('idstudent').value = ""
+			
+			let tmparr = document.querySelectorAll('.copyserviceid');
+            for (let j = 0; j < tmparr.length; j++) {
+                tmparr[j].onclick = function () {
+                    copyToClipboard1(servicearr.data[j].id)
+                }
+            }
 	}
 	
 	setTimeout(getServInfo, 1000)
