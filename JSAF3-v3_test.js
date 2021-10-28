@@ -263,20 +263,21 @@ var win_Stat =  // описание элементов окна ссылок
 
 
 var win_serviceinfo =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 260px;">
-        <span style="width: 260px">
+    `<div style="display: flex; width: 300px;">
+        <span style="width: 300px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 260px;" id="servicehead">
+                        <div style="margin: 5px; width: 300px;" id="servicehead">
                                 <button id="hideMeservice" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						
-						<div style="margin: 5px; width: 260px" id="input_field">
-						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+						<div style="margin: 5px; width: 300px" id="input_field">
+						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black; margin-top: 5px">
 				       	<button id="getidstudent" style="width: 25.23px;">🚀</button>
 						</div>
 						               
 					   </span>
-                        <div style="margin: 5px; width: 260px;" id="servicebody">
+					   
+                        <div style="margin: 5px; width: 300px;" id="servicebody">
                                 <p id="servicetable" style="margin-left:5px; color:bisque"></p>
                         </div>
 						
