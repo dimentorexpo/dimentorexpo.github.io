@@ -1044,7 +1044,8 @@ document.getElementById('getidstudent').onclick = function () {
 			for (let i = 0; i<servicearr.data.length; i++) {
 			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 				for (item in servicearr.data[i].teacher.general) {
-			tinfo += "<br>" + servicearr.data[i].teacher.general[item] + " ";
+			tinfo += JSON.stringify(testik.data[i].teacher.general[item] + " ")
+			tinfo = tinfo.split('" ')
 				}
 
 			servinfo += 'ID Услуги: ' + servicearr.data[i].id + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px;">';
