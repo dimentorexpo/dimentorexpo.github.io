@@ -1007,6 +1007,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
 	
 document.getElementById('getidstudent').onclick = function () {
 	let stid = document.getElementById('idstudent').value;
+	stid = stid.trim();
 	let servicearr;
 	document.getElementById('responseTextarea1').value = `{
 		  "headers": {
@@ -1044,7 +1045,7 @@ document.getElementById('getidstudent').onclick = function () {
 			tinfo += servicearr.data[i].teacher.general[item] + " ";
 			}
 
-			servinfo += "ID Услуги: " + servicearr.data[i].id + ", Баланс: " + servicearr.data[i].balance + ", STK: " + servicearr.data[i].serviceTypeKey;} else { console.log("no such services") }
+			servinfo += "ID Услуги: " + servicearr.data[i].id + ", Баланс: " + servicearr.data[i].balance + ", STK: " + servicearr.data[i].serviceTypeKey;} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 
 			console.log("teacher ID: " +  tinfo)
