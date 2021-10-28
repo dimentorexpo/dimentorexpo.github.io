@@ -1233,7 +1233,7 @@ searchCommentsByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Links').style.display = ''
     }
 	
-	    document.getElementById('links').onclick = function () {
+	    document.getElementById('servicestatus').onclick = function () {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
