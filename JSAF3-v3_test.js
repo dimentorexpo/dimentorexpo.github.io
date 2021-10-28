@@ -1027,12 +1027,12 @@ document.getElementById('getidstudent').onclick = function () {
 	function getServInfo() {
 		document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
-        document.getElementById('responseTextarea3').value = ''
+        document.getElementById('responseTextarea3').value = 'getserviceinfo'
         document.getElementById('sendResponse').click()
 		
 			servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
-			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 			console.log(servicearr);
+			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 	}
 	
 	setTimeout(getServInfo, 1000)
