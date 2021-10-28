@@ -1047,10 +1047,11 @@ document.getElementById('getidstudent').onclick = function () {
 
 			servinfo += "ID Услуги: " + servicearr.data[i].id + ", Баланс: " + servicearr.data[i].balance + ", STK: " + servicearr.data[i].serviceTypeKey;} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
-
+			
+			document.getElementById('servicetable').innerHTML = "Teacher Info" + tinfo + "<br>" + "Информация об услуге:<br>" + servinfo + "<hr>"
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
-			
+			document.getElementById('idstudent').value = ""
 	}
 	
 	setTimeout(getServInfo, 1000)
