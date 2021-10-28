@@ -1031,6 +1031,7 @@ document.getElementById('getidstudent').onclick = function () {
         document.getElementById('sendResponse').click()
 		
 			servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+			servicearr = JSON.parse(servicearr);
 			console.log(servicearr);
 			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 	}
