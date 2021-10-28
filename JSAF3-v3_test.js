@@ -1004,6 +1004,40 @@ var abortTimeOut = ''								// перменная для отмены буди�
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
+	
+document.getElementById('getidstudent').onclick = function () {
+	let stid = document.getElementById('idstudent').value;
+	let servicearr;
+	document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"accept-language": "ru",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+	}`
+	document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
+    document.getElementById('responseTextarea3').value = 'getserviceinfo'
+    document.getElementById('sendResponse').click()
+		
+	function getServInfo() {
+		document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
+        document.getElementById('responseTextarea3').value = ''
+        document.getElementById('sendResponse').click()
+		
+			servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
+			console.log(servicearr);
+	}
+	
+	setTimeout(getServInfo, 1000)
+	
+}	
 	         
 document.getElementById('getJiraTasks').onclick = function () {
     let rezissuetable;
