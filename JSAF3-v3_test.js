@@ -1047,7 +1047,7 @@ document.getElementById('getidstudent').onclick = function () {
 			tinfo += servicearr.data[i].teacher.general[item] + " ";
 				}
 
-			servinfo += "ID Услуги: " + servicearr.data[i].id + "<br> Баланс: " + servicearr.data[i].balance + "<br> STK: " + servicearr.data[i].serviceTypeKey;
+			servinfo += "ID Услуги: " + servicearr.data[i].id + "<br> Баланс: " + servicearr.data[i].balance + "<br> STK: " + servicearr.data[i].serviceTypeKey + "<br>";
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
