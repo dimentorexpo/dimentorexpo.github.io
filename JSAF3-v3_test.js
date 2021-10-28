@@ -1042,13 +1042,13 @@ document.getElementById('getidstudent').onclick = function () {
 			for (let i = 0; i<servicearr.data.length; i++) {
 			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 			for (item in servicearr.data[i].teacher.general) {
-			tinfo += servicearr.data[i].teacher.general[item] + " ";
+			tinfo += item + "<br>" + servicearr.data[i].teacher.general[item] + " ";
 			}
 
 			servinfo += "ID Услуги: " + servicearr.data[i].id + ", Баланс: " + servicearr.data[i].balance + ", STK: " + servicearr.data[i].serviceTypeKey;} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
-			document.getElementById('servicetable').innerHTML = "Teacher Info" + tinfo + "<br>" + "Информация об услуге:<br>" + servinfo + "<hr>"
+			document.getElementById('servicetable').innerHTML = '<span style="color:bisque;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:bisque;">Информация об услуге:</span><br>' + servinfo + "<hr>"
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			document.getElementById('idstudent').value = ""
