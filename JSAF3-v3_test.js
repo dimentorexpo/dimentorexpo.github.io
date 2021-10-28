@@ -1034,6 +1034,22 @@ document.getElementById('getidstudent').onclick = function () {
 			servicearr = JSON.parse(servicearr);
 			console.log(servicearr);
 			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
+			
+			
+			let tinfo="";
+			let servinfo="";
+			for (let i = 0; i<servicearr.data.length; i++) {
+			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
+			for (item in servicearr.data[i].teacher.general) {
+			tinfo += servicearr.data[i].teacher.general[item] + " ";
+			}
+
+			servinfo += "ID Услуги: " + servicearr.data[i].id + ", Баланс: " + servicearr.data[i].balance + ", STK: " + servicearr.data[i].serviceTypeKey;} else { console.log("no such services") }
+			}
+
+			console.log("teacher ID: " +  tinfo)
+			console.log("service info: " + servinfo)
+			
 	}
 	
 	setTimeout(getServInfo, 1000)
