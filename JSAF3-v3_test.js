@@ -1045,18 +1045,19 @@ document.getElementById('getidstudent').onclick = function () {
 			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 				for (item in servicearr.data[i].teacher.general) {
 			tinfo += JSON.stringify(servicearr.data[i].teacher.general[item] + " ")
-			tinfo = tinfo.split(' ""')			
+			tinfo = tinfo.split(' ""')	
+				}			
 			servinfo += '<span style="color:#00FF7F;">Teacher Info</span>' + tinfo + '<br>' + 'ID Услуги: ' + servicearr.data[i].id + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px;">';
 				} 
 			} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			
-	}
+
 			// document.getElementById('servicetable').innerHTML = '<span style="color:#00FF7F;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF;">Информация об услуге:</span><br>' + servinfo
-			document.getElementById('servicetable').innerHTML = servinfo
-			console.log("teacher ID: " +  tinfo)
-			console.log("service info: " + servinfo)
-			document.getElementById('idstudent').value = ""
-	}
+			document.getElementById('servicetable').innerHTML = servinfo;
+			console.log("teacher ID: " +  tinfo);
+			console.log("service info: " + servinfo);
+			document.getElementById('idstudent').value = "";
+	
 	
 	setTimeout(getServInfo, 1000)
 	
