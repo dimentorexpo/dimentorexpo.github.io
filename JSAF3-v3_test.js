@@ -276,7 +276,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						</div>
 						
                         <div style="margin: 5px; width: 260px;" id="servicebody">
-                                <p id="servicetable" style="margin-left:5px; overflow:auto"></p>
+                                <p id="servicetable" style="margin-left:5px; color:bisque"></p>
                         </div>
 						
                 </span>
@@ -1042,7 +1042,7 @@ document.getElementById('getidstudent').onclick = function () {
 			for (let i = 0; i<servicearr.data.length; i++) {
 			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 			for (item in servicearr.data[i].teacher.general) {
-			tinfo += item + "<br>" + servicearr.data[i].teacher.general[item] + " ";
+			tinfo += servicearr.data[i].teacher.general[item] + " ";
 			}
 
 			servinfo += "ID Услуги: " + servicearr.data[i].id + ", Баланс: " + servicearr.data[i].balance + ", STK: " + servicearr.data[i].serviceTypeKey;} else { console.log("Услуга некорректна, потеряна или без учителя") }
