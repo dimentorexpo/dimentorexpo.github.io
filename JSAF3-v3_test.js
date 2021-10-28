@@ -995,7 +995,7 @@ document.getElementById('getJiraTasks').onclick = function () {
             document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 
             let issues = [];
-			if (rezissuetable.issueTable.issueKeys.length > 50 {
+			if (rezissuetable.issueTable.issueKeys.length > 50) {
 				rezissuetable.issueTable.issueKeys.length = 50;
 			} else { 
             for (let i = 0; i <rezissuetable.issueTable.issueKeys.length; i++) {
