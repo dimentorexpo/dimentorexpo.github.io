@@ -995,21 +995,14 @@ document.getElementById('getJiraTasks').onclick = function () {
             document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 
             let issues = [];
+			if (rezissuetable.issueTable.issueKeys.length > 50)
+				rezissuetable.issueTable.issueKeys.length = 50;
             for (let i = 0; i <rezissuetable.issueTable.issueKeys.length; i++) {
-				
-				if(rezissuetable.issueTable.issueKeys.length < 50)  {
 
                 if (rezissuetable.issueTable.issueKeys[i] != undefined)
                     issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-            } else {
-					for (let i = 0; i <50; i++) {
-				                if (rezissuetable.issueTable.issueKeys[i] != undefined)
-                    issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-					}
-			}
-			
-			}
-			
+            }
+
 
             document.getElementById('issuetable').innerHTML = issues;
 
