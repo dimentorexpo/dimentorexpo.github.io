@@ -262,6 +262,23 @@ var win_Stat =  // описание элементов окна ссылок
 </div>`;
 
 
+var win_serviceinfo =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 260px;">
+        <span style="width: 260px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 260px;" id="servicehead">
+                                <button id="hideMeservice" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+						
+                        <div style="margin: 5px; width: 260px;" id="servicebody">
+                                <p id="servicetable" style="margin-left:5px; overflow:auto"></p>
+                        </div>
+						
+                </span>
+        </span>
+</div>`;
+
+
 
 
 let audio
@@ -288,6 +305,10 @@ if (localStorage.getItem('winTopJira') == null) { // началоное поло
 if (localStorage.getItem('winTopStat') == null) { // началоное положение окна статистики (если не задано ранее)
     localStorage.setItem('winTopStat', '120');
     localStorage.setItem('winLeftStat', '295');
+}
+if (localStorage.getItem('winTopService') == null) { // началоное положение окна информации об  услугах
+    localStorage.setItem('winTopService', '120');
+    localStorage.setItem('winLeftService', '295');
 }
 
 
@@ -507,6 +528,13 @@ wintStat.style.display = 'none';
 wintStat.setAttribute('id', 'AF_Stat');
 wintStat.innerHTML = win_Stat;
 
+let wintServices = document.createElement('div'); // создание окна ссылок
+document.body.append(wintServices);
+wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServices.style.display = 'none';
+wintServices.setAttribute('id', 'AF_Service');
+wintServices.innerHTML = win_serviceinfo;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -549,6 +577,20 @@ wintStat.firstElementChild.firstElementChild.firstElementChild.onmousedown = fun
     document.addEventListener('mousemove', listener6);
 }
 wintStat.onmouseup = function () { document.removeEventListener('mousemove', listener6); }
+
+var listener7 = function (e, a) { // сохранение позиции окна ссылок
+    wintServices.style.left = Number(e.clientX - myX7) + "px";
+    wintServices.style.top = Number(e.clientY - myY7) + "px";
+    localStorage.setItem('winTopService', String(Number(e.clientY - myY7)));
+    localStorage.setItem('winLeftService', String(Number(e.clientX - myX7)));
+};
+
+wintServices.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX7 = a.layerX;
+    window.myY7 = a.layerY;
+    document.addEventListener('mousemove', listener7);
+}
+wintServices.onmouseup = function () { document.removeEventListener('mousemove', listener7); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
