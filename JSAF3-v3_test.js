@@ -274,12 +274,13 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 				       	<button id="getidstudent" style="width: 25.23px;">🚀</button>
 						</div>
-						
+						               
+					   </span>
                         <div style="margin: 5px; width: 260px;" id="servicebody">
                                 <p id="servicetable" style="margin-left:5px; color:bisque"></p>
                         </div>
 						
-                </span>
+
         </span>
 </div>`;
 
@@ -1041,14 +1042,15 @@ document.getElementById('getidstudent').onclick = function () {
 			let servinfo="";
 			for (let i = 0; i<servicearr.data.length; i++) {
 			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
-			for (item in servicearr.data[i].teacher.general) {
+				for (item in servicearr.data[i].teacher.general) {
 			tinfo += servicearr.data[i].teacher.general[item] + " ";
-			}
+				}
 
-			servinfo += "ID Услуги: " + servicearr.data[i].id + ", Баланс: " + servicearr.data[i].balance + ", STK: " + servicearr.data[i].serviceTypeKey;} else { console.log("Услуга некорректна, потеряна или без учителя") }
+			servinfo += "ID Услуги: " + servicearr.data[i].id + "<br> Баланс: " + servicearr.data[i].balance + "<br> STK: " + servicearr.data[i].serviceTypeKey;
+				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
-			document.getElementById('servicetable').innerHTML = '<span style="color:bisque;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:bisque;">Информация об услуге:</span><br>' + servinfo + "<hr>"
+			document.getElementById('servicetable').innerHTML = '<span style="color:#00FF7F;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF;">Информация об услуге:</span><br>' + servinfo + "<hr>"
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			document.getElementById('idstudent').value = ""
