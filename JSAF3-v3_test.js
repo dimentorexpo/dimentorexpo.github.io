@@ -1047,11 +1047,11 @@ document.getElementById('getidstudent').onclick = function () {
 			tinfo += servicearr.data[i].teacher.general[item] + " ";
 				}
 
-			servinfo += "ID Услуги: " + servicearr.data[i].id + "<br> Баланс: " + servicearr.data[i].balance + "<br> STK: " + servicearr.data[i].serviceTypeKey + "<br>";
+			servinfo += 'ID Услуги: ' + servicearr.data[i].id + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px;">';
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
-			document.getElementById('servicetable').innerHTML = '<span style="color:#00FF7F;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF;">Информация об услуге:</span><br>' + servinfo + '<hr style="width:260px;">'
+			document.getElementById('servicetable').innerHTML = '<span style="color:#00FF7F;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF;">Информация об услуге:</span><br>' + servinfo
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			document.getElementById('idstudent').value = ""
