@@ -1056,7 +1056,7 @@ document.getElementById('getidstudent').onclick = function () {
 			
 			let testids =  document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
 			let infoiduslugi = document.querySelectorAll('.iduslugitxt');
-			
+			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
 					  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
@@ -1070,7 +1070,9 @@ document.getElementById('getidstudent').onclick = function () {
 											
 											}
 										}
-								}
+			}
+			}
+			
 								
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
