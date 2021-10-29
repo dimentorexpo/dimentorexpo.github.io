@@ -1047,13 +1047,6 @@ document.getElementById('getidstudent').onclick = function () {
 				
 			tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
 			servinfo += 'ID Услуги: ' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
-			
-			let tmparr = document.querySelectorAll('.copyserviceid');
-            for (let j = 0; j < tmparr.length; j++) {
-                tmparr[j].onclick = function () {
-                    copyToClipboard1(servicearr.data[i].id)
-                }
-            }
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
@@ -1061,7 +1054,12 @@ document.getElementById('getidstudent').onclick = function () {
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			
-
+			let tmparr = document.querySelectorAll('.copyserviceid');
+            for (let j = 0; j < tmparr.length; j++) {
+                tmparr[j].onclick = function () {
+                    copyToClipboard1(tmparr[j].textContent)
+                }
+            }
 	}
 	
 	setTimeout(getServInfo, 1000)
