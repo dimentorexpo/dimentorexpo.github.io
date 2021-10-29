@@ -1052,7 +1052,26 @@ document.getElementById('getidstudent').onclick = function () {
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
-			document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo
+			document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+			
+			let testids =  document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
+			let infoiduslugi = document.querySelectorAll('.iduslugitxt');
+			
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
+					  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
+										{
+											let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+											for (let i = 0; i<testids.length;i++) {
+												if (getidusr == testids[i]) {
+													infoiduslugi[i].textContent = "ID Услуги 🔥"
+												}
+											}
+											
+											}
+										}
+								}
+								
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			
