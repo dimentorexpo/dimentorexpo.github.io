@@ -1059,6 +1059,7 @@ document.getElementById('getidstudent').onclick = function () {
 			//if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 				for (let j = 0; j < tmparr.length; j++) {
                 tmparr[j].onclick = function () {
+					console.log("Test info: "  + servicearr.data[i].id);
                     copyToClipboard1(servicearr.data[j].id)
             //    }
             }
