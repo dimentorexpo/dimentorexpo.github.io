@@ -1118,7 +1118,7 @@ document.getElementById('getidstudent').onclick = function () {
 			let testids =  document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
 			let infoiduslugi = document.querySelectorAll('.iduslugitxt');
 			for (let j = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
 					  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
 										{
