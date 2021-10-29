@@ -377,6 +377,7 @@ buttonsetteacheridtouserfield.onclick = function() {
 	}
 }
 
+let getidusrstud;
 buttonsetstudentidandservicetouserfield.onclick = function() {
 	
 		for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -384,7 +385,7 @@ buttonsetstudentidandservicetouserfield.onclick = function() {
 					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
 										{
-											let getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
+											getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
 
 										}
 					  }
