@@ -64,7 +64,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="float:left;">hide</button>
+					<button id="hideMenu" style="margin-left:25px;">hide</button>
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
