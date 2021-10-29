@@ -373,15 +373,15 @@ buttonsetstudentiservice.style.marginLeft = "5px";
 buttonsetstudentiservice.style.border = "1px solid black";
 buttonsetstudentiservice.style.borderRadius = "10px";
 
-
+let getidusrteach
 buttonsetteacheridtouserfield.onclick = function() {
 	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
 					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
 										{
-											let getidusrteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-											console.log("teacher identify" + getidusrteach);
+											getidusrteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+											copyToClipboard1(getidusrteach)
 										
 										}
 					  }
