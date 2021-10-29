@@ -266,7 +266,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
     `<div style="display: flex; width: 300px;">
         <span style="width: 300px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 300px;" id="servicehead">
+                        <div style="margin: 5px; width: 300px;  border-bottom:1px solid white;" id="servicehead">
                                 <button id="hideMeservice" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						
