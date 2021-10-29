@@ -1064,7 +1064,7 @@ document.getElementById('getidstudent').onclick = function () {
             }
 			}
 			}
-			
+	}
 	
 	setTimeout(getServInfo, 1000)
 	
