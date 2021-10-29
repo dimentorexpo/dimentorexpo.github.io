@@ -349,14 +349,14 @@ buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat 
 let buttonnextteacherid = document.createElement('p');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
-let buttonsetteacheridtouserfield = document.createElement('span');
+let buttonsetteacheridtouserfield = document.createElement('button');
 buttonsetteacheridtouserfield.id = 'teacheridtofield';
 buttonsetteacheridtouserfield.innerHTML = "👽 (ID П) П обратился ";
 buttonsetteacheridtouserfield.style.width = "20px";
 buttonsetteacheridtouserfield.style.cursor = "pointer";
 buttonsetteacheridtouserfield.style.border = "1px solid black";
 buttonsetteacheridtouserfield.style.borderRadius = "10px";
-let buttonsetstudentidandservicetouserfield = document.createElement('span');
+let buttonsetstudentidandservicetouserfield = document.createElement('button');
 buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
 buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓 (ID У) П обратился";
 buttonsetstudentidandservicetouserfield.style.width = "20px";
@@ -364,7 +364,7 @@ buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
 buttonsetstudentidandservicetouserfield.style.marginLeft = "5px";
 buttonsetstudentidandservicetouserfield.style.border = "1px solid black";
 buttonsetstudentidandservicetouserfield.style.borderRadius = "10px";
-let buttonsetteacheridfromstudent = document.createElement('span');
+let buttonsetteacheridfromstudent = document.createElement('button');
 buttonsetteacheridfromstudent.id = 'studentidservtofield';
 buttonsetteacheridfromstudent.innerHTML = "👽 (ID П) У обратился";
 buttonsetteacheridfromstudent.style.width = "20px";
@@ -399,6 +399,18 @@ buttonsetstudentidandservicetouserfield.onclick = function() {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 											copyToClipboard1(getidusrstud)
+			}
+}
+
+
+let getidusrsteach;
+buttonsetteacheridfromstudent.onclick = function() {
+	
+	
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+											copyToClipboard1(getidusrsteach)
 			}
 }
 
