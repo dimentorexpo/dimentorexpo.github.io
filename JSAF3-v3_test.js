@@ -1195,7 +1195,7 @@ document.getElementById('getidstudent').onclick = function () {
             } else { console.log("Услуга некорректна, потеряна или без учителя") }
         }
 		
-		document.getElementById('servicetable').innerHTML = servinfoж
+		document.getElementById('servicetable').innerHTML = servinfo;
 
         // if (temtinfo == "" && tinfo != "") {
             // document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
