@@ -1166,8 +1166,8 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 			
 			
-			let tinfo=""; // инфо о постоянном П
-			let temtinfo=""; // инфо о временном П
+			let tinfo; // инфо о постоянном П
+			let temtinfo; // инфо о временном П
 			let servinfo=""; //инфо об услуге
 			let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
 			for (let i = 0; i<servicearr.data.length; i++) {
