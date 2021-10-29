@@ -352,7 +352,7 @@ buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat 
 let buttonsetteacheridtouserfield = document.createElement('button');
 buttonsetteacheridtouserfield.id = 'teacheridtofield';
 buttonsetteacheridtouserfield.innerHTML = "👽 (ID П) П обратился ";
-buttonsetteacheridtouserfield.style.width = "150px";
+buttonsetteacheridtouserfield.style.width = "160px";
 buttonsetteacheridtouserfield.style.cursor = "pointer";
 buttonsetteacheridtouserfield.style.border = "1px solid black";
 buttonsetteacheridtouserfield.style.borderRadius = "10px";
@@ -367,7 +367,7 @@ buttonsetstudentidandservicetouserfield.style.borderRadius = "10px";
 let buttonsetteacheridfromstudent = document.createElement('button');
 buttonsetteacheridfromstudent.id = 'teacheridfromstudent';
 buttonsetteacheridfromstudent.innerHTML = "👽 (ID П) У обратился";
-buttonsetteacheridfromstudent.style.width = "160px";
+buttonsetteacheridfromstudent.style.width = "150px";
 buttonsetteacheridfromstudent.style.cursor = "pointer";
 buttonsetteacheridfromstudent.style.marginLeft = "2px";
 buttonsetteacheridfromstudent.style.border = "1px solid black";
