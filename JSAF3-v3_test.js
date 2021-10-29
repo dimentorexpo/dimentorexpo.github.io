@@ -268,6 +268,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button id="hideMeservice" style="width:50px; background: #228B22;">hide</button>
+                                <button id="GotoCRM" style="width:50px;">CRM</button>
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
@@ -872,6 +873,12 @@ function move_again_AF() {
     document.getElementById('useradm').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
     })
+	
+	    document.getElementById('GotoCRM').onclick = function () {
+        window.open("https://crm2.skyeng.ru/persons/"+document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
+    })
+	
+	
     document.getElementById('suggestions').addEventListener('click', function () {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
     })
