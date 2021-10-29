@@ -1042,11 +1042,13 @@ document.getElementById('getidstudent').onclick = function () {
 			
 			let tinfo="";
 			let servinfo="";
+			let arrservice = [];
 			for (let i = 0; i<servicearr.data.length; i++) {
 			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 				
 			tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
-			servinfo += 'ID Услуги: ' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';		
+			servinfo += 'ID Услуги: ' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';	
+			arrservice += servicearr.data[i].id + ", "			
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
@@ -1054,13 +1056,14 @@ document.getElementById('getidstudent').onclick = function () {
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
 			
+			arrservice = arrservice.split(', ')
 			let tmparr = document.querySelectorAll('.copyserviceid');
 			//for (let i = 0; i<servicearr.data.length; i++) {
 			//if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 				for (let j = 0; j < tmparr.length; j++) {
                 tmparr[j].onclick = function () {
 				//	console.log("Test info: "  + servicearr.data[i].id);
-                    copyToClipboard1(servicearr.data[j].id)
+                    copyToClipboard1(arrservice[j])
             //    }
             }
 			}
