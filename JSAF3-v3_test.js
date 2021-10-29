@@ -64,7 +64,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left: 25px">hide</button>
+					<button id="hideMenu" style="float:left;">hide</button>
 					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
@@ -349,14 +349,17 @@ buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat 
 let buttonnextteacherid = document.createElement('p');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
-let buttonsetteacheridtouserfield = document.createElement('div');
+let buttonsetteacheridtouserfield = document.createElement('span');
 buttonsetteacheridtouserfield.id = 'teacheridtofield';
 buttonsetteacheridtouserfield.innerHTML = "👽";
 buttonsetteacheridtouserfield.style.width = "20px";
-let buttonsetstudentidandservicetouserfield = document.createElement('div');
+buttonsetteacheridtouserfield.style.cursor = "pointer";
+let buttonsetstudentidandservicetouserfield = document.createElement('span');
 buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
 buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓";
 buttonsetstudentidandservicetouserfield.style.width = "20px";
+buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
+buttonsetstudentidandservicetouserfield.style.margin-left = "5px";
 
 
 
