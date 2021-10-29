@@ -278,8 +278,8 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						               
 					   </span>
 					   
-                        <div style="margin: 5px; width: 300px;" id="servicebody">
-                                <p id="servicetable" style="margin-left:5px; color:bisque; text-align:center"></p>
+                        <div style="width: 300px;" id="servicebody">
+                                <p id="servicetable" style="color:bisque; text-align:center"></p>
                         </div>
 						
 
