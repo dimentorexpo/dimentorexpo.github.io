@@ -390,10 +390,6 @@ buttonsetteacheridtouserfield.onclick = function() {
 	}
 }
 
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
 
 let getidusrstud;
 buttonsetstudentidandservicetouserfield.onclick = function() {
