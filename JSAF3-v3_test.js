@@ -1135,10 +1135,10 @@ var abortTimeOut = ''								// перменная для отмены буди�
     }
 	
 document.getElementById('getidstudent').onclick = function () {
-	let stid = document.getElementById('idstudent').value;
-	stid = stid.trim();
-	let servicearr;
-	document.getElementById('responseTextarea1').value = `{
+    let stid = document.getElementById('idstudent').value;
+    stid = stid.trim();
+    let servicearr;
+    document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
 			"accept-language": "ru",
@@ -1150,99 +1150,98 @@ document.getElementById('getidstudent').onclick = function () {
 		  "mode": "cors",
 		  "credentials": "include"
 	}`
-	document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
     document.getElementById('responseTextarea3').value = 'getserviceinfo'
     document.getElementById('sendResponse').click()
-		
-	function getServInfo() {
-		document.getElementById('responseTextarea1').value = '{}'
+
+    function getServInfo() {
+        document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
         document.getElementById('responseTextarea3').value = 'getserviceinfo'
         document.getElementById('sendResponse').click()
-		
-			servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
-			servicearr = JSON.parse(servicearr);
-			console.log(servicearr);
-			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
-			
-			
-			let tinfo=null; // инфо о постоянном П
-			let temtinfo=null; // инфо о временном П
-			let servinfo=""; //инфо об услуге
-			let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
-			for (let i = 0; i<servicearr.data.length; i++) {
-			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
-				
-			tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
-			servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';	
-			arrservice += servicearr.data[i].id + ", "			
-				} else if (servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher !=null) {
-			
-			tinfo += Object.values(servicearr.data[i].temporaryTeacher.general) + "<br>";
-			servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';	
-			arrservice += servicearr.data[i].id + ", "	
-				} else if (servicearr.data[i].teacher == null && servicearr.data[i].serviceTypeKey =="kids_small_group_english_not_native" && servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost") {
-			
-			tinfo = "KGL student" + "<br>";
-			servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';	
-			arrservice += servicearr.data[i].id + ", "	
-				} else if(servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher != null) {
-					
-			tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
-			temtinfo += Object.values(servicearr.data[i].temporaryTeacher.general) + "<br>";
-			servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';	
-			arrservice += servicearr.data[i].id + ", "	
-				} else { console.log("Услуга некорректна, потеряна или без учителя") }
-			}
-			
-			if (temtinfo ==null && tinfo !=null)  {
-			document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			} else if (temtinfo !=null && tinfo !=null) {
-			document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			} else if (temtinfo !=null && tinfo ==null) {
-			document.getElementById('servicetable').innerHTML = '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			} else { console.log("End of depth")}
-			
-			let testids =  document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
-			let infoiduslugi = document.querySelectorAll('.iduslugitxt');
-			for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
-					  for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id")
-										{
-											let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-											for (let i = 0; i<testids.length;i++) {
-												if (getidusr == testids[i]) {
-													infoiduslugi[i].textContent = "ID Услуги 🔥"
-												}
-											}
-											} else { console.log("Not found") }
-										}
-				} else { console.log("No such field")}
-			}
-			
-								
-			console.log("teacher ID: " +  tinfo)
-			console.log("temporary teacher ID: " +  temtinfo)
-			console.log("service info: " + servinfo)
-			
-			arrservice = arrservice.split(', ')
-			let tmparr = document.querySelectorAll('.copyserviceid');
-			//for (let i = 0; i<servicearr.data.length; i++) {
-			//if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
-				for (let j = 0; j < tmparr.length; j++) {
-                tmparr[j].onclick = function () {
-				//	console.log("Test info: "  + servicearr.data[i].id);
-                    copyToClipboard1(arrservice[j])
-            //    }
+
+        servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+        servicearr = JSON.parse(servicearr);
+        console.log(servicearr);
+        document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
+
+
+        let tinfo = null; // инфо о постоянном П
+        let temtinfo = null; // инфо о временном П
+        let servinfo = ""; //инфо об услуге
+        let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
+        for (let i = 0; i < servicearr.data.length; i++) {
+            if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null) {
+
+                tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
+                servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
+                arrservice += servicearr.data[i].id + ", "
+            } else if (servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher != null) {
+
+                tinfo += Object.values(servicearr.data[i].temporaryTeacher.general) + "<br>";
+                servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
+                arrservice += servicearr.data[i].id + ", "
+            } else if (servicearr.data[i].teacher == null && servicearr.data[i].serviceTypeKey == "kids_small_group_english_not_native" && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+
+                tinfo = "KGL student" + "<br>";
+                servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
+                arrservice += servicearr.data[i].id + ", "
+            } else if (servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+
+                tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
+                temtinfo += Object.values(servicearr.data[i].temporaryTeacher.general) + "<br>";
+                servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
+                arrservice += servicearr.data[i].id + ", "
+            } else { console.log("Услуга некорректна, потеряна или без учителя") }
+        }
+
+        if (temtinfo == null && tinfo != null) {
+            document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+        } else if (temtinfo != null && tinfo != null) {
+            document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+        } else if (temtinfo != null && tinfo == null) {
+            document.getElementById('servicetable').innerHTML = '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+        } else { console.log("End of depth") }
+
+        let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
+        let infoiduslugi = document.querySelectorAll('.iduslugitxt');
+        for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+                for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                        let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                        for (let i = 0; i < testids.length; i++) {
+                            if (getidusr == testids[i]) {
+                                infoiduslugi[i].textContent = "ID Услуги 🔥"
+                            }
+                        }
+                    } else { console.log("Not found") }
+                }
+            } else { console.log("No such field") }
+        }
+
+
+        console.log("teacher ID: " + tinfo)
+        console.log("temporary teacher ID: " + temtinfo)
+        console.log("service info: " + servinfo)
+
+        arrservice = arrservice.split(', ')
+        let tmparr = document.querySelectorAll('.copyserviceid');
+        //for (let i = 0; i<servicearr.data.length; i++) {
+        //if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
+        for (let j = 0; j < tmparr.length; j++) {
+            tmparr[j].onclick = function () {
+                //	console.log("Test info: "  + servicearr.data[i].id);
+                copyToClipboard1(arrservice[j])
+                //    }
             }
-			}
-			//}
-	}
-	
-	setTimeout(getServInfo, 1000)
-	
-}	 
+        }
+        //}
+    }
+
+    setTimeout(getServInfo, 1000)
+
+}
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
