@@ -1065,6 +1065,12 @@ document.getElementById('getidstudent').onclick = function () {
 	setTimeout(getServInfo, 1000)
 	
 }	 
+
+document.getElementById('clearservinfo').onclick = function() {
+	document.getElementById('idstudent').value = "";
+	document.getElementById('servicetable').innerHTML ="";
+	
+}
 	         
 document.getElementById('getJiraTasks').onclick = function () {
     let rezissuetable;
