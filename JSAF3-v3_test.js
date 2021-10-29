@@ -359,7 +359,7 @@ buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
 buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓";
 buttonsetstudentidandservicetouserfield.style.width = "20px";
 buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
-buttonsetstudentidandservicetouserfield.style.margin-left = "5px";
+buttonsetstudentidandservicetouserfield.style.marginLeft = "5px";
 
 
 
