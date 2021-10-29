@@ -1201,8 +1201,8 @@ document.getElementById('getidstudent').onclick = function () {
                 arrservice += servicearr.data[i].id + ", "
             } else if (servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher == null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].balance > 0) {
 			   
-  			    tinfo += "ОП отсутствует"+ "<br>";
-                temtinfo += "ВП отсутствует" + "<br>";
+  			    tinfo += "-" + "<br>";
+                temtinfo += "-" + "<br>";
                 servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
                 arrservice += servicearr.data[i].id + ", "
 			} else { console.log("Услуга некорректна, потеряна или без учителя") }
