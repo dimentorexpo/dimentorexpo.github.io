@@ -1201,7 +1201,7 @@ document.getElementById('getidstudent').onclick = function () {
             document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-        } else { console.log("End of depth") }
+        } else { document.getElementById('servicetable').innerHTML = "Нет активных услуг." }
 
         let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
         let infoiduslugi = document.querySelectorAll('.iduslugitxt');
