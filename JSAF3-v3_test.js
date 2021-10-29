@@ -273,6 +273,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<div style="margin: 5px; width: 300px; display:flex; justify-content:center;" id="input_field">
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
 				       	<button id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
+				       	<button id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 						</div>
 						               
 					   </span>
@@ -1052,7 +1053,6 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo
 			console.log("teacher ID: " +  tinfo)
 			console.log("service info: " + servinfo)
-			document.getElementById('idstudent').value = ""
 			
 			let tmparr = document.querySelectorAll('.copyserviceid');
             for (let j = 0; j < tmparr.length; j++) {
