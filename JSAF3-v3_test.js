@@ -351,15 +351,21 @@ buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
 let buttonsetteacheridtouserfield = document.createElement('span');
 buttonsetteacheridtouserfield.id = 'teacheridtofield';
-buttonsetteacheridtouserfield.innerHTML = "👽";
+buttonsetteacheridtouserfield.innerHTML = "👽 (ID П) П обратился ";
 buttonsetteacheridtouserfield.style.width = "20px";
 buttonsetteacheridtouserfield.style.cursor = "pointer";
 let buttonsetstudentidandservicetouserfield = document.createElement('span');
 buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
-buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓";
+buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓 (ID) У обратился";
 buttonsetstudentidandservicetouserfield.style.width = "20px";
 buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
 buttonsetstudentidandservicetouserfield.style.marginLeft = "5px";
+let buttonsetstudentiservice = document.createElement('span');
+buttonsetstudentiservice.id = 'studentidservtofield';
+buttonsetstudentiservice.innerHTML = "🎓(ID услуги У)";
+buttonsetstudentiservice.style.width = "20px";
+buttonsetstudentiservice.style.cursor = "pointer";
+buttonsetstudentiservice.style.marginLeft = "5px";
 
 buttonsetteacheridtouserfield.onclick = function() {
 	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2785,6 +2791,7 @@ function timerHideButtons() {
 		if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
+		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentiservice)
       }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
