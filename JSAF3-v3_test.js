@@ -366,12 +366,12 @@ buttonsetstudentidandservicetouserfield.style.border = "1px solid black";
 buttonsetstudentidandservicetouserfield.style.borderRadius = "10px";
 let buttonsetstudentiservice = document.createElement('span');
 buttonsetstudentiservice.id = 'studentidservtofield';
-buttonsetstudentiservice.innerHTML = "🎓(ID услуги У)";
-buttonsetstudentiservice.style.width = "20px";
-buttonsetstudentiservice.style.cursor = "pointer";
-buttonsetstudentiservice.style.marginLeft = "5px";
-buttonsetstudentiservice.style.border = "1px solid black";
-buttonsetstudentiservice.style.borderRadius = "10px";
+buttonsetteacheridfromstudent.innerHTML = "👽 (ID П) У обратился";
+buttonsetteacheridfromstudent.style.width = "20px";
+buttonsetteacheridfromstudent.style.cursor = "pointer";
+buttonsetteacheridfromstudent.style.marginLeft = "5px";
+buttonsetteacheridfromstudent.style.border = "1px solid black";
+buttonsetteacheridfromstudent.style.borderRadius = "10px";
 
 let getidusrteach
 buttonsetteacheridtouserfield.onclick = function() {
@@ -2798,7 +2798,7 @@ function timerHideButtons() {
 		if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentiservice)
+		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
       }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
