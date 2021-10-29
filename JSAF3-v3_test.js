@@ -876,7 +876,7 @@ function move_again_AF() {
 	
 	    document.getElementById('GotoCRM').onclick = function () {
         window.open("https://crm2.skyeng.ru/persons/"+document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
-    })
+    }
 	
 	
     document.getElementById('suggestions').addEventListener('click', function () {
