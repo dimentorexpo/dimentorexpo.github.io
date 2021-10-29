@@ -361,6 +361,39 @@ buttonsetstudentidandservicetouserfield.style.width = "20px";
 buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
 buttonsetstudentidandservicetouserfield.style.marginLeft = "5px";
 
+buttonsetteacheridtouserfield.onclick = function() {
+	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
+					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
+							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
+										{
+											let getidusrteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+											console.log("teacher identify" + getidusrteach);
+										
+										}
+					  }
+				}
+				
+	}
+}
+
+buttonsetstudentidandservicetouserfield.onclick = function() {
+	
+		for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "student") {
+					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
+							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
+										{
+											let getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+											document.getElementsByClassName('ant-input-number-input')[0].value = getidusrstud;
+										}
+					  }
+				}
+				
+	}
+	
+}
+
 
 
 
@@ -2748,9 +2781,6 @@ function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
 
-
-
-		
 		if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
