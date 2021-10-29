@@ -1055,15 +1055,15 @@ document.getElementById('getidstudent').onclick = function () {
 			console.log("service info: " + servinfo)
 			
 			let tmparr = document.querySelectorAll('.copyserviceid');
-			for (let i = 0; i<servicearr.data.length; i++) {
-			if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
+			//for (let i = 0; i<servicearr.data.length; i++) {
+			//if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
 				for (let j = 0; j < tmparr.length; j++) {
                 tmparr[j].onclick = function () {
-                    copyToClipboard1(servicearr.data[i].id)
-                }
+                    copyToClipboard1(servicearr.data[j].id)
+            //    }
             }
 			}
-			}
+			//}
 	}
 	
 	setTimeout(getServInfo, 1000)
