@@ -1173,8 +1173,8 @@ document.getElementById('getidstudent').onclick = function () {
         for (let i = 0; i < servicearr.data.length; i++) {
             if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null &&  servicearr.data[i].temporaryTeacher == null) {
 
-                tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
-                servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
+               // tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
+                servinfo +='<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + Object.values(servicearr.data[i].teacher.general) + "<br>" + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
                 arrservice += servicearr.data[i].id + ", "
             } else if (servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher != null) {
 
@@ -1201,7 +1201,7 @@ document.getElementById('getidstudent').onclick = function () {
             document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-        } else { document.getElementById('servicetable').innerHTML = "Нет активных услуг." }
+        } else { document.getElementById('servicetable').innerHTML = "Нет активных услуг. Услуги потеряны или некорректны" }
 
         let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
         let infoiduslugi = document.querySelectorAll('.iduslugitxt');
