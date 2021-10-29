@@ -349,6 +349,21 @@ buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat 
 let buttonnextteacherid = document.createElement('p');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
+let buttonsetteacheridtouserfield = document.createElement('div');
+buttonsetteacheridtouserfield.id = 'teacheridtofield';
+buttonsetteacheridtouserfield.innerHTML = "👽";
+buttonsetteacheridtouserfield.style.width = "20px";
+let buttonsetstudentidandservicetouserfield = document.createElement('div');
+buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
+buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓";
+buttonsetstudentidandservicetouserfield.style.width = "20px";
+
+if (document.getElementById('rcDialogTitle6').textContent == "Создать задачуСкрыть") {
+	document.getElementsByClassName('ant-modal-body')[0].appendChild(buttonsetteacheridtouserfield)
+	document.getElementsByClassName('ant-modal-body')[0].appendChild(buttonsetstudentidandservicetouserfield)
+}
+
+
 
 
 
