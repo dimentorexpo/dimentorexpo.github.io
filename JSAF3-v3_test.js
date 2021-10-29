@@ -1166,8 +1166,8 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 			
 			
-			let tinfo; // инфо о постоянном П
-			let temtinfo; // инфо о временном П
+			let tinfo=null; // инфо о постоянном П
+			let temtinfo=null; // инфо о временном П
 			let servinfo=""; //инфо об услуге
 			let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
 			for (let i = 0; i<servicearr.data.length; i++) {
@@ -1195,11 +1195,11 @@ document.getElementById('getidstudent').onclick = function () {
 				} else { console.log("Услуга некорректна, потеряна или без учителя") }
 			}
 			
-			if (temtinfo ==undefined && tinfo !=undefined)  {
+			if (temtinfo ==null && tinfo !=null)  {
 			document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			} else if (temtinfo !=undefined && tinfo !=undefined) {
+			} else if (temtinfo !=null && tinfo !=null) {
 			document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Teacher Info</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			} else if (temtinfo !=undefined && tinfo ==undefined) {
+			} else if (temtinfo !=null && tinfo ==null) {
 			document.getElementById('servicetable').innerHTML = '<span style="color:#FF8C00; font-weight:900;">Temporary Teacher Info</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			} else { console.log("End of depth")}
 			
@@ -1223,6 +1223,7 @@ document.getElementById('getidstudent').onclick = function () {
 			
 								
 			console.log("teacher ID: " +  tinfo)
+			console.log("temporary teacher ID: " +  temtinfo)
 			console.log("service info: " + servinfo)
 			
 			arrservice = arrservice.split(', ')
