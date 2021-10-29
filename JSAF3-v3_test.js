@@ -358,7 +358,7 @@ buttonsetteacheridtouserfield.style.border = "1px solid black";
 buttonsetteacheridtouserfield.style.borderRadius = "10px";
 let buttonsetstudentidandservicetouserfield = document.createElement('span');
 buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
-buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓 (ID) У обратился";
+buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓 (ID У) П обратился";
 buttonsetstudentidandservicetouserfield.style.width = "20px";
 buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
 buttonsetstudentidandservicetouserfield.style.marginLeft = "5px";
@@ -390,22 +390,20 @@ buttonsetteacheridtouserfield.onclick = function() {
 	}
 }
 
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            document.getElementById('user_id').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+    }
+
 let getidusrstud;
 buttonsetstudentidandservicetouserfield.onclick = function() {
 	
-		for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "student") {
-					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
-							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
-										{
-											getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-											copyToClipboard1(getidusrstud)
-										}
-					  }
-				}
-				
-	}
 	
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+											copyToClipboard1(getidusrstud)
+			}
 }
 
 
