@@ -268,7 +268,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                 <span style="cursor: -webkit-grab;">
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
-                                <button id="GotoCRM" style="width:50px; margin-left:5px;">CRM</button>
+                                <button id="GotoCRM" style="width:50px;">CRM</button>
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
