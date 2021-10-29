@@ -1171,7 +1171,7 @@ document.getElementById('getidstudent').onclick = function () {
         let servinfo = ""; //инфо об услуге
         let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
         for (let i = 0; i < servicearr.data.length; i++) {
-            if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null) {
+            if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null && && servicearr.data[i].temporaryTeacher == null) {
 
                 tinfo += Object.values(servicearr.data[i].teacher.general) + "<br>";
                 servinfo += '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
