@@ -385,12 +385,13 @@ buttonsetstudentidandservicetouserfield.onclick = function() {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
 										{
 											let getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-											document.getElementsByClassName('ant-input-number-input')[0].value = getidusrstud;
+
 										}
 					  }
 				}
 				
 	}
+				document.getElementsByClassName('ant-input-number-input')[0].value = getidusrstud;
 	
 }
 
