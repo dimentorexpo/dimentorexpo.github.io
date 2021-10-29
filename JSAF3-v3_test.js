@@ -354,18 +354,25 @@ buttonsetteacheridtouserfield.id = 'teacheridtofield';
 buttonsetteacheridtouserfield.innerHTML = "👽 (ID П) П обратился ";
 buttonsetteacheridtouserfield.style.width = "20px";
 buttonsetteacheridtouserfield.style.cursor = "pointer";
+buttonsetteacheridtouserfield.style.border = "1px solid black";
+buttonsetteacheridtouserfield.style.borderRadius = "10px";
 let buttonsetstudentidandservicetouserfield = document.createElement('span');
 buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
 buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓 (ID) У обратился";
 buttonsetstudentidandservicetouserfield.style.width = "20px";
 buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
 buttonsetstudentidandservicetouserfield.style.marginLeft = "5px";
+buttonsetstudentidandservicetouserfield.style.border = "1px solid black";
+buttonsetstudentidandservicetouserfield.style.borderRadius = "10px";
 let buttonsetstudentiservice = document.createElement('span');
 buttonsetstudentiservice.id = 'studentidservtofield';
 buttonsetstudentiservice.innerHTML = "🎓(ID услуги У)";
 buttonsetstudentiservice.style.width = "20px";
 buttonsetstudentiservice.style.cursor = "pointer";
 buttonsetstudentiservice.style.marginLeft = "5px";
+buttonsetstudentiservice.style.border = "1px solid black";
+buttonsetstudentiservice.style.borderRadius = "10px";
+
 
 buttonsetteacheridtouserfield.onclick = function() {
 	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
