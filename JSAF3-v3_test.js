@@ -2577,7 +2577,7 @@ function startTimer() {
 				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
 				btn.appendChild(buttonservstud) 
 				
-			}
+			}  else { console.log("teacher")}
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
@@ -4191,7 +4191,7 @@ buttonsetteacheridtouserfield.addEventListener('click', function() {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
 										{
 											getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-											copyToClipboard(getidusrteachreq)	
+											copyToClipboard1(getidusrteachreq)	
 										}
 					  }
 				}
@@ -4204,7 +4204,7 @@ buttonsetstudentidandservicetouserfield.addEventListener('click', function() {
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-											copyToClipboard(getidusrstud)
+											copyToClipboard1(getidusrstud)
 			}
 })
  
@@ -4214,7 +4214,7 @@ buttonsetteacheridfromstudent.addEventListener('click', function() {
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-											copyToClipboard(getidusrsteach)
+											copyToClipboard1(getidusrsteach)
 			}
 })
 
