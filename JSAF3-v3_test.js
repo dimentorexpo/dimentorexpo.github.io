@@ -494,6 +494,14 @@ button3.onclick = function () {
     btn1_student.click()
 }
 
+document.getElementById('btn1_student').onclick = function() {
+	 if (document.getElementById('AF_Service').style.display == 'none') {
+		 document.getElementById('AF_Service').style.display == '';
+		 document.getElementById('idstudent').value = document.getElementById('id_type_for_chat').value;
+		 getidstudent.click()
+	 }
+}
+
 
 button4.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
