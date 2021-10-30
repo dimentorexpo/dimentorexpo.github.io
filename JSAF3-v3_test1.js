@@ -4169,7 +4169,7 @@ function firstLoadPage() {
             btnAdd1.insertBefore(scrmn, btnAdd1.children[0])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
-            document.getElementById('scrmn').append(scriptmenu)
+            document.getElementById('scrmn').appendChild(scriptmenu)
         }, 2000)
 
         setInterval(startTimer, 1000)
