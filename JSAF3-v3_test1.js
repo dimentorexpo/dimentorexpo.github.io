@@ -287,7 +287,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
         </span>
 </div>`;
 
-var scriptmenu = // меню для ссылок
+var scriptmenu = // описание меню для ссылок class="ant-dropdown ant-dropdown-placement-bottomLeft"
     `<div style="max-width: 110px"class="sc-AxhUy fxWvvr user_menu-language_switcher">
         <button id="menubtn" type="button" class="ant-btn ant-dropdown-trigger ant-dropdown-open" ant-click-animating-without-extra-node="false" onclick="openmenu()">
             <span class="user_menu-status-name">Меню</span>
@@ -297,7 +297,7 @@ var scriptmenu = // меню для ссылок
                 </svg>
             </span>
         </button>
-        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft" style="display: none min-width: 110px; left: 1385px; top: 52px;">
+        <div id="upmenu" style="display: none min-width: 110px; left: 1385px; top: 52px;">
     	<ul id="upmenu1" class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0">
 	    	<li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">Русский</li>
 		    <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">English</li>
