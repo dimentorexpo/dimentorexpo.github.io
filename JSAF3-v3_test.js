@@ -4178,13 +4178,14 @@ function hesoyam() {
     document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
 }
 
+let getidusrteachreq;
 buttonsetteacheridtouserfield.addEventListener('click', async function() {
 	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
 					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
 										{
-										let getidusrteachreq = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
+										getidusrteachreq = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
 											await copyToClipboard1(getidusrteachreq)	
 										}
 					  }
@@ -4193,20 +4194,20 @@ buttonsetteacheridtouserfield.addEventListener('click', async function() {
 })
 
 
-
+let getidusrstud;
 buttonsetstudentidandservicetouserfield.addEventListener('click', async function() {	
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-           let getidusrstud = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+           getidusrstud = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 											await copyToClipboard1(getidusrstud)
 			}
 })
  
-
+let getidusrsteach;
 buttonsetteacheridfromstudent.addEventListener('click', function() {	
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-           let getidusrsteach = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+           getidusrsteach = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 									await copyToClipboard1(getidusrsteach)
 			}
 })
