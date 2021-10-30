@@ -1244,7 +1244,6 @@ document.getElementById('getidstudent').onclick = function () {
 	
 	setTimeout(async function() {
 		let tempvariable = document.getElementById('idstudent').value;
-		if (document.getElementById('ChatStatus').style.display ="")
 		document.getElementById('ChatStatus').style.display ="none";
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
@@ -1262,7 +1261,7 @@ document.getElementById('getidstudent').onclick = function () {
 		}).then(r => r.json()).then(data => infres = data)
 		if (infres.total>0) {
 			document.getElementById('ChatStatus').style.display = "";
-		} else if (infres.total = 0) {
+		} else {
 			document.getElementById('ChatStatus').innerText = "🚫";
 			document.getElementById('ChatStatus').style.display = "";
 		}
