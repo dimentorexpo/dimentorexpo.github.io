@@ -310,8 +310,7 @@ var scriptmenu = // описание меню для ссылок
 
 let audio
 
-function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
-  {
+function maxLengthCheck(object) { // функция ограничения кол-ва символов в полях
     if (object.value.length > object.maxLength)
       object.value = object.value.slice(0, object.maxLength)
   }
