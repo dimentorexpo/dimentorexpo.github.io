@@ -323,6 +323,7 @@ function openmenu() {
         document.getElementById("upmenu").style.display = 'none'
     }
 }
+/*
 window.onclick = function(e) {
     if (!e.target.matches('.menubtn')) {
       if (document.getElementById("upmenu").style.display = '') {
@@ -333,7 +334,7 @@ window.onclick = function(e) {
 //window.onload = function() {
 //    document.getElementById('upmenu').style.display = 'none';
 //  } 
-
+*/
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
