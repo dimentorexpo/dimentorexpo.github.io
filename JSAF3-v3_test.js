@@ -269,7 +269,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button id="GotoCRM" style="width:50px;">CRM</button>
-                                <button id="ChatStatus" style="width:30px; display:none;">💌</button>
+                                <button id="ChatStatus" style="width:30px; display:none;"></button>
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
@@ -1261,9 +1261,10 @@ document.getElementById('getidstudent').onclick = function () {
 		}).then(r => r.json()).then(data => infres = data)
 		if (infres.total > 0) {
 			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "💌";
 		} else if (infres.total == 0) {
-			document.getElementById('ChatStatus').textContent = "🚫";
 			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "🚫";
 		}
 		
 	}, 1000)
