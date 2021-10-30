@@ -54,7 +54,10 @@ function mystyles() {
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
-	}`
+	}
+    .show {
+        display: block;
+    }`
     mstl.innerHTML = style;
 }
 
@@ -289,7 +292,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 
 var scriptmenu = // меню для ссылок
     `<div style="max-width: 110px"class="sc-AxhUy fxWvvr user_menu-language_switcher">
-        <button type="button" class="ant-btn ant-dropdown-trigger ant-dropdown-open" ant-click-animating-without-extra-node="false">
+        <button id="menubtn" type="button" class="ant-btn ant-dropdown-trigger ant-dropdown-open" ant-click-animating-without-extra-node="false" onclick="openmenu()">
             <span class="user_menu-status-name">Меню</span>
             <span role="img" aria-label="down" type="down" class="anticon anticon-down user_menu-dropdown-icon">
                 <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
@@ -297,8 +300,8 @@ var scriptmenu = // меню для ссылок
                 </svg>
             </span>
         </button>
-        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft " style="display: none; min-width: 110px; left: 1385px; top: 52px;">
-    	<ul class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" style="display: none" role="menu" tabindex="0">
+        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft " style="display: block; min-width: 110px; left: 1385px; top: 52px;">
+    	<ul class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0">
 	    	<li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">Русский</li>
 		    <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">English</li>
 	    </ul> 
@@ -314,6 +317,19 @@ function maxLengthCheck(object) // функция ограничения кол-
   {
     if (object.value.length > object.maxLength)
       object.value = object.value.slice(0, object.maxLength)
+  }
+
+function openmenu() {
+    document.getElementById("upmenu").classList.toggle("show");
+}  
+
+window.onclick = function(e) {
+    if (!e.target.matches('.menubtn')) {
+      var mymenu = document.getElementById("upmenu");
+        if (mymenu.classList.contains('show')) {
+          mymenu.classList.remove('show');
+        }
+    }
   }
 
 
