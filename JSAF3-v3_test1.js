@@ -291,7 +291,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 </div>`;
 
 var scriptmenu = // описание меню для ссылок
-    `<div style="max-width: 110px"class="sc-AxhUy fxWvvr user_menu-language_switcher user_menu">
+    `<div style="max-width: 110px"class="sc-AxhUy fxWvvr user_menu-language_switcher">
         <button id="menubtn" type="button" class="ant-btn ant-dropdown-trigger ant-dropdown-open user_menu" ant-click-animating-without-extra-node="false" onclick="openmenu()">
             <span class="user_menu-status-name">Меню</span>
             <span role="img" aria-label="down" type="down" class="anticon anticon-down user_menu-dropdown-icon user_menu">
