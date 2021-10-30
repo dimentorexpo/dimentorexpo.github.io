@@ -297,7 +297,7 @@ var scriptmenu = // меню для ссылок
                 </svg>
             </span>
         </button>
-        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft" style="min-width: 110px; left: 1385px; top: 52px;">
+        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft" style="display: none min-width: 110px; left: 1385px; top: 52px;">
     	<ul id="upmenu1" class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0">
 	    	<li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">Русский</li>
 		    <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">English</li>
@@ -328,9 +328,9 @@ window.onclick = function(e) {
         }
     }
   }
-  window.onload = function() {
-    document.getElementById('upmenu').style.display = 'none';
-  } 
+//window.onload = function() {
+//    document.getElementById('upmenu').style.display = 'none';
+//  } 
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
