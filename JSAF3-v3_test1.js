@@ -324,6 +324,20 @@ function openmenu(){
     }
 }
 
+window.onclick = function(event) {
+    if (!event.target.matches('.menubtn')) {
+  
+      var dropdowns = document.getElementsByClassName("ant-dropdown-menu");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.style.display =='') {
+            openDropdown.style.display = 'none';
+        }
+      }
+    }
+  }
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
