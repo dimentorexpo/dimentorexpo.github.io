@@ -297,7 +297,7 @@ var scriptmenu = // описание меню для ссылок class="ant-dro
                 </svg>
             </span>
         </button>
-        <div id="upmenu" style="display: none min-width: 110px; left: 1385px; top: 52px;">
+        <div id="upmenu" style="display: none; min-width: 110px; left: 1385px; top: 52px;">
     	<ul id="upmenu1" class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0">
 	    	<li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">Русский</li>
 		    <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">English</li>
