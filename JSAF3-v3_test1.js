@@ -681,8 +681,8 @@ hashBut.onclick = function () {
 }
 let scrptmn = document.createElement('div'); // создание окна ссылок
 document.body.append(scriptmenu);
-wintJira.setAttribute('id', 'scriptmen');
-wintJira.innerHTML = scriptmenu;
+scrptmn.setAttribute('id', 'scriptmen');
+scrptmn.innerHTML = scriptmenu;
 
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
