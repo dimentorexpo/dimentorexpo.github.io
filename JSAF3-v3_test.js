@@ -509,7 +509,7 @@ document.getElementById('btn_hide').addEventListener('click', function() {
 
 	 }
 })
-
+ 
 
 button4.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
