@@ -331,6 +331,12 @@ button2.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
+let buttonserv = document.createElement('p');
+buttonserv.id = 'nextStudentServiceInfo';
+buttonserv.innerHTML = "⚜";
+let buttonservstud = document.createElement('p');
+buttonservstud.id = 'nextStudentServiceInfo';
+buttonservstud.innerHTML = "⚜";
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
@@ -484,6 +490,30 @@ button2.onclick = function () { //функция Info по нажатию на �
     btn1_student.click()
 }
 
+buttonserv.onclick = function() {
+	if (document.getElementById('AF_Service').style.display == 'none')
+		document.getElementById('AF_Service').style.display = '';
+	
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+		document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+		getidstudent.click();
+		}
+		}
+}
+
+buttonservstud.onclick = function() {
+	if (document.getElementById('AF_Service').style.display == 'none')
+		document.getElementById('AF_Service').style.display = '';
+	
+	   for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+		document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+		getidstudent.click();
+		}
+		}
+}
+
 button3.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
@@ -494,22 +524,6 @@ button3.onclick = function () {
     btn1_student.click()
 }
 
-document.getElementById('btn1_student').addEventListener('click', function() {
-	 if (document.getElementById('AF_Service').style.display == 'none') {
-		 document.getElementById('AF_Service').style.display = '';
-		 document.getElementById('idstudent').value = document.getElementById('id_type_for_chat').value;
-		 getidstudent.click()
-	 }
-})
-
-document.getElementById('btn_hide').addEventListener('click', function() {
-	 if (document.getElementById('AF_Service').style.display == '') {
-		 clearservinfo
-		 document.getElementById('AF_Service').style.display = 'none';
-
-	 }
-})
- 
 
 button4.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
@@ -2591,6 +2605,7 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button2)
+				btn.appendChild(buttonservstud)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -2606,7 +2621,9 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button3)
+				btn.appendChild(buttonserv)
             }
+			
 
         //    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
         //       btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
