@@ -317,14 +317,16 @@ function maxLengthCheck(object) // функция ограничения кол-
   }
  
 function openmenu() {
-    document.getElementById("upmenu").style.display = '';
-}  
-
+    if (document.getElementById("upmenu").style.display = 'none') {
+        document.getElementById("upmenu").style.display = ''
+    }else{
+        document.getElementById("upmenu").style.display = 'none'
+    }
+}
 window.onclick = function(e) {
     if (!e.target.matches('.menubtn')) {
-      var mymenu = document.getElementById("upmenu");
-        if (mymenu.style.display = '') {
-          mymenu.style.display = 'none';
+      if (document.getElementById("upmenu").style.display = '') {
+        document.getElementById("upmenu").style.display = 'none';
         }
     }
   }
