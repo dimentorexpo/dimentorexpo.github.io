@@ -1262,7 +1262,20 @@ document.getElementById('getidstudent').onclick = function () {
 		if (infres.total > 0) {
 			document.getElementById('ChatStatus').style.display = "";
 			document.getElementById('ChatStatus').textContent = "💌";
-			convid = testo.items[0].conversationId
+			convid = testo.items[0].conversationId.textContent;
+			
+			document.getElementById('ChatStatus').onclick = function () {
+				
+				if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+				hide_or_display.click()
+						document.getElementById('chat_id').value = convid;
+				
+				search.click()
+			 } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+						document.getElementById('chat_id').value = convid;
+				search.click()
+				}
+			}
 
 		} else if (infres.total == 0) {
 			document.getElementById('ChatStatus').style.display = "";
@@ -1275,18 +1288,7 @@ document.getElementById('getidstudent').onclick = function () {
 
 }
 
-document.getElementById('ChatStatus').onclick = function () {
-	
-	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-    hide_or_display.click()
-            document.getElementById('chat_id').value = convid;
-    
-    search.click()
- } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-            document.getElementById('chat_id').value = convid;
-	search.click()
-	}
-}
+
 
 
 document.getElementById('clearservinfo').onclick = function() {
