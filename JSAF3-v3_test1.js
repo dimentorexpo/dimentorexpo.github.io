@@ -315,7 +315,7 @@ function maxLengthCheck(object) // функция ограничения кол-
     if (object.value.length > object.maxLength)
       object.value = object.value.slice(0, object.maxLength)
   }
-
+ 
 function openmenu() {
     document.getElementById("upmenu").style.display = '';
 }  
@@ -328,7 +328,9 @@ window.onclick = function(e) {
         }
     }
   }
-
+  window.onload = function() {
+    document.getElementById('upmenu').style.display = 'none';
+  } 
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
@@ -697,8 +699,6 @@ let scrptmn = document.createElement('div'); // создание окна ссы
 document.body.append(scriptmenu);
 scrptmn.setAttribute('id', 'scriptmen');
 scrptmn.innerHTML = scriptmenu;
-//document.getElementById('upmenu').style.display = 'none';
-//document.getElementById('upmenu1').style.display = 'none'
 
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
