@@ -504,7 +504,7 @@ document.getElementById('btn1_student').onclick = function() {
 
 document.getElementById('btn_hide').onclick = function() {
 	 if (document.getElementById('AF_Service').style.display == '') {
-		 clearservinfo.click();
+		 clearservinfo
 		 document.getElementById('AF_Service').style.display = 'none';
 
 	 }
