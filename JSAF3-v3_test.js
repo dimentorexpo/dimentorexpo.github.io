@@ -1262,8 +1262,17 @@ document.getElementById('getidstudent').onclick = function () {
 		if (infres.total > 0) {
 			document.getElementById('ChatStatus').style.display = "";
 			document.getElementById('ChatStatus').textContent = "💌";
-			convid = testo.items[0].conversationId.textContent;
-			
+			convid = infres.items[0].conversationId;
+		} else if (infres.total == 0) {
+			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "🚫";
+		}
+		
+	}, 1000)
+	
+
+}
+
 			document.getElementById('ChatStatus').onclick = function () {
 				
 				if (document.querySelector('#hide_or_display').textContent != "свернуть") {
@@ -1276,20 +1285,6 @@ document.getElementById('getidstudent').onclick = function () {
 				search.click()
 				}
 			}
-
-		} else if (infres.total == 0) {
-			document.getElementById('ChatStatus').style.display = "";
-			document.getElementById('ChatStatus').textContent = "🚫";
-		}
-		
-	}, 1000)
-	
-	
-
-}
-
-
-
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
