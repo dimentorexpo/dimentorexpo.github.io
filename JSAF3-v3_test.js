@@ -496,7 +496,7 @@ button3.onclick = function () {
 
 document.getElementById('btn1_student').onclick = function() {
 	 if (document.getElementById('AF_Service').style.display == 'none') {
-		 document.getElementById('AF_Service').style.display == '';
+		 document.getElementById('AF_Service').style.display = '';
 		 document.getElementById('idstudent').value = document.getElementById('id_type_for_chat').value;
 		 getidstudent.click()
 	 }
