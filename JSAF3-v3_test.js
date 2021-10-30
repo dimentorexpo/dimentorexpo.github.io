@@ -1244,6 +1244,8 @@ document.getElementById('getidstudent').onclick = function () {
 	
 	setTimeout(async function() {
 		let tempvariable = document.getElementById('idstudent').value;
+		if (document.getElementById('ChatStatus').style.display ="";)
+		document.getElementById('ChatStatus').style.display ="none";
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
 			"content-type": "application/json",
