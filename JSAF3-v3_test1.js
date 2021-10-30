@@ -297,8 +297,8 @@ var scriptmenu = // меню для ссылок
                 </svg>
             </span>
         </button>
-        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft " style="overflow: hidden; min-width: 110px; left: 1385px; top: 52px;">
-    	<ul class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0">
+        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft " style="display: none; min-width: 110px; left: 1385px; top: 52px;">
+    	<ul class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" style="display: none" role="menu" tabindex="0">
 	    	<li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">Русский</li>
 		    <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">English</li>
 	    </ul> 
