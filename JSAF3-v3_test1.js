@@ -548,6 +548,32 @@ hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
 hashBut.style.marginRight = "15px";
 
+let scriptmenu = document.createElement('div');
+scriptmenu.id = 'scriptmenu';
+scriptmenu.innerHTML = "Меню";
+scriptmenu.setAttribute('class','ant-btn ant-dropdown-trigger ant-dropdown-open');
+scriptmenu.style.marginRight = "15px";
+scriptmenu.style.display = '';
+
+function openmenu() {
+    document.getElementById("scriptmenu").classList.toggle("show");
+}
+
+/*
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+  
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+*/
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
