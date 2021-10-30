@@ -561,15 +561,12 @@ hashBut.innerHTML = "Хэш"
 hashBut.style.marginRight = "15px";
 
 
+
+let scrmn = document.createElement('div');
+scriptmenu.id = 'scrmn';
+
+
 /*
-let scriptmenu = document.createElement('div');
-scriptmenu.id = 'scriptmenu';
-scriptmenu.innerHTML = "Меню";
-scriptmenu.setAttribute('class','ant-btn ant-dropdown-trigger ant-dropdown-open');
-scriptmenu.style.marginRight = "15px";
-scriptmenu.style.display = '';
-
-
 function openmenu() {
     document.getElementById("scriptmenu").classList.toggle("show");
 }
@@ -4166,13 +4163,13 @@ function firstLoadPage() {
         setTimeout(move_again_AF, 3500)
 
         setTimeout(function () {
-//            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
 //            btnAdd1 = document.querySelectorAll('.app-body-content-user_menu')[0].childNodes[0]
-            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].children[0]
-            btnAdd1.insertBefore(scriptmenu, btnAdd1.children[0])
+//            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].children[0]
+            btnAdd1.insertBefore(scrmn, btnAdd1.children[0])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
-
+            getElementById('scrmn').append(scriptmenu)
         }, 2000)
 
         setInterval(startTimer, 1000)
