@@ -54,10 +54,7 @@ function mystyles() {
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
-	}
-    .show {
-        display: block;
-    }`
+	}`
     mstl.innerHTML = style;
 }
 
@@ -300,7 +297,7 @@ var scriptmenu = // меню для ссылок
                 </svg>
             </span>
         </button>
-        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft " style="display: block; min-width: 110px; left: 1385px; top: 52px;">
+        <div id="upmenu" class="ant-dropdown ant-dropdown-placement-bottomLeft " style="display: none; min-width: 110px; left: 1385px; top: 52px;">
     	<ul class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0">
 	    	<li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">Русский</li>
 		    <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem">English</li>
@@ -320,14 +317,14 @@ function maxLengthCheck(object) // функция ограничения кол-
   }
 
 function openmenu() {
-    document.getElementById("upmenu").classList.toggle("show");
+    document.getElementById("upmenu").style.display = '';
 }  
 
 window.onclick = function(e) {
     if (!e.target.matches('.menubtn')) {
       var mymenu = document.getElementById("upmenu");
-        if (mymenu.classList.contains('show')) {
-          mymenu.classList.remove('show');
+        if (mymenu.style.display = '') {
+          mymenu.style.display = 'none';
         }
     }
   }
