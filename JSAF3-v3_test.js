@@ -375,7 +375,7 @@ buttonsetteacheridfromstudent.style.border = "1px solid black";
 buttonsetteacheridfromstudent.style.borderRadius = "10px";
 
 let getidusrteach
-buttonsetteacheridtouserfield.onclick = function() {
+buttonsetteacheridtouserfield.addEventListener('click', function() {
 	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
 					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -389,11 +389,11 @@ buttonsetteacheridtouserfield.onclick = function() {
 				}
 				
 	}
-}
+})
 
 
 let getidusrstud;
-buttonsetstudentidandservicetouserfield.onclick = function() {
+buttonsetstudentidandservicetouserfield.addEventListener('click', function() {
 	
 	
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -401,11 +401,11 @@ buttonsetstudentidandservicetouserfield.onclick = function() {
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 											copyToClipboard1(getidusrstud)
 			}
-}
+})
 
 
 let getidusrsteach;
-buttonsetteacheridfromstudent.onclick = function() {
+buttonsetteacheridfromstudent.addEventListener('click', function() {
 	
 	
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -413,7 +413,7 @@ buttonsetteacheridfromstudent.onclick = function() {
             getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 											copyToClipboard1(getidusrsteach)
 			}
-}
+})
 
 
 
