@@ -324,7 +324,6 @@ function openmenu (){
     }
 }
 
-document.getElementById()
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
