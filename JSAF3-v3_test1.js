@@ -321,9 +321,9 @@ function openmenu(){
         document.getElementById("upmenu").style.display = 'none'
     }
 }
-/*
+
 window.onclick = function(event) {
-    if (!event.target.matches('.user_menu')) {
+    if (!event.target.matches('.ant-dropdown-open')) {
       var dropdowns = document.getElementsByClassName("ant-dropdown-menu");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
@@ -334,7 +334,7 @@ window.onclick = function(event) {
       }
     }
   }
-*/
+
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
