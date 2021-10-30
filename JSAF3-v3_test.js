@@ -1274,6 +1274,7 @@ document.getElementById('getidstudent').onclick = function () {
 }
 
 			document.getElementById('ChatStatus').onclick = function () {
+				if(document.getElementById('ChatStatus').textContent == "💌") {
 				
 				if (document.querySelector('#hide_or_display').textContent != "свернуть") {
 				hide_or_display.click()
@@ -1283,7 +1284,8 @@ document.getElementById('getidstudent').onclick = function () {
 			 } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
 						document.getElementById('chat_id').value = convid;
 				search.click()
-				}
+				} 
+				} else { console.log("No chat with user!!!")}
 			}
 
 document.getElementById('clearservinfo').onclick = function() {
