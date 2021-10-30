@@ -323,7 +323,7 @@ function openmenu(){
 }
 
 window.onclick = function(event) {
-    if (!event.target.matches('.ant-dropdown-open') || !event.target.matches('.user_menu-status-name')) {
+    if (!event.target.matches('.ant-dropdown-open') && !event.target.matches('.user_menu-status-name')) {
       var dropdowns = document.getElementsByClassName("ant-dropdown-menu");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
