@@ -317,7 +317,7 @@ function maxLengthCheck(object) // функция ограничения кол-
   }
  
 
-menubtn.onclick = function (){
+document.getElementById('menubtn').onclick = function (){
     if (document.getElementById("upmenu").style.display = 'none') {
         document.getElementById("upmenu").style.display = ''
     }else{
