@@ -1194,7 +1194,7 @@ document.getElementById('getidstudent').onclick = function () {
                 arrservice += servicearr.data[i].id + ", "
             } else { console.log("Услуга некорректна, потеряна или без учителя") }
         }
-
+ 
         if (temtinfo == "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo != "") {
