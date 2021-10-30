@@ -4186,7 +4186,7 @@ buttonsetteacheridtouserfield.addEventListener('click', async function() {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
 										{
 										getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-											await copyToClipboard1(getidusrteachreq)	
+											copyToClipboard1(getidusrteachreq)	
 										}
 					  }
 				}
@@ -4199,7 +4199,7 @@ buttonsetstudentidandservicetouserfield.addEventListener('click', async function
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-											await copyToClipboard1(getidusrstud)
+											copyToClipboard1(getidusrstud)
 			}
 })
  
@@ -4208,7 +4208,7 @@ buttonsetteacheridfromstudent.addEventListener('click', function() {
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-									await copyToClipboard1(getidusrsteach)
+									copyToClipboard1(getidusrsteach)
 			}
 })
 
