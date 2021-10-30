@@ -384,46 +384,7 @@ buttonsetteacheridfromstudent.style.marginLeft = "2px";
 buttonsetteacheridfromstudent.style.border = "1px solid black";
 buttonsetteacheridfromstudent.style.borderRadius = "10px";
 
-let getidusrteachreq;
-buttonsetteacheridtouserfield.addEventListener('click', function() {
-	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
-					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
-							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
-										{
-											getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-											copyToClipboard1(getidusrteachreq)
-										
-										}
-					  }
-				}
-				
-	}
-})
 
-
-let getidusrstud;
-buttonsetstudentidandservicetouserfield.addEventListener('click', function() {
-	
-	
-	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-											copyToClipboard1(getidusrstud)
-			}
-})
-
-
-let getidusrsteach;
-buttonsetteacheridfromstudent.addEventListener('click', function() {
-	
-	
-	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-											copyToClipboard1(getidusrsteach)
-			}
-})
 
  
 let template_flag = 0
@@ -4221,6 +4182,47 @@ function hesoyam() {
     newDiv.append(button)
     document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
 }
+
+let getidusrteachreq;
+buttonsetteacheridtouserfield.addEventListener('click', function() {
+	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
+					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
+							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
+										{
+											getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
+											copyToClipboard1(getidusrteachreq)
+										
+										}
+					  }
+				}
+				
+	}
+})
+
+
+let getidusrstud;
+buttonsetstudentidandservicetouserfield.addEventListener('click', function() {
+	
+	
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+											copyToClipboard1(getidusrstud)
+			}
+})
+ 
+
+let getidusrsteach;
+buttonsetteacheridfromstudent.addEventListener('click', function() {
+	
+	
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+											copyToClipboard1(getidusrsteach)
+			}
+})
 
 function toUTF8Array(str) {
     var utf8 = [];
