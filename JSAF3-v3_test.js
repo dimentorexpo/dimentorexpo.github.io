@@ -502,6 +502,14 @@ document.getElementById('btn1_student').onclick = function() {
 	 }
 }
 
+document.getElementById('btn_hide').onclick = function() {
+	 if (document.getElementById('AF_Service').style.display == '') {
+		 clearservinfo.click();
+		 document.getElementById('AF_Service').style.display = 'none';
+
+	 }
+}
+
 
 button4.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
