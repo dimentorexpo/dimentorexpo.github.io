@@ -289,7 +289,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 
 var scriptmenu = // описание меню для ссылок
     `<div style="max-width: 110px"class="sc-AxhUy fxWvvr user_menu-language_switcher">
-        <button id="menubtn" type="button" class="ant-btn ant-dropdown-trigger ant-dropdown-open" ant-click-animating-without-extra-node="false" >
+        <button id="menubtn" type="button" class="ant-btn ant-dropdown-trigger ant-dropdown-open" ant-click-animating-without-extra-node="false" onclick="openmenu ()">
             <span class="user_menu-status-name">Меню</span>
             <span role="img" aria-label="down" type="down" class="anticon anticon-down user_menu-dropdown-icon">
                 <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
@@ -316,7 +316,7 @@ function maxLengthCheck(object) // функция ограничения кол-
       object.value = object.value.slice(0, object.maxLength)
   }
  
-/*
+
 function openmenu (){
     if (document.getElementById("upmenu").style.display = 'none') {
         document.getElementById("upmenu").style.display = ''
@@ -324,7 +324,6 @@ function openmenu (){
         document.getElementById("upmenu").style.display = 'none'
     }
 }
-*/
 
 document.getElementById()
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
@@ -674,14 +673,6 @@ let scrptmn = document.createElement('div'); // создание окна ссы
 document.body.append(scriptmenu);
 scrptmn.setAttribute('id', 'scriptmen');
 scrptmn.innerHTML = scriptmenu;
-
-document.getElementById('menubtn').onclick = function (){
-    if (document.getElementById("upmenu").style.display = 'none') {
-        document.getElementById("upmenu").style.display = ''
-    }else{
-        document.getElementById("upmenu").style.display = 'none'
-    }
-}
 
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
