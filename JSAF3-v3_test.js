@@ -4185,7 +4185,7 @@ buttonsetteacheridtouserfield.addEventListener('click', async function() {
 					  for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
 							if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id")
 										{
-										getidusrteachreq = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
+										getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
 											await copyToClipboard1(getidusrteachreq)	
 										}
 					  }
@@ -4198,7 +4198,7 @@ let getidusrstud;
 buttonsetstudentidandservicetouserfield.addEventListener('click', async function() {	
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-           getidusrstud = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+           getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 											await copyToClipboard1(getidusrstud)
 			}
 })
@@ -4207,7 +4207,7 @@ let getidusrsteach;
 buttonsetteacheridfromstudent.addEventListener('click', function() {	
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-           getidusrsteach = await document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+           getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 									await copyToClipboard1(getidusrsteach)
 			}
 })
