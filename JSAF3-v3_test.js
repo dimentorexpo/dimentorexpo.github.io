@@ -2570,14 +2570,9 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button2)
+				btn.appendChild(buttonservstud) 
 
             }
-			
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent != "teacher"  && document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-				btn.appendChild(buttonservstud) 
-				
-			}  else { console.log("teacher")}
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
