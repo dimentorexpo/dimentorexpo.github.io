@@ -298,9 +298,7 @@ var scriptmenu = // описание меню для ссылок
             </span>
         </button>
         <div class="ant-dropdown ant-dropdown-placement-bottomLeft" style="min-width: 110px; left: 1055px; top: 52px;">
-    	<ul id="upmenu" style="display: none" class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0">
-	    	<li >Пункт1</li>
-		    <li >Пункт2</li>
+    	<ul id="upmenu" style="display: none" class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical" role="menu" tabindex="0" onclick="openmenu()">
 	    </ul> 
     </div>
 </div>`;
@@ -4145,7 +4143,7 @@ function prepTp() {
         // Модуль репорта на жалобы
         // include("https://dimentorexpo.github.io/reportForm.js"); пока работает не правильно, временно отключаю.
         // Модуль репорта на Отписку
-        include("https://dimentorexpo.github.io/unsub.js")
+        include("https://dimentorexpo.github.io/unsub1.js")
        
 		// include("https://dimentorexpo.github.io/ChangeServiceLocale.js") // модуль кнопки в инфо о пользователе позволяющее поменять локаль ученика
 		include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
