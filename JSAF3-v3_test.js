@@ -1259,10 +1259,10 @@ document.getElementById('getidstudent').onclick = function () {
 		  "mode": "cors",
 		  "credentials": "include"
 		}).then(r => r.json()).then(data => infres = data)
-		if (infres.total>0) {
+		if (infres.total > 0) {
 			document.getElementById('ChatStatus').style.display = "";
-		} else {
-			document.getElementById('ChatStatus').innerText = "🚫";
+		} else if (infres.total == 0) {
+			document.getElementById('ChatStatus').textContent = "🚫";
 			document.getElementById('ChatStatus').style.display = "";
 		}
 		
