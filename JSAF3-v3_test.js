@@ -417,7 +417,6 @@ buttonsetteacheridfromstudent.addEventListener('click', function() {
 
 
 
-
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
