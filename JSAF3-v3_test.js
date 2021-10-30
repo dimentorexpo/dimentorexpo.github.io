@@ -1171,6 +1171,7 @@ document.getElementById('getidstudent').onclick = function () {
         let temtinfo = ""; // инфо о временном П
         let servinfo = ""; //инфо об услуге
         let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
+		let tempvariable = document.getElementById('idstudent').value;
         for (let i = 0; i < servicearr.data.length; i++) {
             if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null &&  servicearr.data[i].temporaryTeacher == null) {
 
@@ -1243,7 +1244,7 @@ document.getElementById('getidstudent').onclick = function () {
     setTimeout(getServInfo, 1000)
 	
 	setTimeout(async function() {
-		let btst = await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
 			"content-type": "application/json",
 			"sec-fetch-dest": "empty",
@@ -1252,14 +1253,14 @@ document.getElementById('getidstudent').onclick = function () {
 		  },
 		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"13473246\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\""+tempvariable+"\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
-		})
-		if (btst.total>0) {
+		}).then(r => r.json()).then(data => infres = data)
+		if (infres.total>0) {
 			document.getElementById('ChatStatus').style.display = "";
-		} else if (btst.total = 0) {
+		} else if (infres.total = 0) {
 			document.getElementById('ChatStatus').innerText = "🚫";
 			document.getElementById('ChatStatus').style.display = "";
 		}
