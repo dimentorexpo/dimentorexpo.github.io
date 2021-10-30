@@ -334,9 +334,13 @@ button3.innerHTML = "Info";
 let buttonserv = document.createElement('p');
 buttonserv.id = 'nextStudentServiceInfo';
 buttonserv.innerHTML = "⚜";
+buttonserv.style.width = "20px";
+buttonserv.style.cursor = "pointer";
 let buttonservstud = document.createElement('p');
 buttonservstud.id = 'nextStudentServiceInfo';
 buttonservstud.innerHTML = "⚜";
+buttonservstud.style.width = "20px";
+buttonservstud.style.cursor = "pointer";
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
@@ -2605,8 +2609,14 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button2)
-				btn.appendChild(buttonservstud)
+
             }
+			
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent != "teacher") {
+				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+				btn.appendChild(buttonservstud) 
+				
+			}
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
