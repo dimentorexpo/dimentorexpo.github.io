@@ -2826,6 +2826,7 @@ function newTaggg(tagName) {
 
 
 function addbuttonsintegration() {
+	if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
 		if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
@@ -2865,6 +2866,7 @@ buttonsetteacheridfromstudent.addEventListener('click', function() {
 									copyToClipboard1(getidusrsteach)
 			}
 })
+}
 }
 setInterval(addbuttonsintegration, 1000)
 
