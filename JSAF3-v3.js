@@ -269,6 +269,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button id="GotoCRM" style="width:50px;">CRM</button>
+                                <button id="ChatStatus" style="width:30px; display:none;"></button>
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
@@ -1240,12 +1241,40 @@ document.getElementById('getidstudent').onclick = function () {
     }
 
     setTimeout(getServInfo, 1000)
+	
+	setTimeout(async function() {
+		let tempvariable = document.getElementById('idstudent').value;
+		document.getElementById('ChatStatus').style.display ="none";
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\""+tempvariable+"\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r => r.json()).then(data => infres = data)
+		if (infres.total > 0) {
+			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "💌";
+		} else if (infres.total == 0) {
+			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "🚫";
+		}
+		
+	}, 1000)
 
 }
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
 	document.getElementById('servicetable').innerHTML ="";
+	document.getElementById('ChatStatus').style.display ="none";
 	
 }
 	         
