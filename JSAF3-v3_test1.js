@@ -684,7 +684,6 @@ let scrptmn = document.createElement('div'); // создание окна ссы
 document.body.append(scriptmenu);
 scrptmn.setAttribute('id', 'scriptmen');
 scrptmn.innerHTML = scriptmenu;
-document.getElementById('upmenu').style.display = 'none';
 
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
