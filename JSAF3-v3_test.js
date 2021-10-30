@@ -1171,7 +1171,6 @@ document.getElementById('getidstudent').onclick = function () {
         let temtinfo = ""; // инфо о временном П
         let servinfo = ""; //инфо об услуге
         let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
-		let tempvariable = document.getElementById('idstudent').value;
         for (let i = 0; i < servicearr.data.length; i++) {
             if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null &&  servicearr.data[i].temporaryTeacher == null) {
 
@@ -1244,6 +1243,7 @@ document.getElementById('getidstudent').onclick = function () {
     setTimeout(getServInfo, 1000)
 	
 	setTimeout(async function() {
+		let tempvariable = document.getElementById('idstudent').value;
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
 			"content-type": "application/json",
