@@ -280,7 +280,7 @@ buttonOpenForm.onclick = function() {
 	this.style.display = 'none'
 }
 var btnAdd = document.getElementById('upmenu')
-btnAdd.appendChild(buttonOpenForm1, btnAdd)
+btnAdd.appendChild(buttonOpenForm, btnAdd)
 function submitSlackView(view) {
 	console.log(view)
 	let client_token = Number(new Date())
