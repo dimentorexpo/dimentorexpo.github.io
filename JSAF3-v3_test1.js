@@ -679,6 +679,11 @@ hashBut.onclick = function () {
     }
 
 }
+let scrptmn = document.createElement('div'); // создание окна ссылок
+document.body.append(scriptmenu);
+wintJira.setAttribute('id', 'scriptmen');
+wintJira.innerHTML = scriptmenu;
+
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
 wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -4166,7 +4171,7 @@ function firstLoadPage() {
 //            btnAdd1 = document.querySelectorAll('.app-body-content-user_menu')[0].childNodes[0]
 //            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].children[0]
 //            btnAdd1.insertBefore(scrmn, btnAdd1.children[0])
-            btnAdd1.insertAdjacentElement('beforeBegin', scriptmenu)
+            btnAdd1.insertAdjacentElement('beforeBegin', scriptmen)
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
 //            document.getElementById('scrmn').appendChild(scriptmenu)
