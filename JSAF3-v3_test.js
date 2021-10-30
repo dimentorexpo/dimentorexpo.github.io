@@ -1134,7 +1134,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-	
+let convid;	
 document.getElementById('getidstudent').onclick = function () {
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
@@ -1262,14 +1262,32 @@ document.getElementById('getidstudent').onclick = function () {
 		if (infres.total > 0) {
 			document.getElementById('ChatStatus').style.display = "";
 			document.getElementById('ChatStatus').textContent = "💌";
+			convid = testo.items[0].conversationId
+
 		} else if (infres.total == 0) {
 			document.getElementById('ChatStatus').style.display = "";
 			document.getElementById('ChatStatus').textContent = "🚫";
 		}
 		
 	}, 1000)
+	
+	
 
 }
+
+document.getElementById('ChatStatus').onclick = function () {
+	
+	if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+    hide_or_display.click()
+            document.getElementById('chat_id').value = convid;
+    
+    search.click()
+ } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+            document.getElementById('chat_id').value = convid;
+	search.click()
+	}
+}
+
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
