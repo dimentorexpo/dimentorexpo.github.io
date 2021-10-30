@@ -317,7 +317,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
  
 
 function openmenu(){
-    if (document.getElementById("upmenu").style.display = 'none') {
+    if (document.getElementById("upmenu").style.display == 'none') {
         document.getElementById("upmenu").style.display = '';
     }else{
         document.getElementById("upmenu").style.display = 'none'
