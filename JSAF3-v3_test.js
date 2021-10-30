@@ -2612,7 +2612,7 @@ function startTimer() {
 
             }
 			
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent != "teacher") }
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent != "teacher") {
 				btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
 				btn.appendChild(buttonservstud) 
 				
