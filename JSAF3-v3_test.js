@@ -272,6 +272,8 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
+								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF" id="getcurrentstatus"></span>
+
 								
                         </div>
 						
@@ -1278,6 +1280,7 @@ document.getElementById('getidstudent').onclick = function () {
 		let tempvarcrm = document.getElementById('idstudent').value;
 		let getcrmstatusinfo;
 		document.getElementById('CrmStatus').style.display ="none";
+		document.getElementById('getcurrentstatus').style.display ="none";
 		
 		 document.getElementById('responseTextarea1').value = `{
 				  "headers": {
@@ -1306,6 +1309,8 @@ document.getElementById('getidstudent').onclick = function () {
 		let flagtpout=0;
 		let flagtp=0;
 		let flagnottp=0;
+		let flagstatuswait;
+		let flagstatusprocessing;
 		if (getcrmstatusinfo.data.length > 0) {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
 				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
@@ -1316,6 +1321,22 @@ document.getElementById('getidstudent').onclick = function () {
 					flagnottp = 1;
 				}
 				}
+				
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+					flagstatuswait = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+					flagstatusprocessing = 1;
+				}
+			}
+			
+			if(flagstatuswait == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="В ожидании"
+			} else (flagstatusprocessing == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="Решается"
+			}
 				
 				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
 				 document.getElementById('CrmStatus').style.display = "";
