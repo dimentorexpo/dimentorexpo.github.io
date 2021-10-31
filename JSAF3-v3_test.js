@@ -1342,7 +1342,10 @@ document.getElementById('getidstudent').onclick = function () {
 				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
 				}
 
-		} else { console.log("No DATA"); 
+		} else {
+		document.getElementById('CrmStatus').style.display = "";
+		document.getElementById('CrmStatus').innerText ="📵"; 
+		console.log("No DATA"); 
 		}
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 		
