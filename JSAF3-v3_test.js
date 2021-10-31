@@ -144,26 +144,26 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает известные мобильные баги на платформе" id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
-					<button id="timetable" style="width:105px">TimeTable</button>
-					<button id="talksadm" style="width:105px">Talks</button>
-					<button id="billingadm" style="width:105px">Начислятор</button>
-					<button id="compens" style="width:105px">Компенсация</button>
-					<button id="CMS" style="width:105px">CMS</button>
-					<button id="useradm" style="width:105px; margin-top: 3px">Админка</button>
-					<button id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
-					<button id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
-					<button id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
-					<button id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
-					<button id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
-					<button id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button id="kcerrors" style="width:105px; margin-top: 3px">Ошибки КЦ</button>
-					<button id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
-					<button id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
-					<button id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
-					<button id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
-					<button id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
+					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
+					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
+					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
+					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
+					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
+					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
+					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
+					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
+					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
+					<button title="Открывает новый TRM 2.0 с инфой о преподавателях" id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
+					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
+					<button title="Открывает форму по аппеляции негативных оценок (<4), если вы считаете их необоснованными" id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
+					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
+					<button title="открывает форму для внесения ошибок операторов КЦ" id="kcerrors" style="width:105px; margin-top: 3px">Ошибки КЦ</button>
+					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
+					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
+					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
+					<button title="Открывает сайт для проверки характеристик мобильных устройств" id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
+					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
+					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
 				</div>	
 
 				<div style="margin: 5px; width: 550px" id="links_box">
@@ -202,10 +202,10 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				
 				<div style="margin: 5px; width: 550px" id="links_butd">	
-					<button id="restartlesson" style="width:105px">Redo MAT💾</button>
-					<button id="enableNS" style="width:105px">Enable NS💾</button>
-					<button id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.40</button>
-			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.37</button>
+					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:105px">Redo MAT💾</button>
+					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:105px">Enable NS💾</button>
+					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.40</button>
+			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.37</button>
 				</div>		
 			</span>
 	</span>
@@ -216,7 +216,7 @@ var win_Jira =  // описание элементов окна ссылок
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 550;" id="jira_1str">
-                                <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
+                                <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="height:400px; margin-left:5px; overflow:auto"></p>
@@ -243,11 +243,11 @@ var win_Stat =  // описание элементов окна ссылок
 						</div>
 												
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
-							 <button id="getstatfromperiod">Получить статистику</button>
-							 <button id="getlowcsat">Чаты с КСАТ<4</button>
-							 <button id="parsechat">Найти по комменту</button>
-							 <button id="clearall">Очистить</button>
-							 <button id="getfile">🔰</button>
+							 <button title="Получает статистику, считает среднюю оценку всех чатов за период, и отображает чаты без тематики" id="getstatfromperiod">Получить статистику</button>
+							 <button title="Получает чаты с ксат <4 и выводит их в поле для просмотра и аппеляции" id="getlowcsat">Чаты с КСАТ<4</button>
+							 <button title="Запускает поиск по комментарию в заметке, поиск точный и чувствительный к регистру и языку заметки" id="parsechat">Найти по комменту</button>
+							 <button title="очищает значения поля" id="clearall">Очистить</button>
+							 <button title="загружает полученные результаты как для Чаты с ксат <4 так и для чатов с комментариями в виде HTML файла" id="getfile">🔰</button>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
@@ -267,15 +267,15 @@ var win_serviceinfo =  // описание элементов окна ссыл�
         <span style="width: 300px">
                 <span style="cursor: -webkit-grab;">
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
-                                <button id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
-                                <button id="GotoCRM" style="width:50px;">CRM</button>
-                                <button id="ChatStatus" style="width:30px; display:none;"></button>
+                                <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
+                                <button title="открвает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
+                                <button title="отображает статус, 💌 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
-				       	<button id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
-				       	<button id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
+				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
+				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 						</div>
 						               
 					   </span>
