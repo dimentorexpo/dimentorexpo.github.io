@@ -1251,6 +1251,7 @@ document.getElementById('getidstudent').onclick = function () {
 	setTimeout(async function() {
 		let tempvariable = document.getElementById('idstudent').value;
 		document.getElementById('ChatStatus').style.display ="none";
+		document.getElementById('getcurrentstatus').style.display ="none";
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
 			"content-type": "application/json",
@@ -1322,12 +1323,10 @@ document.getElementById('getidstudent').onclick = function () {
 				}
 				
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
-				if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
-				//	flagstatuswait = 1;
-				flagstatusprocessing = 1;
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+					flagstatuswait = 1;
 				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
-				//	flagstatusprocessing = 1;
-				flagstatuswait = 1;
+					flagstatusprocessing = 1;
 				}
 			}
 			
@@ -1428,6 +1427,8 @@ document.getElementById('CrmStatus').onclick = function() {
 		let flagtpout=0;
 		let flagtp=0;
 		let flagnottp=0;
+		let flagstatuswait;
+		let flagstatusprocessing;
 		if (getcrmstatusinfo.data.length > 0) {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
 				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
@@ -1438,6 +1439,23 @@ document.getElementById('CrmStatus').onclick = function() {
 					flagnottp = 1;
 				}
 				}
+				
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+					flagstatuswait = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+					flagstatusprocessing = 1;
+				}
+			}
+			
+			if(flagstatuswait == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="В ожидании";
+			} else if (flagstatusprocessing == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
+			}
 				
 				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
 				 document.getElementById('CrmStatus').style.display = "";
@@ -1485,6 +1503,7 @@ document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('servicetable').innerHTML ="";
 	document.getElementById('ChatStatus').style.display ="none";
 	document.getElementById('CrmStatus').style.display ="none";
+	document.getElementById('getcurrentstatus').style.display ="none";
 	
 }
 	         
