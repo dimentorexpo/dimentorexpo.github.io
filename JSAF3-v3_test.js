@@ -269,8 +269,10 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                 <span style="cursor: -webkit-grab;">
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
-                                <button title="открвает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
+                                <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="отображает статус, 💌 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
+                                <button title="💥 - задача на исход уже создана , 📵 - нет задачи на исход" id="CrmStatus" style="width:30px; display:none;"></button>
+								
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
@@ -1268,6 +1270,42 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('ChatStatus').style.display = "";
 			document.getElementById('ChatStatus').textContent = "🚫";
 		}
+		
+	}, 1000)
+	
+	setTimeout(async function() {
+		let tempvarcrm = document.getElementById('idstudent').value;
+		let getcrmstatusinfo;
+		document.getElementById('CrmStatus').style.display ="none";
+		
+		 document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	
+	
+	setTimeout (async function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	        getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        getcrmstatusinfo = JSON.parse(servicearr);
+        console.log("Tasks info " + +getcrmstatusinfo);
+		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+		
+	}, 1000)
 		
 	}, 1000)
 	
