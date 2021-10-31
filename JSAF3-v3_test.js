@@ -63,13 +63,13 @@ var win_AFhelper =  // описание элементов главного ок
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left:25px;">hide</button>
-					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
-					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
-					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
-					<button id="servicestatus" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
-					<div id="reminderstatus" style="width:16px; float: right; margin-right: 5px"></div>
+					<button id="languageAF" title="Переключить язык Русский/Английский" style="width:100px">Русский</button>
+					<button id="hideMenu" title="Кнопка скрытия расширения и др открытых окон" style="margin-left:25px;">hide</button>
+					<button id="setting" title="Кнопка настроек расширения и включения/отключения будильника" style="width:16px; float: right; margin-right: 5px">S</button>
+					<button id="links" title="Кнопка открытия доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="addsrc" title="Кнопка открытия доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
+					<button id="servicestatus" title="Кнопка открытия доп меню проверки услуг ученика" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
+					<div id="reminderstatus" title="статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -81,9 +81,9 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<button id="msg1" style="width:100px;">Отправить</button>
+				<button title="Кнопка переключения для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
 				<button id="snd" style="width:50px; margin-left:41px">send</button>
-				<button id="msg" style="width:100px; margin-left:41px">Заметки</button>
+				<button title="кнопка для выбора отправить в заметки текст или в чат пользователю" id="msg" style="width:100px; margin-left:41px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -92,16 +92,16 @@ var win_AFhelper =  // описание элементов главного ок
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="sound_save">save</button> 
-				<button id="sound_test">test</button>
-				<button id="switcher">ВКЛ</button>
+				<button title="Кнопка сохранения ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
+				<button title="кнопка проверки звука при добавленной ссылке" id="sound_test">test</button>
+				<button title="Кнопка включения и отключения звука в АФ входящих запросов" id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
+				<input title="Введите час от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input title="Введите минуты от 1 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+				<button title="кнопка для запуска будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="clock_js" style="color: white; margin-top: 5px"></button>
-				<button id="clock_remin" title="Двойной клик = удаление таймера" style="color: lightgreen; margin-top: 5px"></button>
+				<button title="Кнопка отображения текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
+				<button title="кнопка отображения оставшегося времени" id="clock_remin" title="Двойной клик = удаление таймера" style="color: lightgreen; margin-top: 5px"></button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
