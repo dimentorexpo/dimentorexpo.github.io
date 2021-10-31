@@ -270,7 +270,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
-                                <button title="отображает статус, 💌 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
+                                <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								
                         </div>
@@ -278,8 +278,9 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
+						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
-						</div>
+				       	</div>
 						               
 					   </span>
 					   
@@ -1264,7 +1265,7 @@ document.getElementById('getidstudent').onclick = function () {
 		}).then(r => r.json()).then(data => infres = data)
 		if (infres.total > 0) {
 			document.getElementById('ChatStatus').style.display = "";
-			document.getElementById('ChatStatus').textContent = "💌";
+			document.getElementById('ChatStatus').textContent = "📧";
 			convid = infres.items[0].conversationId;
 		} else if (infres.total == 0) {
 			document.getElementById('ChatStatus').style.display = "";
@@ -1357,7 +1358,7 @@ document.getElementById('getidstudent').onclick = function () {
 }
 
 			document.getElementById('ChatStatus').onclick = function () {
-				if(document.getElementById('ChatStatus').textContent == "💌") {
+				if(document.getElementById('ChatStatus').textContent == "📧") {
 				
 				if (document.querySelector('#hide_or_display').textContent != "свернуть") {
 				hide_or_display.click()
@@ -1450,6 +1451,10 @@ document.getElementById('CrmStatus').onclick = function() {
 		
 	}, 1200)
 				
+}
+
+document.getElementById('crmactivetasks').onclick = function() {
+  window.open("https://crm2.skyeng.ru/persons/"+document.getElementById('idstudent').value + "/customer-support/list")
 }
 
 document.getElementById('clearservinfo').onclick = function() {
