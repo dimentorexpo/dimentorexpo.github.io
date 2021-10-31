@@ -1308,7 +1308,7 @@ document.getElementById('getidstudent').onclick = function () {
 				document.getElementById('CrmStatus').style.display = "";
 				document.getElementById('CrmStatus').innerText ="💥"; 
 				console.log("Есть активные задачи"); 
-				} else {
+				} else (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" || getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
 				document.getElementById('CrmStatus').style.display = "";
 				document.getElementById('CrmStatus').innerText ="📵"; 
 				console.log("Нет активных задач"); 
