@@ -1302,7 +1302,7 @@ document.getElementById('getidstudent').onclick = function () {
 	
 	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
         getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
-        console.log("Tasks info " + +getcrmstatusinfo);
+        console.log("Tasks info " + getcrmstatusinfo);
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 		
 	}, 1400)
