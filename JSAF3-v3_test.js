@@ -1301,7 +1301,7 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('sendResponse').click()
 	
 	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+      //  getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
         console.log("Tasks info " + getcrmstatusinfo.data);
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 		
