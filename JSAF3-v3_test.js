@@ -1322,7 +1322,7 @@ document.getElementById('getidstudent').onclick = function () {
 				}
 				
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
-				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+				if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
 					flagstatuswait = 1;
 				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
 					flagstatusprocessing = 1;
