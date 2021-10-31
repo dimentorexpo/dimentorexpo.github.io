@@ -1273,7 +1273,7 @@ document.getElementById('getidstudent').onclick = function () {
 		
 	}, 1000)
 	
-	setTimeout(function getCRMTsaks() {
+	setTimeout(function () {
 		let tempvarcrm = document.getElementById('idstudent').value;
 		let getcrmstatusinfo;
 		document.getElementById('CrmStatus').style.display ="none";
@@ -1368,7 +1368,83 @@ document.getElementById('getidstudent').onclick = function () {
 				} else { console.log("No chat with user!!!")}
 			}
 			
-			document.getElementById('CrmStatus').onclick = getCRMTsaks;
+document.getElementById('CrmStatus').onclick = function() {
+				
+			let tempvarcrm = document.getElementById('idstudent').value;
+			let getcrmstatusinfo;
+			document.getElementById('CrmStatus').style.display ="none";
+		
+			document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	
+	
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+		let flagtpout=0;
+		let flagtp=0;
+		let flagnottp=0;
+		if (getcrmstatusinfo.data.length > 0) {
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
+					flagtpout = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
+					flagtp = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
+					flagnottp = 1;
+				}
+				}
+				
+				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача"); 
+				} else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="📵"; 
+				 console.log("Нет активных задач по ТП линии"); 	
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии");
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
+				}
+
+		} else { console.log("No DATA"); 
+		}
+		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+		
+	}, 1200)
+				
+}
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
