@@ -270,14 +270,19 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
-                                <button title="Отображает статус, 💌 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
+                                <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
+                                <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
+								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
+
+								
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
+						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
-						</div>
+				       	</div>
 						               
 					   </span>
 					   
@@ -1164,7 +1169,7 @@ document.getElementById('getidstudent').onclick = function () {
 
         servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
         servicearr = JSON.parse(servicearr);
-        console.log(servicearr);
+        //console.log(servicearr);
         document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 
 
@@ -1246,6 +1251,7 @@ document.getElementById('getidstudent').onclick = function () {
 	setTimeout(async function() {
 		let tempvariable = document.getElementById('idstudent').value;
 		document.getElementById('ChatStatus').style.display ="none";
+		document.getElementById('getcurrentstatus').style.display ="none";
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
 			"content-type": "application/json",
@@ -1262,7 +1268,7 @@ document.getElementById('getidstudent').onclick = function () {
 		}).then(r => r.json()).then(data => infres = data)
 		if (infres.total > 0) {
 			document.getElementById('ChatStatus').style.display = "";
-			document.getElementById('ChatStatus').textContent = "💌";
+			document.getElementById('ChatStatus').textContent = "📧";
 			convid = infres.items[0].conversationId;
 		} else if (infres.total == 0) {
 			document.getElementById('ChatStatus').style.display = "";
@@ -1271,11 +1277,110 @@ document.getElementById('getidstudent').onclick = function () {
 		
 	}, 1000)
 	
+	setTimeout(function () {
+		let tempvarcrm = document.getElementById('idstudent').value;
+		let getcrmstatusinfo;
+		document.getElementById('CrmStatus').style.display ="none";
+		
+		 document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	
+	
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+		let flagtpout=0;
+		let flagtp=0;
+		let flagnottp=0;
+		let flagstatuswait;
+		let flagstatusprocessing;
+		if (getcrmstatusinfo.data.length > 0) {
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
+					flagtpout = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
+					flagtp = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
+					flagnottp = 1;
+				}
+				}
+				
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+					flagstatuswait = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+					flagstatusprocessing = 1;
+				}
+			}
+			
+			if(flagstatuswait == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="В ожидании";
+			} else if (flagstatusprocessing == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
+			}
+				
+				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача"); 
+				} else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="📵"; 
+				 console.log("Нет активных задач по ТП линии"); 	
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии");
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
+				}
+
+		} else {
+		document.getElementById('CrmStatus').style.display = "";
+		document.getElementById('CrmStatus').innerText ="📵"; 
+		console.log("No DATA"); 
+		}
+		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+		
+	}, 1200)
+		
+	}, 1100)
+	
 
 }
 
 			document.getElementById('ChatStatus').onclick = function () {
-				if(document.getElementById('ChatStatus').textContent == "💌") {
+				if(document.getElementById('ChatStatus').textContent == "📧") {
 				
 				if (document.querySelector('#hide_or_display').textContent != "свернуть") {
 				hide_or_display.click()
@@ -1288,11 +1393,118 @@ document.getElementById('getidstudent').onclick = function () {
 				} 
 				} else { console.log("No chat with user!!!")}
 			}
+			
+document.getElementById('CrmStatus').onclick = function() {
+				
+			let tempvarcrm = document.getElementById('idstudent').value;
+			let getcrmstatusinfo;
+			document.getElementById('CrmStatus').style.display ="none";
+			document.getElementById('getcurrentstatus').style.display ="none";
+		
+			document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	
+	
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+		let flagtpout=0;
+		let flagtp=0;
+		let flagnottp=0;
+		let flagstatuswait;
+		let flagstatusprocessing;
+		if (getcrmstatusinfo.data.length > 0) {
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
+					flagtpout = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
+					flagtp = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
+					flagnottp = 1;
+				}
+				}
+				
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+					flagstatuswait = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+					flagstatusprocessing = 1;
+				}
+			}
+			
+			if(flagstatuswait == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="В ожидании";
+			} else if (flagstatusprocessing == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
+			}
+				
+				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача"); 
+				} else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="📵"; 
+				 console.log("Нет активных задач по ТП линии"); 	
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии");
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
+				}
+
+		} else { 
+		document.getElementById('CrmStatus').style.display = "";
+		document.getElementById('CrmStatus').innerText ="📵"; 
+		console.log("No DATA"); 
+		}
+		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+		
+	}, 1200)
+				
+}
+
+document.getElementById('crmactivetasks').onclick = function() {
+  window.open("https://crm2.skyeng.ru/persons/"+document.getElementById('idstudent').value + "/customer-support/list")
+}
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
 	document.getElementById('servicetable').innerHTML ="";
 	document.getElementById('ChatStatus').style.display ="none";
+	document.getElementById('CrmStatus').style.display ="none";
+	document.getElementById('getcurrentstatus').style.display ="none";
 	
 }
 	         
