@@ -1273,7 +1273,7 @@ document.getElementById('getidstudent').onclick = function () {
 		
 	}, 1000)
 	
-	setTimeout(function() {
+	setTimeout(function getCRMTsaks() {
 		let tempvarcrm = document.getElementById('idstudent').value;
 		let getcrmstatusinfo;
 		document.getElementById('CrmStatus').style.display ="none";
@@ -1309,19 +1309,10 @@ document.getElementById('getidstudent').onclick = function () {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
 				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
 					flagtpout = 1;
-				// document.getElementById('CrmStatus').style.display = "";
-				// document.getElementById('CrmStatus').innerText ="💥"; 
-				// console.log("Есть активные задачи"); 
 				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
 					flagtp = 1;
-				// document.getElementById('CrmStatus').style.display = "";
-				// document.getElementById('CrmStatus').innerText ="🛠"; 
-				// console.log("Входящий звонок или с др отдела на ТП была создана задача"); 
 				} else if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
 					flagnottp = 1;
-				// document.getElementById('CrmStatus').style.display = "";
-				// document.getElementById('CrmStatus').innerText ="📵"; 
-				// console.log("Нет активных задач"); 
 				}
 				}
 				
@@ -1376,6 +1367,8 @@ document.getElementById('getidstudent').onclick = function () {
 				} 
 				} else { console.log("No chat with user!!!")}
 			}
+			
+			document.getElementById('CrmStatus').onclick = getCRMTsaks;
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
