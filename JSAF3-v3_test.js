@@ -1456,6 +1456,7 @@ document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
 	document.getElementById('servicetable').innerHTML ="";
 	document.getElementById('ChatStatus').style.display ="none";
+	document.getElementById('CrmStatus').style.display ="none";
 	
 }
 	         
