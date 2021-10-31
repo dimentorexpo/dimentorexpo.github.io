@@ -1273,7 +1273,7 @@ document.getElementById('getidstudent').onclick = function () {
 		
 	}, 1000)
 	
-	setTimeout(async function() {
+	setTimeout(function() {
 		let tempvarcrm = document.getElementById('idstudent').value;
 		let getcrmstatusinfo;
 		document.getElementById('CrmStatus').style.display ="none";
@@ -1294,7 +1294,7 @@ document.getElementById('getidstudent').onclick = function () {
 	
 	
 	
-	setTimeout (async function() {
+	setTimeout (function() {
 	document.getElementById('responseTextarea1').value = `{}`
     document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
     document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
@@ -1305,9 +1305,9 @@ document.getElementById('getidstudent').onclick = function () {
         console.log("Tasks info " + +getcrmstatusinfo);
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 		
-	}, 1000)
+	}, 1400)
 		
-	}, 1000)
+	}, 1300)
 	
 
 }
