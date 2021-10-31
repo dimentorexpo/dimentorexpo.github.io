@@ -1289,7 +1289,7 @@ document.getElementById('getidstudent').onclick = function () {
 				  "credentials": "include"
 	}`
     document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
-    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo.json()'
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
     document.getElementById('sendResponse').click()
 	
 	
@@ -1297,17 +1297,17 @@ document.getElementById('getidstudent').onclick = function () {
 	setTimeout (function() {
 	document.getElementById('responseTextarea1').value = `{}`
     document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
-    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo.json)'
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
     document.getElementById('sendResponse').click()
 	
 	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-      //  getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
         console.log("Tasks info " + getcrmstatusinfo);
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 		
-	}, 1400)
+	}, 1200)
 		
-	}, 1300)
+	}, 1100)
 	
 
 }
