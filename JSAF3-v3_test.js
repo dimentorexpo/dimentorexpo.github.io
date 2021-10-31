@@ -1332,10 +1332,11 @@ document.getElementById('getidstudent').onclick = function () {
 			
 			if(flagstatuswait == 1) {
 				document.getElementById('getcurrentstatus').style.display ="";
-				document.getElementById('getcurrentstatus').innerText ="В ожидании"
+				document.getElementById('getcurrentstatus').innerText ="В ожидании";
 			} else (flagstatusprocessing == 1) {
 				document.getElementById('getcurrentstatus').style.display ="";
-				document.getElementById('getcurrentstatus').innerText ="Решается"
+				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
 			}
 				
 				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
