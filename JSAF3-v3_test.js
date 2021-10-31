@@ -3555,6 +3555,7 @@ function customTemplates(language = '') {
 
     var buttonOpenTmpWindow = document.createElement('button')
     buttonOpenTmpWindow.innerHTML = 'tmps'
+    buttonOpenTmpWindow.title = 'Открывает окно для добавления своих шаблонов либо информации в ячейки в этом поле'
     buttonOpenTmpWindow.style.marginLeft = '7px'
     buttonOpenTmpWindow.onclick = function () {
         var a = document.getElementById('cstmTmplates')
