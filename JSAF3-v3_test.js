@@ -110,6 +110,10 @@ var win_AFhelper =  // описание элементов главного ок
 				</p>
 			</div>
 			
+			<div style="margin: 5px; width: 300px" id="testDiv">
+				<button id="takeNewChat">Взять чат</button>
+				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
+			</div>
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
@@ -1787,6 +1791,20 @@ searchCommentsByEnter.addEventListener('keydown', event => {
     }
     if (localStorage.getItem('msg1') != null) {
         document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
+    }
+
+    if (localStorage.getItem('includeTestDiv') != null) {
+        document.getElementById('testDiv').style.display = ''
+
+        setInterval(function () {
+            if (document.getElementById('howManyChats').style.display == "")
+                if (document.getElementsByClassName('user_menu-status-name')[0].innerText == "Занят")
+                    getNewChat(1)
+                else
+                    document.getElementById('howManyChats').innerHTML = ""
+        }, 10000)
+    } else {
+        document.getElementById('testDiv').style.display = 'none'
     }
 
     getText()
