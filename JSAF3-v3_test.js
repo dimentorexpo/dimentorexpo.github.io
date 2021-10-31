@@ -2886,6 +2886,11 @@ function addbuttonsintegration() {
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
       }
 	  
+
+}
+}
+setInterval(addbuttonsintegration, 1000)
+
 	  let getidusrteachreq;
 buttonsetteacheridtouserfield.addEventListener('click', async function() {
 	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2919,9 +2924,6 @@ buttonsetteacheridfromstudent.addEventListener('click', function() {
 									copyToClipboard1(getidusrsteach)
 			}
 })
-}
-}
-setInterval(addbuttonsintegration, 1000)
 
 
 
