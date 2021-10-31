@@ -1166,7 +1166,7 @@ document.getElementById('getidstudent').onclick = function () {
 
         servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
         servicearr = JSON.parse(servicearr);
-        console.log(servicearr);
+        //console.log(servicearr);
         document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 
 
@@ -1300,8 +1300,8 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
     document.getElementById('sendResponse').click()
 	
-	        getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-        getcrmstatusinfo = JSON.parse(servicearr);
+	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
         console.log("Tasks info " + +getcrmstatusinfo);
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 		
