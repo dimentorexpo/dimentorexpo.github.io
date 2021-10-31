@@ -63,13 +63,13 @@ var win_AFhelper =  // описание элементов главного ок
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" title="Переключить язык Русский/Английский" style="width:100px">Русский</button>
-					<button id="hideMenu" title="Кнопка скрытия расширения и др открытых окон" style="margin-left:25px;">hide</button>
-					<button id="setting" title="Кнопка настроек расширения и включения/отключения будильника" style="width:16px; float: right; margin-right: 5px">S</button>
-					<button id="links" title="Кнопка открытия доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
-					<button id="addsrc" title="Кнопка открытия доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
-					<button id="servicestatus" title="Кнопка открытия доп меню проверки услуг ученика" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
-					<div id="reminderstatus" title="статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
+					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
+					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
+					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:16px; float: right; margin-right: 5px">S</button>
+					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
+					<button id="servicestatus" title="Открывает доп меню проверки услуг ученика" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
+					<div id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -81,9 +81,9 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<button title="Кнопка переключения для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-				<button id="snd" style="width:50px; margin-left:41px">send</button>
-				<button title="кнопка для выбора отправить в заметки текст или в чат пользователю" id="msg" style="width:100px; margin-left:41px">Заметки</button>
+				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left:41px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:100px; margin-left:41px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -92,37 +92,33 @@ var win_AFhelper =  // описание элементов главного ок
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button title="Кнопка сохранения ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
-				<button title="кнопка проверки звука при добавленной ссылке" id="sound_test">test</button>
-				<button title="Кнопка включения и отключения звука в АФ входящих запросов" id="switcher">ВКЛ</button>
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
+				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
+				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
 				<br>
-				<input title="Введите час от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input title="Введите минуты от 1 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-				<button title="кнопка для запуска будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
+				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+				<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button title="Кнопка отображения текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
+				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
-				<button title="переключает на другой документ с шаблонами без иконов возле имен кнопок" id="type_TP">ТП</button>
+				<button title="Переключает на другой документ с шаблонами без иконок возле имен кнопок" id="type_TP">ТП</button>
 				</p>
 			</div>
 			
-			<div style="margin: 5px; width: 300px" id="testDiv">
-				<button id="takeNewChat">Взять чат</button>
-				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
-			</div>
 		</div>
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
 			<div style="display: flex; flex-wrap: wrap; margin: 5px; width:350px">
-				<button title="Кнопка открывает Кибану для проверки состояния связи на уроке" id="kibanalnksvz">Kib_Связь</button>
-				<button title="Кнопка открывает Кибану, чтобы проверить вход в ЛК" id="kibanalnklk">Kib_ЛК</button>
-				<button title="Кнопка открывает кибану, чтобы найти по хешу комнаты сервер" id="kibanalnksrv">Kib_СервХеш</button>
-				<button title="Кнопка открывает Редаш для проверки моб приложения У/П" id="redashlnk">RedashApp</button>
-				<button title="Кнопка открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk">Grafana</button>
+				<button title="Открывает Кибану для проверки состояния связи на уроке" id="kibanalnksvz">Kib_Связь</button>
+				<button title="Открывает Кибану, чтобы проверить вход в ЛК" id="kibanalnklk">Kib_ЛК</button>
+				<button title="Открывает кибану, чтобы найти по хешу комнаты сервер" id="kibanalnksrv">Kib_СервХеш</button>
+				<button title="Открывает Редаш для проверки моб приложения У/П" id="redashlnk">RedashApp</button>
+				<button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk">Grafana</button>
 			</div>
 		</div>
 		
@@ -134,14 +130,14 @@ var win_Links =  // описание элементов окна ссылок
         <span style="width: 550px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="links_1str">
-					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button id="creds" style="width:50px;">ℹ</button>
-					<button id="passappgen" style="width:50px;">📲</button>
-					<button id="knoweledgebase" style="width:50px;">📚</button>
-					<button id="datsyurl" style="width:50px;">📆</button>
-					<button id="getStats" style="width: 50px;">📋</button>
-                    <button id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
-					<button id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
+					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
+					<button title="Отображает актуальные креды к BrowserStack" id="creds" style="width:50px;">ℹ</button>
+					<button title="Открывает раздел для генерирования одноразового пароля для мобильного приложения" id="passappgen" style="width:50px;">📲</button>
+					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" style="width:50px;">📚</button>
+					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" style="width:50px;">📆</button>
+					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" style="width: 50px;">📋</button>
+                    <button title="Открывает известные баги на платформе" id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
+					<button title="Открывает известные мобильные баги на платформе" id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button id="timetable" style="width:105px">TimeTable</button>
@@ -1791,20 +1787,6 @@ searchCommentsByEnter.addEventListener('keydown', event => {
     }
     if (localStorage.getItem('msg1') != null) {
         document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
-    }
-
-    if (localStorage.getItem('includeTestDiv') != null) {
-        document.getElementById('testDiv').style.display = ''
-
-        setInterval(function () {
-            if (document.getElementById('howManyChats').style.display == "")
-                if (document.getElementsByClassName('user_menu-status-name')[0].innerText == "Занят")
-                    getNewChat(1)
-                else
-                    document.getElementById('howManyChats').innerHTML = ""
-        }, 10000)
-    } else {
-        document.getElementById('testDiv').style.display = 'none'
     }
 
     getText()
