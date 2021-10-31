@@ -1304,15 +1304,17 @@ document.getElementById('getidstudent').onclick = function () {
         getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
 		if (getcrmstatusinfo.data.length > 0) {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
-				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" || etcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" || getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
 				document.getElementById('CrmStatus').style.display = "";
 				document.getElementById('CrmStatus').innerText ="💥"; 
+				console.log("Есть активные задачи"); 
 				} else {
 				document.getElementById('CrmStatus').style.display = "";
 				document.getElementById('CrmStatus').innerText ="📵"; 
+				console.log("Нет активных задач"); 
 				}
 				}
-        console.log("Есть активные задачи"); 
+
 		} else { console.log("No DATA"); 
 		}
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
