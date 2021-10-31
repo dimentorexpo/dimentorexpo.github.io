@@ -1280,7 +1280,6 @@ document.getElementById('getidstudent').onclick = function () {
 		let tempvarcrm = document.getElementById('idstudent').value;
 		let getcrmstatusinfo;
 		document.getElementById('CrmStatus').style.display ="none";
-		document.getElementById('getcurrentstatus').style.display ="none";
 		
 		 document.getElementById('responseTextarea1').value = `{
 				  "headers": {
