@@ -1292,24 +1292,20 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
     document.getElementById('sendResponse').click()
 	
-		getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+	
+	
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
         //getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
-        console.log("Tasks info " + getcrmstatusinfo);
+        console.log("Tasks info " + getcrmstatusinfo.data);
 		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
-	
-	
-	// setTimeout (function() {
-	// document.getElementById('responseTextarea1').value = `{}`
-    // document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
-    // document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-    // document.getElementById('sendResponse').click()
-	
-	    // getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-        // getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
-        // console.log("Tasks info " + getcrmstatusinfo);
-		// document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 		
-	// }, 1400)
+	}, 1400)
 		
 	}, 1300)
 	
