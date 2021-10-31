@@ -107,6 +107,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px; width: 350px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
 				<button title="Переключает на другой документ с шаблонами без иконок возле имен кнопок" id="type_TP">ТП</button>
+				<button title="Переключает на другой документ с шаблонами с иконками возле имен кнопок" id="type_TP_new">ТП*</button>
 				</p>
 			</div>
 			
@@ -1489,6 +1490,8 @@ searchCommentsByEnter.addEventListener('keydown', event => {
         localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec')
         prepTp()
     }
+	
+	document.getElementById('type_TP_new').onclick = weWillNotBeSlaves;
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2) {
         document.getElementById('msg1').style.display = 'none'
