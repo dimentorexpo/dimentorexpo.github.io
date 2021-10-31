@@ -101,12 +101,12 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="кнопка для запуска будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
 				<button title="Кнопка отображения текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
-				<button title="кнопка отображения оставшегося времени" id="clock_remin" title="Двойной клик = удаление таймера" style="color: lightgreen; margin-top: 5px"></button>
+				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
-				<button id="type_TP">ТП</button>
+				<button title="переключает на другой документ с шаблонами без иконов возле имен кнопок" id="type_TP">ТП</button>
 				</p>
 			</div>
 			
@@ -118,11 +118,11 @@ var win_AFhelper =  // описание элементов главного ок
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
 			<div style="display: flex; flex-wrap: wrap; margin: 5px; width:350px">
-				<button id="kibanalnksvz">Kib_Связь</button>
-				<button id="kibanalnklk">Kib_ЛК</button>
-				<button id="kibanalnksrv">Kib_СервХеш</button>
-				<button id="redashlnk">RedashApp</button>
-				<button id="grafanalnk">Grafana</button>
+				<button title="Кнопка открывает Кибану для проверки состояния связи на уроке" id="kibanalnksvz">Kib_Связь</button>
+				<button title="Кнопка открывает Кибану, чтобы проверить вход в ЛК" id="kibanalnklk">Kib_ЛК</button>
+				<button title="Кнопка открывает кибану, чтобы найти по хешу комнаты сервер" id="kibanalnksrv">Kib_СервХеш</button>
+				<button title="Кнопка открывает Редаш для проверки моб приложения У/П" id="redashlnk">RedashApp</button>
+				<button title="Кнопка открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk">Grafana</button>
 			</div>
 		</div>
 		
