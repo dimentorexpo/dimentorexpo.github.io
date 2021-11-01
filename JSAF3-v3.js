@@ -1168,6 +1168,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
     }
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
+	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
     let servicearr;
@@ -1337,6 +1338,7 @@ document.getElementById('getidstudent').onclick = function () {
 		let flagnottp=0;
 		let flagstatuswait;
 		let flagstatusprocessing;
+		let opernam"";
 		if (getcrmstatusinfo.data.length > 0) {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
 				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
@@ -1353,6 +1355,7 @@ document.getElementById('getidstudent').onclick = function () {
 					flagstatuswait = 1;
 				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
 					flagstatusprocessing = 1;
+					opername = getcrmstatusinfo.data[i].operator.name;
 				}
 			}
 			
@@ -1363,6 +1366,7 @@ document.getElementById('getidstudent').onclick = function () {
 			} else if (flagstatusprocessing == 1) {
 				document.getElementById('getcurrentstatus').style.display ="";
 				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').title =opername;
 				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
 			}
 				
@@ -1427,6 +1431,7 @@ document.getElementById('CrmStatus').onclick = function() {
 			let getcrmstatusinfo;
 			document.getElementById('CrmStatus').style.display ="none";
 			document.getElementById('getcurrentstatus').style.display ="none";
+			document.getElementById('getcurrentstatus').title = "";
 		
 			document.getElementById('responseTextarea1').value = `{
 				  "headers": {

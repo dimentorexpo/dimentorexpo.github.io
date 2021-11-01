@@ -1338,7 +1338,7 @@ document.getElementById('getidstudent').onclick = function () {
 		let flagnottp=0;
 		let flagstatuswait;
 		let flagstatusprocessing;
-		let opername;
+		let opernam"";
 		if (getcrmstatusinfo.data.length > 0) {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
 				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
@@ -1355,6 +1355,7 @@ document.getElementById('getidstudent').onclick = function () {
 					flagstatuswait = 1;
 				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
 					flagstatusprocessing = 1;
+					opername = getcrmstatusinfo.data[i].operator.name;
 				}
 			}
 			
