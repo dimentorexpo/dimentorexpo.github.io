@@ -56,6 +56,7 @@ function mystyles() {
 		background: #118c4e;
 	}
     .user_menu{
+        max-width: 110px;
         background: #fafafa;
         font-size: 14px;
         cursor: pointer;
@@ -294,7 +295,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 </div>`;
 
 var scriptmenu = // описание меню для ссылок
-    `<div style="max-width: 110px height: 64px;">
+    `<div style="max-width: 110px; height: 64px;">
         <button id="menubtn" style="position: relative; top: 50%; margin: auto;" type="button" class="user_menu" onclick="openmenu()">
             <span class="user_menu">Меню</span>
             <span role="img" aria-label="down" type="down" class="user_menu">
@@ -303,8 +304,8 @@ var scriptmenu = // описание меню для ссылок
                 </svg>
             </span>
         </button>
-        <div class="auser_menu" style="min-width: 110px; left: 1055px; top: 52px;">
-    	<ul id="upmenu" style="display: none" class="user_menu" role="menu" tabindex="0" onclick="openmenu()">
+        <div class="user_menu" style="min-width: 110px; left: 1055px; top: 52px;">
+    	<ul id="upmenu" style="display: none" class="user_menu user_menu_el" role="menu" tabindex="0" onclick="openmenu()">
 	    </ul> 
     </div>
 </div>`;
@@ -329,8 +330,8 @@ function openmenu(){
 }
 
 window.onclick = function(event) {
-    if (!event.target.matches('.ant-dropdown-open') && !event.target.matches('.user_menu-status-name')) {
-      var dropdowns = document.getElementsByClassName("ant-dropdown-menu");
+    if (!event.target.matches('.user_menu')) {
+      var dropdowns = document.getElementsByClassName("user_menu_el");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
