@@ -1333,6 +1333,7 @@ document.getElementById('getidstudent').onclick = function () {
 			if(flagstatuswait == 1) {
 				document.getElementById('getcurrentstatus').style.display ="";
 				document.getElementById('getcurrentstatus').innerText ="В ожидании";
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#1E90FF";
 			} else if (flagstatusprocessing == 1) {
 				document.getElementById('getcurrentstatus').style.display ="";
 				document.getElementById('getcurrentstatus').innerText ="Решается";
