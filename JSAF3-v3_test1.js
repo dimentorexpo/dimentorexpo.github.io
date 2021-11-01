@@ -61,6 +61,12 @@ function mystyles() {
         font-size: 14px;
         cursor: pointer;
         border-radius: 2px;        
+    }
+    .user_menu_el{
+        max-width: 110px;
+        background: #fafafa;
+        font-size: 14px;
+        cursor: pointer; 
     }`
     mstl.innerHTML = style;
 }
