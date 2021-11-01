@@ -302,7 +302,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 
 var scriptmenu = // описание меню для ссылок
     `<div style="max-width: 110px; height: 64px;">
-        <button id="menubtn" style="position: relative; top: 50%; margin: auto;" type="button" class="user_menu" onclick="openmenu()">
+        <button id="menubtn" style="" type="button" class="user_menu" onclick="openmenu()">
             <span class="user_menu">Меню</span>
             <span role="img" aria-label="down" type="down" class="user_menu">
                 <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
