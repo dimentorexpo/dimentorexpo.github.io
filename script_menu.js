@@ -15,7 +15,7 @@ var scriptmenu = // описание меню для ссылок
 </div>`;
 
 
-function openmenu(){
+function openmenu(){ // открытие закрытие меню
     if (document.getElementById("upmenu").style.display == 'none') {
         document.getElementById("upmenu").style.display = '';
     }else{
@@ -40,3 +40,8 @@ window.onclick = function(event) {
   document.body.append(scriptmenu);
   scrptmn.setAttribute('id', 'scriptmen');
   scrptmn.innerHTML = scriptmenu;  
+
+  setTimeout(function () {
+    btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+    btnAdd1.insertBefore(scrptmn, btnAdd1.children[0])
+}, 2000)
