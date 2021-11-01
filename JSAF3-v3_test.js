@@ -1394,11 +1394,7 @@ document.getElementById('getidstudent').onclick = function () {
 				 document.getElementById('CrmStatus').style.display = "";
 				 document.getElementById('CrmStatus').innerText ="🛠"; 
 				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
-				} else if (flagtpout == 0 && flagtp ==0  && flagnottp == 0) {
-				 document.getElementById('CrmStatus').style.display = "";
-				 document.getElementById('CrmStatus').innerText ="📵";
-				 console.log("Нет вообще активных задач"); 				 
-				}
+				} 
 
 		} else {
 		document.getElementById('CrmStatus').style.display = "";
@@ -1522,11 +1518,7 @@ document.getElementById('CrmStatus').onclick = function() {
 				 document.getElementById('CrmStatus').style.display = "";
 				 document.getElementById('CrmStatus').innerText ="🛠"; 
 				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
-				} else if (flagtpout == 0 && flagtp ==0  && flagnottp == 0) {
-				 document.getElementById('CrmStatus').style.display = "";
-				 document.getElementById('CrmStatus').innerText ="📵";
-				 console.log("Нет вообще активных задач"); 				 
-				}
+				} 
 
 		} else { 
 		document.getElementById('CrmStatus').style.display = "";
