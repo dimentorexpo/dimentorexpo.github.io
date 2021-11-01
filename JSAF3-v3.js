@@ -1457,6 +1457,7 @@ document.getElementById('CrmStatus').onclick = function() {
 		let flagnottp=0;
 		let flagstatuswait;
 		let flagstatusprocessing;
+		let opername="";
 		if (getcrmstatusinfo.data.length > 0) {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
 				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
@@ -1473,6 +1474,7 @@ document.getElementById('CrmStatus').onclick = function() {
 					flagstatuswait = 1;
 				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
 					flagstatusprocessing = 1;
+					opername = getcrmstatusinfo.data[i].operator.name;
 				}
 			}
 			
@@ -1482,6 +1484,7 @@ document.getElementById('CrmStatus').onclick = function() {
 			} else if (flagstatusprocessing == 1) {
 				document.getElementById('getcurrentstatus').style.display ="";
 				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').title =opername;
 				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
 			}
 				
