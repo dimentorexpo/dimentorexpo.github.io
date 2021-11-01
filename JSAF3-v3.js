@@ -281,6 +281,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
+						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 				       	</div>
 						               
@@ -1049,6 +1050,31 @@ var abortTimeOut = ''								// перменная для отмены буди�
         };
         cmsstepid.value = "";
     }
+	
+	 document.getElementById('changelocalelng').onclick = function () {
+		 
+		    document.getElementById('responseTextarea1').value = `{
+		   "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+		  "method": "PUT",
+		  "mode": "cors",
+		  "credentials": "include"
+		 
+	 }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + document.getElementById('idstudent').value
+        document.getElementById('responseTextarea3').value = ''
+        document.getElementById('sendResponse').click()
+        document.getElementById('changelocalelng').innerHTML = "✅"
+        setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
+    }
+	 
 
     document.getElementById('setservicelocaleru').onclick = function () {
         document.getElementById('responseTextarea1').value = `{
