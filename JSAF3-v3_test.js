@@ -281,7 +281,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
-						<button title="Изменяет локаль на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">®</button>
+						<button title="Изменяет локаль на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 				       	</div>
 						               
@@ -1072,7 +1072,7 @@ var abortTimeOut = ''								// перменная для отмены буди�
         document.getElementById('responseTextarea3').value = ''
         document.getElementById('sendResponse').click()
         document.getElementById('changelocalelng').innerHTML = "✅"
-        setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "®" }, 2000);
+        setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
     }
 	 
 
