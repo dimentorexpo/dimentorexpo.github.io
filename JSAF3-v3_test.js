@@ -1338,7 +1338,7 @@ document.getElementById('getidstudent').onclick = function () {
 		let flagnottp=0;
 		let flagstatuswait;
 		let flagstatusprocessing;
-		let opernam"";
+		let opername="";
 		if (getcrmstatusinfo.data.length > 0) {
 			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
 				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
