@@ -63,13 +63,13 @@ var win_AFhelper =  // описание элементов главного ок
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" style="width:100px">Русский</button>
-					<button id="hideMenu" style="margin-left:25px;">hide</button>
-					<button id="setting" style="width:16px; float: right; margin-right: 5px">S</button>
-					<button id="links" style="width:16px; float: right; margin-right: 5px">L</button>
-					<button id="addsrc" style="width:16px; float: right; margin-right: 5px">*</button>
-					<button id="servicestatus" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
-					<div id="reminderstatus" style="width:16px; float: right; margin-right: 5px"></div>
+					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
+					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
+					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:16px; float: right; margin-right: 5px">S</button>
+					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
+					<button id="servicestatus" title="Открывает доп меню проверки услуг ученика" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
+					<div id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -81,9 +81,9 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<button id="msg1" style="width:100px;">Отправить</button>
-				<button id="snd" style="width:50px; margin-left:41px">send</button>
-				<button id="msg" style="width:100px; margin-left:41px">Заметки</button>
+				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left:41px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:100px; margin-left:41px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -92,21 +92,22 @@ var win_AFhelper =  // описание элементов главного ок
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="sound_save">save</button> 
-				<button id="sound_test">test</button>
-				<button id="switcher">ВКЛ</button>
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
+				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
+				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
 				<br>
-				<input id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-				<button id="setreminder" style="margin-top: 5px">SET🔔</button>
+				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+				<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
 				<br>
-				<button id="clock_js" style="color: white; margin-top: 5px"></button>
-				<button id="clock_remin" title="Двойной клик = удаление таймера" style="color: lightgreen; margin-top: 5px"></button>
+				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
+				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
 				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
-				<button id="type_TP">ТП</button>
+				<button title="Переключает на другой документ с шаблонами без иконок возле имен кнопок. После нажатия обновите страницу для применения изменений" id="type_TP">ТП</button>
+				<button title="Переключает на другой документ с шаблонами с иконками возле имен кнопок. После нажатия обновите страницу для применения изменений" id="type_TP_new">ТП*</button>
 				</p>
 			</div>
 			
@@ -118,11 +119,11 @@ var win_AFhelper =  // описание элементов главного ок
 		
 		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
 			<div style="display: flex; flex-wrap: wrap; margin: 5px; width:350px">
-				<button id="kibanalnksvz">Kib_Связь</button>
-				<button id="kibanalnklk">Kib_ЛК</button>
-				<button id="kibanalnksrv">Kib_СервХеш</button>
-				<button id="redashlnk">RedashApp</button>
-				<button id="grafanalnk">Grafana</button>
+				<button title="Открывает Кибану для проверки состояния связи на уроке" id="kibanalnksvz">Kib_Связь</button>
+				<button title="Открывает Кибану, чтобы проверить вход в ЛК" id="kibanalnklk">Kib_ЛК</button>
+				<button title="Открывает кибану, чтобы найти по хешу комнаты сервер" id="kibanalnksrv">Kib_СервХеш</button>
+				<button title="Открывает Редаш для проверки моб приложения У/П" id="redashlnk">RedashApp</button>
+				<button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk">Grafana</button>
 			</div>
 		</div>
 		
@@ -134,36 +135,36 @@ var win_Links =  // описание элементов окна ссылок
         <span style="width: 550px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="links_1str">
-					<button id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button id="creds" style="width:50px;">ℹ</button>
-					<button id="passappgen" style="width:50px;">📲</button>
-					<button id="knoweledgebase" style="width:50px;">📚</button>
-					<button id="datsyurl" style="width:50px;">📆</button>
-					<button id="getStats" style="width: 50px;">📋</button>
-                    <button id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
-					<button id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
+					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
+					<button title="Отображает актуальные креды к BrowserStack" id="creds" style="width:50px;">ℹ</button>
+					<button title="Открывает раздел для генерирования одноразового пароля для мобильного приложения" id="passappgen" style="width:50px;">📲</button>
+					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" style="width:50px;">📚</button>
+					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" style="width:50px;">📆</button>
+					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" style="width: 50px;">📋</button>
+                    <button title="Открывает известные баги на платформе" id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
+					<button title="Открывает известные мобильные баги на платформе" id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
-					<button id="timetable" style="width:105px">TimeTable</button>
-					<button id="talksadm" style="width:105px">Talks</button>
-					<button id="billingadm" style="width:105px">Начислятор</button>
-					<button id="compens" style="width:105px">Компенсация</button>
-					<button id="CMS" style="width:105px">CMS</button>
-					<button id="useradm" style="width:105px; margin-top: 3px">Админка</button>
-					<button id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
-					<button id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
-					<button id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
-					<button id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
-					<button id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
-					<button id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button id="kcerrors" style="width:105px; margin-top: 3px">Ошибки КЦ</button>
-					<button id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
-					<button id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
-					<button id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
-					<button id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
-					<button id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
+					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
+					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
+					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
+					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
+					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
+					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
+					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
+					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
+					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
+					<button title="Открывает новый TRM 2.0 с инфой о преподавателях" id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
+					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
+					<button title="Открывает форму по аппеляции негативных оценок (<4), если вы считаете их необоснованными" id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
+					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
+					<button title="открывает форму для внесения ошибок операторов КЦ" id="kcerrors" style="width:105px; margin-top: 3px">Ошибки КЦ</button>
+					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
+					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
+					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
+					<button title="Открывает сайт для проверки характеристик мобильных устройств" id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
+					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
+					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
 				</div>	
 
 				<div style="margin: 5px; width: 550px" id="links_box">
@@ -202,10 +203,10 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				
 				<div style="margin: 5px; width: 550px" id="links_butd">	
-					<button id="restartlesson" style="width:105px">Redo MAT💾</button>
-					<button id="enableNS" style="width:105px">Enable NS💾</button>
-					<button id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.40</button>
-			  	    <button id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.37</button>
+					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:105px">Redo MAT💾</button>
+					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:105px">Enable NS💾</button>
+					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.40</button>
+			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"">Аndroid: 9.37</button>
 				</div>		
 			</span>
 	</span>
@@ -216,7 +217,7 @@ var win_Jira =  // описание элементов окна ссылок
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 550;" id="jira_1str">
-                                <button id="hideMej" style="width:50px; background: #228B22;">hide</button>
+                                <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="height:400px; margin-left:5px; overflow:auto"></p>
@@ -243,11 +244,11 @@ var win_Stat =  // описание элементов окна ссылок
 						</div>
 												
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
-							 <button id="getstatfromperiod">Получить статистику</button>
-							 <button id="getlowcsat">Чаты с КСАТ<4</button>
-							 <button id="parsechat">Найти по комменту</button>
-							 <button id="clearall">Очистить</button>
-							 <button id="getfile">🔰</button>
+							 <button title="Получает статистику, считает среднюю оценку всех чатов за период, и отображает чаты без тематики" id="getstatfromperiod">Получить статистику</button>
+							 <button title="Получает чаты с ксат <4 и выводит их в поле для просмотра и аппеляции" id="getlowcsat">Чаты с КСАТ<4</button>
+							 <button title="Запускает поиск по комментарию в заметке, поиск точный и чувствительный к регистру и языку заметки" id="parsechat">Найти по комменту</button>
+							 <button title="очищает значения поля" id="clearall">Очистить</button>
+							 <button title="загружает полученные результаты как для Чаты с ксат <4 так и для чатов с комментариями в виде HTML файла" id="getfile">🔰</button>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
@@ -267,15 +268,22 @@ var win_serviceinfo =  // описание элементов окна ссыл�
         <span style="width: 300px">
                 <span style="cursor: -webkit-grab;">
                         <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
-                                <button id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
-                                <button id="GotoCRM" style="width:50px;">CRM</button>
+                                <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
+                                <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
+                                <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
+                                <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
+								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
+
+								
                         </div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
-				       	<button id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
-				       	<button id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
-						</div>
+				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
+						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
+						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
+				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
+				       	</div>
 						               
 					   </span>
 					   
@@ -1042,6 +1050,31 @@ var abortTimeOut = ''								// перменная для отмены буди�
         };
         cmsstepid.value = "";
     }
+	
+	 document.getElementById('changelocalelng').onclick = function () {
+		 
+		    document.getElementById('responseTextarea1').value = `{
+		   "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+		  "method": "PUT",
+		  "mode": "cors",
+		  "credentials": "include"
+		 
+	 }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + document.getElementById('idstudent').value
+        document.getElementById('responseTextarea3').value = ''
+        document.getElementById('sendResponse').click()
+        document.getElementById('changelocalelng').innerHTML = "✅"
+        setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
+    }
+	 
 
     document.getElementById('setservicelocaleru').onclick = function () {
         document.getElementById('responseTextarea1').value = `{
@@ -1133,8 +1166,9 @@ var abortTimeOut = ''								// перменная для отмены буди�
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-	
+let convid;	
 document.getElementById('getidstudent').onclick = function () {
+	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
     let servicearr;
@@ -1162,7 +1196,7 @@ document.getElementById('getidstudent').onclick = function () {
 
         servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
         servicearr = JSON.parse(servicearr);
-        console.log(servicearr);
+        //console.log(servicearr);
         document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 
 
@@ -1240,12 +1274,273 @@ document.getElementById('getidstudent').onclick = function () {
     }
 
     setTimeout(getServInfo, 1000)
+	
+	setTimeout(async function() {
+		let tempvariable = document.getElementById('idstudent').value;
+		document.getElementById('ChatStatus').style.display ="none";
+		document.getElementById('getcurrentstatus').style.display ="none";
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\""+tempvariable+"\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r => r.json()).then(data => infres = data)
+		if (infres.total > 0) {
+			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "📧";
+			convid = infres.items[0].conversationId;
+		} else if (infres.total == 0) {
+			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "🚫";
+		}
+		
+	}, 1000)
+	
+	setTimeout(function () {
+		let tempvarcrm = document.getElementById('idstudent').value;
+		let getcrmstatusinfo;
+		document.getElementById('CrmStatus').style.display ="none";
+		
+		 document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	
+	
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+		let flagtpout=0;
+		let flagtp=0;
+		let flagnottp=0;
+		let flagstatuswait;
+		let flagstatusprocessing;
+		let opername="";
+		if (getcrmstatusinfo.data.length > 0) {
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
+					flagtpout = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
+					flagtp = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
+					flagnottp = 1;
+				}
+				}
+				
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+					flagstatuswait = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+					flagstatusprocessing = 1;
+					opername = getcrmstatusinfo.data[i].operator.name;
+				}
+			}
+			
+			if(flagstatuswait == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="В ожидании";
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#1E90FF";
+			} else if (flagstatusprocessing == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').title =opername;
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
+			}
+				
+				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача"); 
+				} else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="📵"; 
+				 console.log("Нет активных задач по ТП линии"); 	
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии");
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
+				}
 
+		} else {
+		document.getElementById('CrmStatus').style.display = "";
+		document.getElementById('CrmStatus').innerText ="📵"; 
+		console.log("No DATA"); 
+		}
+		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+		
+	}, 1200)
+		
+	}, 1100)
+	
+
+}
+
+			document.getElementById('ChatStatus').onclick = function () {
+				if(document.getElementById('ChatStatus').textContent == "📧") {
+				
+				if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+				hide_or_display.click()
+						document.getElementById('chat_id').value = convid;
+				
+				search.click()
+			 } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+						document.getElementById('chat_id').value = convid;
+				search.click()
+				} 
+				} else { console.log("No chat with user!!!")}
+			}
+			
+document.getElementById('CrmStatus').onclick = function() {
+				
+			let tempvarcrm = document.getElementById('idstudent').value;
+			let getcrmstatusinfo;
+			document.getElementById('CrmStatus').style.display ="none";
+			document.getElementById('getcurrentstatus').style.display ="none";
+			document.getElementById('getcurrentstatus').title = "";
+		
+			document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	
+	
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/"+tempvarcrm;
+    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    document.getElementById('sendResponse').click()
+	
+	    getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+		let flagtpout=0;
+		let flagtp=0;
+		let flagnottp=0;
+		let flagstatuswait;
+		let flagstatusprocessing;
+		let opername="";
+		if (getcrmstatusinfo.data.length > 0) {
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
+					flagtpout = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
+					flagtp = 1;
+				} else if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
+					flagnottp = 1;
+				}
+				}
+				
+			for (let i = 0; i <getcrmstatusinfo.data.length;i++) {
+				if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+					flagstatuswait = 1;
+					document.getElementById('getcurrentstatus').title = "";
+				} else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+					flagstatusprocessing = 1;
+					opername = getcrmstatusinfo.data[i].operator.name;
+				}
+			}
+			
+			if(flagstatuswait == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="В ожидании";
+			} else if (flagstatusprocessing == 1) {
+				document.getElementById('getcurrentstatus').style.display ="";
+				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').title =opername;
+				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
+			}
+				
+				if (flagtpout == 1 && flagtp == 0  && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача"); 
+				} else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="📵"; 
+				 console.log("Нет активных задач по ТП линии"); 	
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии");
+				} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="💥"; 
+				 console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+				} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+				 document.getElementById('CrmStatus').style.display = "";
+				 document.getElementById('CrmStatus').innerText ="🛠"; 
+				 console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел"); 
+				}
+
+		} else { 
+		document.getElementById('CrmStatus').style.display = "";
+		document.getElementById('CrmStatus').innerText ="📵"; 
+		console.log("No DATA"); 
+		}
+		document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+		
+	}, 1200)
+				
+}
+
+document.getElementById('crmactivetasks').onclick = function() {
+  window.open("https://crm2.skyeng.ru/persons/"+document.getElementById('idstudent').value + "/customer-support/list")
 }
 
 document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('idstudent').value = "";
 	document.getElementById('servicetable').innerHTML ="";
+	document.getElementById('ChatStatus').style.display ="none";
+	document.getElementById('CrmStatus').style.display ="none";
+	document.getElementById('getcurrentstatus').style.display ="none";
 	
 }
 	         
@@ -1291,8 +1586,15 @@ document.getElementById('getJiraTasks').onclick = function () {
 				rezissuetable.issueTable.issueKeys.length = 50;
             for (let i = 0; i <rezissuetable.issueTable.issueKeys.length; i++) {
 
-                if (rezissuetable.issueTable.issueKeys[i] != undefined)
-                    issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+                if (rezissuetable.issueTable.issueKeys[i] != undefined && document.getElementById('testJira').value != "portfolio" && document.getElementById('testJira').value != "Portfolio" && document.getElementById('testJira').value != "Портфолио" && document.getElementById('testJira').value != "портфолио" && document.getElementById('testJira').value != "404" && document.getElementById('testJira').value != "403") {
+				issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>' 
+				} else if (rezissuetable.issueTable.issueKeys[i] != undefined && document.getElementById('testJira').value == "403") {
+				let arrmod = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+)<\/a>/gm) + "," + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+)403<\/a>/gm);
+				arrmod = arrmod.split(',');
+				issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + arrmod[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>' 
+				} else {
+				issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?.)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>' 
+				}
             }
 
 
@@ -1436,6 +1738,8 @@ searchCommentsByEnter.addEventListener('keydown', event => {
         localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec')
         prepTp()
     }
+	
+	document.getElementById('type_TP_new').onclick = weWillNotBeSlaves;
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2) {
         document.getElementById('msg1').style.display = 'none'
@@ -2833,6 +3137,11 @@ function addbuttonsintegration() {
 		 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
       }
 	  
+
+}
+}
+setInterval(addbuttonsintegration, 1000)
+
 	  let getidusrteachreq;
 buttonsetteacheridtouserfield.addEventListener('click', async function() {
 	for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2866,9 +3175,6 @@ buttonsetteacheridfromstudent.addEventListener('click', function() {
 									copyToClipboard1(getidusrsteach)
 			}
 })
-}
-}
-setInterval(addbuttonsintegration, 1000)
 
 
 
@@ -3500,6 +3806,7 @@ function customTemplates(language = '') {
 
     var buttonOpenTmpWindow = document.createElement('button')
     buttonOpenTmpWindow.innerHTML = 'tmps'
+    buttonOpenTmpWindow.title = 'Открывает окно для добавления своих шаблонов либо информации в ячейки в этом поле'
     buttonOpenTmpWindow.style.marginLeft = '7px'
     buttonOpenTmpWindow.onclick = function () {
         var a = document.getElementById('cstmTmplates')
