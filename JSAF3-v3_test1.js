@@ -4127,10 +4127,10 @@ function firstLoadPage() {
 //            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
 //            btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
 //            btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
-            btnAdd1 = document.getElementsByid('upmenu')
+            btnAdd1 = document.getElementByid('upmenu')
             btnAdd1.insertBefore(hashBut, btnAdd1)
             btnAdd1.insertBefore(maskBack, btnAdd1)
-        }, 2000)
+        }, 2500)
 
         setInterval(startTimer, 1000)
     }
