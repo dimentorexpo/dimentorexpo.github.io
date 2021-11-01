@@ -1482,6 +1482,7 @@ document.getElementById('CrmStatus').onclick = function() {
 			} else if (flagstatusprocessing == 1) {
 				document.getElementById('getcurrentstatus').style.display ="";
 				document.getElementById('getcurrentstatus').innerText ="Решается";
+				document.getElementById('getcurrentstatus').title =getcrmstatusinfo.data[i].operator.name;
 				document.getElementById('getcurrentstatus').style.backgroundColor ="#DC143C";
 			}
 				
