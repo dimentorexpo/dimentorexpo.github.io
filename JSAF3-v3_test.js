@@ -275,16 +275,17 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
                         </div>
 								
-						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
+						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field">
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
 						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
 						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" style="margin-left: 5px; width: 25.23px;">💰</button>
+						<button title="Информацию об ученике в СРМ1" id="getcrmoneinfo" style="margin-left: 5px; width: 25.23px;">1️⃣</button>
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 				       	</div>
 						
-						<div style="width: 300px; display:flex; justify-content:center;" id="input_field2">
+						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field2">
 						<input id="onetimepassout" placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
@@ -1058,6 +1059,10 @@ var abortTimeOut = ''								// перменная для отмены буди�
 	
 	document.getElementById('checkbalance').onclick = function() {
 		window.open("https://billing-api.skyeng.ru/operations/user/"+document.getElementById('idstudent').value+"/info")
+	}
+	
+	document.getElementById('getcrmoneinfo').onclick = function() {
+		window.open("https://cabinet.skyeng.ru/orderV2/student/id/"+document.getElementById('idstudent').value)
 	}
 	
 	document.getElementById('getkglinfokid').onclick = function() {
