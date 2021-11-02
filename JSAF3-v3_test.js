@@ -286,7 +286,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 				       	</div>
 						
 						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field2">
-						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
+						<input readonly id="onetimepassout" cursor: url("https://p7.hiclipart.com/preview/464/301/171/ip-address-internet-protocol-trademark-logo-restricted.jpg"), pointer; placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
 						</div>
