@@ -4272,21 +4272,24 @@ async function checkChatCountQue() { // функция проверки коли
 
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-		  "headers": {
-			"accept": "*/*",
-			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-			"cache-control": "max-age=0",
-			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-origin"
-		  },
-		 "referrer": "https://skyeng.autofaq.ai/logs",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
-		  "method": "POST",
-		  "mode": "cors",
-		  "credentials": "include"
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+    "cache-control": "max-age=0",
+    "content-type": "application/json",
+    "sec-ch-ua": "\"Google Chrome\";v=\"95\", \"Chromium\";v=\"95\", \";Not A Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin"
+  },
+	  "referrer": "https://skyeng.autofaq.ai/logs",
+	  "referrerPolicy": "strict-origin-when-cross-origin",
+	  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
+	  "method": "POST",
+	  "mode": "cors",
+	  "credentials": "include"
     }).then(r => r.text()).then(result => {
         setTimeout(function () {
             chatneraspcount = result.match(/total.*?(\d+).*/)[1];
