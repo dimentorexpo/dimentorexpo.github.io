@@ -273,19 +273,21 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                                 <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
-
-								
                         </div>
-						
+								
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field">
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
 						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
 						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" style="margin-left: 5px; width: 25.23px;">💰</button>
-						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">📱</button>
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 				       	</div>
+						
+						<div style="width: 300px; display:flex; justify-content:center;" id="input_field2">
+						<input id="onetimepassout" placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
+						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">📱</button>
+						</div>
 						               
 					   </span>
 					   
