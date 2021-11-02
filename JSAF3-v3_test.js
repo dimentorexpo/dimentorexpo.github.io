@@ -1057,12 +1057,12 @@ var abortTimeOut = ''								// перменная для отмены буди�
     }
 	
 	document.getElementById('checkbalance').onclick = function() {
-		window.open("https://grouplessons-api.skyeng.ru/admin/student/view/"+document.getElementById('idstudent').value)
+		window.open("https://billing-api.skyeng.ru/operations/user/"+document.getElementById('idstudent').value+"/info")
 	}
 	
 	document.getElementById('getkglinfokid').onclick = function() {
-		
-	}
+window.open("https://grouplessons-api.skyeng.ru/admin/student/view/"+document.getElementById('idstudent').value)
+     }
 	
 	 document.getElementById('changelocalelng').onclick = function () {
 		 
