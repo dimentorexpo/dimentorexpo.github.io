@@ -1227,13 +1227,12 @@ window.open("https://grouplessons-api.skyeng.ru/admin/student/view/"+document.ge
         skipAP.value = "";
     }
 let convid;	
+let nameofuser;
 document.getElementById('getidstudent').onclick = function () {
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
     let servicearr;
-	let nameofuser;
-	
 	setTimeout(function() {
 		
 		    document.getElementById('responseTextarea1').value = `{
