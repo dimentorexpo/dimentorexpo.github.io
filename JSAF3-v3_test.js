@@ -1260,9 +1260,9 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getusernameinfo'
     document.getElementById('sendResponse').click()
 	
-		nameofuser = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-        nameofuser = JSON.parse(nameofuser);
-        console.log("Nash massive data:" + nameofuser);
+		let usernamesurname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+        usernamesurname = JSON.parse(usernamesurname);
+        nameofuser = usernamesurname.data.name + " " + usernamesurname.data.surname;
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 	
 		
