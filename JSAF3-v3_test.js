@@ -1269,8 +1269,8 @@ document.getElementById('getidstudent').onclick = function () {
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 	
 		
-	}, 1400)		
-	} , 1300)
+	}, 700)		
+	} , 600)
 	
     document.getElementById('responseTextarea1').value = `{
 		  "headers": {
