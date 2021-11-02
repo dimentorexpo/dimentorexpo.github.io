@@ -4253,7 +4253,7 @@ async function checkChatCountQue() { // функция проверки коли
     else
         month2 = (date2.getMonth() + 1)
     if (date2.getDate() < 10)
-        day2 = "0" + (date2.getDate() - 1)
+        day2 = "0" + (date2.getDate())
     else
         day2 = (date2.getDate() - 1)
 
