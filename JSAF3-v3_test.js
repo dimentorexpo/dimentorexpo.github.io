@@ -1262,10 +1262,10 @@ document.getElementById('getidstudent').onclick = function () {
 	
 		nameofuser = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
         nameofuser = JSON.parse(nameofuser);
-		if (usernamesurname.data.name != null && usernamesurname.data.surname != null) {
-        nameofuser = usernamesurname.data.name + " " + usernamesurname.data.surname;
-		} else if (usernamesurname.data.name != null&& usernamesurname.data.surname == null ) {
-		nameofuser = usernamesurname.data.name;	
+		if (nameofuser.data.name != null && nameofuser.data.surname != null) {
+        nameofuser = nameofuser.data.name + " " + nameofuser.data.surname;
+		} else if (nameofuser.data.name != null&& nameofuser.data.surname == null ) {
+		nameofuser = nameofuser.data.name;	
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 	
