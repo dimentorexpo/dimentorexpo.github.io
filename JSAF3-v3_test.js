@@ -1270,8 +1270,8 @@ document.getElementById('getidstudent').onclick = function () {
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 	
 		
-	}, 1000)		
-	} , 900)
+	}, 1400)		
+	} , 1300)
 	
     document.getElementById('responseTextarea1').value = `{
 		  "headers": {
