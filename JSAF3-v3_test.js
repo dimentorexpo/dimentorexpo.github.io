@@ -1255,7 +1255,7 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('sendResponse').click()
 	
 	    nameofuser = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-        nameofuser = JSON.parse(servicearr);
+        nameofuser = JSON.parse(nameofuser);
         console.log(nameofuser);
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 		
