@@ -286,7 +286,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 				       	</div>
 						
 						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field2">
-						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; cursor: url("https://p7.hiclipart.com/preview/464/301/171/ip-address-internet-protocol-trademark-logo-restricted.jpg"), pointer; text-align: center; width: 100px; color: black;" class="">
+						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
 						</div>
@@ -1232,6 +1232,35 @@ document.getElementById('getidstudent').onclick = function () {
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
     let servicearr;
+	let nameofuser;
+	
+	setTimeout(function() {
+		
+		    document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
+			  },
+			  "referrer": "https://crm2.skyeng.ru/",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+document.getElementById('idstudent').value+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea3').value = 'getusernameinfo'
+    document.getElementById('sendResponse').click()
+	
+	    nameofuser = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+        nameofuser = JSON.parse(servicearr);
+        console.log(nameofuser);
+        document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+		
+	} , 900)
+	
     document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
