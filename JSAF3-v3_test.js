@@ -4273,14 +4273,17 @@ async function checkChatCountQue() { // функция проверки коли
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 		  "headers": {
+			"accept": "*/*",
+			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"cache-control": "max-age=0",
 			"content-type": "application/json",
 			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-origin"
 		  },
-		  "referrer": "https://skyeng.autofaq.ai/logs",
+		 "referrer": "https://skyeng.autofaq.ai/logs",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
@@ -4293,6 +4296,9 @@ async function checkChatCountQue() { // функция проверки коли
 
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 				  "headers": {
+					"accept": "*/*",
+					"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+					"cache-control": "max-age=0",
 					"content-type": "application/json",
 					"sec-fetch-dest": "empty",
 					"sec-fetch-mode": "cors",
@@ -4300,7 +4306,7 @@ async function checkChatCountQue() { // функция проверки коли
 				  },
 				  "referrer": "https://skyeng.autofaq.ai/logs",
 				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
+				  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
 				  "method": "POST",
 				  "mode": "cors",
 				  "credentials": "include"
