@@ -1372,10 +1372,11 @@ document.getElementById('getidstudent').onclick = function () {
         }
         //}
     } 
+	   setTimeout(getServInfo, 1000)
 	}, 800)
 	
 
-    setTimeout(getServInfo, 1000)
+ 
 	
 	setTimeout(async function() {
 		let tempvariable = document.getElementById('idstudent').value;
