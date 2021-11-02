@@ -1254,11 +1254,19 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getusernameinfo'
     document.getElementById('sendResponse').click()
 	
-	    nameofuser = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+	setTimeout(function() {
+		document.getElementById('responseTextarea1').value = '{}'
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+document.getElementById('idstudent').value+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea3').value = 'getusernameinfo'
+    document.getElementById('sendResponse').click()
+	
+		nameofuser = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
         nameofuser = JSON.parse(nameofuser);
-        console.log(nameofuser);
+        console.log("Nash massive data:" + nameofuser);
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+	
 		
+	}, 1000)		
 	} , 900)
 	
     document.getElementById('responseTextarea1').value = `{
