@@ -1233,7 +1233,7 @@ document.getElementById('getidstudent').onclick = function () {
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
     let servicearr;
-	setTimeout(function() {
+	//setTimeout(function() {
 		
 		    document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -1270,9 +1270,9 @@ document.getElementById('getidstudent').onclick = function () {
 	
 		
 	}, 700)		
-	} , 600)
+//	} , 600)
 	
-    document.getElementById('responseTextarea1').value = `{
+    setTimeout(function() { document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
 			"accept-language": "ru",
@@ -1371,7 +1371,9 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
         //}
-    }
+    } 
+	}, 800)
+	
 
     setTimeout(getServInfo, 1000)
 	
