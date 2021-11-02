@@ -286,8 +286,8 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 				       	</div>
 						
 						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field2">
-						<input id="onetimepassout" placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
-						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">📱</button>
+						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
+						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
 						</div>
 						               
@@ -1068,7 +1068,50 @@ var abortTimeOut = ''								// перменная для отмены буди�
 	document.getElementById('getkglinfokid').onclick = function() {
 window.open("https://grouplessons-api.skyeng.ru/admin/student/view/"+document.getElementById('idstudent').value)
      }
-	
+	 
+	 document.getElementById('getonetimepass').onclick =  function() {
+		 if (document.getElementById('idstudent').value == "")
+            console.log('Введите id в поле')
+        else { 
+		document.getElementById('getonetimepass').innerHTML = "✅";
+		 setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
+		 
+		   document.getElementById('responseTextarea1').value = `{
+			"headers": {
+				"content-type": "application/x-www-form-urlencoded",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+			},
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
+            document.getElementById('sendResponse').click()
+
+            function getPassInfo1() {
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+                document.getElementById('responseTextarea3').value = ''
+
+                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
+                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
+                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+                onetimepassout.value = convertres11[1];
+            }
+            setTimeout(getPassInfo1, 1000);
+        };
+        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
+		
+		}
+		 
+	 }
+	 
 	 document.getElementById('changelocalelng').onclick = function () {
 		 
 		    document.getElementById('responseTextarea1').value = `{
