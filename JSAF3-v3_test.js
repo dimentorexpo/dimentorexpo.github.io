@@ -1110,7 +1110,6 @@ window.open("https://grouplessons-api.skyeng.ru/admin/student/view/"+document.ge
 		
 		}
 		 
-	 }
 	 
 	 document.getElementById('changelocalelng').onclick = function () {
 		 
