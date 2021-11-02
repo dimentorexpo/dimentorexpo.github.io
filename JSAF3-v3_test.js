@@ -285,7 +285,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 				       	</div>
 						
 						<div style="width: 300px; display:flex; justify-content:center;" id="input_field2">
-						<input id="onetimepassout" placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="text-align: center; width: 150px; color: black;">
+						<input id="onetimepassout" placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 60px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
 						</div>
