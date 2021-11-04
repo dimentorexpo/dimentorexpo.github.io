@@ -3293,7 +3293,7 @@ function timerHideButtons() {
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line")
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line" && getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП" )
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
