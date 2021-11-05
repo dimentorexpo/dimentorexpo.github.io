@@ -1142,7 +1142,7 @@ let unhidenemail;
 			document.getElementById('sendResponse').click()
 	
 		unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-		unhidenemail = unhidenemail..data.value;
+		unhidenemail = unhidenemail.data.value;
 		document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			
 		} , 800)
