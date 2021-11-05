@@ -1119,9 +1119,6 @@ let commonidentity;
 let emailidentity;
 let phoneidentity;
 function checkemailandphoneidentity() {
-		    emailidentity = "";
-			phoneidentity ="";
-	
 			document.getElementById('responseTextarea1').value = `{
 				  "headers": {
 					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -1340,13 +1337,15 @@ let unhidenemail;
 let convid;	
 let nameofuser;
 document.getElementById('getidstudent').onclick = function () {
+		    emailidentity = "";
+			phoneidentity ="";
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
     let servicearr;
 		
 		setTimeout(getunhideemail, 900);
-		setTimeout(checkemailandphoneidentity, 950);
+		setTimeout(checkemailandphoneidentity, 1000);
 		
 		    document.getElementById('responseTextarea1').value = `{
 			  "headers": {
