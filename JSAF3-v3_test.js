@@ -1147,7 +1147,7 @@ function checkemailandphoneidentity() {
 			document.getElementById('sendResponse').click()
 	
 		commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-		if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked") {
+		if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null) {
 			emailidentity = "📧✔";
 			phoneidentity ="📲✔";
 		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
