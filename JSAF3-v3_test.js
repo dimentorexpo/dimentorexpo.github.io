@@ -1163,7 +1163,7 @@ function checkemailandphoneidentity() {
 			
 		document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 			
-		} , 1050)
+		} , 550)
 		
 		
 	
@@ -1328,6 +1328,7 @@ document.getElementById('getidstudent').onclick = function () {
     let servicearr;
 		
 		setTimeout(getunhideemail, 900);
+		setTimeout(checkemailandphoneidentity, 950);
 
 		
 		    document.getElementById('responseTextarea1').value = `{
@@ -1394,8 +1395,6 @@ document.getElementById('getidstudent').onclick = function () {
         //console.log(servicearr);
         document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 		
-				setTimeout(checkemailandphoneidentity, 1150);
-
 
         let tinfo =""; // инфо о постоянном П
         let temtinfo = ""; // инфо о временном П
