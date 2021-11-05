@@ -340,10 +340,10 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
-let button2 = document.createElement('p');
+let button2 = document.createElement('span');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
-let button3 = document.createElement('p');
+let button3 = document.createElement('span');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = "Info";
 let buttonserv = document.createElement('p');
@@ -1360,22 +1360,18 @@ document.getElementById('getidstudent').onclick = function () {
         }
 
 
-        console.log("teacher ID: " + tinfo)
-        console.log("temporary teacher ID: " + temtinfo)
-        console.log("service info: " + servinfo)
+     //   console.log("teacher ID: " + tinfo)
+     //   console.log("temporary teacher ID: " + temtinfo)
+     //   console.log("service info: " + servinfo)
 
         arrservice = arrservice.split(', ')
         let tmparr = document.querySelectorAll('.copyserviceid');
-        //for (let i = 0; i<servicearr.data.length; i++) {
-        //if (servicearr.data[i].incorrectnessReason ==null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher !=null) {
         for (let j = 0; j < tmparr.length; j++) {
             tmparr[j].onclick = function () {
-                //	console.log("Test info: "  + servicearr.data[i].id);
                 copyToClipboard1(arrservice[j])
-                //    }
             }
         }
-        //}
+
     } 
 	   setTimeout(getServInfo, 1000)
 	}, 800)
