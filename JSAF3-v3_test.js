@@ -1147,19 +1147,35 @@ function checkemailandphoneidentity() {
 			document.getElementById('sendResponse').click()
 	
 		commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-		if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null) {
+		
+		if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null) {
 			emailidentity = "📧✔";
 			phoneidentity ="📲✔";
-		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
+		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null)  {
 			emailidentity = "📧✖";
 			phoneidentity ="📲✔";
-		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked") {
+		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null)  { 
 			emailidentity = "📧✔";
 			phoneidentity ="📲✖";
 		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
 			emailidentity = "📧✖";
 			phoneidentity ="📲✖";
 		}
+		
+		
+		// if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null) {
+			// emailidentity = "📧✔";
+			// phoneidentity ="📲✔";
+		// } else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
+			// emailidentity = "📧✖";
+			// phoneidentity ="📲✔";
+		// } else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked") {
+			// emailidentity = "📧✔";
+			// phoneidentity ="📲✖";
+		// } else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
+			// emailidentity = "📧✖";
+			// phoneidentity ="📲✖";
+		// }
 		
 		document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 			
