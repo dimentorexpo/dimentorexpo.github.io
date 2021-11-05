@@ -1337,8 +1337,6 @@ let unhidenemail;
 let convid;	
 let nameofuser;
 document.getElementById('getidstudent').onclick = function () {
-		    emailidentity = "";
-			phoneidentity ="";
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
