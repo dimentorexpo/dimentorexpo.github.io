@@ -1393,6 +1393,8 @@ document.getElementById('getidstudent').onclick = function () {
         servicearr = JSON.parse(servicearr);
         //console.log(servicearr);
         document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
+		
+				setTimeout(checkemailandphoneidentity, 1150);
 
 
         let tinfo =""; // инфо о постоянном П
@@ -1466,7 +1468,7 @@ document.getElementById('getidstudent').onclick = function () {
 	   setTimeout(getServInfo, 1000)
 	}, 800)
 	
-		setTimeout(checkemailandphoneidentity, 1150);
+
  
 	
 	setTimeout(async function() {
