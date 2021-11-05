@@ -340,10 +340,10 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
-let button2 = document.createElement('div');
+let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
-let button3 = document.createElement('div');
+let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
 let buttonserv = document.createElement('p');
