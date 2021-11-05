@@ -1142,6 +1142,7 @@ let unhidenemail;
 			document.getElementById('sendResponse').click()
 	
 		unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+		unhidenemail = JSON.parse(unhidenemail);
 		unhidenemail = unhidenemail.data.value;
 		document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			
