@@ -1114,6 +1114,60 @@ window.open("https://id.skyeng.ru/admin/users/"+document.getElementById('idstude
         setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
 		
 		}
+		
+let commonidentity;
+let emailidentity;
+let phoneidentity;
+function checkemailandphoneidentity() {
+	
+			document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "cross-site",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+				  },
+				  "referrer": "https://skyeng.autofaq.ai/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": null,
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	 }`
+	    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update"
+        document.getElementById('responseTextarea3').value = 'responseupdate'
+        document.getElementById('sendResponse').click()
+				
+		setTimeout(function() {
+					document.getElementById('responseTextarea1').value = '{}'
+	    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update"
+        document.getElementById('responseTextarea3').value = 'responseupdate'
+			document.getElementById('sendResponse').click()
+	
+		commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+		if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked") {
+			emailidentity = "📧✔";
+			phoneidentity ="📲✔";
+		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
+			emailidentity = "📧✖";
+			phoneidentity ="📲✔";
+		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked") {
+			emailidentity = "📧✔";
+			phoneidentity ="📲✖";
+		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
+			emailidentity = "📧✖";
+			phoneidentity ="📲✖";
+		}
+		
+		document.getElementById('responseTextarea1').removeAttribute('responseupdate')
+			
+		} , 850)
+		
+		
+	
+}
 		 
 let unhidenemail;		 
 	function getunhideemail() {
@@ -1274,6 +1328,7 @@ document.getElementById('getidstudent').onclick = function () {
     let servicearr;
 		
 		setTimeout(getunhideemail, 900);
+		setTimeout(checkemailandphoneidentity, 950);
 		
 		    document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -1370,11 +1425,11 @@ document.getElementById('getidstudent').onclick = function () {
         }
  
         if (temtinfo == "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML = "Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML = "Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo == "") {
-            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
         let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
