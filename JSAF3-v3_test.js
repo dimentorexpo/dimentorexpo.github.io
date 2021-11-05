@@ -1160,22 +1160,7 @@ function checkemailandphoneidentity() {
 			emailidentity = "📧✖";
 			phoneidentity ="☎✖";
 		}
-		
-		
-		// if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null) {
-			// emailidentity = "📧✔";
-			// phoneidentity ="📲✔";
-		// } else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/)[1] == "checked" && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
-			// emailidentity = "📧✖";
-			// phoneidentity ="📲✔";
-		// } else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/)[1] == "checked") {
-			// emailidentity = "📧✔";
-			// phoneidentity ="📲✖";
-		// } else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
-			// emailidentity = "📧✖";
-			// phoneidentity ="📲✖";
-		// }
-		
+			
 		document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 			
 		} , 950)
