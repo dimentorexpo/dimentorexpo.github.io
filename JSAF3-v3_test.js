@@ -1150,16 +1150,16 @@ function checkemailandphoneidentity() {
 		
 		if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null) {
 			emailidentity = "📧✔";
-			phoneidentity ="📲✔";
+			phoneidentity ="☎✔";
 		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null)  {
 			emailidentity = "📧✖";
-			phoneidentity ="📲✔";
+			phoneidentity ="☎✔";
 		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null)  { 
 			emailidentity = "📧✔";
-			phoneidentity ="📲✖";
+			phoneidentity ="☎✖";
 		} else if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) == null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) == null) {
 			emailidentity = "📧✖";
-			phoneidentity ="📲✖";
+			phoneidentity ="☎✖";
 		}
 		
 		
