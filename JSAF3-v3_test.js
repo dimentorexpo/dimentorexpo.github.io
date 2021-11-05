@@ -1163,7 +1163,7 @@ function checkemailandphoneidentity() {
 			
 		document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 			
-		} , 950)
+		} , 1050)
 		
 		
 	
@@ -1328,7 +1328,7 @@ document.getElementById('getidstudent').onclick = function () {
     let servicearr;
 		
 		setTimeout(getunhideemail, 900);
-		setTimeout(checkemailandphoneidentity, 1050);
+
 		
 		    document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -1466,7 +1466,7 @@ document.getElementById('getidstudent').onclick = function () {
 	   setTimeout(getServInfo, 1000)
 	}, 800)
 	
-
+		setTimeout(checkemailandphoneidentity, 1150);
  
 	
 	setTimeout(async function() {
