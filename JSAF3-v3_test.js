@@ -1119,6 +1119,8 @@ let commonidentity;
 let emailidentity;
 let phoneidentity;
 function checkemailandphoneidentity() {
+		    emailidentity = "";
+			phoneidentity ="";
 	
 			document.getElementById('responseTextarea1').value = `{
 				  "headers": {
