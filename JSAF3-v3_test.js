@@ -1293,7 +1293,7 @@ let unhidenemail;
     }
 	
 	
-	document.getElementById('catchathistory').onClick = function() {
+	document.getElementById('catchathistory').onclick = function() {
 		 
 		 if (document.querySelector('#hide_or_display').textContent != "свернуть") {
     hide_or_display.click()
