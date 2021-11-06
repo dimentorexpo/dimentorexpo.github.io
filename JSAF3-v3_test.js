@@ -1544,22 +1544,7 @@ let getcrmstatusinfo;
 	
 	
 	    let servicearr;
-	
-let convid;	
-document.getElementById('getidstudent').onclick = function () {
-	document.getElementById('getcurrentstatus').title = "";
-    let stid = document.getElementById('idstudent').value;
-    stid = stid.trim();
-
-		
-		setTimeout(getunhideemail, 600);
-		setTimeout(getunhidephone, 620);
-		setTimeout(getusernamecrm, 640);
-		setTimeout(checkemailandphoneidentity, 660);
-		setTimeout(crmstatus, 680);
-		setTimeout(chatstatus,700);
-	
-   setTimeout(function() {
+		function serviceinfos() {
 	   document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -1658,7 +1643,26 @@ document.getElementById('getidstudent').onclick = function () {
    
 	   setTimeout(getServInfo, 600)
 	
-   }, 720)
+   }
+		
+		
+	
+let convid;	
+document.getElementById('getidstudent').onclick = function () {
+	document.getElementById('getcurrentstatus').title = "";
+    let stid = document.getElementById('idstudent').value;
+    stid = stid.trim();
+
+		
+		setTimeout(getunhideemail, 600);
+		setTimeout(getunhidephone, 620);
+		setTimeout(getusernamecrm, 640);
+		setTimeout(checkemailandphoneidentity, 660);
+		setTimeout(crmstatus, 680);
+		setTimeout(chatstatus,700);
+		setTimeout(serviceinfos, 720);
+	
+
 }
 
 	document.getElementById('ChatStatus').onclick = function () {
