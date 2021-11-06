@@ -1739,6 +1739,9 @@ let convid;
 	
    }, 620)
    flagstudent = 0;
+   nameofuser="";
+   unhidenemail="";
+   unhidephone="";
    
 		} else if (flagteacher == 1) {
 					setTimeout(getunhideemail, 600);
