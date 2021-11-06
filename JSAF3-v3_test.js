@@ -1731,7 +1731,7 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
 		
-		flagstudent == 0;
+		flagstudent = 0;
 
 		// Пока не работает должным образом
         // let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
@@ -1761,9 +1761,9 @@ document.getElementById('getidstudent').onclick = function () {
 
     } 
    
-	   setTimeout(getServInfo, 1220)
+	   setTimeout(getServInfo, 1320)
 	
-   }, 1320)
+   }, 1420)
    
 		} else if (flagteacher == 1) {
 					setTimeout(getunhideemail, 600);
@@ -1771,7 +1771,7 @@ document.getElementById('getidstudent').onclick = function () {
 					setTimeout(getusernamecrm, 640);
 					
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
-			flagteacher == 0;
+			flagteacher = 0;
 		}
 }
 
