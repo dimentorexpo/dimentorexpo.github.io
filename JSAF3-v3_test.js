@@ -1373,6 +1373,8 @@ let unhidenemail;
 	
 	let nameofuser;
 	function getusernamecrm() {
+		let filteredid = document.getElementById('idstudent').value;
+		filteredid = filteredid.trim();
 	 document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "application/json, text/plain, */*",
@@ -1387,13 +1389,13 @@ let unhidenemail;
 			  "mode": "cors",
 			  "credentials": "include"
 	}`
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+document.getElementById('idstudent').value+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
     document.getElementById('responseTextarea3').value = 'getusernameinfo'
     document.getElementById('sendResponse').click()
 	
 	setTimeout(function() {
 		document.getElementById('responseTextarea1').value = '{}'
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+document.getElementById('idstudent').value+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
     document.getElementById('responseTextarea3').value = 'getusernameinfo'
     document.getElementById('sendResponse').click()
 	
