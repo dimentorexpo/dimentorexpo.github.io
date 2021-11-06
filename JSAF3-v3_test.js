@@ -1521,11 +1521,11 @@ document.getElementById('getidstudent').onclick = function () {
     stid = stid.trim();
     let servicearr;
 		
-		setTimeout(getunhideemail, 800);
-		setTimeout(getunhidephone, 900);
-		setTimeout(getusernamecrm, 1000);
-		setTimeout(checkemailandphoneidentity, 1100);
-		setTimeout(crmstatus, 1200);
+		setTimeout(getunhideemail, 600);
+		setTimeout(getunhidephone, 620);
+		setTimeout(getusernamecrm, 640);
+		setTimeout(checkemailandphoneidentity, 660);
+		setTimeout(crmstatus, 680);
 	
    document.getElementById('responseTextarea1').value = `{
 		  "headers": {
