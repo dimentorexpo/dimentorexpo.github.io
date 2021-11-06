@@ -1593,8 +1593,8 @@ let getcrmstatusinfo;
 		}		
 	}
 	
-	let flagteacher=0;
-	let flagstudent=0;
+	let flagteacher;
+	let flagstudent;
 	let gettedusertypeinfo;
 	function getusertypecrm() {
 	let filteredid = document.getElementById('idstudent').value;
@@ -1643,6 +1643,8 @@ let getcrmstatusinfo;
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
     let servicearr;
+	flagteacher = 0;
+	flagstudent = 0;
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
