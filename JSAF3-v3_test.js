@@ -1635,7 +1635,7 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
 
-	setTimeout(functionm() {
+	setTimeout(function() {
         let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
 		 let infoiduslugi = document.querySelectorAll('.iduslugitxt');
          for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
