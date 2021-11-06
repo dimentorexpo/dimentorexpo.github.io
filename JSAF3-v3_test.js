@@ -1761,12 +1761,16 @@ document.getElementById('getidstudent').onclick = function () {
 
     } 
    
-	   setTimeout(getServInfo, 650)
+	   setTimeout(getServInfo, 670)
 	
    }, 720)
    
 		} else if (flagteacher == 1) {
-			document.getElementById('servicetable').innerHTML = "AutoГЛЮК я твой отец";
+					setTimeout(getunhideemail, 600);
+					setTimeout(getunhidephone, 620);
+					setTimeout(getusernamecrm, 640);
+					
+			document.getElementById('servicetable').innerHTML = " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher == 0;
 		}
 }
