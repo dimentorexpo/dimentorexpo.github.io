@@ -1641,7 +1641,7 @@ let getcrmstatusinfo;
         }
     } 
    
-	   setTimeout(getServInfo, 600)
+	   setTimeout(getServInfo, 700)
 	
    }
 		
@@ -1660,7 +1660,7 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
 		setTimeout(chatstatus,700);
-		setTimeout(serviceinfos, 720);
+		setTimeout(serviceinfos, 1000);
 	
 
 }
