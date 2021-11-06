@@ -1637,7 +1637,7 @@ let getcrmstatusinfo;
 		
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
 	}, 300)		
-	}
+	
 		
 setTimeout(function() {
 let servicearr;	
@@ -1750,6 +1750,8 @@ let convid;
 //}
 
 }, 500)
+
+	})
 
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
