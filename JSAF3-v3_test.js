@@ -1625,7 +1625,6 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
     } 
-   }, 700)
    
 	   setTimeout(getServInfo, 1200)
 	
@@ -1657,6 +1656,7 @@ document.getElementById('getidstudent').onclick = function () {
 		}		
 	}, 600)
 	
+   }, 700)
 }
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
