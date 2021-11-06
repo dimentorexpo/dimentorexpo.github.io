@@ -1646,9 +1646,9 @@ document.getElementById('getidstudent').onclick = function () {
                     if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
                         let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
                         for (let i = 0; i < testids.length; i++) {
-                            if (getidusr == testids[i]) {
-                                infoiduslugi[i].textContent = "ID Услуги 🔥"
-								console.log("infoiduslugi[i]" + infoiduslugi[i])
+                            if (testids[i] == getidusr) {
+                                infoiduslugi[i].innerText = "ID Услуги 🔥"
+								console.log("infoiduslugi[i]" + infoiduslugi[i].innerText)
                             }
                         }
                     } else { console.log("Not found") }
