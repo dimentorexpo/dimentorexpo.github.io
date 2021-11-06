@@ -1421,7 +1421,6 @@ let unhidenemail;
 	
 	let nameofuser;
 	function getusernamecrm() {
-		nameofuser=""
 		let filteredid = document.getElementById('idstudent').value;
 		filteredid = filteredid.trim();
 	 document.getElementById('responseTextarea1').value = `{
