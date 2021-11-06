@@ -1627,23 +1627,6 @@ document.getElementById('getidstudent').onclick = function () {
             document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
-        // let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
-		// let infoiduslugi = document.querySelectorAll('.iduslugitxt');
-        // for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
-            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
-                // for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-                    // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-                        // let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-                        // for (let i = 0; i < testids.length; i++) {
-                            // if (getidusr == testids[i]) {
-                                // infoiduslugi[i].textContent = "ID Услуги 🔥"
-                            // }
-                        // }
-                    // } else { console.log("Not found") }
-                // }
-            // } else { console.log("No such field") }
-        // }
-		
 		arrservice = arrservice.split(', ')
         let tmparr = document.querySelectorAll('.copyserviceid');
         for (let j = 0; j < tmparr.length; j++) {
@@ -1652,7 +1635,25 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
 
-
+        let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
+		 let infoiduslugi = document.querySelectorAll('.iduslugitxt');
+         for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+                for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                        let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                        for (let i = 0; i < testids.length; i++) {
+                            if (getidusr == testids[i]) {
+                                infoiduslugi[i].textContent = "ID Услуги 🔥"
+                            }
+                        }
+                    } else { console.log("Not found") }
+                }
+            } else { console.log("No such field") }
+        }
+		
+		
+		
      //   console.log("teacher ID: " + tinfo)
      //   console.log("temporary teacher ID: " + temtinfo)
      //   console.log("service info: " + servinfo)
