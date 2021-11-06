@@ -1647,7 +1647,7 @@ let convid;
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
 
-		if (flagstudent == 1) {
+		if (flagstudent == 1 && flagteacher ==0) {
 
 		setTimeout(getunhideemail, 510);
 		setTimeout(getunhidephone, 520);
@@ -1742,10 +1742,11 @@ let convid;
    unhidenemail="";
    unhidephone="";
    
-		} else if (flagteacher == 1) {
-		getunhideemail();
-		getunhidephone();
+		} else if (flagstudent == 0 && flagteacher ==1) {
 		getusernamecrm();
+		setTimeout(getunhideemail, 500);
+		setTimeout(getunhidephone, 550);
+		
 					
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher = 0;
