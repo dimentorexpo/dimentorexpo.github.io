@@ -1793,7 +1793,7 @@ document.getElementById('CrmStatus').onclick = function() {
             } else { console.log("No such field") }
         } 
 		
-		} else break;
+		}
 		
 		}, 1000);
 
