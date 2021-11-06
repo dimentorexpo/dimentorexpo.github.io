@@ -1617,6 +1617,14 @@ document.getElementById('getidstudent').onclick = function () {
                 arrservice += servicearr.data[i].id + ", "
             } else { console.log("Услуга некорректна, потеряна или без учителя") }
         }
+		
+		 arrservice = arrservice.split(', ')
+        let tmparr = document.querySelectorAll('.copyserviceid');
+        for (let j = 0; j < tmparr.length; j++) {
+            tmparr[j].onclick = function () {
+                copyToClipboard1(arrservice[j])
+            }
+        }
  
         if (temtinfo == "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = "Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
@@ -1648,13 +1656,7 @@ document.getElementById('getidstudent').onclick = function () {
      //   console.log("temporary teacher ID: " + temtinfo)
      //   console.log("service info: " + servinfo)
 
-        arrservice = arrservice.split(', ')
-        let tmparr = document.querySelectorAll('.copyserviceid');
-        for (let j = 0; j < tmparr.length; j++) {
-            tmparr[j].onclick = function () {
-                copyToClipboard1(arrservice[j])
-            }
-        }
+
     } 
    
 	   setTimeout(getServInfo, 600)
