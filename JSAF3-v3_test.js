@@ -1597,6 +1597,8 @@ let getcrmstatusinfo;
 	let flagstudent;
 	let gettedusertypeinfo;
 	function getusertypecrm() {
+		flagteacher=0;
+		flagstudent=0;
 	let filteredid = document.getElementById('idstudent').value;
 	filteredid = filteredid.trim();
 	 document.getElementById('responseTextarea1').value = `{
