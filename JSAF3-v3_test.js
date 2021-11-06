@@ -1644,12 +1644,13 @@ let servicearr;
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
 	getusertypecrm();
+	setTimeout(getusertypecrm, 490)
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
 
 		if (flagstudent == 1) {
-		
+
 		setTimeout(getunhideemail, 510);
 		setTimeout(getunhidephone, 520);
 		setTimeout(getusernamecrm, 530);
