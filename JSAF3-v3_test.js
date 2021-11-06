@@ -1404,9 +1404,9 @@ let unhidenemail;
 		let goddata = new Date()
 		goddata = goddata.getFullYear();
 		getageofuser = nameofuser.data.birthday.split('-')
-			if (nameofuser.data.birthday !=null && (goddata - getageofuser < 18)) {
+			if (nameofuser.data.birthday !=null && (goddata - getageofuser[0] < 18)) {
 				ageofuser = "🔞"
-			} else if (nameofuser.data.birthday !=null && (goddata - getageofuser > 18)) {
+			} else if (nameofuser.data.birthday !=null && (goddata - getageofuser[0] > 18)) {
 				ageofuser = "🅰";
 			} else if (nameofuser.data.birthday ==null) {
 				ageofuser = "❓";
