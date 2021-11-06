@@ -1652,7 +1652,7 @@ document.getElementById('getidstudent').onclick = function () {
                 }
             } else { console.log("No such field") }
         }
-	}, 700)
+	}, 1200)
 		
 		
 		
