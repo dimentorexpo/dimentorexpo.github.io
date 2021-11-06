@@ -1635,24 +1635,23 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
 
-	setTimeout(function() {
-        let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
-		 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
-         for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
-                for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-                        let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-                        for (let i = 0; i < testids.length; i++) {
-                            if (getidusr == testids[i]) {
-                                infoiduslugi[i].textContent = "ID Услуги 🔥"
-                            }
-                        }
-                    } else { console.log("Not found") }
-                }
-            } else { console.log("No such field") }
-        }
-	}, 1200)
+		// Пока не работает должным образом
+        // let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
+		 // let infoiduslugi = document.getElementsByClassName('iduslugitxt');
+         // for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
+            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+                // for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                    // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                        // let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                        // for (let i = 0; i < testids.length; i++) {
+                            // if (getidusr == testids[i]) {
+                                // infoiduslugi[i].textContent = "ID Услуги 🔥"
+                            // }
+                        // }
+                    // } else { console.log("Not found") }
+                // }
+            // } else { console.log("No such field") }
+        // }
 		
 		
 		
