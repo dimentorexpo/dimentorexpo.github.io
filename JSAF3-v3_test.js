@@ -1601,7 +1601,7 @@ let getcrmstatusinfo;
 	filteredid = filteredid.trim();
 	 document.getElementById('responseTextarea1').value = `{
 			  "headers": {
-				"accept": "application/json, text/plain, */*",
+				"accept": "application/json",
 				"sec-fetch-dest": "empty",
 				"sec-fetch-mode": "cors",
 				"sec-fetch-site": "same-site"
@@ -1641,7 +1641,6 @@ let getcrmstatusinfo;
 	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
-	getidstudent.click();
     let servicearr;
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
