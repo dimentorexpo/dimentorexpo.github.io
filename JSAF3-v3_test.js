@@ -1423,7 +1423,7 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(getusernamecrm, 920);
 		setTimeout(checkemailandphoneidentity, 930);
 	
-    setTimeout(function() { document.getElementById('responseTextarea1').value = `{
+   document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
 			"accept-language": "ru",
@@ -1517,13 +1517,8 @@ document.getElementById('getidstudent').onclick = function () {
                 copyToClipboard1(arrservice[j])
             }
         }
-
     } 
-	   setTimeout(getServInfo, 1000)
-	}, 800)
-	
-
- 
+	   setTimeout(getServInfo, 1010)
 	
 	setTimeout(async function() {
 		let tempvariable = document.getElementById('idstudent').value;
@@ -1552,7 +1547,7 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('ChatStatus').textContent = "🚫";
 		}
 		
-	}, 1000)
+	}, 1020)
 	
 	setTimeout(function () {
 		let tempvarcrm = document.getElementById('idstudent').value;
@@ -1660,7 +1655,7 @@ document.getElementById('getidstudent').onclick = function () {
 
 }
 
-			document.getElementById('ChatStatus').onclick = function () {
+	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
 				
 				if (document.querySelector('#hide_or_display').textContent != "свернуть") {
