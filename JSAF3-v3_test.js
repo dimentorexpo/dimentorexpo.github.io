@@ -1744,9 +1744,9 @@ let convid;
    unhidephone="";
    
 		} else if (flagteacher == 1) {
-		setTimeout(getunhideemail, 300);
-		setTimeout(getunhidephone, 290);
-		setTimeout(getusernamecrm, 280);
+		getunhideemail();
+		getunhidephone();
+		getusernamecrm();
 					
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher = 0;
