@@ -1458,9 +1458,10 @@ let unhidenemail;
 
 		
 		
-	}, 600)		
+	}, 300)		
 		
 	}
+	
 
 let getcrmstatusinfo;	
 	function crmstatus() {
