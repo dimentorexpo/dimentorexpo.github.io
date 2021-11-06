@@ -1770,7 +1770,7 @@ document.getElementById('getidstudent').onclick = function () {
 					setTimeout(getunhidephone, 620);
 					setTimeout(getusernamecrm, 640);
 					
-			document.getElementById('servicetable').innerHTML = " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
+			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher == 0;
 		}
 }
