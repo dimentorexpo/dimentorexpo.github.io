@@ -1418,10 +1418,10 @@ document.getElementById('getidstudent').onclick = function () {
     stid = stid.trim();
     let servicearr;
 		
-		setTimeout(getunhideemail, 900);
-		setTimeout(getunhidephone, 910);
-		setTimeout(getusernamecrm, 920);
-		setTimeout(checkemailandphoneidentity, 930);
+		setTimeout(getunhideemail, 1000);
+		setTimeout(getunhidephone, 1010);
+		setTimeout(getusernamecrm, 1020);
+		setTimeout(checkemailandphoneidentity, 1030);
 	
    document.getElementById('responseTextarea1').value = `{
 		  "headers": {
