@@ -1410,9 +1410,8 @@ let unhidenemail;
 								ageofuser = "🔞"
 		      else if (goddata - getageofuser[0] > 18 && goddata - getageofuser[0] < 99) 
 				ageofuser = "🅰";
-			  else if (nameofuser.data.birthday ==null) 
+			} else if (getageofuser.data.birthday == null) 
 				ageofuser = "❓";
-			}
 		
 	}, 600)		
 		
