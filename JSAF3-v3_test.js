@@ -1636,14 +1636,14 @@ let getcrmstatusinfo;
 		}
 		
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	}, 500)		
+	}, 300)		
 	}
 		
 
 let servicearr;	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
-	setTimeout(getusertypecrm, 500)
+	setTimeout(getusertypecrm, 300)
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
