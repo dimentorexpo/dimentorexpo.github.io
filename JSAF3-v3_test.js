@@ -1747,6 +1747,9 @@ let convid;
 					
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher = 0;
+			nameofuser="";
+			unhidenemail="";
+			unhidephone="";
 		}
 //}
 
