@@ -1527,7 +1527,8 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
 	
-   document.getElementById('responseTextarea1').value = `{
+   setTimeout(function() {
+	   document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
 			"accept-language": "ru",
@@ -1651,7 +1652,8 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('ChatStatus').textContent = "🚫";
 		}
 		
-	}, 1020)
+	}, 600)
+   }, 700)
 	
 
 	
