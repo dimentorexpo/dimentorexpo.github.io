@@ -1624,7 +1624,7 @@ let getcrmstatusinfo;
     document.getElementById('sendResponse').click()
 	
 		gettedusertypeinfo = document.getElementById('responseTextarea1').getAttribute('getusertypeinfo');
-        gettedusertypeinfo = JSON.parse(nameofuser);	
+        gettedusertypeinfo = JSON.parse(gettedusertypeinfo);	
 		
 		if (gettedusertypeinfo.data.type == "teacher") {
 			flagteacher = 1;
