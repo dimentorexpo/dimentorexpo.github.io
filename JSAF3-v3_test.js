@@ -1634,7 +1634,7 @@ let getcrmstatusinfo;
 			flagteacher = 0;
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	}, 900)		
+	}, 610)		
 	}
 		
 
@@ -1730,7 +1730,7 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
 		
-		flagstudent == 0;
+		flagstudent = 0;
 
 		// Пока не работает должным образом
         // let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
@@ -1770,7 +1770,7 @@ document.getElementById('getidstudent').onclick = function () {
 					setTimeout(getusernamecrm, 640);
 					
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
-			flagteacher == 0;
+			flagteacher = 0;
 		}
 }
 
