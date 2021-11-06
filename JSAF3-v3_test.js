@@ -1450,7 +1450,9 @@ let unhidenemail;
     document.getElementById('sendResponse').click()
 	
 		studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-        studentname = JSON.parse(studentname);	
+        studentname = JSON.parse(studentname);
+			nameofuser="";
+			teachername="";
 		if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
         nameofuser = studentname.data.name + " " + studentname.data.surname;
 		} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
@@ -1672,7 +1674,10 @@ document.getElementById('getidstudent').onclick = function () {
                 temtinfo += [i+1] + ") " +  Object.values(servicearr.data[i].temporaryTeacher.general) + "<br>";
                 servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
                 arrservice += servicearr.data[i].id + ", "
-            } else { console.log("Услуга некорректна, потеряна или без учителя") }
+            } else if (servicearr.data == null) {
+				 document.getElementById('servicetable').innerHTML = "Teacher: " + teachername + "<br>";
+				
+			} else { console.log("Услуга некорректна, потеряна или без учителя") }
         }
 		 
         if (temtinfo == "" && tinfo != "") {
