@@ -1658,13 +1658,13 @@ document.getElementById('getidstudent').onclick = function () {
 			  "mode": "cors",
 			  "credentials": "include"
 	}`
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+stid+"?crm2=true&debugParam=profile-page"
     document.getElementById('responseTextarea3').value = 'getusertypeinfo'
     document.getElementById('sendResponse').click()
 	
 	setTimeout(function() {
 	document.getElementById('responseTextarea1').value = '{}'
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+stid+"?crm2=true&debugParam=profile-page"
     document.getElementById('responseTextarea3').value = 'getusertypeinfo'
     document.getElementById('sendResponse').click()
 	
