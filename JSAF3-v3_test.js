@@ -1688,7 +1688,7 @@ document.getElementById('getidstudent').onclick = function () {
         } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
-			 document.getElementById('servicetable').innerHTML = "Teacher " + "<br>" + "Имя " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
+			 document.getElementById('servicetable').innerHTML = '<span style="color:style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
 		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
 		arrservice = arrservice.split(', ')
