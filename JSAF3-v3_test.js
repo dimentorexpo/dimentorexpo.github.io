@@ -1516,8 +1516,8 @@ document.getElementById('getidstudent').onclick = function () {
         }
 
     } 
-	   setTimeout(getServInfo, 1010)
-	}, 760)
+	   setTimeout(getServInfo, 990)
+	}, 810)
 	
 
  
