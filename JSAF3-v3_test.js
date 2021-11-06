@@ -1644,6 +1644,8 @@ let getcrmstatusinfo;
 	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
+	flagstudent=0;
+	flagteacher=0;
     let servicearr;
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
