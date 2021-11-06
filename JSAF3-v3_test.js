@@ -1420,6 +1420,8 @@ let unhidenemail;
 	
 	
 	let nameofuser;
+	let teachername;
+	let studentname;
 	function getusernamecrm() {
 		let filteredid = document.getElementById('idstudent').value;
 		filteredid = filteredid.trim();
@@ -1442,26 +1444,28 @@ let unhidenemail;
     document.getElementById('sendResponse').click()
 	
 	setTimeout(function() {
-		document.getElementById('responseTextarea1').value = '{}'
+	document.getElementById('responseTextarea1').value = '{}'
     document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
     document.getElementById('responseTextarea3').value = 'getusernameinfo'
     document.getElementById('sendResponse').click()
 	
-		nameofuser = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-        nameofuser = JSON.parse(nameofuser);	
-		if (nameofuser.data.name != null && nameofuser.data.surname != null) {
-        nameofuser = nameofuser.data.name + " " + nameofuser.data.surname;
-		} else if (nameofuser.data.name != null&& nameofuser.data.surname == null ) {
-		nameofuser = nameofuser.data.name;	
+		studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+        studentname = JSON.parse(studentname);	
+		if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
+        nameofuser = studentname.data.name + " " + studentname.data.surname;
+		} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
+		nameofuser = studentname.data.name;	
+		} else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
+        teachername = studentname.data.name + " " + studentname.data.surname;
+		} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
+		teachername = studentname.data.name;	
 		}
-        document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
-
+	
+        document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')	
 		
-		
-	}, 300)		
+	}, 600)		
 		
 	}
-	
 
 let getcrmstatusinfo;	
 	function crmstatus() {
@@ -1594,68 +1598,24 @@ let getcrmstatusinfo;
 		}		
 	}
 	
-	let flagteacher=0;
-	let flagstudent=0;
-	let gettedusertypeinfo;
-	document.getElementById('getidstudent').addEventListener('click', function(){
-	let filteredid = document.getElementById('idstudent').value;
-	filteredid = filteredid.trim();
-	 document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "application/json",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
-			  },
-			  "referrer": "https://crm2.skyeng.ru/",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	}`
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
-    document.getElementById('responseTextarea3').value = 'getusertypeinfo'
-    document.getElementById('sendResponse').click()
 	
-	setTimeout(function() {
-	document.getElementById('responseTextarea1').value = '{}'
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
-    document.getElementById('responseTextarea3').value = 'getusertypeinfo'
-    document.getElementById('sendResponse').click()
+
 	
-		gettedusertypeinfo = document.getElementById('responseTextarea1').getAttribute('getusertypeinfo');
-        gettedusertypeinfo = JSON.parse(gettedusertypeinfo);	
-		
-		if (gettedusertypeinfo.data.type == "teacher") {
-			flagteacher = 1;
-			flagstudent = 0;
-		} else if (gettedusertypeinfo.data.type == "student") {
-			flagstudent = 1;
-			flagteacher = 0;
-		}
-		
-        document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	}, 300)		
-	
-		
-setTimeout(function() {
-let servicearr;	
 let convid;	
-//document.getElementById('getidstudent').onclick = function () {
+document.getElementById('getidstudent').onclick = function () {
+    let servicearr;
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
 
-		if (flagstudent == 1 && flagteacher ==0) {
-
-		setTimeout(getunhideemail, 510);
-		setTimeout(getunhidephone, 520);
-		setTimeout(getusernamecrm, 530);
-		setTimeout(getuseragecrm, 540);
-		setTimeout(checkemailandphoneidentity, 550);
-		setTimeout(crmstatus, 560);
-		setTimeout(chatstatus,570);
+		
+		setTimeout(getunhideemail, 600);
+		setTimeout(getunhidephone, 620);
+		setTimeout(getusernamecrm, 640);
+		setTimeout(getuseragecrm, 650);
+		setTimeout(checkemailandphoneidentity, 660);
+		setTimeout(crmstatus, 680);
+		setTimeout(chatstatus,700);
 	
    setTimeout(function() {
 	   document.getElementById('responseTextarea1').value = `{
@@ -1730,35 +1690,39 @@ let convid;
                 copyToClipboard1(arrservice[j])
             }
         }
+
+		// Пока не работает должным образом
+        // let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
+		 // let infoiduslugi = document.getElementsByClassName('iduslugitxt');
+         // for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
+            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+                // for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                    // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                        // let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                        // for (let i = 0; i < testids.length; i++) {
+                            // if (testids[i] == getidusr) {
+                                // infoiduslugi[i].innerText = "ID Услуги 🔥"
+								// console.log("infoiduslugi[i]" + infoiduslugi[i].innerText)
+                            // }
+                        // }
+                    // } else { console.log("Not found") }
+                // }
+            // } else { console.log("No such field") }
+        // }
 		
 		
+		
+     //   console.log("teacher ID: " + tinfo)
+     //   console.log("temporary teacher ID: " + temtinfo)
+     //   console.log("service info: " + servinfo)
+
+
     } 
    
-	   setTimeout(getServInfo, 600)
+	   setTimeout(getServInfo, 650)
 	
-   }, 620)
-   flagstudent = 0;
-   nameofuser="";
-   unhidenemail="";
-   unhidephone="";
-   
-		} else if (flagstudent == 0 && flagteacher ==1) {
-		getusernamecrm();
-		setTimeout(getunhideemail, 500);
-		setTimeout(getunhidephone, 550);
-		
-					
-			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
-			flagteacher = 0;
-			nameofuser="";
-			unhidenemail="";
-			unhidephone="";
-		}
-//}
-
-}, 500)
-
-	})
+   }, 720)
+}
 
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
