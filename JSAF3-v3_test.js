@@ -1514,6 +1514,35 @@ let getcrmstatusinfo;
 	}, 800)
 	}
 	
+	 function chatstatus() {
+		let tempvariable = document.getElementById('idstudent').value;
+		document.getElementById('ChatStatus').style.display ="none";
+		document.getElementById('getcurrentstatus').style.display ="none";
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\""+tempvariable+"\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r => r.json()).then(data => infres = data)
+		if (infres.total > 0) {
+			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "📧";
+			convid = infres.items[0].conversationId;
+		} else if (infres.total == 0) {
+			document.getElementById('ChatStatus').style.display = "";
+			document.getElementById('ChatStatus').textContent = "🚫";
+		}		
+	}
+	
+	
 	    let servicearr;
 	
 let convid;	
@@ -1528,6 +1557,7 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(getusernamecrm, 640);
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
+		setTimeout(chatstatus,700);
 	
    setTimeout(function() {
 	   document.getElementById('responseTextarea1').value = `{
@@ -1626,38 +1656,11 @@ document.getElementById('getidstudent').onclick = function () {
         }
     } 
    
-	   setTimeout(getServInfo, 1200)
+	   setTimeout(getServInfo, 600)
 	
-	setTimeout(async function() {
-		let tempvariable = document.getElementById('idstudent').value;
-		document.getElementById('ChatStatus').style.display ="none";
-		document.getElementById('getcurrentstatus').style.display ="none";
-		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-		  "headers": {
-			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-origin"
-		  },
-		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\""+tempvariable+"\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
-		  "method": "POST",
-		  "mode": "cors",
-		  "credentials": "include"
-		}).then(r => r.json()).then(data => infres = data)
-		if (infres.total > 0) {
-			document.getElementById('ChatStatus').style.display = "";
-			document.getElementById('ChatStatus').textContent = "📧";
-			convid = infres.items[0].conversationId;
-		} else if (infres.total == 0) {
-			document.getElementById('ChatStatus').style.display = "";
-			document.getElementById('ChatStatus').textContent = "🚫";
-		}		
-	}, 600)
-	
-   }, 700)
+   }, 720)
 }
+
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
 				
