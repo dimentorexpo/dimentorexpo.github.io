@@ -1617,11 +1617,11 @@ let getcrmstatusinfo;
     document.getElementById('responseTextarea3').value = 'getusertypeinfo'
     document.getElementById('sendResponse').click()
 	
-	setTimeout(function() {
-		document.getElementById('responseTextarea1').value = '{}'
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
-    document.getElementById('responseTextarea3').value = 'getusertypeinfo'
-    document.getElementById('sendResponse').click()
+	//setTimeout(function() {
+//		document.getElementById('responseTextarea1').value = '{}'
+ //   document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+  //  document.getElementById('responseTextarea3').value = 'getusertypeinfo'
+  //  document.getElementById('sendResponse').click()
 	
 		gettedusertypeinfo = document.getElementById('responseTextarea1').getAttribute('getusertypeinfo');
         gettedusertypeinfo = JSON.parse(gettedusertypeinfo);	
@@ -1635,7 +1635,7 @@ let getcrmstatusinfo;
 		}
 
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	}, 600)		
+	//}, 600)		
 	}
 		
 
@@ -1761,7 +1761,7 @@ document.getElementById('getidstudent').onclick = function () {
 
     } 
    
-	   setTimeout(getServInfo, 670)
+	   setTimeout(getServInfo, 650)
 	
    }, 720)
    
@@ -1770,7 +1770,7 @@ document.getElementById('getidstudent').onclick = function () {
 					setTimeout(getunhidephone, 620);
 					setTimeout(getusernamecrm, 640);
 					
-			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
+			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher == 0;
 		}
 }
