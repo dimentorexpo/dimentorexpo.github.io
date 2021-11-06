@@ -1371,6 +1371,55 @@ let unhidenemail;
         skipAP.value = "";
     }
 	
+	let getageofuser;
+	let ageofuser;
+	function getuseragecrm() {
+		let filteredid = document.getElementById('idstudent').value;
+		filteredid = filteredid.trim();
+	 document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
+			  },
+			  "referrer": "https://crm2.skyeng.ru/",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea3').value = 'getusernageinfo'
+    document.getElementById('sendResponse').click()
+	
+	setTimeout(function() {
+		document.getElementById('responseTextarea1').value = '{}'
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea3').value = 'getusernageinfo'
+    document.getElementById('sendResponse').click()
+	
+		getageofuser = document.getElementById('responseTextarea1').getAttribute('getusernageinfo');
+        getageofuser = JSON.parse(getageofuser);	
+		let goddata = new Date()
+		goddata = goddata.getFullYear();
+		getageofuser = getageofuser.data.birthday.split('-')
+			if (getageofuser.data.birthday !=null) {
+				if (goddata - getageofuser[0] < 18)
+								ageofuser = "🔞"
+		      else if (goddata - getageofuser[0] > 18 && goddata - getageofuser[0] < 99) 
+				ageofuser = "🅰";
+			  else if (nameofuser.data.birthday ==null) 
+				ageofuser = "❓";
+			}
+		
+	}, 600)		
+		
+	}
+	
+	
+	
 	let nameofuser;
 	function getusernamecrm() {
 		let filteredid = document.getElementById('idstudent').value;
@@ -1559,6 +1608,7 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(getunhideemail, 600);
 		setTimeout(getunhidephone, 620);
 		setTimeout(getusernamecrm, 640);
+		setTimeout(getuseragecrm, 650);
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
 		setTimeout(chatstatus,700);
@@ -1622,11 +1672,11 @@ document.getElementById('getidstudent').onclick = function () {
         }
 		 
         if (temtinfo == "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML = "Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo == "") {
-            document.getElementById('servicetable').innerHTML = "Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
 		arrservice = arrservice.split(', ')
