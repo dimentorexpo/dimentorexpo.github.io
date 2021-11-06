@@ -1370,20 +1370,10 @@ let unhidenemail;
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-let convid;	
-let nameofuser;
-document.getElementById('getidstudent').onclick = function () {
-	document.getElementById('getcurrentstatus').title = "";
-    let stid = document.getElementById('idstudent').value;
-    stid = stid.trim();
-    let servicearr;
-		
-		setTimeout(getunhideemail, 900);
-		setTimeout(getunhidephone, 910);
-		setTimeout(checkemailandphoneidentity, 950);
-
-		
-		    document.getElementById('responseTextarea1').value = `{
+	
+	let nameofuser;
+	function getusernamecrm() {
+	 document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "application/json, text/plain, */*",
 				"sec-fetch-dest": "empty",
@@ -1418,7 +1408,20 @@ document.getElementById('getidstudent').onclick = function () {
 	
 		
 	}, 700)		
-
+		
+	}
+	
+let convid;	
+document.getElementById('getidstudent').onclick = function () {
+	document.getElementById('getcurrentstatus').title = "";
+    let stid = document.getElementById('idstudent').value;
+    stid = stid.trim();
+    let servicearr;
+		
+		setTimeout(getunhideemail, 900);
+		setTimeout(getunhidephone, 910);
+		setTimeout(getusernamecrm, 920);
+		setTimeout(checkemailandphoneidentity, 930);
 	
     setTimeout(function() { document.getElementById('responseTextarea1').value = `{
 		  "headers": {
@@ -1516,8 +1519,8 @@ document.getElementById('getidstudent').onclick = function () {
         }
 
     } 
-	   setTimeout(getServInfo, 990)
-	}, 810)
+	   setTimeout(getServInfo, 1000)
+	}, 800)
 	
 
  
