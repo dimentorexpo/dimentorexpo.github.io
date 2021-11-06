@@ -1514,12 +1514,14 @@ let getcrmstatusinfo;
 	}, 800)
 	}
 	
+	    let servicearr;
+	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
-    let servicearr;
+
 		
 		setTimeout(getunhideemail, 600);
 		setTimeout(getunhidephone, 620);
@@ -1623,7 +1625,9 @@ document.getElementById('getidstudent').onclick = function () {
             }
         }
     } 
-	   setTimeout(getServInfo, 1010)
+   }, 700)
+   
+	   setTimeout(getServInfo, 1200)
 	
 	setTimeout(async function() {
 		let tempvariable = document.getElementById('idstudent').value;
@@ -1650,16 +1654,10 @@ document.getElementById('getidstudent').onclick = function () {
 		} else if (infres.total == 0) {
 			document.getElementById('ChatStatus').style.display = "";
 			document.getElementById('ChatStatus').textContent = "🚫";
-		}
-		
+		}		
 	}, 600)
-   }, 700)
 	
-
-	
-
 }
-
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
 				
