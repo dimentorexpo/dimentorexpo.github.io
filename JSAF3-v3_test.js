@@ -1643,8 +1643,7 @@ let getcrmstatusinfo;
 let servicearr;	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
-	getusertypecrm();
-	setTimeout(getusertypecrm, 490)
+	setTimeout(getusertypecrm, 500)
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
