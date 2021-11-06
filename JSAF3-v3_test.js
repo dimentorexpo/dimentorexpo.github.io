@@ -1645,8 +1645,10 @@ document.getElementById('getidstudent').onclick = function () {
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
-		setTimeout(getusertypecrm, 500);
-		if (flagstudent == 1) {
+		setTimeout(getusertypecrm, 400);
+		
+		setTimeout(function() {
+			if (flagstudent == 1) {
 		
 		setTimeout(getunhideemail, 600);
 		setTimeout(getunhidephone, 620);
@@ -1772,6 +1774,7 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher = 0;
 		}
+		}, 500);
 }
 
 	document.getElementById('ChatStatus').onclick = function () {
