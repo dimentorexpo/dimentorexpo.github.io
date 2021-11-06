@@ -1403,6 +1403,7 @@ let unhidenemail;
         nameofuser = JSON.parse(nameofuser);
 		let goddata = new Date()
 		goddata = goddata.getFullYear();
+		if (nameofuser.data.birthday !=null)
 		getageofuser = nameofuser.data.birthday.split('-')
 		if (goddata - getageofuser[0] < 18) {
 			ageofuser = "🔞"
