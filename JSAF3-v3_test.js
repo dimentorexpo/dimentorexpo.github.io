@@ -1635,7 +1635,7 @@ let getcrmstatusinfo;
 		}
 		
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	}, 500)		
+	}, 1000)		
 	}
 		
 
@@ -1649,13 +1649,13 @@ document.getElementById('getidstudent').onclick = function () {
 
 		if (flagstudent == 1) {
 		
-		setTimeout(getunhideemail, 700);
-		setTimeout(getunhidephone, 720);
-		setTimeout(getusernamecrm, 740);
-		setTimeout(getuseragecrm, 750);
-		setTimeout(checkemailandphoneidentity, 760);
-		setTimeout(crmstatus, 780);
-		setTimeout(chatstatus,800);
+		setTimeout(getunhideemail, 1100);
+		setTimeout(getunhidephone, 1120);
+		setTimeout(getusernamecrm, 1140);
+		setTimeout(getuseragecrm, 1150);
+		setTimeout(checkemailandphoneidentity, 1160);
+		setTimeout(crmstatus, 1180);
+		setTimeout(chatstatus,1200);
 	
    setTimeout(function() {
 	   document.getElementById('responseTextarea1').value = `{
@@ -1761,9 +1761,9 @@ document.getElementById('getidstudent').onclick = function () {
 
     } 
    
-	   setTimeout(getServInfo, 720)
+	   setTimeout(getServInfo, 1220)
 	
-   }, 820)
+   }, 1320)
    
 		} else if (flagteacher == 1) {
 					setTimeout(getunhideemail, 600);
