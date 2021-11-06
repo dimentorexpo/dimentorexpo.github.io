@@ -1774,7 +1774,7 @@ document.getElementById('CrmStatus').onclick = function() {
 
 		// Пока не работает должным образом
 		setInterval(function() {
-		(if document.querySelector('#servicetable') != undefined) {
+		if (document.querySelector('#servicetable') != undefined) {
         let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
 		 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
          for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
