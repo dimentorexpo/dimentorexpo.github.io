@@ -1403,22 +1403,23 @@ let unhidenemail;
         nameofuser = JSON.parse(nameofuser);
 		let goddata = new Date()
 		goddata = goddata.getFullYear();
-
+		getageofuser = nameofuser.data.birthday.split('-')
+			if (nameofuser.data.birthday !=null && (goddata - getageofuser < 18)) {
+				ageofuser = "🔞"
+			} else if (nameofuser.data.birthday !=null && (goddata - getageofuser > 18) {
+				ageofuser = "🅰";
+			} else if (nameofuser.data.birthday ==null) {
+				ageofuser = "❓";
+			}
+			
 		if (nameofuser.data.name != null && nameofuser.data.surname != null) {
         nameofuser = nameofuser.data.name + " " + nameofuser.data.surname;
-			getageofuser = nameofuser.data.birthday.split('-')
-			if (nameofuser.data.birthday !=null && (goddata - getageofuser < 18)) {
-				ageofuser = "🔞"
-			} else ageofuser = "🅰";
 		} else if (nameofuser.data.name != null && nameofuser.data.surname == null ) {
 		nameofuser = nameofuser.data.name;	
-			getageofuser = nameofuser.data.birthday.split('-')
-			if (nameofuser.data.birthday !=null && (goddata - getageofuser < 18)) {
-				ageofuser = "🔞"
-			} else ageofuser = "🅰";
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
-	
+
+		
 		
 	}, 600)		
 		
