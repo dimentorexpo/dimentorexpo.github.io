@@ -1643,8 +1643,6 @@ let getcrmstatusinfo;
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
     let servicearr;
-	flagteacher = 0;
-	flagstudent = 0;
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
@@ -1732,6 +1730,8 @@ document.getElementById('getidstudent').onclick = function () {
                 copyToClipboard1(arrservice[j])
             }
         }
+		
+		flagstudent == 0;
 
 		// Пока не работает должным образом
         // let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
@@ -1766,7 +1766,8 @@ document.getElementById('getidstudent').onclick = function () {
    }, 720)
    
 		} else if (flagteacher == 1) {
-			document.getElementById('servicetable').innerHTML = "AutoГЛЮК я твой отец"
+			document.getElementById('servicetable').innerHTML = "AutoГЛЮК я твой отец";
+			flagteacher == 0;
 		}
 }
 
