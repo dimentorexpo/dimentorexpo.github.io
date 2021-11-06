@@ -1297,13 +1297,12 @@ let unhidenemail;
 		 
 		 if (document.querySelector('#hide_or_display').textContent != "свернуть") {
     hide_or_display.click()
-            document.getElementById('user_id').value = document.getElementById('idstudent').value;
+		 document.getElementById('user_id').value = document.getElementById('idstudent').value; }
     search.click()
-		} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-            document.getElementById('user_id').value = document.getElementById('idstudent').value;
-	search.click()
-	}	 
-        }
+	 else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+	 document.getElementById('user_id').value = document.getElementById('idstudent').value; }
+		search.click()
+     }
 
     document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
         let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
