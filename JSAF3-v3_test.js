@@ -1373,7 +1373,7 @@ let unhidenemail;
 	
 	let nameofuser;
 	let getageofuser;
-	let ageofuser;
+	let ageofuser="";
 	function getusernamecrm() {
 	 document.getElementById('responseTextarea1').value = `{
 			  "headers": {
