@@ -1418,7 +1418,8 @@ let unhidenemail;
 	}
 	
 	
-	
+	 let flagteacher;
+	 let flagstudent;
 	let nameofuser;
 	function getusernamecrm() {
 		let filteredid = document.getElementById('idstudent').value;
@@ -1453,6 +1454,14 @@ let unhidenemail;
         nameofuser = nameofuser.data.name + " " + nameofuser.data.surname;
 		} else if (nameofuser.data.name != null&& nameofuser.data.surname == null ) {
 		nameofuser = nameofuser.data.name;	
+		}
+		
+		if (nameofuser.data.type == "teacher") {
+			flagteacher = 1;
+			flagstudent = 0;
+		} else if (nameofuser.data.type == "student") {
+			flagstudent = 1;
+			flagteacher = 1;
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 
@@ -1593,50 +1602,50 @@ let getcrmstatusinfo;
 		}		
 	}
 	
-	let flagteacher;
-	let flagstudent;
-	let gettedusertypeinfo;
-	function getusertypecrm() {
-	let filteredid = document.getElementById('idstudent').value;
-	filteredid = filteredid.trim();
-	 document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "application/json, text/plain, */*",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
-			  },
-			  "referrer": "https://crm2.skyeng.ru/",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	}`
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
-    document.getElementById('responseTextarea3').value = 'getusertypeinfo'
-    document.getElementById('sendResponse').click()
+	// let flagteacher;
+	// let flagstudent;
+	// let gettedusertypeinfo;
+	// function getusertypecrm() {
+	// let filteredid = document.getElementById('idstudent').value;
+	// filteredid = filteredid.trim();
+	 // document.getElementById('responseTextarea1').value = `{
+			  // "headers": {
+				// "accept": "application/json, text/plain, */*",
+				// "sec-fetch-dest": "empty",
+				// "sec-fetch-mode": "cors",
+				// "sec-fetch-site": "same-site"
+			  // },
+			  // "referrer": "https://crm2.skyeng.ru/",
+			  // "referrerPolicy": "strict-origin-when-cross-origin",
+			  // "body": null,
+			  // "method": "GET",
+			  // "mode": "cors",
+			  // "credentials": "include"
+	// }`
+    // document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    // document.getElementById('responseTextarea3').value = 'getusertypeinfo'
+    // document.getElementById('sendResponse').click()
 	
-	setTimeout(function() {
-	document.getElementById('responseTextarea1').value = '{}'
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
-    document.getElementById('responseTextarea3').value = 'getusertypeinfo'
-    document.getElementById('sendResponse').click()
+	// setTimeout(function() {
+	// document.getElementById('responseTextarea1').value = '{}'
+    // document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    // document.getElementById('responseTextarea3').value = 'getusertypeinfo'
+    // document.getElementById('sendResponse').click()
 	
-		gettedusertypeinfo = document.getElementById('responseTextarea1').getAttribute('getusertypeinfo');
-        gettedusertypeinfo = JSON.parse(gettedusertypeinfo);	
+		// gettedusertypeinfo = document.getElementById('responseTextarea1').getAttribute('getusertypeinfo');
+        // gettedusertypeinfo = JSON.parse(gettedusertypeinfo);	
 		
-		if (gettedusertypeinfo.data.type == "teacher") {
-			flagteacher = 1;
-			flagstudent = 0;
-		} else if (gettedusertypeinfo.data.type == "student") {
-			flagstudent = 1;
-			flagteacher = 1;
-		}
+		// if (gettedusertypeinfo.data.type == "teacher") {
+			// flagteacher = 1;
+			// flagstudent = 0;
+		// } else if (gettedusertypeinfo.data.type == "student") {
+			// flagstudent = 1;
+			// flagteacher = 1;
+		// }
 
-        document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	}, 400)		
-	}
+        // document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
+	// }, 400)		
+	// }
 		
 
 	
@@ -1646,12 +1655,12 @@ document.getElementById('getidstudent').onclick = function () {
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
-		getusertypecrm();
+		getusernamecrm();
 		if (flagstudent == 1) {
 		
 		setTimeout(getunhideemail, 600);
 		setTimeout(getunhidephone, 620);
-		setTimeout(getusernamecrm, 640);
+		//setTimeout(getusernamecrm, 640);
 		setTimeout(getuseragecrm, 650);
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
@@ -1768,7 +1777,7 @@ document.getElementById('getidstudent').onclick = function () {
 		} else if (flagteacher == 1) {
 					setTimeout(getunhideemail, 600);
 					setTimeout(getunhidephone, 620);
-					setTimeout(getusernamecrm, 640);
+				//	setTimeout(getusernamecrm, 640);
 					
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher == 0;
