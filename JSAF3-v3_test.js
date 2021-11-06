@@ -1462,6 +1462,51 @@ let unhidenemail;
 		
 	}
 	
+	let nameofuserteacher;
+	function getusernamecrmteacher() {
+		let filteredid = document.getElementById('idstudent').value;
+		filteredid = filteredid.trim();
+	 document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
+			  },
+			  "referrer": "https://crm2.skyeng.ru/",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea3').value = 'getusernameinfoteacher'
+    document.getElementById('sendResponse').click()
+	
+	setTimeout(function() {
+		document.getElementById('responseTextarea1').value = '{}'
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea3').value = 'getusernameinfoteacher'
+    document.getElementById('sendResponse').click()
+	
+		nameofuserteacher = document.getElementById('responseTextarea1').getAttribute('getusernameinfoteacher');
+        nameofuserteacher = JSON.parse(nameofuserteacher);	
+		if (nameofuserteacher.data.name != null && nameofuserteacher.data.surname != null) {
+        nameofuserteacher = nameofuserteacher.data.name + " " + nameofuserteacher.data.surname;
+		} else if (nameofuserteacher.data.name != null&& nameofuserteacher.data.surname == null ) {
+		nameofuser = nameofuserteacher.data.name;	
+		}
+        document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+
+		
+		
+	}, 300)		
+		
+	}
+	
+	
+	
 
 let getcrmstatusinfo;	
 	function crmstatus() {
@@ -1746,9 +1791,9 @@ let convid;
 		} else if (flagteacher == 1) {
 		setTimeout(getunhideemail, 510);
 		setTimeout(getunhidephone, 520);
-		setTimeout(getusernamecrm, 530);
+		setTimeout(getusernamecrmteacher, 530);
 					
-			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
+			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuserteacher + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher = 0;
 			nameofuser="";
 			unhidenemail="";
