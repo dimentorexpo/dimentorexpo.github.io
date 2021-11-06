@@ -1617,11 +1617,11 @@ let getcrmstatusinfo;
     document.getElementById('responseTextarea3').value = 'getusertypeinfo'
     document.getElementById('sendResponse').click()
 	
-	//setTimeout(function() {
-//		document.getElementById('responseTextarea1').value = '{}'
- //   document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
-  //  document.getElementById('responseTextarea3').value = 'getusertypeinfo'
-  //  document.getElementById('sendResponse').click()
+	setTimeout(function() {
+	document.getElementById('responseTextarea1').value = '{}'
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+filteredid+"?crm2=true&debugParam=profile-page"
+    document.getElementById('responseTextarea3').value = 'getusertypeinfo'
+    document.getElementById('sendResponse').click()
 	
 		gettedusertypeinfo = document.getElementById('responseTextarea1').getAttribute('getusertypeinfo');
         gettedusertypeinfo = JSON.parse(gettedusertypeinfo);	
@@ -1635,7 +1635,7 @@ let getcrmstatusinfo;
 		}
 
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	//}, 600)		
+	}, 400)		
 	}
 		
 
