@@ -1634,7 +1634,7 @@ let getcrmstatusinfo;
 			flagteacher = 1;
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
-	}, 300)		
+	}, 900)		
 	}
 		
 
