@@ -1596,7 +1596,7 @@ let getcrmstatusinfo;
 	let flagteacher=0;
 	let flagstudent=0;
 	let gettedusertypeinfo;
-	function getusertypecrm() {
+	document.getElementById('getidstudent').addEventListener('click', function(){
 		gettedusertypeinfo="";
 	let filteredid = document.getElementById('idstudent').value;
 	filteredid = filteredid.trim();
@@ -1639,11 +1639,10 @@ let getcrmstatusinfo;
 	}, 300)		
 	}
 		
-
+setTimeout(function() {
 let servicearr;	
 let convid;	
-document.getElementById('getidstudent').onclick = function () {
-	setTimeout(getusertypecrm, 300)
+//document.getElementById('getidstudent').onclick = function () {
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
@@ -1748,7 +1747,9 @@ document.getElementById('getidstudent').onclick = function () {
 			document.getElementById('servicetable').innerHTML = "Teacher" + "<br>" + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>"
 			flagteacher = 0;
 		}
-}
+//}
+
+}, 500)
 
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
