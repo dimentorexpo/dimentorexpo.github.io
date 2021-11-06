@@ -1514,7 +1514,7 @@ let getcrmstatusinfo;
 	}, 800)
 	}
 	
-	 function chatstatus() {
+	async function chatstatus() {
 		let tempvariable = document.getElementById('idstudent').value;
 		document.getElementById('ChatStatus').style.display ="none";
 		document.getElementById('getcurrentstatus').style.display ="none";
