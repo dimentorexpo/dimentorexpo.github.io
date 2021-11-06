@@ -1295,12 +1295,12 @@ let unhidenemail;
 	
 	document.getElementById('catchathistory').onClick = function() {
 		 
-		 if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+		 if (document.querySelector('#hide_or_display').textContent != "свернуть") 
     hide_or_display.click()
-		 document.getElementById('user_id').value = document.getElementById('idstudent').value; }
+		 document.getElementById('user_id').value = document.getElementById('idstudent').value; 
     search.click()
-	 else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-	 document.getElementById('user_id').value = document.getElementById('idstudent').value; }
+	 if (document.querySelector('#hide_or_display').textContent == "свернуть") 
+	 document.getElementById('user_id').value = document.getElementById('idstudent').value; 
 		search.click()
      }
 
