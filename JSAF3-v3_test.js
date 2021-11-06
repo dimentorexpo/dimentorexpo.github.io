@@ -1631,7 +1631,7 @@ let getcrmstatusinfo;
 			flagstudent = 0;
 		} else if (gettedusertypeinfo.data.type == "student") {
 			flagstudent = 1;
-			flagteacher = 1;
+			flagteacher = 0;
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
 	}, 900)		
