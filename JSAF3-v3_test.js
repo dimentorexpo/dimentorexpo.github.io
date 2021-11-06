@@ -1683,10 +1683,23 @@ document.getElementById('getidstudent').onclick = function () {
 		 
         if (temtinfo == "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+			 document.getElementById('checkbalance').style.display = "";
+			 document.getElementById('getcrmoneinfo').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
         } else if (temtinfo != "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+			 document.getElementById('checkbalance').style.display = "";
+			 document.getElementById('getcrmoneinfo').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
         } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+						 document.getElementById('changelocalelng').style.display = "none";
+			 document.getElementById('checkbalance').style.display = "";
+			 document.getElementById('getcrmoneinfo').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
 			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
