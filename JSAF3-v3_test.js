@@ -1168,6 +1168,43 @@ function checkemailandphoneidentity() {
 		
 	
 }
+
+let unhidephone;
+
+function getunhidephone() {
+	
+		document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+	 }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
+        document.getElementById('responseTextarea3').value = 'phoneishere'
+        document.getElementById('sendResponse').click()
+				
+		setTimeout(function() {
+					document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
+			document.getElementById('responseTextarea3').value = 'phoneishere'
+			document.getElementById('sendResponse').click()
+	
+		unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
+		unhidephone = JSON.parse(unhidephone);
+		unhidephone = unhidephone.data.value;
+		document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+			
+		} , 700)
+	
+}
 		 
 let unhidenemail;		 
 	function getunhideemail() {
@@ -1328,6 +1365,7 @@ document.getElementById('getidstudent').onclick = function () {
     let servicearr;
 		
 		setTimeout(getunhideemail, 900);
+		setTimeout(getunhidephone, 910);
 		setTimeout(checkemailandphoneidentity, 950);
 
 		
@@ -1426,11 +1464,11 @@ document.getElementById('getidstudent').onclick = function () {
         }
  
         if (temtinfo == "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML = "Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML = "Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else if (temtinfo != "" && tinfo == "") {
-            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML ="Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
         } else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
         let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
