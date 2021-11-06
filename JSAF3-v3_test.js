@@ -290,7 +290,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
 						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" style="margin-left: 5px; width: 25.23px;">📝</button>
-						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
+
 						</div>
 					
 						               
@@ -305,7 +305,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 </div>`;
 
 
-
+	//					<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
 
 let audio
 
@@ -1076,17 +1076,17 @@ window.open("https://grouplessons-api.skyeng.ru/admin/student/view/"+document.ge
 window.open("https://id.skyeng.ru/admin/users/"+document.getElementById('idstudent').value+"/update")
      }
 	 
-	 document.getElementById('catchathistory').onClick = function() {
+	 // document.getElementById('catchathistory').onClick = function() {
 		 
-		 if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-    hide_or_display.click()
-            document.getElementById('user_id').value = document.getElementById('idstudent').value;
-    search.click()
-		} else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-            document.getElementById('user_id').value = document.getElementById('idstudent').value;
-	search.click()
-	}	 
-}
+		 // if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+    // hide_or_display.click()
+            // document.getElementById('user_id').value = document.getElementById('idstudent').value;
+    // search.click()
+		// } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+            // document.getElementById('user_id').value = document.getElementById('idstudent').value;
+	// search.click()
+	// }	 
+// }
 	 
 	 document.getElementById('getonetimepass').onclick =  function() {
 		 if (document.getElementById('idstudent').value == "")
