@@ -1415,9 +1415,8 @@ let unhidenemail;
 			
 		if (nameofuser.data.name != null && nameofuser.data.surname != null) {
         nameofuser = nameofuser.data.name + " " + nameofuser.data.surname;
-		} else if (nameofuser.data.name != null && nameofuser.data.surname == null ) {
+		} else if (nameofuser.data.name != null&& nameofuser.data.surname == null ) {
 		nameofuser = nameofuser.data.name;	
-			}
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 
