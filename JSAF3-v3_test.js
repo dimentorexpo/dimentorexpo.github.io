@@ -1680,7 +1680,6 @@ document.getElementById('getidstudent').onclick = function () {
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusertypeinfo')
 	}, 510)		
-	}
 				
 		if (flagstudent == 1) {
 		
