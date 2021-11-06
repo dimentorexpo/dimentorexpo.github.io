@@ -1645,7 +1645,7 @@ document.getElementById('getidstudent').onclick = function () {
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
-		getusertypecrm();
+		setTimeout(getusertypecrm, 500);
 		if (flagstudent == 1) {
 		
 		setTimeout(getunhideemail, 600);
