@@ -1404,18 +1404,7 @@ let unhidenemail;
 		let goddata = new Date()
 		goddata = goddata.getFullYear();
 		getageofuser = nameofuser.data.birthday.split('-')
-			// if (nameofuser.data.birthday !=null) {
-				// if (goddata - getageofuser[0] < 18)
-								// ageofuser = "🔞"
-		      // else if (goddata - getageofuser[0] > 18) 
-				// ageofuser = "🅰";
-			  // else if (nameofuser.data.birthday ==null) 
-				// ageofuser = "❓";
-			// }
-			
-		if (nameofuser.data.name != null && nameofuser.data.surname != null) {
-        nameofuser = nameofuser.data.name + " " + nameofuser.data.surname;
-					if (nameofuser.data.birthday !=null) {
+			if (nameofuser.data.birthday !=null) {
 				if (goddata - getageofuser[0] < 18)
 								ageofuser = "🔞"
 		      else if (goddata - getageofuser[0] > 18) 
@@ -1423,15 +1412,11 @@ let unhidenemail;
 			  else if (nameofuser.data.birthday ==null) 
 				ageofuser = "❓";
 			}
+			
+		if (nameofuser.data.name != null && nameofuser.data.surname != null) {
+        nameofuser = nameofuser.data.name + " " + nameofuser.data.surname;
 		} else if (nameofuser.data.name != null && nameofuser.data.surname == null ) {
 		nameofuser = nameofuser.data.name;	
-					if (nameofuser.data.birthday !=null) {
-				if (goddata - getageofuser[0] < 18)
-								ageofuser = "🔞"
-		      else if (goddata - getageofuser[0] > 18) 
-				ageofuser = "🅰";
-			  else if (nameofuser.data.birthday ==null) 
-				ageofuser = "❓";
 			}
 		}
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
