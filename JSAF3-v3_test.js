@@ -1216,7 +1216,7 @@ function getunhidephone() {
 		unhidephone = unhidephone.data.value;
 		document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 			
-		} , 700)
+		} , 600)
 	
 }
 		 
@@ -1251,7 +1251,7 @@ let unhidenemail;
 		unhidenemail = unhidenemail.data.value;
 		document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			
-		} , 800)
+		} , 600)
 		
 	}	 
 	 
@@ -1407,7 +1407,7 @@ let unhidenemail;
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 	
 		
-	}, 700)		
+	}, 600)		
 		
 	}
 
