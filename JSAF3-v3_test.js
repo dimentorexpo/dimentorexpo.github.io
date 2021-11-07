@@ -1452,6 +1452,9 @@ let unhidenemail;
 		let curdate = new Date();
 		let curhours=curdate.getHours();
 		let curminutes = curdate.getMinutes();
+		if (curminutes < 10) {
+			curminutes = "0" + curminutes;
+		}
 		let filteredid = document.getElementById('idstudent').value;
 		filteredid = filteredid.trim();
 	 document.getElementById('responseTextarea1').value = `{
