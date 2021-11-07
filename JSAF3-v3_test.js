@@ -1620,7 +1620,6 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
 		setTimeout(chatstatus,700);
-		setTimeout(getteachertrminfo,750);
 		
 	
    setTimeout(function() {
