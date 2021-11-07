@@ -1480,6 +1480,8 @@ let unhidenemail;
 		localtime = (curhours + (utczone-3)) + ":" + curminutes; 
 		} else if ((curhours + (utczone-3)) >= 24) {
 		localtime = ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
+		} else if ((curhours + (utczone-3)) >= 24 && ((curhours + (utczone-3)) - 24) < 10 ) {
+		localtime = "0" + ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
 		}
 	
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')	
