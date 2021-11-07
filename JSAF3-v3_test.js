@@ -1496,11 +1496,11 @@ let unhidenemail;
 		}
 		
 		utczone = studentname.data.utcOffset;
-		if ((curhours + (utczone-3)) < 24  && (curhours + (utczone-3)) > 10 ) {
+		if ((curhours + (utczone-3)) < 24  && (curhours + (utczone-3)) > 10 && (curhours + (utczone-3)) > 0) {
 			localtime = (curhours + (utczone-3)) + ":" + curminutes; 
-		} else if ((curhours + (utczone-3)) >= 24) {
+		} else if ((curhours + (utczone-3)) >= 24 && (curhours + (utczone-3)) > 0) {
 			localtime = "0" + ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
-		} else if ((curhours + (utczone-3)) <10 && (curhours + (utczone-3)) < 24 ) {
+		} else if ((curhours + (utczone-3)) <10 && (curhours + (utczone-3)) < 24 && (curhours + (utczone-3)) > 0) {
 			localtime = "0" + (curhours + (utczone-3)) + ":" + curminutes; 
 		} else if ((curhours + (utczone-3)) <0) {
 			localtime = ((curhours + (utczone-3))+24) + ":" + curminutes; 
