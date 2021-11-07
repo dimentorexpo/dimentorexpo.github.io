@@ -1739,19 +1739,13 @@ document.getElementById('getidstudent').onclick = function () {
 			    arrservice += servicearr.data[i].id + ", "
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
 			//	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
-				servinfo = "";
-				arrservice=null;
-				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
+				console.log("Услуга потеряна");
 			}  else if (servicearr.data[i].stage !="lost" && servicearr.data[i].incorrectnessReason != null ) {
 			//	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
-				servinfo = "";
-				arrservice=null;
-				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
+				console.log("Услуга некорректна");
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
 			//	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
-				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
-				servinfo = "";
-				arrservice=null;
+				console.log("Услуга потеряна и некорректна");
 			} 
 		}			
         }
