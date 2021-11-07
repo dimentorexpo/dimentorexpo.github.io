@@ -1445,9 +1445,9 @@ let unhidenemail;
     document.getElementById('sendResponse').click()
 	
 	setTimeout(function() {
-		document.getElementById('responseTextarea1').value = '{}'
+	document.getElementById('responseTextarea1').value = '{}'
     document.getElementById('responseTextarea2').value = "https://trm-api.skyeng.ru/api/v1/teacher/getData"
-    document.getElementById('responseTextarea3').value = 'getteachtrminf'
+    document.getElementById('responseTextarea3').value = ''
     document.getElementById('sendResponse').click()
 	
 		teaacherinfotrm = document.getElementById('responseTextarea1').getAttribute('getteachtrminf');
