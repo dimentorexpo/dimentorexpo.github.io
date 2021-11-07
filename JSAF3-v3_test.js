@@ -1435,7 +1435,7 @@ let unhidenemail;
 				  },
 				  "referrer": "https://trm.skyeng.ru/",
 				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": "{\"teacherId\":+${filteredid}+,\"includeDeactivatedProfiles\":true,\"readerType\":\"employee\"}",
+				  "body": "{\"teacherId\":"+filteredid+",\"includeDeactivatedProfiles\":true,\"readerType\":\"employee\"}",
 				  "method": "POST",
 				  "mode": "cors",
 				  "credentials": "include"
