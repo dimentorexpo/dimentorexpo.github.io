@@ -1729,11 +1729,11 @@ document.getElementById('getidstudent').onclick = function () {
 				servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
 			    arrservice += servicearr.data[i].id + ", "
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
-				tinfo = "Нет П, услуга(и) потеряна(ы)"+ "<br>";
+				tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
 				servinfo = "";
 				arrservice=null;
 			}  else if (servicearr.data[i].stage !="lost" && servicearr.data[i].incorrectnessReason != null ) {
-				tinfo = "Нет П, услуга(и) некорректна(ы)"+ "<br>";
+				tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
 				servinfo = "";
 				arrservice=null;
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
