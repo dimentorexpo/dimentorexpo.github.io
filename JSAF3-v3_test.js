@@ -1653,7 +1653,8 @@ let getcrmstatusinfo;
 	
 
 	
-let convid;	
+let convid;
+let logginerdata;		
 document.getElementById('getidstudent').onclick = function () {
     let servicearr;
 	document.getElementById('getcurrentstatus').title = "";
@@ -1820,14 +1821,7 @@ document.getElementById('getidstudent').onclick = function () {
 		document.getElementById('getusrphone').onclick = function() {
 			copyToClipboard1(unhidephone);
 		};
-    } 
-   
-	   setTimeout(getServInfo, 650)
-	
-   }, 720)
-}
-
-
+		
 		document.getElementById('logginer').onclick = function() {
 			 document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -1850,8 +1844,21 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getlogginerinfodata'
     document.getElementById('sendResponse').click()
 
-	let logginerdata;
-    function getLogginerInfo() {
+
+			setTimeout(getLogginerInfo, 1215);
+		}
+    } 
+   
+	   setTimeout(getServInfo, 650)
+	
+   }, 720)
+}
+
+
+
+		
+		
+		    function getLogginerInfo() {
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -1879,9 +1886,6 @@ document.getElementById('getidstudent').onclick = function () {
 		copyToClipboard1(logginerdata[1])
 			
 			}
-			
-			setTimeout(getLogginerInfo, 1215);
-		}
 
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
