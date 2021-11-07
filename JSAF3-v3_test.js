@@ -1752,7 +1752,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
-			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
+			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + '<span style="font-weight:700;cursor:pointer;" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
 			 document.getElementById('checkbalance').style.display = "none";
 			 document.getElementById('getcrmoneinfo').style.display = "none";
