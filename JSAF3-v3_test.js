@@ -1698,8 +1698,6 @@ document.getElementById('getidstudent').onclick = function () {
         let temtinfo = ""; // инфо о временном П
         let servinfo = ""; //инфо об услуге
 		let noservinfo="";
-		let incorretcservice="";
-		let lostservice="";
         let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
         for (let i = 0; i < servicearr.data.length; i++) {
             if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null &&  servicearr.data[i].temporaryTeacher == null) {
@@ -1731,21 +1729,17 @@ document.getElementById('getidstudent').onclick = function () {
 				servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
 			    arrservice += servicearr.data[i].id + ", "
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
-				tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
+			//	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
 				servinfo = "";
 				arrservice=null;
-				lostservice=1;
 			}  else if (servicearr.data[i].stage !="lost" && servicearr.data[i].incorrectnessReason != null ) {
-				tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
+			//	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
 				servinfo = "";
 				arrservice=null;
-				incorretcservice=1;
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
-				tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
+			//	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
 				servinfo = "";
 				arrservice=null;
-				lostservice=1;
-				incorretcservice=1;
 			}  else if (servicearr.data == null) {
 				 noservinfo = 1;
 				 arrservice=null;
@@ -1753,7 +1747,7 @@ document.getElementById('getidstudent').onclick = function () {
 			} 
         }
 		 
-        if (temtinfo == "" && tinfo != "" && incorretcservice!=1 && lostservice !=1) {
+        if (temtinfo == "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus + "<br>" + "UTC:" + utczone +  " /  MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			 document.getElementById('changelocalelng').style.display = "";
 			 document.getElementById('checkbalance').style.display = "";
@@ -1762,7 +1756,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
-        } else if (temtinfo != "" && tinfo != "" && incorretcservice!=1 && lostservice !=1) {
+        } else if (temtinfo != "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" + + "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			 document.getElementById('changelocalelng').style.display = "";
 			 document.getElementById('checkbalance').style.display = "";
@@ -1771,7 +1765,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
-        } else if (temtinfo != "" && tinfo == "" && incorretcservice!=1 && lostservice !=1) {
+        } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" +  + "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			 document.getElementById('changelocalelng').style.display = "";
 			 document.getElementById('checkbalance').style.display = "";
