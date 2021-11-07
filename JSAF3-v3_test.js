@@ -1420,55 +1420,6 @@ let unhidenemail;
 		
 	}
 	
-	let teaacherinfotrm;
-	let sortedinfotrm;
-	function getteachertrminfo() {
-		let filteredid = document.getElementById('idstudent').value;
-		filteredid = filteredid.trim();
-	 document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"content-type": "application/json; charset=UTF-8",
-					"sec-fetch-dest": "empty",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://trm.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": "{\"teacherId\":+${filteredid}+,\"includeDeactivatedProfiles\":true,\"readerType\":\"employee\"}",
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-	}`
-    document.getElementById('responseTextarea2').value = "https://trm-api.skyeng.ru/api/v1/teacher/getData"
-    document.getElementById('responseTextarea3').value = 'getteachtrminf'
-    document.getElementById('sendResponse').click()
-	
-	setTimeout(function() {
-	document.getElementById('responseTextarea1').value = `{
-		"headers": {
-					"content-type": "application/json; charset=UTF-8",
-					"sec-fetch-dest": "empty",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://trm.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": "{\"teacherId\":+${filteredid}+,\"includeDeactivatedProfiles\":true,\"readerType\":\"employee\"}",
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"}`
-    document.getElementById('responseTextarea2').value = "https://trm-api.skyeng.ru/api/v1/teacher/getData"
-    document.getElementById('responseTextarea3').value = ''
-    document.getElementById('sendResponse').click()
-	
-		teaacherinfotrm = document.getElementById('responseTextarea1').getAttribute('getteachtrminf');
-        teaacherinfotrm = JSON.parse(teaacherinfotrm);	
-		document.getElementById('responseTextarea1').removeAttribute('getteachtrminf');
-		sortedinfotrm = teaacherinfotrm.data._common.department;
-	}, 600)		
-	}
-	
-	
 	
 	let nameofuser;
 	let teachername;
@@ -1762,7 +1713,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
-			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Департамент " + sortedinfotrm + "<br>";
+			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
 			 document.getElementById('checkbalance').style.display = "none";
 			 document.getElementById('getcrmoneinfo').style.display = "none";
@@ -1772,6 +1723,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('personalteacherpage').style.display = "";
 		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
+		if (arrservice !=null || arrservice !=undefined)
 		arrservice = arrservice.split(', ')
         let tmparr = document.querySelectorAll('.copyserviceid');
         for (let j = 0; j < tmparr.length; j++) {
