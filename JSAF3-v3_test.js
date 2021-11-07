@@ -276,7 +276,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                         </div>
 								
 						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field">
-						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+						<input id="idstudent" placeholder="ID У/П" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
 						<button title="TRM 2.0 для информации по П" id="newtrm" style="margin-left: 5px; display: none; width: 25.23px;">🗿</button>
@@ -1867,7 +1867,7 @@ document.getElementById('newtrm').onclick = function() {
 }
 
 document.getElementById('personalteacherpage').onclick = function() {
-  window.open("https://skyeng.ru/teachers/details/"+document.getElementById('idstudent').value)
+  window.open("https://skyeng.ru/teachers/id/"+document.getElementById('idstudent').value)
 }
 
 document.getElementById('clearservinfo').onclick = function() {
