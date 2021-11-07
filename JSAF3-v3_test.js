@@ -1404,6 +1404,7 @@ let unhidenemail;
 	
 		getageofuser = document.getElementById('responseTextarea1').getAttribute('getusernageinfo');
         getageofuser = JSON.parse(getageofuser);	
+		document.getElementById('responseTextarea1').removeAttribute('getusernageinfo');
 		let goddata = new Date()
 		goddata = goddata.getFullYear();
 			if (getageofuser.data.birthday !=null) {
@@ -1417,6 +1418,43 @@ let unhidenemail;
 		
 	}, 600)		
 		
+	}
+	
+	let teaacherinfotrm;
+	let sortedinfotrm;
+	function getteachertrminfo() {
+		let filteredid = document.getElementById('idstudent').value;
+		filteredid = filteredid.trim();
+	 document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"content-type": "application/json; charset=UTF-8",
+					"sec-fetch-dest": "empty",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://trm.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": "{\"teacherId\":${filteredid},\"includeDeactivatedProfiles\":true,\"readerType\":\"employee\"}",
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://trm-api.skyeng.ru/api/v1/teacher/getData"
+    document.getElementById('responseTextarea3').value = 'getteachtrminf'
+    document.getElementById('sendResponse').click()
+	
+	setTimeout(function() {
+		document.getElementById('responseTextarea1').value = '{}'
+    document.getElementById('responseTextarea2').value = "https://trm-api.skyeng.ru/api/v1/teacher/getData"
+    document.getElementById('responseTextarea3').value = 'getteachtrminf'
+    document.getElementById('sendResponse').click()
+	
+		teaacherinfotrm = document.getElementById('responseTextarea1').getAttribute('getteachtrminf');
+        teaacherinfotrm = JSON.parse(getageofuser);	
+		document.getElementById('responseTextarea1').removeAttribute('getteachtrminf');
+		sortedinfotrm = teaacherinfotrm.data._common.department;
+	}, 600)		
 	}
 	
 	
@@ -1620,6 +1658,8 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
 		setTimeout(chatstatus,700);
+		//setTimeout(getteachertrminfo,750);
+		
 	
    setTimeout(function() {
 	   document.getElementById('responseTextarea1').value = `{
@@ -1712,7 +1752,8 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
-			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
+			 getteachertrminfo()
+			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Департамент " + sortedinfotrm + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
 			 document.getElementById('checkbalance').style.display = "none";
 			 document.getElementById('getcrmoneinfo').style.display = "none";
