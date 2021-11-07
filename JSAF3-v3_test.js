@@ -1708,7 +1708,7 @@ document.getElementById('getidstudent').onclick = function () {
         }
 		 
         if (temtinfo == "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="cursor:pointer; font-weight:500;" id="getusremail">Email: </span>' + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus + "<br>" + "UTC:" + utczone +  " /  MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="font-weight:500;" id="getusremail">Email: </span>' + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus + "<br>" + "UTC:" + utczone +  " /  MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			 document.getElementById('changelocalelng').style.display = "";
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
@@ -1745,6 +1745,8 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('personalteacherpage').style.display = "";
 		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
+		document.getElementById('getusremail').onclick = copyToClipboard1(unhidenemail);
+
 		if (arrservice !=null || arrservice !=undefined)
 		arrservice = arrservice.split(', ')
         let tmparr = document.querySelectorAll('.copyserviceid');
@@ -1760,8 +1762,6 @@ document.getElementById('getidstudent').onclick = function () {
 	
    }, 720)
 }
-
-			 document.getElementById('getusremail').onclick = copyToClipboard1(unhidenemail);
 
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
