@@ -1451,7 +1451,7 @@ let unhidenemail;
     document.getElementById('sendResponse').click()
 	
 		teaacherinfotrm = document.getElementById('responseTextarea1').getAttribute('getteachtrminf');
-        teaacherinfotrm = JSON.parse(getageofuser);	
+        teaacherinfotrm = JSON.parse(teaacherinfotrm);	
 		document.getElementById('responseTextarea1').removeAttribute('getteachtrminf');
 		sortedinfotrm = teaacherinfotrm.data._common.department;
 	}, 600)		
@@ -1743,7 +1743,6 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-						 document.getElementById('changelocalelng').style.display = "none";
 			 document.getElementById('changelocalelng').style.display = "";
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
