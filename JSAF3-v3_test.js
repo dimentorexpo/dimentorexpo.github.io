@@ -1826,13 +1826,13 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('responseTextarea1').value = `{
 			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${stid}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=86400&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=null,
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${stid}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=86400&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=\"\",
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
 	}`
     document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-    document.getElementById('responseTextarea3').value = 'getlogginerinfodata'
+    document.getElementById('responseTextarea3').value = ''
     document.getElementById('sendResponse').click()
 	
 	
