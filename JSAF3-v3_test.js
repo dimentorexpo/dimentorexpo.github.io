@@ -1722,7 +1722,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
-			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "UTC:" + utczone +  " /MSK: " + (utczone-3) + " Время(местное): " + localtime + "<br>";
+			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
 			 document.getElementById('checkbalance').style.display = "none";
 			 document.getElementById('getcrmoneinfo').style.display = "none";
