@@ -1509,6 +1509,12 @@ let unhidenemail;
 		} else {
 			servlocalestatus = studentname.data.serviceLocale;
 		}
+		
+		if (servlocalestatus  =="ru") {
+			document.getElementById('changelocalelng').style.display="none"  
+		} else if (servlocalestatus  !="ru" || servlocalestatus == "⭕" ) {
+			document.getElementById('changelocalelng').style.display=""  
+		}
 	
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')	
 		
