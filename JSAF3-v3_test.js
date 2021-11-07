@@ -1510,11 +1510,6 @@ let unhidenemail;
 			servlocalestatus = studentname.data.serviceLocale;
 		}
 		
-		if (servlocalestatus  =="ru") {
-			document.getElementById('changelocalelng').style.display="none"  
-		} else if (servlocalestatus  !="ru" || servlocalestatus == "⭕" ) {
-			document.getElementById('changelocalelng').style.display=""  
-		}
 	
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')	
 		
@@ -1758,6 +1753,12 @@ document.getElementById('getidstudent').onclick = function () {
 			} 
 		}			
         }
+		
+		if (servlocalestatus  =="ru") {
+			document.getElementById('changelocalelng').style.display="none"  
+		} else if (servlocalestatus  !="ru" || servlocalestatus == "⭕" ) {
+			document.getElementById('changelocalelng').style.display=""  
+		}
 		 
         if (temtinfo == "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus + "<br>" + "UTC:" + utczone +  " /  MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
