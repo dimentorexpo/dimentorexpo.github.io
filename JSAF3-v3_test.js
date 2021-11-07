@@ -1743,7 +1743,7 @@ document.getElementById('getidstudent').onclick = function () {
 				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
 				servinfo = "";
 				arrservice=null;
-			}  else if (servicearr.data == null) {
+			}  else if (servicearr.data.length === 0) {
 				 noservinfo = 1;
 				 arrservice=null;
 				
