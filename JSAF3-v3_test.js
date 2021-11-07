@@ -1840,7 +1840,7 @@ document.getElementById('getidstudent').onclick = function () {
 			  "credentials": "include"
 	}`
     document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-    document.getElementById('responseTextarea3').value = ''
+    document.getElementById('responseTextarea3').value = 'getlogginerinfodata'
     document.getElementById('sendResponse').click()
 
 	let logginerdata;
@@ -1873,7 +1873,7 @@ document.getElementById('getidstudent').onclick = function () {
 			
 			}
 			
-			setTimeout(getLogginerInfo, 1000);
+			setTimeout(getLogginerInfo, 515);
 		}
 		
 
