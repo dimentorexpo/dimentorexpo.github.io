@@ -1699,6 +1699,10 @@ document.getElementById('getidstudent').onclick = function () {
         let servinfo = ""; //инфо об услуге
 		let noservinfo="";
         let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
+		if (servicearr.data.length === 0) {
+				 noservinfo = 1;
+				 arrservice=null;
+		} else {
         for (let i = 0; i < servicearr.data.length; i++) {
             if (servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null &&  servicearr.data[i].temporaryTeacher == null) {
 
@@ -1743,11 +1747,8 @@ document.getElementById('getidstudent').onclick = function () {
 				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
 				servinfo = "";
 				arrservice=null;
-			}  else if (servicearr.data.length === 0) {
-				 noservinfo = 1;
-				 arrservice=null;
-				
 			} 
+		}			
         }
 		 
         if (temtinfo == "" && tinfo != "") {
