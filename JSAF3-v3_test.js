@@ -1475,7 +1475,11 @@ let unhidenemail;
 		}
 		
 		utczone = studentname.data.utcOffset;
-		localtime = (curhours + (utczone-3)) + ":" + curminutes;
+		if ((curhours + (utczone-3)) < 24) {
+		localtime = (curhours + (utczone-3)) + ":" + curminutes; 
+		} else if ((curhours + (utczone-3)) >= 24) {
+		localtime = ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
+		}
 	
         document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')	
 		
