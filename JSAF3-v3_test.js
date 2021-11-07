@@ -1730,13 +1730,16 @@ document.getElementById('getidstudent').onclick = function () {
 			    arrservice += servicearr.data[i].id + ", "
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
 				tinfo = "Учитель отсутствует, услуга(и) потеряна(ы)";
-				servinfo = "Услуга потеряна";
+				servinfo = "Услуга(и) потеряна(ы)";
+				arrservice=null;
 			}  else if (servicearr.data[i].stage !="lost" && servicearr.data[i].incorrectnessReason != null ) {
 				tinfo = "Учитель отсутствует, услуга(и) некорректна(ы)";
-				servinfo = "Услуга некорректна";
+				servinfo = "Услуга(и) некорректна(ы)";
+				arrservice=null;
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
-				tinfo = "Учитель отсутствует, услуга(и) потеряна(ы) или некорректна(ы)";
-				servinfo = "Услуга услуга(и) потеряна(ы) или некорректна(ы)";
+				tinfo = "Учитель отсутствует, услуга(и) потеряна(ы) и некорректна(ы)";
+				servinfo = "Услуга услуга(и) потеряна(ы) и некорректна(ы)";
+				arrservice=null;
 			}  else if (servicearr.data == null) {
 				 noservinfo = 1;
 				 arrservice=null;
@@ -1783,8 +1786,9 @@ document.getElementById('getidstudent').onclick = function () {
 		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
 
-		if (arrservice !=null || arrservice !=undefined)
+		if (arrservice !=null || arrservice !=undefined){
 		arrservice = arrservice.split(', ')
+		}
         let tmparr = document.querySelectorAll('.copyserviceid');
         for (let j = 0; j < tmparr.length; j++) {
             tmparr[j].onclick = function () {
