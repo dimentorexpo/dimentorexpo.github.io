@@ -357,10 +357,15 @@ buttonserv.innerHTML = "⚜";
 buttonserv.style.width = "20px";
 buttonserv.style.cursor = "pointer";
 let buttonservstud = document.createElement('p');
-buttonservstud.id = 'nextStudentServiceInfo';
+buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = "⚜";
 buttonservstud.style.width = "20px";
 buttonservstud.style.cursor = "pointer";
+let buttonservteach = document.createElement('p');
+buttonservteach.id = 'nextTeacherServiceInfo1';
+buttonservteach.innerHTML = "⚜";
+buttonservteach.style.width = "20px";
+buttonservteach.style.cursor = "pointer";
 let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
@@ -481,6 +486,18 @@ buttonserv.onclick = function() {
 	
 	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+		document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+		getidstudent.click();
+		}
+		}
+}
+
+buttonservteach.onclick = function() {
+	if (document.getElementById('AF_Service').style.display == 'none')
+		document.getElementById('AF_Service').style.display = '';
+	
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
 		document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
 		getidstudent.click();
 		}
@@ -3275,6 +3292,7 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(button4)
+                btn.appendChild(buttonservteach)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
