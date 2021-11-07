@@ -1499,7 +1499,7 @@ let unhidenemail;
 		if ((curhours + (utczone-3)) < 24) {
 		localtime = (curhours + (utczone-3)) + ":" + curminutes; 
 		} else if ((curhours + (utczone-3)) >= 24) {
-		localtime = ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
+		localtime = "0" + ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
 		}
 		
 		if (studentname.data.serviceLocale  == null) {
@@ -1732,12 +1732,15 @@ document.getElementById('getidstudent').onclick = function () {
 			//	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
 				servinfo = "";
 				arrservice=null;
+				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
 			}  else if (servicearr.data[i].stage !="lost" && servicearr.data[i].incorrectnessReason != null ) {
 			//	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
 				servinfo = "";
 				arrservice=null;
+				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
 			//	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
+				document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"
 				servinfo = "";
 				arrservice=null;
 			}  else if (servicearr.data == null) {
