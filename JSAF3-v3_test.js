@@ -1768,13 +1768,6 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('personalteacherpage').style.display = "";
 		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
-		document.getElementById('getusremail').onclick = function() {
-			copyToClipboard1(unhidenemail);
-		};	
-
-		document.getElementById('getusrphone').onclick = function() {
-			copyToClipboard1(unhidephone);
-		};
 
 		if (arrservice !=null || arrservice !=undefined)
 		arrservice = arrservice.split(', ')
@@ -1784,6 +1777,14 @@ document.getElementById('getidstudent').onclick = function () {
                 copyToClipboard1(arrservice[j])
             }
         }
+		
+		document.getElementById('getusremail').onclick = function() {
+			copyToClipboard1(unhidenemail);
+		};	
+
+		document.getElementById('getusrphone').onclick = function() {
+			copyToClipboard1(unhidephone);
+		};
 
     } 
    
