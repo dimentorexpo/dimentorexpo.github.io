@@ -1429,9 +1429,7 @@ let unhidenemail;
 	function getusernamecrm() {
 		let curdate = new Date();
 		let curhours=curdate.getHours();
-		if (curhours < 10) { curhours = "0" + curhours; }
 		let curminutes = curdate.getMinutes();
-		if (curminutes < 10) { curminutes = "0" + minutes; }
 		let filteredid = document.getElementById('idstudent').value;
 		filteredid = filteredid.trim();
 	 document.getElementById('responseTextarea1').value = `{
