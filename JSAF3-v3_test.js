@@ -1868,12 +1868,12 @@ document.getElementById('getidstudent').onclick = function () {
         logginerdata = document.getElementById('responseTextarea1').getAttribute('getlogginerinfodata');
         document.getElementById('responseTextarea1').removeAttribute('getlogginerinfodata')
 		logginerdata = logginerdata.match(/"(https:\/\/\D+.*?)"/gm)[5];
-		logginerdata = logginerdata.split();
+		logginerdata = logginerdata.split("\"");
 		copyToClipboard1(logginerdata[1])
 			
 			}
 			
-			setTimeout(getLogginerInfo, 500);
+			setTimeout(getLogginerInfo, 1000);
 		}
 		
 
