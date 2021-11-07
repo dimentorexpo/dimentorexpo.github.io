@@ -1820,7 +1820,14 @@ document.getElementById('getidstudent').onclick = function () {
 		document.getElementById('getusrphone').onclick = function() {
 			copyToClipboard1(unhidephone);
 		};
-		
+    } 
+   
+	   setTimeout(getServInfo, 650)
+	
+   }, 720)
+}
+
+
 		document.getElementById('logginer').onclick = function() {
 			 document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -1873,16 +1880,8 @@ document.getElementById('getidstudent').onclick = function () {
 			
 			}
 			
-			setTimeout(getLogginerInfo, 515);
+			setTimeout(getLogginerInfo, 1215);
 		}
-		
-
-    } 
-   
-	   setTimeout(getServInfo, 650)
-	
-   }, 720)
-}
 
 	document.getElementById('ChatStatus').onclick = function () {
 				if(document.getElementById('ChatStatus').textContent == "📧") {
