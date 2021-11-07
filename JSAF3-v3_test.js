@@ -1729,16 +1729,16 @@ document.getElementById('getidstudent').onclick = function () {
 				servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
 			    arrservice += servicearr.data[i].id + ", "
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
-				tinfo = "Учитель отсутствует, услуга(и) потеряна(ы)";
-				servinfo = "Услуга(и) потеряна(ы)";
+				tinfo = "Учитель отсутствует, услуга(и) потеряна(ы)"+ "<br>";
+				servinfo = "Услуга(и) потеряна(ы)"+ "<br>";
 				arrservice=null;
 			}  else if (servicearr.data[i].stage !="lost" && servicearr.data[i].incorrectnessReason != null ) {
-				tinfo = "Учитель отсутствует, услуга(и) некорректна(ы)";
-				servinfo = "Услуга(и) некорректна(ы)";
+				tinfo = "Учитель отсутствует, услуга(и) некорректна(ы)"+ "<br>";
+				servinfo = "Услуга(и) некорректна(ы)"+ "<br>";
 				arrservice=null;
 			} else if (servicearr.data[i].stage =="lost" && servicearr.data[i].incorrectnessReason == null ) {
-				tinfo = "Учитель отсутствует, услуга(и) потеряна(ы) и некорректна(ы)";
-				servinfo = "Услуга услуга(и) потеряна(ы) и некорректна(ы)";
+				tinfo = "Учитель отсутствует, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
+				servinfo = "Услуга услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
 				arrservice=null;
 			}  else if (servicearr.data == null) {
 				 noservinfo = 1;
