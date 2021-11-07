@@ -293,6 +293,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
 						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" style="margin-left: 5px; width: 25.23px;">✏</button>
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
+						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
 						</div>
 					
 						               
@@ -1072,6 +1073,10 @@ var abortTimeOut = ''								// перменная для отмены буди�
 	
 	document.getElementById('getkglinfokid').onclick = function() {
 window.open("https://grouplessons-api.skyeng.ru/admin/student/view/"+document.getElementById('idstudent').value)
+     }	
+	 
+	 document.getElementById('partialpaymentinfo').onclick = function() {
+window.open("https://accounting.skyeng.ru/credit/list?studentId="+document.getElementById('idstudent').value)
      }
 
 	 document.getElementById('editadmbtn').onclick = function() {
@@ -1697,7 +1702,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
-			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (temtinfo != "" && tinfo != "") {
@@ -1706,7 +1711,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
-			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (temtinfo != "" && tinfo == "") {
@@ -1715,7 +1720,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
-			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
@@ -1724,7 +1729,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('checkbalance').style.display = "none";
 			 document.getElementById('getcrmoneinfo').style.display = "none";
 			 document.getElementById('getkglinfokid').style.display = "none";
-			 document.getElementById('getkglinfokid').style.display = "none";
+			 document.getElementById('partialpaymentinfo').style.display = "none";
 			 document.getElementById('newtrm').style.display = "";
 			 document.getElementById('personalteacherpage').style.display = "";
 		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
