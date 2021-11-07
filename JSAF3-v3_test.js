@@ -1754,15 +1754,15 @@ document.getElementById('getidstudent').onclick = function () {
 		}			
         }
 		
-		if (servlocalestatus  =="ru") {
-			document.getElementById('changelocalelng').style.display="none"  
-		} else if (servlocalestatus  !="ru" || servlocalestatus == "⭕" ) {
-			document.getElementById('changelocalelng').style.display=""  
-		}
+
 		 
         if (temtinfo == "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus + "<br>" + "UTC:" + utczone +  " /  MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			 document.getElementById('changelocalelng').style.display = "";
+			 		if (servlocalestatus  =="ru") {
+					document.getElementById('changelocalelng').style.display="none"  
+				} else if (servlocalestatus  !="ru" || servlocalestatus == "⭕" ) {
+					document.getElementById('changelocalelng').style.display=""  
+				}
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
@@ -1771,7 +1771,11 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (temtinfo != "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" + "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			 document.getElementById('changelocalelng').style.display = "";
+			 	if (servlocalestatus  =="ru") {
+					document.getElementById('changelocalelng').style.display="none"  
+				} else if (servlocalestatus  !="ru" || servlocalestatus == "⭕" ) {
+					document.getElementById('changelocalelng').style.display=""  
+				}
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
@@ -1780,7 +1784,11 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('personalteacherpage').style.display = "none";
         } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" +  "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-			 document.getElementById('changelocalelng').style.display = "";
+			 	if (servlocalestatus  =="ru") {
+					document.getElementById('changelocalelng').style.display="none"  
+				} else if (servlocalestatus  !="ru" || servlocalestatus == "⭕" ) {
+					document.getElementById('changelocalelng').style.display=""  
+				}
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
