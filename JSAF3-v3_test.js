@@ -1724,7 +1724,7 @@ document.getElementById('getidstudent').onclick = function () {
             } else if (servicearr.data[i].stage == "before_call") {
 				tinfo = "Учитель отсутствует, этап ВУ";
 				servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
-			} else if (servicearr.data == null  && ) {
+			} else if (servicearr.data == null) {
 				 noservinfo = 1;
 				
 			} else { console.log("Услуга некорректна, потеряна или без учителя") }
