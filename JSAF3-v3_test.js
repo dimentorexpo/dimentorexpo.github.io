@@ -1420,7 +1420,6 @@ let unhidenemail;
 		
 	}
 	
-	
 	let nameofuser;
 	let teachername;
 	let studentname;
