@@ -1708,7 +1708,7 @@ document.getElementById('getidstudent').onclick = function () {
         }
 		 
         if (temtinfo == "" && tinfo != "") {
-            document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus + "<br>" + "UTC:" + utczone +  " /  MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+            document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + '<span style="font-weight:500;" id="getusremail">Email: </span>' + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus + "<br>" + "UTC:" + utczone +  " /  MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" +  '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			 document.getElementById('changelocalelng').style.display = "";
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
@@ -1716,6 +1716,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
+			 document.getElementById('getusremail').onclick = copyToClipboard1(unhidenemail);
         } else if (temtinfo != "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" + + "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			 document.getElementById('changelocalelng').style.display = "";
