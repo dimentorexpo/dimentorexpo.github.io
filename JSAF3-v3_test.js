@@ -1474,6 +1474,7 @@ let unhidenemail;
 		teachername = studentname.data.name;	
 		}
 		
+        if (curminutes < 10) { curminutes = "0" + curminutes; }	
 		utczone = studentname.data.utcOffset;
 		if ((curhours + (utczone-3)) < 24) {
 		localtime = (curhours + (utczone-3)) + ":" + curminutes; 
