@@ -1716,16 +1716,15 @@ document.getElementById('getidstudent').onclick = function () {
                 servinfo += [i+1] + ") " +  '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
                 arrservice += servicearr.data[i].id + ", "
             } else if (servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
-
                 tinfo += [i+1] + ") " + Object.values(servicearr.data[i].teacher.general) + "<br>";
                 temtinfo += [i+1] + ") " +  Object.values(servicearr.data[i].temporaryTeacher.general) + "<br>";
                 servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
                 arrservice += servicearr.data[i].id + ", "
-            } else if (servicearr.data[i].stage == "before_call" && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
+            } else if (servicearr.data[i].stage == "before_call" && servicearr.data[i].incorrectnessReason == null) {
 				tinfo = "Учитель отсутствует, этап: \"ждет звонка\" для ВУ";
 				servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
 			    arrservice += servicearr.data[i].id + ", "
-			} else if (servicearr.data[i].stage == "after_trial" && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
+			} else if (servicearr.data[i].stage == "after_trial" && servicearr.data[i].incorrectnessReason == null) {
 				tinfo = "Учитель отсутствует, этап: был ВУ";
 				servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
 			    arrservice += servicearr.data[i].id + ", "
