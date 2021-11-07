@@ -279,6 +279,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<input id="idstudent" placeholder="ID ученика" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
+						<button title="TRM 1.0 для информации по П" id="oldtrm" style="margin-left: 5px; display: none; width: 25.23px;">📋</button>
 						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
 						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" style="margin-left: 5px; width: 25.23px;">💰</button>
 						<button title="Информацию об ученике в СРМ1" id="getcrmoneinfo" style="margin-left: 5px; width: 25.23px;">🎭</button>
@@ -1688,6 +1689,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('oldtrm').style.display = "none";
         } else if (temtinfo != "" && tinfo != "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 			 document.getElementById('changelocalelng').style.display = "";
@@ -1695,6 +1697,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('oldtrm').style.display = "none";
         } else if (temtinfo != "" && tinfo == "") {
             document.getElementById('servicetable').innerHTML = ageofuser + " Имя: " + nameofuser + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
 						 document.getElementById('changelocalelng').style.display = "none";
@@ -1703,6 +1706,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('getcrmoneinfo').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
 			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('oldtrm').style.display = "none";
         } else if (noservinfo !="" || noservinfo !=null || noservinfo !=undefined) {
 			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + "Имя: " + teachername + "<br>" + "Email: " + unhidenemail + "<br>" + "Phone: " + unhidephone + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
@@ -1710,6 +1714,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('getcrmoneinfo').style.display = "none";
 			 document.getElementById('getkglinfokid').style.display = "none";
 			 document.getElementById('getkglinfokid').style.display = "none";
+			 document.getElementById('oldtrm').style.display = "";
 		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
 		arrservice = arrservice.split(', ')
@@ -1850,6 +1855,10 @@ document.getElementById('CrmStatus').onclick = function() {
 
 document.getElementById('crmactivetasks').onclick = function() {
   window.open("https://crm2.skyeng.ru/persons/"+document.getElementById('idstudent').value + "/customer-support/list")
+}
+
+document.getElementById('oldtrm').onclick = function() {
+  window.open("https://tramway.skyeng.ru/teacher/"+document.getElementById('idstudent').value + "/show")
 }
 
 document.getElementById('clearservinfo').onclick = function() {
