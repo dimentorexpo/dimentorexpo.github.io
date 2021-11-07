@@ -1425,7 +1425,7 @@ let unhidenemail;
 	function getteachertrminfo() {
 		let filteredid = document.getElementById('idstudent').value;
 		filteredid = filteredid.trim();
-	 document.getElementById('responseTextarea1').value = `{
+	 document.getElementById('responseTextarea1').value = '{
 				  "headers": {
 					"accept": "application/json, text/plain, */*",
 					"content-type": "application/json; charset=UTF-8",
@@ -1435,11 +1435,11 @@ let unhidenemail;
 				  },
 				  "referrer": "https://trm.skyeng.ru/",
 				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": "{\"teacherId\":"+${filteredid}+",\"includeDeactivatedProfiles\":true,\"readerType\":\"employee\"}",
+				  "body": "{\"teacherId\":"+filteredid+",\"includeDeactivatedProfiles\":true,\"readerType\":\"employee\"}",
 				  "method": "POST",
 				  "mode": "cors",
 				  "credentials": "include"
-	}`
+	}'
     document.getElementById('responseTextarea2').value = "https://trm-api.skyeng.ru/api/v1/teacher/getData"
     document.getElementById('responseTextarea3').value = 'getteachtrminf'
     document.getElementById('sendResponse').click()
