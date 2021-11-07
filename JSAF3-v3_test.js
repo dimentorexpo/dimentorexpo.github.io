@@ -1739,6 +1739,7 @@ document.getElementById('getidstudent').onclick = function () {
 				servinfo = "Услуга услуга(и) потеряна(ы) или некорректна(ы)";
 			}  else if (servicearr.data == null) {
 				 noservinfo = 1;
+				 arrservice=null;
 				
 			} 
         }
