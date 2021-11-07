@@ -1496,11 +1496,11 @@ let unhidenemail;
 		}
 		
 		utczone = studentname.data.utcOffset;
-		if ((curhours + (utczone-3)) < 24) {
+		if ((curhours + (utczone-3)) < 24  && (curhours + (utczone-3)) > 10 ) {
 			localtime = (curhours + (utczone-3)) + ":" + curminutes; 
 		} else if ((curhours + (utczone-3)) >= 24) {
 			localtime = "0" + ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
-		} else if ((curhours + (utczone-3)) <10) {
+		} else if ((curhours + (utczone-3)) <10 && (curhours + (utczone-3)) < 24 ) {
 			localtime = "0" + (curhours + (utczone-3)) + ":" + curminutes; 
 		}
 		
