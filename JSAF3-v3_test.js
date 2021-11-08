@@ -1822,7 +1822,7 @@ document.getElementById('getidstudent').onclick = function () {
 			copyToClipboard1(unhidephone);
 		};
 		
-		document.getElementById('logginer').onclick = function() {
+		document.getElementById('logginer').addEventListener('click', function() {
 			 document.getElementById('responseTextarea1').value = `{
 			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
@@ -1832,7 +1832,7 @@ document.getElementById('getidstudent').onclick = function () {
 			  "credentials": "include"
 	}`
     document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-    document.getElementById('responseTextarea3').value = ''
+    document.getElementById('responseTextarea3').value = 'getlogginerinfodata'
     document.getElementById('sendResponse').click()
 	
 	
@@ -1856,7 +1856,7 @@ document.getElementById('getidstudent').onclick = function () {
 		copyToClipboard1(logginerdata[1])
 			
 			}, 415);
-		}
+		})
     } 
    
 	   setTimeout(getServInfo, 650)
