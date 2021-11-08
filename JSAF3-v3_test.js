@@ -1520,11 +1520,7 @@ let unhidenemail;
 	}
 	
 	let tokenlogginer;
-	let useriddata;
-	let logginerinfo;
 function getlogginer() {
-	useriddata = document.getElementById ('idstudent').value;
-	useriddata = useriddata.trim();
 	//Для получения токена сначала обрабатываем
 			 document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
@@ -1561,10 +1557,14 @@ function getlogginer() {
 	
 	}
 	
-	setTimeout(gettokenlog, 500)
-	setTimeout(postuderdatatologin, 600);
-	
-	function postuderdatatologin() {
+	setTimeout(gettokenlog, 500)		
+}
+
+
+	let logginerinfo;
+function postuderdatatologin() {
+		let useriddata = document.getElementById ('idstudent').value;
+		useriddata = useriddata.trim();
 		document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -1609,17 +1609,18 @@ function getlogginer() {
         document.getElementById('sendResponse').click()
 
         logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
-        document.getElementById('responseTextarea1').removeAttribute('postdata')
+
 		logginerinfo = logginerinfo.match(/"(https:\/\/\D+.*?)"/gm)[5];
 		logginerinfo = logginerinfo.split("\"");
 		console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
 		copyToClipboard1(logginerinfo[1])
+		document.getElementById('responseTextarea1').removeAttribute('postdata')
 		
 		
 	}, 500)		
 	}
 	
-}
+	
 let getcrmstatusinfo;	
 	function crmstatus() {
 		let tempvarcrm = document.getElementById('idstudent').value;
@@ -1771,6 +1772,7 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(crmstatus, 680);
 		setTimeout(chatstatus,700);
 		setTimeout(getlogginer, 730);
+		setTimeout(postuderdatatologin, 760);
 		
 	
    setTimeout(function() {
