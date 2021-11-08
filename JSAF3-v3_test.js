@@ -885,7 +885,7 @@ function move_again_AF() {
 			cboxstatus.checked = false;
 			document.getElementById('main_easy_win').style.display = ""				
 		}
-  }
+  })
 
 
 
