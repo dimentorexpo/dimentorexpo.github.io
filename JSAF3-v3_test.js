@@ -95,7 +95,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
 				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
-				<label><input type="checkbox"/>Убрать окно с Info</label>
+				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Убрать окно с Info</label>
 				<br>
 				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
@@ -873,6 +873,17 @@ function move_again_AF() {
         }
     }
 
+
+	document.getElementById('removeinfowindow').onclick = function() {
+		 var cboxstatus = document.querySelector('#removeinfowindow');
+			if (!cboxstatus.checked) {
+				cboxstatus.checked = true;  
+			document.getElementById('main_easy_win').style.display = "none";
+			} else {
+			cboxstatus.checked = false; 
+			document.getElementById('main_easy_win').style.display = ""	
+			}
+	}
 
     document.getElementById('kibanalnksvz').addEventListener('click', function () {
         window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
