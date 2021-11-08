@@ -1518,10 +1518,33 @@ let unhidenemail;
 	}, 600)		
 		
 	}
+	
+	let tokenlogginer;
+let getlogginer() {
+	//Для получения токена сначала обрабатываем
+			 document.getElementById('responseTextarea1').value = `{
+					  "referrer": "https://id.skyeng.ru/admin/users",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "method": "GET",
+					  "mode": "cors",
+					  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+    document.getElementById('responseTextarea3').value = 'gettoken'
+    document.getElementById('sendResponse').click()
+	
+	tokenlogginer = document.getElementById('responseTextarea1').getAttribute('gettoken');
+	let dokie = document.createElement('div');
+	dokie.innerHTML = tokenlogginer;
+	tokenlogginer = dokie.querySelector('#login_link_form__token').value;
+	console.log("Tokenlogginer" + tokenlogginer)
+	document.getElementById('responseTextarea1').removeAttribute('gettoken');	
+}	
 
 let getcrmstatusinfo;	
 	function crmstatus() {
 		let tempvarcrm = document.getElementById('idstudent').value;
+		tempvarcrm = tempvarcrm.trim();
 
 		document.getElementById('CrmStatus').style.display ="none";
 		
@@ -1668,6 +1691,7 @@ document.getElementById('getidstudent').onclick = function () {
 		setTimeout(checkemailandphoneidentity, 660);
 		setTimeout(crmstatus, 680);
 		setTimeout(chatstatus,700);
+		setTimeout(getlogginer, 730);
 		
 	
    setTimeout(function() {
