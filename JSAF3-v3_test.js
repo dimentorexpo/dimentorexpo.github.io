@@ -1537,7 +1537,7 @@ function getlogginer() {
 	let dokie = document.createElement('div');
 	dokie.innerHTML = tokenlogginer;
 	tokenlogginer = dokie.querySelector('#login_link_form__token').value;
-	console.log("Tokenlogginer" + tokenlogginer)
+	console.log("Tokenlogginer: " + tokenlogginer)
 	document.getElementById('responseTextarea1').removeAttribute('gettoken');	
 }	
 
