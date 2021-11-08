@@ -1520,7 +1520,11 @@ let unhidenemail;
 	}
 	
 	let tokenlogginer;
+	let useriddata;
+	let logginerinfo;
 function getlogginer() {
+	useriddata = document.getElementById ('idstudent').value;
+	useriddata = useriddata.trim();
 	//Для получения токена сначала обрабатываем
 			 document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
@@ -1558,6 +1562,49 @@ function getlogginer() {
 	}
 	
 	setTimeout(gettokenlog, 500)
+	
+	function postuderdatatologin() {
+		document.getElementById('responseTextarea1').value = `{
+			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${useriddata}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=86400&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlogginer}",
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}`
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+    document.getElementById('responseTextarea3').value = 'postdata'
+    document.getElementById('sendResponse').click()
+	
+	setTimeout(function () {
+		
+		     document.getElementById('responseTextarea1').value = `{
+			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+		}`
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
+        document.getElementById('responseTextarea3').value = 'postdata'
+        document.getElementById('sendResponse').click()
+
+        logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
+        document.getElementById('responseTextarea1').removeAttribute('postdata')
+		logginerinfo = logginerdata.match(/"(https:\/\/\D+.*?)"/gm)[5];
+		logginerinfo = logginerdata.split("\"");
+		console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
+	//	copyToClipboard1(logginerinfo[1])
+		
+		
+	}, 1000)
+	
+		
+	}
+	
+	setTimeout(postuderdatatologin, 500);
+	
 }	
 
 let getcrmstatusinfo;	
@@ -2295,7 +2342,7 @@ searchCommentsByEnter.addEventListener('keydown', event => {
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: cxi7E82p0IY1SW?D^BHDwMuwC\\a5cvhu");
+        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: sugtL5dhsPXXiQdN9w3SisOaR@[o");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
