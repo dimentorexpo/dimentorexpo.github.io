@@ -873,16 +873,21 @@ function move_again_AF() {
         }
     }
 
-	let cboxstatus = document.getElementById('removeinfowindow')
-	cboxstatus.onclick = function() {
-			if (!cboxstatus.checked) {
-				cboxstatus.checked = true;  
-			document.getElementById('main_easy_win').style.display = "none";
-			} else {
-			cboxstatus.checked = false; 
-			document.getElementById('main_easy_win').style.display = ""	
-			}
-	}
+	
+
+function RAZ911() {
+  var cboxstatus = document.getElementById('removeinfowindow')$
+  if (!cboxstatus.checked) {
+	  cboxstatus.checked = true; 
+	  document.getElementById('main_easy_win').style.display = "none";
+	  }
+		else {   // поставить checked, если он не установлен 
+			cboxstatus.checked = false;
+			document.getElementById('main_easy_win').style.display = ""				
+		}
+}
+RAZ911();
+
 
     document.getElementById('kibanalnksvz').addEventListener('click', function () {
         window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
