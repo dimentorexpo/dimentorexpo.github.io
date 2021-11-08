@@ -1520,7 +1520,7 @@ let unhidenemail;
 	}
 	
 	let tokenlogginer;
-let getlogginer() {
+function getlogginer() {
 	//Для получения токена сначала обрабатываем
 			 document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
