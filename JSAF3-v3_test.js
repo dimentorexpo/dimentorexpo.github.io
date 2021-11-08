@@ -878,7 +878,7 @@ let flagcheckbox=0;
   var cboxstatus = document.getElementById('removeinfowindow');
   cboxstatus.addEventListener('click', function() {
 	  if(localStorage.getItem('disableomelchenkowindow') != 1) {
-  if (!cboxstatus.checked) {
+			f (!cboxstatus.checked) {
 	  document.getElementById('main_easy_win').style.display = "";
 	  		flagcheckbox = 0;
 			localStorage.setItem('disableomelchenkowindow', flagcheckbox)
@@ -892,9 +892,7 @@ let flagcheckbox=0;
 	  } else {
 		  console.log("Do nothing");
 	  }
-		  
-		  
-	  }
+		 
   })
 
 
