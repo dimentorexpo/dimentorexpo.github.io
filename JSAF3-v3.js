@@ -95,6 +95,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
 				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
+				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Убрать окно с Info</label>
 				<br>
 				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
@@ -871,6 +872,32 @@ function move_again_AF() {
             document.getElementById("clock_remin").innerHTML = time;
         }
     }
+
+
+	
+	
+let flagcheckbox=0;
+  var cboxstatus = document.getElementById('removeinfowindow');
+  cboxstatus.addEventListener('click', function() {
+	  
+			if (!cboxstatus.checked) {
+	  document.getElementById('main_easy_win').style.display = "";
+	  		flagcheckbox = 0;
+			localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+	  }	else {   // поставить checked, если он не установлен 
+			document.getElementById('main_easy_win').style.display = "none";				
+			flagcheckbox = 1;
+			localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+		} 
+  })
+
+if(localStorage.getItem('disableomelchenkowindow') == 1) {
+document.getElementById('main_easy_win').style.display = "none"; 
+cboxstatus.checked = true;
+} else {
+  cboxstatus.checked = false;
+}
+
 
 
     document.getElementById('kibanalnksvz').addEventListener('click', function () {
