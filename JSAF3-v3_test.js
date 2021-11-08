@@ -874,15 +874,27 @@ function move_again_AF() {
     }
 
 	
-
+let flagcheckbox=0;
   var cboxstatus = document.getElementById('removeinfowindow');
   cboxstatus.addEventListener('click', function() {
+	  if(localStorage.getItem('disableomelchenkowindow') != 1) {
   if (!cboxstatus.checked) {
 	  document.getElementById('main_easy_win').style.display = "";
+	  		flagcheckbox = 0;
+			localStorage.setItem('disableomelchenkowindow', flagcheckbox)
 	  }
 		else {   // поставить checked, если он не установлен 
 			document.getElementById('main_easy_win').style.display = "none"				
+			flagcheckbox = 1;
+			localStorage.setItem('disableomelchenkowindow', flagcheckbox)
 		}
+		
+	  } else {
+		  console.log("Do nothing");
+	  }
+		  
+		  
+	  }
   })
 
 
