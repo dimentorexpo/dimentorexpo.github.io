@@ -878,11 +878,9 @@ function move_again_AF() {
   var cboxstatus = document.getElementById('removeinfowindow');
   cboxstatus.addEventListener('click', function() {
   if (!cboxstatus.checked) {
-	  cboxstatus.checked = true; 
 	  document.getElementById('main_easy_win').style.display = "none";
 	  }
 		else {   // поставить checked, если он не установлен 
-			cboxstatus.checked = false;
 			document.getElementById('main_easy_win').style.display = ""				
 		}
   })
