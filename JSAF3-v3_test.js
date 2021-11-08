@@ -95,6 +95,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
 				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
+				<label><input type="checkbox"/>Убрать окно с Info</label>
 				<br>
 				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
