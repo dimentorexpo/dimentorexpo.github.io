@@ -876,7 +876,7 @@ function move_again_AF() {
 	
 
 function RAZ911() {
-  var cboxstatus = document.getElementById('removeinfowindow')$
+  var cboxstatus = document.getElementById('removeinfowindow');
   if (!cboxstatus.checked) {
 	  cboxstatus.checked = true; 
 	  document.getElementById('main_easy_win').style.display = "none";
