@@ -883,13 +883,14 @@ let flagcheckbox=0;
 	  		flagcheckbox = 0;
 			localStorage.setItem('disableomelchenkowindow', flagcheckbox)
 	  }	else {   // поставить checked, если он не установлен 
-			document.getElementById('main_easy_win').style.display = "none"				
+			document.getElementById('main_easy_win').style.display = "none";				
 			flagcheckbox = 1;
 			localStorage.setItem('disableomelchenkowindow', flagcheckbox)
 		}
 		
 	  } else {
-		  console.log("Do nothing");
+		  cboxstatus.checked;
+		  document.getElementById('main_easy_win').style.display = "none";
 	  }
 		 
   })
