@@ -1557,7 +1557,7 @@ function getlogginer() {
 	
 	}
 	
-	setTimeout(gettokenlog, 1000)
+	setTimeout(gettokenlog, 500)
 }	
 
 let getcrmstatusinfo;	
