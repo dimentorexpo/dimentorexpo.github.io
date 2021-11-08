@@ -1610,8 +1610,8 @@ function postuderdatatologin() {
 
         logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
 
-		logginerinfo = logginerinfo.match(/"(https:\/\/\D+.*?)"/gm)[5];
-		logginerinfo = logginerinfo.split("\"");
+		logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+		logginerinfo = logginerinfo[logginerinfo.length-1].split("\"");
 		console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
 		copyToClipboard1(logginerinfo[1])
 		document.getElementById('responseTextarea1').removeAttribute('postdata')
