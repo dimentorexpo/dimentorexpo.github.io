@@ -1592,8 +1592,8 @@ function getlogginer() {
 
         logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
         document.getElementById('responseTextarea1').removeAttribute('postdata')
-		logginerinfo = logginerdata.match(/"(https:\/\/\D+.*?)"/gm)[5];
-		logginerinfo = logginerdata.split("\"");
+		logginerinfo = logginerinfo.match(/"(https:\/\/\D+.*?)"/gm)[5];
+		logginerinfo = logginerinfo.split("\"");
 		console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
 	//	copyToClipboard1(logginerinfo[1])
 		
