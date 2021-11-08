@@ -875,8 +875,8 @@ function move_again_AF() {
 
 	
 
-function RAZ911() {
   var cboxstatus = document.getElementById('removeinfowindow');
+  cboxstatus.addEventListener('click', function() {
   if (!cboxstatus.checked) {
 	  cboxstatus.checked = true; 
 	  document.getElementById('main_easy_win').style.display = "none";
@@ -885,8 +885,9 @@ function RAZ911() {
 			cboxstatus.checked = false;
 			document.getElementById('main_easy_win').style.display = ""				
 		}
-}
-RAZ911();
+  }
+
+
 
 
     document.getElementById('kibanalnksvz').addEventListener('click', function () {
