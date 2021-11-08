@@ -1562,7 +1562,7 @@ function getlogginer() {
 	}
 	
 	setTimeout(gettokenlog, 500)
-	setTimeout(postuderdatatologin, 1000);
+	setTimeout(postuderdatatologin, 600);
 	
 	function postuderdatatologin() {
 		document.getElementById('responseTextarea1').value = `{
@@ -1613,7 +1613,7 @@ function getlogginer() {
 		logginerinfo = logginerinfo.match(/"(https:\/\/\D+.*?)"/gm)[5];
 		logginerinfo = logginerinfo.split("\"");
 		console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
-	//	copyToClipboard1(logginerinfo[1])
+		copyToClipboard1(logginerinfo[1])
 		
 		
 	}, 500)		
