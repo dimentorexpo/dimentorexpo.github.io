@@ -1522,6 +1522,7 @@ let unhidenemail;
 let getcrmstatusinfo;	
 	function crmstatus() {
 		let tempvarcrm = document.getElementById('idstudent').value;
+		tempvarcrm = tempvarcrm.trim();
 
 		document.getElementById('CrmStatus').style.display ="none";
 		
