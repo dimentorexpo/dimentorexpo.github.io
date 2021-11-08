@@ -873,9 +873,8 @@ function move_again_AF() {
         }
     }
 
-
-	document.getElementById('removeinfowindow').onclick = function() {
-		 var cboxstatus = document.querySelector('#removeinfowindow');
+	let cboxstatus = document.getElementById('removeinfowindow')
+	cboxstatus.onclick = function() {
 			if (!cboxstatus.checked) {
 				cboxstatus.checked = true;  
 			document.getElementById('main_easy_win').style.display = "none";
