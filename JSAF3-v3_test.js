@@ -1932,7 +1932,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "none";
 			 document.getElementById('newtrm').style.display = "";
 			 document.getElementById('personalteacherpage').style.display = "";
-		} else { document.getElementById('servicetable').innerHTML = "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
+		} else { document.getElementById('servicetable').innerHTML = ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" + "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны" }
 
 
 		if (arrservice !=null || arrservice !=undefined){
