@@ -221,7 +221,7 @@ var win_Jira =  // описание элементов окна ссылок
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
-                                <p id="issuetable" style="height:400px; margin-left:5px; overflow:auto"></p>
+                                <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
                         </div>
 						
                 </span>
@@ -301,7 +301,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 					   </span>
 					   
                         <div style="width: 310px;" id="servicebody">
-                                <p id="servicetable" style="height: 280px; overflow:auto; color:bisque; text-align:center"></p>
+                                <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
 						
 
