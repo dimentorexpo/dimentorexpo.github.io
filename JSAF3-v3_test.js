@@ -2102,9 +2102,7 @@ document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('servicetable').innerHTML ="";
 	document.getElementById('ChatStatus').style.display ="none";
 	document.getElementById('CrmStatus').style.display ="none";
-	document.getElementById('getcurrentstatus').style.display ="none";	
-	document.getElementById('servicetable').style.height ="0";	
-	
+	document.getElementById('getcurrentstatus').style.display ="none";		
 }
 	         
 document.getElementById('getJiraTasks').onclick = function () {
