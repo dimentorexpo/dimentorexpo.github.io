@@ -1477,7 +1477,7 @@ let unhidenemail;
 	let servlocalestatus;
 	function getusernamecrm() {
 		let curdate = new Date();
-		let curhours=curdate.getHours();
+		let curhours=(curdate.getUTCHours() + 3);
 		let curminutes = curdate.getMinutes();
 		if (curminutes < 10) {
 			curminutes = "0" + curminutes;
