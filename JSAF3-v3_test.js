@@ -301,7 +301,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 					   </span>
 					   
                         <div style="width: 310px;" id="servicebody">
-                                <p id="servicetable" style="height: 400px; overflow:auto; color:bisque; text-align:center"></p>
+                                <p id="servicetable" style="color:bisque; overflow:auto; text-align:center"></p>
                         </div>
 						
 
@@ -1785,6 +1785,7 @@ let getcrmstatusinfo;
 	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
+	document.getElementById('servicetable')style.height = "280px"; 
     let servicearr;
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
@@ -2103,7 +2104,7 @@ document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('ChatStatus').style.display ="none";
 	document.getElementById('CrmStatus').style.display ="none";
 	document.getElementById('getcurrentstatus').style.display ="none";
-	
+	document.getElementById('servicetable')style.height = "0px"; 	
 }
 	         
 document.getElementById('getJiraTasks').onclick = function () {
