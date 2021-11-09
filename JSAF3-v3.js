@@ -163,7 +163,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
 					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
 					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button title="Открывает сайт для проверки характеристик мобильных устройств" id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
+					<button title="CMS словаря" id="cmswordssearch" style="width:105px; margin-top: 3px">CMS словаря</button>
 					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
 					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
 				</div>	
@@ -265,10 +265,10 @@ var win_Stat =  // описание элементов окна ссылок
 
 
 var win_serviceinfo =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 300px;">
-        <span style="width: 300px">
+    `<div style="display: flex; width: 310px;">
+        <span style="width: 310px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="width: 300px;  border-bottom:1px solid #556B2F;" id="servicehead">
+                        <div style="width: 310px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
@@ -276,7 +276,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
                         </div>
 								
-						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field">
+						<div style="width: 310px; margin:5px; display:flex; justify-content:left;" id="input_field">
 						<input id="idstudent" placeholder="ID У/П" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
@@ -288,7 +288,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 				       	</div>
 						
-						<div style="width: 300px; margin:5px; display:flex; justify-content:left;" id="input_field2">
+						<div style="width: 310px; margin:5px; display:flex; justify-content:left;" id="input_field2">
 						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
@@ -300,8 +300,8 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						               
 					   </span>
 					   
-                        <div style="width: 300px;" id="servicebody">
-                                <p id="servicetable" style="color:bisque; text-align:center"></p>
+                        <div style="width: 310px;" id="servicebody">
+                                <p id="servicetable" style="height: 400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
 						
 
@@ -989,8 +989,8 @@ cboxstatus.checked = true;
         window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
     })
 
-    document.getElementById('mobdevices').addEventListener('click', function () {
-        window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
+    document.getElementById('cmswordssearch').addEventListener('click', function () {
+        window.open("https://dictionary.skyeng.ru/cms/word/333")    // открываем ссылку для просмотра CMSки слова мининг переводы и тп
     })
 
     document.getElementById('TCQnew').addEventListener('click', function () {
