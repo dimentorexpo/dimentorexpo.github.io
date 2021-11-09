@@ -163,7 +163,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
 					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
 					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button title="Открывает сайт для проверки характеристик мобильных устройств" id="mobdevices" style="width:105px; margin-top: 3px">Хар моб устр</button>
+					<button title="CMS словаря" id="cmswordssearch" style="width:105px; margin-top: 3px">CMS словаря</button>
 					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
 					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
 				</div>	
@@ -989,8 +989,8 @@ cboxstatus.checked = true;
         window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
     })
 
-    document.getElementById('mobdevices').addEventListener('click', function () {
-        window.open("https://www.kimovil.com/ru/")    // открываем ссылку в новой вкладке на Сайт kimovil где можно в строке поиска найти нужный моб девайс (телефон/планшет) для проверки характеристик
+    document.getElementById('cmswordssearch').addEventListener('click', function () {
+        window.open("https://dictionary.skyeng.ru/cms/word/333")    // открываем ссылку для просмотра CMSки слова мининг переводы и тп
     })
 
     document.getElementById('TCQnew').addEventListener('click', function () {
