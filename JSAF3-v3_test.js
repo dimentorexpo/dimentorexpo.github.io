@@ -1785,7 +1785,7 @@ let getcrmstatusinfo;
 	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
-	document.getElementById('servicetable')style.height = "280px"; 
+	document.getElementById('servicetable').style.height = "280px"; 
     let servicearr;
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
@@ -2104,7 +2104,7 @@ document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('ChatStatus').style.display ="none";
 	document.getElementById('CrmStatus').style.display ="none";
 	document.getElementById('getcurrentstatus').style.display ="none";
-	document.getElementById('servicetable')style.height = "0px"; 	
+	document.getElementById('servicetable').style.height = "0px"; 	
 }
 	         
 document.getElementById('getJiraTasks').onclick = function () {
