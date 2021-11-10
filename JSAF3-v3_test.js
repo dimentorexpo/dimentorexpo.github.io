@@ -1523,7 +1523,7 @@ let unhidenemail;
 		}
 		
 		utczone = studentname.data.utcOffset;
-		if ((curhours + (utczone-3)) < 24  && (curhours + (utczone-3)) > 10) {
+		if ((curhours + (utczone-3)) < 24  && (curhours + (utczone-3)) >= 10) {
 			localtime = (curhours + (utczone-3)) + ":" + curminutes; 
 		} else if ((curhours + (utczone-3)) >= 24) {
 			localtime = "0" + ((curhours + (utczone-3)) - 24) + ":" + curminutes; 
@@ -5025,11 +5025,11 @@ function prepTp() {
 
     setTimeout(function () {
         // Модуль wallentine в АФ
-        // include("https://dimentorexpo.github.io/viewSlack.js");
+        //include("https://dimentorexpo.github.io/viewSlack.js");
         // Модуль репорта на жалобы
         // include("https://dimentorexpo.github.io/reportForm.js"); пока работает не правильно, временно отключаю.
         // Модуль репорта на Отписку
-        // include("https://dimentorexpo.github.io/unsub.js")
+        //include("https://dimentorexpo.github.io/unsub.js")
        
 		// include("https://dimentorexpo.github.io/ChangeServiceLocale.js") // модуль кнопки в инфо о пользователе позволяющее поменять локаль ученика
 		include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
