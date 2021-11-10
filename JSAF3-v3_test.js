@@ -1836,7 +1836,7 @@ document.getElementById('getidstudent').onclick = function () {
         let servinfo = ""; //инфо об услуге
 		let noservinfo="";
         let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
-		if (servicearr.data.length === 0 || servicearr.data[i].incorrectnessReason == "attempt_to_find_job") {
+		if (servicearr.data.length === 0 || servicearr.data[0].incorrectnessReason == "attempt_to_find_job") {
 				 noservinfo = 1;
 				 arrservice=null;
 		} else {
