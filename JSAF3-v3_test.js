@@ -4127,7 +4127,7 @@ document.getElementById('startlookstatus').onclick = function() {
 		arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
         arregetted = JSON.parse(arregetted);
 		
-		console.log("Golden Graal + " + arregetted)
+		console.log("Golden Graal + " + arregetted[0].result[0])
 		
 		document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
 		
