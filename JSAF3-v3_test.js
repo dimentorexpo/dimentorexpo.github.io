@@ -4083,7 +4083,7 @@ document.getElementById('startlookstatus').onclick = function() {
 	let time_t = new Date();
 	let ticherid = document.getElementById('idteacherforsearch').value;
 	ticherid = ticherid.trim();
-	let startdate = document.querySelector('#dateFromLS').value;;
+	let startdate = document.querySelector('#dateFromLS').value;
 	startdate = startdate.split('-');
 	startdate = Number(startdate[2]) + '-' + Number(startdate[1]) + '-' + Number(startdate[0]) + ' ' + 21;
 	console.log("start date= " + startdate);
@@ -4097,35 +4097,42 @@ document.getElementById('startlookstatus').onclick = function() {
     //    if (Year == undefined) { Year = time_t.getFullYear();} else if (String(Year).length < 3 && String(Year).length > 0) { Year = String('20' + Year) }
 	
 	
-	// document.getElementById('responseTextarea1').value = `{
-  // "headers": {
-    // "accept": "*/*",
-    // "content-type": "application/x-www-form-urlencoded",
-    // "sec-fetch-dest": "empty",
-    // "sec-fetch-mode": "cors",
-    // "sec-fetch-site": "same-origin"
-  // },
-  // "referrer": "https://timetable.skyeng.ru/",
-  // "referrerPolicy": "strict-origin-when-cross-origin",
-  // "body": "from=12-11-2021 21:00:00&to=13-11-2021 21:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
-  // "method": "POST",
-  // "mode": "cors",
-  // "credentials": "include"
-	// }`
-    // document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
-    // document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
-    // document.getElementById('sendResponse').click()
+	document.getElementById('responseTextarea1').value = `{
+  "headers": {
+    "accept": "*/*",
+    "content-type": "application/x-www-form-urlencoded",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin"
+  },
+  "referrer": "https://timetable.skyeng.ru/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+    document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+    document.getElementById('sendResponse').click()
 	
 	
 	
-	// setTimeout (function() {
-	// document.getElementById('responseTextarea1').value = `{}`
-    // document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
-    // document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
-    // document.getElementById('sendResponse').click()
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+    document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+    document.getElementById('sendResponse').click()
 	
-	
-	// }, 500)
+		arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+        arregetted = JSON.parse(arregetted);
+		
+		console.log("Golden Graal + " + arregetted)
+		
+		document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
+		
+		
+	}, 500)
 	
 	
 }
