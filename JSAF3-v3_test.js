@@ -327,7 +327,7 @@ var win_LessonStatus =  // описание элементов окна ссыл
 							<input id="idstudentforsearch" placeholder="Student ID" title="Введите ID ученика, чтобы отфильтровать поиск" autocomplete="off" type="text" style="position:relative; left:40%; text-align: center; width: 100px; color: black;margin-left:5px"">
 						</div>
 						
-						<div style="display:flex; justify-content:space-evenly; margin-top:5px; margin-bottom:5px;">
+						<div style="position:relative; left:34.5%; margin-top:5px; margin-bottom:5px;">
 							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
 							 <button title="Очищает поле от полученной инфы" id="clearlessonstatus">Очистить</button>
 					    </div>
@@ -4024,6 +4024,7 @@ document.getElementById('clearall').onclick = function() {
 }
 
 document.getElementById('clearlessonstatus').onclick = function() {
+if (confirm("Вы уверены, что хотите очистить?")) {
 	let getdateset = new Date()
 	let getyearLS = getdateset.getFullYear();
 	let getcurmonthLS = (getdateset.getMonth()+1)
@@ -4033,6 +4034,8 @@ document.getElementById('clearlessonstatus').onclick = function() {
 	document.getElementById('idstudentforsearch').value ="";
 	document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS-1);
 	document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+} else { console.log("Canceled!")
+}
 }
 
 //Функция парсинга чатов по заданному коменту
