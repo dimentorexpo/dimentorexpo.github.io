@@ -321,9 +321,17 @@ var win_LessonStatus =  // описание элементов окна ссыл
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataLS" id="dateFromLS"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataLS" id="dateToLS"</span>
                         </div>
-							<p id="statustable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
-						<div>
 						
+						<div>
+							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
+						</div>
+						
+						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
+							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
+					    </div>
+							
+						<div>
+						<p id="statustable" style="max-height:540px; overflow:auto; color:bisque; text-align:center"></p>
 						</div>
 
                 </span>
@@ -4689,6 +4697,13 @@ function customTemplates(language = '') {
         }
     }
 }
+
+function getLessonStatus() {
+	
+	getlessonstatus
+	
+}
+
 
 async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
