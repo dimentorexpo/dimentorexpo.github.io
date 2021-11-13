@@ -323,11 +323,11 @@ var win_LessonStatus =  // описание элементов окна ссыл
                         </div>
 						
 						<div>
-							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="position:relative; left:40%; text-align: center; width: 100px; color: black;margin-left:5px"">
-							<input id="idstudentforsearch" placeholder="Student ID" title="Введите ID ученика, чтобы отфильтровать поиск" autocomplete="off" type="text" style="position:relative; left:40%; text-align: center; width: 100px; color: black;margin-left:5px"">
+							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="position:relative; left:33%; text-align: center; width: 100px; color: black;margin-left:5px"">
+							<input id="idstudentforsearch" placeholder="Student ID" title="Введите ID ученика, чтобы отфильтровать поиск" autocomplete="off" type="text" style="position:relative; left:32%; text-align: center; width: 100px; color: black;margin-left:5px"">
 						</div>
 						
-						<div style="position:relative; left:34.5%; margin-top:5px; margin-bottom:5px;">
+						<div style="position:relative; left:30%; margin-top:5px; margin-bottom:5px;">
 							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
 							 <button title="Очищает поле от полученной инфы" id="clearlessonstatus">Очистить</button>
 					    </div>
@@ -4112,6 +4112,8 @@ document.getElementById('startlookstatus').onclick = function() {
 	document.querySelector('#statustable').innerText="";
 	let time_t = new Date();
 	let ticherid = document.getElementById('idteacherforsearch').value;
+	let uchenikid = document.getElementById('idstudentforsearch').value;
+	uchenikid = uchenikid.trim();
 	ticherid = ticherid.trim();
 	let startdate = document.querySelector('#dateFromLS').value;
 	startdate = startdate.split('-');
@@ -4153,7 +4155,7 @@ document.getElementById('startlookstatus').onclick = function() {
         arregetted = JSON.parse(arregetted);
 		if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined  ) { 
 		 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
-			  if (arregetted[0].result[0].classes[i].studentId == document.getElementById('idstudentforsearch').value) {
+			  if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
 			 
                 let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,17) 
 				
