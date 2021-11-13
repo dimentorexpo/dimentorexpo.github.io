@@ -2404,6 +2404,8 @@ searchCommentsByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Jira').style.display = 'none'
 			if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
+			if (document.getElementById('AF_LessonStatus').style.display == '')
+            document.getElementById('AF_LessonStatus').style.display = 'none'
 		
     }
     document.getElementById('takeNewChat').onclick = function () {
