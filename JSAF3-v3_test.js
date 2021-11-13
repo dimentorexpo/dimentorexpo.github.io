@@ -2443,12 +2443,11 @@ searchCommentsByEnter.addEventListener('keydown', event => {
 		    document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
-
         else
             document.getElementById('AF_Service').style.display = ''
     }
 	
-			    document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
+			document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
 			document.getElementById('#statustable').style.display="none";
