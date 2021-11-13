@@ -309,6 +309,26 @@ var win_serviceinfo =  // описание элементов окна ссыл�
         </span>
 </div>`;
 
+var win_LessonStatus =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 550;" id="statdata">
+                                <button id="hideMeLessonStatus" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+						
+						 <div style="margin: 5px; width: 550px" id="databox">
+								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataLS" id="dateFromLS"></span>
+								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataLS" id="dateToLS"</span>
+                        </div>
+							<p id="statustable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
+						<div>
+						
+						</div>
+
+                </span>
+        </span>
+</div>`;
 
 					
 
@@ -340,6 +360,10 @@ if (localStorage.getItem('winTopStat') == null) { // началоное поло
 if (localStorage.getItem('winTopService') == null) { // началоное положение окна информации об  услугах
     localStorage.setItem('winTopService', '120');
     localStorage.setItem('winLeftService', '295');
+}
+if (localStorage.getItem('winTopLessonStatus') == null) { // началоное положение окна проверки статуса урока удален перенесен и кем
+    localStorage.setItem('winTopLessonStatus', '120');
+    localStorage.setItem('winLeftLessonStatus', '295');
 }
 
 
@@ -702,6 +726,13 @@ wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
 
+let wintLessonStatus = document.createElement('div'); // создание окна ссылок
+document.body.append(wintLessonStatus);
+wintLessonStatus.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLessonStatus') + 'px; left: ' + localStorage.getItem('winLeftLessonStatus') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLessonStatus.style.display = 'none';
+wintLessonStatus.setAttribute('id', 'AF_LessonStatus');
+wintLessonStatus.innerHTML = win_LessonStatus;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -758,6 +789,20 @@ wintServices.firstElementChild.firstElementChild.firstElementChild.onmousedown =
     document.addEventListener('mousemove', listener7);
 }
 wintServices.onmouseup = function () { document.removeEventListener('mousemove', listener7); }
+
+var listener8 = function (e, a) { // сохранение позиции окна ссылок
+    wintLessonStatus.style.left = Number(e.clientX - myX8) + "px";
+    wintLessonStatus.style.top = Number(e.clientY - myY85) + "px";
+    localStorage.setItem('winTopLessonStatus', String(Number(e.clientY - myY8)));
+    localStorage.setItem('winLeftLessonStatus', String(Number(e.clientX - myX8)));
+};
+
+wintLessonStatus.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX8 = a.layerX;
+    window.myY8 = a.layerY;
+    document.addEventListener('mousemove', listener8);
+}
+wintLessonStatus.onmouseup = function () { document.removeEventListener('mousemove', listener8); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -2394,6 +2439,13 @@ searchCommentsByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Service').style.display = ''
     }
 	
+			    document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_LessonStatus').style.display == '')
+            document.getElementById('AF_LessonStatus').style.display = 'none'
+        else
+            document.getElementById('AF_LessonStatus').style.display = ''
+    }
+	
 		document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
@@ -2412,6 +2464,20 @@ searchCommentsByEnter.addEventListener('keydown', event => {
 	document.getElementById('datsyurl').onclick = function () { // открытие Календаря
         window.open("https://datsy.ru/")
     }
+	
+	document.getElementById('getlessonstatus').onclick = function () {
+	let getdateset = new Date()
+	let getyearLS = getdateset.getFullYear();
+	let getcurmonthLS = (getdateset.getMonth()+1)
+	let todayLS = getdateset.getDate();
+	document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS-1)
+	document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS
+		if (document.getElementById('AF_LessonStatus').style.display == '')
+            document.getElementById('AF_LessonStatus').style.display = 'none'
+        else
+            document.getElementById('AF_LessonStatus').style.display = ''
+	}
+	
 	
 		document.getElementById('getStats').onclick = function () { // открытие Статистики
 	let getcurdate = new Date()
