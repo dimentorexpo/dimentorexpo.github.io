@@ -326,7 +326,7 @@ var win_LessonStatus =  // описание элементов окна ссыл
 							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="position:relative; left:40%; text-align: center; width: 100px; color: black;margin-left:5px"">
 						</div>
 						
-						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
+						<div style="display:flex; justify-content:space-evenly; margin-top:5px; margin-bottom:5px;">
 							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
 							 <button title="Очищает поле от полученной инфы" id="clearlessonstatus">Очистить</button>
 					    </div>
