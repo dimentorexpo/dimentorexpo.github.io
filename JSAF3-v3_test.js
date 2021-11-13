@@ -324,6 +324,7 @@ var win_LessonStatus =  // описание элементов окна ссыл
 						
 						<div>
 							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="position:relative; left:40%; text-align: center; width: 100px; color: black;margin-left:5px"">
+							<input id="idstudentforsearch" placeholder="Student ID" title="Введите ID ученика, чтобы отфильтровать поиск" autocomplete="off" type="text" style="position:relative; left:40%; text-align: center; width: 100px; color: black;margin-left:5px"">
 						</div>
 						
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px; margin-bottom:5px;">
@@ -4029,6 +4030,7 @@ document.getElementById('clearlessonstatus').onclick = function() {
 	let todayLS = getdateset.getDate();
 	document.getElementById('statustable').innerText="";
 	document.getElementById('idteacherforsearch').value ="";
+	document.getElementById('idstudentforsearch').value ="";
 	document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS-1);
 	document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
 }
@@ -4148,6 +4150,8 @@ document.getElementById('startlookstatus').onclick = function() {
         arregetted = JSON.parse(arregetted);
 		if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined  ) { 
 		 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
+			  if (arregetted[0].result[0].classes[i].studentId == document.getElementById('idstudentforsearch').value) {
+			 
                 let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,17) 
 				
 			//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
@@ -4170,8 +4174,30 @@ document.getElementById('startlookstatus').onclick = function() {
                 tempor.setAttribute('style','width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double;');
                 tempor.value = text;
             //    console.log(text);
-				}
+				} else if (document.getElementById('idstudentforsearch').value =="") {
+					                let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,17) 
 				
+			//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
+    
+                if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+                    text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                    text = text + ' | at: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                    text = text + ' | by: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+					text = text + ' | type: ' + arregetted[0].result[0].classes[i].type;
+                    if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+                        text = text + ' | comment: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                    }
+                } else if (arregetted[0].result[0].classes[i].removedAt) {
+                    text = text + ' | removed | at: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                }
+		
+		        let tempor = document.createElement('input');
+                document.getElementById('statustable').append(tempor);
+                tempor.setAttribute('type','text');
+                tempor.setAttribute('style','width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double;');
+                tempor.value = text;
+				}
+		     }	
 				} else {
 			alert("Уроков нет");
 		}
