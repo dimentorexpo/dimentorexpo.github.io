@@ -800,7 +800,7 @@ wintServices.onmouseup = function () { document.removeEventListener('mousemove',
 
 var listener8 = function (e, a) { // сохранение позиции окна ссылок
     wintLessonStatus.style.left = Number(e.clientX - myX8) + "px";
-    wintLessonStatus.style.top = Number(e.clientY - myY85) + "px";
+    wintLessonStatus.style.top = Number(e.clientY - myY8) + "px";
     localStorage.setItem('winTopLessonStatus', String(Number(e.clientY - myY8)));
     localStorage.setItem('winLeftLessonStatus', String(Number(e.clientX - myX8)));
 };
