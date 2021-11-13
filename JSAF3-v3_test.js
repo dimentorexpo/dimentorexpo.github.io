@@ -323,7 +323,7 @@ var win_LessonStatus =  // описание элементов окна ссыл
                         </div>
 						
 						<div>
-							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
+							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="position:relative; left:40%; text-align: center; width: 100px; color: black;margin-left:5px"">
 						</div>
 						
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
