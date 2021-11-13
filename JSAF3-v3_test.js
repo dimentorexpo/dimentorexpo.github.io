@@ -2448,10 +2448,10 @@ searchCommentsByEnter.addEventListener('keydown', event => {
     }
 	
 			document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_LessonStatus').style.display == '')
+        if (document.getElementById('AF_LessonStatus').style.display == ''){
             document.getElementById('AF_LessonStatus').style.display = 'none'
 			document.getElementById('#statustable').style.display="none";
-        else
+			} else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 	
