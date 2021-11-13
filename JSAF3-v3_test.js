@@ -328,12 +328,13 @@ var win_LessonStatus =  // описание элементов окна ссыл
 						
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
 							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
+							 <button title="Очищает поле от полученной инфы" id="clearlessonstatus">Очистить</button>
 					    </div>
 						
 				</span>	
 				
 						<div>
-							<p id="statustable" style="max-height:400px; overflow:auto; display:none; color:bisque; text-align:center"></p>
+							<p id="statustable" style="margin-top:5px; max-height:400px; overflow:auto; display:none; color:bisque; text-align:center"></p>
 						</div>
 
 
@@ -2452,6 +2453,7 @@ searchCommentsByEnter.addEventListener('keydown', event => {
 			document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_LessonStatus').style.display == ''){
             document.getElementById('AF_LessonStatus').style.display = 'none'
+            document.getElementById('statustable').innerText= "";
 			} else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
@@ -4010,7 +4012,10 @@ document.getElementById('clearall').onclick = function() {
 	document.querySelector('#chatcommentsdata').innerText = ""
 	document.querySelector('#chatcommentsdata').style.display = "none"
 	document.querySelector('#commenttosearch').value =""
-	
+}
+
+document.getElementById('clearlessonstatus').onclick = function() {
+	document.getElementById('statustable').innerText="";
 }
 
 //Функция парсинга чатов по заданному коменту
@@ -4145,9 +4150,9 @@ document.getElementById('startlookstatus').onclick = function() {
 		        let tempor = document.createElement('input');
                 document.getElementById('statustable').append(tempor);
                 tempor.setAttribute('type','text');
-                tempor.setAttribute('style','width: 99.4%; height: 20px; color: black;');
+                tempor.setAttribute('style','width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451');
                 tempor.value = text;
-                console.log(text);
+            //    console.log(text);
 				}
 				
 				} else {
