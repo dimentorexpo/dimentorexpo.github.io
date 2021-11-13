@@ -4144,10 +4144,9 @@ document.getElementById('startlookstatus').onclick = function() {
                 tempor.setAttribute('style','width: 99.4%; height: 12px;');
                 tempor.value = text;
                 console.log(text);
-		
 				}
-		
-		else {
+				
+				} else {
 			alert("Уроков нет");
 		}
 		
