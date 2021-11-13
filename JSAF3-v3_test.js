@@ -4023,8 +4023,14 @@ document.getElementById('clearall').onclick = function() {
 }
 
 document.getElementById('clearlessonstatus').onclick = function() {
+	let getdateset = new Date()
+	let getyearLS = getdateset.getFullYear();
+	let getcurmonthLS = (getdateset.getMonth()+1)
+	let todayLS = getdateset.getDate();
 	document.getElementById('statustable').innerText="";
 	document.getElementById('idteacherforsearch').value ="";
+	document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS-1);
+	document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
 }
 
 //Функция парсинга чатов по заданному коменту
