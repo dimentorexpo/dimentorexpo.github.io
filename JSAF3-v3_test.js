@@ -4127,7 +4127,9 @@ document.getElementById('startlookstatus').onclick = function() {
         arregetted = JSON.parse(arregetted);
 		if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined  ) { 
 		 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
-                let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
+                let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,17) 
+				
+			//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
     
                 if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
                     text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
