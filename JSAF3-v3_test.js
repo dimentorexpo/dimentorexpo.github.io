@@ -4156,6 +4156,7 @@ document.getElementById('startlookstatus').onclick = function() {
                     text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
                     text = text + ' | at: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
                     text = text + ' | by: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+					text = text + ' | type: ' + arregetted[0].result[0].classes[i].type;
                     if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
                         text = text + ' | comment: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                     }
