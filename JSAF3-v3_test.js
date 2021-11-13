@@ -4016,6 +4016,7 @@ document.getElementById('clearall').onclick = function() {
 
 document.getElementById('clearlessonstatus').onclick = function() {
 	document.getElementById('statustable').innerText="";
+	document.getElementById('idteacherforsearch').value ="";
 }
 
 //Функция парсинга чатов по заданному коменту
@@ -4087,6 +4088,7 @@ document.getElementById('parsechat').onclick = async function() {
 //Функция проверки статусов урока
 let arregetted;
 document.getElementById('startlookstatus').onclick = function() {
+	if (document.getElementById('idteacherforsearch').value !="") {
 	document.querySelector('#statustable').style.display="";
 	document.querySelector('#statustable').innerText="";
 	let time_t = new Date();
@@ -4164,6 +4166,9 @@ document.getElementById('startlookstatus').onclick = function() {
 		
 	}, 500)
 	
+	} else {
+		alert("Введите ID учителя в поле");
+	}
 	
 }
 
