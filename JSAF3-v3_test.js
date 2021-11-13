@@ -255,9 +255,9 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
-							 <p id="chatsinfoout" style="width:550px;  color:bisque; margin-left:5px"></p>
-							 <p id="lowCSATcount" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
-							 <p id="chatcommentsdata" style="width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto"></p>
+							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
+							 <p id="lowCSATcount" style="width:550px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
@@ -331,7 +331,7 @@ var win_LessonStatus =  // описание элементов окна ссыл
 					    </div>
 							
 						<div>
-						<p id="statustable" style="max-height:540px; overflow:auto; color:bisque; text-align:center"></p>
+							<p id="statustable" style="max-height:550px; overflow:auto; display:none; color:bisque; text-align:center"></p>
 						</div>
 
                 </span>
@@ -4074,6 +4074,60 @@ document.getElementById('parsechat').onclick = async function() {
 	} catch {
         console.log('Что-то пошло не так.')
     }
+}
+
+
+//Функция проверки статусов урока
+let arregetted;
+document.getElementById('startlookstatus').onclick = function() {
+	let time_t = new Date();
+	let ticherid = document.getElementById('idteacherforsearch').value;
+	ticherid = ticherid.trim();
+	let startdate = document.querySelector('#dateFromLS').value;;
+	startdate = startdate.split('-');
+	startdate = Number(startdate[2]) + '-' + Number(startdate[1]) + '-' + Number(startdate[0]) + ' ' + 21;
+	console.log("start date= " + startdate);
+	let enddate = document.querySelector('#dateToLS').value;
+	enddate = enddate.split('-');
+	enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
+	console.log("end date= " + enddate);
+	//  if (Hour == undefined) { Hour = time_t.getHours();} else if (String(Hour).length < 2) { Hour = String('0' + Hour)}
+    //    if (Day == undefined) { Day = time_t.getDate();} else if (String(Day).length < 2) { Day = String('0' + Day)}
+    //    if (Month == undefined) { Month = time_t.getMonth() + 1;} else if (String(Month).length < 2) { Month = String('0' + Month)}
+    //    if (Year == undefined) { Year = time_t.getFullYear();} else if (String(Year).length < 3 && String(Year).length > 0) { Year = String('20' + Year) }
+	
+	
+	// document.getElementById('responseTextarea1').value = `{
+  // "headers": {
+    // "accept": "*/*",
+    // "content-type": "application/x-www-form-urlencoded",
+    // "sec-fetch-dest": "empty",
+    // "sec-fetch-mode": "cors",
+    // "sec-fetch-site": "same-origin"
+  // },
+  // "referrer": "https://timetable.skyeng.ru/",
+  // "referrerPolicy": "strict-origin-when-cross-origin",
+  // "body": "from=12-11-2021 21:00:00&to=13-11-2021 21:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
+  // "method": "POST",
+  // "mode": "cors",
+  // "credentials": "include"
+	// }`
+    // document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+    // document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+    // document.getElementById('sendResponse').click()
+	
+	
+	
+	// setTimeout (function() {
+	// document.getElementById('responseTextarea1').value = `{}`
+    // document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+    // document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+    // document.getElementById('sendResponse').click()
+	
+	
+	// }, 500)
+	
+	
 }
 
 
