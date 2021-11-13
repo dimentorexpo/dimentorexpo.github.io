@@ -1980,7 +1980,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
-        } else if (noservinfo ==1) {
+        } else if (noservinfo ==1 &&  teachername !="") {
 			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + teachername + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
 			 document.getElementById('checkbalance').style.display = "none";
@@ -1989,6 +1989,14 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "none";
 			 document.getElementById('newtrm').style.display = "";
 			 document.getElementById('personalteacherpage').style.display = "";
+		} else if (noservinfo ==1 &&  nameofuser !="" && teachername=="") {
+			 document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
+			 document.getElementById('checkbalance').style.display = "";
+			 document.getElementById('getcrmoneinfo').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('partialpaymentinfo').style.display = "";
+			 document.getElementById('newtrm').style.display = "none";
+			 document.getElementById('personalteacherpage').style.display = "none";
 		} else { document.getElementById('servicetable').innerHTML = ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" + "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"; 
 		
 		document.getElementById('getusremail1').onclick = function() {
