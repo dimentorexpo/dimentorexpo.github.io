@@ -4150,7 +4150,7 @@ document.getElementById('startlookstatus').onclick = function() {
 		        let tempor = document.createElement('input');
                 document.getElementById('statustable').append(tempor);
                 tempor.setAttribute('type','text');
-                tempor.setAttribute('style','width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451');
+                tempor.setAttribute('style','width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double;');
                 tempor.value = text;
             //    console.log(text);
 				}
