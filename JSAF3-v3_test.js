@@ -4093,11 +4093,6 @@ document.getElementById('startlookstatus').onclick = function() {
 	enddate = enddate.split('-');
 	enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
 	console.log("end date= " + enddate);
-	//  if (Hour == undefined) { Hour = time_t.getHours();} else if (String(Hour).length < 2) { Hour = String('0' + Hour)}
-    //    if (Day == undefined) { Day = time_t.getDate();} else if (String(Day).length < 2) { Day = String('0' + Day)}
-    //    if (Month == undefined) { Month = time_t.getMonth() + 1;} else if (String(Month).length < 2) { Month = String('0' + Month)}
-    //    if (Year == undefined) { Year = time_t.getFullYear();} else if (String(Year).length < 3 && String(Year).length > 0) { Year = String('20' + Year) }
-	
 	
 	document.getElementById('responseTextarea1').value = `{
   "headers": {
@@ -4128,8 +4123,33 @@ document.getElementById('startlookstatus').onclick = function() {
 	
 		arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
         arregetted = JSON.parse(arregetted);
+		if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined  ) { 
+		 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
+                let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
+    
+                if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+                    text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                    text = text + ' | at: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                    text = text + ' | by: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+                    if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+                        text = text + ' | comment: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                    }
+                } else if (arregetted[0].result[0].classes[i].removedAt) {
+                    text = text + ' | removed | at: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                }
 		
-		console.log("Golden Graal + " + arregetted[0].result[0])
+		        let tempor = document.createElement('input');
+                document.getElementById('statustable').append(tempor);
+                tempor.setAttribute('type','text');
+                tempor.setAttribute('style','width: 99.4%; height: 12px;');
+                tempor.value = text;
+                console.log(text);
+		
+				}
+		
+		else {
+			alert("Уроков нет");
+		}
 		
 		document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
 		
