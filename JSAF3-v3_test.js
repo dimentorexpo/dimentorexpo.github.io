@@ -2443,6 +2443,7 @@ searchCommentsByEnter.addEventListener('keydown', event => {
 		    document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
+
         else
             document.getElementById('AF_Service').style.display = ''
     }
@@ -2450,6 +2451,7 @@ searchCommentsByEnter.addEventListener('keydown', event => {
 			    document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
+			document.getElementById('#statustable').style.display="none";
         else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
@@ -4080,6 +4082,7 @@ document.getElementById('parsechat').onclick = async function() {
 //Функция проверки статусов урока
 let arregetted;
 document.getElementById('startlookstatus').onclick = function() {
+	document.querySelector('#statustable').style.display="";
 	let time_t = new Date();
 	let ticherid = document.getElementById('idteacherforsearch').value;
 	ticherid = ticherid.trim();
