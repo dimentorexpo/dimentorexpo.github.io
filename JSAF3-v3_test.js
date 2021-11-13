@@ -329,12 +329,14 @@ var win_LessonStatus =  // описание элементов окна ссыл
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
 							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
 					    </div>
-							
+						
+				</span>	
+				
 						<div>
-							<p id="statustable" style="max-height:550px; overflow:auto; display:none; color:bisque; text-align:center"></p>
+							<p id="statustable" style="max-height:400px; overflow:auto; display:none; color:bisque; text-align:center"></p>
 						</div>
 
-                </span>
+
         </span>
 </div>`;
 
@@ -2450,7 +2452,6 @@ searchCommentsByEnter.addEventListener('keydown', event => {
 			document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_LessonStatus').style.display == ''){
             document.getElementById('AF_LessonStatus').style.display = 'none'
-			document.getElementById('#statustable').style.display="none";
 			} else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
@@ -4082,6 +4083,7 @@ document.getElementById('parsechat').onclick = async function() {
 let arregetted;
 document.getElementById('startlookstatus').onclick = function() {
 	document.querySelector('#statustable').style.display="";
+	document.querySelector('#statustable').innerText="";
 	let time_t = new Date();
 	let ticherid = document.getElementById('idteacherforsearch').value;
 	ticherid = ticherid.trim();
@@ -4141,7 +4143,7 @@ document.getElementById('startlookstatus').onclick = function() {
 		        let tempor = document.createElement('input');
                 document.getElementById('statustable').append(tempor);
                 tempor.setAttribute('type','text');
-                tempor.setAttribute('style','width: 99.4%; height: 12px;');
+                tempor.setAttribute('style','width: 99.4%; height: 20px; color: black;');
                 tempor.value = text;
                 console.log(text);
 				}
