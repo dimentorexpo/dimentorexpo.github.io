@@ -255,9 +255,9 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
-							 <p id="chatsinfoout" style="width:550px;  color:bisque; margin-left:5px"></p>
-							 <p id="lowCSATcount" style="width:550px; height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
-							 <p id="chatcommentsdata" style="width:550px;color:bisque; height:400px; margin-left:5px; overflow:auto"></p>
+							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
+							 <p id="lowCSATcount" style="width:550px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="chatcommentsdata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
         </span>
@@ -295,6 +295,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" style="margin-left: 5px; width: 25.23px;">✏</button>
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
+						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
 						</div>
 					
 						               
@@ -308,6 +309,38 @@ var win_serviceinfo =  // описание элементов окна ссыл�
         </span>
 </div>`;
 
+var win_LessonStatus =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 550;" id="statdata">
+                                <button id="hideMeLessonStatus" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+						
+						 <div style="margin: 5px; width: 550px" id="databox">
+								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataLS" id="dateFromLS"></span>
+								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataLS" id="dateToLS"</span>
+                        </div>
+						
+						<div>
+							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="position:relative; left:33%; text-align: center; width: 100px; color: black;margin-left:5px"">
+							<input id="idstudentforsearch" placeholder="Student ID" title="Введите ID ученика, чтобы отфильтровать поиск" autocomplete="off" type="text" style="position:relative; left:32%; text-align: center; width: 100px; color: black;margin-left:5px"">
+						</div>
+						
+						<div style="position:relative; left:30%; margin-top:5px; margin-bottom:5px;">
+							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
+							 <button title="Очищает поле от полученной инфы" id="clearlessonstatus">Очистить</button>
+					    </div>
+						
+				</span>	
+				
+						<div>
+							<p id="statustable" style="margin-top:5px; max-height:400px; overflow:auto; display:none; color:bisque; text-align:center"></p>
+						</div>
+
+
+        </span>
+</div>`;
 
 					
 
@@ -339,6 +372,10 @@ if (localStorage.getItem('winTopStat') == null) { // началоное поло
 if (localStorage.getItem('winTopService') == null) { // началоное положение окна информации об  услугах
     localStorage.setItem('winTopService', '120');
     localStorage.setItem('winLeftService', '295');
+}
+if (localStorage.getItem('winTopLessonStatus') == null) { // началоное положение окна проверки статуса урока удален перенесен и кем
+    localStorage.setItem('winTopLessonStatus', '120');
+    localStorage.setItem('winLeftLessonStatus', '295');
 }
 
 
@@ -701,6 +738,13 @@ wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
 
+let wintLessonStatus = document.createElement('div'); // создание окна ссылок
+document.body.append(wintLessonStatus);
+wintLessonStatus.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLessonStatus') + 'px; left: ' + localStorage.getItem('winLeftLessonStatus') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLessonStatus.style.display = 'none';
+wintLessonStatus.setAttribute('id', 'AF_LessonStatus');
+wintLessonStatus.innerHTML = win_LessonStatus;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -757,6 +801,20 @@ wintServices.firstElementChild.firstElementChild.firstElementChild.onmousedown =
     document.addEventListener('mousemove', listener7);
 }
 wintServices.onmouseup = function () { document.removeEventListener('mousemove', listener7); }
+
+var listener8 = function (e, a) { // сохранение позиции окна ссылок
+    wintLessonStatus.style.left = Number(e.clientX - myX8) + "px";
+    wintLessonStatus.style.top = Number(e.clientY - myY8) + "px";
+    localStorage.setItem('winTopLessonStatus', String(Number(e.clientY - myY8)));
+    localStorage.setItem('winLeftLessonStatus', String(Number(e.clientX - myX8)));
+};
+
+wintLessonStatus.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX8 = a.layerX;
+    window.myY8 = a.layerY;
+    document.addEventListener('mousemove', listener8);
+}
+wintLessonStatus.onmouseup = function () { document.removeEventListener('mousemove', listener8); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -1923,7 +1981,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "";
 			 document.getElementById('newtrm').style.display = "none";
 			 document.getElementById('personalteacherpage').style.display = "none";
-        } else if (noservinfo ==1) {
+        } else if (noservinfo ==1 &&  teachername !="") {
 			 document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + teachername + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
 			 document.getElementById('changelocalelng').style.display = "none";
 			 document.getElementById('checkbalance').style.display = "none";
@@ -1932,6 +1990,14 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "none";
 			 document.getElementById('newtrm').style.display = "";
 			 document.getElementById('personalteacherpage').style.display = "";
+		} else if (noservinfo ==1 &&  nameofuser !="" && teachername=="") {
+			 document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
+			 document.getElementById('checkbalance').style.display = "";
+			 document.getElementById('getcrmoneinfo').style.display = "";
+			 document.getElementById('getkglinfokid').style.display = "";
+			 document.getElementById('partialpaymentinfo').style.display = "";
+			 document.getElementById('newtrm').style.display = "none";
+			 document.getElementById('personalteacherpage').style.display = "none";
 		} else { document.getElementById('servicetable').innerHTML = ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: "  + servlocalestatus +  "<br>" + "UTC:" + utczone +  " / MSK(+/-): " + (utczone-3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны"; 
 		
 		document.getElementById('getusremail1').onclick = function() {
@@ -2338,6 +2404,8 @@ searchCommentsByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Jira').style.display = 'none'
 			if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
+			if (document.getElementById('AF_LessonStatus').style.display == '')
+            document.getElementById('AF_LessonStatus').style.display = 'none'
 		
     }
     document.getElementById('takeNewChat').onclick = function () {
@@ -2393,6 +2461,14 @@ searchCommentsByEnter.addEventListener('keydown', event => {
             document.getElementById('AF_Service').style.display = ''
     }
 	
+			document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_LessonStatus').style.display == ''){
+            document.getElementById('AF_LessonStatus').style.display = 'none'
+            document.getElementById('statustable').innerText= "";
+			} else
+            document.getElementById('AF_LessonStatus').style.display = ''
+    }
+	
 		document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
@@ -2411,6 +2487,20 @@ searchCommentsByEnter.addEventListener('keydown', event => {
 	document.getElementById('datsyurl').onclick = function () { // открытие Календаря
         window.open("https://datsy.ru/")
     }
+	
+	document.getElementById('getlessonstatus').onclick = function () {
+	let getdateset = new Date()
+	let getyearLS = getdateset.getFullYear();
+	let getcurmonthLS = (getdateset.getMonth()+1)
+	let todayLS = getdateset.getDate();
+	document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS-1)
+	document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS
+		if (document.getElementById('AF_LessonStatus').style.display == '')
+            document.getElementById('AF_LessonStatus').style.display = 'none'
+        else
+            document.getElementById('AF_LessonStatus').style.display = ''
+	}
+	
 	
 		document.getElementById('getStats').onclick = function () { // открытие Статистики
 	let getcurdate = new Date()
@@ -3933,7 +4023,21 @@ document.getElementById('clearall').onclick = function() {
 	document.querySelector('#chatcommentsdata').innerText = ""
 	document.querySelector('#chatcommentsdata').style.display = "none"
 	document.querySelector('#commenttosearch').value =""
-	
+}
+
+document.getElementById('clearlessonstatus').onclick = function() {
+if (confirm("Вы уверены, что хотите очистить?")) {
+	let getdateset = new Date()
+	let getyearLS = getdateset.getFullYear();
+	let getcurmonthLS = (getdateset.getMonth()+1)
+	let todayLS = getdateset.getDate();
+	document.getElementById('statustable').innerText="";
+	document.getElementById('idteacherforsearch').value ="";
+	document.getElementById('idstudentforsearch').value ="";
+	document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS-1);
+	document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+} else { console.log("Canceled!")
+}
 }
 
 //Функция парсинга чатов по заданному коменту
@@ -3999,6 +4103,121 @@ document.getElementById('parsechat').onclick = async function() {
 	} catch {
         console.log('Что-то пошло не так.')
     }
+}
+
+
+//Функция проверки статусов урока
+let arregetted;
+document.getElementById('startlookstatus').onclick = function() {
+	if (document.getElementById('idteacherforsearch').value !="") {
+	document.querySelector('#statustable').style.display="";
+	document.querySelector('#statustable').innerText="";
+	let time_t = new Date();
+	let ticherid = document.getElementById('idteacherforsearch').value;
+	let uchenikid = document.getElementById('idstudentforsearch').value;
+	uchenikid = uchenikid.trim();
+	ticherid = ticherid.trim();
+	let startdate = document.querySelector('#dateFromLS').value;
+	startdate = startdate.split('-');
+	startdate = Number(startdate[2]) + '-' + Number(startdate[1]) + '-' + Number(startdate[0]) + ' ' + 21;
+	console.log("start date= " + startdate);
+	let enddate = document.querySelector('#dateToLS').value;
+	enddate = enddate.split('-');
+	enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
+	console.log("end date= " + enddate);
+	
+	document.getElementById('responseTextarea1').value = `{
+  "headers": {
+    "accept": "*/*",
+    "content-type": "application/x-www-form-urlencoded",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin"
+  },
+  "referrer": "https://timetable.skyeng.ru/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
+  "method": "POST",
+  "mode": "cors",
+  "credentials": "include"
+	}`
+    document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+    document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+    document.getElementById('sendResponse').click()
+	
+	
+	
+	setTimeout (function() {
+	document.getElementById('responseTextarea1').value = `{}`
+    document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+    document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+    document.getElementById('sendResponse').click()
+	
+		arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+        arregetted = JSON.parse(arregetted);
+		if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined  ) { 
+		 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
+			  if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
+			 
+                let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,17) 
+				
+			//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
+    
+                if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+                    text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                    text = text + ' | at: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                    text = text + ' | by: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+					text = text + ' | type: ' + arregetted[0].result[0].classes[i].type;
+                    if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+                        text = text + ' | comment: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                    }
+                } else if (arregetted[0].result[0].classes[i].removedAt) {
+                    text = text + ' | removed | at: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                }
+		
+		        let tempor = document.createElement('input');
+                document.getElementById('statustable').append(tempor);
+                tempor.setAttribute('type','text');
+                tempor.setAttribute('style','width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double;');
+                tempor.value = text;
+            //    console.log(text);
+				} else if (document.getElementById('idstudentforsearch').value =="") {
+					                let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,17) 
+				
+			//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
+    
+                if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+                    text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                    text = text + ' | at: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                    text = text + ' | by: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+					text = text + ' | type: ' + arregetted[0].result[0].classes[i].type;
+                    if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+                        text = text + ' | comment: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                    }
+                } else if (arregetted[0].result[0].classes[i].removedAt) {
+                    text = text + ' | removed | at: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", {timeZone: 'Europe/Moscow'});
+                }
+		
+		        let tempor = document.createElement('input');
+                document.getElementById('statustable').append(tempor);
+                tempor.setAttribute('type','text');
+                tempor.setAttribute('style','width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double;');
+                tempor.value = text;
+				}
+		     }	
+				} else {
+			alert("Уроков нет");
+		}
+		
+		document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
+		
+		
+	}, 500)
+	
+	} else {
+		alert("Введите ID учителя в поле");
+	}
+	
 }
 
 
@@ -4622,6 +4841,13 @@ function customTemplates(language = '') {
         }
     }
 }
+
+function getLessonStatus() {
+	
+	getlessonstatus
+	
+}
+
 
 async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
