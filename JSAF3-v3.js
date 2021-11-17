@@ -1812,6 +1812,7 @@ let getcrmstatusinfo;
 	
 	async function chatstatus() {
 		let tempvariable = document.getElementById('idstudent').value;
+		tempvariable = tempvariable.trim();
 		document.getElementById('ChatStatus').style.display ="none";
 		document.getElementById('getcurrentstatus').style.display ="none";
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
