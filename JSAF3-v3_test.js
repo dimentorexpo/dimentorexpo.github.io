@@ -1182,7 +1182,9 @@ window.open("https://accounting.skyeng.ru/credit/list?studentId="+document.getEl
      }
 
 	 document.getElementById('editadmbtn').onclick = function() {
-window.open("https://id.skyeng.ru/admin/users/"+document.getElementById('idstudent').value+"/update")
+		 let stuid = document.getElementById('idstudent').value;
+		 stuid = stuid.trim();
+window.open("https://id.skyeng.ru/admin/users/"+stuid+"/update")
      }
 	 
 	 document.getElementById('getonetimepass').onclick =  function() {
