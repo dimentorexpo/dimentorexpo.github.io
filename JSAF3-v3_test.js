@@ -3448,7 +3448,9 @@ function startTimer() {
                     if (tmrs[k][1] == name) {
                         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок")
                             tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-                        else
+                        else if (if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок урок")
+                            tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText) 
+						else
                             tmrs[k][4] = ""
                     }
                 }
