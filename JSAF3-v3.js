@@ -1993,7 +1993,7 @@ document.getElementById('getidstudent').onclick = function () {
 			 document.getElementById('partialpaymentinfo').style.display = "none";
 			 document.getElementById('newtrm').style.display = "";
 			 document.getElementById('personalteacherpage').style.display = "";
-		} else if (noservinfo ==1 &&  nameofuser !="" && teachername=="") {
+		} else if (noservinfo ==1 &&  nameofuser !="" && teachername=="" && unhidenemail.endsWith('@skyeng.ru') == true) {
 			 document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
 			 document.getElementById('checkbalance').style.display = "";
 			 document.getElementById('getcrmoneinfo').style.display = "";
