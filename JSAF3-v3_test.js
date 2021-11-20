@@ -2814,9 +2814,9 @@ async function buttonsFromDoc(butName) {
 
                if (document.getElementById('languageAF').innerHTML == "Русский")
                    if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
-                       txt = "Здравствуйте, " + a[0] + "!" + " Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
+                       txt = "Hello, " + a[0] + "🚀" + " Я решу ваш вопрос.Пожалуйста, подождите, несколько минут 🙏 Please wait a few minutes."
                    else
-                      txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут. Please wait a few minutes."
+                      txt = "Hello. Я решу ваш вопрос. Пожалуйста, подождите, несколько минут 🙏 Please wait a few minutes."
                else
                    txt = "Hello. Please wait a few minutes."
      
@@ -3446,7 +3446,7 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML")
                 for (k = 0; k < idk; k++) {
                     if (tmrs[k][1] == name) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок")
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок")
                             tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 						else
                             tmrs[k][4] = ""
