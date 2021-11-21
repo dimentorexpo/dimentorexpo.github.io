@@ -2185,7 +2185,7 @@ document.getElementById('clearservinfo').onclick = function() {
 	document.getElementById('ChatStatus').style.display ="none";
 	document.getElementById('CrmStatus').style.display ="none";
 	document.getElementById('getcurrentstatus').style.display ="none";
-	
+	document.getElementById('changelocalelng').style.display ="";
 }
 	         
 document.getElementById('getJiraTasks').onclick = function () {
