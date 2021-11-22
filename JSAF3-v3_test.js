@@ -2042,7 +2042,7 @@ document.getElementById('getidstudent').onclick = function () {
 
     } 
    
-	   setTimeout(getServInfo, 1000)
+	   setTimeout(getServInfo, 1200)
 	
    }, 720)
 }
