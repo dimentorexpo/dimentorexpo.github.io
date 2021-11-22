@@ -1881,13 +1881,14 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getserviceinfo'
     document.getElementById('sendResponse').click()
 
-    function getServInfo() {
+    async function getServInfo() {
         document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
         document.getElementById('responseTextarea3').value = 'getserviceinfo'
         document.getElementById('sendResponse').click()
 
         servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+		servicearr = await servicearr;
         servicearr = JSON.parse(servicearr);
         //console.log(servicearr);
         document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
@@ -1923,10 +1924,6 @@ document.getElementById('getidstudent').onclick = function () {
                 temtinfo += [i+1] + ") " +  Object.values(servicearr.data[i].temporaryTeacher.general) + "<br>";
                 servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
                 arrservice += servicearr.data[i].id + ", "
-            // } else if (servicearr.data[i].stage == "before_call" && servicearr.data[i].incorrectnessReason == null) {
-				// tinfo += [i+1] + ") " + "Учитель отсутствует, этап ВУ" + "<br>";
-				// servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
-			    // arrservice += servicearr.data[i].id + ", "
 			} else if ((servicearr.data[i].stage == "after_trial" || servicearr.data[i].stage == "before_call") && servicearr.data[i].incorrectnessReason == null) {
 				tinfo += [i+1] + ") " + '<span style="color:#FF7F50; font-weight:900;">Этап ВУ</span><br>';
 				servinfo += [i+1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
