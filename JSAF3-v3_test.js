@@ -1881,13 +1881,13 @@ document.getElementById('getidstudent').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getserviceinfo'
     document.getElementById('sendResponse').click()
 
-    function getServInfo() {
+    async function getServInfo() {
         document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
         document.getElementById('responseTextarea3').value = 'getserviceinfo'
         document.getElementById('sendResponse').click()
 
-        servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+       await servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
         servicearr = JSON.parse(servicearr);
         //console.log(servicearr);
         document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
