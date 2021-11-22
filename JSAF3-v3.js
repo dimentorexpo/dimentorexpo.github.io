@@ -1846,7 +1846,8 @@ let getcrmstatusinfo;
 	
 let convid;	
 document.getElementById('getidstudent').onclick = function () {
-    let servicearr;
+    let servicearr="";
+    document.getElementById('servicetable').innerHTML="";
 	document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
@@ -2041,7 +2042,7 @@ document.getElementById('getidstudent').onclick = function () {
 
     } 
    
-	   setTimeout(getServInfo, 650)
+	   setTimeout(getServInfo, 1000)
 	
    }, 720)
 }
