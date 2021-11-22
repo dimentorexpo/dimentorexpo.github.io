@@ -2815,7 +2815,7 @@ async function buttonsFromDoc(butName) {
 
                if (document.getElementById('languageAF').innerHTML == "Русский")
                    if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
-                       txt = "Hello, " + a[0] + " 🚀" + "Я решу ваш вопрос.Пожалуйста, подождите, несколько минут 🙏 Please wait a few minutes."
+                       txt = "Hello, " + a[0] + " 🚀" + "Я решу ваш вопрос. Пожалуйста, подождите, несколько минут 🙏 Please wait a few minutes."
                    else
                       txt = "Hello. Я решу ваш вопрос. Пожалуйста, подождите, несколько минут 🙏 Please wait a few minutes."
                else
