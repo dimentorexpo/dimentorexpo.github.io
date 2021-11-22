@@ -589,12 +589,13 @@ gettacherphoto.onclick = function () {
     document.getElementById('responseTextarea3').value = 'imageurl'
     document.getElementById('sendResponse').click()
 
-    function getImageUrl() {
+    async function getImageUrl() {
         document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://skyeng.ru/teachers/details/" + getteacheridformaf
         document.getElementById('responseTextarea3').value = 'imageurl'
 
         var rezresp = document.getElementById('responseTextarea1').getAttribute('imageurl')
+		rezresp = await rezresp;
         var convertrezresp = rezresp.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
         document.getElementById('responseTextarea1').removeAttribute('imageurl');
         teacherphoto.src = convertrezresp;
@@ -1602,8 +1603,9 @@ function move_again_AF() {
 			
 			if (studentname.data.avatarUrl != null) {
 				avataruser = studentname.data.avatarUrl;
-				console.log(avataruser);
-			}
+				avataruser = avataruser.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+				console.log("URL avatar " + avataruser)
+			} else avataruser == null;
 
 
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
