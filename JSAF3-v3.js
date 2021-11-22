@@ -2817,11 +2817,11 @@ async function buttonsFromDoc(butName) {
                    if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
                        txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
                    else
-                      txt = "Здравствуйте! Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+                      txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
                else
-                   txt = "Hello. Please wait a few minutes."
+                   txt = "Hello." + '\r\n' + "Please wait a few minutes."
      
-             if (txt == "Hello. Please wait a few minutes.")
+             if (txt == "Hello." + '\r\n' + "Please wait a few minutes.")
             sendAnswer(txt)
         else
             sendAnswerTemplate2(txt)
