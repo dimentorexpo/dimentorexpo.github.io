@@ -1529,6 +1529,7 @@ function move_again_AF() {
 
     }
 
+	let avataruser;
     let nameofuser;
     let teachername;
     let studentname;
@@ -1598,6 +1599,11 @@ function move_again_AF() {
             } else {
                 servlocalestatus = studentname.data.serviceLocale;
             }
+			
+			if (studentname.data.avatarUrl != null) {
+				avataruser = studentname.data.avatarUrl;
+				console.log(avataruser);
+			}
 
 
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
