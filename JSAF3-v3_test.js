@@ -2025,7 +2025,7 @@ function move_again_AF() {
                     }
                 }
 
-                let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
+                let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
                 for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
                     if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
@@ -2033,14 +2033,14 @@ function move_again_AF() {
                             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
                                 let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
                                 if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
-                                    for (let d = 0; d < infoiduslugi.length; d++) {
+                                   // for (let d = 0; d < infoiduslugi.length; d++) {
                                         for (let v = 0; v < testids.length; v++) {
-                                            if (testids[v] == getidusr)
-                                                infoiduslugi[d].innerText = "ID Услуги 🔥"
+                                            if (testids[v] == getidusr+",")
+                                                infoiduslugi[v].innerText = "ID Услуги 🔥";
                                             else
                                                 console.log("Not found") //если услуги не совпали с П обратившимся
                                         } // for v
-                                    } // for d
+                                //    } // for d
                                 } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
                             } else
                                 console.log("No such field") // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
