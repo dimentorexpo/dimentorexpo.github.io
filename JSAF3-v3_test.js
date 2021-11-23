@@ -2024,6 +2024,18 @@ function move_again_AF() {
                         copyToClipboard1(arrservice[j])
                     }
                 }
+				
+                document.getElementById('getusremail').onclick = function () {
+                    copyToClipboard1(unhidenemail);
+                };
+
+                document.getElementById('getusrphone').onclick = function () {
+                    copyToClipboard1(unhidephone);
+                };
+
+                document.getElementById('getloginer').addEventListener('click', function () {
+                    postuderdatatologin();
+                })
 
                 let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
@@ -2047,19 +2059,6 @@ function move_again_AF() {
                         } // for let i
                     } // if type == teacher
                 } // for let j
-
-                document.getElementById('getusremail').onclick = function () {
-                    copyToClipboard1(unhidenemail);
-                };
-
-                document.getElementById('getusrphone').onclick = function () {
-                    copyToClipboard1(unhidephone);
-                };
-
-                document.getElementById('getloginer').addEventListener('click', function () {
-                    postuderdatatologin();
-                })
-
             }
 
             setTimeout(getServInfo, 1200)
