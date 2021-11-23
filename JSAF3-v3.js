@@ -313,7 +313,7 @@ var win_LessonStatus =  // описание элементов окна ссыл
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;" id="statdata">
+                        <div style="margin: 5px; width: 550;" id="lessomstatdata">
                                 <button id="hideMeLessonStatus" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						
@@ -836,6 +836,12 @@ document.getElementById('statdata').ondblclick = function () { // скрытие
 }
 document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна статистики по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
+}
+document.getElementById('lessomstatdata').ondblclick = function () { // скрытие окна статистики по двойному клику
+    document.getElementById('AF_LessonStatus').style.display = 'none';
+}
+document.getElementById('databox').ondblclick = function () { // скрытие окна статистики по двойному клику
+    document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
 let wintAF = document.createElement('div');
