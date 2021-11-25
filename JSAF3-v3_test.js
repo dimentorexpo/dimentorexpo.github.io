@@ -2224,7 +2224,54 @@ function move_again_AF() {
         document.getElementById('changelocalelng').style.display = "";
     }
 
-    document.getElementById('getJiraTasks').onclick = function () {
+
+// Просмотр таски по джира по ее коду и номеру 
+    document.getElementById('getJiraTasks').ondblclickclick = function () {
+        let rezissuetable;
+
+        document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "*/*",
+					"sec-fetch-dest": "empty",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-origin",
+					"x-requested-with": "XMLHttpRequest"
+				  },
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+               }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
+        document.getElementById('responseTextarea3').value = 'getissuetable'
+        document.getElementById('sendResponse').click()
+
+        function getJiraTask() {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
+            document.getElementById('responseTextarea3').value = ''
+            document.getElementById('sendResponse').click()
+
+
+
+            document.getElementById('AF_Jira').style.display = ''
+            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+			document.getElementById('responseTextarea1').removeAttribute('getissuetable')
+            if (rezissuetable != null){
+                let issues = [];
+				issues = rezissuetable.[0].items[0].subtitle + " - " + rezissuetable.[0].items[0].title + '<a href="' + rezissuetable.[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">';
+            
+                document.getElementById('issuetable').innerHTML = issues;
+
+                console.log(rezissuetable.issueTable.issueKeys);
+                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+			}
+        }
+
+        setTimeout(getJiraTask, 1000)
+    }
+	
+	    document.getElementById('getJiraTasks').onclick = function () {
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2348,6 +2395,17 @@ function move_again_AF() {
 
         setTimeout(getJiraTask, 1000)
     }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
     searchJiraByEnter.addEventListener('keydown', event => {
