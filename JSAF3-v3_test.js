@@ -2226,7 +2226,7 @@ function move_again_AF() {
 
 
 // Просмотр таски по джира по ее коду и номеру 
-    document.getElementById('getJiraTasks').ondblclickclick = function () {
+    document.getElementById('getJiraTasks').ondblclick = function () {
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2246,7 +2246,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getissuetable'
         document.getElementById('sendResponse').click()
 
-        function getJiraTask() {
+        function getJiraTask1() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
             document.getElementById('responseTextarea3').value = ''
@@ -2268,7 +2268,7 @@ function move_again_AF() {
 			}
         }
 
-        setTimeout(getJiraTask, 1000)
+        setTimeout(getJiraTask1, 1000)
     }
 	
 	    document.getElementById('getJiraTasks').onclick = function () {
