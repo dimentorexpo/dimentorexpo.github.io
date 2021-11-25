@@ -199,7 +199,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getskipAP" style="width: 25.23px;">💾</button>
-					<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 				</div>		
 				
@@ -2224,7 +2224,58 @@ function move_again_AF() {
         document.getElementById('changelocalelng').style.display = "";
     }
 
-    document.getElementById('getJiraTasks').onclick = function () {
+
+// Просмотр таски по джира по ее коду и номеру 
+    document.getElementById('getJiraTasks').ondblclick = function () {
+        let rezissuetable;
+
+        document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "*/*",
+					"sec-fetch-dest": "empty",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-origin",
+					"x-requested-with": "XMLHttpRequest"
+				  },
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+               }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
+        document.getElementById('responseTextarea3').value = 'getissuetable1'
+        document.getElementById('sendResponse').click()
+
+        function getJiraTask1() {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
+            document.getElementById('responseTextarea3').value = 'getissuetable1'
+            document.getElementById('sendResponse').click()
+
+
+
+            document.getElementById('AF_Jira').style.display = ''
+            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+			document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
+            if (rezissuetable != null){
+                let issues = [];
+				issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
+            
+                document.getElementById('issuetable').innerHTML = issues;
+				
+				let barray = document.querySelector('.jiraissues');
+				barray.onclick = function() {
+					sendComment(rezissuetable[0].items[0].url)
+				}
+
+                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+			}
+        }
+
+        setTimeout(getJiraTask1, 1000)
+    }
+	
+	    document.getElementById('getJiraTasks').onclick = function () {
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2348,8 +2399,8 @@ function move_again_AF() {
 
         setTimeout(getJiraTask, 1000)
     }
-
-    let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
+	
+	let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
     searchJiraByEnter.addEventListener('keydown', event => {
         if (event.key === "Enter") {
             document.querySelector('#getJiraTasks').click()
