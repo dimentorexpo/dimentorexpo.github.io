@@ -2042,14 +2042,16 @@ function move_again_AF() {
                 document.getElementById('getusrphone').onclick = function () {
                     copyToClipboard1(unhidephone);
                 };  
+				
+				document.getElementById('getloginer').addEventListener('click', function () {
+                    postuderdatatologin();
+                })
 
 				document.getElementById('getshowcase').onclick = function () {
                     copyToClipboard1("https://profile.skyeng.ru/profile/"+stid+"/showcase");
                 };
 
-                document.getElementById('getloginer').addEventListener('click', function () {
-                    postuderdatatologin();
-                })
+
 
                 let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
