@@ -2259,7 +2259,7 @@ function move_again_AF() {
 			document.getElementById('responseTextarea1').removeAttribute('getissuetable')
             if (rezissuetable != null){
                 let issues = [];
-				issues = rezissuetable.[0].items[0].subtitle + " - " + rezissuetable.[0].items[0].title + '<a href="' + rezissuetable.[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">';
+				issues = rezissuetable[0].items[0].subtitle + " - " + rezissuetable.[0].items[0].title + '<a href="' + rezissuetable.[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">';
             
                 document.getElementById('issuetable').innerHTML = issues;
 
