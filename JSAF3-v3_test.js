@@ -1543,7 +1543,7 @@ function move_again_AF() {
     let localtime;
     let servlocalestatus;
 	let avatarofuser;
-    function getusernamecrm() {
+    async function getusernamecrm() {
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
         let curminutes = curdate.getMinutes();
@@ -1577,6 +1577,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+			studentname = await studentname;
             studentname = JSON.parse(studentname);
             nameofuser = "";
             teachername = "";
