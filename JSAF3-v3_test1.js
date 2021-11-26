@@ -3958,9 +3958,9 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
         
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу')
-            for (i = 1; i < document.getElementsByClassName('sc-fzqNJr hXQgjp')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1")
-                    document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+            for (i = 1; i < document.getElementsByClassName('ant-input')[0].children[2].childElementCount - 1; i++)
+                if (document.getElementsByClassName('ant-input')[0].children[2].children[i].textContent != "Тех. поддержка V1")
+                    document.getElementsByClassName('ant-input')[0].children[2].children[i].style.display = 'none'
     }
 }
 
