@@ -2045,7 +2045,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
-					
+				 	
                 } else {
 					if (avatarofuser !=null) {
 						document.querySelector('#useravatar').style.display = "";					
