@@ -302,6 +302,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 					   </span>
 					   
                         <div style="width: 310px;" id="servicebody">
+						<img id="useravatar" style="position: absolute; left: 1px; top: 120px; width: 55px; height: 60px; border-radius: 30px; display:none;">
                                 <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
 						
@@ -1541,7 +1542,8 @@ function move_again_AF() {
     let utczone;
     let localtime;
     let servlocalestatus;
-    function getusernamecrm() {
+	let avatarofuser;
+    async function getusernamecrm() {
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
         let curminutes = curdate.getMinutes();
@@ -1568,13 +1570,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
             document.getElementById('responseTextarea3').value = 'getusernameinfo'
             document.getElementById('sendResponse').click()
 
             studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+			studentname = await studentname;
             studentname = JSON.parse(studentname);
             nameofuser = "";
             teachername = "";
@@ -1604,6 +1607,12 @@ function move_again_AF() {
             } else {
                 servlocalestatus = studentname.data.serviceLocale;
             }
+			
+			if (studentname.data.avatarUrl != null) {
+				avatarofuser=studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+			} else {
+				avatarofuser=null;
+			}
 
 
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
@@ -1613,7 +1622,7 @@ function move_again_AF() {
     }
 
     let tokenlogginer;
-    function getlogginer() {
+   async function getlogginer() {
         //Для получения токена сначала обрабатываем
         document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
@@ -1627,7 +1636,7 @@ function move_again_AF() {
         document.getElementById('sendResponse').click()
 
 
-        function gettokenlog() {
+        async function gettokenlog() {
 
             document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
@@ -1642,6 +1651,7 @@ function move_again_AF() {
 
 
             tokenlogginer = document.getElementById('responseTextarea1').getAttribute('gettoken');
+			tokenlogginer = await tokenlogginer;
             let dokie = document.createElement('div');
             dokie.innerHTML = tokenlogginer;
             tokenlogginer = dokie.querySelector('#login_link_form__token').value;
@@ -1655,7 +1665,7 @@ function move_again_AF() {
 
 
     let logginerinfo;
-    function postuderdatatologin() {
+    async function postuderdatatologin() {
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
         document.getElementById('responseTextarea1').value = `{
@@ -1679,7 +1689,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'postdata'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
 
             document.getElementById('responseTextarea1').value = `{
 				   "headers": {
@@ -1702,6 +1712,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
+			logginerinfo = await logginerinfo;
 
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
@@ -1715,7 +1726,7 @@ function move_again_AF() {
 
 
     let getcrmstatusinfo;
-    function crmstatus() {
+   async function crmstatus() {
         let tempvarcrm = document.getElementById('idstudent').value;
         tempvarcrm = tempvarcrm.trim();
 
@@ -1737,13 +1748,14 @@ function move_again_AF() {
 
 
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
             document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
             document.getElementById('sendResponse').click()
 
             getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+			getcrmstatusinfo = await getcrmstatusinfo;
             getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
             let flagtpout = 0;
             let flagtp = 0;
@@ -1852,6 +1864,9 @@ function move_again_AF() {
 
     let convid;
     document.getElementById('getidstudent').onclick = function () {
+		document.querySelector('#useravatar').src = "";
+		if(document.querySelector('#useravatar').style.display !="none")
+		document.querySelector('#useravatar').style.display = "none";					
         let servicearr = "";
         document.getElementById('servicetable').innerHTML = "";
         document.getElementById('getcurrentstatus').title = "";
@@ -1870,7 +1885,7 @@ function move_again_AF() {
         //	setTimeout(postuderdatatologin, 760);
 
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -1947,10 +1962,12 @@ function move_again_AF() {
                     }
                 }
 
-
-
                 if (temtinfo == "" && tinfo != "") {
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer; font-weight:700;">📍</span>'  + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+					if (avatarofuser !=null) {
+						document.querySelector('#useravatar').style.display = "";					
+						document.querySelector('#useravatar').src = avatarofuser;
+						}			
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>'  + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -1962,8 +1979,13 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else if (temtinfo != "" && tinfo != "") {
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer; font-weight:700;">📍</span>' +  ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+					if (avatarofuser !=null) {
+						document.querySelector('#useravatar').style.display = "";					
+						document.querySelector('#useravatar').src = avatarofuser;
+						}				
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' +  ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -1975,8 +1997,13 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else if (temtinfo != "" && tinfo == "") {
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer; font-weight:700;">📍</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+					if (avatarofuser !=null) {
+						document.querySelector('#useravatar').style.display = "";					
+						document.querySelector('#useravatar').src = avatarofuser;
+						}					
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -1988,7 +2015,12 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else if (noservinfo == 1 && teachername != "") {
+					if (avatarofuser !=null) {
+						document.querySelector('#useravatar').style.display = "";					
+						document.querySelector('#useravatar').src = avatarofuser;
+						}					
                     document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + teachername + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
                     document.getElementById('changelocalelng').style.display = "none";
                     document.getElementById('checkbalance').style.display = "none";
@@ -1997,6 +2029,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('newtrm').style.display = "";
                     document.getElementById('personalteacherpage').style.display = "";
+					
                 } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
                     document.getElementById('checkbalance').style.display = "";
@@ -2005,8 +2038,13 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else {
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer; font-weight:700;">📍</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
+					if (avatarofuser !=null) {
+						document.querySelector('#useravatar').style.display = "";					
+						document.querySelector('#useravatar').src = avatarofuser;
+						}					
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
 
                     document.getElementById('getusremail1').onclick = function () {
                         copyToClipboard1(unhidenemail);
@@ -2222,7 +2260,20 @@ function move_again_AF() {
         document.getElementById('CrmStatus').style.display = "none";
         document.getElementById('getcurrentstatus').style.display = "none";
         document.getElementById('changelocalelng').style.display = "";
+		document.querySelector('#useravatar').src ="";
+		document.querySelector('#useravatar').style.display = "none";
+		
     }
+	
+	document.getElementById('useravatar').onmouseover = function () {
+	document.getElementById('useravatar').style.width =  "200px";
+	document.getElementById('useravatar').style.height =  "230px";
+	}
+
+	document.getElementById('useravatar').onmouseout = function () {
+	document.getElementById('useravatar').style.width =  "55px";
+	document.getElementById('useravatar').style.height =  "60px";
+	}
 
 
 // Просмотр таски по джира по ее коду и номеру 
