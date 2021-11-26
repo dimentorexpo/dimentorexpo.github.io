@@ -3898,12 +3898,15 @@ function addbuttonsintegration() {
 			 if(document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText == "Техподдержка исход crm2") {
             	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="red";
             	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =600;
+                document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.textShadow ="1px 1px 1px black, 0 0 1em red"; 
             } else if(document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText == "Техподдержка 2-я линия crm2") {
             	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="green";
             	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =600;
+document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.textShadow ="1px 1px 1px black, 0 0 1em green"; 
             } else {
 				document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="black";
 				document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =400;
+                document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.textShadow ="0px 0px 0px black, 0 0 1em grey"; 
 				}
         }
     }
