@@ -2243,13 +2243,13 @@ function move_again_AF() {
     }
 	
 	document.getElementById('useravatar').onmouseover = function () {
-	document.getElementById('useravatar').style.width =  "55px";
-	document.getElementById('useravatar').style.height =  "60px";
+	document.getElementById('useravatar').style.width =  "200px";
+	document.getElementById('useravatar').style.height =  "200px";
 	}
 
 	document.getElementById('useravatar').onmouseout = function () {
-	document.getElementById('useravatar').style.width =  "200px";
-	document.getElementById('useravatar').style.height =  "200px";
+	document.getElementById('useravatar').style.width =  "55px";
+	document.getElementById('useravatar').style.height =  "60px";
 	}
 
 
