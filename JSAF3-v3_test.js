@@ -302,6 +302,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 					   </span>
 					   
                         <div style="width: 310px;" id="servicebody">
+						<img id="useravatar" style="position:relative; left:5px; top:5px; width:50px; height:50px;">
                                 <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
 						
