@@ -2227,7 +2227,11 @@ function move_again_AF() {
 
 // Просмотр таски по джира по ее коду и номеру 
     document.getElementById('getJiraTasks').ondblclick = function () {
-		document.getElementById('AF_Jira').style.display = '';
+		  if (document.getElementById('AF_Jira').style.display = 'none'){
+				document.getElementById('AF_Jira').style.display = ''
+			}
+			
+			
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2253,9 +2257,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'getissuetable1'
             document.getElementById('sendResponse').click()
 
-            
-            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'));
-			document.getElementById('responseTextarea1').removeAttribute('getissuetable1');
+		
+            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+			document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
             if (rezissuetable != null){
                 let issues = [];
 				issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
@@ -2275,6 +2279,12 @@ function move_again_AF() {
     }
 	
 	    document.getElementById('getJiraTasks').onclick = function () {
+			
+                       if (document.getElementById('AF_Jira').style.display = 'none'){
+				document.getElementById('AF_Jira').style.display = ''
+			}
+			
+			
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2301,9 +2311,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = ''
             document.getElementById('sendResponse').click()
 
-
-
-            document.getElementById('AF_Jira').style.display = ''
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
             if (rezissuetable == null)
                 setTimeout(getJiraTask, 1000)

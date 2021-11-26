@@ -2227,6 +2227,11 @@ function move_again_AF() {
 
 // Просмотр таски по джира по ее коду и номеру 
     document.getElementById('getJiraTasks').ondblclick = function () {
+		  if (document.getElementById('AF_Jira').style.display = 'none'){
+				document.getElementById('AF_Jira').style.display = ''
+			}
+			
+			
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2252,9 +2257,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'getissuetable1'
             document.getElementById('sendResponse').click()
 
-
-
-            document.getElementById('AF_Jira').style.display = ''
+		
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
 			document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
             if (rezissuetable != null){
@@ -2276,6 +2279,12 @@ function move_again_AF() {
     }
 	
 	    document.getElementById('getJiraTasks').onclick = function () {
+			
+                       if (document.getElementById('AF_Jira').style.display = 'none'){
+				document.getElementById('AF_Jira').style.display = ''
+			}
+			
+			
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2302,9 +2311,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = ''
             document.getElementById('sendResponse').click()
 
-
-
-            document.getElementById('AF_Jira').style.display = ''
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
             if (rezissuetable == null)
                 setTimeout(getJiraTask, 1000)
