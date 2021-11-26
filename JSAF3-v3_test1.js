@@ -3959,7 +3959,7 @@ function timerHideButtons() {
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу')
             for (i = 1; i < document.getElementsByClassName('ant-popover-inner-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].textContent == "Техподдержка исход crm2") && (document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].textContent == "Техподдержка 2-я линия crm2")
+                if (document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].textContent == "Техподдержка исход crm2" && document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].textContent == "Техподдержка 2-я линия crm2")
                     document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].style.backgroundColor = "#F34723"
     }
 }
