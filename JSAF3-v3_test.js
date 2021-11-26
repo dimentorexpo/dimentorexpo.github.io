@@ -1570,7 +1570,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
             document.getElementById('responseTextarea3').value = 'getusernameinfo'
