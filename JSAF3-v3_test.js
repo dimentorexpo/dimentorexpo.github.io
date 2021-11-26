@@ -1622,7 +1622,7 @@ function move_again_AF() {
     }
 
     let tokenlogginer;
-    function getlogginer() {
+   async function getlogginer() {
         //Для получения токена сначала обрабатываем
         document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
@@ -1636,7 +1636,7 @@ function move_again_AF() {
         document.getElementById('sendResponse').click()
 
 
-        function gettokenlog() {
+        async function gettokenlog() {
 
             document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
@@ -1651,6 +1651,7 @@ function move_again_AF() {
 
 
             tokenlogginer = document.getElementById('responseTextarea1').getAttribute('gettoken');
+			tokenlogginer = await tokenlogginer;
             let dokie = document.createElement('div');
             dokie.innerHTML = tokenlogginer;
             tokenlogginer = dokie.querySelector('#login_link_form__token').value;
@@ -1664,7 +1665,7 @@ function move_again_AF() {
 
 
     let logginerinfo;
-    function postuderdatatologin() {
+    async function postuderdatatologin() {
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
         document.getElementById('responseTextarea1').value = `{
@@ -1688,7 +1689,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'postdata'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
 
             document.getElementById('responseTextarea1').value = `{
 				   "headers": {
@@ -1711,6 +1712,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
+			logginerinfo = await logginerinfo;
 
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
@@ -1724,7 +1726,7 @@ function move_again_AF() {
 
 
     let getcrmstatusinfo;
-    function crmstatus() {
+   async function crmstatus() {
         let tempvarcrm = document.getElementById('idstudent').value;
         tempvarcrm = tempvarcrm.trim();
 
@@ -1746,13 +1748,14 @@ function move_again_AF() {
 
 
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
             document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
             document.getElementById('sendResponse').click()
 
             getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+			getcrmstatusinfo = await getcrmstatusinfo;
             getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
             let flagtpout = 0;
             let flagtp = 0;
@@ -1882,7 +1885,7 @@ function move_again_AF() {
         //	setTimeout(postuderdatatologin, 760);
 
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -1959,8 +1962,6 @@ function move_again_AF() {
                     }
                 }
 
-
-
                 if (temtinfo == "" && tinfo != "") {
 					if (avatarofuser !=null) {
 						document.querySelector('#useravatar').style.display = "";					
@@ -1978,6 +1979,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else if (temtinfo != "" && tinfo != "") {
 					if (avatarofuser !=null) {
 						document.querySelector('#useravatar').style.display = "";					
@@ -1995,6 +1997,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else if (temtinfo != "" && tinfo == "") {
 					if (avatarofuser !=null) {
 						document.querySelector('#useravatar').style.display = "";					
@@ -2012,6 +2015,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else if (noservinfo == 1 && teachername != "") {
 					if (avatarofuser !=null) {
 						document.querySelector('#useravatar').style.display = "";					
@@ -2025,6 +2029,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('newtrm').style.display = "";
                     document.getElementById('personalteacherpage').style.display = "";
+					
                 } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
                     document.getElementById('checkbalance').style.display = "";
@@ -2033,6 +2038,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
+					
                 } else {
 					if (avatarofuser !=null) {
 						document.querySelector('#useravatar').style.display = "";					
