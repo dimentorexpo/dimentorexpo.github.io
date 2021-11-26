@@ -1861,6 +1861,7 @@ function move_again_AF() {
     let convid;
     document.getElementById('getidstudent').onclick = function () {
 		document.querySelector('#useravatar').src = "";
+		if(document.querySelector('#useravatar').style.display !="none")
 		document.querySelector('#useravatar').style.display = "none";					
         let servicearr = "";
         document.getElementById('servicetable').innerHTML = "";
