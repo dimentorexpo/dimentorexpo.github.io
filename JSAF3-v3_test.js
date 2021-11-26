@@ -5472,7 +5472,7 @@ function toUTF8Array(str) {
     }
     return utf8;
 }
-
+ 
 function decToHex(dec) {
     var hexStr = '0123456789ABCDEF';
     var low = dec % 16;
