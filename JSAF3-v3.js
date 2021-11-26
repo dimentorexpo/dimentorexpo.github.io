@@ -3895,9 +3895,17 @@ function addbuttonsintegration() {
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
+			 if(document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText == "Техподдержка исход crm2") {
+            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="red";
+            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =600;
+            } else if(document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText == "Техподдержка 2-я линия crm2") {
+            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="green";
+            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =600;
+            } else {
+				document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="black";
+				document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =400;
+				}
         }
-
-
     }
 }
 setInterval(addbuttonsintegration, 1000)
