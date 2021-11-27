@@ -1035,12 +1035,12 @@ function move_again_AF() {
         window.open("" + document.getElementById('kibheshvid').value + "")
     }
 
-    document.getElementById('').onclick = function () { // kibana Стрим локально и до платформы
-        window.open("" + document.getElementById('').value + "")
+    document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
+        window.open("" + document.getElementById('kibstihesh').value + "")
     }
 
-    document.getElementById('').onclick = function () { // kibana вход в ЛК	
-        window.open("" + document.getElementById('').value + "")
+    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК	
+        window.open("" + document.getElementById('kiblk').value + "")
     }
 
     document.getElementById('redashlnk').addEventListener('click', function () {
