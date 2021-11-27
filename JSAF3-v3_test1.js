@@ -2572,7 +2572,7 @@ function move_again_AF() {
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
         else
-            document.getElementById('AF_Links').style.display = ''
+            document.getElementById('AF_Linksd').style.display = ''
     }
 
     document.getElementById('servicestatus').onclick = function () {
