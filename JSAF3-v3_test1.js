@@ -3987,7 +3987,8 @@ function chekModalWindow () {
     // Проверка эл-та закрытия инпута
     function chekValue () {
         let inputValue = document.querySelector('#DateFilter_category');
-        if (inputValue !== 'null' && inputValue.value) {
+        if (inputValue !== 'null') {
+            if (inputValue.value) {
             let crossClose = document.querySelectorAll(`.ant-input-suffix`)
             crossClose[0].addEventListener(`click`, function () {
                 let selectorList = document.querySelector('.ant-popover-inner-content')
@@ -4000,6 +4001,7 @@ function chekModalWindow () {
             console.log(`Cross button is missing`)
         }
     }
+}
 
     setInterval(chekValue, 1000)
 }
