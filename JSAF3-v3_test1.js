@@ -3966,6 +3966,7 @@ function timerHideButtons() {
 function chekModalWindow () {
     function testTest() {
         // Обращаюсь к модальному окну
+        if (document.getElementById('DateFilter_category') !== null) {
         let testest = document.querySelector('#DateFilter_category');
         // Навешиваю обработчик
         testest.addEventListener(`click`, function (event) {
@@ -3981,6 +3982,7 @@ function chekModalWindow () {
             setTimeout(selectTest, 500)
         });
     }
+}
 
     testTest();
 
