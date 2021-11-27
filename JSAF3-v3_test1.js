@@ -132,13 +132,13 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_linksd =  // описание элементов окна доступов
-    `<div style="display: flex; width: 351px;">
-        <span style="width: 351px">
+    `<div style="display: flex; width: 409px;">
+        <span style="width: 409px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 351px;" id="linksd_1str">
+                        <div style="margin: 5px; width: 409px;" id="linksd_1str">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; margin-top: 0px; width: 351px" id="linksd_kib_box">
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
                             <p style="margin-left: 40%; margin-bottom: 0px; margin-top: 0px; color: #F6358A">Кибана</p>                        
                             <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
