@@ -1037,7 +1037,8 @@ function move_again_AF() {
     }
 
     document.getElementById('kibheshvidbut').onclick = function () { // kibana видео-аудио не передавалось
-        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + document.getElementById('kibheshvid').value + " and (description : "mediaState video down" or description : "mediaState audio down")'),sort:!(!('@timestamp',asc)))")
+        let linperem1 = ' and (description :% "mediaState video down" or description : "mediaState audio down")'),sort:!(!('@timestamp',asc)))'
+        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + document.getElementById('kibheshvid').value + linperem1)
     }
 
     document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
