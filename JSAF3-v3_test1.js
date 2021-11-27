@@ -3958,10 +3958,50 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу')
-            for (i = 1; i < document.getElementsByClassName('ant-popover-inner-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].textContent == "Техподдержка исход crm2" && document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].textContent == "Техподдержка 2-я линия crm2")
-                    document.getElementsByClassName('ant-popover-inner-content')[0].children[2].children[i].style.backgroundColor = "#F34723"
+            setTimeout(chekModalWindow,500)
+
     }
+}
+
+function chekModalWindow () {
+    function testTest() {
+        // Обращаюсь к модальному окну
+        let testest = document.querySelector('#DateFilter_category');
+        // Навешиваю обработчик
+        testest.addEventListener(`click`, function (event) {
+            function selectTest() {
+
+                let selectorList = document.querySelector('.ant-popover-inner-content')
+                let techCrm = selectorList.children[0].children[5].children[0].children[1]
+                let scnd_line = selectorList.children[0].children[7].children[0].children[1]
+                techCrm.style.backgroundColor = '#F62817'
+                scnd_line.style.backgroundColor = '#F62817'
+            }
+
+            setTimeout(selectTest, 500)
+        });
+    }
+
+    testTest();
+
+    // Проверка эл-та закрытия инпута
+    function chekValue () {
+        let inputValue = document.querySelector('#DateFilter_category');
+        if (inputValue.value) {
+            let crossClose = document.querySelectorAll(`.ant-input-suffix`)
+            crossClose[0].addEventListener(`click`, function () {
+                let selectorList = document.querySelector('.ant-popover-inner-content')
+                let techCrm = selectorList.children[0].children[5].children[0].children[1]
+                let scnd_line = selectorList.children[0].children[7].children[0].children[1]
+                techCrm.style.backgroundColor = '#F62817'
+                scnd_line.style.backgroundColor = '#F62817'
+            })
+        } else {
+            console.log(`Cross button is missing`)
+        }
+    }
+
+    setInterval(chekValue, 1000)
 }
 
 function requestsRed() {
