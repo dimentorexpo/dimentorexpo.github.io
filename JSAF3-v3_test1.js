@@ -3987,7 +3987,7 @@ function chekModalWindow () {
     // Проверка эл-та закрытия инпута
     function chekValue () {
         let inputValue = document.querySelector('#DateFilter_category');
-        if (inputValue.value) {
+        if (inputValue !== 'null' && inputValue.value) {
             let crossClose = document.querySelectorAll(`.ant-input-suffix`)
             crossClose[0].addEventListener(`click`, function () {
                 let selectorList = document.querySelector('.ant-popover-inner-content')
