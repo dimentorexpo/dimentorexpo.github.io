@@ -138,16 +138,23 @@ var win_linksd =  // описание элементов окна доступо
                         <div style="margin: 5px; width: 351px;" id="linksd_1str">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div>
-                        <p>Кибана</p>
-                        </div>
-                        <div style="margin: 5px; width: 351px" id="linksd_kib_box">
-                            <input id="kibsvid" placeholder="ID" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                        <div style="margin: 5px; margin-top: 0px; width: 351px" id="linksd_kib_box">
+                            <p style="margin-left: 40%; margin-bottom: 0px; margin-top: 0px; color: #F6358A">Кибана</p>                        
+                            <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
-                            <input id="kibsvhesh" placeholder="Хэш" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kibsvheshbut">🔎</button>                            
+                            <input id="kibsvhesh" placeholder="Хэш Summary" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibsvheshbut">🔎</button>
+                            <input id="kibservhesh" placeholder="Хэш = сервер" title="Вводим Хэш комнаты для определения сервера" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibservheshbut">🔎</button>
+                            <input id="kibslow" placeholder="Хэш слоу" title="Вводим Хэш комнаты для проверки слоулинков" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibslowbut">🔎</button>
+                            <input id="kibheshvid" placeholder="Хэш видео" title="Вводим Хэш комнаты для проверки состояния видео" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibheshvidbut">🔎</button>
+                            <input id="kibstihesh" placeholder="Хэш стрим" title="Вводим Хэш комнаты для проверки срстояния стрима" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibstiheshbut">🔎</button>
+                            <input id="kiblk" placeholder="ID ЛК" title="Вводим id пользователя для просмотра входа в ЛК" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kiblkbut">🔎</button>
                         </div>
-						
                 </span>
         </span>
 </div>`;
@@ -1007,17 +1014,12 @@ function move_again_AF() {
         cboxstatus.checked = false;
     }
 
+    // обработка нажатий на странице доступов
+    document.getElementById('kibsvidbut').onclick = function () {
+        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:" + document.getElementById('kibsvid').value + "'),sort:!(!('@timestamp',desc)))")
+    }
 
-
-    document.getElementById('kibanalnksvz').addEventListener('click', function () {
-        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
-    })
-    document.getElementById('kibanalnklk').addEventListener('click', function () {
-        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:9685821'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana Вход в ЛК
-    })
-    document.getElementById('kibanalnksrv').addEventListener('click', function () {
-        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2020-10-06T13:17:28.478Z',to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20dikuhimaga'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana сервер по хешу комнаты
-    })
+    
     document.getElementById('redashlnk').addEventListener('click', function () {
         window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
     })
