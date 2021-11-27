@@ -131,6 +131,21 @@ var win_AFhelper =  // описание элементов главного ок
 	</span>
 </div>`;
 
+var win_linksd =  // описание элементов окна доступов
+    `<div style="display: flex; width: 351px;">
+        <span style="width: 351px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 351px;" id="jira_1str">
+                                <button title="скрывает меню" id="hideMeLinks" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+                        <div style="margin: 5px; width: 351px" id="jira_tasks_box">
+                                <a>Кибана</a>
+                        </div>
+						
+                </span>
+        </span>
+</div>`;
+
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
