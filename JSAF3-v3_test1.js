@@ -139,7 +139,7 @@ var win_linksd =  // описание элементов окна доступо
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div>
-                        <a>Кибана</a>
+                        <p>Кибана</p>
                         </div>
                         <div style="margin: 5px; width: 351px" id="linksd_kib_box">
                             <input id="kibsvid" placeholder="ID" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
