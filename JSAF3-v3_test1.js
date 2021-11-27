@@ -138,9 +138,6 @@ var win_linksd =  // описание элементов окна доступо
                         <div style="margin: 5px; width: 351px;" id="linksd_1str">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; width: 351px">
-                            <a>Кибана</a>
-                        </div>
                         <div style="margin: 5px; width: 351px" id="linksd_kib_box">
                             <input id="kibsvid" placeholder="Tech Summary по ID" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
@@ -381,6 +378,10 @@ if (localStorage.getItem('winTopAF') == null) { // началоное полож
 if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
+}
+if (localStorage.getItem('winTopLinksd') == null) { // началоное положение окна ссылок (если не задано ранее)
+    localStorage.setItem('winTopLinksd', '120');
+    localStorage.setItem('winLeftLinksd', '295');
 }
 if (localStorage.getItem('winTopJira') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopJira', '120');
@@ -2567,6 +2568,13 @@ function move_again_AF() {
             document.getElementById('AF_Links').style.display = ''
     }
 
+    document.getElementById('addsrc').onclick = function () {
+        if (document.getElementById('AF_Links').style.display == '')
+            document.getElementById('AF_Links').style.display = 'none'
+        else
+            document.getElementById('AF_Links').style.display = ''
+    }
+
     document.getElementById('servicestatus').onclick = function () {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
@@ -2665,15 +2673,6 @@ function move_again_AF() {
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
     })
-
-    document.getElementById('addsrc').onclick = function () {
-        if (document.getElementById('AF_Linksd').style.display == '')
-            document.getElementById('AF_Linksd').style.display = 'none'
-        else {
-            document.getElementById('AF_Linksd').style.display = ''
-        }
-
-    }
 
     document.getElementById('sound_save').onclick = function () {
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
@@ -5463,7 +5462,7 @@ function firstLoadPage() {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
         document.getElementById('AF_Links').style.display = 'none';
-        document.getElementById('AF_Links').style.display = 'none';
+        document.getElementById('AF_Linksd').style.display = 'none';
     } else {
         mystyles()
         setTimeout(move_again_AF, 3500)
