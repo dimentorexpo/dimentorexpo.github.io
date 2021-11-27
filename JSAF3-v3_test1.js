@@ -118,7 +118,7 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 		</div>
 		
-		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
+		<div style="border: 2px double black; display: none; background-color: #464451">
 			<div style="display: flex; flex-wrap: wrap; margin: 5px; width:350px">
 				<button title="Открывает Кибану для проверки состояния связи на уроке" id="kibanalnksvz">Kib_Связь</button>
 				<button title="Открывает Кибану, чтобы проверить вход в ЛК" id="kibanalnklk">Kib_ЛК</button>
@@ -135,11 +135,17 @@ var win_linksd =  // описание элементов окна доступо
     `<div style="display: flex; width: 351px;">
         <span style="width: 351px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 351px;" id="jira_1str">
-                                <button title="скрывает меню" id="hideMeLinks" style="width:50px; background: #228B22;">hide</button>
+                        <div style="margin: 5px; width: 351px;" id="linksd_1str">
+                            <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; width: 351px" id="jira_tasks_box">
-                                <a>Кибана</a>
+                        <div style="margin: 5px; width: 351px">
+                            <a>Кибана</a>
+                        </div>
+                        <div style="margin: 5px; width: 351px" id="linksd_kib_box">
+                            <input id="kibsvid" placeholder="Tech Summary по ID" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibsvidbut">🔎</button>
+                            <input id="kibsvhesh" placeholder="ech Summary по Хэш" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibsvheshbut">🔎</button>                            
                         </div>
 						
                 </span>
@@ -732,7 +738,14 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id', 'AF_Links');
 wintLinks.innerHTML = win_Links;
 
-let wintJira = document.createElement('div'); // создание окна ссылок
+let wintLinksd = document.createElement('div'); // создание окна доступов
+document.body.append(wintLinksd);
+wintLinksd.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksd') + 'px; left: ' + localStorage.getItem('winLeftLinksd') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinksd.style.display = 'none';
+wintLinksd.setAttribute('id', 'AF_Linksd');
+wintLinksd.innerHTML = win_linksd;
+
+let wintJira = document.createElement('div'); // создание окна Jira
 document.body.append(wintJira);
 wintJira.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopJira') + 'px; left: ' + localStorage.getItem('winLeftJira') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintJira.style.display = 'none';
@@ -774,6 +787,19 @@ wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = fu
 }
 wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listener4); }
 
+var listener9 = function (e, a) { // сохранение позиции окна доступов
+    wintLinksd.style.left = Number(e.clientX - myX9) + "px";
+    wintLinksd.style.top = Number(e.clientY - myY9) + "px";
+    localStorage.setItem('winTopLinksd', String(Number(e.clientY - myY9)));
+    localStorage.setItem('winLeftLinksd', String(Number(e.clientX - myX9)));
+};
+
+wintLinksd.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX9 = a.layerX;
+    window.myY9 = a.layerY;
+    document.addEventListener('mousemove', listener9);
+}
+wintLinksd.onmouseup = function () { document.removeEventListener('mousemove', listener9); }
 
 var listener5 = function (e, a) { // сохранение позиции окна ссылок
     wintJira.style.left = Number(e.clientX - myX5) + "px";
@@ -2517,6 +2543,8 @@ function move_again_AF() {
             document.getElementById('AF_Stat').style.display = 'none'
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
+        if (document.getElementById('AF_Linksd').style.display == '')
+            document.getElementById('AF_Linksd').style.display = 'none'
 
     }
     document.getElementById('takeNewChat').onclick = function () {
@@ -2529,7 +2557,6 @@ function move_again_AF() {
         else {
             document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
-            document.getElementById('linksd').style.display = 'none'
         }
     }
 
@@ -2557,6 +2584,13 @@ function move_again_AF() {
             document.getElementById('AF_Links').style.display = ''
     }
 
+    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Linksd').style.display == '') {
+            document.getElementById('AF_Linksd').style.display = 'none'            
+        }
+        else
+            document.getElementById('AF_Linksd').style.display = ''
+    }
 
     document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Jira').style.display == '')
@@ -2633,12 +2667,10 @@ function move_again_AF() {
     })
 
     document.getElementById('addsrc').onclick = function () {
-        if (document.getElementById('linksd').style.display == '')
-            document.getElementById('linksd').style.display = 'none'
+        if (document.getElementById('AF_Linksd').style.display == '')
+            document.getElementById('AF_Linksd').style.display = 'none'
         else {
-            document.getElementById('linksd').style.display = ''
-            document.getElementById('addTmp').style.display = 'none'
-            document.getElementById('set_bar').style.display = 'none'
+            document.getElementById('AF_Linksd').style.display = ''
         }
 
     }
@@ -3130,8 +3162,7 @@ function refreshTemplates() {
     } document.getElementById('0page').ondblclick = function () {
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
-            document.getElementById('set_bar').style.display = 'none'
-            document.getElementById('linksd').style.display = 'none'
+            document.getElementById('set_bar').style.display = 'none'            
         }
         else
             document.getElementById('addTmp').style.display = 'none';
@@ -5431,6 +5462,7 @@ function firstLoadPage() {
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
+        document.getElementById('AF_Links').style.display = 'none';
         document.getElementById('AF_Links').style.display = 'none';
     } else {
         mystyles()
