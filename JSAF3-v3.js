@@ -1491,7 +1491,7 @@ function move_again_AF() {
 
     let getageofuser;
     let ageofuser;
-    function getuseragecrm() {
+    async function getuseragecrm() {
         let filteredid = document.getElementById('idstudent').value;
         filteredid = filteredid.trim();
         document.getElementById('responseTextarea1').value = `{
@@ -1512,13 +1512,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getusernageinfo'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
             document.getElementById('responseTextarea3').value = 'getusernageinfo'
             document.getElementById('sendResponse').click()
 
             getageofuser = document.getElementById('responseTextarea1').getAttribute('getusernageinfo');
+			getageofuser = await getageofuser;
             getageofuser = JSON.parse(getageofuser);
             document.getElementById('responseTextarea1').removeAttribute('getusernageinfo');
             let goddata = new Date()
