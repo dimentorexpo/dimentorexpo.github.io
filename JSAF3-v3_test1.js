@@ -2569,8 +2569,8 @@ function move_again_AF() {
     }
 
     document.getElementById('addsrc').onclick = function () {
-        if (document.getElementById('AF_Links').style.display == '')
-            document.getElementById('AF_Links').style.display = 'none'
+        if (document.getElementById('AF_Linksd').style.display == '')
+            document.getElementById('AF_Linksd').style.display = 'none'
         else
             document.getElementById('AF_Links').style.display = ''
     }
