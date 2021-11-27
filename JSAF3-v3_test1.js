@@ -138,10 +138,13 @@ var win_linksd =  // описание элементов окна доступо
                         <div style="margin: 5px; width: 351px;" id="linksd_1str">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
+                        <div>
+                        <a>Кибана</a>
+                        </div>
                         <div style="margin: 5px; width: 351px" id="linksd_kib_box">
-                            <input id="kibsvid" placeholder="Tech Summary по ID" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <input id="kibsvid" placeholder="ID" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
-                            <input id="kibsvhesh" placeholder="ech Summary по Хэш" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <input id="kibsvhesh" placeholder="Хэш" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvheshbut">🔎</button>                            
                         </div>
 						
