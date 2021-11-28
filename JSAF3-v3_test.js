@@ -47,10 +47,6 @@ function mystyles() {
 		position: absolute;
 		z-index: 1;
 	}
-	.ease-in .addpanelinfo{
-		-webkit-transition-timing-function: ease-in;
-		transition-timing-function: ease-in;
-	}
 	.switch-on {
 		background: #fff;
 		box-shadow: inset 0 0 10px 0 #999999; /* тень */
@@ -327,18 +323,12 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
 						</div>
 					
-						<div style="width: 310px;" id="addoninfo">
-							<a href="#addoninfo" style="float:right; margin-right:5px;">&gt;</a>
-							<div class="ease-in">
-							<div id="panelinfo" class="addpanelinfo" style="width: 310px; height:200px;"></div>
-							</div>
-						</div>
 						               
 					   </span>
 					   
                         <div style="width: 310px;" id="servicebody">
-							<img id="useravatar" style="position: absolute; left: 1px; top: 120px; width: 55px; height: 60px; border-radius: 30px; display:none;">
-                            <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
+						<img id="useravatar" style="position: absolute; left: 1px; top: 120px; width: 55px; height: 60px; border-radius: 30px; display:none;">
+                                <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
 						
 
