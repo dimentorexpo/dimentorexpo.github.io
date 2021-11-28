@@ -139,7 +139,7 @@ var win_linksd =  // описание элементов окна доступо
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
-                            <p style="margin-left: 40%; margin-bottom: 0px; margin-top: 0px; color: #F6358A">Кибана</p>                        
+                            <p style="margin-left: 40%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; front-size: 16px">Кибана</p>                        
                             <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
                             <input id="kibsvhesh" placeholder="Хэш Summary" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -1057,7 +1057,7 @@ function move_again_AF() {
         } else {
             window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibheshvid.value + " and (description : \"mediaState video down\" or description : \"mediaState audio down\")\'),sort:!(!(\'@timestamp\',asc)))");
         };
-        kibheshvid.value == "";
+        kibheshvid.value = "";
     }
 
     document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
