@@ -4101,7 +4101,7 @@ function temavzametku () {
     function CheckBtnPr() {
         // Ищу кнопку "Продолжить"
         let selectButList = document.querySelector('.ant-modal-footer')
-        let selectBut = selectorList.children[1].children[0].innerText
+        let selectBut = selectButList.children[1].children[0].innerText
         if (selectBut == "Продолжить") {
             let sozdzadach = selectButList.children[1]
         // Навешиваю обработчик
