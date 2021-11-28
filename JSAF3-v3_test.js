@@ -323,12 +323,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
 						</div>
 					
-						<div style="width: 310px;" id="addoninfo">
-							<button id="openandrun" style="float:right; margin-right:5px">&gt;</button>
-							<p id="newpanelinfo" style="width:0px; height:200px; color:bisque; margin-left:5px; display:none; overflow:auto; transition: width 2s left 2s ease 3s;">Test</p>
-						</div>
-  
-									  
+						               
 					   </span>
 					   
                         <div style="width: 310px;" id="servicebody">
@@ -2228,11 +2223,7 @@ function move_again_AF() {
                     copyToClipboard1("https://profile.skyeng.ru/profile/"+stid+"/showcase");
                 };
 
-				document.getElementById('openandrun').onclick = function() {
-					document.getElementById('newpanelinfo').style.display="";
-					document.getElementById('newpanelinfo').style.width="310px";
-					document.getElementById('newpanelinfo').style.left="400px";
-				}
+
 
                 let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
