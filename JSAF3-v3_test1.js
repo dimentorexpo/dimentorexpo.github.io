@@ -4085,10 +4085,14 @@ function timerHideButtons() {
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){ // обращение к функции подсветки и добавления заметки
             try {
-                if (document.querySelector('.ant-popover-inner-content')){
-                    let selectorList = document.querySelector('.ant-popover-inner-content')
-                    let techCrm = selectorList.children[0].children[5].children[0].children[1]
-                    let scnd_line = selectorList.children[0].children[7].children[0].children[1]
+                let selectorList = document.querySelectorAll('.ant-popover-inner-content');
+                console.log(selectorList)
+                if (selectorList.count > 0){
+                    let i;
+                    if (selectorList.count >1) i=1;
+                    else i = 0;
+                    let techCrm = selectorList[i].children[0].children[5].children[0].children[1]
+                    let scnd_line = selectorList[i].children[0].children[7].children[0].children[1]
                     techCrm.style.backgroundColor = 'red'
                     scnd_line.style.backgroundColor = 'green'
                 }
