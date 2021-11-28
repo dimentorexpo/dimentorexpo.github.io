@@ -20,6 +20,9 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
+	#openandrun {
+		transaction: display 3s;
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -323,7 +326,12 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
 						</div>
 					
-						               
+						<div style="width: 310px;" id="addoninfo">
+							<button id="openandrun" style="float:right; margin-right:5px">&gt;</button>
+							<p id="newpanelinfo" style="width:310px; max-height:200px; color:bisque; margin-left:5px; display:none; overflow:auto">Test</p>
+						</div>
+  
+									  
 					   </span>
 					   
                         <div style="width: 310px;" id="servicebody">
@@ -413,6 +421,10 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
+
+openandrun.onclick = function() {
+	document.getElementById('newpanelinfo').style.display="";
+}
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
