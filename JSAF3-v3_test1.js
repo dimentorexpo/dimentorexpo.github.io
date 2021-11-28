@@ -4095,6 +4095,7 @@ function timerHideButtons() {
            
     }
 }
+}
 
 function temavzametku () {
     function CheckBtnPr() {
