@@ -118,17 +118,42 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 		</div>
 		
-		<div style="border: 2px double black; display: none; background-color: #464451" id="linksd">
-			<div style="display: flex; flex-wrap: wrap; margin: 5px; width:350px">
-				<button title="Открывает Кибану для проверки состояния связи на уроке" id="kibanalnksvz">Kib_Связь</button>
-				<button title="Открывает Кибану, чтобы проверить вход в ЛК" id="kibanalnklk">Kib_ЛК</button>
-				<button title="Открывает кибану, чтобы найти по хешу комнаты сервер" id="kibanalnksrv">Kib_СервХеш</button>
-				<button title="Открывает Редаш для проверки моб приложения У/П" id="redashlnk">RedashApp</button>
-				<button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk">Grafana</button>
-			</div>
-		</div>
-		
 	</span>
+</div>`;
+
+var win_linksd =  // описание элементов окна доступов
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 409px;" id="linksd_1str">
+                            <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
+                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Kibana</p>
+                            <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibsvidbut">🔎</button>
+                            <input id="kibsvhesh" placeholder="Хэш Summary" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibsvheshbut">🔎</button>
+                            <input id="kibservhesh" placeholder="Хэш = сервер" title="Вводим Хэш комнаты для определения сервера" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibservheshbut">🔎</button>
+                            <input id="kibslow" placeholder="Хэш слоу" title="Вводим Хэш комнаты для проверки слоулинков" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibslowbut">🔎</button>
+                            <input id="kibheshvid" placeholder="Хэш видео" title="Вводим Хэш комнаты для проверки состояния видео" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibheshvidbut">🔎</button>
+                            <input id="kibstihesh" placeholder="Хэш стрим" title="Вводим Хэш комнаты для проверки срстояния стрима" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kibstiheshbut">🔎</button>
+                            <input id="kiblk" placeholder="ID ЛК" title="Вводим id пользователя для просмотра входа в ЛК" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="kiblkbut">🔎</button>
+                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Redash</p>
+                            <input id="mobappid" placeholder="ID mob.app" title="Вводим id пользователя для открытия действий в приложении" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="mobappidbut">🔎</button>
+                            <input id="rpayid" placeholder="ID платежи" title="Вводим id пользователя для открытия лога платежей" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="rpayidbut">🔎</button>   
+                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>                       
+                            <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
+                        </div>
+                </span>
+        </span>
 </div>`;
 
 var win_Links =  // описание элементов окна ссылок
@@ -361,6 +386,10 @@ if (localStorage.getItem('winTopAF') == null) { // началоное полож
 if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
+}
+if (localStorage.getItem('winTopLinksd') == null) { // началоное положение окна ссылок (если не задано ранее)
+    localStorage.setItem('winTopLinksd', '120');
+    localStorage.setItem('winLeftLinksd', '295');
 }
 if (localStorage.getItem('winTopJira') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopJira', '120');
@@ -718,6 +747,13 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id', 'AF_Links');
 wintLinks.innerHTML = win_Links;
 
+let wintLinksd = document.createElement('div'); // создание окна доступов
+document.body.append(wintLinksd);
+wintLinksd.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksd') + 'px; left: ' + localStorage.getItem('winLeftLinksd') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinksd.style.display = 'none';
+wintLinksd.setAttribute('id', 'AF_Linksd');
+wintLinksd.innerHTML = win_linksd;
+
 let wintJira = document.createElement('div'); // создание окна ссылок
 document.body.append(wintJira);
 wintJira.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopJira') + 'px; left: ' + localStorage.getItem('winLeftJira') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -817,6 +853,20 @@ wintLessonStatus.firstElementChild.firstElementChild.firstElementChild.onmousedo
 }
 wintLessonStatus.onmouseup = function () { document.removeEventListener('mousemove', listener8); }
 
+var listener9 = function (e, a) { // сохранение позиции окна доступов
+    wintLinksd.style.left = Number(e.clientX - myX9) + "px";
+    wintLinksd.style.top = Number(e.clientY - myY9) + "px";
+    localStorage.setItem('winTopLinksd', String(Number(e.clientY - myY9)));
+    localStorage.setItem('winLeftLinksd', String(Number(e.clientX - myX9)));
+};
+
+wintLinksd.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX9 = a.layerX;
+    window.myY9 = a.layerY;
+    document.addEventListener('mousemove', listener9);
+}
+wintLinksd.onmouseup = function () { document.removeEventListener('mousemove', listener9); }
+
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
@@ -825,6 +875,12 @@ document.getElementById('links_but').ondblclick = function () { // скрыти�
 }
 document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
+}
+document.getElementById('linksd_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Linksd').style.display = 'none';
+}
+document.getElementById('linksd_kib_box').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Linksd').style.display = 'none';
 }
 document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
@@ -965,18 +1021,88 @@ function move_again_AF() {
 
 
 
-    document.getElementById('kibanalnksvz').addEventListener('click', function () {
-        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:11777003%20'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana
-    })
-    document.getElementById('kibanalnklk').addEventListener('click', function () {
-        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now%2Fd,to:now%2Fd))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:9685821'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana Вход в ЛК
-    })
-    document.getElementById('kibanalnksrv').addEventListener('click', function () {
-        window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2020-10-06T13:17:28.478Z',to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20dikuhimaga'),sort:!(!('@timestamp',desc)))")    // копируем в буфер ссылку на Kibana сервер по хешу комнаты
-    })
-    document.getElementById('redashlnk').addEventListener('click', function () {
-        window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
-    })
+    // обработка нажатий на странице доступов
+    document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
+        if (kibsvid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:" + kibsvid.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibsvid.value = "";
+    }
+
+    document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
+        if (kibsvhesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-2w,to:now))&_a=(columns:!(userId,event,roomId,appSessionId,detailsJson,details.summary.mediaStates.video.down.count,details.summary.publishedSuccessfully,details.summary.mediaStates.audio.down.count,details.summary.iceDisconnectedCount,details.summary.localStreamReady,details.summary.remoteStreamReady),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId " + kibsvhesh.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibsvhesh.value = "";
+    }
+
+    document.getElementById('kibservheshbut').onclick = function () { // kibana найти по хешу комнаты сервер
+        if (kibservhesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20" + kibservhesh.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibservhesh.value = "";
+    }
+
+    document.getElementById('kibslowbut').onclick = function () { // kibana Слоулинки, дисконнекты, отвалы
+        if (kibslow.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.publisher.toServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.count,details.summary.iceDisconnectedCount,details.summary.mediaStates.audio.down.count,details.summary.mediaStates.video.down.count),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibslow.value + " and (details.summary.slowLinkCount.subscriber.fromServer.count > 0 or details.summary.slowLinkCount.publisher.toServer.count > 0  or details.summary.slowLinkCount.publisher.toServer.lostSum > 0 or details.summary.slowLinkCount.subscriber.fromServer.lostSum > 0 or details.summary.iceDisconnectedCount > 0 or details.summary.mediaStates.audio.down.count > 0 or details.summary.mediaStates.video.down.count > 0)'),sort:!(!('@timestamp',asc)))");
+        };
+        kibslow.value = "";
+    }
+
+    document.getElementById('kibheshvidbut').onclick = function () { // kibana видео-аудио не передавалось
+        if (kibheshvid.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibheshvid.value + " and (description : \"mediaState video down\" or description : \"mediaState audio down\")\'),sort:!(!(\'@timestamp\',asc)))");
+        };
+        kibheshvid.value = "";
+    }
+
+    document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
+        if (kibstihesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.localStreamReady,details.summary.publishedSuccessfully),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibstihesh.value + " and (details.summary.publishedSuccessfully : false or  details.summary.localStreamReady: false)'),sort:!(!('@timestamp',asc)))");
+        };
+        kibstihesh.value = "";
+    }
+
+    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК	
+        if (kiblk.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:" + kiblk.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kiblk.value = "";
+    }
+    // действия конопок редаш в окне доступов
+    document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
+        if (mobappid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/13000?p_end_at=d_now&p_id=" + mobappid.value + "&p_start_at=d_yesterday");
+        };
+        mobappid.value = "";
+    }
+
+    document.getElementById('rpayidbut').onclick = function () { // Редаш логи платежей
+        if (rpayid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
+        };
+        rpayid.value = "";
+    }
+
     document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
     })
@@ -2561,7 +2687,8 @@ function move_again_AF() {
             document.getElementById('AF_Stat').style.display = 'none'
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
-
+        if (document.getElementById('AF_Linksd').style.display == '')
+            document.getElementById('AF_Linksd').style.display = 'none'
     }
     document.getElementById('takeNewChat').onclick = function () {
         getNewChat()
@@ -2572,8 +2699,7 @@ function move_again_AF() {
             document.getElementById('set_bar').style.display = 'none'
         else {
             document.getElementById('set_bar').style.display = ''
-            document.getElementById('addTmp').style.display = 'none'
-            document.getElementById('linksd').style.display = 'none'
+            document.getElementById('addTmp').style.display = 'none'            
         }
     }
 
@@ -2582,6 +2708,13 @@ function move_again_AF() {
             document.getElementById('AF_Links').style.display = 'none'
         else
             document.getElementById('AF_Links').style.display = ''
+    }
+
+    document.getElementById('addsrc').onclick = function () {
+        if (document.getElementById('AF_Linksd').style.display == '')
+            document.getElementById('AF_Linksd').style.display = 'none'
+        else
+            document.getElementById('AF_Linksd').style.display = ''
     }
 
     document.getElementById('servicestatus').onclick = function () {
@@ -2601,6 +2734,13 @@ function move_again_AF() {
             document.getElementById('AF_Links').style.display = ''
     }
 
+    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Linksd').style.display == '') {
+            document.getElementById('AF_Linksd').style.display = 'none'
+        }
+        else
+            document.getElementById('AF_Linksd').style.display = ''
+    }
 
     document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Jira').style.display == '')
@@ -2675,17 +2815,6 @@ function move_again_AF() {
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
     })
-
-    document.getElementById('addsrc').onclick = function () {
-        if (document.getElementById('linksd').style.display == '')
-            document.getElementById('linksd').style.display = 'none'
-        else {
-            document.getElementById('linksd').style.display = ''
-            document.getElementById('addTmp').style.display = 'none'
-            document.getElementById('set_bar').style.display = 'none'
-        }
-
-    }
 
     document.getElementById('sound_save').onclick = function () {
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
@@ -3174,8 +3303,7 @@ function refreshTemplates() {
     } document.getElementById('0page').ondblclick = function () {
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
-            document.getElementById('set_bar').style.display = 'none'
-            document.getElementById('linksd').style.display = 'none'
+            document.getElementById('set_bar').style.display = 'none'        
         }
         else
             document.getElementById('addTmp').style.display = 'none';
@@ -4012,12 +4140,6 @@ function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
 
-        //	if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
-        //	 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
-        //	 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-        //	 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
-        //  }
-
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line (работает с 9:00 до 22:00)")
@@ -4027,6 +4149,21 @@ function timerHideButtons() {
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
+            let selectorList = document.querySelectorAll('.sc-fzpans');
+                if (selectorList.length > 5) {
+                    for (let i = 0; i < selectorList.length; i++) {
+                        if (selectorList[i].innerText == "Техподдержка исход crm2")
+                            selectorList[i].style.backgroundColor = 'red'
+                        if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
+                            selectorList[i].style.backgroundColor = 'green'
+                    }
+                }
+            document.querySelectorAll('.ant-btn-primary')[1].onclick = function () { // добавление заметки куда создана задача
+                sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)
+            }
+        }
     }
 }
 

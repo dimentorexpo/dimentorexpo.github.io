@@ -116,6 +116,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="takeNewChat">Взять чат</button>
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
+            
 		</div>		
 	</span>
 </div>`;
