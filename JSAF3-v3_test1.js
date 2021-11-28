@@ -4091,7 +4091,7 @@ function timerHideButtons() {
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
             setTimeout(backgrdсolorchng,500)
-            setTimeout(temavzametku,500)
+            setTimeout(temavzametku,1000)
         }  
               
     }
@@ -4099,14 +4099,16 @@ function timerHideButtons() {
 
 function temavzametku () {
     function CheckBtnPr() {
-        // Обращаюсь к модальному окну
-        if (document.getElementsByClassName('ant-btn ant-btn-primary')[1].children[0].innerText == "Продолжить") {
-        let sozdzadach = document.getElementsByClassName('ant-btn ant-btn-primary')[1];
+        // Ищу кнопку "Продолжить"
+        let selectButList = document.querySelector('.ant-modal-footer')
+        let selectBut = selectorList.children[1].children[0].innerText
+        if (selectBut == "Продолжить") {
+            let sozdzadach = selectButList.children[1]
         // Навешиваю обработчик
         sozdzadach.addEventListener(`click`, function (event) {
             function categoryvzametki() {
-                let temavzam = document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText
-                let vzametku = ("Задача создана на "+ temavzam.value)
+                let vzametku = ("Задача создана на "+ document.querySelector('#DateFilter_category').value)
+                console.log(vzametku)
                 sendComment(vzametku)
             }
             setTimeout(sozdzadach, 500)    
