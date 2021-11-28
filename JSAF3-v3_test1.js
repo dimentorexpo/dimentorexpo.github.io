@@ -4091,12 +4091,12 @@ function timerHideButtons() {
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу')
             setTimeout(backgrdсolorchng,500)
-            
+        /*    
         if (document.getElementsByClassName('ant-btn ant-btn-primary')[1].children[0].innerText !== "Продолжить")
-            setTimeout(temavzametku,500)  
+            setTimeout(temavzametku,500)  */
     }
 }
-
+/*
 function temavzametku () {
     function CheckBtnPr() {
         // Обращаюсь к модальному окну
@@ -4114,7 +4114,7 @@ function temavzametku () {
     }
 }
 CheckBtnPr();
-}
+} */
 
 function backgrdсolorchng () {
     function CheckCategory() {
