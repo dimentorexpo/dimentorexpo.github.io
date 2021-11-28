@@ -4073,12 +4073,6 @@ function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
 
-        //	if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
-        //	 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
-        //	 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-        //	 document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
-        //  }
-
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line (работает с 9:00 до 22:00)")
@@ -4089,16 +4083,16 @@ function timerHideButtons() {
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
-        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){ // обращение к функции подсветки и добавления заметки
             setTimeout(backgrdсolorchng,500)
-            document.querySelectorAll('.ant-btn-primary')[1].onclick = function() {
+            document.querySelectorAll('.ant-btn-primary')[1].onclick = function() { // добавление заметки куда создана задача
                 sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
         }  
               
     }
 }
-
-function backgrdсolorchng () {
+    
+function backgrdсolorchng () { // подсветка нужных тематик
     function CheckCategory() {
         // Обращаюсь к модальному окну
         if (document.getElementById('DateFilter_category') !== null) {
