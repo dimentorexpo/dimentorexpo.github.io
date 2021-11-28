@@ -4090,13 +4090,13 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
-            setTimeout(backgrdсolorchng,1000)
-            setTimeout(temavzametku,1000)
+            setTimeout(backgrdсolorchng,500)
+//            setTimeout(temavzametku,1000)
         }  
               
     }
 }
-
+/*
 function temavzametku () {
     function CheckBtnPr() {
         // Ищу кнопку "Продолжить"
@@ -4117,7 +4117,7 @@ function temavzametku () {
 }
 CheckBtnPr();
 } 
-
+*/
 function backgrdсolorchng () {
     function CheckCategory() {
         // Обращаюсь к модальному окну
