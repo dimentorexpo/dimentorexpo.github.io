@@ -4086,7 +4086,7 @@ function timerHideButtons() {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){ // обращение к функции подсветки и добавления заметки
             try {
                 let selectorList = document.querySelectorAll('.ant-popover-inner-content');
-                console.log(selectorList)
+                console.log(selectorList);
                 if (selectorList.count > 0){
                     let i;
                     if (selectorList.count >1) i=1;
