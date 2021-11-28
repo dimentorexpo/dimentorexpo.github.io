@@ -128,14 +128,14 @@ var win_AFhelper =  // описание элементов главного ок
 </div>`;
 
 var win_linksd =  // описание элементов окна доступов
-    `<div style="display: flex; width: 409px;">
-        <span style="width: 409px">
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 409px;" id="linksd_1str">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
-                            <p style="margin-left: 40%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Кибана</p>                        
+                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Кибана</p>                        
                             <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
                             <input id="kibsvhesh" placeholder="Хэш Summary" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -150,11 +150,14 @@ var win_linksd =  // описание элементов окна доступо
                             <button id="kibstiheshbut">🔎</button>
                             <input id="kiblk" placeholder="ID ЛК" title="Вводим id пользователя для просмотра входа в ЛК" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kiblkbut">🔎</button>
-                            <p style="margin-left: 40%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Redash</p>
+                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Redash</p>
                             <input id="mobappid" placeholder="ID mob.app" title="Вводим id пользователя для открытия действий в приложении" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="mobappidbut">🔎</button>
                             <input id="rpayid" placeholder="ID платежи" title="Вводим id пользователя для открытия лога платежей" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="rpayidbut">🔎</button>                       
+                        </div>
+                        <div style="display: flex; flex-wrap: wrap; margin: 5px; width:409px">
+                            <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Grafana</button>
                         </div>
                 </span>
         </span>
@@ -1092,11 +1095,7 @@ function move_again_AF() {
         if (rpayid.value == ""){
             console.log('Введите id в поле')            
         } else {
-            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value)
-            setTimeout(function () {
-                window.open("https://confluence.skyeng.tech/display/SPAIN/Payment+logs")
-            },500)
-            //window.open("https://confluence.skyeng.tech/display/SPAIN/Payment+logs")
+            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
         };
         rpayid.value = "";
     }
