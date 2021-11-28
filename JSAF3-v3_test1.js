@@ -4107,8 +4107,8 @@ function backgrdсolorchng () {
                 let selectorList = document.querySelector('.ant-popover-inner-content')
                 let techCrm = selectorList.children[0].children[5].children[0].children[1]
                 let scnd_line = selectorList.children[0].children[7].children[0].children[1]
-                techCrm.style.backgroundColor = '#F62817'
-                scnd_line.style.backgroundColor = '#F62817'
+                techCrm.style.backgroundColor = 'red'
+                scnd_line.style.backgroundColor = 'green'
             }
 
             setTimeout(selectchcat, 500)
