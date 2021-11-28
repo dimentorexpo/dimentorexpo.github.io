@@ -116,14 +116,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="takeNewChat">Взять чат</button>
 				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
 			</div>
-		</div>
-		
-		<div style="border: 2px double black; display: none; background-color: #464451">
-			<div style="display: flex; flex-wrap: wrap; margin: 5px; width:350px">
-				<button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk">Grafana</button>
-			</div>
-		</div>
-		
+		</div>		
 	</span>
 </div>`;
 
@@ -4084,7 +4077,6 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){ // обращение к функции подсветки и добавления заметки
-            try {
                 let selectorList = document.querySelectorAll('.sc-fzpans');
                 if (selectorList.length > 5){
                     for (let i = 0; i<selectorList.length;i++){
@@ -4093,15 +4085,6 @@ function timerHideButtons() {
                         if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
                         selectorList[i].style.backgroundColor = 'green'       
                     }
-/*                    
-                    let techCrm = selectorList[5].children[0].children[5].children[0].children[1]
-                    let scnd_line = selectorList[i].children[0].children[7].children[0].children[1]
-                    techCrm.style.backgroundColor = 'red'
-                    scnd_line.style.backgroundColor = 'green'
-                */
-                }
-               
-            } catch (error) {console.log(error)}
             document.querySelectorAll('.ant-btn-primary')[1].onclick = function() { // добавление заметки куда создана задача
                 sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
             }                    
