@@ -4091,33 +4091,32 @@ function timerHideButtons() {
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
             setTimeout(backgrdсolorchng,500)
-//            setTimeout(temavzametku,1000)
+            setTimeout(temavzametku,500)
         }  
               
     }
 }
-/*
+
 function temavzametku () {
     function CheckBtnPr() {
         // Ищу кнопку "Продолжить"
         let selectButList = document.querySelector('.ant-modal-footer')
         let selectBut = selectButList.children[1].children[0].innerText
         if (selectBut == "Продолжить") {
-            let sozdzadach = selectButList.children[1]
+        let sozdzadach = selectButList.children[1];
         // Навешиваю обработчик
         sozdzadach.addEventListener(`click`, function (event) {
             function categoryvzametki() {
                 let vzametku = ("Задача создана на "+ document.querySelector('#DateFilter_category').value)
                 console.log(vzametku)
                 sendComment(vzametku)
-            }
-            setTimeout(sozdzadach, 500)    
+            } 
         });
     }
 }
 CheckBtnPr();
 } 
-*/
+
 function backgrdсolorchng () {
     function CheckCategory() {
         // Обращаюсь к модальному окну
@@ -4154,8 +4153,6 @@ CheckCategory();
                 techCrm.style.backgroundColor = 'red'
                 scnd_line.style.backgroundColor = 'green'
             })
-        } else {
-            console.log(`Cross button is missing`)
         }
     }
 }
