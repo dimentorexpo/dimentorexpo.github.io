@@ -120,10 +120,6 @@ var win_AFhelper =  // описание элементов главного ок
 		
 		<div style="border: 2px double black; display: none; background-color: #464451">
 			<div style="display: flex; flex-wrap: wrap; margin: 5px; width:350px">
-				<button title="Открывает Кибану для проверки состояния связи на уроке" id="kibanalnksvz">Kib_Связь</button>
-				<button title="Открывает Кибану, чтобы проверить вход в ЛК" id="kibanalnklk">Kib_ЛК</button>
-				<button title="Открывает кибану, чтобы найти по хешу комнаты сервер" id="kibanalnksrv">Kib_СервХеш</button>
-				<button title="Открывает Редаш для проверки моб приложения У/П" id="redashlnk">RedashApp</button>
 				<button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk">Grafana</button>
 			</div>
 		</div>
@@ -154,6 +150,11 @@ var win_linksd =  // описание элементов окна доступо
                             <button id="kibstiheshbut">🔎</button>
                             <input id="kiblk" placeholder="ID ЛК" title="Вводим id пользователя для просмотра входа в ЛК" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kiblkbut">🔎</button>
+                            <p style="margin-left: 40%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Redash</p>
+                            <input id="mobappid" placeholder="ID mob.app" title="Вводим id пользователя для открытия действий в приложении" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="mobappidbut">🔎</button>
+                            <input id="rpayid" placeholder="ID платежи" title="Вводим id пользователя для открытия лога платежей" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="rpayidbut">🔎</button>                       
                         </div>
                 </span>
         </span>
@@ -1077,6 +1078,26 @@ function move_again_AF() {
         };
         kiblk.value = "";
     }
+    // действия конопок редаш в окне доступов
+    document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
+        if (mobappid.value == ""){
+            console.log('Введите id в поле')            
+        } else {
+            window.open("https://redash.skyeng.ru/queries/13000?p_end_at=d_now&p_id=" + mobappid.value + "&p_start_at=d_yesterday");
+        };
+        mobappid.value = "";
+    }
+
+    document.getElementById('rpayidbut').onclick = function () { // Редаш логи платежей
+        if (rpayid.value == ""){
+            console.log('Введите id в поле')            
+        } else {
+            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value)
+            window.open("https://confluence.skyeng.tech/display/SPAIN/Payment+logs")
+        };
+        rpayid.value = "";
+    }
+
 
     document.getElementById('redashlnk').addEventListener('click', function () {
         window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
