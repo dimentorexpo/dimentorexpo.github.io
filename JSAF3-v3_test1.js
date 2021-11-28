@@ -4084,19 +4084,23 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){ // обращение к функции подсветки и добавления заметки
-            console.log(document.querySelectorAll('.sc-fzpans'))
             try {
-                let selectorList = document.querySelectorAll('.ant-popover-inner-content');
-                console.log(selectorList);
-                if (selectorList.count > 0){
-                    let i = 0;
-                    while (selectorList[i].children[0].children[5].children[0].children[1].innerText != "Техподдержка исход crm2") {
-                        i++;}
-                    let techCrm = selectorList[i].children[0].children[5].children[0].children[1]
+                let selectorList = document.querySelectorAll('.sc-fzpans');
+                if (selectorList.length > 5){
+                    for (let i = 0; i<selectorList.length;i++){
+                        if (selectorList[i].innerText == "Техподдержка исход crm2")
+                            selectorList[i].style.backgroundColor = 'red'
+                        if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
+                        selectorList[i].style.backgroundColor = 'green'       
+                    }
+/*                    
+                    let techCrm = selectorList[5].children[0].children[5].children[0].children[1]
                     let scnd_line = selectorList[i].children[0].children[7].children[0].children[1]
                     techCrm.style.backgroundColor = 'red'
                     scnd_line.style.backgroundColor = 'green'
+                */
                 }
+               
             } catch (error) {console.log(error)}
             document.querySelectorAll('.ant-btn-primary')[1].onclick = function() { // добавление заметки куда создана задача
                 sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
