@@ -613,10 +613,6 @@ button4.onclick = function () {
     btn1_student.click()
 }
 
-document.getElementById('openandrun').onclick = function() {
-	document.getElementById('newpanelinfo').style.display="";
-}
-
 let getteacheridformaf;
 gettacherphoto.onclick = function () {
     //	document.getElementById('getphototeacher').textContent="Скрыть фото";
@@ -2235,7 +2231,9 @@ function move_again_AF() {
                     copyToClipboard1("https://profile.skyeng.ru/profile/"+stid+"/showcase");
                 };
 
-
+				document.getElementById('openandrun').onclick = function() {
+					document.getElementById('newpanelinfo').style.display="";
+				}
 
                 let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
