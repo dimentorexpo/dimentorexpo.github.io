@@ -4090,19 +4090,19 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу')
-            setTimeout(chekModalWindow,500)
+            setTimeout(backgrdсolorchng,500)
 
     }
 }
 
-function chekModalWindow () {
-    function testTest() {
+function backgrdсolorchng () {
+    function CheckCategory() {
         // Обращаюсь к модальному окну
         if (document.getElementById('DateFilter_category') !== null) {
-        let testest = document.querySelector('#DateFilter_category');
+        let chcat = document.querySelector('#DateFilter_category');
         // Навешиваю обработчик
-        testest.addEventListener(`click`, function (event) {
-            function selectTest() {
+        chcat.addEventListener(`click`, function (event) {
+            function selectchcat() {
 
                 let selectorList = document.querySelector('.ant-popover-inner-content')
                 let techCrm = selectorList.children[0].children[5].children[0].children[1]
@@ -4111,12 +4111,12 @@ function chekModalWindow () {
                 scnd_line.style.backgroundColor = '#F62817'
             }
 
-            setTimeout(selectTest, 500)
+            setTimeout(selectchcat, 500)
         });
     }
 }
 
-    testTest();
+CheckCategory();
 
     // Проверка эл-та закрытия инпута
     function chekValue () {
@@ -4128,8 +4128,8 @@ function chekModalWindow () {
                 let selectorList = document.querySelector('.ant-popover-inner-content')
                 let techCrm = selectorList.children[0].children[5].children[0].children[1]
                 let scnd_line = selectorList.children[0].children[7].children[0].children[1]
-                techCrm.style.backgroundColor = '#F62817'
-                scnd_line.style.backgroundColor = '#F62817'
+                techCrm.style.backgroundColor = 'red'
+                scnd_line.style.backgroundColor = 'green'
             })
         } else {
             console.log(`Cross button is missing`)
