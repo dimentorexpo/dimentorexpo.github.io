@@ -4087,7 +4087,8 @@ function timerHideButtons() {
                     }
             document.querySelectorAll('.ant-btn-primary')[1].onclick = function() { // добавление заметки куда создана задача
                 sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
-            }                    
+            }
+        }                    
     }
 }
                 
