@@ -4101,16 +4101,13 @@ function temavzametku () {
     function CheckBtnPr() {
         // Ищу кнопку "Продолжить"
         let selectButList = document.querySelector('.ant-modal-footer')
-        let selectBut = selectButList.children[1].children[0].innerText
-        if (selectBut == "Продолжить") {
+        if (selectButList.children[1].children[0].innerText == "Продолжить") {
         let sozdzadach = selectButList.children[1];
         // Навешиваю обработчик
-        sozdzadach.addEventListener(`click`, function (event) {
-            function categoryvzametki() {
+        sozdzadach.setAttribute('click', function () {
                 let vzametku = ("Задача создана на "+ document.querySelector('#DateFilter_category').value)
                 console.log(vzametku)
                 sendComment(vzametku)
-            } 
         });
     }
 }
