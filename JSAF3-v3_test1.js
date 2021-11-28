@@ -1098,10 +1098,6 @@ function move_again_AF() {
         rpayid.value = "";
     }
 
-
-    document.getElementById('redashlnk').addEventListener('click', function () {
-        window.open("https://app.redash.io/skyeng/queries/483256/source?p_end_at=d_now&p_id=1567899&p_start_at=d_now")    // копируем в буфер ссылку на Redash
-    })
     document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
     })
