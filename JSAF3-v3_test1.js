@@ -4101,7 +4101,7 @@ function temavzametku () {
     function CheckBtnPr() {
         // Обращаюсь к модальному окну
         if (document.getElementsByClassName('ant-btn ant-btn-primary') !== undefined) {
-        let sozdzadach = document.document.querySelector('#ant-btn ant-btn-primary');
+        let sozdzadach = document.getElementsByClassName('ant-btn ant-btn-primary')[0];
         // Навешиваю обработчик
         sozdzadach.addEventListener(`click`, function (event) {
             function categoryvzametki() {
