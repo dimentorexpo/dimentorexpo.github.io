@@ -4091,16 +4091,18 @@ function timerHideButtons() {
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
             setTimeout(backgrdсolorchng,500)
-            setTimeout(temavzametku,500)
+            document.querySelectorAll('.ant-btn-primary')[1].onclick = function() {
+                sendcomment("Задача создана на" + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
         }  
               
     }
 }
-
+/*
 function temavzametku () {
     function CheckBtnPr() {
         // Ищу кнопку "Продолжить"
         let selectButList = document.querySelector('.ant-modal-footer')
+        if (selectButList.children[1].children[0].innerText != null || selectButList.children[1].children[0].innerText != undefined) {
         if (selectButList.children[1].children[0].innerText == "Продолжить") {
         let sozdzadach = selectButList.children[1];
         // Навешиваю обработчик
@@ -4110,10 +4112,11 @@ function temavzametku () {
                 sendComment(vzametku)
         });
     }
+    }
 }
 CheckBtnPr();
 } 
-
+*/
 function backgrdсolorchng () {
     function CheckCategory() {
         // Обращаюсь к модальному окну
