@@ -4089,18 +4089,18 @@ function timerHideButtons() {
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
-        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу')
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
             setTimeout(backgrdсolorchng,500)
-        /*    
-        if (document.getElementsByClassName('ant-btn ant-btn-primary')[1].children[0].innerText !== "Продолжить")
-            setTimeout(temavzametku,500)  */
+            setTimeout(temavzametku,500)
+        }  
+              
     }
 }
-/*
+
 function temavzametku () {
     function CheckBtnPr() {
         // Обращаюсь к модальному окну
-        if (document.getElementsByClassName('ant-btn ant-btn-primary')[1].children[0].innerText !== "Продолжить") {
+        if (document.getElementsByClassName('ant-btn ant-btn-primary')[1].children[0].innerText == "Продолжить") {
         let sozdzadach = document.getElementsByClassName('ant-btn ant-btn-primary')[1];
         // Навешиваю обработчик
         sozdzadach.addEventListener(`click`, function (event) {
@@ -4114,7 +4114,7 @@ function temavzametku () {
     }
 }
 CheckBtnPr();
-} */
+} 
 
 function backgrdсolorchng () {
     function CheckCategory() {
