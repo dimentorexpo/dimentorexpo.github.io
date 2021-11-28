@@ -4084,63 +4084,21 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){ // обращение к функции подсветки и добавления заметки
-            //setTimeout(backgrdсolorchng,500)
-            if (document.querySelector('.sc-Axmtr hvJMgY')){
-                let selectorList = document.querySelector('.ant-popover-inner-content')
-                let techCrm = selectorList.children[0].children[5].children[0].children[1]
-                let scnd_line = selectorList.children[0].children[7].children[0].children[1]
-                techCrm.style.backgroundColor = 'red'
-                scnd_line.style.backgroundColor = 'green'
-            }
+            try {
+                if (document.querySelector('.ant-popover-inner-content')){
+                    let selectorList = document.querySelector('.ant-popover-inner-content')
+                    let techCrm = selectorList.children[0].children[5].children[0].children[1]
+                    let scnd_line = selectorList.children[0].children[7].children[0].children[1]
+                    techCrm.style.backgroundColor = 'red'
+                    scnd_line.style.backgroundColor = 'green'
+                }
+            } catch (error) {console.log(error)}
             document.querySelectorAll('.ant-btn-primary')[1].onclick = function() { // добавление заметки куда создана задача
                 sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
-        }  
-              
+            }                    
     }
 }
-    
-function backgrdсolorchng () { // подсветка нужных тематик
-    function CheckCategory() {
-        // Обращаюсь к модальному окну
-        if (document.getElementById('DateFilter_category') !== null) {
-        let chcat = document.querySelector('#DateFilter_category');
-        // Навешиваю обработчик
-        chcat.addEventListener(`click`, function (event) {
-            function selectchcat() {
-
-                let selectorList = document.querySelector('.ant-popover-inner-content')
-                let techCrm = selectorList.children[0].children[5].children[0].children[1]
-                let scnd_line = selectorList.children[0].children[7].children[0].children[1]
-                techCrm.style.backgroundColor = 'red'
-                scnd_line.style.backgroundColor = 'green'
-            }
-
-            setTimeout(selectchcat, 500)
-        });
-    }
-}
-
-CheckCategory();
-
-    // Проверка эл-та закрытия инпута
-    function chekValue () {
-        if (document.getElementById('DateFilter_category') !== null) {
-            let inputValue = document.getElementById('DateFilter_category')
-            if (inputValue.value) {
-            let crossClose = document.querySelectorAll(`.ant-input-suffix`)
-            crossClose[0].addEventListener(`click`, function () {
-                let selectorList = document.querySelector('.ant-popover-inner-content')
-                let techCrm = selectorList.children[0].children[5].children[0].children[1]
-                let scnd_line = selectorList.children[0].children[7].children[0].children[1]
-                techCrm.style.backgroundColor = 'red'
-                scnd_line.style.backgroundColor = 'green'
-            })
-        }
-    }
-}
-
-    setInterval(chekValue, 1000)
-}
+                
 
 function requestsRed() {
     document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
