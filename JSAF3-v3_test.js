@@ -422,7 +422,7 @@ if (localStorage.getItem('scriptAdr') == null) {
 }
 
 
-openandrun.onclick = function() {
+document.getElementById('openandrun').onclick = function() {
 	document.getElementById('newpanelinfo').style.display="";
 }
 let button2 = document.createElement('p');
