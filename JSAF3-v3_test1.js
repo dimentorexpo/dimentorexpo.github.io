@@ -4089,11 +4089,11 @@ function timerHideButtons() {
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
-        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу')
             setTimeout(backgrdсolorchng,500)
-            setTimeout(temavzametku,500)
-           
-        }
+            
+        if (document.getElementsByClassName('ant-btn ant-btn-primary')[1].children[0].innerText !== "Продолжить")
+            setTimeout(temavzametku,500)  
     }
 }
 
