@@ -3949,23 +3949,24 @@ function newTaggg(tagName) {
 
 
 function addbuttonsintegration() {
+	let categoricreatelist = document.querySelector('#DateFilter_category');
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
-			 if(document.querySelector('#DateFilter_category').value == "tech_support_outgoing_crm2") {
-            	document.querySelector('#DateFilter_category').style.color ="red";
-            	document.getElementsByClassName('#DateFilter_category').style.fontWeight =600;
-                document.getElementsByClassName('#DateFilter_category').style.textShadow ="1px 1px 1px black, 0 0 1em red"; 
-            } else ifdocument.querySelector('#DateFilter_category').value == "tech_support_second_line_crm2") {
-            	document.getElementsByClassName('#DateFilter_category').style.color ="green";
-            	document.getElementsByClassName('#DateFilter_category').style.fontWeight =600;
-				document.getElementsByClassName('#DateFilter_category').style.textShadow ="1px 1px 1px black, 0 0 1em green"; 
+			 if(categoricreatelist.value == "tech_support_outgoing_crm2") {
+            	categoricreatelist.style.color ="red";
+            	categoricreatelist.style.fontWeight =600;
+                categoricreatelist.style.textShadow ="1px 1px 1px black, 0 0 1em red"; 
+            } else if(document.querySelector('#DateFilter_category').value == "tech_support_second_line_crm2") {
+            	categoricreatelist.style.color ="green";
+            	categoricreatelist.style.fontWeight =600;
+				categoricreatelist.style.textShadow ="1px 1px 1px black, 0 0 1em green"; 
             } else {
-				document.getElementsByClassName('#DateFilter_category').style.color ="black";
-				document.getElementsByClassName('#DateFilter_category').style.fontWeight =400;
-                document.getElementsByClassName('#DateFilter_category').style.textShadow ="0px 0px 0px black, 0 0 1em grey"; 
+				categoricreatelist.style.color ="black";
+				categoricreatelist.style.fontWeight =400;
+                categoricreatelist.style.textShadow ="0px 0px 0px black, 0 0 1em grey"; 
 				}
         }
     }
