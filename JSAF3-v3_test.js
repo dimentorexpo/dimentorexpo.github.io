@@ -21,7 +21,7 @@ function mystyles() {
 		background: #6A5ACD;
 	}
 	#openandrun {
-		transaction: display 3s;
+		transition: display 3s, color 2s;
 	}
 	.switch-btn {
 		display: inline-block;
@@ -2232,6 +2232,7 @@ function move_again_AF() {
                 };
 
 				document.getElementById('openandrun').onclick = function() {
+					this.style.color ="red";
 					document.getElementById('newpanelinfo').style.display="";
 				}
 
