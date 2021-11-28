@@ -4090,7 +4090,7 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
-            setTimeout(backgrdсolorchng,500)
+            setTimeout(backgrdсolorchng,1000)
             setTimeout(temavzametku,1000)
         }  
               
@@ -4101,7 +4101,9 @@ function temavzametku () {
     function CheckBtnPr() {
         // Ищу кнопку "Продолжить"
         let selectButList = document.querySelector('.ant-modal-footer')
+        console.log(selectButList)
         let selectBut = selectButList.children[1].children[0].innerText
+        console.log(selectBut)
         if (selectBut == "Продолжить") {
             let sozdzadach = selectButList.children[1]
         // Навешиваю обработчик
