@@ -3954,18 +3954,18 @@ function addbuttonsintegration() {
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
-			 if(document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText == "Техподдержка исход crm2") {
-            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="red";
-            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =600;
-                document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.textShadow ="1px 1px 1px black, 0 0 1em red"; 
-            } else if(document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText == "Техподдержка 2-я линия crm2") {
-            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="green";
-            	document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =600;
-document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.textShadow ="1px 1px 1px black, 0 0 1em green"; 
+			 if(document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText == "Техподдержка исход crm2") {
+            	document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.color ="red";
+            	document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.fontWeight =600;
+               document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.textShadow ="1px 1px 1px black, 0 0 1em red"; 
+            } else if(document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText == "Техподдержка 2-я линия crm2") {
+            	document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.color ="green";
+            	document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.fontWeight =600;
+				document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.textShadow ="1px 1px 1px black, 0 0 1em green"; 
             } else {
-				document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.color ="black";
-				document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.fontWeight =400;
-                document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].style.textShadow ="0px 0px 0px black, 0 0 1em grey"; 
+				document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.color ="black";
+				document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.fontWeight =400;
+                document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].style.textShadow ="0px 0px 0px black, 0 0 1em grey"; 
 				}
         }
     }
