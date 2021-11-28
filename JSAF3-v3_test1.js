@@ -4100,7 +4100,7 @@ function timerHideButtons() {
 function temavzametku () {
     function CheckBtnPr() {
         // Обращаюсь к модальному окну
-        if (document.getElementsByClassName('ant-btn ant-btn-primary') !== undefined) {
+        if (document.getElementsByClassName('ant-btn ant-btn-primary')[1].children[0].innerText !== "Продолжить") {
         let sozdzadach = document.getElementsByClassName('ant-btn ant-btn-primary')[1];
         // Навешиваю обработчик
         sozdzadach.addEventListener(`click`, function (event) {
