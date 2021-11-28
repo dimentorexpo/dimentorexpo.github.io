@@ -421,10 +421,6 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
-
-document.getElementById('openandrun').onclick = function() {
-	document.getElementById('newpanelinfo').style.display="";
-}
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
@@ -615,6 +611,10 @@ button4.onclick = function () {
             document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     btn1_student.click()
+}
+
+document.getElementById('openandrun').onclick = function() {
+	document.getElementById('newpanelinfo').style.display="";
 }
 
 let getteacheridformaf;
