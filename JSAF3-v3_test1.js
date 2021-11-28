@@ -1093,7 +1093,10 @@ function move_again_AF() {
             console.log('Введите id в поле')            
         } else {
             window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value)
-            window.open("https://confluence.skyeng.tech/display/SPAIN/Payment+logs")
+            setTimeout(function () {
+                window.open("https://confluence.skyeng.tech/display/SPAIN/Payment+logs")
+            },500)
+            //window.open("https://confluence.skyeng.tech/display/SPAIN/Payment+logs")
         };
         rpayid.value = "";
     }
