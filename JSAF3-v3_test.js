@@ -20,9 +20,6 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
-	#openandrun {
-		transition: display 3s, color 2s;
-	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -328,7 +325,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 					
 						<div style="width: 310px;" id="addoninfo">
 							<button id="openandrun" style="float:right; margin-right:5px">&gt;</button>
-							<p id="newpanelinfo" style="width:310px; max-height:200px; color:bisque; margin-left:5px; display:none; overflow:auto">Test</p>
+							<p id="newpanelinfo" style="width:0px; height:200px; color:bisque; margin-left:5px; display:none; overflow:auto; transition: width 2s left 2s ease 3s;">Test</p>
 						</div>
   
 									  
@@ -2232,8 +2229,9 @@ function move_again_AF() {
                 };
 
 				document.getElementById('openandrun').onclick = function() {
-					this.style.color ="red";
 					document.getElementById('newpanelinfo').style.display="";
+					document.getElementById('newpanelinfo').style.width="310px";
+					document.getElementById('newpanelinfo').style.left="400px";
 				}
 
                 let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
