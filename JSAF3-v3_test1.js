@@ -4088,9 +4088,9 @@ function timerHideButtons() {
                 let selectorList = document.querySelectorAll('.ant-popover-inner-content');
                 console.log(selectorList);
                 if (selectorList.count > 0){
-                    let i;
-                    if (selectorList.count >1) i=1;
-                    else i = 0;
+                    let i = 0;
+                    while (selectorList[i].children[0].children[5].children[0].children[1].innerText != "Техподдержка исход crm2") {
+                        i++;}
                     let techCrm = selectorList[i].children[0].children[5].children[0].children[1]
                     let scnd_line = selectorList[i].children[0].children[7].children[0].children[1]
                     techCrm.style.backgroundColor = 'red'
