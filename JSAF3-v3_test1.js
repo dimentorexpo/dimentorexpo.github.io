@@ -135,7 +135,7 @@ var win_linksd =  // описание элементов окна доступо
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
-                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Кибана</p>                        
+                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Kibana</p>
                             <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
                             <input id="kibsvhesh" placeholder="Хэш Summary" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -154,10 +154,9 @@ var win_linksd =  // описание элементов окна доступо
                             <input id="mobappid" placeholder="ID mob.app" title="Вводим id пользователя для открытия действий в приложении" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="mobappidbut">🔎</button>
                             <input id="rpayid" placeholder="ID платежи" title="Вводим id пользователя для открытия лога платежей" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="rpayidbut">🔎</button>                       
-                        </div>
-                        <div style="display: flex; flex-wrap: wrap; margin: 5px; width:409px">
-                            <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Grafana</button>
+                            <button id="rpayidbut">🔎</button>   
+                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>                       
+                            <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
                         </div>
                 </span>
         </span>
@@ -880,6 +879,12 @@ document.getElementById('links_but').ondblclick = function () { // скрыти�
 }
 document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
+}
+document.getElementById('linksd_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Linksd').style.display = 'none';
+}
+document.getElementById('linksd_kib_box').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Linksd').style.display = 'none';
 }
 document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
