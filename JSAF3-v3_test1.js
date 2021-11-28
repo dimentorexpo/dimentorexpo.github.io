@@ -4091,18 +4091,28 @@ function timerHideButtons() {
     
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
             setTimeout(backgrdсolorchng,500)
-            if (document.getElementsByClassName('ant-btn ant-btn-primary') !== undefined) {
-                let sozdzadach = document.getElementsByClassName('ant-btn ant-btn-primary');
-                sozdzadach.addEventListener(`click`, function (event) {
-                    function categoryvzametki() {
-                        let temavzam = document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText
-                        let vzametku = ("Задача создана на "+ temavzam.value)
-                        sendComment(vzametku)
-                    }
-                });
-            }    
-        }
+            setTimeout(temavzametku,500)
+           
     }
+}
+
+function temavzametku () {
+    function CheckBtnPr() {
+        // Обращаюсь к модальному окну
+        if (document.getElementsByClassName('ant-btn ant-btn-primary') !== undefined) {
+            sozdzadach = document.getElementsByClassName('ant-btn ant-btn-primary');
+        // Навешиваю обработчик
+        sozdzadach.addEventListener(`click`, function (event) {
+            function categoryvzametki() {
+                let temavzam = document.getElementsByClassName('sc-fzqNJr hXQgjp')[1].innerText
+                let vzametku = ("Задача создана на "+ temavzam.value)
+                sendComment(vzametku)
+            }
+            setTimeout(sozdzadach, 500)    
+        });
+    }
+}
+CheckBtnPr();
 }
 
 function backgrdсolorchng () {
