@@ -4092,7 +4092,7 @@ function timerHideButtons() {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу'){
             setTimeout(backgrdсolorchng,500)
             document.querySelectorAll('.ant-btn-primary')[1].onclick = function() {
-                sendComment("Задача создана на" + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
+                sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)}
         }  
               
     }
