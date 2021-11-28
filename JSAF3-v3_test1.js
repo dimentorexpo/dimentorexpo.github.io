@@ -4093,8 +4093,8 @@ function timerHideButtons() {
             setTimeout(backgrdсolorchng,500)
             setTimeout(temavzametku,500)
            
+        }
     }
-}
 }
 
 function temavzametku () {
