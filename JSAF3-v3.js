@@ -4174,7 +4174,7 @@ function timerHideButtons() {
 				sendComment("Задача создана на Skyes");
             } else if (chechkvar[i].innerText == "Teachers Care crm2") {
 				sendComment("Задача создана на Teachers Care crm2");
-            } else if (chechkvar[i].innerText == "Вопросы эссе (UTC crm2 { 
+            } else if (chechkvar[i].innerText == "Вопросы эссе (UTC crm2)") { 
 				sendComment("Задача создана на Вопросы эссе (UTC crm2)");
             } else if (chechkvar[i].innerText == "Кризис менеджеры") { 
 				sendComment("Задача создана на Кризис менеджеры");
