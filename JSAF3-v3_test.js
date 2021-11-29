@@ -4188,6 +4188,7 @@ function timerHideButtons() {
         }
     }
 }
+	}
 
 function requestsRed() {
     document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
