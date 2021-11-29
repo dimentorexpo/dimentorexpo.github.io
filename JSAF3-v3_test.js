@@ -4160,7 +4160,27 @@ function timerHideButtons() {
                     }
                 }
             document.querySelectorAll('.ant-btn-primary')[1].onclick = function () { // добавление заметки куда создана задача
-                sendComment("Задача создана на " + document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1].innerText)
+                for (let i=0; i < chechkvar.length;i++) {
+			 if(chechkvar[i].innerText == "Техподдержка исход crm2") {
+                sendComment("Задача создана на Техподдержка исход crm2");
+			 } else if (chechkvar[i].innerText == "Техподдержка 2-я линия crm2") {
+				sendComment("Задача создана на Техподдержка 2-я линия crm2");
+			 } else if (chechkvar[i].innerText == "Skyes") { 
+				sendComment("Задача создана на Skyes");
+            } else if (chechkvar[i].innerText == "Teachers Care crm2") {
+				sendComment("Задача создана на Teachers Care crm2");
+            } else if (chechkvar[i].innerText == "Вопросы эссе (UTC crm2)") { 
+				sendComment("Задача создана на Вопросы эссе (UTC crm2)");
+            } else if (chechkvar[i].innerText == "Кризис менеджеры") { 
+				sendComment("Задача создана на Кризис менеджеры");
+            } else if (chechkvar[i].innerText == "Teachers support") { 
+				sendComment("Задача создана на Teachers support");
+            } else if (chechkvar[i].innerText == "Контент")  {
+				sendComment("Задача создана на Контент");
+            } else if (chechkvar[i].innerText == "Словарь") {
+				sendComment("Задача создана на Словарь");
+				}
+			}
             }
         }
     }
