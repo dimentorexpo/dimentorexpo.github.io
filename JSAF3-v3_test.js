@@ -4160,6 +4160,7 @@ function timerHideButtons() {
                     }
                 }
             document.querySelectorAll('.ant-btn-primary')[1].onclick = function () { // добавление заметки куда создана задача
+			let chechkvar = document.querySelectorAll('.ant-form-item-control-input-content');
                 for (let i=0; i < chechkvar.length;i++) {
 			 if(chechkvar[i].innerText == "Техподдержка исход crm2") {
                 sendComment("Задача создана на Техподдержка исход crm2");
