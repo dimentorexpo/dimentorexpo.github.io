@@ -4074,7 +4074,7 @@ function newTaggg(tagName) {
 
 function addbuttonsintegration() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
-        if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
 			let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
 			//let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
