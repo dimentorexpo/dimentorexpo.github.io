@@ -2432,7 +2432,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getissuetable1'
         document.getElementById('sendResponse').click()
 
-        function getJiraTask1() {
+       async function getJiraTask1() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
             document.getElementById('responseTextarea3').value = 'getissuetable1'
@@ -2440,6 +2440,7 @@ function move_again_AF() {
 
 		
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+			rezissuetable = await rezissuetable;
 			document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
             if (rezissuetable != null){
                 let issues = [];
@@ -2458,6 +2459,8 @@ function move_again_AF() {
 
         setTimeout(getJiraTask1, 1000)
     }
+	
+
 	
 	    document.getElementById('getJiraTasks').onclick = function () {
 			
@@ -2486,13 +2489,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getissuetable'
         document.getElementById('sendResponse').click()
 
-        function getJiraTask() {
+      async function getJiraTask() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
             document.getElementById('responseTextarea3').value = ''
             document.getElementById('sendResponse').click()
 
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+			rezissuetable = await rezissuetable;
             if (rezissuetable == null)
                 setTimeout(getJiraTask, 1000)
             else {
@@ -2537,13 +2541,14 @@ function move_again_AF() {
                         let count;
                         let jira_token;
                         let increasedcount;
-                        setTimeout(function () {
+                        setTimeout(async function () {
                             document.getElementById('responseTextarea1').value = '{}'
                             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
                             document.getElementById('responseTextarea3').value = 'reportscount'
                             document.getElementById('sendResponse').click()
 
                             let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+							repcount = await repcount;
                             jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
                             document.getElementById('responseTextarea1').removeAttribute('reportscount')
 
@@ -2551,7 +2556,7 @@ function move_again_AF() {
                             count = parseInt(count);
                             increasedcount = count + 1;
                             increasedcount = increasedcount.toString();
-                            console.log("count=" + count + " increasedcount " + increasedcount);
+                            console.log("count=" + count + " increasedcount " + increasedcount);                           
 
                             setTimeout(function () {
 
@@ -2573,6 +2578,7 @@ function move_again_AF() {
                                 document.getElementById('sendResponse').click()
                                 let newinfocount = document.querySelectorAll('.newcount');
                                 newinfocount[f].innerHTML = increasedcount;
+                                increasedcount="";
                             }, 1000);
                         }, 1000)
                     }
@@ -4074,7 +4080,7 @@ function newTaggg(tagName) {
 
 function addbuttonsintegration() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
-        if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].textContent == "Создать задачуСкрыть") {
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
 			let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
 			//let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)

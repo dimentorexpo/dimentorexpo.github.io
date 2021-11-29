@@ -2556,7 +2556,7 @@ function move_again_AF() {
                             count = parseInt(count);
                             increasedcount = count + 1;
                             increasedcount = increasedcount.toString();
-                            console.log("count=" + count + " increasedcount " + increasedcount);
+                            console.log("count=" + count + " increasedcount " + increasedcount);                           
 
                             setTimeout(function () {
 
@@ -2578,6 +2578,7 @@ function move_again_AF() {
                                 document.getElementById('sendResponse').click()
                                 let newinfocount = document.querySelectorAll('.newcount');
                                 newinfocount[f].innerHTML = increasedcount;
+                                increasedcount="";
                             }, 1000);
                         }, 1000)
                     }
