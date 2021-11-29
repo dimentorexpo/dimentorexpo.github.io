@@ -2432,7 +2432,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getissuetable1'
         document.getElementById('sendResponse').click()
 
-        function getJiraTask1() {
+       async function getJiraTask1() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
             document.getElementById('responseTextarea3').value = 'getissuetable1'
@@ -2440,6 +2440,7 @@ function move_again_AF() {
 
 		
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+			rezissuetable = await rezissuetable;
 			document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
             if (rezissuetable != null){
                 let issues = [];
@@ -2486,13 +2487,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getissuetable'
         document.getElementById('sendResponse').click()
 
-        function getJiraTask() {
+      async function getJiraTask() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
             document.getElementById('responseTextarea3').value = ''
             document.getElementById('sendResponse').click()
 
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+			rezissuetable = await rezissuetable;
             if (rezissuetable == null)
                 setTimeout(getJiraTask, 1000)
             else {
