@@ -2460,6 +2460,8 @@ function move_again_AF() {
         setTimeout(getJiraTask1, 1000)
     }
 	
+
+	
 	    document.getElementById('getJiraTasks').onclick = function () {
 			
                        if (document.getElementById('AF_Jira').style.display = 'none'){
@@ -2539,13 +2541,14 @@ function move_again_AF() {
                         let count;
                         let jira_token;
                         let increasedcount;
-                        setTimeout(function () {
+                        setTimeout(async function () {
                             document.getElementById('responseTextarea1').value = '{}'
                             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
                             document.getElementById('responseTextarea3').value = 'reportscount'
                             document.getElementById('sendResponse').click()
 
                             let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+							repcount = await repcount;
                             jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
                             document.getElementById('responseTextarea1').removeAttribute('reportscount')
 
