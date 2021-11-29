@@ -4089,7 +4089,7 @@ function addbuttonsintegration() {
             	categorylist[i].style.color ="red";
             	categorylist[i].style.fontWeight =600;
                categorylist[i].style.textShadow ="1px 1px 1px black, 0 0 1em red"; 
-            } else if(categorylist[i].innerText == "Техподдержка 2-я линия crm2") {
+            } else if (categorylist[i].innerText == "Техподдержка 2-я линия crm2") {
             	categorylist[i].style.color ="green";
             	categorylist[i].style.fontWeight =600;
 				categorylist[i].style.textShadow ="1px 1px 1px black, 0 0 1em green"; 
@@ -4182,13 +4182,13 @@ function timerHideButtons() {
 				sendComment("Задача создана на Teachers support");
             } else if (chechkvar[i].innerText == "Контент")  {
 				sendComment("Задача создана на Контент");
-            } else if  (chechkvar[i].innerText == "Словарь") {
+            } else if (chechkvar[i].innerText == "Словарь") {
 				sendComment("Задача создана на Словарь");
             }
         }
     }
 }
-	}
+}
 
 function requestsRed() {
     document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
