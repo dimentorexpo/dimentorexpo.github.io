@@ -5714,3 +5714,4 @@ function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
     prepTp()
 }
+}
