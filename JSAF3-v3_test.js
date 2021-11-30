@@ -646,6 +646,7 @@ let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜"
 butServ.style.marginRight = "15px";
+butServ.style.cursor = "pointer";
 
 
 
@@ -5618,9 +5619,9 @@ function firstLoadPage() {
 
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            btnAdd1.insertBefore(butServ, btnAdd1.children[0])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
+		    btnAdd1.insertBefore(butServ, btnAdd1.children[1])
         }, 2000)
 
         setInterval(startTimer, 1000)
