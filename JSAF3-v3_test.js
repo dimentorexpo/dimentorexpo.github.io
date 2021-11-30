@@ -4001,7 +4001,7 @@ function startTimer() {
 
 		let btn2 = document.createElement('span');
         btn2.id = 'operatormistake'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
         btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
         btn2.setAttribute('onClick', 'newTaggg("oo");')
 
