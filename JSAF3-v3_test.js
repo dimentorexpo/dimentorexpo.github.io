@@ -3999,18 +3999,6 @@ function startTimer() {
         btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
         btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
-        let btn2 = document.createElement('span');
-        btn2.id = 'continue_chat_button'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Спасен</a>';
-        btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
-
-        let btn3 = document.createElement('span');
-        btn3.id = 'SMS'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
-        btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">СМС</a>';
-        btn3.setAttribute('onClick', 'sendComment("#неприходитсмс");')
-
         let btn4 = document.createElement('span');
         btn4.id = 'math'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
@@ -4057,7 +4045,7 @@ function startTimer() {
         btn11.id = 'operatormistake'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
         btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
-        btn11.setAttribute('onClick', 'sendComment("#оо");')
+        btn11.setAttribute('onClick', 'newTaggg("oo");')
     }
 }
 
