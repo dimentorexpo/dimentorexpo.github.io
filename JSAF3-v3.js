@@ -184,7 +184,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
 					<button title="Открывает форму по аппеляции негативных оценок (<4), если вы считаете их необоснованными" id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
 					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button title="открывает форму для внесения ошибок операторов КЦ" id="kcerrors" style="width:105px; margin-top: 3px">Ошибки КЦ</button>
+					<button title="открывает фичи групп для активации связи на ГУ" id="groupfeatures" style="width:105px; margin-top: 3px">Фичи Групп</button>
 					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
 					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
 					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
@@ -1138,9 +1138,10 @@ function move_again_AF() {
     document.getElementById('apelation').addEventListener('click', function () {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
     })
-    document.getElementById('kcerrors').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSewOcI6Qqq83_gSqn25lXf72KtPls_01WApBQiZopwv30hkHA/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+    document.getElementById('groupfeatures').addEventListener('click', function () {
+        window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
     })
+	
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
     })
