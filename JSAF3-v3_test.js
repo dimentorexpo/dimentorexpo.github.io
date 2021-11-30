@@ -3993,8 +3993,9 @@ function startTimer() {
     }
 
 
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
+		btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
         btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
         btn1.setAttribute('onClick', 'newTaggg("untargeted");')
