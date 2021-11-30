@@ -642,6 +642,14 @@ hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
 hashBut.style.marginRight = "15px";
 
+let butServ = document.createElement('div')
+butServ.id = "butServ"
+butServ.innerHTML = "⚜"
+butServ.style.marginRight = "15px";
+butServ.style.cursor = "pointer";
+
+
+
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
@@ -2721,6 +2729,13 @@ function move_again_AF() {
     }
 
     document.getElementById('servicestatus').onclick = function () {
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
+    }
+
+    document.getElementById('butServ').onclick = function () {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
@@ -5606,6 +5621,7 @@ function firstLoadPage() {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
+		    btnAdd1.insertBefore(butServ, btnAdd1.children[1])
         }, 2000)
 
         setInterval(startTimer, 1000)
