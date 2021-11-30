@@ -4000,10 +4000,10 @@ function startTimer() {
         btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
         let btn2 = document.createElement('span');
-        btn2.id = 'operatormistake'
+        btn2.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
-        btn2.setAttribute('onClick', 'newTaggg("oo");')
+        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Спасен</a>';
+        btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
 
         let btn3 = document.createElement('span');
         btn3.id = 'SMS'
@@ -4053,7 +4053,11 @@ function startTimer() {
         btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
         btn10.setAttribute('onClick', 'sendComment("#Передача на исход");')
 
-
+        let btn11 = document.createElement('span');
+        btn11.id = 'operatormistake'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
+        btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
+        btn11.setAttribute('onClick', 'newTaggg("oo");')
     }
 }
 
