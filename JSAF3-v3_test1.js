@@ -511,7 +511,7 @@ let word_text = ""
 let template_text = ""
 let flagggg = 0
 
-
+/*
 buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
     if (document.querySelector('#hide_or_display').textContent != "свернуть") {
         hide_or_display.click()
@@ -572,7 +572,7 @@ button2.onclick = function () { //функция Info по нажатию на �
     }
     btn1_student.click()
 }
-
+*/
 buttonserv.onclick = function () {
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
