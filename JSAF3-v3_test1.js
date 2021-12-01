@@ -4130,9 +4130,6 @@ function addbuttonsintegration() {
 			let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
 			//let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(winzadacbut)
-            //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
-            //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-            //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
 			for (let i=0; i < categorylist.length;i++) {
 			 if(categorylist[i].innerText == "Техподдержка исход crm2") {
             	categorylist[i].style.color ="red";
@@ -4152,6 +4149,42 @@ function addbuttonsintegration() {
     }
 }
 setInterval(addbuttonsintegration, 1000)
+
+document.getElementById('teacheridtofield').addEventListener('click', getidusrteachreqF); // нажатие на кнопку получение id П обратился П
+
+function getidusrteachreqF (){ 
+    for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
+            for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id") {
+                    let getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
+                    copyToClipboard1(getidusrteachreq)
+                }
+            }
+        }
+    }
+}
+
+document.getElementById('studentidtofield').addEventListener('click', getidusrstudF); // нажатие на кнопку получение id У обратился П
+
+function getidusrstudF () {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            let getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+        copyToClipboard1(getidusrstud)
+    }
+}
+
+document.getElementById('teacheridfromstudent').addEventListener('click', getidusrsteachF); // нажатие на кнопку получение id П обратился У
+
+function getidusrsteachF () {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            let getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+        copyToClipboard1(getidusrsteach)
+    }
+}
+
 /*
 let getidusrteachreq;
 buttonsetteacheridtouserfield.addEventListener('click', async function () {
