@@ -67,7 +67,8 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
-					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>					
+					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
+					<button id="servicestatus" title="Открывает доп меню проверки услуг ученика" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
 					<div id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
@@ -2727,6 +2728,13 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = ''
     }
 
+    document.getElementById('servicestatus').onclick = function () {
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
+    }
+
     document.getElementById('butServ').onclick = function () {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
@@ -2906,19 +2914,7 @@ function move_again_AF() {
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
-    let servstatbut = document.createElement('div');
-    servstatbut.id = 'servicestatus';
-    servstatbut.innerHTML = "&#9884";
-    servstatbut.style.marginRight = "15px";
-    servstatbut.title = "Открывает доп меню проверки услуг ученика";
-    servstatbut.onclick = function () {
-        if (document.getElementById('AF_Service').style.display == '')
-            document.getElementById('AF_Service').style.display = 'none'
-        else
-            document.getElementById('AF_Service').style.display = ''
-    }
-    var thisbtnAdd = document.getElementsById('scriptBut')
-    thisbtnAdd.insertBefore(servstatbut, thisbtnAdd)
+
 
     function screenshots() {
         if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined)
