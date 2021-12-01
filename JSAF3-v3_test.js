@@ -4072,7 +4072,7 @@ function startTimer() {
 
 		let btn11 = document.createElement('span');
         btn11.id = 'operatormistake'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
         btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Не помогли</a>';
         btn11.setAttribute('onClick', 'newTaggg("didnt_help");')
     }
