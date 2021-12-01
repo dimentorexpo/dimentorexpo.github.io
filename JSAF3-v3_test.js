@@ -4092,6 +4092,9 @@ function addbuttonsintegration() {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
 			let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
 			//let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
 			for (let i=0; i < categorylist.length;i++) {
 			 if(categorylist[i].innerText == "Техподдержка исход crm2") {
             	categorylist[i].style.color ="red";
@@ -4112,19 +4115,8 @@ function addbuttonsintegration() {
 }
 setInterval(addbuttonsintegration, 1000)
 
-	if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
-		document.querySelectorAll('.ant-dropdown-menu-item-only-child')[0].onclick = function () {
-
-	        document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
-	
-}
-}
-
-
 let getidusrteachreq;
-buttonsetteacheridtouserfield.addEventListener('click', function () {
+buttonsetteacheridtouserfield.addEventListener('click', async function () {
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -4139,7 +4131,7 @@ buttonsetteacheridtouserfield.addEventListener('click', function () {
 
 
 let getidusrstud;
-buttonsetstudentidandservicetouserfield.addEventListener('click', function () {
+buttonsetstudentidandservicetouserfield.addEventListener('click', async function () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
