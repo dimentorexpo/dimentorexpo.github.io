@@ -4157,8 +4157,7 @@ async function getidusrteachreqF (){
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id") {
-                    let getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-                    copyToClipboard1(getidusrteachreq)
+                    copyToClipboard1(document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0])
                 }
             }
         }
@@ -4170,8 +4169,7 @@ document.getElementById('studentidtofield').addEventListener('click', getidusrst
 async function getidusrstudF () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            let getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-        copyToClipboard1(getidusrstud)
+            copyToClipboard1(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerTextusrstud)
     }
 }
 
@@ -4180,8 +4178,7 @@ document.getElementById('teacheridfromstudent').addEventListener('click', getidu
 function getidusrsteachF () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            let getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-        copyToClipboard1(getidusrsteach)
+        copyToClipboard1(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText)
     }
 }
 
