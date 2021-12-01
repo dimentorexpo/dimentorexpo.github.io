@@ -364,6 +364,30 @@ var win_LessonStatus =  // описание элементов окна ссыл
         </span>
 </div>`;
 
+var win_info =  // описание элементов Info
+    `<div style="display: flex;">
+        <span>
+            <a id="userIdScript" style="color: black; width:40px; cursor: pointer;">Info</a>
+
+        </span>
+</div>`;
+
+var win_infonext =  // описание элементов Info след урока
+    `<div style="display: flex;">
+        <span>
+
+        </span>
+</div>`;
+
+var win_zadacbut =  // описание элементов добавляемых в окно создания задачи
+    `<div style="display: flex;">
+        <span>
+        <button id="teacheridtofield" style="width: 160px; cursor: pointer; border: 1px solid black; borderRadius: 10px;">👽 (ID П) П обратился</button>
+        <button id="studentidtofield" style="marginLeft: 2px; width: 150px; cursor: pointer; border: 1px solid black; borderRadius: 10px;">👨‍🎓 (ID У) П обратился</button>
+        <button id="teacheridfromstudent" style="marginLeft: 2px; width: 150px; cursor: pointer; border: 1px solid black; borderRadius: 10px;">👽 (ID П) У обратился</button>
+        </span>
+</div>`;
+
 
 
 let audio
@@ -409,6 +433,11 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
+let winzadacbut = document.createElement('div'); // создание окна элементов добавляемых в окно создания задачи
+wintLinks.setAttribute('id', 'zadachibut');
+wintLinks.innerHTML = win_zadacbut;
+
+/*
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
@@ -472,7 +501,7 @@ buttonsetteacheridfromstudent.style.cursor = "pointer";
 buttonsetteacheridfromstudent.style.marginLeft = "2px";
 buttonsetteacheridfromstudent.style.border = "1px solid black";
 buttonsetteacheridfromstudent.style.borderRadius = "10px";
-
+*/
 
 
 
@@ -4100,9 +4129,10 @@ function addbuttonsintegration() {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
 			let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
 			//let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(zadachibut)
+            //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
+            //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
+            //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
 			for (let i=0; i < categorylist.length;i++) {
 			 if(categorylist[i].innerText == "Техподдержка исход crm2") {
             	categorylist[i].style.color ="red";
