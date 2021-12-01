@@ -629,7 +629,6 @@ button4.onclick = function () {
     }
     btn1_student.click()
 }
-*/
 let getteacheridformaf;
 gettacherphoto.onclick = function () {
     //	document.getElementById('getphototeacher').textContent="Скрыть фото";
@@ -662,6 +661,7 @@ gettacherphoto.onclick = function () {
         document.querySelector('#URLphoto').replaceWith(gettacherphoto)
     }
 }
+*/
 
 
 let addInfoUser = document.createElement('div')
