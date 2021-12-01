@@ -2727,13 +2727,6 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = ''
     }
 
-    document.getElementById('servicestatus').onclick = function () {
-        if (document.getElementById('AF_Service').style.display == '')
-            document.getElementById('AF_Service').style.display = 'none'
-        else
-            document.getElementById('AF_Service').style.display = ''
-    }
-
     document.getElementById('butServ').onclick = function () {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
