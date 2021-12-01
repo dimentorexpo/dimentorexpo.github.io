@@ -434,8 +434,8 @@ if (localStorage.getItem('scriptAdr') == null) {
 }
 
 let winzadacbut = document.createElement('div'); // создание окна элементов добавляемых в окно создания задачи
-wintLinks.setAttribute('id', 'zadachibut');
-wintLinks.innerHTML = win_zadacbut;
+winzadacbut.setAttribute('id', 'zadachibut');
+winzadacbut.innerHTML = win_zadacbut;
 
 /*
 let button2 = document.createElement('p');
