@@ -2228,7 +2228,7 @@ function move_again_AF() {
                 };
 
 
-
+                if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
                 let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
                 for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
@@ -2247,9 +2247,10 @@ function move_again_AF() {
                                 //    } // for d
                                 } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
                             } else
-                                console.log("No such field") // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
+                                console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
                         } // for let i
                     } // if type == teacher
+                }
                 } // for let j
             }
 
