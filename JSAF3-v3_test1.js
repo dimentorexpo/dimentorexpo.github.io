@@ -4166,7 +4166,6 @@ buttonsetteacheridtouserfield.addEventListener('click', async function () {
         }
     }
 })
-*/
 
 let getidusrstud;
 buttonsetstudentidandservicetouserfield.addEventListener('click', async function () {
@@ -4185,6 +4184,7 @@ buttonsetteacheridfromstudent.addEventListener('click', function () {
         copyToClipboard1(getidusrsteach)
     }
 })
+*/
 
 
 
