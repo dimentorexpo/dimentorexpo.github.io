@@ -572,7 +572,7 @@ button2.onclick = function () { //функция Info по нажатию на �
     }
     btn1_student.click()
 }
-*/
+
 buttonserv.onclick = function () {
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
@@ -629,7 +629,7 @@ button4.onclick = function () {
     }
     btn1_student.click()
 }
-
+*/
 let getteacheridformaf;
 gettacherphoto.onclick = function () {
     //	document.getElementById('getphototeacher').textContent="Скрыть фото";
