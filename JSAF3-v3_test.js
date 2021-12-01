@@ -4120,6 +4120,7 @@ document.querySelectorAll('.ant-dropdown-menu-item-only-child')[0].onclick = fun
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
 	
 }
+}
 
 
 let getidusrteachreq;
