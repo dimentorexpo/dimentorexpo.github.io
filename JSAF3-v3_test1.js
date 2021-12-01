@@ -4152,7 +4152,7 @@ function addbuttonsintegration() {
     }
 }
 setInterval(addbuttonsintegration, 1000)
-
+/*
 let getidusrteachreq;
 buttonsetteacheridtouserfield.addEventListener('click', async function () {
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -4166,7 +4166,7 @@ buttonsetteacheridtouserfield.addEventListener('click', async function () {
         }
     }
 })
-
+*/
 
 let getidusrstud;
 buttonsetstudentidandservicetouserfield.addEventListener('click', async function () {
