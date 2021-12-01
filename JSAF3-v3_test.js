@@ -4112,9 +4112,9 @@ function addbuttonsintegration() {
 }
 setInterval(addbuttonsintegration, 1000)
 
-document.querySelectorAll('.ant-dropdown-menu-item-only-child')[0].onclick = function () {
-
 	if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+		document.querySelectorAll('.ant-dropdown-menu-item-only-child')[0].onclick = function () {
+
 	        document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
