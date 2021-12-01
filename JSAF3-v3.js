@@ -68,7 +68,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:16px; float: right; margin-right: 5px">S</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
-					<button id="servicestatus" title="Открывает доп меню проверки услуг ученика" style="width:24px; float: right; margin-right: 5px">&#9884;</button>
 					<div id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
@@ -2229,7 +2228,7 @@ function move_again_AF() {
                 };
 
 
-
+                if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
                 let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                 let infoiduslugi = document.getElementsByClassName('iduslugitxt');
                 for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
@@ -2248,9 +2247,10 @@ function move_again_AF() {
                                 //    } // for d
                                 } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
                             } else
-                                console.log("No such field") // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
+                                console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
                         } // for let i
                     } // if type == teacher
+                }
                 } // for let j
             }
 
@@ -2726,13 +2726,6 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = 'none'
         else
             document.getElementById('AF_Linksd').style.display = ''
-    }
-
-    document.getElementById('servicestatus').onclick = function () {
-        if (document.getElementById('AF_Service').style.display == '')
-            document.getElementById('AF_Service').style.display = 'none'
-        else
-            document.getElementById('AF_Service').style.display = ''
     }
 
     document.getElementById('butServ').onclick = function () {
