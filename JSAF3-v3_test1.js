@@ -437,6 +437,10 @@ let winzadacbut = document.createElement('div'); // создание окна э
 winzadacbut.setAttribute('id', 'zadachibut');
 winzadacbut.innerHTML = win_zadacbut;
 
+document.getElementById('teacheridtofield').addEventListener('click', getidusrteachreqF); // нажатие на кнопку получение id П обратился П
+document.getElementById('studentidtofield').addEventListener('click', getidusrstudF); // нажатие на кнопку получение id У обратился П
+document.getElementById('teacheridfromstudent').addEventListener('click', getidusrsteachF); // нажатие на кнопку получение id П обратился У
+
 /*
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
@@ -4150,7 +4154,6 @@ function addbuttonsintegration() {
 }
 setInterval(addbuttonsintegration, 1000)
 
-document.getElementById('teacheridtofield').addEventListener('click', getidusrteachreqF); // нажатие на кнопку получение id П обратился П
 
 function getidusrteachreqF (){ 
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -4164,16 +4167,12 @@ function getidusrteachreqF (){
     }
 }
 
-document.getElementById('studentidtofield').addEventListener('click', getidusrstudF); // нажатие на кнопку получение id У обратился П
-
 function getidusrstudF () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             copyToClipboard1(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerTextusrstud)
     }
 }
-
-document.getElementById('teacheridfromstudent').addEventListener('click', getidusrsteachF); // нажатие на кнопку получение id П обратился У
 
 function getidusrsteachF () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
