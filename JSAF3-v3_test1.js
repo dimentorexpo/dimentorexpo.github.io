@@ -4129,7 +4129,7 @@ function addbuttonsintegration() {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
 			let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
 			//let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(zadachibut)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(winzadacbut)
             //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
             //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
             //document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
