@@ -184,7 +184,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
 					<button title="Открывает форму по аппеляции негативных оценок (<4), если вы считаете их необоснованными" id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
 					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button title="открывает форму для внесения ошибок операторов КЦ" id="kcerrors" style="width:105px; margin-top: 3px">Ошибки КЦ</button>
+					<button title="открывает фичи групп для активации связи на ГУ" id="groupfeatures" style="width:105px; margin-top: 3px">Фичи Групп</button>
 					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
 					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
 					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
@@ -641,6 +641,14 @@ let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
 hashBut.style.marginRight = "15px";
+
+let butServ = document.createElement('div')
+butServ.id = "butServ"
+butServ.innerHTML = "⚜"
+butServ.style.marginRight = "15px";
+butServ.style.cursor = "pointer";
+
+
 
 
 let maskBack = document.createElement('div')
@@ -1138,9 +1146,10 @@ function move_again_AF() {
     document.getElementById('apelation').addEventListener('click', function () {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
     })
-    document.getElementById('kcerrors').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSewOcI6Qqq83_gSqn25lXf72KtPls_01WApBQiZopwv30hkHA/viewform")    // открываем ссылку в новой вкладке на Ошибки при работе с чатами АФ (КЦ)
+    document.getElementById('groupfeatures').addEventListener('click', function () {
+        window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
     })
+	
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
     })
@@ -2077,7 +2086,7 @@ function move_again_AF() {
                             arrservice += servicearr.data[i].id + ", "
                         } else if (servicearr.data[i].student.general.id == stid && (servicearr.data[i].stage == "after_trial" || servicearr.data[i].stage == "before_call") && servicearr.data[i].incorrectnessReason == null) {
                             tinfo += [i + 1] + ") " + '<span style="color:#FF7F50; font-weight:900;">Этап ВУ</span><br>';
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
+                            servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" style="margin-left: 5px; cursor: pointer">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br> STK: ' + servicearr.data[i].serviceTypeKey + '<hr style="width:260px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;">';
                             arrservice += servicearr.data[i].id + ", "
                         } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
                             //	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
@@ -2720,6 +2729,13 @@ function move_again_AF() {
     }
 
     document.getElementById('servicestatus').onclick = function () {
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
+    }
+
+    document.getElementById('butServ').onclick = function () {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
@@ -3995,15 +4011,16 @@ function startTimer() {
 
     if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
+		btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
         btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
         btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
-        let btn2 = document.createElement('span');
-        btn2.id = 'continue_chat_button'
+		let btn2 = document.createElement('span');
+        btn2.id = 'operatormistake'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Спасен</a>';
-        btn2.setAttribute('onClick', 'newTaggg("saved_lesson_platform");')
+        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
+        btn2.setAttribute('onClick', 'newTaggg("oo");')
 
         let btn3 = document.createElement('span');
         btn3.id = 'SMS'
@@ -4051,13 +4068,13 @@ function startTimer() {
         btn10.id = 'ishod'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
         btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
-        btn10.setAttribute('onClick', 'sendComment("#Передача на исход");')
+        btn10.setAttribute('onClick', 'sendComment("#Передача на исход");')    
 
-        let btn11 = document.createElement('span');
+		let btn11 = document.createElement('span');
         btn11.id = 'operatormistake'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
-        btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
-        btn11.setAttribute('onClick', 'sendComment("#оо");')
+        btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Не помогли</a>';
+        btn11.setAttribute('onClick', 'newTaggg("didnt_help");')
     }
 }
 
@@ -4147,7 +4164,7 @@ function timerHideButtons() {
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line (работает с 9:00 до 22:00)")
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line (работает ежедневно с 9:00 до 22:00)")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
@@ -5610,6 +5627,7 @@ function firstLoadPage() {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
+		    btnAdd1.insertBefore(butServ, btnAdd1.children[1])
         }, 2000)
 
         setInterval(startTimer, 1000)
