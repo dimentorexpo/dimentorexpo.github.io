@@ -432,7 +432,7 @@ if (localStorage.getItem('winTopLessonStatus') == null) { // началоное 
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
-
+/*
 let winzadacbut = document.createElement('div'); // создание окна элементов добавляемых в окно создания задачи
 winzadacbut.setAttribute('id', 'zadachibut');
 winzadacbut.innerHTML = win_zadacbut;
@@ -441,7 +441,6 @@ document.getElementById('teacheridtofield').addEventListener('click', getidusrte
 document.getElementById('studentidtofield').addEventListener('click', getidusrstudF); // нажатие на кнопку получение id У обратился П
 document.getElementById('teacheridfromstudent').addEventListener('click', getidusrsteachF); // нажатие на кнопку получение id П обратился У
 
-/*
 let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
