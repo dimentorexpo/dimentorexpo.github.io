@@ -1541,7 +1541,7 @@ function move_again_AF() {
     }
 
     let servicearray = "";
-    function getservicearr() {
+    async function getservicearr() {
 
         document.getElementById('responseTextarea1').value = `{
             "headers": {
@@ -1561,13 +1561,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'arrayofservices'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
             document.getElementById('responseTextarea3').value = 'arrayofservices'
             document.getElementById('sendResponse').click()
 
             servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
+            servicearray = await servicearray;
             servicearray = JSON.parse(servicearray);
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
