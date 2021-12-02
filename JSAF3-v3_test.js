@@ -1562,7 +1562,7 @@ function move_again_AF() {
               "credentials": "include"
        }`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-        document.getElementById('responseTextarea3').value = 'pastlessoninfo'
+        document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
@@ -1571,10 +1571,10 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'pastlessoninfo'
             document.getElementById('sendResponse').click()
 
-            pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfo');
+            pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
             pastlessoninfo = await pastlessoninfo;
             pastlessoninfo = JSON.parse(pastlessoninfo);
-            document.getElementById('responseTextarea1').removeAttribute('pastlessoninfo')
+            document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
             for (let i = 0; i < pastlessoninfo.data.length; i++) {
                 let d = new Date(pastlessoninfo.data[i].startedAt)
                 let minutka;
