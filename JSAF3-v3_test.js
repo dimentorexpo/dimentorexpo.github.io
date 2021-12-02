@@ -1706,6 +1706,27 @@ function move_again_AF() {
                     mesacok = d.getMonth() + 1;
                 }
 
+                if (futurelessoninfo.data[i].lessonType == "regular") {
+                    futurelessoninfo.data[i].lessonType = "Регулярный";
+                } else if (futurelessoninfo.data[i].lessonType == "single") {
+                    futurelessoninfo.data[i].lessonType = "Одиночный";
+                } else if (futurelessoninfo.data[i].lessonType == "trial") {
+                    futurelessoninfo.data[i].lessonType = "Пробный";
+                }
+
+                if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
+                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
+                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
+                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
+                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
+                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
+                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
+                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
+                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
+                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Математика"
+                }
+
+
                 if (futurelessoninfo.data[i].teacher != null) {
                     futurelessoninfo += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka
                         + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
