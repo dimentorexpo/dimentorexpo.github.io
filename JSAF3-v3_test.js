@@ -375,7 +375,7 @@ var win_Timetable = //
                  </div>
                  </span>
                 <div id="timetableinfo">
-                     <p id="timetabledata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto"></p>
+                     <p id="timetabledata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
 
 </span>
@@ -1621,7 +1621,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
             if (pastlessoninfo.data == "") {
                 document.getElementById('timetabledata').innerHTML = "Еще не было уроков";
-                document.getElementById('timetabledata').style.textAlign = "center";
             } else {
                 for (let i = 0; i < pastlessoninfo.data.length; i++) {
                     let d = new Date(pastlessoninfo.data[i].startedAt)
@@ -1739,7 +1738,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('futurelessoninfodata')
             if (futurelessoninfo.data == "") {
                 document.getElementById('timetabledata').innerHTML = "Уроки не запланированы";
-                document.getElementById('timetabledata').style.textAlign = "center";
             } else {
                 for (let i = 0; i < futurelessoninfo.data.length; i++) {
                     let d = new Date(futurelessoninfo.data[i].startedAt)
