@@ -285,10 +285,10 @@ var win_Stat =  // описание элементов окна ссылок
 
 
 var win_serviceinfo =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 310px;">
-        <span style="width: 310px">
+    `<div style="display: flex; width: 320px;">
+        <span style="width: 320px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="width: 310px;  border-bottom:1px solid #556B2F;" id="servicehead">
+                        <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
@@ -296,7 +296,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
                         </div>
 								
-						<div style="width: 310px; margin:5px; display:flex; justify-content:left;" id="input_field">
+						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field">
 						<input id="idstudent" placeholder="ID У/П" title="Введите ID ученика для получения информации по услугам" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
@@ -309,7 +309,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 				       	</div>
 						
-						<div style="width: 310px; margin:5px; display:flex; justify-content:left;" id="input_field2">
+						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field2">
 						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
 						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
@@ -322,7 +322,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						               
 					   </span>
 					   					   
-                        <div style="width: 310px;" id="servicebody">
+                        <div style="width: 320px;" id="servicebody">
 						<img id="useravatar" style="position: absolute; left: 1px; top: 120px; width: 55px; height: 60px; border-radius: 30px; display:none;">
                                 <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
