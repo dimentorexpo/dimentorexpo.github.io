@@ -2724,6 +2724,7 @@ function move_again_AF() {
         document.getElementById('CrmStatus').style.display = "none";
         document.getElementById('getcurrentstatus').style.display = "none";
         document.getElementById('changelocalelng').style.display = "";
+        document.getElementById('getpastandfuturelessons').style.display = "";
         document.querySelector('#useravatar').src = "";
         document.querySelector('#useravatar').style.display = "none";
 
