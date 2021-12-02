@@ -1548,6 +1548,7 @@ function move_again_AF() {
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
         let pastlessondata = "";
+        let pastlessoninfo = "";
         document.getElementById('responseTextarea1').value = `{
             "headers": {
                 "accept": "application/json, text/plain, */*",
@@ -1650,9 +1651,82 @@ function move_again_AF() {
 
     }
 
-    //document.getElementById('getlessonfuture').onclick = function () {
+    document.getElementById('getlessonfuture').onclick = function () {
 
-    //}
+        document.getElementById('timetabledata').innerHTML = "";
+        let stid = document.getElementById('idstudent').value;
+        stid = stid.trim();
+        let futurelessondata = "";
+        let futurelessoninfo = "";
+        document.getElementById('responseTextarea1').value = `{
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
+              },
+              "referrer": "https://crm2.skyeng.ru/",
+              "referrerPolicy": "strict-origin-when-cross-origin",
+              "body": null,
+              "method": "GET",
+              "mode": "cors",
+              "credentials": "include"
+       }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
+        document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
+            document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
+            document.getElementById('sendResponse').click()
+
+            futurelessoninfo = document.getElementById('responseTextarea1').getAttribute('futurelessoninfodata');
+            futurelessoninfo = JSON.parse(futurelessoninfo);
+            document.getElementById('responseTextarea1').removeAttribute('futurelessoninfodata')
+            for (let i = 0; i < futurelessoninfo.data.length; i++) {
+                let d = new Date(futurelessoninfo.data[i].startedAt)
+                let minutka;
+                let denek;
+                let mesacok;
+                if (d.getMinutes() < 10) {
+                    minutka = "0" + d.getMinutes();
+                } else {
+                    minutka = d.getMinutes();
+                }
+                if (d.getDate() < 10) {
+                    denek = "0" + d.getDate();
+                } else {
+                    denek = d.getDate();
+                }
+                if (d.getMonth() + 1 < 10) {
+                    mesacok = "0" + (d.getMonth() + 1);
+                } else {
+                    mesacok = d.getMonth() + 1;
+                }
+
+                if (futurelessoninfo.data[i].teacher != null) {
+                    futurelessoninfo += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka
+                        + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
+                        + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
+                        + '<span style="color:#32CD32; font-weight:900;">Преподаватель</span>' + " " + pastlessoninfo.data[i].teacher.general.id + " " + futurelessoninfo.data[i].teacher.general.name + " " + futurelessoninfo.data[i].teacher.general.surname + '<br>'
+                        + '<hr style="width:520px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
+                } else {
+                    futurelessoninfo += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka
+                        + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
+                        + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
+                        + '<hr style="width:520px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
+                }
+
+            }
+
+            document.getElementById('timetabledata').innerHTML = futurelessoninfo;
+
+
+        }, 1000)
+
+    }
 
     document.getElementById('changelocalelng').onclick = function () {
 
