@@ -1545,6 +1545,7 @@ function move_again_AF() {
     }
 
     document.getElementById('getlessonpast').onclick = async function () {
+        document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
         let pastlessondata = "";
