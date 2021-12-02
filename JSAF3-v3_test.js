@@ -308,6 +308,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
 						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" style="margin-left: 5px; width: 25.23px;">💰</button>
 						<button title="Информацию об ученике в СРМ1" id="getcrmoneinfo" style="margin-left: 5px; width: 25.23px;">🎭</button>
+						<button title="Просмотр прошедших и предстоящих уроков" id="getpastandfuturelessons" style="margin-left: 5px; width: 25.23px;">📆</button>
 				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
 				       	</div>
 						
@@ -326,7 +327,6 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 					   					   
                         <div style="width: 310px;" id="servicebody">
 						<img id="useravatar" style="position: absolute; left: 1px; top: 120px; width: 55px; height: 60px; border-radius: 30px; display:none;">
-								<button style="float:right; margin-right:5px">📆</button>
                                 <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
 						
