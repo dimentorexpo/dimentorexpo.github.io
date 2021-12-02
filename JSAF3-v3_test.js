@@ -1178,7 +1178,6 @@ function move_again_AF() {
         window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
     }
 
-
     document.getElementById('suggestions').addEventListener('click', function () {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
     })
@@ -1465,8 +1464,6 @@ function move_again_AF() {
 
         }, 550)
 
-
-
     }
 
     let unhidephone;
@@ -1543,6 +1540,45 @@ function move_again_AF() {
 
     }
 
+    let servicearray = "";
+    function getservicearr() {
+
+        document.getElementById('responseTextarea1').value = `{
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
+              },
+              "referrer": "https://crm2.skyeng.ru/",
+              "referrerPolicy": "strict-origin-when-cross-origin",
+              "body": null,
+              "method": "GET",
+              "mode": "cors",
+              "credentials": "include"
+       }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
+        document.getElementById('responseTextarea3').value = 'arrayofservices'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
+            document.getElementById('responseTextarea3').value = 'arrayofservices'
+            document.getElementById('sendResponse').click()
+
+            servicearray = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
+            servicearray = JSON.parse(pastlessoninfo);
+            document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
+
+        }, 1000)
+
+    }
+
+    getservicearr();
+
+    console.log("Testim array" + servicearray)
+
     document.getElementById('getlessonpast').onclick = function () {
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
@@ -1570,7 +1606,7 @@ function move_again_AF() {
         setTimeout(function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-            document.getElementById('responseTextarea3').value = 'pastlessoninfo'
+            document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
             document.getElementById('sendResponse').click()
 
             pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
