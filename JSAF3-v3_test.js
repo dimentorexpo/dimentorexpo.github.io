@@ -1471,7 +1471,7 @@ function move_again_AF() {
 
     let unhidephone;
 
-    function getunhidephone() {
+    async function getunhidephone() {
 
         document.getElementById('responseTextarea1').value = `{
 		  "headers": {
@@ -1491,13 +1491,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'phoneishere'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
             document.getElementById('responseTextarea3').value = 'phoneishere'
             document.getElementById('sendResponse').click()
 
             unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
+            unhidephone = await unhidephone;
             unhidephone = JSON.parse(unhidephone);
             unhidephone = unhidephone.data.value;
             document.getElementById('responseTextarea1').removeAttribute('phoneishere')
@@ -1507,7 +1508,7 @@ function move_again_AF() {
     }
 
     let unhidenemail;
-    function getunhideemail() {
+    async function getunhideemail() {
         document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -1533,6 +1534,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+            unhidenemail = await unhidenemail;
             unhidenemail = JSON.parse(unhidenemail);
             unhidenemail = unhidenemail.data.value;
             document.getElementById('responseTextarea1').removeAttribute('emailishere')
@@ -1576,15 +1578,20 @@ function move_again_AF() {
             for (let i = 0; i < pastlessoninfo.data.length; i++) {
                 let d = new Date(pastlessoninfo.data[i].startedAt)
                 let minutka;
+                let denek;
                 if (d.getMinutes() < 10) {
-
                     minutka = "0" + d.getMinutes();
                 } else {
                     minutka = d.getMinutes();
                 }
-                pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
+                if (d.getDate() < 10) {
+                    denek = "0" + d.getDate();
+                } else {
+                    denetk = d.getDate();
+                }
+                pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + denek + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
                     " Статус: " + pastlessoninfo.data[i].status + " Урок: " + pastlessoninfo.data[i].lessonType + '<br>'
-                    + "Услуга: " + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>';
+                    + "Услуга: " + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>' + "Преподаватель " + + Object.values(pastlessoninfo.data[i].teacher.general) + '<br>';
 
             }
 
