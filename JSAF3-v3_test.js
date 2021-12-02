@@ -361,6 +361,25 @@ var win_LessonStatus =  // описание элементов окна ссыл
         </span>
 </div>`;
 
+var win_Timetable = //
+    `<div style="display: flex; width: 550px;">
+<span style="width: 550px">
+        <span style="cursor: -webkit-grab;">
+                <div style="margin: 5px; width: 550;" id="HeadTimetable">
+                        <button id="hideMeTT" style="width:50px; background: #228B22;">hide</button>
+                </div>
+                                                
+                <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
+                     <button title="Выводит инфо о прошедших уроках" id="getlessonpast">Прошедшие уроки</button>
+                     <button title="Выводит инфо о предстоящих уроках" id="getlessonfuture">Предстоящие уроки</button>
+                 </div>
+
+                <div id="timetableinfo">
+                     <p id="timetabledata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; overflow:auto"></p>
+                </div>
+        </span>
+</span>
+</div>`;
 
 
 let audio
@@ -376,29 +395,40 @@ if (localStorage.getItem('winTopAF') == null) { // началоное полож
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
 }
+
 if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
 }
+
 if (localStorage.getItem('winTopLinksd') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinksd', '120');
     localStorage.setItem('winLeftLinksd', '295');
 }
+
 if (localStorage.getItem('winTopJira') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopJira', '120');
     localStorage.setItem('winLeftJira', '295');
 }
+
 if (localStorage.getItem('winTopStat') == null) { // началоное положение окна статистики (если не задано ранее)
     localStorage.setItem('winTopStat', '120');
     localStorage.setItem('winLeftStat', '295');
 }
+
 if (localStorage.getItem('winTopService') == null) { // началоное положение окна информации об  услугах
     localStorage.setItem('winTopService', '120');
     localStorage.setItem('winLeftService', '295');
 }
+
 if (localStorage.getItem('winTopLessonStatus') == null) { // началоное положение окна проверки статуса урока удален перенесен и кем
     localStorage.setItem('winTopLessonStatus', '120');
     localStorage.setItem('winLeftLessonStatus', '295');
+}
+
+if (localStorage.getItem('winTopTimetable') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopTimetable', '120');
+    localStorage.setItem('winLeftTimetable', '295');
 }
 
 
@@ -783,6 +813,13 @@ wintLessonStatus.style.display = 'none';
 wintLessonStatus.setAttribute('id', 'AF_LessonStatus');
 wintLessonStatus.innerHTML = win_LessonStatus;
 
+let wintTimetable = document.createElement('div'); // создание окна ссылок
+document.body.append(wintTimetable);
+wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintTimetable.style.display = 'none';
+wintTimetable.setAttribute('id', 'AF_Timetable');
+wintTimetable.innerHTML = win_Timetable;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -867,6 +904,20 @@ wintLinksd.firstElementChild.firstElementChild.firstElementChild.onmousedown = f
     document.addEventListener('mousemove', listener9);
 }
 wintLinksd.onmouseup = function () { document.removeEventListener('mousemove', listener9); }
+
+var listener10 = function (e, a) { // сохранение позиции окна доступов
+    wintTimetable.style.left = Number(e.clientX - myX10) + "px";
+    wintTimetable.style.top = Number(e.clientY - myY10) + "px";
+    localStorage.setItem('winTopTimetable', String(Number(e.clientY - myY10)));
+    localStorage.setItem('winLeftTimetable', String(Number(e.clientX - myX10)));
+};
+
+wintTimetable.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX10 = a.layerX;
+    window.myY10 = a.layerY;
+    document.addEventListener('mousemove', listener10);
+}
+wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listener10); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -1146,7 +1197,7 @@ function move_again_AF() {
     document.getElementById('groupfeatures').addEventListener('click', function () {
         window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
     })
-	
+
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
     })
@@ -1647,7 +1698,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             getageofuser = document.getElementById('responseTextarea1').getAttribute('getusernageinfo');
-			getageofuser = await getageofuser;
+            getageofuser = await getageofuser;
             getageofuser = JSON.parse(getageofuser);
             document.getElementById('responseTextarea1').removeAttribute('getusernageinfo');
             let goddata = new Date()
@@ -1671,8 +1722,8 @@ function move_again_AF() {
     let utczone;
     let localtime;
     let servlocalestatus;
-	let avatarofuser;
-	let countryofuser;
+    let avatarofuser;
+    let countryofuser;
     async function getusernamecrm() {
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
@@ -1707,7 +1758,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-			studentname = await studentname;
+            studentname = await studentname;
             studentname = JSON.parse(studentname);
             nameofuser = "";
             teachername = "";
@@ -1737,18 +1788,18 @@ function move_again_AF() {
             } else {
                 servlocalestatus = studentname.data.serviceLocale;
             }
-			
-			if (studentname.data.avatarUrl != null) {
-				avatarofuser=studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
-			} else {
-				avatarofuser=null;
-			}
-			
-			if (studentname.data.country != null) {
-				countryofuser = studentname.data.country;
-			} else {
-				countryofuser=null;
-			}
+
+            if (studentname.data.avatarUrl != null) {
+                avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+            } else {
+                avatarofuser = null;
+            }
+
+            if (studentname.data.country != null) {
+                countryofuser = studentname.data.country;
+            } else {
+                countryofuser = null;
+            }
 
 
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
@@ -1758,7 +1809,7 @@ function move_again_AF() {
     }
 
     let tokenlogginer;
-   async function getlogginer() {
+    async function getlogginer() {
         //Для получения токена сначала обрабатываем
         document.getElementById('responseTextarea1').value = `{
 					  "referrer": "https://id.skyeng.ru/admin/users",
@@ -1787,7 +1838,7 @@ function move_again_AF() {
 
 
             tokenlogginer = document.getElementById('responseTextarea1').getAttribute('gettoken');
-			tokenlogginer = await tokenlogginer;
+            tokenlogginer = await tokenlogginer;
             let dokie = document.createElement('div');
             dokie.innerHTML = tokenlogginer;
             tokenlogginer = dokie.querySelector('#login_link_form__token').value;
@@ -1848,7 +1899,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
-			logginerinfo = await logginerinfo;
+            logginerinfo = await logginerinfo;
 
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
@@ -1862,7 +1913,7 @@ function move_again_AF() {
 
 
     let getcrmstatusinfo;
-   async function crmstatus() {
+    async function crmstatus() {
         let tempvarcrm = document.getElementById('idstudent').value;
         tempvarcrm = tempvarcrm.trim();
 
@@ -1891,7 +1942,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-			getcrmstatusinfo = await getcrmstatusinfo;
+            getcrmstatusinfo = await getcrmstatusinfo;
             getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
             let flagtpout = 0;
             let flagtp = 0;
@@ -2000,9 +2051,9 @@ function move_again_AF() {
 
     let convid;
     document.getElementById('getidstudent').onclick = function () {
-		document.querySelector('#useravatar').src = "";
-		if(document.querySelector('#useravatar').style.display !="none")
-		document.querySelector('#useravatar').style.display = "none";					
+        document.querySelector('#useravatar').src = "";
+        if (document.querySelector('#useravatar').style.display != "none")
+            document.querySelector('#useravatar').style.display = "none";
         let servicearr = "";
         document.getElementById('servicetable').innerHTML = "";
         document.getElementById('getcurrentstatus').title = "";
@@ -2099,11 +2150,11 @@ function move_again_AF() {
                 }
 
                 if (temtinfo == "" && tinfo != "") {
-					if (avatarofuser !=null) {
-						document.querySelector('#useravatar').style.display = "";					
-						document.querySelector('#useravatar').src = avatarofuser;
-						}
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>'  + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser +  "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -2115,13 +2166,13 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
-					
+
                 } else if (temtinfo != "" && tinfo != "") {
-					if (avatarofuser !=null) {
-						document.querySelector('#useravatar').style.display = "";					
-						document.querySelector('#useravatar').src = avatarofuser;
-						}				
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' +  ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -2133,12 +2184,12 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
-					
+
                 } else if (temtinfo != "" && tinfo == "") {
-					if (avatarofuser !=null) {
-						document.querySelector('#useravatar').style.display = "";					
-						document.querySelector('#useravatar').src = avatarofuser;
-						}					
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
                     document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
@@ -2151,12 +2202,12 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
-					
+
                 } else if (noservinfo == 1 && teachername != "") {
-					if (avatarofuser !=null) {
-						document.querySelector('#useravatar').style.display = "";					
-						document.querySelector('#useravatar').src = avatarofuser;
-						}					
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
                     document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + teachername + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "🌍: " + countryofuser + "<br>";
                     document.getElementById('changelocalelng').style.display = "none";
                     document.getElementById('checkbalance').style.display = "none";
@@ -2165,7 +2216,7 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('newtrm').style.display = "";
                     document.getElementById('personalteacherpage').style.display = "";
-					
+
                 } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
                     document.getElementById('checkbalance').style.display = "";
@@ -2174,12 +2225,12 @@ function move_again_AF() {
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
-				 	
+
                 } else {
-					if (avatarofuser !=null) {
-						document.querySelector('#useravatar').style.display = "";					
-						document.querySelector('#useravatar').src = avatarofuser;
-						}					
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
                     document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
 
                     document.getElementById('getusremail1').onclick = function () {
@@ -2189,10 +2240,10 @@ function move_again_AF() {
                     document.getElementById('getusrphone1').onclick = function () {
                         copyToClipboard1(unhidephone);
                     };
-					
-					document.getElementById('getshowcase1').onclick = function () {
-                    copyToClipboard1("https://profile.skyeng.ru/profile/"+stid+"/showcase");
-                };
+
+                    document.getElementById('getshowcase1').onclick = function () {
+                        copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                    };
 
                     document.getElementById('getloginer1').addEventListener('click', function () {
                         postuderdatatologin();
@@ -2208,47 +2259,47 @@ function move_again_AF() {
                         copyToClipboard1(arrservice[j])
                     }
                 }
-				
+
                 document.getElementById('getusremail').onclick = function () {
                     copyToClipboard1(unhidenemail);
                 };
 
                 document.getElementById('getusrphone').onclick = function () {
                     copyToClipboard1(unhidephone);
-                };  
-				
-				document.getElementById('getloginer').addEventListener('click', function () {
+                };
+
+                document.getElementById('getloginer').addEventListener('click', function () {
                     postuderdatatologin();
                 })
 
-				document.getElementById('getshowcase').onclick = function () {
-                    copyToClipboard1("https://profile.skyeng.ru/profile/"+stid+"/showcase");
+                document.getElementById('getshowcase').onclick = function () {
+                    copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
                 };
 
 
                 if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
-                let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
-                let infoiduslugi = document.getElementsByClassName('iduslugitxt');
-                for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
-                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
-                        for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-                                let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-                                if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
-                                   // for (let d = 0; d < infoiduslugi.length; d++) {
+                    let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
+                    let infoiduslugi = document.getElementsByClassName('iduslugitxt');
+                    for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+                            for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                                    let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                                    if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
+                                        // for (let d = 0; d < infoiduslugi.length; d++) {
                                         for (let v = 0; v < testids.length; v++) {
-                                            if (testids[v] == getidusr+",")
+                                            if (testids[v] == getidusr + ",")
                                                 infoiduslugi[v].innerText = "ID Услуги 🔥";
                                             else
                                                 console.log("Not found") //если услуги не совпали с П обратившимся
                                         } // for v
-                                //    } // for d
-                                } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
-                            } else
-                                console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
-                        } // for let i
-                    } // if type == teacher
-                }
+                                        //    } // for d
+                                    } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
+                                } else
+                                    console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
+                            } // for let i
+                        } // if type == teacher
+                    }
                 } // for let j
             }
 
@@ -2397,29 +2448,29 @@ function move_again_AF() {
         document.getElementById('CrmStatus').style.display = "none";
         document.getElementById('getcurrentstatus').style.display = "none";
         document.getElementById('changelocalelng').style.display = "";
-		document.querySelector('#useravatar').src ="";
-		document.querySelector('#useravatar').style.display = "none";
-		
+        document.querySelector('#useravatar').src = "";
+        document.querySelector('#useravatar').style.display = "none";
+
     }
-	
-	document.getElementById('useravatar').onmouseover = function () {
-	document.getElementById('useravatar').style.width =  "200px";
-	document.getElementById('useravatar').style.height =  "230px";
-	}
 
-	document.getElementById('useravatar').onmouseout = function () {
-	document.getElementById('useravatar').style.width =  "55px";
-	document.getElementById('useravatar').style.height =  "60px";
-	}
+    document.getElementById('useravatar').onmouseover = function () {
+        document.getElementById('useravatar').style.width = "200px";
+        document.getElementById('useravatar').style.height = "230px";
+    }
+
+    document.getElementById('useravatar').onmouseout = function () {
+        document.getElementById('useravatar').style.width = "55px";
+        document.getElementById('useravatar').style.height = "60px";
+    }
 
 
-// Просмотр таски по джира по ее коду и номеру 
+    // Просмотр таски по джира по ее коду и номеру 
     document.getElementById('getJiraTasks').ondblclick = function () {
-		  if (document.getElementById('AF_Jira').style.display = 'none'){
-				document.getElementById('AF_Jira').style.display = ''
-			}
-			
-			
+        if (document.getElementById('AF_Jira').style.display = 'none') {
+            document.getElementById('AF_Jira').style.display = ''
+        }
+
+
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2435,47 +2486,47 @@ function move_again_AF() {
 				  "mode": "cors",
 				  "credentials": "include"
                }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
         document.getElementById('responseTextarea3').value = 'getissuetable1'
         document.getElementById('sendResponse').click()
 
-       async function getJiraTask1() {
+        async function getJiraTask1() {
             document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q="+document.getElementById('testJira').value;
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
             document.getElementById('responseTextarea3').value = 'getissuetable1'
             document.getElementById('sendResponse').click()
 
-		
+
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
-			rezissuetable = await rezissuetable;
-			document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
-            if (rezissuetable != null){
+            rezissuetable = await rezissuetable;
+            document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
+            if (rezissuetable != null) {
                 let issues = [];
-				issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
-            
+                issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
+
                 document.getElementById('issuetable').innerHTML = issues;
-				
-				let barray = document.querySelector('.jiraissues');
-				barray.onclick = function() {
-					sendComment(rezissuetable[0].items[0].url)
-				}
+
+                let barray = document.querySelector('.jiraissues');
+                barray.onclick = function () {
+                    sendComment(rezissuetable[0].items[0].url)
+                }
 
                 setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
-			}
+            }
         }
 
         setTimeout(getJiraTask1, 1000)
     }
-	
 
-	
-	    document.getElementById('getJiraTasks').onclick = function () {
-			
-                       if (document.getElementById('AF_Jira').style.display = 'none'){
-				document.getElementById('AF_Jira').style.display = ''
-			}
-			
-			
+
+
+    document.getElementById('getJiraTasks').onclick = function () {
+
+        if (document.getElementById('AF_Jira').style.display = 'none') {
+            document.getElementById('AF_Jira').style.display = ''
+        }
+
+
         let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
@@ -2496,14 +2547,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'getissuetable'
         document.getElementById('sendResponse').click()
 
-      async function getJiraTask() {
+        async function getJiraTask() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
             document.getElementById('responseTextarea3').value = ''
             document.getElementById('sendResponse').click()
 
             rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-			rezissuetable = await rezissuetable;
+            rezissuetable = await rezissuetable;
             if (rezissuetable == null)
                 setTimeout(getJiraTask, 1000)
             else {
@@ -2555,7 +2606,7 @@ function move_again_AF() {
                             document.getElementById('sendResponse').click()
 
                             let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
-							repcount = await repcount;
+                            repcount = await repcount;
                             jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
                             document.getElementById('responseTextarea1').removeAttribute('reportscount')
 
@@ -2563,7 +2614,7 @@ function move_again_AF() {
                             count = parseInt(count);
                             increasedcount = count + 1;
                             increasedcount = increasedcount.toString();
-                            console.log("count=" + count + " increasedcount " + increasedcount);                           
+                            console.log("count=" + count + " increasedcount " + increasedcount);
 
                             setTimeout(function () {
 
@@ -2585,7 +2636,7 @@ function move_again_AF() {
                                 document.getElementById('sendResponse').click()
                                 let newinfocount = document.querySelectorAll('.newcount');
                                 newinfocount[f].innerHTML = increasedcount;
-                                increasedcount="";
+                                increasedcount = "";
                             }, 1000);
                         }, 1000)
                     }
@@ -2599,8 +2650,8 @@ function move_again_AF() {
 
         setTimeout(getJiraTask, 1000)
     }
-	
-	let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
+
+    let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
     searchJiraByEnter.addEventListener('keydown', event => {
         if (event.key === "Enter") {
             document.querySelector('#getJiraTasks').click()
@@ -2704,7 +2755,7 @@ function move_again_AF() {
             document.getElementById('set_bar').style.display = 'none'
         else {
             document.getElementById('set_bar').style.display = ''
-            document.getElementById('addTmp').style.display = 'none'            
+            document.getElementById('addTmp').style.display = 'none'
         }
     }
 
@@ -3294,7 +3345,7 @@ function refreshTemplates() {
     } document.getElementById('0page').ondblclick = function () {
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
-            document.getElementById('set_bar').style.display = 'none'        
+            document.getElementById('set_bar').style.display = 'none'
         }
         else
             document.getElementById('addTmp').style.display = 'none';
@@ -3984,12 +4035,12 @@ function startTimer() {
 
     if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
-		btn1.id = 'continue_chat_button'
+        btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
         btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
         btn1.setAttribute('onClick', 'newTaggg("untargeted");')
 
-		let btn2 = document.createElement('span');
+        let btn2 = document.createElement('span');
         btn2.id = 'operatormistake'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
         btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
@@ -4041,9 +4092,9 @@ function startTimer() {
         btn10.id = 'ishod'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
         btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
-        btn10.setAttribute('onClick', 'sendComment("#Передача на исход");')    
+        btn10.setAttribute('onClick', 'sendComment("#Передача на исход");')
 
-		let btn11 = document.createElement('span');
+        let btn11 = document.createElement('span');
         btn11.id = 'operatormistake'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
         btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Не помогли</a>';
@@ -4071,26 +4122,26 @@ function newTaggg(tagName) {
 function addbuttonsintegration() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
-			let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
-			//let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
+            let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
+            //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
-			for (let i=0; i < categorylist.length;i++) {
-			 if(categorylist[i].innerText == "Техподдержка исход crm2") {
-            	categorylist[i].style.color ="red";
-            	categorylist[i].style.fontWeight =600;
-               categorylist[i].style.textShadow ="1px 1px 1px black, 0 0 1em red"; 
-            } else if (categorylist[i].innerText == "Техподдержка 2-я линия crm2") {
-            	categorylist[i].style.color ="green";
-            	categorylist[i].style.fontWeight =600;
-				categorylist[i].style.textShadow ="1px 1px 1px black, 0 0 1em green"; 
-            } else {
-				categorylist[i].style.color ="black";
-				categorylist[i].style.fontWeight =400;
-                categorylist[i].style.textShadow ="0px 0px 0px black, 0 0 1em grey"; 
-				}
-			}
+            for (let i = 0; i < categorylist.length; i++) {
+                if (categorylist[i].innerText == "Техподдержка исход crm2") {
+                    categorylist[i].style.color = "red";
+                    categorylist[i].style.fontWeight = 600;
+                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em red";
+                } else if (categorylist[i].innerText == "Техподдержка 2-я линия crm2") {
+                    categorylist[i].style.color = "green";
+                    categorylist[i].style.fontWeight = 600;
+                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em green";
+                } else {
+                    categorylist[i].style.color = "black";
+                    categorylist[i].style.fontWeight = 400;
+                    categorylist[i].style.textShadow = "0px 0px 0px black, 0 0 1em grey";
+                }
+            }
         }
     }
 }
@@ -4147,37 +4198,37 @@ function timerHideButtons() {
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
             let selectorList = document.querySelectorAll('.sc-fzpans');
-                if (selectorList.length > 5) {
-                    for (let i = 0; i < selectorList.length; i++) {
-                        if (selectorList[i].innerText == "Техподдержка исход crm2")
-                            selectorList[i].style.backgroundColor = 'red'
-                        if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
-                            selectorList[i].style.backgroundColor = 'green'
+            if (selectorList.length > 5) {
+                for (let i = 0; i < selectorList.length; i++) {
+                    if (selectorList[i].innerText == "Техподдержка исход crm2")
+                        selectorList[i].style.backgroundColor = 'red'
+                    if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
+                        selectorList[i].style.backgroundColor = 'green'
+                }
+            }
+            document.querySelectorAll('.ant-btn-primary')[1].onclick = function () { // добавление заметки куда создана задача
+                let chechkvar = document.querySelectorAll('.ant-form-item-control-input-content');
+                for (let i = 0; i < chechkvar.length; i++) {
+                    if (chechkvar[i].innerText == "Техподдержка исход crm2") {
+                        sendComment("Задача создана на Техподдержка исход crm2");
+                    } else if (chechkvar[i].innerText == "Техподдержка 2-я линия crm2") {
+                        sendComment("Задача создана на Техподдержка 2-я линия crm2");
+                    } else if (chechkvar[i].innerText == "Skyes") {
+                        sendComment("Задача создана на Skyes");
+                    } else if (chechkvar[i].innerText == "Teachers Care crm2") {
+                        sendComment("Задача создана на Teachers Care crm2");
+                    } else if (chechkvar[i].innerText == "Вопросы эссе (UTC crm2)") {
+                        sendComment("Задача создана на Вопросы эссе (UTC crm2)");
+                    } else if (chechkvar[i].innerText == "Кризис менеджеры") {
+                        sendComment("Задача создана на Кризис менеджеры");
+                    } else if (chechkvar[i].innerText == "Teachers support") {
+                        sendComment("Задача создана на Teachers support");
+                    } else if (chechkvar[i].innerText == "Контент") {
+                        sendComment("Задача создана на Контент");
+                    } else if (chechkvar[i].innerText == "Словарь") {
+                        sendComment("Задача создана на Словарь");
                     }
                 }
-            document.querySelectorAll('.ant-btn-primary')[1].onclick = function () { // добавление заметки куда создана задача
-			let chechkvar = document.querySelectorAll('.ant-form-item-control-input-content');
-                for (let i=0; i < chechkvar.length;i++) {
-			 if(chechkvar[i].innerText == "Техподдержка исход crm2") {
-                sendComment("Задача создана на Техподдержка исход crm2");
-			 } else if (chechkvar[i].innerText == "Техподдержка 2-я линия crm2") {
-				sendComment("Задача создана на Техподдержка 2-я линия crm2");
-			 } else if (chechkvar[i].innerText == "Skyes") { 
-				sendComment("Задача создана на Skyes");
-            } else if (chechkvar[i].innerText == "Teachers Care crm2") {
-				sendComment("Задача создана на Teachers Care crm2");
-            } else if (chechkvar[i].innerText == "Вопросы эссе (UTC crm2)") { 
-				sendComment("Задача создана на Вопросы эссе (UTC crm2)");
-            } else if (chechkvar[i].innerText == "Кризис менеджеры") { 
-				sendComment("Задача создана на Кризис менеджеры");
-            } else if (chechkvar[i].innerText == "Teachers support") { 
-				sendComment("Задача создана на Teachers support");
-            } else if (chechkvar[i].innerText == "Контент")  {
-				sendComment("Задача создана на Контент");
-            } else if (chechkvar[i].innerText == "Словарь") {
-				sendComment("Задача создана на Словарь");
-				}
-			}
             }
         }
     }
@@ -5598,7 +5649,7 @@ function firstLoadPage() {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
-		    btnAdd1.insertBefore(butServ, btnAdd1.children[1])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[1])
         }, 2000)
 
         setInterval(startTimer, 1000)
@@ -5684,7 +5735,7 @@ function toUTF8Array(str) {
     }
     return utf8;
 }
- 
+
 function decToHex(dec) {
     var hexStr = '0123456789ABCDEF';
     var low = dec % 16;
