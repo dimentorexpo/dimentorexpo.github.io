@@ -1626,7 +1626,11 @@ function move_again_AF() {
                     pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
                 } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
                     pastlessoninfo.data[i].educationService.serviceTypeKey = "Математика"
+                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
+                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
                 }
+
+
 
                 if (pastlessoninfo.data[i].teacher != null) {
                     pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
@@ -1644,7 +1648,7 @@ function move_again_AF() {
             }
 
             document.getElementById('timetabledata').innerHTML = pastlessondata;
-
+            pastlessondata = "";
 
         }, 1000)
 
@@ -1724,6 +1728,8 @@ function move_again_AF() {
                     futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
                 } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
                     futurelessoninfo.data[i].educationService.serviceTypeKey = "Математика"
+                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
+                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
                 }
 
 
@@ -1743,7 +1749,7 @@ function move_again_AF() {
             }
 
             document.getElementById('timetabledata').innerHTML = futurelessondata;
-
+            futurelessondata = "";
 
         }, 1000)
 
