@@ -1596,10 +1596,34 @@ function move_again_AF() {
                 } else {
                     mesacok = d.getMonth() + 1;
                 }
-                pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
-                    " Статус: " + pastlessoninfo.data[i].status + " Урок: " + pastlessoninfo.data[i].lessonType + '<br>'
-                    + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
-                    + '<span style="color:#32CD32; font-weight:900;">Преподаватель</span>' + " " + pastlessoninfo.data[i].teacher.general.id + " " + pastlessoninfo.data[i].teacher.general.name + " " + pastlessoninfo.data[i].teacher.general.surname + '<br>';
+                if (pastlessoninfo.data[i].status == "missed_by_student") {
+                    pastlessoninfo.data[i].status = "Пропущен учеником"
+                } else if (pastlessoninfo.data[i].status == "canceled_by_student") {
+                    pastlessoninfo.data[i].status = "Отменен учеником"
+                } else if (pastlessoninfo.data[i].status == "success") {
+                    pastlessoninfo.data[i].status = "Прошел"
+                } else if (pastlessoninfo.data[i].status == "moved_by_student") {
+                    pastlessoninfo.data[i].status = "Перенесен учеником"
+                } else if (pastlessoninfo.data[i].status == "canceled_by_teacher") {
+                    pastlessoninfo.data[i].status = "Отменен учителем"
+                }
+                if (pastlessoninfo.data[i].lessonType == "regular") {
+                    pastlessoninfo.data[i].lessonType = "Регулярный"
+                } else if (pastlessoninfo.data[i].lessonType == "single") {
+                    pastlessoninfo.data[i].lessonType = "Одиночный"
+                } else if (pastlessoninfo.data[i].lessonType == "trial") {
+                    pastlessoninfo.data[i].lessonType == "Пробный"
+                }
+                if (pastlessoninfo.data[i].teacher != null) {
+                    pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
+                        '<span style="color:#00FF7F; font-weight:900;"> Статус: </span>' + pastlessoninfo.data[i].status + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + pastlessoninfo.data[i].lessonType + '<br>'
+                        + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
+                        + '<span style="color:#32CD32; font-weight:900;">Преподаватель</span>' + " " + pastlessoninfo.data[i].teacher.general.id + " " + pastlessoninfo.data[i].teacher.general.name + " " + pastlessoninfo.data[i].teacher.general.surname + '<br>';
+                } else {
+                    pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
+                        '<span style="color:#00FF7F; font-weight:900;"> Статус: </span>' + pastlessoninfo.data[i].status + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + pastlessoninfo.data[i].lessonType + '<br>'
+                        + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>';
+                }
 
             }
 
