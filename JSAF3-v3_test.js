@@ -372,7 +372,6 @@ var win_Timetable = //
                 <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
                      <button title="Выводит инфо о прошедших уроках" id="getlessonpast">Прошедшие уроки</button>
                      <button title="Выводит инфо о предстоящих уроках" id="getlessonfuture">Предстоящие уроки</button>
-                     <button title="Выводит инфо суммарной статистики" id="getlessonstat">Статистика</button>
                  </div>
                  </span>
                 <div id="timetableinfo">
@@ -1607,6 +1606,7 @@ function move_again_AF() {
                 } else if (pastlessoninfo.data[i].status == "canceled_by_teacher") {
                     pastlessoninfo.data[i].status = "Отменен учителем";
                 }
+
                 if (pastlessoninfo.data[i].lessonType == "regular") {
                     pastlessoninfo.data[i].lessonType = "Регулярный";
                 } else if (pastlessoninfo.data[i].lessonType == "single") {
@@ -1614,6 +1614,19 @@ function move_again_AF() {
                 } else if (pastlessoninfo.data[i].lessonType == "trial") {
                     pastlessoninfo.data[i].lessonType = "Пробный";
                 }
+
+                if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
+                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
+                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
+                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
+                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
+                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
+                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
+                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
+                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
+                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Математика"
+                }
+
                 if (pastlessoninfo.data[i].teacher != null) {
                     pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
                         '<span style="color:#00FF7F; font-weight:900;"> Статус: </span>' + pastlessoninfo.data[i].status + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + pastlessoninfo.data[i].lessonType + '<br>'
@@ -1640,11 +1653,6 @@ function move_again_AF() {
     //document.getElementById('getlessonfuture').onclick = function () {
 
     //}
-
-    //document.getElementById('getlessonstat').onclick = function () {
-
-    // }
-
 
     document.getElementById('changelocalelng').onclick = function () {
 
@@ -5323,13 +5331,6 @@ function customTemplates(language = '') {
         }
     }
 }
-
-function getLessonStatus() {
-
-    getlessonstatus
-
-}
-
 
 async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
