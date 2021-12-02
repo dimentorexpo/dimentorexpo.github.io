@@ -111,10 +111,7 @@ var win_AFhelper =  // описание элементов главного ок
 				</p>
 			</div>
 			
-			<div style="margin: 5px; width: 300px" id="testDiv">
-				<button id="takeNewChat">Взять чат</button>
-				<p style="color:white; margin:0 0 5px 0;" id="howManyChats"></p>
-			</div>
+
 		</div>
 		
 	</span>
@@ -2680,8 +2677,6 @@ function move_again_AF() {
         document.getElementById('snd').style.marginLeft = '120px'
         document.getElementById('msg1').innerHTML = 'Доработать'
         document.getElementById('testUsers').style.display = 'none'
-        document.getElementById('takeNewChat').style.display = 'none'
-        document.getElementById('howManyChats').style.display = 'none'
     } else {
         prepTp()
     }
@@ -2702,9 +2697,7 @@ function move_again_AF() {
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
-    document.getElementById('takeNewChat').onclick = function () {
-        getNewChat()
-    }
+
 
     document.getElementById('setting').onclick = function () {
         if (document.getElementById('set_bar').style.display == '')
@@ -3003,20 +2996,6 @@ function move_again_AF() {
     }
     if (localStorage.getItem('msg1') != null) {
         document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
-    }
-
-    if (localStorage.getItem('includeTestDiv') != null) {
-        document.getElementById('testDiv').style.display = ''
-
-        setInterval(function () {
-            if (document.getElementById('howManyChats').style.display == "")
-                if (document.getElementsByClassName('user_menu-status-name')[0].innerText == "Занят")
-                    getNewChat(1)
-                else
-                    document.getElementById('howManyChats').innerHTML = ""
-        }, 10000)
-    } else {
-        document.getElementById('testDiv').style.display = 'none'
     }
 
     getText()
@@ -5539,8 +5518,6 @@ function prepTp() {
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '41px'
     document.getElementById('testUsers').style.display = ''
-    document.getElementById('takeNewChat').style.display = ''
-    document.getElementById('howManyChats').style.display = ''
     flagLangBut = 1
     customTemplates()
     whoAmI()
