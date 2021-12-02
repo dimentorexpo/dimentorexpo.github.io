@@ -1544,7 +1544,7 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('getlessonpast').onclick = async function () {
+    document.getElementById('getlessonpast').onclick = function () {
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
@@ -1567,14 +1567,13 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
         document.getElementById('sendResponse').click()
 
-        setTimeout(async function () {
+        setTimeout(function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
             document.getElementById('responseTextarea3').value = 'pastlessoninfo'
             document.getElementById('sendResponse').click()
 
             pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
-            pastlessoninfo = await pastlessoninfo;
             pastlessoninfo = JSON.parse(pastlessoninfo);
             document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
             for (let i = 0; i < pastlessoninfo.data.length; i++) {
