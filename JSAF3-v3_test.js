@@ -1630,7 +1630,7 @@ function move_again_AF() {
             document.getElementById('timetabledata').innerHTML = pastlessondata;
 
 
-        }, 600)
+        }, 1000)
 
 
     }
