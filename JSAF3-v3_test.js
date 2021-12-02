@@ -1580,7 +1580,7 @@ function move_again_AF() {
                 let d = new Date(pastlessoninfo.data[i].startedAt)
                 let minutka;
                 let denek;
-                let = mesacok;
+                let mesacok;
                 if (d.getMinutes() < 10) {
                     minutka = "0" + d.getMinutes();
                 } else {
@@ -1594,7 +1594,7 @@ function move_again_AF() {
                 if (d.getMonth() + 1 < 10) {
                     mesacok = "0" + (d.getMonth() + 1);
                 } else {
-                    mesacok = d.getMonth();
+                    mesacok = d.getMonth() + 1;
                 }
                 pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
                     " Статус: " + pastlessoninfo.data[i].status + " Урок: " + pastlessoninfo.data[i].lessonType + '<br>'
