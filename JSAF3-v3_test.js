@@ -372,6 +372,7 @@ var win_Timetable = //
                 <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
                      <button title="Выводит инфо о прошедших уроках" id="getlessonpast">Прошедшие уроки</button>
                      <button title="Выводит инфо о предстоящих уроках" id="getlessonfuture">Предстоящие уроки</button>
+                     <button title="Выводит инфо суммарной статистики" id="getlessonstat">Статистика</button>
                  </div>
 
                 <div id="timetableinfo">
