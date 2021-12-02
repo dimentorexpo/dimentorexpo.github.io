@@ -1568,7 +1568,7 @@ function move_again_AF() {
             document.getElementById('sendResponse').click()
 
             servicearray = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
-            servicearray = JSON.parse(pastlessoninfo);
+            servicearray = JSON.parse(servicearray);
             document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
 
         }, 1000)
