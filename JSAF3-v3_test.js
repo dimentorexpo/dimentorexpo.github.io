@@ -1418,7 +1418,7 @@ function move_again_AF() {
     let commonidentity;
     let emailidentity;
     let phoneidentity;
-    function checkemailandphoneidentity() {
+    async function checkemailandphoneidentity() {
         document.getElementById('responseTextarea1').value = `{
 				  "headers": {
 					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -1439,13 +1439,14 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update"
             document.getElementById('responseTextarea3').value = 'responseupdate'
             document.getElementById('sendResponse').click()
 
             commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+            commonidentity = await commonidentity;
 
             if (commonidentity.match(/isPhoneUsedAsIdentity.*(checked)/) != null && commonidentity.match(/isEmailUsedAsIdentity.*(checked)/) != null) {
                 emailidentity = "📧✔";
