@@ -1576,6 +1576,8 @@ function move_again_AF() {
 
     }
 
+    getservicearr();
+
     document.getElementById('getlessonpast').onclick = function () {
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
@@ -1655,19 +1657,23 @@ function move_again_AF() {
                     pastlessoninfo.data[i].lessonType = "Пробный";
                 }
 
-                if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
-                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
-                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
-                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
-                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
-                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
-                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
-                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
-                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
-                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Математика"
-                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
-                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
+                for (let j = 0; j < servicearray.data.length; j++) {
+                    if (servicearray.data[j].serviceTypeKey == pastlessoninfo.data[i].educationService.serviceTypeKey)
+                        pastlessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
                 }
+                /*                 if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
+                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
+                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
+                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
+                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
+                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
+                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
+                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
+                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
+                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Математика"
+                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
+                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
+                                } */
 
 
 
@@ -1763,19 +1769,24 @@ function move_again_AF() {
                     futurelessoninfo.data[i].lessonType = "Пробный";
                 }
 
-                if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
-                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
-                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
-                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
-                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
-                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
-                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
-                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
-                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
-                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Математика"
-                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
-                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
+                for (let j = 0; j < servicearray.data.length; j++) {
+                    if (servicearray.data[j].serviceTypeKey == futurelessoninfo.data[i].educationService.serviceTypeKey)
+                        futurelessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
                 }
+
+                /*                 if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
+                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
+                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
+                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
+                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
+                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
+                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
+                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
+                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
+                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Математика"
+                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
+                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
+                                } */
 
 
                 if (futurelessoninfo.data[i].teacher != null) {
@@ -2941,7 +2952,6 @@ function move_again_AF() {
             document.getElementById('AF_Timetable').style.display = 'none'
         else
             document.getElementById('AF_Timetable').style.display = ''
-        getservicearr();
     }
 
     document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
