@@ -1542,6 +1542,8 @@ function move_again_AF() {
     }
 
     document.getElementById('getlessonpast').onclick = async function () {
+        let stid = document.getElementById('idstudent').value;
+        stid = stid.trim();
         let getpastlessoninfo;
         let pastlessondata;
         document.getElementById('responseTextarea1').value = `{
