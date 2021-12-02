@@ -1597,22 +1597,22 @@ function move_again_AF() {
                     mesacok = d.getMonth() + 1;
                 }
                 if (pastlessoninfo.data[i].status == "missed_by_student") {
-                    pastlessoninfo.data[i].status = "Пропущен учеником"
+                    pastlessoninfo.data[i].status = "Пропущен учеником";
                 } else if (pastlessoninfo.data[i].status == "canceled_by_student") {
-                    pastlessoninfo.data[i].status = "Отменен учеником"
+                    pastlessoninfo.data[i].status = "Отменен учеником";
                 } else if (pastlessoninfo.data[i].status == "success") {
-                    pastlessoninfo.data[i].status = "Прошел"
+                    pastlessoninfo.data[i].status = "Прошел";
                 } else if (pastlessoninfo.data[i].status == "moved_by_student") {
-                    pastlessoninfo.data[i].status = "Перенесен учеником"
+                    pastlessoninfo.data[i].status = "Перенесен учеником";
                 } else if (pastlessoninfo.data[i].status == "canceled_by_teacher") {
-                    pastlessoninfo.data[i].status = "Отменен учителем"
+                    pastlessoninfo.data[i].status = "Отменен учителем";
                 }
                 if (pastlessoninfo.data[i].lessonType == "regular") {
-                    pastlessoninfo.data[i].lessonType = "Регулярный"
+                    pastlessoninfo.data[i].lessonType = "Регулярный";
                 } else if (pastlessoninfo.data[i].lessonType == "single") {
-                    pastlessoninfo.data[i].lessonType = "Одиночный"
+                    pastlessoninfo.data[i].lessonType = "Одиночный";
                 } else if (pastlessoninfo.data[i].lessonType == "trial") {
-                    pastlessoninfo.data[i].lessonType == "Пробный"
+                    pastlessoninfo.data[i].lessonType == "Пробный";
                 }
                 if (pastlessoninfo.data[i].teacher != null) {
                     pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
