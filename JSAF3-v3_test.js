@@ -1591,7 +1591,7 @@ function move_again_AF() {
                 }
                 pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + denek + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
                     " Статус: " + pastlessoninfo.data[i].status + " Урок: " + pastlessoninfo.data[i].lessonType + '<br>'
-                    + "Услуга: " + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>' + "Преподаватель " + + Object.values(pastlessoninfo.data[i].teacher.general) + '<br>';
+                    + "Услуга: " + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>' + "Преподаватель " + Object.values(pastlessoninfo.data[i].teacher.general) + '<br>';
 
             }
 
