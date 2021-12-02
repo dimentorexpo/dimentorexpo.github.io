@@ -1544,8 +1544,7 @@ function move_again_AF() {
     document.getElementById('getlessonpast').onclick = async function () {
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
-        let getpastlessoninfo;
-        let pastlessondata;
+        let pastlessondata = "";
         document.getElementById('responseTextarea1').value = `{
             "headers": {
                 "accept": "application/json, text/plain, */*",
@@ -1561,33 +1560,49 @@ function move_again_AF() {
               "credentials": "include"
        }`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-        document.getElementById('responseTextarea3').value = 'getpastlessoninfo'
+        document.getElementById('responseTextarea3').value = 'pastlessoninfo'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-            document.getElementById('responseTextarea3').value = 'getpastlessoninfo'
+            document.getElementById('responseTextarea3').value = 'pastlessoninfo'
             document.getElementById('sendResponse').click()
 
-            pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('getpastlessoninfo');
+            pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfo');
             pastlessoninfo = await pastlessoninfo;
             pastlessoninfo = JSON.parse(pastlessoninfo);
-            console.log("Massiv of past lesson" + pastlessoninfo)
-            document.getElementById('responseTextarea1').removeAttribute('getpastlessoninfo')
+            document.getElementById('responseTextarea1').removeAttribute('pastlessoninfo')
+            for (let i = 0; i < pastlessoninfo.data.length; i++) {
+                let d = new Date(pastlessoninfo.data[i].startedAt)
+                let minutka;
+                if (d.getMinutes() < 10) {
+
+                    minutka = "0" + d.getMinutes();
+                } else {
+                    minutka = d.getMinutes();
+                }
+                pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
+                    " Статус: " + pastlessoninfo.data[i].status + " Урок: " + pastlessoninfo.data[i].lessonType + '<br>'
+                    + "Услуга: " + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>';
+
+            }
+
+            document.getElementById('timetabledata').innerHTML = pastlessondata;
+
 
         }, 600)
 
 
     }
 
-    document.getElementById('getlessonfuture').onclick = function () {
+    //document.getElementById('getlessonfuture').onclick = function () {
 
-    }
+    //}
 
-    document.getElementById('getlessonstat').onclick = function () {
+    //document.getElementById('getlessonstat').onclick = function () {
 
-    }
+    // }
 
 
     document.getElementById('changelocalelng').onclick = function () {
