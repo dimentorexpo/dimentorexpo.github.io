@@ -1541,6 +1541,53 @@ function move_again_AF() {
 
     }
 
+    document.getElementById('getlessonpast').onclick = async function () {
+        let getpastlessoninfo;
+        let pastlessondata;
+        document.getElementById('responseTextarea1').value = `{
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
+              },
+              "referrer": "https://crm2.skyeng.ru/",
+              "referrerPolicy": "strict-origin-when-cross-origin",
+              "body": null,
+              "method": "GET",
+              "mode": "cors",
+              "credentials": "include"
+       }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
+        document.getElementById('responseTextarea3').value = 'getpastlessoninfo'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
+            document.getElementById('responseTextarea3').value = 'getpastlessoninfo'
+            document.getElementById('sendResponse').click()
+
+            pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('getpastlessoninfo');
+            pastlessoninfo = await pastlessoninfo;
+            pastlessoninfo = JSON.parse(pastlessoninfo);
+            console.log("Massiv of past lesson" + pastlessoninfo)
+            document.getElementById('responseTextarea1').removeAttribute('getpastlessoninfo')
+
+        }, 600)
+
+
+    }
+
+    document.getElementById('getlessonfuture').onclick = function () {
+
+    }
+
+    document.getElementById('getlessonstat').onclick = function () {
+
+    }
+
+
     document.getElementById('changelocalelng').onclick = function () {
 
         document.getElementById('responseTextarea1').value = `{
