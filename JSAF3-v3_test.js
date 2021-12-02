@@ -2676,6 +2676,13 @@ function move_again_AF() {
         crmoneinfo.value = "";
     }
 
+    document.getElementById('getpastandfuturelessons').onclick = function () {
+        if (document.getElementById('AF_Timetable').style.display == '')
+            document.getElementById('AF_Timetable').style.display = 'none'
+        else
+            document.getElementById('AF_Timetable').style.display = ''
+    }
+
     document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
         let iplink = 'https://check-host.net/ip-info?host=';
         if (iplookup.value == "")
