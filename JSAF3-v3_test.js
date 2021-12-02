@@ -1527,7 +1527,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = 'emailishere'
         document.getElementById('sendResponse').click()
 
-        setTimeout(function () {
+        setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
             document.getElementById('responseTextarea3').value = 'emailishere'
