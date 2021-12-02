@@ -937,6 +937,12 @@ document.getElementById('linksd_kib_box').ondblclick = function () { // скры
 document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
+document.getElementById('HeadTimetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Timetable').style.display = 'none';
+}
+document.getElementById('timetabledata').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_Timetable').style.display = 'none';
+}
 document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
@@ -1647,6 +1653,8 @@ function move_again_AF() {
                     pastlessoninfo.data[i].status = "Перенесен учеником";
                 } else if (pastlessoninfo.data[i].status == "canceled_by_teacher") {
                     pastlessoninfo.data[i].status = "Отменен учителем";
+                } else if (pastlessoninfo.data[i].status == "student_refused_to_study") {
+                    pastlessoninfo.data[i].status = "Отказался от обучения"
                 }
 
                 if (pastlessoninfo.data[i].lessonType == "regular") {
@@ -1661,21 +1669,6 @@ function move_again_AF() {
                     if (servicearray.data[j].serviceTypeKey == pastlessoninfo.data[i].educationService.serviceTypeKey)
                         pastlessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
                 }
-                /*                 if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
-                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
-                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
-                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
-                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
-                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
-                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
-                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
-                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
-                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Математика"
-                                } else if (pastlessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
-                                    pastlessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
-                                } */
-
-
 
                 if (pastlessoninfo.data[i].teacher != null) {
                     pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka +
@@ -1773,21 +1766,6 @@ function move_again_AF() {
                     if (servicearray.data[j].serviceTypeKey == futurelessoninfo.data[i].educationService.serviceTypeKey)
                         futurelessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
                 }
-
-                /*                 if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_not_native_speaker") {
-                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский РЯ П "
-                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_adult_native_speaker") {
-                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Взрослый Английский АЯ П"
-                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_native_speaker") {
-                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский АЯ П"
-                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "english_junior_not_native_speaker") {
-                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Детский Английский РЯ П"
-                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "mathematics_kids") {
-                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Математика"
-                                } else if (futurelessoninfo.data[i].educationService.serviceTypeKey == "flow_math_kids") {
-                                    futurelessoninfo.data[i].educationService.serviceTypeKey = "Потоковая математика"
-                                } */
-
 
                 if (futurelessoninfo.data[i].teacher != null) {
                     futurelessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka
@@ -2322,6 +2300,7 @@ function move_again_AF() {
 
     let convid;
     document.getElementById('getidstudent').onclick = function () {
+        document.getElementById('servicetable').innerHTML = "";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
             document.querySelector('#useravatar').style.display = "none";
@@ -2383,6 +2362,11 @@ function move_again_AF() {
                     arrservice = null;
                 } else {
                     for (let i = 0; i < servicearr.data.length; i++) {
+                        for (let d = 0; d < servicearray.data.length; d++) {
+                            if (servicearray.data[d].serviceTypeKey == servicearr.data[i].serviceTypeKey)
+                                servicearr.data[i].serviceTypeKey = servicearray.data[d].title;
+                        }
+
                         if (servicearr.data[i].student.general.id == stid && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher == null) {
 
                             tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
@@ -2435,6 +2419,7 @@ function move_again_AF() {
                     document.getElementById('getcrmoneinfo').style.display = "";
                     document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
+                    document.getElementById('getpastandfuturelessons').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
 
@@ -2453,6 +2438,7 @@ function move_again_AF() {
                     document.getElementById('getcrmoneinfo').style.display = "";
                     document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
+                    document.getElementById('getpastandfuturelessons').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
 
@@ -2471,6 +2457,7 @@ function move_again_AF() {
                     document.getElementById('getcrmoneinfo').style.display = "";
                     document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
+                    document.getElementById('getpastandfuturelessons').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
 
@@ -2485,15 +2472,16 @@ function move_again_AF() {
                     document.getElementById('getcrmoneinfo').style.display = "none";
                     document.getElementById('getkglinfokid').style.display = "none";
                     document.getElementById('partialpaymentinfo').style.display = "none";
+                    document.getElementById('getpastandfuturelessons').style.display = "none";
                     document.getElementById('newtrm').style.display = "";
                     document.getElementById('personalteacherpage').style.display = "";
 
                 } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
-                    document.getElementById('checkbalance').style.display = "";
+                    document.getElementById('checkbalance').style.display = "none";
                     document.getElementById('getcrmoneinfo').style.display = "";
-                    document.getElementById('getkglinfokid').style.display = "";
-                    document.getElementById('partialpaymentinfo').style.display = "";
+                    document.getElementById('getkglinfokid').style.display = "none";
+                    document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
 
@@ -3081,6 +3069,13 @@ function move_again_AF() {
             document.getElementById('AF_Jira').style.display = 'none'
         else
             document.getElementById('AF_Jira').style.display = ''
+    }
+
+    document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Timetable').style.display == '')
+            document.getElementById('AF_Timetable').style.display = 'none'
+        else
+            document.getElementById('AF_Timetable').style.display = ''
     }
 
     document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
