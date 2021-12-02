@@ -1580,6 +1580,7 @@ function move_again_AF() {
                 let d = new Date(pastlessoninfo.data[i].startedAt)
                 let minutka;
                 let denek;
+                let = mesacok;
                 if (d.getMinutes() < 10) {
                     minutka = "0" + d.getMinutes();
                 } else {
@@ -1588,12 +1589,16 @@ function move_again_AF() {
                 if (d.getDate() < 10) {
                     denek = "0" + d.getDate();
                 } else {
-                    denetk = d.getDate();
+                    denek = d.getDate();
                 }
-                pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + denek + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
+                if (d.getMonth() + 1 < 10) {
+                    mesacok = "0" + (d.getMonth() + 1);
+                } else {
+                    mesacok = d.getMonth();
+                }
+                pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + "Дата: " + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka +
                     " Статус: " + pastlessoninfo.data[i].status + " Урок: " + pastlessoninfo.data[i].lessonType + '<br>'
-                    + "Услуга: " + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
-                    + "Преподаватель " + pastlessoninfo.data[i].teacher.general.id + " " + pastlessoninfo.data[i].teacher.general.name + " " + pastlessoninfo.data[i].teacher.general.surname + " " + '<br>';
+                    + "Услуга: " + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>';
 
             }
 
