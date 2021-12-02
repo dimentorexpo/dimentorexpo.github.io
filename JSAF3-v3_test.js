@@ -1728,13 +1728,13 @@ function move_again_AF() {
 
 
                 if (futurelessoninfo.data[i].teacher != null) {
-                    futurelessoninfo += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka
+                    futurelessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka
                         + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
                         + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
                         + '<span style="color:#32CD32; font-weight:900;">Преподаватель</span>' + " " + pastlessoninfo.data[i].teacher.general.id + " " + futurelessoninfo.data[i].teacher.general.name + " " + futurelessoninfo.data[i].teacher.general.surname + '<br>'
                         + '<hr style="width:520px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
                 } else {
-                    futurelessoninfo += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka
+                    futurelessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + (d.getUTCHours() + 3) + ":" + minutka
                         + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
                         + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
                         + '<hr style="width:520px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
@@ -1742,7 +1742,7 @@ function move_again_AF() {
 
             }
 
-            document.getElementById('timetabledata').innerHTML = futurelessoninfo;
+            document.getElementById('timetabledata').innerHTML = futurelessondata;
 
 
         }, 1000)
