@@ -1567,9 +1567,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'arrayofservices'
             document.getElementById('sendResponse').click()
 
-            servicearray = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
+            servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
             servicearray = JSON.parse(servicearray);
-            document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
+            document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
         }, 1000)
 
