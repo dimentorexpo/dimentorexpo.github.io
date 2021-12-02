@@ -1576,10 +1576,6 @@ function move_again_AF() {
 
     }
 
-    getservicearr();
-
-    console.log("Testim array" + servicearray)
-
     document.getElementById('getlessonpast').onclick = function () {
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
@@ -2945,6 +2941,7 @@ function move_again_AF() {
             document.getElementById('AF_Timetable').style.display = 'none'
         else
             document.getElementById('AF_Timetable').style.display = ''
+        getservicearr();
     }
 
     document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
