@@ -1660,6 +1660,10 @@ function move_again_AF() {
                         pastlessoninfo.data[i].status = "Отменен учителем";
                     } else if (pastlessoninfo.data[i].status == "student_refused_to_study") {
                         pastlessoninfo.data[i].status = "Отказался от обучения"
+                    } else if (pastlessoninfo.data[i].status == "interrupted") {
+                        pastlessoninfo.data[i].status = "Прерван"
+                    } else if (pastlessoninfo.data[i].status == "did_not_get_through_student") {
+                        pastlessoninfo.data[i].status = "Не смогли связаться с У"
                     }
 
                     if (pastlessoninfo.data[i].lessonType == "regular") {
