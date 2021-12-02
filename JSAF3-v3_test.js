@@ -4118,7 +4118,7 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 let getidusrteachreq;
-buttonsetteacheridtouserfield.addEventListener('click', async function () {
+buttonsetteacheridtouserfield.addEventListener('click', function () {
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -4133,7 +4133,7 @@ buttonsetteacheridtouserfield.addEventListener('click', async function () {
 
 
 let getidusrstud;
-buttonsetstudentidandservicetouserfield.addEventListener('click', async function () {
+buttonsetstudentidandservicetouserfield.addEventListener('click', function () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
