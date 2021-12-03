@@ -217,225 +217,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
-					<input id="skipAP" placeholder="ID ус(skipАП)" title="копfunction mystyles() {
-    let mstl = document.createElement('style');
-    document.body.append(mstl);
-    var style = `.win_btn {
-		background-color: #768d87;
-		border-radius: 10px;
-		border: 1px solid #566963;
-		color: #ffffff;
-		font-size: 12px;
-		padding: 3px 2px;
-		margin: -2px 1px;
-	}
-	button {
-		background-color:#768d87;
-		border-radius:5px; 
-		border:1px solid #566963; 
-		color:#ffffff; 
-		padding:2px 2px;
-	}
-	button:hover {
-		background: #6A5ACD;
-	}
-	.switch-btn {
-		display: inline-block;
-		width: 62px; /* ширина переключателя */
-		height: 24px; /* высота переключателя */
-		border-radius: 12px; /* радиус скругления */
-		background: #bfbfbf; /* цвет фона */
-		z-index: 0;
-		margin: 0;
-		padding: 0;
-		border: none;
-		cursor: pointer;
-		position: relative;
-		transition-duration: 300ms; /* анимация */
-	}
-	.switch-btn::after {
-		content: "";
-		height: 36px; /* высота кнопки */
-		width: 36px; /* ширина кнопки */
-		border-radius: 18px; /* радиус кнопки */
-		background: #fff; /* цвет кнопки */
-		top: -6px; /* положение кнопки по вертикали относительно основы */
-		left: -6px; /* положение кнопки по горизонтали относительно основы */
-		transition-duration: 300ms; /* анимация */
-		box-shadow: 0 0 10px 0 #999999; /* тень */
-		position: absolute;
-		z-index: 1;
-	}
-	.switch-on {
-		background: #fff;
-		box-shadow: inset 0 0 10px 0 #999999; /* тень */
-	}
-	.switch-on::after {
-		left: 30px;
-		background: #118c4e;
-	}`
-    mstl.innerHTML = style;
-}
-
-var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; width: 351px;">
-        <span style="width: 351px">
-			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
-					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
-					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:16px; float: right; margin-right: 5px">S</button>
-					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
-					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
-					<div id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
-					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
-                    <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
-				</div>
-			
-				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
-				</div>
-			</span>
-			<div style="margin: 5px;" id="6str">
-			</div>
-			<div style="margin: 5px;" id="7str">
-				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left:41px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:100px; margin-left:41px">Заметки</button>
-			</div>
-		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
-			<div style="margin: 5px; width: 350px">
-			</div>
-		</div>
-	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
-			<div style="margin: 5px; width: 350px">
-				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
-				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
-				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
-				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Убрать окно с Info</label>
-				<br>
-				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-				<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
-				<br>
-				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
-				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
-			</div>
-				
-			<div style="margin: 5px; width: 350px">
-				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
-				<button title="Переключает на другой документ с шаблонами без иконок возле имен кнопок. После нажатия обновите страницу для применения изменений" id="type_TP">ТП</button>
-				<button title="Переключает на другой документ с шаблонами с иконками возле имен кнопок. После нажатия обновите страницу для применения изменений" id="type_TP_new">ТП*</button>
-				</p>
-			</div>
-			
-
-		</div>
-		
-	</span>
-</div>`;
-
-var win_linksd =  // описание элементов окна доступов
-    `<div style="display: flex; width: 414px;">
-        <span style="width: 414px">
-                <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 409px;" id="linksd_1str">
-                            <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
-                        </div>
-                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
-                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Kibana</p>
-                            <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kibsvidbut">🔎</button>
-                            <input id="kibsvhesh" placeholder="Хэш Summary" title="Вводим Хэш комнаты для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kibsvheshbut">🔎</button>
-                            <input id="kibservhesh" placeholder="Хэш = сервер" title="Вводим Хэш комнаты для определения сервера" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kibservheshbut">🔎</button>
-                            <input id="kibslow" placeholder="Хэш слоу" title="Вводим Хэш комнаты для проверки слоулинков" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kibslowbut">🔎</button>
-                            <input id="kibheshvid" placeholder="Хэш видео" title="Вводим Хэш комнаты для проверки состояния видео" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kibheshvidbut">🔎</button>
-                            <input id="kibstihesh" placeholder="Хэш стрим" title="Вводим Хэш комнаты для проверки срстояния стрима" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kibstiheshbut">🔎</button>
-                            <input id="kiblk" placeholder="ID ЛК" title="Вводим id пользователя для просмотра входа в ЛК" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kiblkbut">🔎</button>
-                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Redash</p>
-                            <input id="mobappid" placeholder="ID mob.app" title="Вводим id пользователя для открытия действий в приложении" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="mobappidbut">🔎</button>
-                            <input id="rpayid" placeholder="ID платежи" title="Вводим id пользователя для открытия лога платежей" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="rpayidbut">🔎</button>   
-                            <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>                       
-                            <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
-                        </div>
-                </span>
-        </span>
-</div>`;
-
-var win_Links =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 550px;">
-        <span style="width: 550px">
-			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 550;" id="links_1str">
-					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button title="Отображает актуальные креды к BrowserStack" id="creds" style="width:50px;">ℹ</button>
-					<button title="Открывает раздел для генерирования одноразового пароля для мобильного приложения" id="passappgen" style="width:50px;">📲</button>
-					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" style="width:50px;">📚</button>
-					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" style="width:50px;">📆</button>
-					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" style="width: 50px;">📋</button>
-                    <button title="Открывает известные баги на платформе" id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
-					<button title="Открывает известные мобильные баги на платформе" id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
-				</div>				
-				<div style="margin: 5px; width: 550px;" id="links_but">
-					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
-					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
-					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
-					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
-					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
-					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
-					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
-					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
-					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button title="Открывает новый TRM 2.0 с инфой о преподавателях" id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
-					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
-					<button title="Открывает форму по аппеляции негативных оценок (<4), если вы считаете их необоснованными" id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
-					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button title="открывает фичи групп для активации связи на ГУ" id="groupfeatures" style="width:105px; margin-top: 3px">Фичи Групп</button>
-					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
-					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
-					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button title="CMS словаря" id="cmswordssearch" style="width:105px; margin-top: 3px">CMS словаря</button>
-					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
-					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
-				</div>	
-				<div style="margin: 5px; width: 550px" id="links_box">
-					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID ГУ(ADM)" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="groupadm">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="sguid">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="credits">🔎</button>
-					<input id="crmoneinfo" placeholder="ID У CRM1" title="вводим ID У, чтобы получить прямую ссылку для просмотра заявки ученика в CRM1" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="gotocrmoneinfo">🔎</button>
-					<input id="iplookup" placeholder="IP У/П/Vimbox" title="вводим IP У/П/Платформы, чтобы получить информацию о месторасположении географического адреса и получения информации о хостинге" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="gotolookip">🔎</button>
-					<input id="lgssearch" placeholder="LGS ID Group" title="Введите ID LGS группы для просмотра информации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getlgsinfo">🔎</button>
-					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="startjirasearch">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="cmsid">🔎</button>
-					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="setservicelocaleru">🚀</button>
-					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
-					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="showcaseHW" style="width: 25.23px;">💾</button>
-					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="gethash" style="width: 25.23px;">💾</button>
-					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getskipAP" style="width: 25.23px;">💾</button>
 					<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
