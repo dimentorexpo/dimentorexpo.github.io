@@ -1584,8 +1584,6 @@ function move_again_AF() {
 
     }
 
-    getservicearr();
-
     document.getElementById('getlessonpast').onclick = function () {
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
@@ -2327,7 +2325,7 @@ function move_again_AF() {
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
 
-
+        getservicearr();
         setTimeout(getunhideemail, 600);
         setTimeout(getunhidephone, 620);
         setTimeout(getusernamecrm, 640);
