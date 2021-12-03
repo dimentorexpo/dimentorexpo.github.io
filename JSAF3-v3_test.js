@@ -2554,7 +2554,7 @@ function move_again_AF() {
 
 
                 if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
-                    let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
+                    let testids = document.querySelector('#servicetable').textContent.match(/(\d+)/gm);
                     let infoiduslugi = document.getElementsByClassName('iduslugitxt');
                     for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
                         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
@@ -2564,7 +2564,7 @@ function move_again_AF() {
                                     if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
                                         // for (let d = 0; d < infoiduslugi.length; d++) {
                                         for (let v = 0; v < testids.length; v++) {
-                                            if (testids[v] == getidusr + ",")
+                                            if (testids[v] == getidusr)
                                                 infoiduslugi[v].innerText = "ID Услуги 🔥";
                                             else
                                                 console.log("Not found") //если услуги не совпали с П обратившимся
