@@ -2319,9 +2319,25 @@ function move_again_AF() {
            console.log(polzid);
            await chatstatus()
            if (!werechats) {
-               alert('Начать чат с пользователем невозможно')
+               //alert('Начать чат с пользователем невозможно');
+               console.log('Начать чат с пользователем невозможно');
            }else {
-               alert(`Чат начат ${polzid} ${operatorId}`);
+                await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}`, {
+                    headers: {
+                    },
+                    referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
+                    referrerPolicy: "strict-origin-when-cross-origin",
+                    body: null,
+                    method: "POST",
+                    mode: "cors",
+                    credentials: "include"
+            })
+                    .then(response => response.json())
+                    .then(data => {
+                        chatId = data.conversationId
+                        console.log(data, chatId)
+                })
+               alert(`Чат начат c ${polzid} ${operatorId}`);
            }
         }
     }
