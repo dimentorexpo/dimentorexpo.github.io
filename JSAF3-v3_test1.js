@@ -2282,7 +2282,7 @@ function move_again_AF() {
         }, 800)
     }
     
-    let werechats = new Boolean(false);    
+    let werechats = false;    
 
     async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
