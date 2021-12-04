@@ -3144,9 +3144,9 @@ function move_again_AF() {
     }
 
     document.getElementById('startnewchat').onclick = function () {
-        if (document.getElementById('idstudent').value = null)
+        if (document.getElementById('idstudent').value = "")
             console.log('введите id');
-    }
+        }
 
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
