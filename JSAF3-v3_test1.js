@@ -290,8 +290,8 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                 <span style="cursor: -webkit-grab;">
                         <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
-                                <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
-                                <button title="Начинает чат с пользователем" id="startnewchat" style="margin: 5px; width:50px;">💬</button>
+                                <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width: 50px;">CRM</button>
+                                <button title="Начинает чат с пользователем" id="startnewchat" style="margin: 5px; width: 25.23px;">💬</button>
                                 <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
@@ -2285,7 +2285,7 @@ function move_again_AF() {
     let werechats = false;
     let chatisopen = "";    
 
-    async function chatstatus() {
+    async function chatstatus() { // проверка наличия чатов в истории и активного чата
         let tempvariable = document.getElementById('idstudent').value;
         tempvariable = tempvariable.trim();
         document.getElementById('ChatStatus').style.display = "none";
@@ -2315,17 +2315,19 @@ function move_again_AF() {
             werechats = false;
     }
 
-    document.getElementById('startnewchat').onclick = async function () {
-        if (operatorId == "")
+    document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
+        if (operatorId == ""){
             await whoAmI()
+        }
         if (document.getElementById('idstudent').value == ""){
-            console.log('Не введен id пользователя')
-        }else {
+            alert('Не введен id пользователя');
+        }
+        else {
            polzid = document.getElementById('idstudent').value.trim();
            console.log(polzid);
            await chatstatus()
            if (!werechats) {
-               alert('Начать чат с пользователем невозможно');
+               alert('Начать чат с пользователем невозможно (пользователь не писал в чат)');
            }else if (chatisopen)
                 alert('Уже есть активный чат');
                 else {
@@ -2344,7 +2346,7 @@ function move_again_AF() {
                         chatId = data.conversationId
                         console.log(data, chatId)
                 })
-                alert(`Чат начат c пользователе ${polzid}`);
+                alert(`Чат начат c пользователем ${polzid}`);
                 chatisopen = '';
                 werechats = false;
            }
@@ -2352,7 +2354,7 @@ function move_again_AF() {
     }
 
     let convid;
-    document.getElementById('getidstudent').onclick = async function () {
+    document.getElementById('getidstudent').onclick = async function () { // нажатие на ракету
         document.getElementById('servicetable').innerHTML = "";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
@@ -2371,17 +2373,14 @@ function move_again_AF() {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
         }
+        await crmstatus()
         await getservicearr()
         await getunhideemail()
         await getunhidephone()
         await getusernamecrm()
         await getuseragecrm()
         await checkemailandphoneidentity()
-        await crmstatus()
-        await getlogginer()
-        //	setTimeout(postuderdatatologin, 760);
-        
-        
+        await getlogginer()        
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
