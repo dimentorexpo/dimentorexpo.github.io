@@ -2304,10 +2304,10 @@ function move_again_AF() {
             "credentials": "include"
         }).then(r => r.json()).then(data => infres = data)
         if (infres.total > 0) {
-            werechats = true
+            werechats = true;
             convid = infres.items[0].conversationId;
         } else if (infres.total == 0) {
-            werechats = false
+            werechats = false;
         }
     }
 
