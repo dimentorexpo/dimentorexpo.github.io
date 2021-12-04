@@ -2282,7 +2282,7 @@ function move_again_AF() {
         }, 800)
     }
     
-    let werechats = new Boolean(false);
+    let werechats = new Boolean(false);    
 
     async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
@@ -2305,6 +2305,7 @@ function move_again_AF() {
         }).then(r => r.json()).then(data => infres = data)
         if (infres.total > 0) {
             werechats = true
+            convid = infres.items[0].conversationId;
         } else if (infres.total == 0) {
             werechats = false
         }
@@ -2345,7 +2346,6 @@ function move_again_AF() {
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
-            convid = infres.items[0].conversationId;
         } else if (!werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
@@ -2731,6 +2731,7 @@ function move_again_AF() {
 
     document.getElementById('clearservinfo').onclick = function () {
         document.getElementById('idstudent').value = "";
+        werechats = false;
         document.getElementById('servicetable').innerHTML = "";
         document.getElementById('ChatStatus').style.display = "none";
         document.getElementById('CrmStatus').style.display = "none";
