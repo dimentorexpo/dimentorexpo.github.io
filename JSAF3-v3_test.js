@@ -2314,6 +2314,7 @@ function move_again_AF() {
 
     let convid;
     document.getElementById('getidstudent').onclick = function () {
+        convid = "";
         document.getElementById('servicetable').innerHTML = "";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
@@ -2722,6 +2723,7 @@ function move_again_AF() {
         document.getElementById('getpastandfuturelessons').style.display = "";
         document.querySelector('#useravatar').src = "";
         document.querySelector('#useravatar').style.display = "none";
+        convid = "";
 
     }
 
