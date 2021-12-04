@@ -3101,7 +3101,6 @@ function move_again_AF() {
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 
-
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
         let getyear = getcurdate.getFullYear();
