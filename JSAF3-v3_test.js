@@ -3093,8 +3093,13 @@ function move_again_AF() {
         } else {
             todayLs = getdateset.getDate();
         }
-        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1)
-        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS
+        if (getdateset.getDate() < 10) {
+            todayLs = "0" + (getdateset.getDate() - 1);
+        } else {
+            todayLs = (getdateset.getDate() - 1);
+        }
+        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
         else
