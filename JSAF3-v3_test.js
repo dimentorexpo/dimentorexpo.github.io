@@ -2313,9 +2313,10 @@ function move_again_AF() {
 
 
     let convid;
-    document.getElementById('getidstudent').onclick = function () {
+    document.getElementById('getidstudent').onclick = async function () {
         convid = "";
-        document.getElementById('servicetable').innerHTML = "";
+        // document.getElementById('servicetable').innerHTML = "";
+        document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
             document.querySelector('#useravatar').style.display = "none";
@@ -2325,15 +2326,25 @@ function move_again_AF() {
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
 
-        getservicearr();
-        setTimeout(getunhideemail, 600);
-        setTimeout(getunhidephone, 620);
-        setTimeout(getusernamecrm, 640);
-        setTimeout(getuseragecrm, 650);
-        setTimeout(checkemailandphoneidentity, 660);
-        setTimeout(crmstatus, 680);
-        setTimeout(chatstatus, 700);
-        setTimeout(getlogginer, 730);
+        /*         getservicearr();
+                setTimeout(getunhideemail, 600);
+                setTimeout(getunhidephone, 620);
+                setTimeout(getusernamecrm, 640);
+                setTimeout(getuseragecrm, 650);
+                setTimeout(checkemailandphoneidentity, 660);
+                setTimeout(crmstatus, 680);
+                setTimeout(chatstatus, 700);
+                setTimeout(getlogginer, 730); */
+
+        getservicearr()
+        await getunhideemail();
+        await getunhidephone();
+        await getusernamecrm();
+        await getuseragecrm();
+        await checkemailandphoneidentity();
+        await crmstatus();
+        await chatstatus();
+        await getlogginer();
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
