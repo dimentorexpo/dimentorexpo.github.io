@@ -394,7 +394,7 @@ var win_Techsummary = //
                  </span>
 
                 <div id="techsummaryinfo">
-                     <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto;text-align:center;"></p>
+                     <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; font-size: 16px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
 
 </span>
@@ -3144,7 +3144,7 @@ function move_again_AF() {
             document.getElementById('AF_TechSummary').style.display = ''
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
-
+        document.getElementById('techsumdata').innerText = "Загрузка информации";
         await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
                 "accept": "*/*",
