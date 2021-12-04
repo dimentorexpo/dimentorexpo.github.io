@@ -3093,6 +3093,14 @@ function move_again_AF() {
         document.getElementById('timetabledata').innerHTML = "";
     }
 
+    document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_TechSummary').style.display == '')
+            document.getElementById('AF_TechSummary').style.display = 'none'
+        else
+            document.getElementById('AF_TechSummary').style.display = ''
+        document.getElementById('techsumdata').innerHTML = "";
+    }
+
     document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
@@ -3127,12 +3135,32 @@ function move_again_AF() {
         window.open("https://datsy.ru/")
     }
 
-    document.getElementById('gettechsummary').onclick = function () {
+    document.getElementById('gettechsummary').onclick = async function () {
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
         else
             document.getElementById('AF_TechSummary').style.display = ''
+        let stid = document.getElementById('idstudent').value;
+        stid = stid.trim();
 
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "accept": "*/*",
+                "content-type": "application/json",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + stid + "\",\"tsFrom\":\"2021-06-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        }).then(r => r.json()).then(data => infoarr = data);
+        if (infoarr.itema != "" || infoarr.total != 0) {
+            document.getElementById('techsumdata').innerHTML = infoarr.items[0].channelUser.payload.techScreeningData;
+        }
     }
 
     document.getElementById('getlessonstatus').onclick = function () {
