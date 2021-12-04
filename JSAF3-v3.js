@@ -395,7 +395,7 @@ var win_Techsummary = //
                  </span>
 
                 <div id="techsummaryinfo">
-                     <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; font-size: 16px; margin-top:5px; overflow:auto;text-align:center;"></p>
+                     <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; font-size: 18px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
 
 </span>
@@ -2382,7 +2382,7 @@ function move_again_AF() {
                 setTimeout(crmstatus, 680);
                 setTimeout(getlogginer, 730); */
 
-        getservicearr()
+        getservicearr();
         await chatstatus()
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
@@ -2787,6 +2787,8 @@ function move_again_AF() {
         document.getElementById('getpastandfuturelessons').style.display = "";
         document.querySelector('#useravatar').src = "";
         document.querySelector('#useravatar').style.display = "none";
+        document.getElementById('AF_TechSummary').style.display = "none";
+        document.getElementById('techsumdata').innerText = "";
         werechats = false;
         convid = "";
 
