@@ -2321,7 +2321,7 @@ function move_again_AF() {
            if (!werechats) {
                alert('Начать чат с пользователем невозможно')
            }else {
-               alert('Чат начат', polzid, operatorId)
+               alert(`Чат начат ${polzid} ${operatorId}`);
            }
         }
     }
