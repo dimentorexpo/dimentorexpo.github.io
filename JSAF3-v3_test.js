@@ -384,17 +384,17 @@ var win_Timetable = //
 
 
 var win_Techsummary = //
-    `<div style="display: flex; width: 360px;">
-<span style="width: 360px">
+    `<div style="display: flex; width: 400px;">
+<span style="width: 400px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 360;" id="HeadTechSummary">
+                <div style="margin: 5px; width: 400;" id="HeadTechSummary">
                         <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
                 </div>
 
                  </span>
 
                 <div id="techsummaryinfo">
-                     <p id="techsumdata" style="width:360px;color:bisque; max-height:400px; margin-left:5px; font-size: 16px; margin-top:5px; overflow:auto;text-align:center;"></p>
+                     <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; font-size: 16px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
 
 </span>

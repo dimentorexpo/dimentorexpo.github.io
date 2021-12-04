@@ -387,7 +387,7 @@ var win_Techsummary = //
     `<div style="display: flex; width: 400px;">
 <span style="width: 400px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 450;" id="HeadTechSummary">
+                <div style="margin: 5px; width: 400;" id="HeadTechSummary">
                         <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
                 </div>
 
