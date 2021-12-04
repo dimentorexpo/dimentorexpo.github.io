@@ -2307,7 +2307,7 @@ function move_again_AF() {
         if (infres.total > 0) {
             werechats = true;
             convid = infres.items[0].conversationId;
-            if (infres.item[0].status == "AssignedToOperator" || infres.item[0].status =="OnOperator")
+            if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] =="OnOperator")
                 chatisopen = true; 
             else 
                 chatisopen = false;
@@ -2316,6 +2316,8 @@ function move_again_AF() {
     }
 
     document.getElementById('startnewchat').onclick = async function () {
+        if (operatorId == "")
+            await whoAmI()
         if (document.getElementById('idstudent').value == ""){
             console.log('Не введен id пользователя')
         }else {
