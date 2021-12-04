@@ -2290,8 +2290,6 @@ function move_again_AF() {
         setTimeout(crmstatus, 680);
         setTimeout(chatstatus, 700);
         setTimeout(getlogginer, 730);
-        //	setTimeout(postuderdatatologin, 760);
-
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
@@ -2326,7 +2324,7 @@ function move_again_AF() {
                 let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
                 let servinfo = ""; //инфо об услуге
-                let noservinfo = "";
+                let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
                 let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
                 if (servicearr.data.length === 0 || servicearr.data[0].incorrectnessReason == "attempt_to_find_job") {
                     noservinfo = 1;
@@ -3090,6 +3088,11 @@ function move_again_AF() {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
+        if (getdataset.getDate() < 10) {
+            todayLs = "0" + getdateset.getDate();
+        } else {
+            todayLs = getdateset.getDate();
+        }
         document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1)
         document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS
         if (document.getElementById('AF_LessonStatus').style.display == '')
