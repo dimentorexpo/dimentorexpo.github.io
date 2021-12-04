@@ -1666,11 +1666,11 @@ function move_again_AF() {
                         pastlessoninfo.data[i].status = "Прерван"
                     } else if (pastlessoninfo.data[i].status == "did_not_get_through_student") {
                         pastlessoninfo.data[i].status = "Не смогли связаться с У"
-                    } else if (pastlessoninfo.data[i].status == "dcanceled_not_marked") {
+                    } else if (pastlessoninfo.data[i].status == "canceled_not_marked") {
                         pastlessoninfo.data[i].status = "Не отмечен учителем вовремя"
                     }
-					
-					
+
+
 
                     if (pastlessoninfo.data[i].lessonType == "regular") {
                         pastlessoninfo.data[i].lessonType = "Регулярный";
@@ -2290,7 +2290,7 @@ function move_again_AF() {
     }
 
     let werechats = false;
-    let chatisopen = "";    
+    let chatisopen = "";
 
     async function chatstatus() { // проверка наличия чатов в истории и активного чата
         let tempvariable = document.getElementById('idstudent').value;
@@ -2314,30 +2314,30 @@ function move_again_AF() {
         if (infres.total > 0) {
             werechats = true;
             convid = infres.items[0].conversationId;
-            if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] =="OnOperator")
-                chatisopen = true; 
-            else 
+            if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
+                chatisopen = true;
+            else
                 chatisopen = false;
         } else if (infres.total == 0)
             werechats = false;
     }
 
     document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
-        if (operatorId == ""){
+        if (operatorId == "") {
             await whoAmI()
         }
-        if (document.getElementById('idstudent').value == ""){
+        if (document.getElementById('idstudent').value == "") {
             alert('Не введен id пользователя');
         }
         else {
-           polzid = document.getElementById('idstudent').value.trim();
-           console.log(polzid);
-           await chatstatus()
-           if (!werechats) {
-               alert('Начать чат с пользователем невозможно (пользователь не писал в чат)');
-           }else if (chatisopen)
+            polzid = document.getElementById('idstudent').value.trim();
+            console.log(polzid);
+            await chatstatus()
+            if (!werechats) {
+                alert('Начать чат с пользователем невозможно (пользователь не писал в чат)');
+            } else if (chatisopen)
                 alert('Уже есть активный чат');
-                else {
+            else {
                 await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}`, {
                     headers: {
                     },
@@ -2347,16 +2347,16 @@ function move_again_AF() {
                     method: "POST",
                     mode: "cors",
                     credentials: "include"
-            })
+                })
                     .then(response => response.json())
                     .then(data => {
                         chatId = data.conversationId
                         console.log(data, chatId)
-                })
+                    })
                 alert(`Чат начат c пользователем ${polzid}`);
                 chatisopen = '';
                 werechats = false;
-           }
+            }
         }
     }
 
