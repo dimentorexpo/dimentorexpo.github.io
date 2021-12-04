@@ -2311,12 +2311,13 @@ function move_again_AF() {
     }
 
     document.getElementById('startnewchat').onclick = function () {
-        if (document.getElementById('idstudent').value == "")
+        if (document.getElementById('idstudent').value == ""){
             console.log('введите id');
         }else {
            polzid = document.getElementById('idstudent').value.trim();
            console.log(polzid);
         }
+    }
 
     let convid;
     document.getElementById('getidstudent').onclick = function () {
