@@ -2788,7 +2788,9 @@ function move_again_AF() {
         document.querySelector('#useravatar').src = "";
         document.querySelector('#useravatar').style.display = "none";
         document.getElementById('AF_TechSummary').style.display = "none";
+        document.getElementById('AF_Timetable').style.display = "none";
         document.getElementById('techsumdata').innerText = "";
+        document.getElementById('timetabledata').innerText = "";
         werechats = false;
         convid = "";
 
