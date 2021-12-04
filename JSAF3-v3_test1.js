@@ -291,6 +291,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                         <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
+                                <button title="Начинает чат с пользователем" id="startnewchat" style="margin-left: 5px; width: 25.23px;">Начать чат</button>
                                 <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
@@ -317,7 +318,6 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
-                        <button title="Начинает чат с пользователем" id="startnewchat" style="margin-left: 5px; width: 25.23px;">❗</button>
 						</div>
 					
 						               
@@ -2281,6 +2281,8 @@ function move_again_AF() {
 
         }, 800)
     }
+    
+    let werechats = new Boolean(false);
 
     async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
@@ -2302,17 +2304,19 @@ function move_again_AF() {
             "credentials": "include"
         }).then(r => r.json()).then(data => infres = data)
         if (infres.total > 0) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "📧";
-            convid = infres.items[0].conversationId;
+            werechats = true
         } else if (infres.total == 0) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "🚫";
+            werechats = false
         }
     }
 
-
-
+    document.getElementById('startnewchat').onclick = function () {
+        if (document.getElementById('idstudent').value == "")
+            console.log('введите id');
+        }else {
+           polzid = document.getElementById('idstudent').value.trim();
+           console.log(polzid);
+        }
 
     let convid;
     document.getElementById('getidstudent').onclick = function () {
@@ -2336,7 +2340,15 @@ function move_again_AF() {
         setTimeout(chatstatus, 700);
         setTimeout(getlogginer, 730);
         //	setTimeout(postuderdatatologin, 760);
-
+        
+        if (werechats) {
+            document.getElementById('ChatStatus').style.display = "";
+            document.getElementById('ChatStatus').textContent = "📧";
+            convid = infres.items[0].conversationId;
+        } else if (!werechats) {
+            document.getElementById('ChatStatus').style.display = "";
+            document.getElementById('ChatStatus').textContent = "🚫";
+        }
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
@@ -3142,12 +3154,6 @@ function move_again_AF() {
         else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
-
-    document.getElementById('startnewchat').onclick = function () {
-        if (document.getElementById('idstudent').value == "")
-            console.log('введите id');
-        }
-
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
