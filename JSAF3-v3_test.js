@@ -2321,7 +2321,6 @@ function move_again_AF() {
         if (document.querySelector('#useravatar').style.display != "none")
             document.querySelector('#useravatar').style.display = "none";
         let servicearr = "";
-        document.getElementById('servicetable').innerHTML = "";
         document.getElementById('getcurrentstatus').title = "";
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
