@@ -1666,7 +1666,11 @@ function move_again_AF() {
                         pastlessoninfo.data[i].status = "Прерван"
                     } else if (pastlessoninfo.data[i].status == "did_not_get_through_student") {
                         pastlessoninfo.data[i].status = "Не смогли связаться с У"
+                    } else if (pastlessoninfo.data[i].status == "dcanceled_not_marked") {
+                        pastlessoninfo.data[i].status = "Не отмечен учителем вовремя"
                     }
+					
+					
 
                     if (pastlessoninfo.data[i].lessonType == "regular") {
                         pastlessoninfo.data[i].lessonType = "Регулярный";
