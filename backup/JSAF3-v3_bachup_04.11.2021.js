@@ -291,7 +291,6 @@ var win_serviceinfo =  // описание элементов окна ссыл�
                         <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="servicehead">
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
-                                <button title="Начинает чат с пользователем" id="startnewchat" style="margin: 5px; width: 25.23px;">💬</button>
                                 <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 10px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
@@ -2285,10 +2284,7 @@ function move_again_AF() {
         }, 800)
     }
 
-    let werechats = false;
-    let chatisopen = "";    
-
-    async function chatstatus() { // проверка наличия чатов в истории и активного чата
+    async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
         tempvariable = tempvariable.trim();
         document.getElementById('ChatStatus').style.display = "none";
@@ -2308,56 +2304,20 @@ function move_again_AF() {
             "credentials": "include"
         }).then(r => r.json()).then(data => infres = data)
         if (infres.total > 0) {
-            werechats = true;
+            document.getElementById('ChatStatus').style.display = "";
+            document.getElementById('ChatStatus').textContent = "📧";
             convid = infres.items[0].conversationId;
-            if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] =="OnOperator")
-                chatisopen = true; 
-            else 
-                chatisopen = false;
-        } else if (infres.total == 0)
-            werechats = false;
+        } else if (infres.total == 0) {
+            document.getElementById('ChatStatus').style.display = "";
+            document.getElementById('ChatStatus').textContent = "🚫";
+        }
     }
 
-    document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
-        if (operatorId == ""){
-            await whoAmI()
-        }
-        if (document.getElementById('idstudent').value == ""){
-            alert('Не введен id пользователя');
-        }
-        else {
-           polzid = document.getElementById('idstudent').value.trim();
-           console.log(polzid);
-           await chatstatus()
-           if (!werechats) {
-               alert('Начать чат с пользователем невозможно (пользователь не писал в чат)');
-           }else if (chatisopen)
-                alert('Уже есть активный чат');
-                else {
-                await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}`, {
-                    headers: {
-                    },
-                    referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
-                    referrerPolicy: "strict-origin-when-cross-origin",
-                    body: null,
-                    method: "POST",
-                    mode: "cors",
-                    credentials: "include"
-            })
-                    .then(response => response.json())
-                    .then(data => {
-                        chatId = data.conversationId
-                        console.log(data, chatId)
-                })
-                alert(`Чат начат c пользователем ${polzid}`);
-                chatisopen = '';
-                werechats = false;
-           }
-        }
-    }
+
+
 
     let convid;
-    document.getElementById('getidstudent').onclick = async function () { // нажатие на ракету
+    document.getElementById('getidstudent').onclick = async function () {
         convid = "";
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
@@ -2376,23 +2336,17 @@ function move_again_AF() {
                 setTimeout(getuseragecrm, 650);
                 setTimeout(checkemailandphoneidentity, 660);
                 setTimeout(crmstatus, 680);
+                setTimeout(chatstatus, 700);
                 setTimeout(getlogginer, 730); */
 
         getservicearr()
-        await chatstatus()
-        if (werechats) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "📧";
-        } else if (!werechats) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "🚫";
-        }
         await getunhideemail();
         await getunhidephone();
         await getusernamecrm();
         await getuseragecrm();
         await checkemailandphoneidentity();
         await crmstatus();
+        await chatstatus();
         await getlogginer();
 
         setTimeout(async function () {
@@ -2783,7 +2737,6 @@ function move_again_AF() {
         document.getElementById('getpastandfuturelessons').style.display = "";
         document.querySelector('#useravatar').src = "";
         document.querySelector('#useravatar').style.display = "none";
-        werechats = false;
         convid = "";
 
     }
