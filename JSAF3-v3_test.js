@@ -3162,6 +3162,8 @@ function move_again_AF() {
         }).then(r => r.json()).then(data => infoarr = data);
         if (infoarr.itema != "" || infoarr.total != 0) {
             document.getElementById('techsumdata').innerHTML = infoarr.items[0].channelUser.payload.techScreeningData;
+        } else {
+            document.getElementById('techsumdata').innerText = "Пользователь не обращался в чат, информация отсутствует";
         }
     }
 
