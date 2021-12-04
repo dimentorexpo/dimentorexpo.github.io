@@ -2373,16 +2373,16 @@ function move_again_AF() {
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
 
-        /*         getservicearr();
-                setTimeout(getunhideemail, 600);
-                setTimeout(getunhidephone, 620);
-                setTimeout(getusernamecrm, 640);
-                setTimeout(getuseragecrm, 650);
-                setTimeout(checkemailandphoneidentity, 660);
-                setTimeout(crmstatus, 680);
-                setTimeout(getlogginer, 730); */
-
         getservicearr();
+        setTimeout(getunhideemail, 600);
+        setTimeout(getunhidephone, 620);
+        setTimeout(getusernamecrm, 640);
+        setTimeout(getuseragecrm, 650);
+        setTimeout(checkemailandphoneidentity, 660);
+        setTimeout(crmstatus, 680);
+
+
+        //  getservicearr();
         await chatstatus()
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
@@ -2391,13 +2391,15 @@ function move_again_AF() {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
         }
-        await getunhideemail();
-        await getunhidephone();
-        await getusernamecrm();
-        await getuseragecrm();
-        await checkemailandphoneidentity();
-        await crmstatus();
-        await getlogginer();
+
+        setTimeout(getlogginer, 730);
+        /*         await getunhideemail();
+                await getunhidephone();
+                await getusernamecrm();
+                await getuseragecrm();
+                await checkemailandphoneidentity();
+                await crmstatus();
+                await getlogginer(); */
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
