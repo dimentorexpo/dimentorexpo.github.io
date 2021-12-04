@@ -3088,7 +3088,7 @@ function move_again_AF() {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
-        if (getdataset.getDate() < 10) {
+        if (getdateset.getDate() < 10) {
             todayLs = "0" + getdateset.getDate();
         } else {
             todayLs = getdateset.getDate();
