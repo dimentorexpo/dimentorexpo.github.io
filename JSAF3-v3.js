@@ -317,6 +317,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
+						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" style="margin-left: 5px; width: 25.23px;">💻</button>
 						</div>
 					
 						               
@@ -381,6 +382,25 @@ var win_Timetable = //
 </span>
 </div>`;
 
+
+var win_Techsummary = //
+    `<div style="display: flex; width: 400px;">
+<span style="width: 400px">
+        <span style="cursor: -webkit-grab;">
+                <div style="margin: 5px; width: 400;" id="HeadTechSummary">
+                        <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
+                </div>
+
+                 </span>
+
+                <div id="techsummaryinfo">
+                     <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; font-size: 16px; margin-top:5px; overflow:auto;text-align:center;"></p>
+                </div>
+
+</span>
+</div>`;
+
+
 let audio
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
@@ -429,6 +449,12 @@ if (localStorage.getItem('winTopTimetable') == null) { // началоное п�
     localStorage.setItem('winTopTimetable', '120');
     localStorage.setItem('winLeftTimetable', '295');
 }
+
+if (localStorage.getItem('winTopTechSum') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopTechSum', '120');
+    localStorage.setItem('winLeftTechSum', '295');
+}
+
 
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
@@ -490,8 +516,6 @@ butteachidfstd.style.cursor = "pointer";
 butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
-
-
 
 
 let template_flag = 0
@@ -755,7 +779,7 @@ wintStat.innerHTML = win_Stat;
 
 let wintServices = document.createElement('div'); // создание окна ссылок
 document.body.append(wintServices);
-wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
@@ -773,6 +797,13 @@ wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; t
 wintTimetable.style.display = 'none';
 wintTimetable.setAttribute('id', 'AF_Timetable');
 wintTimetable.innerHTML = win_Timetable;
+
+let wintTechSummary = document.createElement('div'); // создание окна ссылок
+document.body.append(wintTechSummary);
+wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTechSum') + 'px; left: ' + localStorage.getItem('winLeftTechSum') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintTechSummary.style.display = 'none';
+wintTechSummary.setAttribute('id', 'AF_TechSummary');
+wintTechSummary.innerHTML = win_Techsummary;
 
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -872,6 +903,20 @@ wintTimetable.firstElementChild.firstElementChild.firstElementChild.onmousedown 
     document.addEventListener('mousemove', listener10);
 }
 wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listener10); }
+
+var listener11 = function (e, a) { // сохранение позиции окна доступов
+    wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
+    wintTechSummary.style.top = Number(e.clientY - myY11) + "px";
+    localStorage.setItem('winTopTimetable', String(Number(e.clientY - myY11)));
+    localStorage.setItem('winLeftTimetable', String(Number(e.clientX - myX11)));
+};
+
+wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX11 = a.layerX;
+    window.myY11 = a.layerY;
+    document.addEventListener('mousemove', listener11);
+}
+wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listener11); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -2269,6 +2314,7 @@ function move_again_AF() {
 
     let convid;
     document.getElementById('getidstudent').onclick = function () {
+        convid = "";
         document.getElementById('servicetable').innerHTML = "";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
@@ -2677,6 +2723,7 @@ function move_again_AF() {
         document.getElementById('getpastandfuturelessons').style.display = "";
         document.querySelector('#useravatar').src = "";
         document.querySelector('#useravatar').style.display = "none";
+        convid = "";
 
     }
 
@@ -3048,6 +3095,14 @@ function move_again_AF() {
         document.getElementById('timetabledata').innerHTML = "";
     }
 
+    document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_TechSummary').style.display == '')
+            document.getElementById('AF_TechSummary').style.display = 'none'
+        else
+            document.getElementById('AF_TechSummary').style.display = ''
+        document.getElementById('techsumdata').innerHTML = "";
+    }
+
     document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
@@ -3080,6 +3135,36 @@ function move_again_AF() {
 
     document.getElementById('datsyurl').onclick = function () { // открытие Календаря
         window.open("https://datsy.ru/")
+    }
+
+    document.getElementById('gettechsummary').onclick = async function () {
+        if (document.getElementById('AF_TechSummary').style.display == '')
+            document.getElementById('AF_TechSummary').style.display = 'none'
+        else
+            document.getElementById('AF_TechSummary').style.display = ''
+        let stid = document.getElementById('idstudent').value;
+        stid = stid.trim();
+        document.getElementById('techsumdata').innerText = "Загрузка информации";
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "accept": "*/*",
+                "content-type": "application/json",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + stid + "\",\"tsFrom\":\"2021-06-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        }).then(r => r.json()).then(data => infoarr = data);
+        if (infoarr.itema != "" || infoarr.total != 0) {
+            document.getElementById('techsumdata').innerHTML = infoarr.items[0].channelUser.payload.techScreeningData;
+        } else {
+            document.getElementById('techsumdata').innerText = "Пользователь не обращался в чат, информация отсутствует";
+        }
     }
 
     document.getElementById('getlessonstatus').onclick = function () {
