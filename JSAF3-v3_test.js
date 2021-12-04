@@ -3089,12 +3089,14 @@ function move_again_AF() {
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
         if (getdateset.getDate() < 10) {
-            todayLs = "0" + getdateset.getDate();
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         } else {
-            todayLs = getdateset.getDate();
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
-        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS //(todayLS - 1);
-        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
         else
@@ -3106,10 +3108,18 @@ function move_again_AF() {
         let getyear = getcurdate.getFullYear();
         let getcurmonth = (getcurdate.getMonth() + 1)
         let today = getcurdate.getDate();
+
+        if (getcurdate.getDate() < 10) {
+            today = "0" + getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        } else {
+            today = getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        }
         document.querySelector('#chatcommentsdata').style.display = "none"
         document.querySelector('#lowCSATcount').style.display = "none"
-        document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1)
-        document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
         else
@@ -4637,11 +4647,19 @@ document.getElementById('clearlessonstatus').onclick = function () {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
+
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
         document.getElementById('statustable').innerText = "";
         document.getElementById('idteacherforsearch').value = "";
         document.getElementById('idstudentforsearch').value = "";
-        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
     } else {
         console.log("Canceled!")
     }
