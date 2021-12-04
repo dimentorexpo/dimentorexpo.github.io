@@ -317,6 +317,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
+                        <button title="Начинает чат с пользователем" id="startnewchat" style="margin-left: 5px; width: 25.23px;">❗</button>
 						</div>
 					
 						               
@@ -3140,6 +3141,11 @@ function move_again_AF() {
             document.getElementById('AF_LessonStatus').style.display = 'none'
         else
             document.getElementById('AF_LessonStatus').style.display = ''
+    }
+
+    document.getElementById('').onclick = function () {
+        if (document.getElementById('idstudent').value = null)
+            console.log('введите id');
     }
 
 
