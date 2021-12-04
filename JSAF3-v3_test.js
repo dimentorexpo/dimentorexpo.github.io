@@ -590,6 +590,7 @@ button2.onclick = function () { //функция Info по нажатию на �
 buttonserv.onclick = function () {
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
+    getservicearr();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
@@ -602,6 +603,7 @@ buttonserv.onclick = function () {
 buttonservteach.onclick = function () {
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
+    getservicearr();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
@@ -614,6 +616,7 @@ buttonservteach.onclick = function () {
 buttonservstud.onclick = function () {
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
+    getservicearr()
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -2382,7 +2385,6 @@ function move_again_AF() {
                 setTimeout(crmstatus, 680);
                 setTimeout(getlogginer, 730); */
 
-        getservicearr()
         await chatstatus()
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
@@ -3125,6 +3127,7 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
+        getservicearr();
     }
 
 
