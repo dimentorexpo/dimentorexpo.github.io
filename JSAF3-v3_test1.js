@@ -2282,7 +2282,8 @@ function move_again_AF() {
         }, 800)
     }
     
-    let werechats = false;    
+    let werechats = false;
+    let chatisopen = "";    
 
     async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
@@ -2306,22 +2307,26 @@ function move_again_AF() {
         if (infres.total > 0) {
             werechats = true;
             convid = infres.items[0].conversationId;
-        } else if (infres.total == 0) {
+            if (infres.item[0].status == "AssignedToOperator" || infres.item[0].status =="OnOperator")
+                chatisopen = true; 
+            else 
+                chatisopen = false;
+        } else if (infres.total == 0)
             werechats = false;
-        }
     }
 
     document.getElementById('startnewchat').onclick = async function () {
         if (document.getElementById('idstudent').value == ""){
-            alert('введите id');
+            console.log('Не введен id пользователя')
         }else {
            polzid = document.getElementById('idstudent').value.trim();
            console.log(polzid);
            await chatstatus()
            if (!werechats) {
-               //alert('Начать чат с пользователем невозможно');
-               console.log('Начать чат с пользователем невозможно');
-           }else {
+               alert('Начать чат с пользователем невозможно');
+           }else if (chatisopen)
+                alert('Уже есть активный чат');
+                else {
                 await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}`, {
                     headers: {
                     },
@@ -2337,7 +2342,9 @@ function move_again_AF() {
                         chatId = data.conversationId
                         console.log(data, chatId)
                 })
-               alert(`Чат начат c ${polzid} ${operatorId}`);
+                alert(`Чат начат c пользователе ${polzid}`);
+                chatisopen = '';
+                werechats = false;
            }
         }
     }
