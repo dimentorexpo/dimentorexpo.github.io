@@ -2311,17 +2311,23 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('startnewchat').onclick = function () {
+    document.getElementById('startnewchat').onclick = async function () {
         if (document.getElementById('idstudent').value == ""){
-            console.log('введите id');
+            alert('введите id');
         }else {
            polzid = document.getElementById('idstudent').value.trim();
            console.log(polzid);
+           await chatstatus()
+           if (!werechats) {
+               alert('Начать чат с пользователем невозможно')
+           }else {
+               alert('Чат начат', polzid, operatorId)
+           }
         }
     }
 
     let convid;
-    document.getElementById('getidstudent').onclick = function () {
+    document.getElementById('getidstudent').onclick = async function () {
         document.getElementById('servicetable').innerHTML = "";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
@@ -2332,17 +2338,7 @@ function move_again_AF() {
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
 
-        getservicearr();
-        setTimeout(getunhideemail, 600);
-        setTimeout(getunhidephone, 620);
-        setTimeout(getusernamecrm, 640);
-        setTimeout(getuseragecrm, 650);
-        setTimeout(checkemailandphoneidentity, 660);
-        setTimeout(crmstatus, 680);
-        setTimeout(chatstatus, 700);
-        setTimeout(getlogginer, 730);
-        //	setTimeout(postuderdatatologin, 760);
-        
+        await chatstatus()
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
@@ -2350,6 +2346,17 @@ function move_again_AF() {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
         }
+        await getservicearr()
+        await getunhideemail()
+        await getunhidephone()
+        await getusernamecrm()
+        await getuseragecrm()
+        await checkemailandphoneidentity()
+        await crmstatus()
+        await getlogginer()
+        //	setTimeout(postuderdatatologin, 760);
+        
+        
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
