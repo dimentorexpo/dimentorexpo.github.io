@@ -317,6 +317,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
+						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" style="margin-left: 5px; width: 25.23px;">💻</button>
 						</div>
 					
 						               
@@ -382,6 +383,24 @@ var win_Timetable = //
 </div>`;
 
 
+var win_Techsummary = //
+    `<div style="display: flex; width: 400px;">
+<span style="width: 400px">
+        <span style="cursor: -webkit-grab;">
+                <div style="margin: 5px; width: 450;" id="HeadTechSummary">
+                        <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
+                </div>
+
+                 </span>
+
+                <div id="techsummaryinfo">
+                     <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto;text-align:center;"></p>
+                </div>
+
+</span>
+</div>`;
+
+
 let audio
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
@@ -431,6 +450,11 @@ if (localStorage.getItem('winTopTimetable') == null) { // началоное п�
     localStorage.setItem('winLeftTimetable', '295');
 }
 
+if (localStorage.getItem('winTopTechSum') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopTechSum', '120');
+    localStorage.setItem('winLeftTechSum', '295');
+}
+
 
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
@@ -469,31 +493,29 @@ buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat 
 let buttonnextteacherid = document.createElement('p');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
-let buttonsetteacheridtouserfield = document.createElement('button');
-buttonsetteacheridtouserfield.id = 'teacheridtofield';
-buttonsetteacheridtouserfield.innerHTML = "👽 (ID П) П обратился ";
-buttonsetteacheridtouserfield.style.width = "160px";
-buttonsetteacheridtouserfield.style.cursor = "pointer";
-buttonsetteacheridtouserfield.style.border = "1px solid black";
-buttonsetteacheridtouserfield.style.borderRadius = "10px";
-let buttonsetstudentidandservicetouserfield = document.createElement('button');
-buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
-buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓 (ID У) П обратился";
-buttonsetstudentidandservicetouserfield.style.width = "150px";
-buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
-buttonsetstudentidandservicetouserfield.style.marginLeft = "2px";
-buttonsetstudentidandservicetouserfield.style.border = "1px solid black";
-buttonsetstudentidandservicetouserfield.style.borderRadius = "10px";
-let buttonsetteacheridfromstudent = document.createElement('button');
-buttonsetteacheridfromstudent.id = 'teacheridfromstudent';
-buttonsetteacheridfromstudent.innerHTML = "👽 (ID П) У обратился";
-buttonsetteacheridfromstudent.style.width = "150px";
-buttonsetteacheridfromstudent.style.cursor = "pointer";
-buttonsetteacheridfromstudent.style.marginLeft = "2px";
-buttonsetteacheridfromstudent.style.border = "1px solid black";
-buttonsetteacheridfromstudent.style.borderRadius = "10px";
-
-
+let butteachid = document.createElement('button');
+butteachid.id = 'teacheridtofield';
+butteachid.innerHTML = "👽 (ID П) П обратился ";
+butteachid.style.width = "160px";
+butteachid.style.cursor = "pointer";
+butteachid.style.border = "1px solid black";
+butteachid.style.borderRadius = "10px";
+let butstdid = document.createElement('button');
+butstdid.id = 'studentidtofield';
+butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
+butstdid.style.width = "150px";
+butstdid.style.cursor = "pointer";
+butstdid.style.marginLeft = "2px";
+butstdid.style.border = "1px solid black";
+butstdid.style.borderRadius = "10px";
+let butteachidfstd = document.createElement('button');
+butteachidfstd.id = 'teacheridfromstudent';
+butteachidfstd.innerHTML = "👽 (ID П) У обратился";
+butteachidfstd.style.width = "150px";
+butteachidfstd.style.cursor = "pointer";
+butteachidfstd.style.marginLeft = "2px";
+butteachidfstd.style.border = "1px solid black";
+butteachidfstd.style.borderRadius = "10px";
 
 
 let template_flag = 0
@@ -757,7 +779,7 @@ wintStat.innerHTML = win_Stat;
 
 let wintServices = document.createElement('div'); // создание окна ссылок
 document.body.append(wintServices);
-wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
@@ -775,6 +797,13 @@ wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; t
 wintTimetable.style.display = 'none';
 wintTimetable.setAttribute('id', 'AF_Timetable');
 wintTimetable.innerHTML = win_Timetable;
+
+let wintTechSummary = document.createElement('div'); // создание окна ссылок
+document.body.append(wintTechSummary);
+wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTechSum') + 'px; left: ' + localStorage.getItem('winLeftTechSum') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintTechSummary.style.display = 'none';
+wintTechSummary.setAttribute('id', 'AF_TechSummary');
+wintTechSummary.innerHTML = win_Techsummary;
 
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -874,6 +903,20 @@ wintTimetable.firstElementChild.firstElementChild.firstElementChild.onmousedown 
     document.addEventListener('mousemove', listener10);
 }
 wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listener10); }
+
+var listener11 = function (e, a) { // сохранение позиции окна доступов
+    wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
+    wintTechSummary.style.top = Number(e.clientY - myY11) + "px";
+    localStorage.setItem('winTopTimetable', String(Number(e.clientY - myY11)));
+    localStorage.setItem('winLeftTimetable', String(Number(e.clientX - myX11)));
+};
+
+wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX11 = a.layerX;
+    window.myY11 = a.layerY;
+    document.addEventListener('mousemove', listener11);
+}
+wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listener11); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -2910,6 +2953,7 @@ function move_again_AF() {
             document.getElementById('AF_Timetable').style.display = 'none'
         else
             document.getElementById('AF_Timetable').style.display = ''
+        getlessonfuture.click();
     }
 
     document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
@@ -3083,23 +3127,28 @@ function move_again_AF() {
         window.open("https://datsy.ru/")
     }
 
+    document.getElementById('gettechsummary').onclick = function () {
+        if (document.getElementById('AF_TechSummary').style.display == '')
+            document.getElementById('AF_TechSummary').style.display = 'none'
+        else
+            document.getElementById('AF_TechSummary').style.display = ''
+
+    }
+
     document.getElementById('getlessonstatus').onclick = function () {
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
         if (getdateset.getDate() < 10) {
-            todayLs = "0" + getdateset.getDate();
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         } else {
-            todayLs = getdateset.getDate();
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
-        if (getdateset.getDate() < 10) {
-            todayLs = "0" + (getdateset.getDate() - 1);
-        } else {
-            todayLs = (getdateset.getDate() - 1);
-        }
-        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
         else
@@ -3111,10 +3160,18 @@ function move_again_AF() {
         let getyear = getcurdate.getFullYear();
         let getcurmonth = (getcurdate.getMonth() + 1)
         let today = getcurdate.getDate();
+
+        if (getcurdate.getDate() < 10) {
+            today = "0" + getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        } else {
+            today = getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        }
         document.querySelector('#chatcommentsdata').style.display = "none"
         document.querySelector('#lowCSATcount').style.display = "none"
-        document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1)
-        document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
         else
@@ -4367,9 +4424,9 @@ function addbuttonsintegration() {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butstdid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
             for (let i = 0; i < categorylist.length; i++) {
                 if (categorylist[i].innerText == "Техподдержка исход crm2") {
                     categorylist[i].style.color = "red";
@@ -4391,7 +4448,7 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 let getidusrteachreq;
-buttonsetteacheridtouserfield.addEventListener('click', function () {
+butteachid.addEventListener('click', function () {
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -4406,7 +4463,7 @@ buttonsetteacheridtouserfield.addEventListener('click', function () {
 
 
 let getidusrstud;
-buttonsetstudentidandservicetouserfield.addEventListener('click', function () {
+butstdid.addEventListener('click', function () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -4415,7 +4472,7 @@ buttonsetstudentidandservicetouserfield.addEventListener('click', function () {
 })
 
 let getidusrsteach;
-buttonsetteacheridfromstudent.addEventListener('click', function () {
+butteachidfstd.addEventListener('click', function () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -4642,11 +4699,19 @@ document.getElementById('clearlessonstatus').onclick = function () {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
+
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
         document.getElementById('statustable').innerText = "";
         document.getElementById('idteacherforsearch').value = "";
         document.getElementById('idstudentforsearch').value = "";
-        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
     } else {
         console.log("Canceled!")
     }

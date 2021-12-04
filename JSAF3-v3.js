@@ -381,7 +381,6 @@ var win_Timetable = //
 </span>
 </div>`;
 
-
 let audio
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
@@ -431,7 +430,6 @@ if (localStorage.getItem('winTopTimetable') == null) { // началоное п�
     localStorage.setItem('winLeftTimetable', '295');
 }
 
-
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
@@ -469,29 +467,29 @@ buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat 
 let buttonnextteacherid = document.createElement('p');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
-let buttonsetteacheridtouserfield = document.createElement('button');
-buttonsetteacheridtouserfield.id = 'teacheridtofield';
-buttonsetteacheridtouserfield.innerHTML = "👽 (ID П) П обратился ";
-buttonsetteacheridtouserfield.style.width = "160px";
-buttonsetteacheridtouserfield.style.cursor = "pointer";
-buttonsetteacheridtouserfield.style.border = "1px solid black";
-buttonsetteacheridtouserfield.style.borderRadius = "10px";
-let buttonsetstudentidandservicetouserfield = document.createElement('button');
-buttonsetstudentidandservicetouserfield.id = 'studentidtofield';
-buttonsetstudentidandservicetouserfield.innerHTML = "👨‍🎓 (ID У) П обратился";
-buttonsetstudentidandservicetouserfield.style.width = "150px";
-buttonsetstudentidandservicetouserfield.style.cursor = "pointer";
-buttonsetstudentidandservicetouserfield.style.marginLeft = "2px";
-buttonsetstudentidandservicetouserfield.style.border = "1px solid black";
-buttonsetstudentidandservicetouserfield.style.borderRadius = "10px";
-let buttonsetteacheridfromstudent = document.createElement('button');
-buttonsetteacheridfromstudent.id = 'teacheridfromstudent';
-buttonsetteacheridfromstudent.innerHTML = "👽 (ID П) У обратился";
-buttonsetteacheridfromstudent.style.width = "150px";
-buttonsetteacheridfromstudent.style.cursor = "pointer";
-buttonsetteacheridfromstudent.style.marginLeft = "2px";
-buttonsetteacheridfromstudent.style.border = "1px solid black";
-buttonsetteacheridfromstudent.style.borderRadius = "10px";
+let butteachid = document.createElement('button');
+butteachid.id = 'teacheridtofield';
+butteachid.innerHTML = "👽 (ID П) П обратился ";
+butteachid.style.width = "160px";
+butteachid.style.cursor = "pointer";
+butteachid.style.border = "1px solid black";
+butteachid.style.borderRadius = "10px";
+let butstdid = document.createElement('button');
+butstdid.id = 'studentidtofield';
+butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
+butstdid.style.width = "150px";
+butstdid.style.cursor = "pointer";
+butstdid.style.marginLeft = "2px";
+butstdid.style.border = "1px solid black";
+butstdid.style.borderRadius = "10px";
+let butteachidfstd = document.createElement('button');
+butteachidfstd.id = 'teacheridfromstudent';
+butteachidfstd.innerHTML = "👽 (ID П) У обратился";
+butteachidfstd.style.width = "150px";
+butteachidfstd.style.cursor = "pointer";
+butteachidfstd.style.marginLeft = "2px";
+butteachidfstd.style.border = "1px solid black";
+butteachidfstd.style.borderRadius = "10px";
 
 
 
@@ -2290,8 +2288,6 @@ function move_again_AF() {
         setTimeout(crmstatus, 680);
         setTimeout(chatstatus, 700);
         setTimeout(getlogginer, 730);
-        //	setTimeout(postuderdatatologin, 760);
-
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
@@ -2326,7 +2322,7 @@ function move_again_AF() {
                 let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
                 let servinfo = ""; //инфо об услуге
-                let noservinfo = "";
+                let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
                 let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
                 if (servicearr.data.length === 0 || servicearr.data[0].incorrectnessReason == "attempt_to_find_job") {
                     noservinfo = 1;
@@ -2912,6 +2908,7 @@ function move_again_AF() {
             document.getElementById('AF_Timetable').style.display = 'none'
         else
             document.getElementById('AF_Timetable').style.display = ''
+        getlessonfuture.click();
     }
 
     document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
@@ -3090,24 +3087,38 @@ function move_again_AF() {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
-        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1)
-        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
         else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 
-
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
         let getyear = getcurdate.getFullYear();
         let getcurmonth = (getcurdate.getMonth() + 1)
         let today = getcurdate.getDate();
+
+        if (getcurdate.getDate() < 10) {
+            today = "0" + getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        } else {
+            today = getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        }
         document.querySelector('#chatcommentsdata').style.display = "none"
         document.querySelector('#lowCSATcount').style.display = "none"
-        document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1)
-        document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
         else
@@ -4360,9 +4371,9 @@ function addbuttonsintegration() {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridtouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetstudentidandservicetouserfield)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonsetteacheridfromstudent)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butstdid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
             for (let i = 0; i < categorylist.length; i++) {
                 if (categorylist[i].innerText == "Техподдержка исход crm2") {
                     categorylist[i].style.color = "red";
@@ -4384,7 +4395,7 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 let getidusrteachreq;
-buttonsetteacheridtouserfield.addEventListener('click', function () {
+butteachid.addEventListener('click', function () {
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -4399,7 +4410,7 @@ buttonsetteacheridtouserfield.addEventListener('click', function () {
 
 
 let getidusrstud;
-buttonsetstudentidandservicetouserfield.addEventListener('click', function () {
+butstdid.addEventListener('click', function () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -4408,7 +4419,7 @@ buttonsetstudentidandservicetouserfield.addEventListener('click', function () {
 })
 
 let getidusrsteach;
-buttonsetteacheridfromstudent.addEventListener('click', function () {
+butteachidfstd.addEventListener('click', function () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -4635,11 +4646,19 @@ document.getElementById('clearlessonstatus').onclick = function () {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
+
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
         document.getElementById('statustable').innerText = "";
         document.getElementById('idteacherforsearch').value = "";
         document.getElementById('idstudentforsearch').value = "";
-        document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-        document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
     } else {
         console.log("Canceled!")
     }
