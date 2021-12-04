@@ -3143,7 +3143,7 @@ function move_again_AF() {
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 
-    document.getElementById('').onclick = function () {
+    document.getElementById('startnewchat').onclick = function () {
         if (document.getElementById('idstudent').value = null)
             console.log('введите id');
     }
