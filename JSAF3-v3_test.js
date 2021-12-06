@@ -2374,12 +2374,12 @@ function move_again_AF() {
         stid = stid.trim();
 
         getservicearr();
-        setTimeout(getunhideemail, 600);
-        setTimeout(getunhidephone, 620);
-        setTimeout(getusernamecrm, 640);
-        setTimeout(getuseragecrm, 650);
-        setTimeout(checkemailandphoneidentity, 660);
-        setTimeout(crmstatus, 680);
+        /*       setTimeout(getunhideemail, 600);
+              setTimeout(getunhidephone, 620);
+              setTimeout(getusernamecrm, 640);
+              setTimeout(getuseragecrm, 650);
+              setTimeout(checkemailandphoneidentity, 660);
+              setTimeout(crmstatus, 680); */
 
 
         //  getservicearr();
@@ -2392,14 +2392,14 @@ function move_again_AF() {
             document.getElementById('ChatStatus').textContent = "🚫";
         }
 
-        setTimeout(getlogginer, 730);
-        /*         await getunhideemail();
-                await getunhidephone();
-                await getusernamecrm();
-                await getuseragecrm();
-                await checkemailandphoneidentity();
-                await crmstatus();
-                await getlogginer(); */
+        //    setTimeout(getlogginer, 730);
+        await getunhideemail();
+        await getunhidephone();
+        await getusernamecrm();
+        await getuseragecrm();
+        await checkemailandphoneidentity();
+        await crmstatus();
+        await getlogginer();
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
