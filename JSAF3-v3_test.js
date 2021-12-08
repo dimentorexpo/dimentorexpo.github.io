@@ -178,7 +178,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
 					<button title="Открывает новый TRM 2.0 с инфой о преподавателях" id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
 					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
-					<button title="Открывает форму по аппеляции негативных оценок (<4), если вы считаете их необоснованными" id="badmarks" style="width:105px; margin-top: 3px">-оценки</button>
+					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Подписки</button>
 					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
 					<button title="открывает фичи групп для активации связи на ГУ" id="groupfeatures" style="width:105px; margin-top: 3px">Фичи Групп</button>
 					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
@@ -1199,8 +1199,8 @@ function move_again_AF() {
     document.getElementById('CMS').addEventListener('click', function () {
         window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
     })
-    document.getElementById('badmarks').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSc5-h7kFpda-XmAVnPLeuCTzbbcI5Ds9cgP3FYIyPSE4Ufo2Q/viewform")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
+    document.getElementById('subscribebilling').addEventListener('click', function () {
+        window.open("https://billing-api.skyeng.ru/subscriptions")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
     })
     document.getElementById('apelation').addEventListener('click', function () {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
