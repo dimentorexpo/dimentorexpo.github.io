@@ -4613,15 +4613,6 @@ function checJiraF() {
                 console.log("DONE!")
             } else console.log("Введите задачу в JIRA")
         }
-
-
-        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                console.log("DONE!")
-            }
-        }
-
     }
 }
 
