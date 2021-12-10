@@ -3741,8 +3741,8 @@ function refreshTemplates() {
 
                     document.getElementById('sendjira').onclick = function () {
                         sendComment(document.getElementById('10page_1str').children[0].value);
-                        let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        let splitter = document.URL.split('/')
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -3750,7 +3750,7 @@ function refreshTemplates() {
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('10page_1str').children[0].value + "\"}]}",
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"${document.getElementById('10page_1str').children[0].value}\"}]}",
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
