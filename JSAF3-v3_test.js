@@ -4600,10 +4600,12 @@ butteachidfstd.addEventListener('click', function () {
 
 function checJiraF() {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
-        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
-            sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-            console.log("DONE!")
-            clearInterval(jiragetfield);
+        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
+            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                console.log("DONE!")
+                clearInterval(jiragetfield);
+            }
         }
 
 
@@ -4618,6 +4620,10 @@ function checJiraF() {
 }
 
 let jiragetfield = setInterval(checJiraF, 1000);
+
+document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = checJiraF();
+document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = checJiraF();
+
 
 function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
