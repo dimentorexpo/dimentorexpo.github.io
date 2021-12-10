@@ -2949,10 +2949,10 @@ function move_again_AF() {
 
 
                 document.getElementsByClassName('sc-fznJRM iGbtXN content')[1].onclick = function () {
-                    document.getElementsByName('taskUrl')[0].onblur = function () {
+                    document.getElementsByName('taskUrl')[0].addEventListener('focusout', function () {
                         console.log(document.getElementsByName('taskUrl')[0].value);
                         sendComment(document.getElementsByName('taskUrl')[0].value);
-                    }
+                    })
                 }
 
 
