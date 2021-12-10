@@ -3792,7 +3792,6 @@ function refreshTemplates() {
     document.getElementById('0page_button').click()
 }
 
-
 function tagToChat(btnName) {
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
