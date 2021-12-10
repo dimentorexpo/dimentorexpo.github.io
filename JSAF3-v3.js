@@ -226,7 +226,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:105px">Enable NS💾</button>
-					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.47</button>
+					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.48</button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.41.1</button>
 				</div>		
 			</span>
@@ -2393,13 +2393,13 @@ function move_again_AF() {
         }
 
         //    setTimeout(getlogginer, 730);
-        await getunhideemail();
-        await getunhidephone();
         await getusernamecrm();
         await getuseragecrm();
+        await getunhideemail();
+        await getunhidephone();
         await checkemailandphoneidentity();
-        await crmstatus();
         await getlogginer();
+        await crmstatus();
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
@@ -2863,8 +2863,6 @@ function move_again_AF() {
         setTimeout(getJiraTask1, 1000)
     }
 
-
-
     document.getElementById('getJiraTasks').onclick = function () {
 
         if (document.getElementById('AF_Jira').style.display = 'none') {
@@ -2928,7 +2926,21 @@ function move_again_AF() {
                 let barray = document.querySelectorAll('.jiraissues');
                 for (let j = 0; j < barray.length; j++) {
                     barray[j].onclick = function () {
-                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
+                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
+                        let b = document.URL.split('/')
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
                     }
                 }
 
@@ -4584,6 +4596,28 @@ butteachidfstd.addEventListener('click', function () {
 })
 
 
+//Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
+
+function checJiraF() {
+    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
+        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
+            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                console.log("DONE!")
+            }
+        }
+
+
+        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = function () {
+            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                console.log("DONE!")
+            }
+        }
+    }
+}
+
+setInterval(checJiraF, 1000);
 
 function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {

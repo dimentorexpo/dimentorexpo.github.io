@@ -4596,7 +4596,7 @@ butteachidfstd.addEventListener('click', function () {
 })
 
 
-//TEST FUNC
+//Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
 
 function checJiraF() {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
