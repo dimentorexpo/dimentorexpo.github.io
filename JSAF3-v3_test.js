@@ -3714,6 +3714,25 @@ function refreshTemplates() {
                     countOfStr++
                 }
 
+                if (pageType == "Темы") { // дорисоква инпута для ссылки на Jira
+                    var newDivIn = document.createElement('div')
+                    newDivIn.id = countOfPages + "page_" + countOfStr + "str"
+                    newDivIn.style.margin = "5px"
+
+                    var newInputJiraCmt = document.createElement('input')
+                    newInputJiraCmt.id = 'jirafieldlink'
+                    newInputJiraCmt.placeholder = 'Ссылка на Jira задачу'
+                    newInputJiraCmt.autocomplete = 'off'
+                    newInputJiraCmt.type = 'text'
+                    newInputJiraCmt.style = 'text-align: center; width: 200px; color: black; margin-left: 20px'
+
+                    newDivIn.appendChild(newInputJiraCmt)
+
+                    b.lastElementChild.appendChild(newDivIn)
+                    countOfStr++
+                }
+
+
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
                 newStr.id = countOfPages + "page_" + countOfStr + "str"
