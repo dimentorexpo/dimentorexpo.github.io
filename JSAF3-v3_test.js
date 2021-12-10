@@ -3740,7 +3740,7 @@ function refreshTemplates() {
                     b.lastElementChild.appendChild(newSpanBtn)
 
                     document.getElementById('sendjira').onclick = function () {
-                        sendComment(document.getElementById('jirafieldlink').innerText);
+                        sendComment(document.getElementById('10page_1str').children[0].value);
                         let b = document.URL.split('/')
                         fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
@@ -3750,12 +3750,12 @@ function refreshTemplates() {
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('jirafieldlink').innerText + "\"}]}",
+                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('10page_1str').children[0].value + "\"}]}",
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
                         })
-                        document.getElementById('jirafieldlink').innerText = "";
+                        document.getElementById('10page_1str').children[0].value = "";
                     }
                 }
 
