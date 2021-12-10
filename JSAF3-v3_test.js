@@ -4602,8 +4602,10 @@ function checJiraF() {
     document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
             if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input") != null) {
-                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('focusout', function () {
+                let inpfield = document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input")
+                inpfield.addEventListener('focusout', function () {
                     sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                    console.log("DONE!")
                 })
             }
         } else {
@@ -4614,8 +4616,10 @@ function checJiraF() {
     document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = function () {
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
             if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input") != null) {
-                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('focusout', function () {
+                let inpfield = document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input")
+                inpfield.addEventListener('focusout', function () {
                     sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                    console.log("DONE!")
                 })
             }
         } else {
@@ -4623,7 +4627,6 @@ function checJiraF() {
         }
     }
 }
-
 
 setInterval(checJiraF, 1000)
 
