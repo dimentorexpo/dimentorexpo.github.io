@@ -4598,15 +4598,15 @@ butteachidfstd.addEventListener('click', function () {
 
 //TEST FUNC
 
+let btnjiratocmt = document.createElement('span');
+btnjiratocmt.innerText = "💬";
+btnjiratocmt.id = "sendjiratasktocmt";
+btnjiratocmt.style.maringLeft = "5px";
+btnjiratocmt.style.cursor = "pointer";
+document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").append(btnjiratocmt);
 
 function checJiraF() {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
-
-        let btnjiratocmt = document.createElement('span');
-        btnjiratocmt.innerText = "💬";
-        btnjiratocmt.id = "sendjiratasktocmt";
-        btnjiratocmt.style.maringLeft = "5px";
-        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").append(btnjiratocmt);
         document.getElementById('sendjiratasktocmt').onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
