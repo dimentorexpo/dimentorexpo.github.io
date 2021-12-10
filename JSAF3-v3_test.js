@@ -4598,8 +4598,23 @@ butteachidfstd.addEventListener('click', function () {
 
 //TEST FUNC
 
+
 function checJiraF() {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
+
+        let btnjiratocmt = document.createElement('span');
+        btnjiratocmt.innerText = "💬";
+        btnjiratocmt.id = "sendjiratasktocmt";
+        btnjiratocmt.style.maringLeft = "5px";
+        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").append(btnjiratocmt);
+        document.getElementById('sendjiratasktocmt').onclick = function () {
+            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                console.log("DONE!")
+            } else console.log("Введите задачу в JIRA")
+        }
+
+
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
@@ -4607,19 +4622,11 @@ function checJiraF() {
             }
         }
 
-
-        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                console.log("DONE!")
-            }
-        }
     }
 }
 
 setInterval(checJiraF, 1000);
-//document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = checJiraF();
-//document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = checJiraF();
+
 
 
 function timerHideButtons() {
