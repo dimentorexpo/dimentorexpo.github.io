@@ -226,7 +226,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:105px">Enable NS💾</button>
-					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.47</button>
+					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.48</button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.41.1</button>
 				</div>		
 			</span>
@@ -4601,26 +4601,27 @@ butteachidfstd.addEventListener('click', function () {
 function checJiraF() {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                console.log("DONE!")
+            if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").value.length == 0) {
+                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('onfocusout', function () {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                    console.log("DONE!")
+                })
             }
         }
 
 
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                console.log("DONE!")
+            if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").value.length == 0) {
+                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('onfocusout', function () {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                    console.log("DONE!")
+                })
             }
         }
     }
 }
 
 setInterval(checJiraF, 1000);
-//document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = checJiraF();
-//document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = checJiraF();
-
 
 function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
