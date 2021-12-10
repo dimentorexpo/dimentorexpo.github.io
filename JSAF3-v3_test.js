@@ -3600,6 +3600,25 @@ function servFromDoc(butName) { // отправка комента и сообщ
         sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
 }
 
+document.getElementById('sendjira').onclick = function () {
+    let b = document.URL.split('/')
+    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+        "headers": {
+            "accept": "*/*",
+            "content-type": "application/json",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin"
+        },
+        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('jirafieldlink').innerText + "\"}]}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    })
+    sendComment(document.getElementById('jirafieldlink').innerText);
+    document.getElementById('jirafieldlink').innerText = ""
+}
+
 var bool = 0;
 var table
 function getText() {
@@ -3715,7 +3734,7 @@ function refreshTemplates() {
                 }
 
                 if (pageType == "Темы") { // дорисоква инпута для ссылки на Jira
-                    var newDivIn = document.createElement('div')
+                    var newDivIn = document.createElement('span')
                     newDivIn.id = countOfPages + "page_" + countOfStr + "str"
                     newDivIn.style.margin = "5px"
 
@@ -3724,16 +3743,18 @@ function refreshTemplates() {
                     newInputJiraCmt.placeholder = 'Ссылка на Jira задачу'
                     newInputJiraCmt.autocomplete = 'off'
                     newInputJiraCmt.type = 'text'
-                    newInputJiraCmt.style = 'text-align: center; width: 200px; color: black; margin-left: 20px'
+                    newInputJiraCmt.style = 'text-align: center; width: 200px; color: black; margin-left: 60px'
 
                     newDivIn.appendChild(newInputJiraCmt)
 
                     b.lastElementChild.appendChild(newDivIn)
                     countOfStr++
 
-                    var newSpanBtn = document.createElement('span')
-                    newSpanBtn.id = "sendjira"
-                    newSpanBtn.innerText = "🚀"
+                    var newSpanBtn = document.createElement('button');
+                    newSpanBtn.id = "sendjira";
+                    newSpanBtn.style.cursor = "pointer";
+                    newSpanBtn.style.marginLeft = "20px";
+                    newSpanBtn.innerText = "🚀";
 
                     b.lastElementChild.appendChild(newSpanBtn)
                 }
