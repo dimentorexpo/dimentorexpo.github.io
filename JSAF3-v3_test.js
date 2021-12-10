@@ -3740,6 +3740,7 @@ function refreshTemplates() {
                     b.lastElementChild.appendChild(newSpanBtn)
 
                     document.getElementById('sendjira').onclick = function () {
+                        sendComment(document.getElementById('jirafieldlink').innerText);
                         let b = document.URL.split('/')
                         fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
@@ -3754,8 +3755,7 @@ function refreshTemplates() {
                             "mode": "cors",
                             "credentials": "include"
                         })
-                        sendComment(document.getElementById('jirafieldlink').innerText);
-                        document.getElementById('jirafieldlink').innerText = ""
+                        document.getElementById('jirafieldlink').innerText = "";
                     }
                 }
 
