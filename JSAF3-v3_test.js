@@ -3730,6 +3730,12 @@ function refreshTemplates() {
 
                     b.lastElementChild.appendChild(newDivIn)
                     countOfStr++
+
+                    var newSpanBtn = document.createElement('span')
+                    newSpanBtn.id = "sendjira"
+                    newSpanBtn.innerText = "🚀"
+
+                    b.lastElementChild.appendChild(newSpanBtn)
                 }
 
 
