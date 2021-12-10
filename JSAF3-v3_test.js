@@ -3740,8 +3740,10 @@ function refreshTemplates() {
                     b.lastElementChild.appendChild(newSpanBtn)
 
                     document.getElementById('sendjira').onclick = function () {
-                        sendComment(document.getElementById('10page_1str').children[0].value);
+                        let getval = document.getElementById('10page_1str').children[0].value;
+                        sendComment(getval);
                         let splitter = document.URL.split('/')
+                        console.log("Getval = " + getval)
                         fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
@@ -3750,7 +3752,7 @@ function refreshTemplates() {
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('10page_1str').children[0].value + "\"}]}",
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
