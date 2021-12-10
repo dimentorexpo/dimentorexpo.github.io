@@ -3738,25 +3738,6 @@ function refreshTemplates() {
                     newSpanBtn.innerText = "🚀";
 
                     b.lastElementChild.appendChild(newSpanBtn)
-
-                    document.getElementById('sendjira').onclick = function () {
-                        let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                            "headers": {
-                                "accept": "*/*",
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('jirafieldlink').innerText + "\"}]}",
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                        sendComment(document.getElementById('jirafieldlink').innerText);
-                        document.getElementById('jirafieldlink').innerText = ""
-                    }
                 }
 
 
@@ -3836,6 +3817,26 @@ function refreshTemplates() {
             document.getElementById('addTmp').style.display = 'none';
     }
     document.getElementById('0page_button').click()
+}
+
+
+document.getElementById('sendjira').onclick = function () {
+    let b = document.URL.split('/')
+    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+        "headers": {
+            "accept": "*/*",
+            "content-type": "application/json",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin"
+        },
+        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('jirafieldlink').innerText + "\"}]}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    })
+    sendComment(document.getElementById('jirafieldlink').innerText);
+    document.getElementById('jirafieldlink').innerText = ""
 }
 
 function tagToChat(btnName) {
