@@ -4603,22 +4603,19 @@ btnjiratocmt.innerText = "💬";
 btnjiratocmt.id = "sendjiratasktocmt";
 btnjiratocmt.style.maringLeft = "5px";
 btnjiratocmt.style.cursor = "pointer";
-document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").append(btnjiratocmt);
 
-function checJiraF() {
-    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
-        document.getElementById('sendjiratasktocmt').onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                console.log("DONE!")
-            } else console.log("Введите задачу в JIRA")
-        }
+setInterval(() => {
+    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content") != null) {
+        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").append(btnjiratocmt);
     }
+}, 1000);
+
+document.getElementById('sendjiratasktocmt').onclick = function () {
+    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+        sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+        console.log("DONE!")
+    } else console.log("Введите задачу в JIRA")
 }
-
-setInterval(checJiraF, 1000);
-
-
 
 function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
