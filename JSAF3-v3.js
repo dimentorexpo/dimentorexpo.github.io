@@ -3714,6 +3714,105 @@ function refreshTemplates() {
                     countOfStr++
                 }
 
+                if (pageType == "ТемыМоб") { // дорисовка инпута для ссылки на Jira
+                    var newDivInMob = document.createElement('span')
+                    newDivInMob.id = "9page_1str";
+                    newDivInMob.style.margin = "5px"
+
+                    var newInputJiraCmtMob = document.createElement('input')
+                    newInputJiraCmtMob.id = 'jirafieldlinkmob'
+                    newInputJiraCmtMob.placeholder = 'Ссылка на Jira задачу'
+                    newInputJiraCmtMob.autocomplete = 'off'
+                    newInputJiraCmtMob.type = 'text'
+                    newInputJiraCmtMob.style = 'text-align: center; width: 200px; color: black; margin-left: 60px'
+
+                    newDivInMob.appendChild(newInputJiraCmtMob)
+
+                    b.lastElementChild.appendChild(newDivInMob)
+
+                    var newSpanBtnMob = document.createElement('button');
+                    newSpanBtnMob.id = "sendjiramob";
+                    newSpanBtnMob.style.cursor = "pointer";
+                    newSpanBtnMob.style.marginLeft = "20px";
+                    newSpanBtnMob.innerText = "🚀";
+
+                    newDivInMob.appendChild(newSpanBtnMob);
+
+                    b.lastElementChild.appendChild(newSpanBtnMob)
+
+                    document.getElementById('sendjiramob').onclick = function () {
+                        let getval1 = document.getElementById('9page_1str').children[0].value
+                        sendComment(getval1);
+                        let splitter1 = document.URL.split('/')
+                        console.log("Getval = " + getval1)
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter1[5] + "/payload", {
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval1 + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                        document.getElementById('9page_1str').children[0].value = "";
+                    }
+                }
+
+
+                if (pageType == "Темы") { // дорисовка инпута для ссылки на Jira
+                    var newDivIn = document.createElement('span')
+                    newDivIn.id = "10page_1str";
+                    newDivIn.style.margin = "5px"
+
+                    var newInputJiraCmt = document.createElement('input')
+                    newInputJiraCmt.id = 'jirafieldlink'
+                    newInputJiraCmt.placeholder = 'Ссылка на Jira задачу'
+                    newInputJiraCmt.autocomplete = 'off'
+                    newInputJiraCmt.type = 'text'
+                    newInputJiraCmt.style = 'text-align: center; width: 200px; color: black; margin-left: 60px'
+
+                    newDivIn.appendChild(newInputJiraCmt)
+
+                    b.lastElementChild.appendChild(newDivIn)
+
+                    var newSpanBtn = document.createElement('button');
+                    newSpanBtn.id = "sendjira";
+                    newSpanBtn.style.cursor = "pointer";
+                    newSpanBtn.style.marginLeft = "20px";
+                    newSpanBtn.innerText = "🚀";
+
+                    newDivIn.appendChild(newSpanBtn);
+
+                    b.lastElementChild.appendChild(newSpanBtn)
+
+                    document.getElementById('sendjira').onclick = function () {
+                        let getval = document.getElementById('10page_1str').children[0].value
+                        sendComment(getval);
+                        let splitter = document.URL.split('/')
+                        console.log("Getval = " + getval)
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                        document.getElementById('10page_1str').children[0].value = "";
+                    }
+                }
+
+
+
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
                 newStr.id = countOfPages + "page_" + countOfStr + "str"
@@ -3769,6 +3868,13 @@ function refreshTemplates() {
                         newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
+                    case 'ТемыМоб':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
                     case 'Темы':
                         var newBut = document.createElement('button')
                         newBut.innerText = c[0]
@@ -3791,6 +3897,7 @@ function refreshTemplates() {
     }
     document.getElementById('0page_button').click()
 }
+
 
 function tagToChat(btnName) {
     for (var l = 0; l < table.length; l++) {
