@@ -2930,7 +2930,7 @@ function move_again_AF() {
                     barray[j].onclick = function () {
                         sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
                         let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", `{
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -2938,11 +2938,11 @@ function move_again_AF() {
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\""https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]\"}]}",
+                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
-                            }`)
+                        })
                     }
                 }
 
