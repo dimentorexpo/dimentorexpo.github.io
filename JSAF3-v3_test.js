@@ -4597,7 +4597,7 @@ butteachidfstd.addEventListener('click', function () {
 
 
 //TEST FUNC
-setTimeout(function () {
+setInterval(function () {
     document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
             document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('focusout', function () {
