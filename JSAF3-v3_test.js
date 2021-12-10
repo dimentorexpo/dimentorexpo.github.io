@@ -4610,6 +4610,18 @@ function checJiraF() {
             console.log("Задача уже добавлена, очистите поле и повторите снова чтобы отправился новый коммент")
         }
     }
+
+    document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = function () {
+        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
+            if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input") != null) {
+                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('focusout', function () {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                })
+            }
+        } else {
+            console.log("Задача уже добавлена, очистите поле и повторите снова чтобы отправился новый коммент")
+        }
+    }
 }
 
 
