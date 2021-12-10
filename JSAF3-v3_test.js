@@ -4617,6 +4617,7 @@ function checJiraF() {
     }
 }
 
+setInterval(checJiraF, 1000);
 //document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = checJiraF();
 //document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = checJiraF();
 
