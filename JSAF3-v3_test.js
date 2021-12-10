@@ -4601,21 +4601,17 @@ butteachidfstd.addEventListener('click', function () {
 function checJiraF() {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
-            if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").value.length == 0) {
-                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('onfocusout', function () {
-                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                    console.log("DONE!")
-                })
+            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                console.log("DONE!")
             }
         }
 
 
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = function () {
-            if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").value.length == 0) {
-                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").addEventListener('onfocusout', function () {
-                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                    console.log("DONE!")
-                })
+            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                console.log("DONE!")
             }
         }
     }
