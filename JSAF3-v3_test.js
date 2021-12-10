@@ -2944,18 +2944,6 @@ function move_again_AF() {
                     }
                 }
 
-
-                /*                 //TEST SCENARIO
-                
-                
-                                document.getElementsByClassName('sc-fznJRM iGbtXN content')[1].onclick = function () {
-                                    document.getElementsByName('taskUrl')[0].addEventListener('focusout', function () {
-                                        console.log(document.getElementsByName('taskUrl')[0].value);
-                                        sendComment(document.getElementsByName('taskUrl')[0].value);
-                                    })
-                                } */
-
-
                 let refreshissuesarr = document.querySelectorAll('.refreshissues');
                 for (let f = 0; f < refreshissuesarr.length; f++) {
                     refreshissuesarr[f].onclick = function () {
@@ -4625,9 +4613,12 @@ function timerHideButtons() {
 
         //TEST FUNC
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
-            document.querySelector("body > div:nth-child(27) > div > div > div > div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").onfocusout = function () {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
+                document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").onfocusout = function () {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                }
             }
+
         }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
