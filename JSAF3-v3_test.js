@@ -3742,7 +3742,7 @@ function refreshTemplates() {
                     b.lastElementChild.appendChild(newSpanBtn)
 
                     document.getElementById('sendjira').onclick = function () {
-                        let getval = document.getElementById('10page_1str').children[0].value;
+                        let getval = document.getElementsByTagName('input')[41].value + document.getElementsByTagName('input')[42].value;
                         sendComment(getval);
                         let splitter = document.URL.split('/')
                         console.log("Getval = " + getval)
@@ -3760,6 +3760,7 @@ function refreshTemplates() {
                             "credentials": "include"
                         })
                         document.getElementById('10page_1str').children[0].value = "";
+                        document.getElementById('9page_1str').children[0].value = "";
                     }
                 }
 
