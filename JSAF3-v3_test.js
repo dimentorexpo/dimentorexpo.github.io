@@ -3714,6 +3714,55 @@ function refreshTemplates() {
                     countOfStr++
                 }
 
+                if (pageType == "ТемыМоб") { // дорисовка инпута для ссылки на Jira
+                    var newDivInMob = document.createElement('span')
+                    newDivInMob.id = "9page_1str";
+                    newDivInMob.style.margin = "5px"
+
+                    var newInputJiraCmtMob = document.createElement('input')
+                    newInputJiraCmtMob.id = 'jirafieldlinkmob'
+                    newInputJiraCmtMob.placeholder = 'Ссылка на Jira задачу'
+                    newInputJiraCmtMob.autocomplete = 'off'
+                    newInputJiraCmtMob.type = 'text'
+                    newInputJiraCmtMob.style = 'text-align: center; width: 200px; color: black; margin-left: 60px'
+
+                    newDivInMob.appendChild(newInputJiraCmtMob)
+
+                    b.lastElementChild.appendChild(newDivInMob)
+
+                    var newSpanBtnMob = document.createElement('button');
+                    newSpanBtnMob.id = "sendjiramob";
+                    newSpanBtnMob.style.cursor = "pointer";
+                    newSpanBtnMob.style.marginLeft = "20px";
+                    newSpanBtnMob.innerText = "🚀";
+
+                    newDivInMob.appendChild(newSpanBtnMob);
+
+                    b.lastElementChild.appendChild(newSpanBtnMob)
+
+                    document.getElementById('sendjiramob').onclick = function () {
+                        let getval1 = document.getElementById('9page_1str').children[0].value
+                        sendComment(getval1);
+                        let splitter1 = document.URL.split('/')
+                        console.log("Getval = " + getval1)
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter1[5] + "/payload", {
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval1 + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                        document.getElementById('9page_1str').children[0].value = "";
+                    }
+                }
+
+
                 if (pageType == "Темы") { // дорисовка инпута для ссылки на Jira
                     var newDivIn = document.createElement('span')
                     newDivIn.id = "10page_1str";
@@ -3761,6 +3810,7 @@ function refreshTemplates() {
                         document.getElementById('10page_1str').children[0].value = "";
                     }
                 }
+
 
 
                 var newStr = document.createElement('div')
@@ -3816,6 +3866,13 @@ function refreshTemplates() {
                         newBut.innerText = c[0]
                         newBut.style.marginRight = '4px'
                         newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
+                    case 'ТемыМоб':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
                     case 'Темы':
