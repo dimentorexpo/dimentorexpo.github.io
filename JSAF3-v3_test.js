@@ -2863,8 +2863,6 @@ function move_again_AF() {
         setTimeout(getJiraTask1, 1000)
     }
 
-
-
     document.getElementById('getJiraTasks').onclick = function () {
 
         if (document.getElementById('AF_Jira').style.display = 'none') {
@@ -2945,6 +2943,15 @@ function move_again_AF() {
                         })
                     }
                 }
+
+
+                //TEST SCENARIO
+
+                document.querySelectorAll('.ant-form-item-control-input')[2].childNodes[0].childNodes[0].onblur = function () {
+                    console.log("IT WORKS");
+                    sendComment(document.querySelectorAll('.ant-form-item-control-input')[2].childNodes[0].childNodes[0].children[1].innerText)
+                }
+
 
                 let refreshissuesarr = document.querySelectorAll('.refreshissues');
                 for (let f = 0; f < refreshissuesarr.length; f++) {
