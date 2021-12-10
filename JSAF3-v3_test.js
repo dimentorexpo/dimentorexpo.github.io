@@ -4600,40 +4600,24 @@ butteachidfstd.addEventListener('click', function () {
 
 function checJiraF() {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null) {
-        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzoLag").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
-                if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input") != null) {
-                    let inpfield = document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input")
-                    inpfield.addEventListener('focusout', function () {
-                        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "")
-                            sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                        console.log("DONE!")
-                    })
-                }
-            } else {
-                console.log("Задача уже добавлена, очистите поле и повторите снова чтобы отправился новый коммент")
-            }
+        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+            sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+            console.log("DONE!")
+            clearInterval(jiragetfield);
         }
 
 
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
-                if (document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input") != null) {
-                    let inpfield = document.querySelector("div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input")
-                    inpfield.addEventListener('focusout', function () {
-                        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "")
-                            sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
-                        console.log("DONE!")
-                    })
-                }
-            } else {
-                console.log("Задача уже добавлена, очистите поле и повторите снова чтобы отправился новый коммент")
+            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText != "Пусто") {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+                console.log("DONE!")
+                clearInterval(jiragetfield);
             }
         }
     }
 }
 
-setInterval(checJiraF, 1000)
+let jiragetfield = setInterval(checJiraF, 1000);
 
 
 
