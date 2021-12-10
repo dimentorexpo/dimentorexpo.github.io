@@ -2947,9 +2947,12 @@ function move_again_AF() {
 
                 //TEST SCENARIO
 
-                document.querySelectorAll('.ant-form-item-control-input')[2].childNodes[0].childNodes[0].onblur = function () {
-                    console.log("IT WORKS");
-                    sendComment(document.querySelectorAll('.ant-form-item-control-input')[2].childNodes[0].childNodes[0].children[1].innerText)
+
+                document.getElementsByClassName('sc-fznJRM iGbtXN content')[1].onclick = function () {
+                    document.getElementsByName('taskUrl')[0].onblur = function () {
+                        console.log(document.getElementsByName('taskUrl')[0].value);
+                        sendComment(document.getElementsByName('taskUrl')[0].value);
+                    }
                 }
 
 
