@@ -2393,13 +2393,13 @@ function move_again_AF() {
         }
 
         //    setTimeout(getlogginer, 730);
-        await getunhideemail();
-        await getunhidephone();
         await getusernamecrm();
         await getuseragecrm();
+        await getunhideemail();
+        await getunhidephone();
         await checkemailandphoneidentity();
-        await crmstatus();
         await getlogginer();
+        await crmstatus();
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = `{
@@ -2928,7 +2928,21 @@ function move_again_AF() {
                 let barray = document.querySelectorAll('.jiraissues');
                 for (let j = 0; j < barray.length; j++) {
                     barray[j].onclick = function () {
-                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
+                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
+                        let b = document.URL.split('/')
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", `{
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\""https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                            }`)
                     }
                 }
 
