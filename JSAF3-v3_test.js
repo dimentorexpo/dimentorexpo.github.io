@@ -2945,15 +2945,15 @@ function move_again_AF() {
                 }
 
 
-                //TEST SCENARIO
-
-
-                document.getElementsByClassName('sc-fznJRM iGbtXN content')[1].onclick = function () {
-                    document.getElementsByName('taskUrl')[0].addEventListener('focusout', function () {
-                        console.log(document.getElementsByName('taskUrl')[0].value);
-                        sendComment(document.getElementsByName('taskUrl')[0].value);
-                    })
-                }
+                /*                 //TEST SCENARIO
+                
+                
+                                document.getElementsByClassName('sc-fznJRM iGbtXN content')[1].onclick = function () {
+                                    document.getElementsByName('taskUrl')[0].addEventListener('focusout', function () {
+                                        console.log(document.getElementsByName('taskUrl')[0].value);
+                                        sendComment(document.getElementsByName('taskUrl')[0].value);
+                                    })
+                                } */
 
 
                 let refreshissuesarr = document.querySelectorAll('.refreshissues');
@@ -4622,6 +4622,13 @@ function timerHideButtons() {
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+
+        //TEST FUNC
+        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
+            document.querySelector("body > div:nth-child(27) > div > div > div > div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC.gJohPa > div > div > div > div > input").onfocusout = function () {
+                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
+            }
+        }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
             let selectorList = document.querySelectorAll('.sc-fzpans');
