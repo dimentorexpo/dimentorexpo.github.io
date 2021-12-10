@@ -4625,7 +4625,7 @@ function timerHideButtons() {
 
         //TEST FUNC
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText == "Пусто") {
-            document.querySelector("body > div:nth-child(27) > div > div > div > div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC.gJohPa > div > div > div > div > input").onfocusout = function () {
+            document.querySelector("body > div:nth-child(27) > div > div > div > div.ant-popover-inner > div > div > div.ant-row.ant-form-item.sc-fzpjYC > div > div > div > div > input").onfocusout = function () {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
             }
         }
