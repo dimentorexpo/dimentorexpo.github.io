@@ -2854,6 +2854,20 @@ function move_again_AF() {
                 let barray = document.querySelector('.jiraissues');
                 barray.onclick = function () {
                     sendComment(rezissuetable[0].items[0].url)
+                    let b = document.URL.split('/')
+                    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        "headers": {
+                            "accept": "*/*",
+                            "content-type": "application/json",
+                            "sec-fetch-dest": "empty",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    })
                 }
 
                 setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
