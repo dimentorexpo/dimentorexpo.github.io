@@ -3741,50 +3741,25 @@ function refreshTemplates() {
 
                     b.lastElementChild.appendChild(newSpanBtn)
 
-                    if (document.getElementById('10page_1str').children[0].value != "") {
-
-                        document.getElementById('sendjira').onclick = function () {
-                            let getval = document.getElementById('10page_1str').children[0].value;
-                            sendComment(getval);
-                            let splitter = document.URL.split('/')
-                            console.log("Getval = " + getval)
-                            fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
-                                "headers": {
-                                    "accept": "*/*",
-                                    "content-type": "application/json",
-                                    "sec-fetch-dest": "empty",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-origin"
-                                },
-                                "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            })
-                            document.getElementById('10page_1str').children[0].value = "";
-                        }
-                    } else if (document.getElementById('9page_1str').children[0].value != "") {
-
-                        document.getElementById('sendjira').onclick = function () {
-                            let getval = document.getElementById('9page_1str').children[0].value;
-                            sendComment(getval);
-                            let splitter = document.URL.split('/')
-                            console.log("Getval = " + getval)
-                            fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
-                                "headers": {
-                                    "accept": "*/*",
-                                    "content-type": "application/json",
-                                    "sec-fetch-dest": "empty",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-origin"
-                                },
-                                "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            })
-                            document.getElementById('9page_1str').children[0].value = "";
-                        }
+                    document.getElementById('sendjira').onclick = function () {
+                        let getval = document.getElementById('10page_1str').children[0].value;
+                        sendComment(getval);
+                        let splitter = document.URL.split('/')
+                        console.log("Getval = " + getval)
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                        document.getElementById('10page_1str').children[0].value = "";
                     }
                 }
 
