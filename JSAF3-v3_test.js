@@ -3600,25 +3600,6 @@ function servFromDoc(butName) { // отправка комента и сообщ
         sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
 }
 
-document.getElementById('sendjira').onclick = function () {
-    let b = document.URL.split('/')
-    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-        "headers": {
-            "accept": "*/*",
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('jirafieldlink').innerText + "\"}]}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
-    })
-    sendComment(document.getElementById('jirafieldlink').innerText);
-    document.getElementById('jirafieldlink').innerText = ""
-}
-
 var bool = 0;
 var table
 function getText() {
@@ -3757,6 +3738,25 @@ function refreshTemplates() {
                     newSpanBtn.innerText = "🚀";
 
                     b.lastElementChild.appendChild(newSpanBtn)
+
+                    document.getElementById('sendjira').onclick = function () {
+                        let b = document.URL.split('/')
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + document.getElementById('jirafieldlink').innerText + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                        sendComment(document.getElementById('jirafieldlink').innerText);
+                        document.getElementById('jirafieldlink').innerText = ""
+                    }
                 }
 
 
