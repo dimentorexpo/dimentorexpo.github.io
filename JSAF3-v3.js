@@ -3197,7 +3197,7 @@ function move_again_AF() {
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: sugtL5dhsPXXiQdN9w3SisOaR@[o");
+        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: d=0kYsp4qWQqFHNBEe2");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
