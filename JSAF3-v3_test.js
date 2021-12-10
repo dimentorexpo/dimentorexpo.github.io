@@ -3737,6 +3737,8 @@ function refreshTemplates() {
                     newSpanBtn.style.marginLeft = "20px";
                     newSpanBtn.innerText = "🚀";
 
+                    newDivIn.appendChild(newSpanBtn);
+
                     b.lastElementChild.appendChild(newSpanBtn)
 
                     document.getElementById('sendjira').onclick = function () {
