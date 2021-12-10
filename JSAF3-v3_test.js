@@ -4606,6 +4606,8 @@ function checJiraF() {
                     sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM.content").innerText);
                 })
             }
+        } else {
+            console.log("Задача уже добавлена, очистите поле и повторите снова чтобы отправился новый коммент")
         }
     }
 }
