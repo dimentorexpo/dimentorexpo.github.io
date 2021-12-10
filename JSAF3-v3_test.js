@@ -3716,7 +3716,7 @@ function refreshTemplates() {
 
                 if (pageType == "Темы") { // дорисовка инпута для ссылки на Jira
                     var newDivIn = document.createElement('span')
-                    newDivIn.id = countOfPages + "page_" + countOfStr + "str"
+                    newDivIn.id = "10page_1str";
                     newDivIn.style.margin = "5px"
 
                     var newInputJiraCmt = document.createElement('input')
@@ -3729,7 +3729,6 @@ function refreshTemplates() {
                     newDivIn.appendChild(newInputJiraCmt)
 
                     b.lastElementChild.appendChild(newDivIn)
-                    countOfStr++
 
                     var newSpanBtn = document.createElement('button');
                     newSpanBtn.id = "sendjira";
@@ -3742,7 +3741,7 @@ function refreshTemplates() {
                     b.lastElementChild.appendChild(newSpanBtn)
 
                     document.getElementById('sendjira').onclick = function () {
-                        let getval = document.getElementsByTagName('input')[41].value + document.getElementsByTagName('input')[42].value;
+                        let getval = document.getElementById('10page_1str').children[0].value
                         sendComment(getval);
                         let splitter = document.URL.split('/')
                         console.log("Getval = " + getval)
@@ -3760,7 +3759,6 @@ function refreshTemplates() {
                             "credentials": "include"
                         })
                         document.getElementById('10page_1str').children[0].value = "";
-                        document.getElementById('9page_1str').children[0].value = "";
                     }
                 }
 
