@@ -111,7 +111,6 @@ var win_AFhelper =  // описание элементов главного ок
 				</p>
 			</div>
 			
-
 		</div>
 		
 	</span>
@@ -379,7 +378,6 @@ var win_Timetable = //
                 <div id="timetableinfo">
                      <p id="timetabledata" style="width:450px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
-
 </span>
 </div>`;
 
@@ -391,13 +389,10 @@ var win_Techsummary = //
                 <div style="margin: 5px; width: 400;" id="HeadTechSummary">
                         <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
                 </div>
-
                  </span>
-
                 <div id="techsummaryinfo">
                      <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; font-size: 18px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
-
 </span>
 </div>`;
 
@@ -3118,8 +3113,8 @@ function move_again_AF() {
             document.getElementById('cstmTmplates').style.display = 'none'
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
-        if (document.getElementById('AF_Jira').style.display == '')
-            document.getElementById('AF_Jira').style.display = 'none'
+        //if (document.getElementById('AF_Jira').style.display == '')
+        //    document.getElementById('AF_Jira').style.display = 'none'
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
         if (document.getElementById('AF_LessonStatus').style.display == '')
@@ -3163,7 +3158,7 @@ function move_again_AF() {
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
-            document.getElementById('AF_Jira').style.display = 'none'
+        //    document.getElementById('AF_Jira').style.display = 'none'
         }
         else
             document.getElementById('AF_Links').style.display = ''
