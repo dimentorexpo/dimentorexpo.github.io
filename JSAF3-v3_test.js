@@ -2356,7 +2356,7 @@ function move_again_AF() {
     }
 
     let convid;
-    document.getElementById('getidstudent').onclick = async function () { // нажатие на ракету
+    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
         convid = "";
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
@@ -2369,16 +2369,16 @@ function move_again_AF() {
         stid = stid.trim();
 
         getservicearr();
-        /*       setTimeout(getunhideemail, 600);
+               setTimeout(getunhideemail, 600);
               setTimeout(getunhidephone, 620);
               setTimeout(getusernamecrm, 640);
               setTimeout(getuseragecrm, 650);
               setTimeout(checkemailandphoneidentity, 660);
-              setTimeout(crmstatus, 680); */
+              setTimeout(crmstatus, 680); 
 
 
         //  getservicearr();
-        await chatstatus()
+        setTimeout(chatstatus() {
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
@@ -2386,17 +2386,18 @@ function move_again_AF() {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
         }
+		}, 1000)
 
-        //    setTimeout(getlogginer, 730);
-        await getusernamecrm();
-        await getuseragecrm();
-        await getunhideemail();
-        await getunhidephone();
-        await checkemailandphoneidentity();
-        await getlogginer();
-        await crmstatus();
+           setTimeout(getlogginer, 730);
+     //   await getusernamecrm();
+     //   await getuseragecrm();
+        // await getunhideemail();
+        // await getunhidephone();
+        // await checkemailandphoneidentity();
+        // await getlogginer();
+        // await crmstatus();
 
-        setTimeout(async function () {
+        setTimeout( function () {
             document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -2413,14 +2414,14 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
 
-            async function getServInfo() {
+            function getServInfo() {
                 document.getElementById('responseTextarea1').value = '{}'
                 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
                 document.getElementById('responseTextarea3').value = 'getserviceinfo'
                 document.getElementById('sendResponse').click()
 
                 servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
-                servicearr = await servicearr;
+                servicearr = servicearr;
                 servicearr = JSON.parse(servicearr);
                 //console.log(servicearr);
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
