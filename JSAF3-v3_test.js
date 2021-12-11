@@ -2339,10 +2339,8 @@ function move_again_AF() {
         if (infres.total > 0) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
-            convid = infres.items[0].conversationId;
-			
+            convid = infres.items[0].conversationId;	
 			 werechats = true;
-             convid = infres.items[0].conversationId;
              if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
              chatisopen = true;
              else
