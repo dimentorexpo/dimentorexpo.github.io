@@ -2287,7 +2287,37 @@ function move_again_AF() {
     let werechats = false;
     let chatisopen = "";
 
-    async function chatstatus() { // проверка наличия чатов в истории и активного чата
+    // async function chatstatus() { // проверка наличия чатов в истории и активного чата
+        // let tempvariable = document.getElementById('idstudent').value;
+        // tempvariable = tempvariable.trim();
+        // document.getElementById('ChatStatus').style.display = "none";
+        // document.getElementById('getcurrentstatus').style.display = "none";
+        // await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            // "headers": {
+                // "content-type": "application/json",
+                // "sec-fetch-dest": "empty",
+                // "sec-fetch-mode": "cors",
+                // "sec-fetch-site": "same-origin"
+            // },
+            // "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            // "referrerPolicy": "strict-origin-when-cross-origin",
+            // "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+            // "method": "POST",
+            // "mode": "cors",
+            // "credentials": "include"
+        // }).then(r => r.json()).then(data => infres = data)
+        // if (infres.total > 0) {
+            // werechats = true;
+            // convid = infres.items[0].conversationId;
+            // if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
+                // chatisopen = true;
+            // else
+                // chatisopen = false;
+        // } else if (infres.total == 0)
+            // werechats = false;
+    // }
+
+	   async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
         tempvariable = tempvariable.trim();
         document.getElementById('ChatStatus').style.display = "none";
@@ -2307,15 +2337,21 @@ function move_again_AF() {
             "credentials": "include"
         }).then(r => r.json()).then(data => infres = data)
         if (infres.total > 0) {
-            werechats = true;
-            convid = infres.items[0].conversationId;
-            if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-                chatisopen = true;
-            else
-                chatisopen = false;
-        } else if (infres.total == 0)
-            werechats = false;
+            document.getElementById('ChatStatus').style.display = "";
+            document.getElementById('ChatStatus').textContent = "📧";
+            convid = infres.items[0].conversationId;	
+			 werechats = true;
+             if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
+             chatisopen = true;
+             else
+             chatisopen = false;
+        } else if (infres.total == 0) {
+            document.getElementById('ChatStatus').style.display = "";
+            document.getElementById('ChatStatus').textContent = "🚫";
+			werechats = false;
+        }
     }
+
 
     document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
         if (operatorId == "") {
@@ -2354,6 +2390,7 @@ function move_again_AF() {
             }
         }
     }
+	
 
     let convid;
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
@@ -2376,18 +2413,17 @@ function move_again_AF() {
               setTimeout(checkemailandphoneidentity, 660);
               setTimeout(crmstatus, 680); 
 			
-			
-			function chatstatus() {
-        if (werechats) {
+			        //  getservicearr();
+        setTimeout(chatstatus, 800)
+		setTimeout(function() {
+		        if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
         } else if (!werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
-			}}
-
-        //  getservicearr();
-        setTimeout(chatstatus, 1000)
+			}
+		}, 1000)
 
            setTimeout(getlogginer, 730);
      //   await getusernamecrm();
@@ -2643,7 +2679,7 @@ function move_again_AF() {
         }, 720)
     }
 
-    document.getElementById('ChatStatus').onclick = function () {
+   document.getElementById('ChatStatus').onclick = function () {
         if (document.getElementById('ChatStatus').textContent == "📧") {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
