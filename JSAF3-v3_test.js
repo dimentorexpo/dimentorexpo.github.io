@@ -2384,7 +2384,7 @@ function move_again_AF() {
         } else if (!werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
-        }
+			}}
 
         //  getservicearr();
         setTimeout(chatstatus, 1000)
