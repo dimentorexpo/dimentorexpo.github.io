@@ -2376,18 +2376,15 @@ function move_again_AF() {
               setTimeout(checkemailandphoneidentity, 660);
               setTimeout(crmstatus, 680); 
 			
-			
-			function chatstatus() {
-        if (werechats) {
+			        //  getservicearr();
+        setTimeout(chatstatus, 800)
+		        if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
         } else if (!werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
-			}}
-
-        //  getservicearr();
-        setTimeout(chatstatus, 1000)
+			}
 
            setTimeout(getlogginer, 730);
      //   await getusernamecrm();
