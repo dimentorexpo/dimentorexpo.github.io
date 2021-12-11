@@ -2375,10 +2375,9 @@ function move_again_AF() {
               setTimeout(getuseragecrm, 650);
               setTimeout(checkemailandphoneidentity, 660);
               setTimeout(crmstatus, 680); 
-
-
-        //  getservicearr();
-        setTimeout(chatstatus() {
+			
+			
+			function chatstatus() {
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
@@ -2386,7 +2385,9 @@ function move_again_AF() {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
         }
-		}, 1000)
+
+        //  getservicearr();
+        setTimeout(chatstatus, 1000)
 
            setTimeout(getlogginer, 730);
      //   await getusernamecrm();
