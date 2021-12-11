@@ -2378,6 +2378,7 @@ function move_again_AF() {
 			
 			        //  getservicearr();
         setTimeout(chatstatus, 800)
+		setTimeout(function() {
 		        if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
@@ -2385,6 +2386,7 @@ function move_again_AF() {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
 			}
+		}, 1000)
 
            setTimeout(getlogginer, 730);
      //   await getusernamecrm();
