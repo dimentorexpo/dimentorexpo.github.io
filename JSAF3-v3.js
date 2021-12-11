@@ -111,7 +111,6 @@ var win_AFhelper =  // описание элементов главного ок
 				</p>
 			</div>
 			
-
 		</div>
 		
 	</span>
@@ -379,7 +378,6 @@ var win_Timetable = //
                 <div id="timetableinfo">
                      <p id="timetabledata" style="width:450px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
-
 </span>
 </div>`;
 
@@ -391,13 +389,10 @@ var win_Techsummary = //
                 <div style="margin: 5px; width: 400;" id="HeadTechSummary">
                         <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
                 </div>
-
                  </span>
-
                 <div id="techsummaryinfo">
                      <p id="techsumdata" style="width:400px;color:bisque; max-height:400px; margin-left:5px; font-size: 18px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
-
 </span>
 </div>`;
 
@@ -2361,7 +2356,7 @@ function move_again_AF() {
     }
 
     let convid;
-    document.getElementById('getidstudent').onclick = async function () { // нажатие на ракету
+    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
         convid = "";
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
@@ -2374,34 +2369,36 @@ function move_again_AF() {
         stid = stid.trim();
 
         getservicearr();
-        /*       setTimeout(getunhideemail, 600);
+               setTimeout(getunhideemail, 600);
               setTimeout(getunhidephone, 620);
               setTimeout(getusernamecrm, 640);
               setTimeout(getuseragecrm, 650);
               setTimeout(checkemailandphoneidentity, 660);
-              setTimeout(crmstatus, 680); */
-
-
-        //  getservicearr();
-        await chatstatus()
+              setTimeout(crmstatus, 680); 
+			
+			
+			function chatstatus() {
         if (werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
         } else if (!werechats) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
-        }
+			}}
 
-        //    setTimeout(getlogginer, 730);
-        await getusernamecrm();
-        await getuseragecrm();
-        await getunhideemail();
-        await getunhidephone();
-        await checkemailandphoneidentity();
-        await getlogginer();
-        await crmstatus();
+        //  getservicearr();
+        setTimeout(chatstatus, 1000)
 
-        setTimeout(async function () {
+           setTimeout(getlogginer, 730);
+     //   await getusernamecrm();
+     //   await getuseragecrm();
+        // await getunhideemail();
+        // await getunhidephone();
+        // await checkemailandphoneidentity();
+        // await getlogginer();
+        // await crmstatus();
+
+        setTimeout( function () {
             document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -2418,14 +2415,14 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
 
-            async function getServInfo() {
+            function getServInfo() {
                 document.getElementById('responseTextarea1').value = '{}'
                 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
                 document.getElementById('responseTextarea3').value = 'getserviceinfo'
                 document.getElementById('sendResponse').click()
 
                 servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
-                servicearr = await servicearr;
+                servicearr = servicearr;
                 servicearr = JSON.parse(servicearr);
                 //console.log(servicearr);
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
