@@ -143,7 +143,11 @@ var win_linksd =  // описание элементов окна доступо
                             <input id="mobappid" placeholder="ID mob.app" title="Вводим id пользователя для открытия действий в приложении" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="mobappidbut">🔎</button>
                             <input id="rpayid" placeholder="ID платежи" title="Вводим id пользователя для открытия лога платежей" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="rpayidbut">🔎</button>   
+                            <button id="rpayidbut">🔎</button>
+							<input id="FeedbackStatus" placeholder="ID У ОС статус" title="Вводим id пользователя для открытия логов по статусу ОС с У. full / отчет+встреча+звонок ; call / только звонок ; report / только отчет; disabled / полностью отключено" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="GetFeedbackStatus">🔎</button> 
+							<input id="TeacherReport" placeholder="ID У Отчет" title="Вводим id пользователя для открытия полной информации что П вносила в отчет и когда и по какой комнате" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="GetTeacherReport">🔎</button>  
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>                       
                             <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
                         </div>
@@ -1160,6 +1164,24 @@ function move_again_AF() {
             window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
         };
         rpayid.value = "";
+    }   
+
+	document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
+        if (FeedbackStatus.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/27681?p_Student_id=" + FeedbackStatus.value);
+        };
+        FeedbackStatus.value = "";
+    }
+
+	document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
+        if (TeacherReport.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value +"&p_Student%2FTeacher=student_id");
+        };
+        TeacherReport.value = "";
     }
 
     document.getElementById('grafanalnk').addEventListener('click', function () {
@@ -6209,15 +6231,6 @@ function prepTp() {
     setInterval(timerHideButtons, 300)
 
     setTimeout(function () {
-        // Модуль wallentine в АФ
-        //include("https://dimentorexpo.github.io/viewSlack.js");
-        // Модуль репорта на жалобы
-        // include("https://dimentorexpo.github.io/reportForm.js"); пока работает не правильно, временно отключаю.
-        // Модуль репорта на Отписку
-        //include("https://dimentorexpo.github.io/unsub.js")
-
-        // include("https://dimentorexpo.github.io/ChangeServiceLocale.js") // модуль кнопки в инфо о пользователе позволяющее поменять локаль ученика
-        include("https://dimentorexpo.github.io/UserTechData.js") // модуль получения информации об устройстве У/П по нажатию кнопки в правом окне
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
     }, 2000)
 
