@@ -4507,18 +4507,6 @@ function startTimer() {
                 btn.appendChild(buttonnextteacherid)
             }
 
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(buttontechdatastudent)
-                if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                    btn.appendChild(buttonoutputfield)
-            }
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(buttontechdatateacher)
-                if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2)
-                    btn.appendChild(buttonoutputfield2)
-            }
         }
     }
 
