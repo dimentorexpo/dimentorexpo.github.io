@@ -2098,48 +2098,6 @@ function move_again_AF() {
     }
 
     let tokenlogginer;
-    async function getlogginer() {
-        //Для получения токена сначала обрабатываем
-        document.getElementById('responseTextarea1').value = `{
-					  "referrer": "https://id.skyeng.ru/admin/users",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "method": "GET",
-					  "mode": "cors",
-					  "credentials": "include"
-	}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-        document.getElementById('responseTextarea3').value = 'gettoken'
-        document.getElementById('sendResponse').click()
-
-
-        async function gettokenlog() {
-
-            document.getElementById('responseTextarea1').value = `{
-					  "referrer": "https://id.skyeng.ru/admin/users",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "method": "GET",
-					  "mode": "cors",
-					  "credentials": "include"
-	}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-            document.getElementById('responseTextarea3').value = 'gettoken'
-            document.getElementById('sendResponse').click()
-
-
-            tokenlogginer = document.getElementById('responseTextarea1').getAttribute('gettoken');
-            tokenlogginer = await tokenlogginer;
-            let dokie = document.createElement('div');
-            dokie.innerHTML = tokenlogginer;
-            tokenlogginer = dokie.querySelector('#login_link_form__token').value;
-            //console.log("Tokenlogginer: " + tokenlogginer)
-            document.getElementById('responseTextarea1').removeAttribute('gettoken');
-
-        }
-
-        setTimeout(gettokenlog, 500)
-    }
-
-
     let logginerinfo;
     async function postuderdatatologin() {
         let useriddata = document.getElementById('idstudent').value;
@@ -2447,7 +2405,6 @@ function move_again_AF() {
 			}
 		}, 1000)
 
-           setTimeout(getlogginer, 730);
      //   await getusernamecrm();
      //   await getuseragecrm();
         // await getunhideemail();
