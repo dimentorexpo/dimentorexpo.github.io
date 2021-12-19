@@ -6277,7 +6277,7 @@ let tokenlog;
 let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
-btnpm.backgroundColor = "#3CB371";
+btnpm.style.backgroundColor = "#3CB371";
 document.getElementById('testMath').replaceWith(btnpm);
 btnpm.onclick = async function() {
         document.getElementById('responseTextarea1').value = `{
