@@ -6272,6 +6272,8 @@ if (localStorage.getItem('hesoyam') == 1) {
 }
 
 let lginfo;
+let tokenlog;
+//getlogginer()
 let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
@@ -6289,7 +6291,7 @@ btnpm.onclick = async function() {
 			  },
 			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${3151438}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlogginer}",
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=3151438&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
