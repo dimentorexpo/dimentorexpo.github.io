@@ -169,7 +169,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" style="width: 50px;">💼</button>
 					<button title="Открывает инструкцию по пробникам" id="probnikinstr" style="width: 50px;">🗃</button>
                     <button title="Открывает известные баги на платформе" id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
-					<button title="Открывает известные мобильные баги на платформе" id="confbugsm" style="width:50px; float: right; margin-right: 5px">🐞📱</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
@@ -1231,9 +1230,7 @@ function move_again_AF() {
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
     })
-    document.getElementById('confbugsm').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=114996322")    // открываем ссылку список мобильных багов в confluence
-    })
+
     document.getElementById('restartlesson').addEventListener('click', function () {
         copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
         document.getElementById('restartlesson').innerHTML = "Copied!";
