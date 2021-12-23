@@ -2712,25 +2712,25 @@ function move_again_AF() {
             let opername = "";
             if (getcrmstatusinfo.data.length > 0) {
                 for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing") {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
                         flagtpout = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_first_line") {
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
                         flagtp = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup != "technical_support_first_line") {
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name!= "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
                         flagnottp = 1;
                     }
                 }
 
                 for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
                         flagstatuswait = 1;
                         document.getElementById('getcurrentstatus').title = "";
-                    } else if (getcrmstatusinfo.data[i].operatorGroup == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
                         flagstatusprocessing = 1;
                         opername = getcrmstatusinfo.data[i].operator.name;
                     }
                 }
-
+ 
                 if (flagstatuswait == 1) {
                     document.getElementById('getcurrentstatus').style.display = "";
                     document.getElementById('getcurrentstatus').innerText = "В ожидании";
