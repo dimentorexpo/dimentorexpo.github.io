@@ -2730,7 +2730,7 @@ function move_again_AF() {
                         opername = getcrmstatusinfo.data[i].operator.name;
                     }
                 }
-
+ 
                 if (flagstatuswait == 1) {
                     document.getElementById('getcurrentstatus').style.display = "";
                     document.getElementById('getcurrentstatus').innerText = "В ожидании";
