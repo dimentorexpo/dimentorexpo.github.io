@@ -230,7 +230,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:105px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:105px">Enable NS💾</button>
-					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.50</button>
+					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.52</button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.43</button>
 				</div>		
 			</span>
@@ -1165,9 +1165,9 @@ function move_again_AF() {
             window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
         };
         rpayid.value = "";
-    }   
+    }
 
-	document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
+    document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
         if (FeedbackStatus.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -1176,11 +1176,11 @@ function move_again_AF() {
         FeedbackStatus.value = "";
     }
 
-	document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
+    document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
         if (TeacherReport.value == "") {
             console.log('Введите id в поле')
         } else {
-            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value +"&p_Student%2FTeacher=student_id");
+            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
         };
         TeacherReport.value = "";
     }
@@ -2267,36 +2267,36 @@ function move_again_AF() {
     let chatisopen = "";
 
     // async function chatstatus() { // проверка наличия чатов в истории и активного чата
-        // let tempvariable = document.getElementById('idstudent').value;
-        // tempvariable = tempvariable.trim();
-        // document.getElementById('ChatStatus').style.display = "none";
-        // document.getElementById('getcurrentstatus').style.display = "none";
-        // await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-            // "headers": {
-                // "content-type": "application/json",
-                // "sec-fetch-dest": "empty",
-                // "sec-fetch-mode": "cors",
-                // "sec-fetch-site": "same-origin"
-            // },
-            // "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-            // "referrerPolicy": "strict-origin-when-cross-origin",
-            // "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
-            // "method": "POST",
-            // "mode": "cors",
-            // "credentials": "include"
-        // }).then(r => r.json()).then(data => infres = data)
-        // if (infres.total > 0) {
-            // werechats = true;
-            // convid = infres.items[0].conversationId;
-            // if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-                // chatisopen = true;
-            // else
-                // chatisopen = false;
-        // } else if (infres.total == 0)
-            // werechats = false;
+    // let tempvariable = document.getElementById('idstudent').value;
+    // tempvariable = tempvariable.trim();
+    // document.getElementById('ChatStatus').style.display = "none";
+    // document.getElementById('getcurrentstatus').style.display = "none";
+    // await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+    // "headers": {
+    // "content-type": "application/json",
+    // "sec-fetch-dest": "empty",
+    // "sec-fetch-mode": "cors",
+    // "sec-fetch-site": "same-origin"
+    // },
+    // "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+    // "referrerPolicy": "strict-origin-when-cross-origin",
+    // "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+    // "method": "POST",
+    // "mode": "cors",
+    // "credentials": "include"
+    // }).then(r => r.json()).then(data => infres = data)
+    // if (infres.total > 0) {
+    // werechats = true;
+    // convid = infres.items[0].conversationId;
+    // if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
+    // chatisopen = true;
+    // else
+    // chatisopen = false;
+    // } else if (infres.total == 0)
+    // werechats = false;
     // }
 
-	   async function chatstatus() {
+    async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
         tempvariable = tempvariable.trim();
         document.getElementById('ChatStatus').style.display = "none";
@@ -2318,16 +2318,16 @@ function move_again_AF() {
         if (infres.total > 0) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "📧";
-            convid = infres.items[0].conversationId;	
-			 werechats = true;
-             if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-             chatisopen = true;
-             else
-             chatisopen = false;
+            convid = infres.items[0].conversationId;
+            werechats = true;
+            if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
+                chatisopen = true;
+            else
+                chatisopen = false;
         } else if (infres.total == 0) {
             document.getElementById('ChatStatus').style.display = "";
             document.getElementById('ChatStatus').textContent = "🚫";
-			werechats = false;
+            werechats = false;
         }
     }
 
@@ -2369,7 +2369,7 @@ function move_again_AF() {
             }
         }
     }
-	
+
 
     let convid;
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
@@ -2385,34 +2385,34 @@ function move_again_AF() {
         stid = stid.trim();
 
         getservicearr();
-               setTimeout(getunhideemail, 600);
-              setTimeout(getunhidephone, 620);
-              setTimeout(getusernamecrm, 640);
-              setTimeout(getuseragecrm, 650);
-              setTimeout(checkemailandphoneidentity, 660);
-              setTimeout(crmstatus, 680); 
-			
-			        //  getservicearr();
-        setTimeout(chatstatus, 800)
-		setTimeout(function() {
-		        if (werechats) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "📧";
-        } else if (!werechats) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "🚫";
-			}
-		}, 1000)
+        setTimeout(getunhideemail, 600);
+        setTimeout(getunhidephone, 620);
+        setTimeout(getusernamecrm, 640);
+        setTimeout(getuseragecrm, 650);
+        setTimeout(checkemailandphoneidentity, 660);
+        setTimeout(crmstatus, 680);
 
-     //   await getusernamecrm();
-     //   await getuseragecrm();
+        //  getservicearr();
+        setTimeout(chatstatus, 800)
+        setTimeout(function () {
+            if (werechats) {
+                document.getElementById('ChatStatus').style.display = "";
+                document.getElementById('ChatStatus').textContent = "📧";
+            } else if (!werechats) {
+                document.getElementById('ChatStatus').style.display = "";
+                document.getElementById('ChatStatus').textContent = "🚫";
+            }
+        }, 1000)
+
+        //   await getusernamecrm();
+        //   await getuseragecrm();
         // await getunhideemail();
         // await getunhidephone();
         // await checkemailandphoneidentity();
         // await getlogginer();
         // await crmstatus();
 
-        setTimeout( function () {
+        setTimeout(function () {
             document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -2657,7 +2657,7 @@ function move_again_AF() {
         }, 720)
     }
 
-   document.getElementById('ChatStatus').onclick = function () {
+    document.getElementById('ChatStatus').onclick = function () {
         if (document.getElementById('ChatStatus').textContent == "📧") {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
@@ -2716,7 +2716,7 @@ function move_again_AF() {
                         flagtpout = 1;
                     } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
                         flagtp = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name!= "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
                         flagnottp = 1;
                     }
                 }
@@ -2730,7 +2730,7 @@ function move_again_AF() {
                         opername = getcrmstatusinfo.data[i].operator.name;
                     }
                 }
- 
+
                 if (flagstatuswait == 1) {
                     document.getElementById('getcurrentstatus').style.display = "";
                     document.getElementById('getcurrentstatus').innerText = "В ожидании";
@@ -3174,7 +3174,7 @@ function move_again_AF() {
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
-        //    document.getElementById('AF_Jira').style.display = 'none'
+            //    document.getElementById('AF_Jira').style.display = 'none'
         }
         else
             document.getElementById('AF_Links').style.display = ''
@@ -3320,13 +3320,13 @@ function move_again_AF() {
 
     document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
-    }) 
+    })
 
-	document.getElementById('probniki').addEventListener('click', function () {
+    document.getElementById('probniki').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
     })
 
-	document.getElementById('probnikinstr').addEventListener('click', function () {
+    document.getElementById('probnikinstr').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
     })
 
@@ -4333,13 +4333,12 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML")
                 for (k = 0; k < idk; k++) {
                     if (tmrs[k][1] == name) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ урок")
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ")
                             tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
                         else
                             tmrs[k][4] = ""
                     }
                 }
-
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-mode") {
                 nextClassMode = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
                 nextClassModeId = i
@@ -6243,8 +6242,8 @@ btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
 btnpm.style.backgroundColor = "#3CB371";
 document.getElementById('testMath').replaceWith(btnpm);
-btnpm.onclick = async function() {
-        document.getElementById('responseTextarea1').value = `{
+btnpm.onclick = async function () {
+    document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
@@ -6261,13 +6260,13 @@ btnpm.onclick = async function() {
 			  "mode": "cors",
 			  "credentials": "include"
 			}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-        document.getElementById('responseTextarea3').value = 'senddata'
-        document.getElementById('sendResponse').click()
- 
-        setTimeout(async function () {
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+    document.getElementById('responseTextarea3').value = 'senddata'
+    document.getElementById('sendResponse').click()
 
-            document.getElementById('responseTextarea1').value = `{
+    setTimeout(async function () {
+
+        document.getElementById('responseTextarea1').value = `{
 				   "headers": {
 					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 					"sec-fetch-dest": "document",
@@ -6283,21 +6282,21 @@ btnpm.onclick = async function() {
 				  "mode": "cors",
 				  "credentials": "include"
 			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-            document.getElementById('responseTextarea3').value = 'senddata'
-            document.getElementById('sendResponse').click()
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
+        document.getElementById('responseTextarea3').value = 'senddata'
+        document.getElementById('sendResponse').click()
 
-            lginfo = document.getElementById('responseTextarea1').getAttribute('senddata');
-            lginfo = await lginfo;
+        lginfo = document.getElementById('responseTextarea1').getAttribute('senddata');
+        lginfo = await lginfo;
 
-            lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            lginfo = lginfo[lginfo.length - 1].split("\"");
-            //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
-            copyToClipboard1(lginfo[1])
-            document.getElementById('responseTextarea1').removeAttribute('senddata')
+        lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+        lginfo = lginfo[lginfo.length - 1].split("\"");
+        //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
+        copyToClipboard1(lginfo[1])
+        document.getElementById('responseTextarea1').removeAttribute('senddata')
 
 
-        }, 500)
+    }, 500)
 }
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
