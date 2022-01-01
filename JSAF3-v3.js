@@ -195,6 +195,8 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
+					<input id="grid" placeholder="ID ГУ(OLD)" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<button id="groupadm">🔎</button>
 					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="sguid">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -1361,6 +1363,16 @@ function move_again_AF() {
             window.open(lnkstep + cmsstepid.value);
         };
         cmsstepid.value = "";
+    }
+	
+	    document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
+        let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
+        if (grid.value == "")
+            console.log('Введите id в поле')
+        else {
+            window.open(lnngr + grid.value);
+        };
+        grid.value = "";
     }
 
     document.getElementById('checkbalance').onclick = function () {
