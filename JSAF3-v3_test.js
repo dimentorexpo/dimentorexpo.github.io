@@ -3297,7 +3297,7 @@ function move_again_AF() {
 		if (getcurmonth <10) {
 			getcurmonth = "0" + (getcurdate.getMonth() + 1);
 		} else {
-			getcurmonth = getcurdate.getMonth() + 1);
+			getcurmonth = (getcurdate.getMonth() + 1);
 		}
 
         if (getcurdate.getDate() < 10) {
