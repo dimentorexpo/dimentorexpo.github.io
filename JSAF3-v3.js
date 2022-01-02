@@ -3266,6 +3266,11 @@ function move_again_AF() {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
+		if (getcurmonthLS <10) {
+			getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+		} else {
+			getcurmonthLS = (getdateset.getMonth() + 1);
+		}
         if (getdateset.getDate() < 10) {
             todayLS = "0" + getdateset.getDate();
             document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
@@ -3275,6 +3280,8 @@ function move_again_AF() {
             document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
             document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
+		
+
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
         else
@@ -3286,6 +3293,12 @@ function move_again_AF() {
         let getyear = getcurdate.getFullYear();
         let getcurmonth = (getcurdate.getMonth() + 1)
         let today = getcurdate.getDate();
+		
+		if (getcurmonth <10) {
+			getcurmonth = "0" + (getcurdate.getMonth() + 1);
+		} else {
+			getcurmonth = (getcurdate.getMonth() + 1);
+		}
 
         if (getcurdate.getDate() < 10) {
             today = "0" + getcurdate.getDate();
