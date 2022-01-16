@@ -408,7 +408,15 @@ var win_servicedesk =
                 </div>
                  </span>
                 <div id="servicedeskinfo">
+                    <button>Teachers</button>
+                    <button>CRM2</button>
+                    <button>Auth</button>
+                    <button>Schedule</button>
+                    <button>Billing-QA</button>
+                    <button>Onboarding</button>
+                    <button>Telephony</button>
                     <button>Billing</button>
+                    <button>Kids</button>
                 </div>
 </span>
 </div>`;
