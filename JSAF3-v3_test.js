@@ -3253,15 +3253,17 @@ function move_again_AF() {
 			document.getElementById('optionTeacher').onclick = function() {
 				if (document.getElementById('teacherssrvdskoptions').style.display != '')
 					document.getElementById('teacherssrvdskoptions').style.display = '';
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 				else
-					document.getElementById('teacherssrvdskoptions').style.display = 'none'
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 		 }
 		 
 		 			document.getElementById('optionSkysmart').onclick = function() {
 				if (document.getElementById('skysmartsrvdskoptions').style.display != '')
 					document.getElementById('skysmartsrvdskoptions').style.display = '';
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 				else
-					document.getElementById('skysmartsrvdskoptions').style.display = 'none'
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 		 }
 		 
 		 
