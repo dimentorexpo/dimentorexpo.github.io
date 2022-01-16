@@ -458,7 +458,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="c1srvdskoptions" style="display: none;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#c1-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#c1-support</p>
 					<button>Проблемы с версткой</button>
 					<button>Не завершился онбординг после оплаты</button>
 					<button>Циклические редиректы</button>
