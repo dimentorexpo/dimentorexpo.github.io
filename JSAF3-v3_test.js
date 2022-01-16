@@ -399,6 +399,20 @@ var win_Techsummary = //
 </span>
 </div>`;
 
+var = win_servicedesk =
+    `<div style="display: flex; width: 400px;">
+<span style="width: 400px">
+        <span style="cursor: -webkit-grab;">
+                <div style="margin: 5px; width: 400;" id="SrvDskSummary">
+                        <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
+                </div>
+                 </span>
+                <div id="servicedeskinfo">
+                    <button>Billing</button>
+                </div>
+</span>
+</div>`;
+
 
 let audio
 
@@ -452,6 +466,11 @@ if (localStorage.getItem('winTopTimetable') == null) { // началоное п�
 if (localStorage.getItem('winTopTechSum') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
     localStorage.setItem('winTopTechSum', '120');
     localStorage.setItem('winLeftTechSum', '295');
+}
+
+if (localStorage.getItem('winTopServDsk') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopServDsk', '120');
+    localStorage.setItem('winLeftServDsk', '295');
 }
 
 
@@ -809,6 +828,13 @@ wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451;
 wintTechSummary.style.display = 'none';
 wintTechSummary.setAttribute('id', 'AF_TechSummary');
 wintTechSummary.innerHTML = win_Techsummary;
+
+let wintServDsk = document.createElement('div'); // создание окна ссылок
+document.body.append(wintServDsk);
+wintServDsk.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServDsk.style.display = 'none';
+wintServDsk.setAttribute('id', 'AF_ServDsk');
+wintServDsk.innerHTML = win_servicedesk;
 
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -3160,6 +3186,13 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
+    }   
+	
+	document.getElementById('servDsk').onclick = function () {
+        if (document.getElementById('AF_ServDsk').style.display == '')
+            document.getElementById('AF_ServDsk').style.display = 'none'
+        else
+            document.getElementById('AF_ServDsk').style.display = ''
     }
 
 
