@@ -421,7 +421,7 @@ var win_servicedesk =
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none;">
-					<p>#teachers-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
 					<button>Моё обучение</button>
 					<button>Перерыв</button>
 					<button>Финансы</button>
@@ -439,7 +439,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="skysmartsrvdskoptions" style="display: none;">
-					<p>#skysmart-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
 					<button>Контент</button>
 					<button>Обратная связь</button>
 					<button>Операции с семьёй</button>
