@@ -399,7 +399,7 @@ var win_Techsummary = //
 </span>
 </div>`;
 
-var = win_servicedesk =
+var win_servicedesk =
     `<div style="display: flex; width: 400px;">
 <span style="width: 400px">
         <span style="cursor: -webkit-grab;">
@@ -948,6 +948,20 @@ wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedow
     document.addEventListener('mousemove', listener11);
 }
 wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listener11); }
+
+var listener12 = function (e, a) { // сохранение позиции окна доступов
+    wintServDsk.style.left = Number(e.clientX - myX12) + "px";
+    wintServDsk.style.top = Number(e.clientY - myY12) + "px";
+    localStorage.setItem('winTopServDsk', String(Number(e.clientY - myY12)));
+    localStorage.setItem('winLeftServDsk', String(Number(e.clientX - myX12)));
+};
+
+wintServDsk.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX12 = a.layerX;
+    window.myY12 = a.layerY;
+    document.addEventListener('mousemove', listener12);
+}
+wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listener12); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
