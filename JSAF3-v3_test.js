@@ -412,13 +412,31 @@ var win_servicedesk =
                     <button id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
                     <button id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
                     <button id="optionSchedule" style="margin-left:2px; width:80px;">Schedule</button>
-                    <button id="optionBillQA" style="margin-left:2px; width:80px;">Bill-QA</button>
+                    <button id="optionBillingQA" style="margin-left:2px; width:80px;">Billing-QA</button>
                     <button id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">Onboarding</button>
                     <button id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">Telephony</button>
                     <button id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
                     <button id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
                     <button id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
                 </div>
+				
+				<div id="teacherssrvdskoptions" style="display: none;">
+					<button>Моё обучение</button>
+					<button>Перерыв</button>
+					<button>Финансы</button>
+					<button>Карта роста</button>
+					<button>Расписание</button>
+					<button>Запрос на перенос</button>
+					<button>Виджет баланса</button>
+					<button>Виджет отметки уроков</button>
+					<button>Виджеты плана/факта уроков</button>
+					<button>Виджет расписания на неделю</button>
+					<button>Виджет KPI</button>
+					<button>Виджет "Мои ученики"</button>
+					<button>Вопросы по ТРМ</button>
+					<button>Подземный стук</button>
+				
+				</div>
 </span>
 </div>`;
 
@@ -1337,6 +1355,13 @@ function move_again_AF() {
         };
         cpuname.value = "";
     }
+	
+	if document.getElementById('AF_ServDsk').style.display != "none" {
+		document.getElementById('optionTeacher').onclick = function() {
+			document.getElementById('teacherssrvdskoptions').style.display = "";
+		}
+	}
+
 
     var abortTimeOut = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null) {
