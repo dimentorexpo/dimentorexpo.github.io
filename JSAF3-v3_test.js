@@ -366,24 +366,20 @@ var win_LessonStatus =  // описание элементов окна ссыл
 </div>`;
 
 var win_Timetable = //
-    `<div style="display: flex; width: 430px;">
-<span style="width: 430px">
+    `<div style="display: flex; width: 450px;">
+<span style="width: 450px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 400;" id="SrvDskSummary">
-                        <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
+                <div style="margin: 5px; width: 450;" id="HeadTimetable">
+                        <button id="hideMeTT" style="width:50px; background: #228B22;">hide</button>
                 </div>
+                                                
+                <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
+                     <button title="Выводит инфо о прошедших уроках" id="getlessonpast">Прошедшие уроки</button>
+                     <button title="Выводит инфо о предстоящих уроках" id="getlessonfuture">Предстоящие уроки</button>
+                 </div>
                  </span>
-                <div id="servicedeskinfo">
-                    <button id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
-                    <button id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
-                    <button id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
-                    <button id="optionSchedule" style="margin-left:2px; width:80px;">Schedule</button>
-                    <button id="optionBillQA" style="margin-left:2px; width:80px;">Bill-QA</button>
-                    <button id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">Onboarding</button>
-                    <button id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">Telephony</button>
-                    <button id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
-                    <button id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
-                    <button id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
+                <div id="timetableinfo">
+                     <p id="timetabledata" style="width:450px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto;text-align:center;"></p>
                 </div>
 </span>
 </div>`;
@@ -404,24 +400,24 @@ var win_Techsummary = //
 </div>`;
 
 var win_servicedesk =
-    `<div style="display: flex; width: 400px;">
-<span style="width: 400px">
+    `<div style="display: flex; width: 430px;">
+<span style="width: 430px">
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 400;" id="SrvDskSummary">
                         <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
                 </div>
                  </span>
-				<div id="servicedeskinfo">
-                    <button style="width:80px;">Teachers</button>
-                    <button style="width:80px;">CRM2</button>
-                    <button style="width:80px;">Auth</button>
-                    <button style="width:80px;">Schedule</button>
-                    <button style="width:80px;">Bill-QA</button>
-                    <button style="width:80px;">Onboarding</button>
-                    <button style="width:80px;">Telephony</button>
-                    <button style="width:80px;">Billing</button>   
-                    <button style="width:80px;">Kids</button>
-                    <button style="width:80px;">MRKT</button>
+                <div id="servicedeskinfo">
+                    <button id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
+                    <button id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
+                    <button id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
+                    <button id="optionSchedule" style="margin-left:2px; width:80px;">Schedule</button>
+                    <button id="optionBillQA" style="margin-left:2px; width:80px;">Bill-QA</button>
+                    <button id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">Onboarding</button>
+                    <button id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">Telephony</button>
+                    <button id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
+                    <button id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
+                    <button id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
                 </div>
 </span>
 </div>`;
