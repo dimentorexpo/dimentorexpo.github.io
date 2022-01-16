@@ -438,6 +438,41 @@ var win_servicedesk =
 					<button>Подземный стук</button>
 				</div>
 				
+				<div id="crm2srvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#crm2-support</p>
+				</div>
+				
+				<div id="authsrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#auth</p>
+				</div>
+				
+				<div id="schedulesrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support</p>
+				</div>	
+
+				<div id="billingqasrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#billing-qa-support</p>
+					<button>Вопросы по рассрочке ученика</button>
+					<button>Оплата с лендингов</button>
+					<button>Проверка баланса У на расхождения</button>
+				</div>
+				
+				<div id="c1srvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#c1-support</p>
+					<button>Проблемы с версткой</button>
+					<button>Не завершился онбординг после оплаты</button>
+					<button>Циклические редиректы</button>
+					<button>Подземный стук</button>
+				</div>
+				
+				<div id="telephonysrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#telephony-support</p>
+				</div>	
+
+				<div id="billingsrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#billing</p>
+				</div>
+				
 				<div id="skysmartsrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
 					<button>Контент</button>
@@ -451,6 +486,10 @@ var win_servicedesk =
 					<button>Страницы skysmart</button>
 					<button>Приложение skysmart parents</button>
 					<button>Уроки 1:1</button>
+				</div>
+				
+				<div id="mrktsrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#mrkt-bill-questions</p>
 				</div>
 </span>
 </div>`;
@@ -3261,6 +3300,8 @@ function move_again_AF() {
 				if (document.getElementById('teacherssrvdskoptions').style.display != ''){
 					document.getElementById('teacherssrvdskoptions').style.display = '';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+					document.getElementById('c1srvdskoptions').style.display = 'none';
 				} else
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 		 }
@@ -3269,10 +3310,33 @@ function move_again_AF() {
 				if (document.getElementById('skysmartsrvdskoptions').style.display != '') {
 					document.getElementById('skysmartsrvdskoptions').style.display = '';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+					document.getElementById('c1srvdskoptions').style.display = 'none';
 				} else
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 		 }
 		 
+		 		 	document.getElementById('optionBillingQA').onclick = function() {
+				if (document.getElementById('billingqasrvdskoptions').style.display != '') {
+					document.getElementById('billingqasrvdskoptions').style.display = '';
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('c1srvdskoptions').style.display = 'none';
+				} else
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+		 }
+		 
+		 		 	document.getElementById('optionOnboarding').onclick = function() {
+				if (document.getElementById('c1srvdskoptions').style.display != '') {
+					document.getElementById('c1srvdskoptions').style.display = '';
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+				} else
+					document.getElementById('c1srvdskoptions').style.display = 'none';
+		 }
+
+
 		 
     }
 
