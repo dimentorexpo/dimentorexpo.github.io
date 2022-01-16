@@ -3215,6 +3215,11 @@ function move_again_AF() {
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
+	
+	document.getElementById('hideMeSrvDsk').onclick = function() {
+		if (document.getElementById('AF_ServDsk').style.display == '')
+            document.getElementById('AF_ServDsk').style.display = 'none'
+	}
 
 
     document.getElementById('setting').onclick = function () {
