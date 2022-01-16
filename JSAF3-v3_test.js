@@ -435,7 +435,20 @@ var win_servicedesk =
 					<button>Виджет "Мои ученики"</button>
 					<button>Вопросы по ТРМ</button>
 					<button>Подземный стук</button>
+				</div>
 				
+				<div id="skysmartsrvdskoptions" style="display: none;">
+					<button>Контент</button>
+					<button>Обратная связь</button>
+					<button>Операции с семьёй</button>
+					<button>Страница ДЗ и тестов</button>
+					<button>Страница прогресса</button>
+					<button>Детский ЛКУ</button>
+					<button>Сертификаты</button>
+					<button>Групповые и параллельные уроки</button>
+					<button>Страницы skysmart</button>
+					<button>Приложение skysmart parents</button>
+					<button>Уроки 1:1</button>
 				</div>
 </span>
 </div>`;
@@ -3238,8 +3251,20 @@ function move_again_AF() {
         else
             document.getElementById('AF_ServDsk').style.display = ''
 			document.getElementById('optionTeacher').onclick = function() {
-			document.getElementById('teacherssrvdskoptions').style.display = "";
+				if (document.getElementById('teacherssrvdskoptions').style.display != '')
+					document.getElementById('teacherssrvdskoptions').style.display = '';
+				else
+					document.getElementById('teacherssrvdskoptions').style.display = 'none'
 		 }
+		 
+		 			document.getElementById('optionSkysmart').onclick = function() {
+				if (document.getElementById('skysmartsrvdskoptions').style.display != '')
+					document.getElementById('skysmartsrvdskoptions').style.display = '';
+				else
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none'
+		 }
+		 
+		 
     }
 
 
