@@ -1356,11 +1356,7 @@ function move_again_AF() {
         cpuname.value = "";
     }
 	
-	if document.getElementById('AF_ServDsk').style.display != "none" {
-		document.getElementById('optionTeacher').onclick = function() {
-			document.getElementById('teacherssrvdskoptions').style.display = "";
-		}
-	}
+
 
 
     var abortTimeOut = ''								// перменная для отмены будильника
@@ -3241,6 +3237,9 @@ function move_again_AF() {
             document.getElementById('AF_ServDsk').style.display = 'none'
         else
             document.getElementById('AF_ServDsk').style.display = ''
+			document.getElementById('optionTeacher').onclick = function() {
+			document.getElementById('teacherssrvdskoptions').style.display = "";
+		 }
     }
 
 
