@@ -655,6 +655,12 @@ butServ.innerHTML = "⚜"
 butServ.style.marginRight = "15px";
 butServ.style.cursor = "pointer";
 
+let servDsk = document.createElement('div')
+servDsk.id = "servDsk"
+servDsk.innerHTML = "ServiceDesk"
+servDsk.style.marginRight = "15px";
+servDsk.style.cursor = "pointer";
+
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
 maskBack.innerHTML = "Вернуть"
@@ -6205,6 +6211,7 @@ function firstLoadPage() {
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
             btnAdd1.insertBefore(butServ, btnAdd1.children[1])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[2])
         }, 2000)
 
         setInterval(startTimer, 1000)
