@@ -495,7 +495,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="telephonysrvdskoptions" style="display: none;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#telephony-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#telephony-support</p>
 					<button>Отсутствие доступа к странице телефонии</button>
 					<button>Проблема с исходящим вызовом</button>
 					<button>Проблема с входящим вызовом</button>
