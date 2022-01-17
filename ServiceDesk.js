@@ -6,6 +6,7 @@
 			document.getElementById('optionTeacher').onclick = function() {
 				if (document.getElementById('teacherssrvdskoptions').style.display != ''){
 					document.getElementById('teacherssrvdskoptions').style.display = '';
+					document.getElementById('optionTeacher').style.backgroundColor = "Tomato"			
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -15,8 +16,10 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-				} else
+				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+						}
 		 }
 		 
 		 			document.getElementById('optionSkysmart').onclick = function() {
