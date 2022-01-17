@@ -16,6 +16,15 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 	
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
@@ -63,6 +72,15 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";	
@@ -82,6 +100,15 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('c1srvdskoptions').style.display = 'none';
 					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";	
@@ -101,6 +128,15 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('schedulesrvdskoptions').style.display = 'none';
 					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";	
@@ -120,6 +156,15 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('telephonysrvdskoptions').style.display = 'none';
 					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";	
@@ -139,6 +184,15 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('optionAuth').style.backgroundColor = "#768d87";	 
@@ -159,9 +213,18 @@
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
-					document.getElementById('optionCRM2').style.backgroundColor = "#768d87"
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
 				}
 		 }
 		 
@@ -178,6 +241,15 @@
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";
@@ -197,6 +269,15 @@
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
+					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";	
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87"; 
 				} else {
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 
