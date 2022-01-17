@@ -35,6 +35,15 @@
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
+					document.getElementById('optionBillingQA').style.backgroundColor = "#768d87";
+					document.getElementById('optionOnboarding').style.backgroundColor = "#768d87";
+					document.getElementById('optionSchedule').style.backgroundColor = "#768d87";
+					document.getElementById('optionTelephony').style.backgroundColor = "#768d87";
+					document.getElementById('optionAuth').style.backgroundColor = "#768d87";
+					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
+					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
+					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 					
 				} else {
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";	
