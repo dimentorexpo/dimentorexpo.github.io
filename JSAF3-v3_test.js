@@ -439,7 +439,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="crm2srvdskoptions" style="display: none;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#crm2-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
 					<button>Вопросы по задачам "Сопровождения"</button>
 					<button>Вопросы по задачам "Продаж"</button>
 					<button>Вопросы по "Истории уроков"</button>
@@ -456,7 +456,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="authsrvdskoptions" style="display: none;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#auth</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
 					<button>Вопросы к разработке</button>
 					<button>Проблемы с 2FA : проблема с google authenticator</button>
 					<button>Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
@@ -507,7 +507,7 @@ var win_servicedesk =
 				</div>	
 
 				<div id="billingsrvdskoptions" style="display: none;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#billing</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#billing</p>
 					<button>Чеки/Инвойсы</button>
 					<button>Data analytics</button>
 					<button>Задача для разработки</button>
