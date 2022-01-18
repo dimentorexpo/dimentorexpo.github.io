@@ -608,6 +608,20 @@ var win_servicedesk =
 					<button id="create_3" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
+				<div id="kidshwtests" style="display: none; margin:5px;">
+					<textarea id="customfield_12" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_13" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_14" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_15" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_16" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_4" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
 				
 			
 </span>

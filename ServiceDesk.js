@@ -60,6 +60,8 @@
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
 							document.getElementById('kidsfamily').style.display = 'none';
 							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							document.getElementById('kidshwtests').style.display = 'none';
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcontent').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidscontent').style.display = 'none';
@@ -74,6 +76,8 @@
 							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
 							document.getElementById('kidsfamily').style.display = 'none';
 							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							document.getElementById('kidshwtests').style.display = 'none';
+							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfeedback').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidsfeedback').style.display = 'none';
@@ -88,10 +92,28 @@
 							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
 							document.getElementById('kidsfeedback').style.display = 'none';
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
+							document.getElementById('kidshwtests').style.display = 'none';
+							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfamily').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidsfamily').style.display = 'none';
 							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							}
+						}
+						
+						document.getElementById('skysmarthomework').onclick =function() {
+							if (document.getElementById('kidshwtests').style.display != '') {
+							document.getElementById('kidshwtests').style.display = '';
+							document.getElementById('kidscontent').style.display = 'none';
+							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfeedback').style.display = 'none';
+							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfamily').style.display = 'none';
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							document.getElementById('skysmarthomework').style.backgroundColor = "DodgerBlue";
+							} else { 
+							document.getElementById('kidshwtests').style.display = 'none';
+							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
 							}
 						}
 						
