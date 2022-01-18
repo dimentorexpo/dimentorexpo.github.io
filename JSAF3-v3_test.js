@@ -576,6 +576,7 @@ var win_servicedesk =
 					<input id="customfield_4" placeholder="ID Ученика" style="width: 400px;"></input>
 					<br>
 					<input id="customfield_5" placeholder="ID Услуги" style="width: 400px;"></input>
+					<br>
 					<button>Создать</button>
 				</div>
 			
