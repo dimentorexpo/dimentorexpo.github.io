@@ -89,7 +89,9 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfeedback').style.backgroundColor = "DodgerBlue";
-							} else { 
+							} else if(document.getElementById('kidsform').style.display == '') {
+									console.log("Opened");
+							} else {								
 							document.getElementById('kidsform').style.display = 'none';
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
 							}
