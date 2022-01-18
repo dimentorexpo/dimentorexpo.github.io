@@ -93,7 +93,7 @@
 						//	} else if(document.getElementById('kidsform').style.display == '') {
 						//			console.log("Opened");
 						//							}
-							else {								
+							} else {								
 							document.getElementById('kidsform').style.display = 'none';
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
 							}
