@@ -71,9 +71,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcontent').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartfeedback').onclick =function() {
@@ -90,9 +88,6 @@
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfeedback').style.backgroundColor = "DodgerBlue";
 							} 
-							if (document.getElementById('skysmartfeedback').style.backgroundColor == "DodgerBlue") {							
-							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
-							}
 						}
 						
 						document.getElementById('skysmartfamily').onclick =function() {
@@ -108,9 +103,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfamily').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmarthomework').onclick =function() {
@@ -126,9 +119,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmarthomework').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartprogress').onclick =function() {
@@ -144,9 +135,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartprogress').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartprogress').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartcabinet').onclick =function() {
@@ -162,9 +151,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcabinet').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartcabinet').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartcertificate').onclick =function() {
@@ -180,9 +167,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcertificate').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartcertificate').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartgroup').onclick =function() {
@@ -198,9 +183,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartgroup').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartpages').onclick =function() {
@@ -216,9 +199,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartpages').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartappparents').onclick =function() {
@@ -234,9 +215,7 @@
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartappparents').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 						document.getElementById('skysmartonetoone').onclick =function() {
@@ -252,9 +231,7 @@
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "DodgerBlue";
-							} else { 
-							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
-							}
+							} 
 						}
 						
 				} else {
