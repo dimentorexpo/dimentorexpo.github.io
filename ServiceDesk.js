@@ -54,10 +54,13 @@
 					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
 					document.getElementById('optionBilling').style.backgroundColor = "#768d87";
 						document.getElementById('skysmartcontent').onclick =function() {
-							if (document.getElementById('kidscontent').style.display != '')
+							if (document.getElementById('kidscontent').style.display != '') {
 							document.getElementById('kidscontent').style.display = '';
-							else 
+							document.getElementById('skysmartcontent').style.backgroundColor = "Tomato";
+							} else { 
 							document.getElementById('kidscontent').style.display = 'none';
+							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
+							}
 						}
 				} else {
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
