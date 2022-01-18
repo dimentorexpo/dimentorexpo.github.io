@@ -406,7 +406,7 @@ var win_servicedesk =
                 <div style="margin: 5px; width: 400;" id="SrvDskSummary">
                         <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
                 </div>
-                 </span>
+				
                 <div id="servicedeskinfo">
                     <button id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
                     <button id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
@@ -537,7 +537,7 @@ var win_servicedesk =
 				
 				<div id="skysmartsrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
-					<button>Контент</button>
+					<button id="skysmartcontent">Контент</button>
 					<button>Обратная связь</button>
 					<button>Операции с семьёй</button>
 					<button>Страница ДЗ и тестов</button>
@@ -564,6 +564,16 @@ var win_servicedesk =
 					<button>Промокоды консультация / тех.проблема</button>
 					<button>Подземный стук</button>
 				</div>
+	        </span>
+				<div id="kidscontent" style="display: none;">
+					<input id="customfield_1" placeholder="Как воспроизвести ошибку?"></input>
+					<input id="customfield_2" placeholder="Ожидаемое поведение"></input>
+					<input id="customfield_3" placeholder="Фактическое поведение"></input>
+					<input id="customfield_4" placeholder="ID Ученика"></input>
+					<input id="customfield_5" placeholder="ID Услуги"></input>
+					<button>Создать</button>
+				</div>
+			
 </span>
 </div>`;
 
