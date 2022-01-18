@@ -535,7 +535,7 @@ var win_servicedesk =
 					<button>Техническое обсуждение</button>
 				</div>
 				
-				<div id="skysmartsrvdskoptions" style="display: none;">
+				<div id="skysmartsrvdskoptions" style="display: none; margin-left:5px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
 					<button id="skysmartcontent">Контент</button>
 					<button>Обратная связь</button>
@@ -565,12 +565,17 @@ var win_servicedesk =
 					<button>Подземный стук</button>
 				</div>
 	        </span>
+			
 				<div id="kidscontent" style="display: none;">
-					<input id="customfield_1" placeholder="Как воспроизвести ошибку?"></input>
-					<input id="customfield_2" placeholder="Ожидаемое поведение"></input>
-					<input id="customfield_3" placeholder="Фактическое поведение"></input>
-					<input id="customfield_4" placeholder="ID Ученика"></input>
-					<input id="customfield_5" placeholder="ID Услуги"></input>
+					<textarea id="customfield_1" placeholder="Как воспроизвести ошибку?" style="width: 400px;"></textarea>
+					<br>
+					<textarea id="customfield_2" placeholder="Ожидаемое поведение" style="width: 400px;"></textarea>
+					<br>
+					<textarea id="customfield_3" placeholder="Фактическое поведение" style="width: 400px;"></textarea>
+					<br>
+					<input id="customfield_4" placeholder="ID Ученика" style="width: 400px;"></input>
+					<br>
+					<input id="customfield_5" placeholder="ID Услуги" style="width: 400px;"></input>
 					<button>Создать</button>
 				</div>
 			
