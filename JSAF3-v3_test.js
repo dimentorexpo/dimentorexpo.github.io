@@ -539,15 +539,15 @@ var win_servicedesk =
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
 					<button id="skysmartcontent">Контент</button>
 					<button id="skysmartfeedback">Обратная связь</button>
-					<button>Операции с семьёй</button>
-					<button>Страница ДЗ и тестов</button>
-					<button>Страница прогресса</button>
-					<button>Детский ЛКУ</button>
-					<button>Сертификаты</button>
-					<button>Групповые и параллельные уроки</button>
-					<button>Страницы skysmart</button>
-					<button>Приложение skysmart parents</button>
-					<button>Уроки 1:1</button>
+					<button id="skysmartfamily">Операции с семьёй</button>
+					<button id="skysmarthomework">Страница ДЗ и тестов</button>
+					<button id="skysmartprogress">Страница прогресса</button>
+					<button id="skysmartcabinet">Детский ЛКУ</button>
+					<button id="skysmartcertificate">Сертификаты</button>
+					<button id="skysmartgroup">Групповые и параллельные уроки</button>
+					<button id="skysmartpages">Страницы skysmart</button>
+					<button id="skysmartappparents">Приложение skysmart parents</button>
+					<button id="skysmartonetoone">Уроки 1:1</button>
 				</div>
 				
 				<div id="mrktsrvdskoptions" style="display: none;">
@@ -593,6 +593,22 @@ var win_servicedesk =
 					<br>
 					<button id="create_2" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
+				
+				<div id="kidsfamily" style="display: none; margin:5px;">
+					<textarea id="customfield_11" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_12" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_13" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_14" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_15" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_3" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				
 			
 </span>
 </div>`;

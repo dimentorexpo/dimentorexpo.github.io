@@ -58,6 +58,8 @@
 							document.getElementById('kidscontent').style.display = '';
 							document.getElementById('kidsfeedback').style.display = 'none';
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfamily').style.display = 'none';
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcontent').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidscontent').style.display = 'none';
@@ -70,12 +72,29 @@
 							document.getElementById('kidsfeedback').style.display = '';
 							document.getElementById('kidscontent').style.display = 'none';
 							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfamily').style.display = 'none';
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfeedback').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidsfeedback').style.display = 'none';
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
 							}
 						}
+						
+						document.getElementById('skysmartfamily').onclick =function() {
+							if (document.getElementById('kidsfamily').style.display != '') {
+							document.getElementById('kidsfamily').style.display = '';
+							document.getElementById('kidscontent').style.display = 'none';
+							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfeedback').style.display = 'none';
+							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
+							document.getElementById('skysmartfamily').style.backgroundColor = "DodgerBlue";
+							} else { 
+							document.getElementById('kidsfamily').style.display = 'none';
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							}
+						}
+						
 				} else {
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";	
