@@ -714,7 +714,7 @@ var win_servicedesk =
 					<textarea id="customfield_53" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
 					<br>
 					<input id="customfield_54" placeholder="ID Ученика" style="width: 420px;"></input>
-					<br>10
+					<br>
 					<input id="customfield_55" placeholder="ID Услуги" style="width: 420px;"></input>
 					<br>
 					<button id="create_11" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
