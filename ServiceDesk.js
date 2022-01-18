@@ -34,7 +34,8 @@
 		 			document.getElementById('optionSkysmart').onclick = function() {
 				if (document.getElementById('skysmartsrvdskoptions').style.display != '') {
 					document.getElementById('skysmartsrvdskoptions').style.display = '';
-					document.getElementById('optionSkysmart').style.backgroundColor = "Tomato"	
+					document.getElementById('optionSkysmart').style.backgroundColor = "Tomato";
+					document.getElementById('kidsform').style.display = '';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -55,9 +56,7 @@
 					document.getElementById('optionBilling').style.backgroundColor = "#768d87";
 					
 						document.getElementById('skysmartcontent').onclick =function() {
-							document.getElementById('kidsform').style.display = 'none';
-							if (document.getElementById('kidsform').style.display != '') {
-							document.getElementById('kidsform').style.display = '';
+							if (document.getElementById('kidsform').style.display == '') {
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
