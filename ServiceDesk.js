@@ -56,10 +56,20 @@
 						document.getElementById('skysmartcontent').onclick =function() {
 							if (document.getElementById('kidscontent').style.display != '') {
 							document.getElementById('kidscontent').style.display = '';
-							document.getElementById('skysmartcontent').style.backgroundColor = "Tomato";
+							document.getElementById('skysmartcontent').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidscontent').style.display = 'none';
 							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
+							}
+						}
+						
+						document.getElementById('skysmartfeedback').onclick =function() {
+							if (document.getElementById('kidsfeedback').style.display != '') {
+							document.getElementById('kidsfeedback').style.display = '';
+							document.getElementById('skysmartfeedback').style.backgroundColor = "DodgerBlue";
+							} else { 
+							document.getElementById('kidsfeedback').style.display = 'none';
+							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
 							}
 						}
 				} else {
