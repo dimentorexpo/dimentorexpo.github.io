@@ -74,6 +74,10 @@
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcontent').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidscontent').style.display = 'none';
@@ -100,6 +104,10 @@
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfeedback').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidsfeedback').style.display = 'none';
@@ -126,6 +134,10 @@
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfamily').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidsfamily').style.display = 'none';
@@ -152,6 +164,10 @@
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmarthomework').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidshwtests').style.display = 'none';
@@ -178,6 +194,10 @@
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartprogress').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidsprogress').style.display = 'none';
@@ -204,6 +224,10 @@
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcabinet').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidscabinet').style.display = 'none';
@@ -230,6 +254,10 @@
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcertificate').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidscertificate').style.display = 'none';
@@ -256,6 +284,10 @@
 							document.getElementById('skysmartcertificate').style.backgroundColor = "#768d87";
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartgroup').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidsgroup').style.display = 'none';
@@ -282,10 +314,74 @@
 							document.getElementById('skysmartcertificate').style.backgroundColor = "#768d87";
 							document.getElementById('kidsgroup').style.display = 'none';
 							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartpages').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidspages').style.display = 'none';
 							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							}
+						}
+						
+						document.getElementById('skysmartappparents').onclick =function() {
+							if (document.getElementById('kidsparentsapp').style.display != '') {
+							document.getElementById('kidsparentsapp').style.display = '';
+							document.getElementById('kidscontent').style.display = 'none';
+							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfeedback').style.display = 'none';
+							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfamily').style.display = 'none';
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							document.getElementById('kidshwtests').style.display = 'none';
+							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
+							document.getElementById('kidsprogress').style.display = 'none';
+							document.getElementById('skysmartprogress').style.backgroundColor = "#768d87";
+							document.getElementById('kidscabinet').style.display = 'none';
+							document.getElementById('skysmartcabinet').style.backgroundColor = "#768d87";
+							document.getElementById('kidscertificate').style.display = 'none';
+							document.getElementById('skysmartcertificate').style.backgroundColor = "#768d87";
+							document.getElementById('kidsgroup').style.display = 'none';
+							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
+							document.getElementById('kidspages').style.display = 'none';
+							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
+							document.getElementById('skysmartappparents').style.backgroundColor = "DodgerBlue";
+							} else { 
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							}
+						}
+						
+						document.getElementById('skysmartonetoone').onclick =function() {
+							if (document.getElementById('kidsonetoone').style.display != '') {
+							document.getElementById('kidsonetoone').style.display = '';
+							document.getElementById('kidscontent').style.display = 'none';
+							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfeedback').style.display = 'none';
+							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
+							document.getElementById('kidsfamily').style.display = 'none';
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							document.getElementById('kidshwtests').style.display = 'none';
+							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
+							document.getElementById('kidsprogress').style.display = 'none';
+							document.getElementById('skysmartprogress').style.backgroundColor = "#768d87";
+							document.getElementById('kidscabinet').style.display = 'none';
+							document.getElementById('skysmartcabinet').style.backgroundColor = "#768d87";
+							document.getElementById('kidscertificate').style.display = 'none';
+							document.getElementById('skysmartcertificate').style.backgroundColor = "#768d87";
+							document.getElementById('kidsgroup').style.display = 'none';
+							document.getElementById('skysmartgroup').style.backgroundColor = "#768d87";
+							document.getElementById('kidspages').style.display = 'none';
+							document.getElementById('skysmartpages').style.backgroundColor = "#768d87";
+							document.getElementById('kidsparentsapp').style.display = 'none';
+							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
+							document.getElementById('skysmartonetoone').style.backgroundColor = "DodgerBlue";
+							} else { 
+							document.getElementById('kidsonetoone').style.display = 'none';
+							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							}
 						}
 						
