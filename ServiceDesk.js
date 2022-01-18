@@ -64,6 +64,8 @@
 							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
 							document.getElementById('kidsprogress').style.display = 'none';
 							document.getElementById('skysmartprogress').style.backgroundColor = "#768d87";
+							document.getElementById('kidshwtests').style.display = 'none';
+							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcontent').style.backgroundColor = "DodgerBlue";
 							} else { 
 							document.getElementById('kidscontent').style.display = 'none';
