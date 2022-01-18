@@ -27,6 +27,7 @@
 					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 	
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
 						}
 		 }
@@ -70,7 +71,6 @@
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcontent').style.backgroundColor = "DodgerBlue";
 							} else { 
-							document.getElementById('kidsform').style.display = 'none';
 							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
 							}
 						}
@@ -287,6 +287,7 @@
 						
 				} else {
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";	
 				}
 		 }
