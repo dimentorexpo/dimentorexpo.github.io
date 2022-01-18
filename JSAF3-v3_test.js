@@ -609,19 +609,116 @@ var win_servicedesk =
 				</div>
 				
 				<div id="kidshwtests" style="display: none; margin:5px;">
-					<textarea id="customfield_12" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<textarea id="customfield_16" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_13" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_17" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_14" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_18" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
 					<br>
-					<input id="customfield_15" placeholder="ID Ученика" style="width: 420px;"></input>
+					<input id="customfield_19" placeholder="ID Ученика" style="width: 420px;"></input>
 					<br>
-					<input id="customfield_16" placeholder="ID Услуги" style="width: 420px;"></input>
+					<input id="customfield_20" placeholder="ID Услуги" style="width: 420px;"></input>
 					<br>
 					<button id="create_4" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
+				<div id="kidsprogress" style="display: none; margin:5px;">
+					<textarea id="customfield_21" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_22" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_23" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_24" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_25" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_5" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="kidscabinet" style="display: none; margin:5px;">
+					<textarea id="customfield_26" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_27" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_28" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_29" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_30" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_6" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="kidscertificate" style="display: none; margin:5px;">
+					<textarea id="customfield_31" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_32" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_33" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_34" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_35" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_7" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="kidsgroup" style="display: none; margin:5px;">
+					<textarea id="customfield_36" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_37" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_38" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_39" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_40" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_8" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="kidspages" style="display: none; margin:5px;">
+					<textarea id="customfield_41" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_42" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_43" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_44" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_45" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_9" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="kidsparentsapp" style="display: none; margin:5px;">
+					<textarea id="customfield_46" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_47" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_48" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_49" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>10
+					<input id="customfield_50" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_10" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="kidsonetoone" style="display: none; margin:5px;">
+					<textarea id="customfield_51" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_52" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_53" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_54" placeholder="ID Ученика" style="width: 420px;"></input>
+					<br>10
+					<input id="customfield_55" placeholder="ID Услуги" style="width: 420px;"></input>
+					<br>
+					<button id="create_11" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
 				
 			
 </span>
