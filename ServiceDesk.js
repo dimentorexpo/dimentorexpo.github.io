@@ -77,7 +77,7 @@
 						}
 						
 						document.getElementById('skysmartfeedback').onclick =function() {
-							if (document.getElementById('kidsform').style.display == '') {
+							if (document.getElementById('kidsform').style.display != 'none') {
 							document.getElementById('skysmartcontent').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
 							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
@@ -89,7 +89,7 @@
 							document.getElementById('skysmartappparents').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartonetoone').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartfeedback').style.backgroundColor = "DodgerBlue";
-							} else {								
+							} else (document.getElementById('kidsform').style.display == '') {								
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
 							}
 						}
