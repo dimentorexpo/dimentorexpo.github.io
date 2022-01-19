@@ -63,10 +63,10 @@
 					document.getElementById('responseTextarea3').value = 'getjiratoken'
 					document.getElementById('sendResponse').click()
 					
-					let jiratoken = document.getElementById('responseTextarea1').getAttribute('reportscount');
+					let jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
 					    jiratoken = repcount.match(/name="atlassian-token" content="(.*lin)/)[1];
-                        document.getElementById('responseTextarea1').removeAttribute('reportscount');
-						console.log(jiratoken);
+                        document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+						console.log("TOKEN: " + jiratoken);
 					
 					
 					 // document.getElementById('responseTextarea1').value = `{  "headers": {
