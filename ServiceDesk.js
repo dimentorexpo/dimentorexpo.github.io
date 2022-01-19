@@ -63,10 +63,18 @@
 					document.getElementById('responseTextarea3').value = 'getjiratoken'
 					document.getElementById('sendResponse').click()
 					
+					setTimeout(function() {
+						
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+					document.getElementById('responseTextarea3').value = 'getjiratoken'
+					document.getElementById('sendResponse').click()
+						
 					let jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
 					    jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
                         document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 						console.log("TOKEN: " + jiratoken);
+					}, 1000)
 					
 					
 					 // document.getElementById('responseTextarea1').value = `{  "headers": {
