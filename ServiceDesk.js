@@ -1,8 +1,32 @@
+//Global variables
+let jiratoken;
+
+//main
 	document.getElementById('servDsk').onclick = function () {
         if (document.getElementById('AF_ServDsk').style.display == '')
             document.getElementById('AF_ServDsk').style.display = 'none'
         else
             document.getElementById('AF_ServDsk').style.display = ''
+		
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+					document.getElementById('responseTextarea3').value = 'getjiratoken'
+					document.getElementById('sendResponse').click()
+					
+					setTimeout(function() {
+						
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+					document.getElementById('responseTextarea3').value = 'getjiratoken'
+					document.getElementById('sendResponse').click()
+						
+					    jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+					    jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
+                        document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+						console.log("TOKEN: " + jiratoken);
+					}, 1000)
+					
+					
 			document.getElementById('optionTeacher').onclick = function() {
 				if (document.getElementById('teacherssrvdskoptions').style.display != ''){
 					document.getElementById('teacherssrvdskoptions').style.display = '';
@@ -58,23 +82,7 @@
 					} else if (document.getElementById('skysmartcontent').style.backgroundColor == "dodgerblue") {
 					console.log("Контент: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value);
 					
-					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-					document.getElementById('responseTextarea3').value = 'getjiratoken'
-					document.getElementById('sendResponse').click()
-					
-					setTimeout(function() {
-						
-					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-					document.getElementById('responseTextarea3').value = 'getjiratoken'
-					document.getElementById('sendResponse').click()
-						
-					let jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-					    jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
-                        document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-						console.log("TOKEN: " + jiratoken);
-					}, 1000)
+
 					
 					
 					 // document.getElementById('responseTextarea1').value = `{  "headers": {
