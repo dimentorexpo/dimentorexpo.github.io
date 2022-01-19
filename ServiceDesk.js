@@ -58,23 +58,34 @@
 					} else if (document.getElementById('skysmartcontent').style.backgroundColor == "dodgerblue") {
 					console.log("Контент: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value);
 					
-					 document.getElementById('responseTextarea1').value = `{  "headers": {
-							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-						    "sec-fetch-mode": "cors",
-							"sec-fetch-site": "same-origin",
-							"x-requested-with": "XMLHttpRequest",
-							"x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/browse/VIM-7288",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "customfield_15410=1279&issueId=70592&atl_token=undefined&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-					  "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none";
-					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+					document.getElementById('responseTextarea3').value = 'getjiratoken'
 					document.getElementById('sendResponse').click()
+					
+					let jiratoken = document.getElementById('responseTextarea1').getAttribute('reportscount');
+					    jiratoken = repcount.match(/name="atlassian-token" content="(.*lin)/)[1];
+                        document.getElementById('responseTextarea1').removeAttribute('reportscount');
+						console.log(jiratoken);
+					
+					
+					 // document.getElementById('responseTextarea1').value = `{  "headers": {
+							// "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+						    // "sec-fetch-mode": "cors",
+							// "sec-fetch-site": "same-origin",
+							// "x-requested-with": "XMLHttpRequest",
+							// "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/browse/VIM-7288",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "customfield_15410=1279&issueId=70592&atl_token=undefined&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+					  // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					// document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none";
+					// document.getElementById('responseTextarea3').value = ''
+					// document.getElementById('sendResponse').click()
 			
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
