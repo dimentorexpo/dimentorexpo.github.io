@@ -56,7 +56,33 @@
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartcontent').style.backgroundColor == "dodgerblue") {
-					console.log("Контент: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Контент: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+						"accept": "*/*",
+						"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+						"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+						"sec-ch-ua": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\"",
+						"sec-ch-ua-mobile": "?0",
+						"sec-ch-ua-platform": "\"Windows\"",
+						"sec-fetch-dest": "empty",
+						"sec-fetch-mode": "cors",
+						"sec-fetch-site": "same-origin",
+						"x-ausername": "korzhanevskiy.evgeniy",
+						"x-requested-with": "XMLHttpRequest",
+						"x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/browse/VIM-7288",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "customfield_15410=1278&issueId=70592&atl_token=B8VA-6KZ3-W640-1AJO_d9e7e53223d592bd75f281faf9c7d3c334380f3d_lin&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+					  "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+			
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
