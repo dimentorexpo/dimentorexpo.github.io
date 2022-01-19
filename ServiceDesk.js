@@ -41,7 +41,7 @@
 					
 					document.getElementById('create_1').onclick = function() {
 					if (document.getElementById('skysmartfamily').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Операции с семьей: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
@@ -49,70 +49,70 @@
 					document.getElementById('customfield_5').value = "";
 					}
 					else if (document.getElementById('skysmartfeedback').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Обратная связь: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartcontent').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Контент: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmarthomework').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Страница ДЗ и тестов: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartprogress').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Страница прогресса: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartcabinet').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Детский ЛКУ: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartcertificate').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Сертификаты: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartgroup').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Групповые и параллельные уроки: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartpages').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Страницы skysmart: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartappparents').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Приложение skysmart parents: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartonetoone').style.backgroundColor == "dodgerblue") {
-					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					console.log("Уроки 1:1: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
