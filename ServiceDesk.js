@@ -64,8 +64,32 @@ let jiratoken;
 					document.getElementById('kidsform').style.display = '';
 					
 					document.getElementById('create_1').onclick = function() {
+					let dscr = document.getElementById('customfield_1').value;
+					let erx = document.getElementById('customfield_2').value;
+					let ary = document.getElementById('customfield_3').value;
+					let idstd = document.getElementById('customfield_4').value ;
+					let	servid = document.getElementById('customfield_5').value ;
 					if (document.getElementById('skysmartfamily').style.backgroundColor == "dodgerblue") {
-					console.log("Операции с семьей: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Операции с семьей: " + "Description: " + dscr + " " + "ER: " + erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
@@ -73,92 +97,260 @@ let jiratoken;
 					document.getElementById('customfield_5').value = "";
 					}
 					else if (document.getElementById('skysmartfeedback').style.backgroundColor == "dodgerblue") {
-					console.log("Обратная связь: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Обратная связь: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+										
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/819",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/819";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartcontent').style.backgroundColor == "dodgerblue") {
-					console.log("Контент: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value);
-					
+					console.log("Контент: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+										
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/890",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/890";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
 
-					
-					
-					 // document.getElementById('responseTextarea1').value = `{  "headers": {
-							// "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-						    // "sec-fetch-mode": "cors",
-							// "sec-fetch-site": "same-origin",
-							// "x-requested-with": "XMLHttpRequest",
-							// "x-sitemesh-off": "true"
-					  // },
-					  // "referrer": "https://jira.skyeng.tech/browse/VIM-7288",
-					  // "referrerPolicy": "strict-origin-when-cross-origin",
-					  // "body": "customfield_15410=1279&issueId=70592&atl_token=undefined&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-					  // "method": "POST",
-					  // "mode": "cors",
-					  // "credentials": "include"
-					  // }`
-					// document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none";
-					// document.getElementById('responseTextarea3').value = ''
-					// document.getElementById('sendResponse').click()
-			
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmarthomework').style.backgroundColor == "dodgerblue") {
-					console.log("Страница ДЗ и тестов: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Страница ДЗ и тестов: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/817",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/817";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartprogress').style.backgroundColor == "dodgerblue") {
-					console.log("Страница прогресса: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Страница прогресса: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/818",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/818";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartcabinet').style.backgroundColor == "dodgerblue") {
-					console.log("Детский ЛКУ: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Детский ЛКУ: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/821",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/821";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartcertificate').style.backgroundColor == "dodgerblue") {
-					console.log("Сертификаты: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Сертификаты: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/820",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/820";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartgroup').style.backgroundColor == "dodgerblue") {
-					console.log("Групповые и параллельные уроки: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Групповые и параллельные уроки: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/816",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/816";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartpages').style.backgroundColor == "dodgerblue") {
-					console.log("Страницы skysmart: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Страницы skysmart: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/824",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/824";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartappparents').style.backgroundColor == "dodgerblue") {
-					console.log("Приложение skysmart parents: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Приложение skysmart parents: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/823",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/823";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					} else if (document.getElementById('skysmartonetoone').style.backgroundColor == "dodgerblue") {
-					console.log("Уроки 1:1: " + "Description: " + document.getElementById('customfield_1').value + " " + "ER: " +  document.getElementById('customfield_2').value + " " + "AR: " + document.getElementById('customfield_3').value + " " + "ID student: " + document.getElementById('customfield_4').value + " " + "ID service: " + document.getElementById('customfield_5').value)
+					console.log("Уроки 1:1: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/815",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/815";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					
 					document.getElementById('customfield_1').value = "";
 					document.getElementById('customfield_2').value = "";
 					document.getElementById('customfield_3').value = "";
