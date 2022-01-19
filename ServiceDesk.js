@@ -55,6 +55,69 @@
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartcontent').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmarthomework').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartprogress').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartcabinet').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartcertificate').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartgroup').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartpages').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartappparents').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
+					} else if (document.getElementById('skysmartonetoone').style.backgroundColor == "dodgerblue") {
+					console.log("Description " + document.getElementById('customfield_1').value + " " + "ER " +  document.getElementById('customfield_2').value + " " + "AR " + document.getElementById('customfield_3').value + " " + "ID student " + document.getElementById('customfield_4').value + " " + "ID service " + document.getElementById('customfield_5').value)
+					document.getElementById('customfield_1').value = "";
+					document.getElementById('customfield_2').value = "";
+					document.getElementById('customfield_3').value = "";
+					document.getElementById('customfield_4').value = "";
+					document.getElementById('customfield_5').value = "";
 					} else
 					console.log("Not found")
 					}
