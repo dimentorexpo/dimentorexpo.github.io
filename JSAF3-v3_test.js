@@ -21,8 +21,8 @@ function mystyles() {
 		background: #6A5ACD;
 	}
 	
-	.test {
-		color: red;
+	.activebtn {
+		background-color: #1e90ff;
 	}
 	.switch-btn {
 		display: inline-block;
