@@ -428,20 +428,20 @@ var win_servicedesk =
 				
 				<div id="teacherssrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
-					<button id="teacherstudy">Моё обучение</button>
-					<button id="teacherbreak">Перерыв</button>
-					<button id="teachermoney">Финансы</button>
-					<button id="teachermap">Карта роста</button>
-					<button id="teachertimetable">Расписание</button>
-					<button id="teacherperenos">Запрос на перенос</button>
-					<button id="teacherwidgetbalance">Виджет баланса</button>
-					<button id="teacherwidgetlessonmark">Виджет отметки уроков</button>
-					<button id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
-					<button id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
-					<button id="teacherwidgetKPI">Виджет KPI</button>
-					<button id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
-					<button id="teacherTRMquestions">Вопросы по ТРМ</button>
-					<button id="teacherunderground">Подземный стук</button>
+					<button class="teacbtn" id="teacherstudy">Моё обучение</button>
+					<button class="teacbtn" id="teacherbreak">Перерыв</button>
+					<button class="teacbtn" id="teachermoney">Финансы</button>
+					<button class="teacbtn" id="teachermap">Карта роста</button>
+					<button class="teacbtn" id="teachertimetable">Расписание</button>
+					<button class="teacbtn" id="teacherperenos">Запрос на перенос</button>
+					<button class="teacbtn" id="teacherwidgetbalance">Виджет баланса</button>
+					<button class="teacbtn" id="teacherwidgetlessonmark">Виджет отметки уроков</button>
+					<button class="teacbtn" id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
+					<button class="teacbtn" id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
+					<button class="teacbtn" id="teacherwidgetKPI">Виджет KPI</button>
+					<button class="teacbtn" id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
+					<button class="teacbtn" id="teacherTRMquestions">Вопросы по ТРМ</button>
+					<button class="teacbtn" id="teacherunderground">Подземный стук</button>
 				</div>
 				
 				<div id="crm2srvdskoptions" style="display: none;">

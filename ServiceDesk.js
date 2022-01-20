@@ -52,25 +52,15 @@ let jiratoken;
 					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
 					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 	
 					
+					$('.teacbtn').click(function() {  
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
 					document.getElementById('teacherstudy').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							//document.getElementById('teacherstudy').style.backgroundColor = "DodgerBlue";
-							document.getElementById('teacherstudy').classList.toggle("activebtn"); // пробуем повесить класс
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -81,20 +71,7 @@ let jiratoken;
 					
 					document.getElementById('teacherbreak').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "DodgerBlue";
+
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -105,20 +82,6 @@ let jiratoken;
 					
 					document.getElementById('teachermoney').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -129,20 +92,6 @@ let jiratoken;
 					
 					document.getElementById('teachermap').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -153,20 +102,6 @@ let jiratoken;
 					
 					document.getElementById('teachertimetable').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -177,20 +112,6 @@ let jiratoken;
 					
 					document.getElementById('teacherperenos').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -201,20 +122,6 @@ let jiratoken;
 					
 					document.getElementById('teacherwidgetbalance').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -225,20 +132,6 @@ let jiratoken;
 					
 					document.getElementById('teacherwidgetlessonmark').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -249,20 +142,6 @@ let jiratoken;
 					
 					document.getElementById('teacherwidgetplanfact').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -273,20 +152,6 @@ let jiratoken;
 					
 					document.getElementById('teacherwidgettimetableweek').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -297,20 +162,6 @@ let jiratoken;
 					
 					document.getElementById('teacherwidgetKPI').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') { 
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -321,20 +172,6 @@ let jiratoken;
 					
 					document.getElementById('teacherwidgetmystudents').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -345,20 +182,6 @@ let jiratoken;
 					
 					document.getElementById('teacherTRMquestions').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
@@ -369,20 +192,6 @@ let jiratoken;
 					
 					document.getElementById('teacherunderground').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
-							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
-							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
-							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
-							document.getElementById('teachermap').style.backgroundColor = "#768d87";
-							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
-							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
-							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
-							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
-							document.getElementById('teacherunderground').style.backgroundColor = "DodgerBlue";
 							document.getElementById('customfield_6').placeholder ="ID ученика(optional)";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя(optional)";
 							document.getElementById('customfield_8').placeholder ="Краткое и структурированное описание проблемы";
