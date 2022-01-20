@@ -583,17 +583,17 @@ var win_servicedesk =
 				</div>
 				
 				<div id="teachersform" style="display: none; margin:5px;">
-					<input id="customfield_6" placeholder="ID Ученика" style="width: 420px;"></input>
+					<input id="customfield_6" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_7" placeholder="ID Преподавателя" style="width: 420px;"></input>
+					<input id="customfield_7" placeholder="ID Преподавателя" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_9" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_10" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_2" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 			
