@@ -70,6 +70,11 @@ let jiratoken;
 							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
 							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
 							document.getElementById('teacherstudy').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -89,6 +94,11 @@ let jiratoken;
 							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
 							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
 							document.getElementById('teacherbreak').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -108,6 +118,11 @@ let jiratoken;
 							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
 							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
 							document.getElementById('teachermoney').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -127,6 +142,11 @@ let jiratoken;
 							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
 							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
 							document.getElementById('teachermap').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -146,6 +166,11 @@ let jiratoken;
 							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
 							document.getElementById('teachermap').style.backgroundColor = "#768d87";
 							document.getElementById('teachertimetable').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -165,6 +190,11 @@ let jiratoken;
 							document.getElementById('teachermap').style.backgroundColor = "#768d87";
 							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
 							document.getElementById('teacherperenos').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -184,6 +214,11 @@ let jiratoken;
 							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
 							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetbalance').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -203,6 +238,11 @@ let jiratoken;
 							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -222,6 +262,11 @@ let jiratoken;
 							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -241,6 +286,11 @@ let jiratoken;
 							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -260,6 +310,11 @@ let jiratoken;
 							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetKPI').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -279,6 +334,11 @@ let jiratoken;
 							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -298,6 +358,11 @@ let jiratoken;
 							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
 							document.getElementById('teacherTRMquestions').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
 						}
 					}
 					
@@ -320,6 +385,8 @@ let jiratoken;
 							document.getElementById('customfield_6').placeholder ="ID ученика(optional)";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя(optional)";
 							document.getElementById('customfield_8').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_9').style.display ="none";
+							document.getElementById('customfield_10').style.display ="none";
 						}
 					}
 					
