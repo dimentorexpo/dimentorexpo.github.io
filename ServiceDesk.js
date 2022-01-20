@@ -31,6 +31,7 @@ let jiratoken;
 				if (document.getElementById('teacherssrvdskoptions').style.display != ''){
 					document.getElementById('teacherssrvdskoptions').style.display = '';
 					document.getElementById('kidsform').style.display = 'none';
+					document.getElementById('teachersform').style.display = '';
 					document.getElementById('optionTeacher').style.backgroundColor = "Tomato"			
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -52,6 +53,7 @@ let jiratoken;
 					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 	
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
 						}
