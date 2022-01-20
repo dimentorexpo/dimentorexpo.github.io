@@ -561,6 +561,7 @@ let jiratoken;
 				} else {
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('kidsform').style.display = 'none';
+					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";	
 				}
 		 }
