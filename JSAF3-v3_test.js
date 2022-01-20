@@ -424,20 +424,20 @@ var win_servicedesk =
 				
 				<div id="teacherssrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
-					<button>Моё обучение</button>
-					<button>Перерыв</button>
-					<button>Финансы</button>
-					<button>Карта роста</button>
-					<button>Расписание</button>
-					<button>Запрос на перенос</button>
-					<button>Виджет баланса</button>
-					<button>Виджет отметки уроков</button>
-					<button>Виджеты плана/факта уроков</button>
-					<button>Виджет расписания на неделю</button>
-					<button>Виджет KPI</button>
-					<button>Виджет "Мои ученики"</button>
-					<button>Вопросы по ТРМ</button>
-					<button>Подземный стук</button>
+					<button id="teacherstudy">Моё обучение</button>
+					<button id="teacherbreak">Перерыв</button>
+					<button id="teachermoney">Финансы</button>
+					<button id="teachermap">Карта роста</button>
+					<button id="teachertimetable">Расписание</button>
+					<button id="teacherperenos">Запрос на перенос</button>
+					<button id="teacherwidgetbalance>Виджет баланса</button>
+					<button id="teacherwidgetlessonmark">Виджет отметки уроков</button>
+					<button id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
+					<button id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
+					<button id="teacherwidgetKPI">Виджет KPI</button>
+					<button id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
+					<button id="teacherTRMquestions">Вопросы по ТРМ</button>
+					<button id="teacherunderground">Подземный стук</button>
 				</div>
 				
 				<div id="crm2srvdskoptions" style="display: none;">
