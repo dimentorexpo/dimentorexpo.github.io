@@ -59,6 +59,16 @@ let jiratoken;
 					
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
+					document.getElementById('teacherstatistic').onclick = function() {
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
+						}
+					}
+					
 					document.getElementById('teacherstudy').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="ID ученика";
@@ -206,8 +216,8 @@ let jiratoken;
 					let dscr = document.getElementById('customfield_8').value;
 					let erx = document.getElementById('customfield_9').value ;
 					let	ary = document.getElementById('customfield_10').value ;
-					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstudy').textContent) {
-					console.log("Моё обучение: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstatistic').textContent){
+					console.log("Статистика: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
@@ -226,6 +236,33 @@ let jiratoken;
 					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822";
 					 // document.getElementById('responseTextarea3').value = ''
 					 // document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_6').value = "";
+					document.getElementById('customfield_7').value = "";
+					document.getElementById('customfield_8').value = "";
+					document.getElementById('customfield_9').value = "";
+					document.getElementById('customfield_10').value = "";
+						
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstudy').textContent) {
+					console.log("Моё обучение: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_6').value = "";
 					document.getElementById('customfield_7').value = "";
