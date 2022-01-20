@@ -226,7 +226,7 @@ let jiratoken;
 					let ary = document.getElementById('customfield_3').value;
 					let idstd = document.getElementById('customfield_4').value ;
 					let	servid = document.getElementById('customfield_5').value ;
-					if (document.getElementById('skysmartfamily').style.backgroundColor == "dodgerblue") {
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
 					console.log("Операции с семьей: " + "Description: " + dscr + " " + "ER: " + erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -253,7 +253,7 @@ let jiratoken;
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
 					}
-					else if (document.getElementById('skysmartfeedback').style.backgroundColor == "dodgerblue") {
+					else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfeedback').textContent) {
 					console.log("Обратная связь: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -279,7 +279,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartcontent').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcontent').textContent) {
 					console.log("Контент: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 										
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -305,7 +305,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmarthomework').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
 					console.log("Страница ДЗ и тестов: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -331,7 +331,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartprogress').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartprogress').textContent) {
 					console.log("Страница прогресса: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -357,7 +357,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartcabinet').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcabinet').textContent) {
 					console.log("Детский ЛКУ: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -383,7 +383,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartcertificate').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcertificate').textContent) {
 					console.log("Сертификаты: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -409,7 +409,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartgroup').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartgroup').textContent) {
 					console.log("Групповые и параллельные уроки: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -435,7 +435,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartpages').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpages').textContent) {
 					console.log("Страницы skysmart: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -461,7 +461,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartappparents').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartappparents').textContent) {
 					console.log("Приложение skysmart parents: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -487,7 +487,7 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					} else if (document.getElementById('skysmartonetoone').style.backgroundColor == "dodgerblue") {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartonetoone').textContent) {
 					console.log("Уроки 1:1: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
