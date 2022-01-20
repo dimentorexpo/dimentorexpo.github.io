@@ -55,8 +55,22 @@ let jiratoken;
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
 					document.getElementById('teacherstudy').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
 							document.getElementById('teacherstudy').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherbreak').onclick = function() {
