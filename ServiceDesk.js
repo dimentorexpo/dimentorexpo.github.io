@@ -233,7 +233,8 @@ let jiratoken;
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
 					}
-					else if
+					}
+					//else if
 					
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
