@@ -64,7 +64,7 @@ let jiratoken;
 					document.getElementById('skysmartsrvdskoptions').style.display = '';
 					document.getElementById('optionSkysmart').style.backgroundColor = "Tomato";
 					document.getElementById('kidsform').style.display = '';
-					
+					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('create_1').onclick = function() {
 					let dscr = document.getElementById('customfield_1').value;
 					let erx = document.getElementById('customfield_2').value;
@@ -384,8 +384,7 @@ let jiratoken;
 						document.getElementById('skysmartcontent').onclick =function() {
 							if (document.getElementById('kidsform').style.display == '') {
 							document.getElementById('skysmartfeedback').style.backgroundColor = "#768d87";
-							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
-							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87";
+							document.getElementById('skysmartfamily').style.backgroundColor = "#768d87"; 
 							document.getElementById('skysmartprogress').style.backgroundColor = "#768d87";
 							document.getElementById('skysmarthomework').style.backgroundColor = "#768d87";
 							document.getElementById('skysmartcabinet').style.backgroundColor = "#768d87";
@@ -561,7 +560,6 @@ let jiratoken;
 				} else {
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('kidsform').style.display = 'none';
-					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('optionSkysmart').style.backgroundColor = "#768d87";	
 				}
 		 }
