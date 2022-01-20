@@ -148,6 +148,8 @@ var win_linksd =  // описание элементов окна доступо
                             <button id="GetFeedbackStatus">🔎</button> 
 							<input id="TeacherReport" placeholder="ID У Отчет" title="Вводим id пользователя для открытия полной информации что П вносила в отчет и когда и по какой комнате" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetTeacherReport">🔎</button>  
+ 							<input id="UserActions" placeholder="ID У/П действ" title="Вводим id пользователя для открытия информации о действиях в личном кабинете" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="GetUserActions">🔎</button>  
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>                       
                             <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
                         </div>
@@ -1181,6 +1183,15 @@ function move_again_AF() {
             window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
         };
         TeacherReport.value = "";
+    }
+	
+	document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
+        if (UserActions.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "&p_start_at=d_yesterday");
+        };
+        UserActions.value = "";
     }
 
     document.getElementById('grafanalnk').addEventListener('click', function () {
