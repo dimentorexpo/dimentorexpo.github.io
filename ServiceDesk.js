@@ -51,6 +51,12 @@ let jiratoken;
 					document.getElementById('optionCRM2').style.backgroundColor = "#768d87";
 					document.getElementById('optionMrkt').style.backgroundColor = "#768d87";	
 					document.getElementById('optionBilling').style.backgroundColor = "#768d87"; 	
+					
+					document.getElementById('teacherstudy').onclick = function() {
+						if (document.getElementById('teachersform').style.display == '') 
+							document.getElementById('teacherstudy').style.backgroundColor = "DodgerBlue";
+					}
+					
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('kidsform').style.display = 'none';
