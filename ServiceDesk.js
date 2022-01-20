@@ -200,14 +200,14 @@ let jiratoken;
 						}
 					}
 					
-					document.getElementById('create_1').onclick = function() {
+					document.getElementById('create_2').onclick = function() {
 					let idstd = document.getElementById('customfield_6').value;
 					let idteach = document.getElementById('customfield_7').value;
 					let dscr = document.getElementById('customfield_8').value;
 					let erx = document.getElementById('customfield_9').value ;
 					let	ary = document.getElementById('customfield_10').value ;
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstudy').textContent) {
-					console.log("Моё обучение: " + "ID student: " + idstd + " " + "ID teacher: " + idteach +  "Description: " + dscr + " " + "ER: " + erx + " " + "AR: " + ary);
+					console.log("Моё обучение: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
