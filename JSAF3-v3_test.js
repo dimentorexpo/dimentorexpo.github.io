@@ -1406,7 +1406,7 @@ function move_again_AF() {
         if (UserActions.value == "") {
             console.log('Введите id в поле')
         } else {
-            window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "14190457&p_start_at=d_yesterday");
+            window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "&p_start_at=d_yesterday");
         };
         UserActions.value = "";
     }
