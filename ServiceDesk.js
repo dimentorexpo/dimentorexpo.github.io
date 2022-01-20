@@ -54,7 +54,7 @@ let jiratoken;
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('kidsform').style.display = 'none';
-					document.getElementById('kidsform').style.display = 'none';
+					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('optionTeacher').style.backgroundColor = "#768d87";
 						}
 		 }
