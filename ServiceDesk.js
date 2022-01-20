@@ -70,6 +70,7 @@ let jiratoken;
 							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
 							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
 							document.getElementById('teacherstudy').style.backgroundColor = "DodgerBlue";
+							document.getElementById('teacherstudy').classList.toggle("test"); // пробуем повесить класс
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";

@@ -20,6 +20,10 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
+	
+	.test {
+		color: red;
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
