@@ -317,6 +317,9 @@ let jiratoken;
 							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
 							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
 							document.getElementById('teacherunderground').style.backgroundColor = "DodgerBlue";
+							document.getElementById('customfield_6').placeholder ="ID ученика(optional)";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя(optional)";
+							document.getElementById('customfield_8').placeholder ="Краткое и структурированное описание проблемы";
 						}
 					}
 					
