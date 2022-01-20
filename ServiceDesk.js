@@ -527,7 +527,7 @@ let jiratoken;
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";	
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherTRMquestions').textContent){
-					console.log("Вопросы по TRM': " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по TRM': " + "Description: " + idstd + " STR: " + idteach + " ER: " + ary + " AR: " + dscr);
 					
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
