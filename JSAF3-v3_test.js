@@ -428,7 +428,7 @@ var win_servicedesk =
 				
 				<div id="teacherssrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
-					<button class="teacbtn" id="teacherstatistic">Статистики</button>
+					<button class="teacbtn" id="teacherstatistic">Статистика</button>
 					<button class="teacbtn" id="teacherstudy">Моё обучение</button>
 					<button class="teacbtn" id="teacherbreak">Перерыв</button>
 					<button class="teacbtn" id="teachermoney">Финансы</button>
