@@ -543,17 +543,17 @@ var win_servicedesk =
 				
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:5px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
-					<button id="skysmartcontent">Контент</button>
-					<button id="skysmartfeedback">Обратная связь</button>
-					<button id="skysmartfamily">Операции с семьёй</button>
-					<button id="skysmarthomework">Страница ДЗ и тестов</button>
-					<button id="skysmartprogress">Страница прогресса</button>
-					<button id="skysmartcabinet">Детский ЛКУ</button>
-					<button id="skysmartcertificate">Сертификаты</button>
-					<button id="skysmartgroup">Групповые и параллельные уроки</button>
-					<button id="skysmartpages">Страницы skysmart</button>
-					<button id="skysmartappparents">Приложение skysmart parents</button>
-					<button id="skysmartonetoone">Уроки 1:1</button>
+					<button class="kidsbtn" id="skysmartcontent">Контент</button>
+					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
+					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
+					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
+					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
+					<button class="kidsbtn" id="skysmartcabinet">Детский ЛКУ</button>
+					<button class="kidsbtn" id="skysmartcertificate">Сертификаты</button>
+					<button class="kidsbtn" id="skysmartgroup">Групповые и параллельные уроки</button>
+					<button class="kidsbtn" id="skysmartpages">Страницы skysmart</button>
+					<button class="kidsbtn" id="skysmartappparents">Приложение skysmart parents</button>
+					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
 				</div>
 				
 				<div id="mrktsrvdskoptions" style="display: none;">
@@ -6436,7 +6436,7 @@ function prepTp() {
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
 		include("https://dimentorexpo.github.io/ServiceDesk.js")
-		include("https://code.jquery.com/jquery-3.6.0.js")
+		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
     }, 2000)
 
 }
