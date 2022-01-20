@@ -74,68 +74,250 @@ let jiratoken;
 					}
 					
 					document.getElementById('teacherbreak').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
 							document.getElementById('teacherbreak').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teachermoney').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
 							document.getElementById('teachermoney').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teachermap').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
 							document.getElementById('teachermap').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teachertimetable').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
 							document.getElementById('teachertimetable').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherperenos').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
 							document.getElementById('teacherperenos').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherwidgetbalance').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetbalance').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherwidgetlessonmark').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherwidgetplanfact').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherwidgettimetableweek').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherwidgetKPI').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') { 
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetKPI').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherwidgetmystudents').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
 							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherTRMquestions').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherunderground').style.backgroundColor = "#768d87";
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
 							document.getElementById('teacherTRMquestions').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 					document.getElementById('teacherunderground').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') 
+						if (document.getElementById('teachersform').style.display == '') {
+							document.getElementById('teacherstudy').style.backgroundColor = "#768d87";
+							document.getElementById('teacherbreak').style.backgroundColor = "#768d87";
+							document.getElementById('teachermoney').style.backgroundColor = "#768d87";
+							document.getElementById('teachermap').style.backgroundColor = "#768d87";
+							document.getElementById('teachertimetable').style.backgroundColor = "#768d87";
+							document.getElementById('teacherperenos').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetbalance').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetlessonmark').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetplanfact').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgettimetableweek').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetKPI').style.backgroundColor = "#768d87";
+							document.getElementById('teacherwidgetmystudents').style.backgroundColor = "#768d87";
+							document.getElementById('teacherTRMquestions').style.backgroundColor = "#768d87";
 							document.getElementById('teacherunderground').style.backgroundColor = "DodgerBlue";
+						}
 					}
 					
 				} else {
