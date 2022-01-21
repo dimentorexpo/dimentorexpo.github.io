@@ -414,16 +414,16 @@ var win_servicedesk =
                 </div>
 				
                 <div id="servicedeskinfo">
-                    <button id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
-                    <button id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
-                    <button id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
-                    <button id="optionSchedule" style="margin-left:2px; width:80px;">Schedule</button>
-                    <button id="optionBillingQA" style="margin-left:2px; width:80px;">Billing-QA</button>
-                    <button id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">Onboarding</button>
-                    <button id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">Telephony</button>
-                    <button id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
-                    <button id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
-                    <button id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
+                    <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
+                    <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
+                    <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
+                    <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">Schedule</button>
+                    <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">Billing-QA</button>
+                    <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">Onboarding</button>
+                    <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">Telephony</button>
+                    <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
+                    <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
+                    <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none;">
@@ -447,99 +447,99 @@ var win_servicedesk =
 				
 				<div id="crm2srvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
-					<button>Вопросы по задачам "Сопровождения"</button>
-					<button>Вопросы по задачам "Продаж"</button>
-					<button>Вопросы по "Истории уроков"</button>
-					<button>Вопросы про виджет "История платежей"</button>
-					<button>Вопросы по "Визардам конвертации услуги"</button>
-					<button>Вопросы о "История действий"</button>
-					<button>Вопросы о карточке "Семья"</button>
-					<button>Вопросы о "Профиле" заявки</button>
-					<button>Вопросы по разделу "Коммуникации"</button>
-					<button>Проблемы с функционалом пула задач "список задач" сопровождение</button>
-					<button>Проблемы с функционалом пула задач "список задач" продажи</button>
-					<button>Миграция компании из CRM1 в CRM2</button>
-					<button>Смена STK услуги</button>
+					<button class="crm2sbtn">Вопросы по задачам "Сопровождения"</button>
+					<button class="crm2sbtn">Вопросы по задачам "Продаж"</button>
+					<button class="crm2sbtn">Вопросы по "Истории уроков"</button>
+					<button class="crm2sbtn">Вопросы про виджет "История платежей"</button>
+					<button class="crm2sbtn">Вопросы по "Визардам конвертации услуги"</button>
+					<button class="crm2sbtn">Вопросы о "История действий"</button>
+					<button class="crm2sbtn">Вопросы о карточке "Семья"</button>
+					<button class="crm2sbtn">Вопросы о "Профиле" заявки</button>
+					<button class="crm2sbtn">Вопросы по разделу "Коммуникации"</button>
+					<button class="crm2sbtn">Проблемы с функционалом пула задач "список задач" сопровождение</button>
+					<button class="crm2sbtn">Проблемы с функционалом пула задач "список задач" продажи</button>
+					<button class="crm2sbtn">Миграция компании из CRM1 в CRM2</button>
+					<button class="crm2sbtn">Смена STK услуги</button>
 				</div>
 				
 				<div id="authsrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
-					<button>Вопросы к разработке</button>
-					<button>Проблемы с 2FA : проблема с google authenticator</button>
-					<button>Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
-					<button>Проблемы с 2FA: не приходит смс</button>
-					<button>Удаление / добавление ролей Преподавателям</button>
-					<button>Удаление / добавление ролей Ученикам</button>
-					<button>Проверка логов в ID</button>
-					<button>Бизнес вопросы</button>
-					<button>Подземный стук</button>
+					<button class="authbtn">Вопросы к разработке</button>
+					<button class="authbtn">Проблемы с 2FA : проблема с google authenticator</button>
+					<button class="authbtn">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
+					<button class="authbtn">Проблемы с 2FA: не приходит смс</button>
+					<button class="authbtn">Удаление / добавление ролей Преподавателям</button>
+					<button class="authbtn">Удаление / добавление ролей Ученикам</button>
+					<button class="authbtn">Проверка логов в ID</button>
+					<button class="authbtn">Бизнес вопросы</button>
+					<button class="authbtn">Подземный стук</button>
 				</div>
 				
 				<div id="schedulesrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support</p>
-					<button>Подключение АП</button>
-					<button>Отключить АП в ЛКУ</button>
-					<button>Вопросы по ТТ</button>
-					<button>Подтвердить запрос в ЛКП для переподбора ВП</button>
-					<button>Почему нет задачи подбора ?</button>
-					<button>Нейроробот</button>
-					<button>Подземный стук</button>
+					<button class="schdbtn">Подключение АП</button>
+					<button class="schdbtn">Отключить АП в ЛКУ</button>
+					<button class="schdbtn">Вопросы по ТТ</button>
+					<button class="schdbtn">Подтвердить запрос в ЛКП для переподбора ВП</button>
+					<button class="schdbtn">Почему нет задачи подбора ?</button>
+					<button class="schdbtn">Нейроробот</button>
+					<button class="schdbtn">Подземный стук</button>
 				</div>	
 
 				<div id="billingqasrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#billing-qa-support</p>
-					<button>Вопросы по рассрочке ученика</button>
-					<button>Оплата с лендингов</button>
-					<button>Проверка баланса У на расхождения</button>
+					<button class="bilqabtn">Вопросы по рассрочке ученика</button>
+					<button class="bilqabtn">Оплата с лендингов</button>
+					<button class="bilqabtn">Проверка баланса У на расхождения</button>
 				</div>
 				
 				<div id="c1srvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#c1-support</p>
-					<button>Проблемы с версткой</button>
-					<button>Не завершился онбординг после оплаты</button>
-					<button>Циклические редиректы</button>
-					<button>Подземный стук</button>
+					<button class="c1sbtn">Проблемы с версткой</button>
+					<button class="c1sbtn">Не завершился онбординг после оплаты</button>
+					<button class="c1sbtn">Циклические редиректы</button>
+					<button class="c1sbtn">Подземный стук</button>
 				</div>
 				
 				<div id="telephonysrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#telephony-support</p>
-					<button>Отсутствие доступа к странице телефонии</button>
-					<button>Проблема с исходящим вызовом</button>
-					<button>Проблема с входящим вызовом</button>
-					<button>Проблема во время разговора</button>
-					<button>Проблема с реал-тайм статистикой</button>
-					<button>Запрос информации по звонку</button>
-					<button>Проблема при переводе вызова</button>
-					<button>Подземный стук</button>
+					<button class="telepbtn">Отсутствие доступа к странице телефонии</button>
+					<button class="telepbtn">Проблема с исходящим вызовом</button>
+					<button class="telepbtn">Проблема с входящим вызовом</button>
+					<button class="telepbtn">Проблема во время разговора</button>
+					<button class="telepbtn">Проблема с реал-тайм статистикой</button>
+					<button class="telepbtn">Запрос информации по звонку</button>
+					<button class="telepbtn">Проблема при переводе вызова</button>
+					<button class="telepbtn">Подземный стук</button>
 				</div>	
 
 				<div id="billingsrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#billing</p>
-					<button>Чеки/Инвойсы</button>
-					<button>Data analytics</button>
-					<button>Задача для разработки</button>
-					<button>Админка возвратов</button>
-					<button>Проблема с кодом для привязки карты</button>
-					<button>Вilling Payment Bot</button>
-					<button>Схемы вознаграждения </button>
-					<button>Самозанятые </button>
-					<button>Реквизиты</button>
-					<button>Выплаты</button>
-					<button>Списание средств</button>
-					<button>Возвраты</button>
-					<button>Платежные системы</button>
-					<button>Виджет оплаты</button>
-					<button>Оплата</button>
-					<button>Рассрочка</button>
-					<button>Оферты</button>
-					<button>Лендинги</button>
-					<button>Terms</button>
-					<button>Подписки</button>
-					<button>Бандлы</button>
-					<button>Технические проблемы на production</button>
-					<button>Роли и доступы</button>
-					<button>Бизнес-анализ</button>
-					<button>Техническое обсуждение</button>
+					<button class="billbtn">Чеки/Инвойсы</button>
+					<button class="billbtn">Data analytics</button>
+					<button class="billbtn">Задача для разработки</button>
+					<button class="billbtn">Админка возвратов</button>
+					<button class="billbtn">Проблема с кодом для привязки карты</button>
+					<button class="billbtn">Вilling Payment Bot</button>
+					<button class="billbtn">Схемы вознаграждения </button>
+					<button class="billbtn">Самозанятые </button>
+					<button class="billbtn">Реквизиты</button>
+					<button class="billbtn">Выплаты</button>
+					<button class="billbtn">Списание средств</button>
+					<button class="billbtn">Возвраты</button>
+					<button class="billbtn">Платежные системы</button>
+					<button class="billbtn">Виджет оплаты</button>
+					<button class="billbtn">Оплата</button>
+					<button class="billbtn">Рассрочка</button>
+					<button class="billbtn">Оферты</button>
+					<button class="billbtn">Лендинги</button>
+					<button class="billbtn">Terms</button>
+					<button class="billbtn">Подписки</button>
+					<button class="billbtn">Бандлы</button>
+					<button class="billbtn">Технические проблемы на production</button>
+					<button class="billbtn">Роли и доступы</button>
+					<button class="billbtn">Бизнес-анализ</button>
+					<button class="billbtn">Техническое обсуждение</button>
 				</div>
 				
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:5px;">
@@ -559,17 +559,17 @@ var win_servicedesk =
 				
 				<div id="mrktsrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#mrkt-bill-questions</p>
-					<button>Подписки</button>
-					<button>Заказ сертификатов</button>
-					<button>Заказ промокодов</button>
-					<button>Отключение НДС</button>
-					<button>Начисления (срочные, журналисты, PR)</button>
-					<button>Удвоение уроков (сотрудники)</button>
-					<button>Вопросы по прайсам</button>
-					<button>Реферальная программа</button>
-					<button>Сертификаты консультация / тех. проблема</button>
-					<button>Промокоды консультация / тех.проблема</button>
-					<button>Подземный стук</button>
+					<button class="mrktbtn">Подписки</button>
+					<button class="mrktbtn">Заказ сертификатов</button>
+					<button class="mrktbtn">Заказ промокодов</button>
+					<button class="mrktbtn">Отключение НДС</button>
+					<button class="mrktbtn">Начисления (срочные, журналисты, PR)</button>
+					<button class="mrktbtn">Удвоение уроков (сотрудники)</button>
+					<button class="mrktbtn">Вопросы по прайсам</button>
+					<button class="mrktbtn">Реферальная программа</button>
+					<button class="mrktbtn">Сертификаты консультация / тех. проблема</button>
+					<button class="mrktbtn">Промокоды консультация / тех.проблема</button>
+					<button class="mrktbtn">Подземный стук</button>
 				</div>
 	        </span>
 			
