@@ -1230,7 +1230,7 @@ let jiratoken;
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
 					document.getElementById('ttenableAP').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
+						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
@@ -1241,7 +1241,7 @@ let jiratoken;
 					}
 					
 					document.getElementById('ttdisableAP').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
+						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
@@ -1253,7 +1253,7 @@ let jiratoken;
 					}
 					
 					document.getElementById('ttquestions').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
+						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = 'none';
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_29').style.display = '';
@@ -1264,7 +1264,7 @@ let jiratoken;
 					}
 					
 					document.getElementById('ttacceptzapros').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
+						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID преподавателя";
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы (optional)";
@@ -1275,7 +1275,7 @@ let jiratoken;
 					}
 					
 					document.getElementById('ttnottaskpodbor').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
+						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
@@ -1286,7 +1286,7 @@ let jiratoken;
 					}
 					
 					document.getElementById('ttneurobot').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
+						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
 							document.getElementById('customfield_28').style.display = 'none';
@@ -1297,7 +1297,7 @@ let jiratoken;
 					}
 					
 					document.getElementById('ttunderground').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
+						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').placeholder ="ID преподавателя";
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_29').style.display = 'none';
