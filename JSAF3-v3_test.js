@@ -24,6 +24,9 @@ function mystyles() {
 	.activebtn {
 		background-color: #1e90ff;
 	}
+	.activebtnsd {
+		background-color: #ff6347;
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
