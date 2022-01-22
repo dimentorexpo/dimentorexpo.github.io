@@ -1295,7 +1295,7 @@ let jiratoken;
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
 							document.getElementById('customfield_28').style.display = 'none';
-							document.getElementById('customfield_29').style.display = 'none';
+							document.getElementById('customfield_29').style.display = '';
 							document.getElementById('customfield_30').style.display = '';
 							document.getElementById('customfield_31').style.display = '';
 						}
