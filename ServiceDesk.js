@@ -1018,7 +1018,7 @@ let jiratoken;
 						}
 					}
 					
-					document.getElementById('create_2').onclick = function() {
+					document.getElementById('create_3').onclick = function() {
 					let idstd = document.getElementById('customfield_11').value;
 					let idserv = document.getElementById('customfield_12').value;
 					let dscr = document.getElementById('customfield_13').value;
@@ -1132,6 +1132,8 @@ let jiratoken;
 					document.getElementById('customfield_15').value = "";
 						
 					} else
+						console.log("Not found");
+					}
 					
 					
 				} else {
