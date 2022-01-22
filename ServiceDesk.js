@@ -1012,11 +1012,11 @@ let jiratoken;
 					
 					document.getElementById('c1redirects').onclick = function() {
 						if (document.getElementById('onboardingform').style.display == '') {
-							document.getElementById('customfield_6').placeholder ="ID ученика";
-							document.getElementById('customfield_7').placeholder ="ID преподавателя";
-							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
-							document.getElementById('customfield_9').style.display ="";
-							document.getElementById('customfield_10').style.display ="";
+							document.getElementById('customfield_11').placeholder ="ID ученика";
+							document.getElementById('customfield_12').placeholder ="ID преподавателя";
+							document.getElementById('customfield_13').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_14').style.display ="";
+							document.getElementById('customfield_15').style.display ="";
 						}
 					}
 					
