@@ -475,18 +475,18 @@ var win_servicedesk =
 					<button class="authbtn" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
 					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
 					<button class="authbtn" id="authbusinessq">Бизнес вопросы</button>
-					<button class="authbtn" id="authunderground>Подземный стук</button>
+					<button class="authbtn" id="authunderground">Подземный стук</button>
 				</div>
 				
 				<div id="schedulesrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support</p>
-					<button class="schdbtn">Подключение АП</button>
-					<button class="schdbtn">Отключить АП в ЛКУ</button>
-					<button class="schdbtn">Вопросы по ТТ</button>
-					<button class="schdbtn">Подтвердить запрос в ЛКП для переподбора ВП</button>
-					<button class="schdbtn">Почему нет задачи подбора ?</button>
-					<button class="schdbtn">Нейроробот</button>
-					<button class="schdbtn">Подземный стук</button>
+					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
+					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
+					<button class="schdbtn" id="ttquestions">Вопросы по ТТ</button>
+					<button class="schdbtn" id="ttacceptzapros">Подтвердить запрос в ЛКП для переподбора ВП</button>
+					<button class="schdbtn" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
+					<button class="schdbtn" id="ttneurobot">Нейроробот</button>
+					<button class="schdbtn" id="ttunderground">Подземный стук</button>
 				</div>	
 
 				<div id="billingqasrvdskoptions" style="display: none;">
