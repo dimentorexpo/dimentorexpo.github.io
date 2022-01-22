@@ -1022,6 +1022,98 @@ let jiratoken;
 						}
 					}
 					
+					document.getElementById('create_4').onclick = function() {
+					let idstd = document.getElementById('customfield_16').value;
+					let idserv = document.getElementById('customfield_17').value;
+					let dscr = document.getElementById('customfield_18').value;
+					let jur = document.getElementById('customfield_19').value ;
+					let	soglas = document.getElementById('customfield_20').value ;
+					let	pagef = document.getElementById('customfield_21').value ;
+					let	pagel = document.getElementById('customfield_22').value ;
+					let	pages = document.getElementById('customfield_23').value ;
+					let	usrdesc = document.getElementById('customfield_24').value ;
+					let	sclackch = document.getElementById('customfield_25').value ;
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					console.log("Вопросы по рассрочке: " + "ID student " + idstd + "ID service " + idserv + "Description " + dscr);
+					
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/577",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/577";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_16').value = "";
+					document.getElementById('customfield_17').value = "";
+					document.getElementById('customfield_18').value = "";
+					}
+					else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqapaylendings').textContent) {
+					console.log("Оплата с лендингов : " + "Название продукта " + idstd + "Прайсет " + idserv + "Description " + dscr + "Jur person " + jur + "Soglasovano s fin dir" + soglas + "Page link where " + pagef + "Page link failed " + pagel + "Page link success " + pages + "User descr" + usrdesc + "Slack chanel " + sclackch);
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/571",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18319=${dscr}&customfield_18320=${jur}&customfield_18321=${soglas}&customfield_18808=${pagef}&customfield_18317=${pagel}&customfield_18221=${pages}&customfield_18316=${usrdesc}&customfield_18315=${sclackch}&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/571";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_16').value = "";
+					document.getElementById('customfield_17').value = "";
+					document.getElementById('customfield_18').value = "";
+					document.getElementById('customfield_19').value = "";
+					document.getElementById('customfield_20').value = "";
+					document.getElementById('customfield_21').value = "";
+					document.getElementById('customfield_22').value = "";
+					document.getElementById('customfield_23').value = "";
+					document.getElementById('customfield_24').value = "";
+					document.getElementById('customfield_25').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqabalancecorrect').textContent) {
+					console.log("Проверка баланса у на расхождения : " + "ID student " + idstd + "ID service " + idserv + "Description " + dscr);
+					
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/570",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18975=${idstd}&customfield_18976=${idserv}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/570";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_16').value = "";
+					document.getElementById('customfield_17').value = "";
+					document.getElementById('customfield_18').value = "";
+					
 					
 				} else {
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
