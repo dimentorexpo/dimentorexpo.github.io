@@ -604,6 +604,20 @@ var win_servicedesk =
 					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
+				<div id="onboardingform" style="display: none; margin:5px;">
+					<input id="customfield_11" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_12" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_13" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_14" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_15" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
 			
 </span>
 </div>`;

@@ -966,6 +966,7 @@ let jiratoken;
 		 		 	document.getElementById('optionOnboarding').onclick = function() {
 				if (document.getElementById('c1srvdskoptions').style.display != '') {
 					document.getElementById('c1srvdskoptions').style.display = '';
+					document.getElementById('onboardingform').style.display = '';
 					document.getElementById('kidsform').style.display = 'none';	
 					document.getElementById('teachersform').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
