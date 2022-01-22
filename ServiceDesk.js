@@ -969,6 +969,60 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					
+					$('.bilqabtn').click(function() {  
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					//Начало окрашивания кнопок и добавление закрашивания при переключении
+					
+					document.getElementById('billqarassroch').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_16').placeholder ="ID ученика";
+							document.getElementById('customfield_17').placeholder ="ID услуги";
+							document.getElementById('customfield_18').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_19').style.display = 'none';
+							document.getElementById('customfield_20').style.display = 'none';
+							document.getElementById('customfield_21').style.display = 'none';
+							document.getElementById('customfield_22').style.display = 'none';
+							document.getElementById('customfield_23').style.display = 'none';
+							document.getElementById('customfield_24').style.display = 'none';
+							document.getElementById('customfield_25').style.display = 'none';
+						}
+					}
+					
+					document.getElementById('billqapaylendings').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_16').placeholder ="Название продукта?";
+							document.getElementById('customfield_17').placeholder ="Прайссет и позиция?";
+							document.getElementById('customfield_18').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_19').style.display = '';
+							document.getElementById('customfield_20').style.display = '';
+							document.getElementById('customfield_21').style.display = '';
+							document.getElementById('customfield_22').style.display = '';
+							document.getElementById('customfield_23').style.display = '';
+							document.getElementById('customfield_24').style.display = '';
+							document.getElementById('customfield_25').style.display = '';
+						}
+					}
+					
+					document.getElementById('billqabalancecorrect').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_16').placeholder ="ID ученика";
+							document.getElementById('customfield_17').placeholder ="ID услуги";
+							document.getElementById('customfield_18').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_19').style.display = 'none';
+							document.getElementById('customfield_20').style.display = 'none';
+							document.getElementById('customfield_21').style.display = 'none';
+							document.getElementById('customfield_22').style.display = 'none';
+							document.getElementById('customfield_23').style.display = 'none';
+							document.getElementById('customfield_24').style.display = 'none';
+							document.getElementById('customfield_25').style.display = 'none';
+						}
+					}
+					
+					
 				} else {
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('billqaform').style.display = 'none';	
