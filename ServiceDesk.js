@@ -39,7 +39,7 @@ let jiratoken;
 					document.getElementById('onboardingform').style.display = 'none';
 					document.getElementById('billqaform').style.display = 'none';
 					document.getElementById('scheduleform').style.display = 'none';	
-					document.getElementById('teachersform').style.display = '';
+				//	document.getElementById('teachersform').style.display = '';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -59,154 +59,168 @@ let jiratoken;
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
 					document.getElementById('teacherstatistic').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherstudy').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherbreak').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
-
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teachermoney').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teachermap').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teachertimetable').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherperenos').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherwidgetbalance').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherwidgetlessonmark').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherwidgetplanfact').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherwidgettimetableweek').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherwidgetKPI').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') { 
+						if (document.getElementById('teachersform').style.display != '') { 
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherwidgetmystudents').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя";
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherTRMquestions').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_7').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_8').placeholder ="Ожидаемое поведение";
 							document.getElementById('customfield_9').style.display ="none";
 							document.getElementById('customfield_10').style.display ="";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('teacherunderground').onclick = function() {
-						if (document.getElementById('teachersform').style.display == '') {
+						if (document.getElementById('teachersform').style.display != '') {
+							document.getElementById('teachersform').style.display = '';
 							document.getElementById('customfield_6').placeholder ="ID ученика(optional)";
 							document.getElementById('customfield_7').placeholder ="ID преподавателя(optional)";
 							document.getElementById('customfield_8').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_9').style.display ="none";
 							document.getElementById('customfield_10').style.display ="none";
-						}
+						} else document.getElementById('teachersform').style.display = 'none';
 					}
 					
 					document.getElementById('create_2').onclick = function() {
