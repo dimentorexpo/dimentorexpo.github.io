@@ -618,6 +618,46 @@ var win_servicedesk =
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
+				<div id="billqaform" style="display: none; margin:5px;">
+					<input id="customfield_16" placeholder="Название продукта?" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_17" placeholder="Прайссет и позиция?" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_19" placeholder="Какое юрлицо?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_20" placeholder="Согласовано ли юрлицо с финансовым директором (Рустам)?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_21" placeholder="Адрес страницы, где будет использоваться" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_22" placeholder="Адрес страницы, если оплата не прошла" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_23" placeholder="Адрес страницы, в случае успеха" style="width: 420px;"></input>
+					<br>
+					<textarea id="customfield_24" placeholder="Описание для пользователя" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_25" placeholder="Slack-канал, для уведомлений о новых оплатах" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="scheduleform" style="display: none; margin:5px;">
+					<input id="customfield_26" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_27" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_28" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_29" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_30" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_31" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
 			
 </span>
 </div>`;

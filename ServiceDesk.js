@@ -37,6 +37,8 @@ let jiratoken;
 					document.getElementById('teacherssrvdskoptions').style.display = '';
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
 					document.getElementById('teachersform').style.display = '';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -624,9 +626,11 @@ let jiratoken;
 		 			document.getElementById('optionSkysmart').onclick = function() {
 				if (document.getElementById('skysmartsrvdskoptions').style.display != '') {
 					document.getElementById('skysmartsrvdskoptions').style.display = '';
-					document.getElementById('kidsform').style.display = '';
 					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
+					document.getElementById('kidsform').style.display = '';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -951,9 +955,11 @@ let jiratoken;
 		 		 	document.getElementById('optionBillingQA').onclick = function() {
 				if (document.getElementById('billingqasrvdskoptions').style.display != '') {
 					document.getElementById('billingqasrvdskoptions').style.display = '';
+					document.getElementById('billqaform').style.display = '';	
 					document.getElementById('kidsform').style.display = 'none';	
-					document.getElementById('teachersform').style.display = 'none';		
-					document.getElementById('onboardingform').style.display = 'none';					
+					document.getElementById('teachersform').style.display = 'none';						
+					document.getElementById('onboardingform').style.display = 'none';	
+					document.getElementById('scheduleform').style.display = 'none';						
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -965,6 +971,7 @@ let jiratoken;
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 				} else {
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';	
 				}
 		 }
 		 
@@ -973,7 +980,9 @@ let jiratoken;
 					document.getElementById('c1srvdskoptions').style.display = '';
 					document.getElementById('onboardingform').style.display = '';
 					document.getElementById('kidsform').style.display = 'none';	
-					document.getElementById('teachersform').style.display = 'none';					
+					document.getElementById('teachersform').style.display = 'none';	
+					document.getElementById('billqaform').style.display = 'none';	
+					document.getElementById('scheduleform').style.display = 'none';						
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1146,7 +1155,9 @@ let jiratoken;
 					document.getElementById('schedulesrvdskoptions').style.display = '';
 					document.getElementById('kidsform').style.display = 'none';	
 					document.getElementById('teachersform').style.display = 'none';	
-					document.getElementById('onboardingform').style.display = 'none';					
+					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = '';						
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1158,6 +1169,7 @@ let jiratoken;
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 				} else {
 					document.getElementById('schedulesrvdskoptions').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
 				}
 		 }
 		 
@@ -1167,6 +1179,8 @@ let jiratoken;
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1187,6 +1201,8 @@ let jiratoken;
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1208,6 +1224,8 @@ let jiratoken;
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1228,6 +1246,8 @@ let jiratoken;
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1248,6 +1268,8 @@ let jiratoken;
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';	
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
