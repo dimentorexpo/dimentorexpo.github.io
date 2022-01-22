@@ -1114,6 +1114,9 @@ let jiratoken;
 					document.getElementById('customfield_17').value = "";
 					document.getElementById('customfield_18').value = "";
 					
+					} else console.log("Not found");
+					}
+					
 					
 				} else {
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
