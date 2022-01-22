@@ -1233,6 +1233,7 @@ let jiratoken;
 						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
+							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
@@ -1244,6 +1245,7 @@ let jiratoken;
 						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
+							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_29').style.display = '';
 							document.getElementById('customfield_29').placeholder ="Причина отключения АП? (ОБЯЗАТЕЛЬНО)";
@@ -1255,6 +1257,7 @@ let jiratoken;
 					document.getElementById('ttquestions').onclick = function() {
 						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = 'none';
+							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_29').style.display = '';
 							document.getElementById('customfield_29').placeholder ="Как воспроизвести ошибку?";
@@ -1267,6 +1270,7 @@ let jiratoken;
 						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID преподавателя";
+							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы (optional)";
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
@@ -1278,6 +1282,7 @@ let jiratoken;
 						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
 							document.getElementById('customfield_27').placeholder ="ID услуги";
+							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
@@ -1300,6 +1305,7 @@ let jiratoken;
 						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').placeholder ="ID преподавателя";
 							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
 							document.getElementById('customfield_31').style.display = 'none';
