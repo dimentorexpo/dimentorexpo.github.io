@@ -615,7 +615,7 @@ var win_servicedesk =
 					<br>
 					<textarea id="customfield_15" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 			
