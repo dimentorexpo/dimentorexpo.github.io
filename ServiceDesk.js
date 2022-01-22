@@ -983,6 +983,54 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					
+					$('.c1sbtn').click(function() {  
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					// по нажатию кнопок окрашивать их и менять тип формы
+							document.getElementById('c1verstka').onclick = function() {
+						if (document.getElementById('onboardingform').style.display == '') {
+							document.getElementById('customfield_11').placeholder ="ID ученика";
+							document.getElementById('customfield_12').placeholder ="ID преподавателя";
+							document.getElementById('customfield_13').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_14').style.display = 'none';
+							document.getElementById('customfield_15').style.display = 'none';
+						}
+					}
+					
+					document.getElementById('c1payonboarding').onclick = function() {
+						if (document.getElementById('onboardingform').style.display == '') {
+							document.getElementById('customfield_11').placeholder ="ID ученика";
+							document.getElementById('customfield_12').placeholder ="ID преподавателя";
+							document.getElementById('customfield_13').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_14').style.display ="";
+							document.getElementById('customfield_15').style.display ="";
+						}
+					}
+					
+					document.getElementById('c1redirects').onclick = function() {
+						if (document.getElementById('onboardingform').style.display == '') {
+							document.getElementById('customfield_6').placeholder ="ID ученика";
+							document.getElementById('customfield_7').placeholder ="ID преподавателя";
+							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_9').style.display ="";
+							document.getElementById('customfield_10').style.display ="";
+						}
+					}
+					
+					document.getElementById('c1underground').onclick = function() {
+						if (document.getElementById('onboardingform').style.display == '') {
+							document.getElementById('customfield_11').placeholder ="ID ученика";
+							document.getElementById('customfield_12').placeholder ="ID преподавателя";
+							document.getElementById('customfield_13').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_14').style.display = 'none';
+							document.getElementById('customfield_15').style.display = 'none';
+						}
+					}
+					
+					
 				} else {
 					document.getElementById('c1srvdskoptions').style.display = 'none';
 					document.getElementById('onboardingform').style.display = 'none';
