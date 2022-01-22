@@ -66,7 +66,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherstudy').onclick = function() {
@@ -77,7 +77,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherbreak').onclick = function() {
@@ -88,7 +88,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teachermoney').onclick = function() {
@@ -99,7 +99,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teachermap').onclick = function() {
@@ -110,7 +110,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teachertimetable').onclick = function() {
@@ -121,7 +121,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherperenos').onclick = function() {
@@ -132,7 +132,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherwidgetbalance').onclick = function() {
@@ -143,7 +143,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherwidgetlessonmark').onclick = function() {
@@ -154,7 +154,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherwidgetplanfact').onclick = function() {
@@ -165,7 +165,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherwidgettimetableweek').onclick = function() {
@@ -176,7 +176,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherwidgetKPI').onclick = function() {
@@ -187,7 +187,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherwidgetmystudents').onclick = function() {
@@ -198,7 +198,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherTRMquestions').onclick = function() {
@@ -209,7 +209,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Ожидаемое поведение";
 							document.getElementById('customfield_9').style.display ="none";
 							document.getElementById('customfield_10').style.display ="";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('teacherunderground').onclick = function() {
@@ -220,7 +220,7 @@ let jiratoken;
 							document.getElementById('customfield_8').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_9').style.display ="none";
 							document.getElementById('customfield_10').style.display ="none";
-						} else document.getElementById('teachersform').style.display = 'none';
+						} 
 					}
 					
 					document.getElementById('create_2').onclick = function() {
