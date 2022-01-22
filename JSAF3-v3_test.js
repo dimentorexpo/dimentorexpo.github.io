@@ -490,7 +490,7 @@ var win_servicedesk =
 				</div>	
 
 				<div id="billingqasrvdskoptions" style="display: none;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#billing-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support</p>
 					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
 					<button class="bilqabtn" id="billqapaylendings">Оплата с лендингов</button>
 					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>

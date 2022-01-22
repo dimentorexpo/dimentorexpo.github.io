@@ -1221,6 +1221,92 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					
+					$('.schdbtn').click(function() {  
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					//Начало окрашивания кнопок и добавление закрашивания при переключении
+					
+					document.getElementById('ttenableAP').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_27').style.display = '';
+							document.getElementById('customfield_27').placeholder ="ID услуги";
+							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_29').style.display = 'none';
+							document.getElementById('customfield_30').style.display = 'none';
+							document.getElementById('customfield_31').style.display = 'none';
+						}
+					}
+					
+					document.getElementById('ttdisableAP').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_27').style.display = '';
+							document.getElementById('customfield_27').placeholder ="ID услуги";
+							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_29').style.display = '';
+							document.getElementById('customfield_29').placeholder ="Причина отключения АП? (ОБЯЗАТЕЛЬНО)";
+							document.getElementById('customfield_30').style.display = 'none';
+							document.getElementById('customfield_31').style.display = 'none';
+						}
+					}
+					
+					document.getElementById('ttquestions').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_27').style.display = 'none';
+							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_29').style.display = '';
+							document.getElementById('customfield_29').placeholder ="Как воспроизвести ошибку?";
+							document.getElementById('customfield_30').style.display = '';
+							document.getElementById('customfield_31').style.display = '';
+						}
+					}
+					
+					document.getElementById('ttacceptzapros').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_27').style.display = '';
+							document.getElementById('customfield_27').placeholder ="ID преподавателя";
+							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы (optional)";
+							document.getElementById('customfield_29').style.display = 'none';
+							document.getElementById('customfield_30').style.display = 'none';
+							document.getElementById('customfield_31').style.display = 'none';
+						}
+					}
+					
+					document.getElementById('ttnottaskpodbor').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_27').style.display = '';
+							document.getElementById('customfield_27').placeholder ="ID услуги";
+							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_29').style.display = 'none';
+							document.getElementById('customfield_30').style.display = 'none';
+							document.getElementById('customfield_31').style.display = 'none';
+						}
+					}
+					
+					document.getElementById('ttneurobot').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_27').style.display = '';
+							document.getElementById('customfield_27').placeholder ="ID услуги";
+							document.getElementById('customfield_28').style.display = 'none';
+							document.getElementById('customfield_29').style.display = 'none';
+							document.getElementById('customfield_30').style.display = '';
+							document.getElementById('customfield_31').style.display = '';
+						}
+					}
+					
+					document.getElementById('ttunderground').onclick = function() {
+						if (document.getElementById('billqaform').style.display == '') {
+							document.getElementById('customfield_27').placeholder ="ID преподавателя";
+							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_29').style.display = 'none';
+							document.getElementById('customfield_30').style.display = 'none';
+							document.getElementById('customfield_31').style.display = 'none';
+						}
+					}
+					
+					
 				} else {
 					document.getElementById('schedulesrvdskoptions').style.display = 'none';
 					document.getElementById('scheduleform').style.display = 'none';	
