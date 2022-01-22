@@ -992,9 +992,6 @@ let jiratoken;
 					// по нажатию кнопок окрашивать их и менять тип формы
 							document.getElementById('c1verstka').onclick = function() {
 						if (document.getElementById('onboardingform').style.display == '') {
-							document.getElementById('customfield_11').placeholder ="ID ученика";
-							document.getElementById('customfield_12').placeholder ="ID преподавателя";
-							document.getElementById('customfield_13').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_14').style.display = 'none';
 							document.getElementById('customfield_15').style.display = 'none';
 						}
@@ -1002,9 +999,6 @@ let jiratoken;
 					
 					document.getElementById('c1payonboarding').onclick = function() {
 						if (document.getElementById('onboardingform').style.display == '') {
-							document.getElementById('customfield_11').placeholder ="ID ученика";
-							document.getElementById('customfield_12').placeholder ="ID преподавателя";
-							document.getElementById('customfield_13').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_14').style.display ="";
 							document.getElementById('customfield_15').style.display ="";
 						}
@@ -1012,9 +1006,6 @@ let jiratoken;
 					
 					document.getElementById('c1redirects').onclick = function() {
 						if (document.getElementById('onboardingform').style.display == '') {
-							document.getElementById('customfield_11').placeholder ="ID ученика";
-							document.getElementById('customfield_12').placeholder ="ID преподавателя";
-							document.getElementById('customfield_13').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_14').style.display ="";
 							document.getElementById('customfield_15').style.display ="";
 						}
@@ -1022,9 +1013,6 @@ let jiratoken;
 					
 					document.getElementById('c1underground').onclick = function() {
 						if (document.getElementById('onboardingform').style.display == '') {
-							document.getElementById('customfield_11').placeholder ="ID ученика";
-							document.getElementById('customfield_12').placeholder ="ID преподавателя";
-							document.getElementById('customfield_13').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_14').style.display = 'none';
 							document.getElementById('customfield_15').style.display = 'none';
 						}
