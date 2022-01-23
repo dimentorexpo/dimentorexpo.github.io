@@ -1691,9 +1691,8 @@ let jiratoken;
 					
 						document.getElementById('authdevq').onclick = function() {
 						if (document.getElementById('authform').style.display == '') {
-							document.getElementById('customfield_40').style.display ="";
-							document.getElementById('customfield_40').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_41').style.display ="none";
+							document.getElementById('customfield_40').style.display ="none";
+							document.getElementById('customfield_41').style.display ="";
 						}
 					}
 					
@@ -1747,15 +1746,15 @@ let jiratoken;
 
 					document.getElementById('authbusinessq').onclick = function() {
 						if (document.getElementById('authform').style.display == '') {
-							document.getElementById('customfield_40').style.display ="";
-							document.getElementById('customfield_41').style.display ="none";
+							document.getElementById('customfield_40').style.display ="none";
+							document.getElementById('customfield_41').style.display ="";
 						}
 					}	
 					
 					document.getElementById('authunderground').onclick = function() {
 						if (document.getElementById('authform').style.display == '') {
-							document.getElementById('customfield_40').style.display ="";
-							document.getElementById('customfield_41').style.display ="none";
+							document.getElementById('customfield_40').style.display ="none";
+							document.getElementById('customfield_41').style.display ="";
 						}
 					}	
 					
