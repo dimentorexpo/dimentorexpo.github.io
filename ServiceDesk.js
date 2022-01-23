@@ -1649,6 +1649,12 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					
+					$('.telepbtn').click(function() {  
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
 				} else {
 					document.getElementById('telephonysrvdskoptions').style.display = 'none';
 					document.getElementById('telephonyform').style.display = 'none';
@@ -1677,6 +1683,13 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+				
+					$('.authbtn').click(function() {  
+					$('.authbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					
 				} else {
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
@@ -1706,6 +1719,12 @@ let jiratoken;
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					
+					$('.crm2sbtn').click(function() {  
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
 				} else {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('crm2form').style.display = 'none';	
@@ -1734,6 +1753,12 @@ let jiratoken;
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					
+					$('.mrktbtn').click(function() {  
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
 				} else {
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('mrktform').style.display = 'none';	
@@ -1762,6 +1787,11 @@ let jiratoken;
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
+					
+					$('.billbtn').click(function() {  
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
 					
 					
 				} else {
