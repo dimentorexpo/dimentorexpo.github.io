@@ -1689,6 +1689,76 @@ let jiratoken;
 					$(this).toggleClass('activebtn');
 					});
 					
+						document.getElementById('authdevq').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_40').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_41').style.display ="none";
+						}
+					}
+					
+					document.getElementById('auth2google').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_40').placeholder ="Ваша рабочая почта";
+							document.getElementById('customfield_41').style.display ="";
+						}
+					}	
+					
+					document.getElementById('auth2faemail').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_40').placeholder ="Ваша рабочая почта";
+							document.getElementById('customfield_41').style.display ="";
+						}
+					}	
+
+					document.getElementById('auth2fasms').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_40').placeholder ="Ваша рабочая почта";
+							document.getElementById('customfield_41').style.display ="";
+						}
+					}
+					
+					document.getElementById('authdeladdrolesteach').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_40').placeholder ="ID преподавателя";
+							document.getElementById('customfield_41').style.display ="";
+						}
+					}	
+					
+					document.getElementById('authdeladdrolesstud').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_40').placeholder ="ID ученика";
+							document.getElementById('customfield_41').style.display ="";
+						}
+					}	
+					
+					document.getElementById('authlogcheck').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_40').placeholder ="ID физ.лица";
+							document.getElementById('customfield_41').style.display ="";
+						}
+					}			
+
+					document.getElementById('authbusinessq').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_41').style.display ="none";
+						}
+					}	
+					
+					document.getElementById('authunderground').onclick = function() {
+						if (document.getElementById('authform').style.display == '') {
+							document.getElementById('customfield_40').style.display ="";
+							document.getElementById('customfield_41').style.display ="none";
+						}
+					}	
+					
 					
 				} else {
 					document.getElementById('authsrvdskoptions').style.display = 'none';
