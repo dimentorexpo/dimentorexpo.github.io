@@ -1793,6 +1793,185 @@ let jiratoken;
 					$(this).toggleClass('activebtn');
 					});
 					
+					document.getElementById('billcheques').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="none";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+					
+					document.getElementById('billdataanal').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="none";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}	
+					
+					document.getElementById('billtaskfordev').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="none";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}	
+
+					document.getElementById('billadmreturn').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="none";
+							document.getElementById('customfield_32').style.display ="none";
+						}
+					}
+					
+					document.getElementById('billtroublcodecard').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="none";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}	
+					
+					document.getElementById('billpaymentbot').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}	
+					
+					document.getElementById('billschemes').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}			
+
+					document.getElementById('billselfemployee').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}	
+					
+					document.getElementById('billrequisites').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billpayments').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billspisanie').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}	
+					
+					document.getElementById('billreturns').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billpaymentmesystems').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billwidgetpayment').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billpay').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billcredit').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+					
+					document.getElementById('billoferta').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billlendings').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billterms').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billsubscribtions').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billbundles').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billtehproblemsprod').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billroles').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+					
+					document.getElementById('billbusanalys').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}
+
+					document.getElementById('billtechconv').onclick = function() {
+						if (document.getElementById('billingform').style.display == '') {
+							document.getElementById('customfield_33').style.display ="";
+							document.getElementById('customfield_32').style.display ="";
+						}
+					}	
+					
+					
+					
+					
+					
 					
 				} else {
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
