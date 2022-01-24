@@ -1872,6 +1872,163 @@ let jiratoken;
 					$(this).toggleClass('activebtn');
 					});
 					
+					
+					document.getElementById('crm2taskssoprovod').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}
+					
+					document.getElementById('crm2taskssales').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}	
+					
+					document.getElementById('crm2lessonhistory').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}	
+
+					document.getElementById('crm2paymenthistory').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}
+					
+					document.getElementById('crm2convertsrc').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}	
+					
+					document.getElementById('crm2actionshistory').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}	
+					
+					document.getElementById('crm2familycard').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}			
+
+					document.getElementById('crm2profile').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}	
+					
+					document.getElementById('crm2communications').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}	
+
+					document.getElementById('crm2taskpoolsoporovd').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}	
+					
+					document.getElementById('crm2taskpoolsales').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="Прямая ссылка на услугу У в CRM2";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="";
+							document.getElementById('customfield_46').style.display ="";
+							document.getElementById('customfield_47').style.display ="";
+						}
+					}			
+
+					document.getElementById('crm2migrationcrm').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="ID ученика";
+							document.getElementById('customfield_43').style.display ="none";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="none";
+							document.getElementById('customfield_46').style.display ="none";
+							document.getElementById('customfield_47').style.display ="none";
+						}
+					}	
+					
+					document.getElementById('crm2changestk').onclick = function() {
+						if (document.getElementById('crm2form').style.display == '') {
+							document.getElementById('customfield_42').style.display ="";
+							document.getElementById('customfield_42').placeholder ="ID ученика";
+							document.getElementById('customfield_43').style.display ="";
+							document.getElementById('customfield_44').style.display ="";
+							document.getElementById('customfield_45').style.display ="none";
+							document.getElementById('customfield_46').style.display ="none";
+							document.getElementById('customfield_47').style.display ="none";
+						}
+					}	
+					
 				} else {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('crm2form').style.display = 'none';	

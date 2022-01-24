@@ -694,7 +694,7 @@ var win_servicedesk =
 					<input id="customfield_42" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_43" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_44" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_44" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_46" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
 					<br>					
