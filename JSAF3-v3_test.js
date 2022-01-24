@@ -673,7 +673,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="telephonyform" style="display: none; margin:5px;">
-					<input id="customfield_37" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></input>
+					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_38" placeholder="Ожидаемое поведение" style="margin-top:5px; width: 420px;"></textarea>
 					<br>

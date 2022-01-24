@@ -1655,6 +1655,84 @@ let jiratoken;
 					$(this).toggleClass('activebtn');
 					});
 					
+					document.getElementById('telnoaccess').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="";
+							document.getElementById('customfield_37').placeholder ="Ваш ID оператора";
+							document.getElementById('customfield_38').style.display ="";
+							document.getElementById('customfield_38').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_39').style.display ="none";
+						}
+					}
+					
+					document.getElementById('teloutgoing').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="";
+							document.getElementById('customfield_37').placeholder ="Ваш ID оператора";
+							document.getElementById('customfield_38').style.display ="";
+							document.getElementById('customfield_38').placeholder ="Краткое и структурированное описание проблемы и номера где проблемы";
+							document.getElementById('customfield_39').style.display ="none";
+						}
+					}	
+					
+					document.getElementById('telincoming').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="";
+							document.getElementById('customfield_37').placeholder ="Ваш ID оператора";
+							document.getElementById('customfield_38').style.display ="";
+							document.getElementById('customfield_38').placeholder ="Краткое и структурированное описание проблемы и номера где проблемы";
+							document.getElementById('customfield_39').style.display ="none";
+						}
+					}	
+
+					document.getElementById('telspeaking').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="";
+							document.getElementById('customfield_37').placeholder ="Ваш ID оператора";
+							document.getElementById('customfield_38').style.display ="";
+							document.getElementById('customfield_38').placeholder ="Краткое и структурированное описание проблемы и номера где проблемы";
+							document.getElementById('customfield_39').style.display ="none";
+						}
+					}
+					
+					document.getElementById('telrtstat').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="";
+							document.getElementById('customfield_37').placeholder ="Краткое и структурированное описание проблемы";
+							document.getElementById('customfield_38').style.display ="";
+							document.getElementById('customfield_38').placeholder ="Ожидаемое поведение";
+							document.getElementById('customfield_39').style.display ="";
+						}
+					}	
+					
+					document.getElementById('telcallinfo').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="";
+							document.getElementById('customfield_37').placeholder ="Ваш ID оператора";
+							document.getElementById('customfield_38').style.display ="";
+							document.getElementById('customfield_38').placeholder ="Краткое и структурированное описание проблемы и номера где проблемы";
+							document.getElementById('customfield_39').style.display ="none";
+						}
+					}	
+					
+					document.getElementById('telredicall').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="";
+							document.getElementById('customfield_37').placeholder ="Ваш ID оператора";
+							document.getElementById('customfield_38').style.display ="";
+							document.getElementById('customfield_38').placeholder ="Краткое и структурированное описание проблемы и номера где проблемы";
+							document.getElementById('customfield_39').style.display ="none";
+						}
+					}			
+
+					document.getElementById('telunderground').onclick = function() {
+						if (document.getElementById('telephonyform').style.display == '') {
+							document.getElementById('customfield_37').style.display ="none";
+							document.getElementById('customfield_38').placeholder ="Краткое и структурированное описание проблемы и номера где проблемы";
+							document.getElementById('customfield_39').style.display ="none";
+						}
+					}	
+					
 				} else {
 					document.getElementById('telephonysrvdskoptions').style.display = 'none';
 					document.getElementById('telephonyform').style.display = 'none';
@@ -1689,7 +1767,7 @@ let jiratoken;
 					$(this).toggleClass('activebtn');
 					});
 					
-						document.getElementById('authdevq').onclick = function() {
+					document.getElementById('authdevq').onclick = function() {
 						if (document.getElementById('authform').style.display == '') {
 							document.getElementById('customfield_40').style.display ="none";
 							document.getElementById('customfield_41').style.display ="";
