@@ -696,18 +696,18 @@ var win_servicedesk =
 					<br>
 					<textarea id="customfield_44" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_46" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_45" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
 					<br>					
-					<textarea id="customfield_47" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_46" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="mrktform" style="display: none; margin:5px;">
-					<input id="customfield_48" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_49" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_47" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_48" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_38" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
