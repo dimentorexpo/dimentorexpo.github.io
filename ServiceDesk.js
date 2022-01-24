@@ -2058,10 +2058,116 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 					
+					
 					$('.mrktbtn').click(function() {  
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
+					
+					document.getElementById('mrktsubscribptions').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+							document.getElementById('customfield_48').placeholder ="ID услуги";
+						}
+					}
+					
+					document.getElementById('mrktcertificates').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="none";
+							document.getElementById('customfield_48').style.display ="none";
+							document.getElementById('customfield_49').style.display ="";
+						}
+					}	
+					
+					document.getElementById('mrktpromocodes').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="none";
+							document.getElementById('customfield_48').style.display ="none";
+							document.getElementById('customfield_49').style.display ="";
+						}
+					}	
+
+					document.getElementById('mrktdisablends').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+							document.getElementById('customfield_48').placeholder ="ID услуги";
+						}
+					}
+					
+					document.getElementById('mrktnachisl').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+							document.getElementById('customfield_48').placeholder ="ID услуги";
+						}
+					}		
+					
+					document.getElementById('mrktdoublelessons').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+							document.getElementById('customfield_48').placeholder ="ID услуги";
+						}
+					}	
+					
+					document.getElementById('mrktpriceq').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="none";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+						}
+					}	
+					
+					document.getElementById('mrktreferal').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID приглашающего";
+							document.getElementById('customfield_48').placeholder ="ID приглашенного";
+						}
+					}			
+
+					document.getElementById('mrktcertconsult').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+							document.getElementById('customfield_48').placeholder ="ID услуги";
+						}
+					}	
+					
+					document.getElementById('mrktpromocodesconsult').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+							document.getElementById('customfield_48').placeholder ="ID услуги";
+						}
+					}
+
+					document.getElementById('mrktunderground').onclick = function() {
+						if (document.getElementById('mrktform').style.display == '') {
+							document.getElementById('customfield_47').style.display ="";
+							document.getElementById('customfield_48').style.display ="";
+							document.getElementById('customfield_49').style.display ="";
+							document.getElementById('customfield_47').placeholder ="ID ученика";
+							document.getElementById('customfield_48').placeholder ="ID услуги";
+						}
+					}					
 					
 				} else {
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
