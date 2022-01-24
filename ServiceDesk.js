@@ -654,6 +654,7 @@ let jiratoken;
 					
 					$('.kidsbtn').click(function() {  
 					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
