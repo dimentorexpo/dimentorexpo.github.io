@@ -3496,27 +3496,10 @@ function move_again_AF() {
 	
 	document.getElementById('hideMeSrvDsk').onclick = function() {
 		if (document.getElementById('AF_ServDsk').style.display == '') {
-					$('.sdbtn').removeClass('activebtnsd');
-					$('.kidsbtn').removeClass('activebtn');
-					$('.bilqabtn').removeClass('activebtn');
-					$('.teacbtn').removeClass('activebtn');
-					$('.c1sbtn').removeClass('activebtn');
-					$('.schdbtn').removeClass('activebtn');
-					$('.telepbtn').removeClass('activebtn');
-					$('.authbtn').removeClass('activebtn');
-					$('.crm2sbtn').removeClass('activebtn');
-					$('.mrktbtn').removeClass('activebtn');
-					$('.billbtn').removeClass('activebtn');
-					document.getElementById('teacherssrvdskoptions').style.display = "none";
-					document.getElementById('crm2srvdskoptions').style.display = "none";
-					document.getElementById('authsrvdskoptions').style.display = "none";
-					document.getElementById('schedulesrvdskoptions').style.display = "none";
-					document.getElementById('billingqasrvdskoptions').style.display = "none";
-					document.getElementById('c1srvdskoptions').style.display = "none";
-					document.getElementById('telephonysrvdskoptions').style.display = "none";
-					document.getElementById('billingsrvdskoptions').style.display = "none";
-					document.getElementById('skysmartsrvdskoptions').style.display = "none";
-					document.getElementById('mrktsrvdskoptions').style.display = "none";
+					$('.sdbtn').click(function() {  
+					$('.sdbtn').not(this).removeClass('activebtnsd');
+					$(this).toggleClass('activebtnsd');
+					});
             document.getElementById('AF_ServDsk').style.display = 'none'
 		}
 	}
