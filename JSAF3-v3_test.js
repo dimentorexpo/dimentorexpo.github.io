@@ -705,9 +705,9 @@ var win_servicedesk =
 				
 				<div id="mrktform" style="display: none; margin:5px;">
 					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_48" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" oninput="onlyRusEngLetters(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
@@ -728,11 +728,11 @@ function maxLengthCheck(object) // функция ограничения кол-
 }
 
 function onlyNumber(object) { // функция для разрешения ввода только цифр
-	object.value = object.value.replace(/[~!@#$%^&*-=+`'";:<>/\|A-Za-zА-Яа-яЁё]/g, '');
+		object.value = object.value.replace(/[^0-9]/g, '');
 }
 
 function onlyRusEngLetters(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
-	
+		object.value = object.value.replace(/[^a-zа-яё/0-9\s]/gi, '');
 }
 
 
