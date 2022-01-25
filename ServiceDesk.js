@@ -2119,7 +2119,7 @@ let jiratoken;
 					// document.getElementById('customfield_40').value = "";
 					// document.getElementById('customfield_41').value = "";
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2google').textContent) {
-					console.log("Проблемы с 2FA : проблема с google authenticator: " + " Work email " + ids " Description " + dscr); 
+					console.log("Проблемы с 2FA : проблема с google authenticator: " + " Work email " + ids + " Description " + dscr); 
 										
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
@@ -2142,7 +2142,7 @@ let jiratoken;
 					// document.getElementById('customfield_40').value = "";
 					// document.getElementById('customfield_41').value = "";
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2faemail').textContent) {
-					console.log("Проблемы с 2FA: не приходит письмо о восстановлении пароля: " + " Work email " + ids " Description " + dscr); 
+					console.log("Проблемы с 2FA: не приходит письмо о восстановлении пароля: " + " Work email " + ids + " Description " + dscr); 
 										
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
@@ -2165,7 +2165,7 @@ let jiratoken;
 					// document.getElementById('customfield_40').value = "";
 					// document.getElementById('customfield_41').value = "";
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2fasms').textContent) {
-					console.log("Проблемы с 2FA: не приходит смс: " + " Work email " + ids " Description " + dscr); 
+					console.log("Проблемы с 2FA: не приходит смс: " + " Work email " + ids + " Description " + dscr); 
 										
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
@@ -2188,7 +2188,7 @@ let jiratoken;
 					// document.getElementById('customfield_40').value = "";
 					// document.getElementById('customfield_41').value = "";
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesteach').textContent) {
-					console.log("Удаление / добавление ролей Преподавателям: " + " ID teacher " + ids " Description " + dscr); 
+					console.log("Удаление / добавление ролей Преподавателям: " + " ID teacher " + ids + " Description " + dscr); 
 										
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
@@ -2211,7 +2211,7 @@ let jiratoken;
 					// document.getElementById('customfield_40').value = "";
 					// document.getElementById('customfield_41').value = "";
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesstud').textContent) {
-					console.log("Удаление / добавление ролей Ученикам: " + " ID student " + ids " Description " + dscr); 
+					console.log("Удаление / добавление ролей Ученикам: " + " ID student " + ids + " Description " + dscr); 
 										
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
@@ -2234,7 +2234,7 @@ let jiratoken;
 					// document.getElementById('customfield_40').value = "";
 					// document.getElementById('customfield_41').value = "";
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authlogcheck').textContent) {
-					console.log("Проверка логов в ID: " + " ID phy lica " + ids " Description " + dscr); 
+					console.log("Проверка логов в ID: " + " ID phy lica " + ids + " Description " + dscr); 
 										
 					// document.getElementById('responseTextarea1').value = `{  "headers": {
 					 // "content-type": "application/x-www-form-urlencoded",
