@@ -2360,7 +2360,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}
 					
@@ -2372,7 +2371,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}	
 					
@@ -2384,7 +2382,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}	
 
@@ -2396,7 +2393,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}
 					
@@ -2408,7 +2404,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}	
 					
@@ -2420,7 +2415,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}	
 					
@@ -2432,7 +2426,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}			
 
@@ -2444,7 +2437,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}	
 					
@@ -2456,7 +2448,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}	
 
@@ -2468,7 +2459,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}	
 					
@@ -2480,7 +2470,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="";
 							document.getElementById('customfield_46').style.display ="";
-							document.getElementById('customfield_47').style.display ="";
 						}
 					}			
 
@@ -2492,7 +2481,6 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="none";
 							document.getElementById('customfield_46').style.display ="none";
-							document.getElementById('customfield_47').style.display ="none";
 						}
 					}	
 					
@@ -2504,9 +2492,358 @@ let jiratoken;
 							document.getElementById('customfield_44').style.display ="";
 							document.getElementById('customfield_45').style.display ="none";
 							document.getElementById('customfield_46').style.display ="none";
-							document.getElementById('customfield_47').style.display ="none";
 						}
 					}	
+					
+					document.getElementById('create_9').onclick = function() {
+					let ids = document.getElementById('customfield_42').value;
+					let servid = document.getElementById('customfield_43').value;
+					let dscr = document.getElementById('customfield_44').value;
+					let erx = document.getElementById('customfield_45').value;
+					let ary = document.getElementById('customfield_46').value; 
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskssoprovod').textContent) {
+					console.log("Вопросы по задачам Сопровождения: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskssales').textContent) {
+					console.log("Вопросы по задачам Продаж: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2lessonhistory').textContent) {
+					console.log("Вопросы по Истории уроков: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2paymenthistory').textContent) {
+					console.log("Вопросы по Истории платежей: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2convertsrc').textContent) {
+					console.log("Вопросы по Визардам конвертации услуги: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2actionshistory').textContent) {
+					console.log("Вопросы по Истории действий: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2familycard').textContent) {
+					console.log("Вопросы о карточке Семья: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2profile').textContent) {
+					console.log("Вопросы о Профиле заявки: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2communications').textContent) {
+					console.log("Вопросы по разделу Коммуникации: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskpoolsoporovd').textContent) {
+					console.log("Проблемы с функционалом пула задач список задач сопровождение: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskpoolsales').textContent) {
+					console.log("Проблемы с функционалом пула задач список задач продажи: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2migrationcrm').textContent) {
+					console.log("Миграция компании из CRM1 в CRM2: " + " Link to service " + ids + " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2changestk').textContent) {
+					console.log("Смена STK услуги: " + " Link to service " + ids + " Service ID " + servid + " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_42').value = "";
+					// document.getElementById('customfield_43').value = "";
+					// document.getElementById('customfield_44').value = "";
+					// document.getElementById('customfield_45').value = "";
+					// document.getElementById('customfield_46').value = "";
+					} 
+						else console.log("Not found");
+					}
+					
+					
 					
 				} else {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
