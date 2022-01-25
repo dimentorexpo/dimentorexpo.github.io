@@ -3491,6 +3491,8 @@ function move_again_AF() {
 	document.getElementById('hideMeSrvDsk').onclick = function() {
 		if (document.getElementById('AF_ServDsk').style.display == '')
             document.getElementById('AF_ServDsk').style.display = 'none'
+		else
+            document.getElementById('AF_ServDsk').style.display = ''
 	}
 
 
