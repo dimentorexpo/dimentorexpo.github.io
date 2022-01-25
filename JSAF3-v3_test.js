@@ -450,32 +450,36 @@ var win_servicedesk =
 				
 				<div id="crm2srvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
-					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
-					<button class="crm2sbtn" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
-					<button class="crm2sbtn" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
-					<button class="crm2sbtn" id="crm2paymenthistory">Вопросы про виджет "История платежей"</button>
-					<button class="crm2sbtn" id="crm2convertsrc">Вопросы по "Визардам конвертации услуги"</button>
-					<button class="crm2sbtn" id="crm2actionshistory">Вопросы о "История действий"</button>
-					<button class="crm2sbtn" id="crm2familycard">Вопросы о карточке "Семья"</button>
-					<button class="crm2sbtn" id="crm2profile">Вопросы о "Профиле" заявки</button>
-					<button class="crm2sbtn" id="crm2communications">Вопросы по разделу "Коммуникации"</button>
-					<button class="crm2sbtn" id="crm2taskpoolsoporovd">Проблемы с функционалом пула задач "список задач" сопровождение</button>
-					<button class="crm2sbtn" id="crm2taskpoolsales">Проблемы с функционалом пула задач "список задач" продажи</button>
-					<button class="crm2sbtn" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
-					<button class="crm2sbtn" id="crm2changestk">Смена STK услуги</button>
+						<div style="display:flex; flex-wrap:wrap;">
+							<button class="crm2sbtn activebtn" id="crm2taskssoprovod" style="width:86px; word-wrap:break-word;">Вопросы по задачам "Сопровождения"</button>
+							<button class="crm2sbtn" id="crm2taskssales" style="width:86px;">Вопросы по задачам "Продаж"</button>
+							<button class="crm2sbtn" id="crm2lessonhistory" style="width:86px;">Вопросы по "Истории уроков"</button>
+							<button class="crm2sbtn" id="crm2paymenthistory" style="width:86px;">Вопросы про виджет "История платежей"</button>
+							<button class="crm2sbtn" id="crm2convertsrc" style="width:86px;">Вопросы по "Визардам конвертации услуги"</button>
+							<button class="crm2sbtn" id="crm2actionshistory" style="width:86px;">Вопросы о "История действий"</button>
+							<button class="crm2sbtn" id="crm2familycard" style="width:86px;">Вопросы о карточке "Семья"</button>
+							<button class="crm2sbtn" id="crm2profile" style="width:86px;">Вопросы о "Профиле" заявки</button>
+							<button class="crm2sbtn" id="crm2communications" style="width:86px;">Вопросы по разделу "Коммуникации"</button>
+							<button class="crm2sbtn" id="crm2taskpoolsoporovd" style="width:86px;">Проблемы с функционалом пула задач "список задач" сопровождение</button>
+							<button class="crm2sbtn" id="crm2taskpoolsales" style="width:86px;">Проблемы с функционалом пула задач "список задач" продажи</button>
+							<button class="crm2sbtn" id="crm2migrationcrm" style="width:86px;">Миграция компании из CRM1 в CRM2</button>
+							<button class="crm2sbtn" id="crm2changestk" style="width:86px;">Смена STK услуги</button>
+						</div>
 				</div>
 				
 				<div id="authsrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
-					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
-					<button class="authbtn" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
-					<button class="authbtn" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
-					<button class="authbtn" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
-					<button class="authbtn" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
-					<button class="authbtn" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
-					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
-					<button class="authbtn" id="authbusinessq">Бизнес вопросы</button>
-					<button class="authbtn" id="authunderground">Подземный стук</button>
+						<div style="display:flex; flex-wrap:wrap;">
+							<button class="authbtn activebtn" id="authdevq" style="width:86px;">Вопросы к разработке</button>
+							<button class="authbtn" id="auth2google" style="width:86px;">Проблемы с 2FA : проблема с google authenticator</button>
+							<button class="authbtn" id="auth2faemail" style="width:86px;">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
+							<button class="authbtn" id="auth2fasms" style="width:86px;">Проблемы с 2FA: не приходит смс</button>
+							<button class="authbtn" id="authdeladdrolesteach" style="width:86px;">Удаление / добавление ролей Преподавателям</button>
+							<button class="authbtn" id="authdeladdrolesstud" style="width:86px;">Удаление / добавление ролей Ученикам</button>
+							<button class="authbtn" id="authlogcheck" style="width:86px;">Проверка логов в ID</button>
+							<button class="authbtn" id="authbusinessq" style="width:86px;">Бизнес вопросы</button>
+							<button class="authbtn" id="authunderground" style="width:86px;">Подземный стук</button>
+						</div>
 				</div>
 				
 				<div id="schedulesrvdskoptions" style="display: none;">
