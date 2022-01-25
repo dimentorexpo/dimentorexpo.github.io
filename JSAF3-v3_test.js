@@ -3499,6 +3499,146 @@ function move_again_AF() {
 					$('.sdbtn').click(function() {  
 					$('.sdbtn').not(this).removeClass('activebtnsd');
 					$(this).toggleClass('activebtnsd');
+					});	
+
+					$('.teacbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.kidsbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+										
+					$('.bilqabtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.c1sbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.schdbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.telepbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.authbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.crm2sbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.mrktbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.billbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
 					});					
             document.getElementById('AF_ServDsk').style.display = 'none'
 		}
