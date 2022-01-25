@@ -196,22 +196,7 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-	
-					
-					// $('.teacbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+						
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
 					document.getElementById('teacherstatistic').onclick = function() {
@@ -804,22 +789,7 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-					
-					
-					// $('.kidsbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+										
 					document.getElementById('create_1').onclick = function() {
 					let dscr = document.getElementById('customfield_1').value;
 					let erx = document.getElementById('customfield_2').value;
@@ -1149,21 +1119,7 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-					
-					// $('.bilqabtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+									
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
 					document.getElementById('billqarassroch').onclick = function() {
@@ -1337,21 +1293,7 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-					
-					// $('.c1sbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+										
 					// по нажатию кнопок окрашивать их и менять тип формы
 							document.getElementById('c1verstka').onclick = function() {
 						if (document.getElementById('onboardingform').style.display == '') {
@@ -1528,21 +1470,7 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-					
-					// $('.schdbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+									
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 					
 					document.getElementById('ttenableAP').onclick = function() {
@@ -1847,21 +1775,7 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-					
-					// $('.telepbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+										
 					document.getElementById('telnoaccess').onclick = function() {
 						if (document.getElementById('telephonyform').style.display == '') {
 							document.getElementById('customfield_37').style.display ="";
@@ -2178,21 +2092,7 @@ let jiratoken;
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-				
-					// $('.authbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+									
 					document.getElementById('authdevq').onclick = function() {
 						if (document.getElementById('authform').style.display == '') {
 							document.getElementById('customfield_40').style.display ="none";
@@ -2516,22 +2416,7 @@ let jiratoken;
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-					
-					// $('.crm2sbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
-					
+										
 					document.getElementById('crm2taskssoprovod').onclick = function() {
 						if (document.getElementById('crm2form').style.display == '') {
 							document.getElementById('customfield_42').style.display ="";
@@ -3067,22 +2952,7 @@ let jiratoken;
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
-					
-					
-					// $('.mrktbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
-					
+										
 					document.getElementById('mrktsubscribptions').onclick = function() {
 						if (document.getElementById('mrktform').style.display == '') {
 							document.getElementById('customfield_47').style.display ="";
@@ -3504,20 +3374,6 @@ let jiratoken;
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
-					
-					// $('.billbtn').click(function() {  
-					// $('.kidsbtn').not(this).removeClass('activebtn');
-					// $('.bilqabtn').not(this).removeClass('activebtn');
-					// $('.teacbtn').not(this).removeClass('activebtn');
-					// $('.c1sbtn').not(this).removeClass('activebtn');
-					// $('.schdbtn').not(this).removeClass('activebtn');
-					// $('.telepbtn').not(this).removeClass('activebtn');
-					// $('.authbtn').not(this).removeClass('activebtn');
-					// $('.crm2sbtn').not(this).removeClass('activebtn');
-					// $('.mrktbtn').not(this).removeClass('activebtn');
-					// $('.billbtn').not(this).removeClass('activebtn');
-					// $(this).toggleClass('activebtn');
-					// });
 					
 					document.getElementById('billcheques').onclick = function() {
 						if (document.getElementById('billingform').style.display == '') {
