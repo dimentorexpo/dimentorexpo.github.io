@@ -683,7 +683,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="authform" style="display: none; margin:5px;">
-					<input id="customfield_40" placeholder="ID пользователя" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_40" placeholder="ID пользователя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
