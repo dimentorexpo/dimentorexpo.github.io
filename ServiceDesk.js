@@ -1787,6 +1787,199 @@ let jiratoken;
 						}
 					}	
 					
+					document.getElementById('create_7').onclick = function() {
+					let ids = document.getElementById('customfield_37').value;
+					let erx = document.getElementById('customfield_38').value;
+					let ary = document.getElementById('customfield_39').value ;
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telnoaccess').textContent) {
+					console.log("Отсутствие доступа к странице телефонии: " + " ID operator " + ids + " Description " + erx);
+					
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teloutgoing').textContent) {
+					console.log("Проблема с исходящим вызовом: " + " ID operator " + ids + " Description " + erx); 
+										// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telincoming').textContent) {
+					console.log("Проблема с входящим вызовом: " + " ID operator " + ids + " Description " + erx); 
+										// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telspeaking').textContent) {
+					console.log("Проблема во время разговора: " + " ID operator " + ids + " Description " + erx); 
+										// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telrtstat').textContent) {
+					console.log("Проблема с реал-тайм статистикой: " + " Description " + ids + " ER " + erx + " AR " + ary); 
+										// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telcallinfo').textContent) {
+					console.log("Запрос информации по звонку: " + " ID operator " + ids + " Description " + erx); 
+										// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telredicall').textContent) {
+					console.log("Проблема при переводе вызова: " + " ID operator " + ids + " Description " + erx); 
+										// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telunderground').textContent) {
+					console.log("Подземный стук: " + " Description " + erx); 
+										// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_37').value = "";
+					// document.getElementById('customfield_38').value = "";
+					// document.getElementById('customfield_39').value = "";
+					} else
+						console.log("Not found");
+					}
+					
 				} else {
 					document.getElementById('telephonysrvdskoptions').style.display = 'none';
 					document.getElementById('telephonyform').style.display = 'none';
@@ -1898,6 +2091,220 @@ let jiratoken;
 							document.getElementById('customfield_41').style.display ="";
 						}
 					}	
+					
+					document.getElementById('create_8').onclick = function() {
+					let ids = document.getElementById('customfield_40').value;
+					let dscr = document.getElementById('customfield_41').value;
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdevq').textContent) {
+					console.log("Вопросы к разработке: " + " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2google').textContent) {
+					console.log("Проблемы с 2FA : проблема с google authenticator: " + " Work email " + ids " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2faemail').textContent) {
+					console.log("Проблемы с 2FA: не приходит письмо о восстановлении пароля: " + " Work email " + ids " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2fasms').textContent) {
+					console.log("Проблемы с 2FA: не приходит смс: " + " Work email " + ids " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesteach').textContent) {
+					console.log("Удаление / добавление ролей Преподавателям: " + " ID teacher " + ids " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesstud').textContent) {
+					console.log("Удаление / добавление ролей Ученикам: " + " ID student " + ids " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authlogcheck').textContent) {
+					console.log("Проверка логов в ID: " + " ID phy lica " + ids " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authbusinessq').textContent) {
+					console.log("Бизнес вопросы: " + " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authunderground').textContent) {
+					console.log("Бизнес вопросы: " + " Description " + dscr); 
+										
+					// document.getElementById('responseTextarea1').value = `{  "headers": {
+					 // "content-type": "application/x-www-form-urlencoded",
+					 // "sec-fetch-mode": "cors",
+					 // "sec-fetch-site": "same-origin",
+					 // "x-requested-with": "XMLHttpRequest",
+					 // "x-sitemesh-off": "true"
+					  // },
+					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
+					  // "referrerPolicy": "strict-origin-when-cross-origin",
+					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					 // "method": "POST",
+					  // "mode": "cors",
+					  // "credentials": "include"
+					  // }`
+					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566";
+					 // document.getElementById('responseTextarea3').value = ''
+					 // document.getElementById('sendResponse').click()
+					 
+					// document.getElementById('customfield_40').value = "";
+					// document.getElementById('customfield_41').value = "";
+					} else
+						console.log("Not found");
+					}
 					
 					
 				} else {
