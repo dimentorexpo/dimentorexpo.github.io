@@ -577,128 +577,128 @@ var win_servicedesk =
 	        </span>
 			
 				<div id="kidsform" style="display: none; margin:5px;">
-					<textarea id="customfield_1" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<textarea id="customfield_1" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_2" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_2" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_3" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_3" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<input id="customfield_4" placeholder="ID Ученика" style="width: 420px;"></input>
+					<input id="customfield_4" placeholder="ID Ученика" oninput="onlyNumber(this)" style="width: 420px;"></input>
 					<br>
-					<input id="customfield_5" placeholder="ID Преподавателя" style="width: 420px;"></input>
+					<input id="customfield_5" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="width: 420px;"></input>
 					<br>
 					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="teachersform" style="display: none; margin:5px;">
-					<input id="customfield_6" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_6" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_7" placeholder="ID Преподавателя" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_7" placeholder="ID Преподавателя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_9" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_9" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_10" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_10" placeholder="Фактическое поведение"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="onboardingform" style="display: none; margin:5px;">
-					<input id="customfield_11" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_11" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_12" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_12" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_13" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_13" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_14" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_14" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_15" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_15" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="billqaform" style="display: none; margin:5px;">
-					<input id="customfield_16" placeholder="Название продукта?" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_16" placeholder="Название продукта?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_17" placeholder="Прайссет и позиция?" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_17" placeholder="Прайссет и позиция?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_19" placeholder="Какое юрлицо?" style="width: 420px;"></textarea>
+					<textarea id="customfield_19" placeholder="Какое юрлицо?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_20" placeholder="Согласовано ли юрлицо с финансовым директором (Рустам)?" style="width: 420px;"></textarea>
+					<textarea id="customfield_20" placeholder="Согласовано ли юрлицо с финансовым директором (Рустам)?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_21" placeholder="Адрес страницы, где будет использоваться" style="width: 420px;"></textarea>
+					<textarea id="customfield_21" placeholder="Адрес страницы, где будет использоваться" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_22" placeholder="Адрес страницы, если оплата не прошла" style="width: 420px;"></textarea>
+					<textarea id="customfield_22" placeholder="Адрес страницы, если оплата не прошла"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<input id="customfield_23" placeholder="Адрес страницы, в случае успеха" style="width: 420px;"></input>
+					<input id="customfield_23" placeholder="Адрес страницы, в случае успеха" oninput="noDoubts(this)" style="width: 420px;"></input>
 					<br>
-					<textarea id="customfield_24" placeholder="Описание для пользователя" style="width: 420px;"></textarea>
+					<textarea id="customfield_24" placeholder="Описание для пользователя" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_25" placeholder="Slack-канал, для уведомлений о новых оплатах" style="width: 420px;"></textarea>
+					<textarea id="customfield_25" placeholder="Slack-канал, для уведомлений о новых оплатах" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="scheduleform" style="display: none; margin:5px;">
-					<input id="customfield_26" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_26" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_27" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_27" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_28" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_28" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_29" placeholder="Как воспроизвести ошибку?" style="width: 420px;"></textarea>
+					<textarea id="customfield_29" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_30" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_30" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_31" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_31" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="billingform" style="display: none; margin:5px;">
-					<input id="customfield_32" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_33" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_35" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_35" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_36" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_36" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_6" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="telephonyform" style="display: none; margin:5px;">
-					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_38" placeholder="Ожидаемое поведение" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_38" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_39" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_39" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="authform" style="display: none; margin:5px;">
-					<input id="customfield_40" placeholder="ID пользователя" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_40" placeholder="ID пользователя" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="crm2form" style="display: none; margin:5px;">
-					<input id="customfield_42" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_43" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_42" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_43" placeholder="ID Услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_44" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_44" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_45" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_45" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>					
-					<textarea id="customfield_46" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_46" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
@@ -707,13 +707,11 @@ var win_servicedesk =
 					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" oninput="onlyRusEngLetters(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-				
-				
-				
+
 			
 </span>
 </div>`;
@@ -731,8 +729,8 @@ function onlyNumber(object) { // функция для разрешения вв
 		object.value = object.value.replace(/[^0-9]/g, '');
 }
 
-function onlyRusEngLetters(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
-		object.value = object.value.replace(/[^a-zа-яё/0-9\s]/gi, '');
+function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
+		object.value = object.value.replace(/["']/gi, '');
 }
 
 
