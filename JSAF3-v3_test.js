@@ -704,7 +704,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="mrktform" style="display: none; margin:5px;">
-					<input id="customfield_47" placeholder="ID Ученика" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_48" placeholder="ID Услуги" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
@@ -725,6 +725,14 @@ function maxLengthCheck(object) // функция ограничения кол-
 {
     if (object.value.length > object.maxLength)
         object.value = object.value.slice(0, object.maxLength)
+}
+
+function onlyNumber(object) { // функция для разрешения ввода только цифр
+	object.value = object.value.replace(/[~!@#$%^&*-=+`'";:<>/\|A-Za-zА-Яа-яЁё]/g, '');
+}
+
+function onlyRusEngLetters(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
+	
 }
 
 
