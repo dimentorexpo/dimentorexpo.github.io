@@ -3507,6 +3507,16 @@ function move_again_AF() {
 					$('.crm2sbtn').removeClass('activebtn');
 					$('.mrktbtn').removeClass('activebtn');
 					$('.billbtn').removeClass('activebtn');
+					document.getElementById('teacherssrvdskoptions').style.display = "none";
+					document.getElementById('crm2srvdskoptions').style.display = "none";
+					document.getElementById('authsrvdskoptions').style.display = "none";
+					document.getElementById('schedulesrvdskoptions').style.display = "none";
+					document.getElementById('billingqasrvdskoptions').style.display = "none";
+					document.getElementById('c1srvdskoptions').style.display = "none";
+					document.getElementById('telephonysrvdskoptions').style.display = "none";
+					document.getElementById('billingsrvdskoptions').style.display = "none";
+					document.getElementById('skysmartsrvdskoptions').style.display = "none";
+					document.getElementById('mrktsrvdskoptions').style.display = "none";
             document.getElementById('AF_ServDsk').style.display = 'none'
 		}
 	}
