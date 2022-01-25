@@ -631,9 +631,6 @@ let jiratoken;
 				}
 					
 				} else {
-					document.getElementById('teacherssrvdskoptions').style.display = 'none';
-					document.getElementById('teachersform').style.display = 'none';
-					
 					$('.teacbtn').click(function() {  
 					$('.kidsbtn').not(this).removeClass('activebtn');
 					$('.bilqabtn').not(this).removeClass('activebtn');
@@ -647,6 +644,10 @@ let jiratoken;
 					$('.billbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('teachersform').style.display = 'none';
+					
+
 				}
 		 }
 		 
