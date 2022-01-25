@@ -632,9 +632,22 @@ let jiratoken;
 					
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
-					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
-						}
+					
+					$('.teacbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+				}
 		 }
 		 
 		 			document.getElementById('optionSkysmart').onclick = function() {
