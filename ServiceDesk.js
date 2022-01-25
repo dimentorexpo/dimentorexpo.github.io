@@ -3027,6 +3027,292 @@ let jiratoken;
 							document.getElementById('customfield_47').placeholder ="ID ученика";
 							document.getElementById('customfield_48').placeholder ="ID услуги";
 						}
+					}
+
+
+					document.getElementById('create_10').onclick = function() {
+					let idstd = document.getElementById('customfield_47').value;
+					let servid = document.getElementById('customfield_48').value;
+					let dscr = document.getElementById('customfield_49').value ;
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktsubscribptions').textContent) {
+					console.log("Подписки: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktcertificates').textContent) {
+					console.log("Заказ сертификата: " + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/626",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/626";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpromocodes').textContent) {
+					console.log("Заказ промокодов: " + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/625",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/625";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktdisablends').textContent) {
+					console.log("Отключение НДС: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/605",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/605";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktnachisl').textContent) {
+					console.log("Начисления (срочные, журналисты, PR): " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/604",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/604";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktdoublelessons').textContent) {
+					console.log("Удвоение уроков: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/603",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/603";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpriceq').textContent) {
+					console.log("Вопросы по прайсам: " + " ID stud " + idstd + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/602",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/602";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktreferal').textContent) {
+					console.log("Реферальная программа: " + " ID прглашающего " + idstd + " Id приглашенного " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/601",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/601";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktcertconsult').textContent) {
+					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/600",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/600";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpromocodesconsult').textContent) {
+					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/599",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/599";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktunderground').textContent) {
+					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/606",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/606";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_47').value = "";
+					document.getElementById('customfield_48').value = "";
+					document.getElementById('customfield_49').value = "";
+					
+					}
+					
+					else console.log("Not found");
+					
 					}					
 					
 				} else {
