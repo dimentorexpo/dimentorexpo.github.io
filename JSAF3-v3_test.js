@@ -3495,8 +3495,20 @@ function move_again_AF() {
     }
 	
 	document.getElementById('hideMeSrvDsk').onclick = function() {
-		if (document.getElementById('AF_ServDsk').style.display == '')
+		if (document.getElementById('AF_ServDsk').style.display == '') {
+					$('.sdbtn').removeClass('activebtnsd');
+					$('.kidsbtn').removeClass('activebtn');
+					$('.bilqabtn').removeClass('activebtn');
+					$('.teacbtn').removeClass('activebtn');
+					$('.c1sbtn').removeClass('activebtn');
+					$('.schdbtn').removeClass('activebtn');
+					$('.telepbtn').removeClass('activebtn');
+					$('.authbtn').removeClass('activebtn');
+					$('.crm2sbtn').removeClass('activebtn');
+					$('.mrktbtn').removeClass('activebtn');
+					$('.billbtn').removeClass('activebtn');
             document.getElementById('AF_ServDsk').style.display = 'none'
+		}
 	}
 
 
