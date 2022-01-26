@@ -467,7 +467,7 @@ var win_servicedesk =
 				
 				<div id="authsrvdskoptions" style="display: none;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
-					<button class="authbtn" id="authdevq" style="width:50px;">Вопросы к разработке</button>
+					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
 					<button class="authbtn" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
 					<button class="authbtn" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
 					<button class="authbtn" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
