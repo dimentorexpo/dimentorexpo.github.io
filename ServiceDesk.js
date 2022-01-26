@@ -23,7 +23,7 @@ let jiratoken;
 					    jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
 						if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null)
 					    jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
-						else alert("Авторизуйтесь в системе Jira, чтобы запрос был отправлен в Service Desk");
+						else alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
                         document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 						console.log("TOKEN: " + jiratoken);
 					}, 1000)
