@@ -726,7 +726,7 @@ function maxLengthCheck(object) // функция ограничения кол-
 }
 
 function onlyNumber(object) { // функция для разрешения ввода только цифр
-		object.value = object.value.replace(/[^0-9]/g, '');
+		object.value = object.value.replace(/[^0-9-]/g, '');
 }
 
 function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
