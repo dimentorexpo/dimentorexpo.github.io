@@ -20,6 +20,13 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
+	
+	.activebtn {
+		background-color: #1e90ff;
+	}
+	.activebtnsd {
+		background-color: #ff6347;
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -147,7 +154,7 @@ var win_linksd =  // описание элементов окна доступо
 							<input id="FeedbackStatus" placeholder="ID У ОС статус" title="Вводим id пользователя для открытия логов по статусу ОС с У. full / отчет+встреча+звонок ; call / только звонок ; report / только отчет; disabled / полностью отключено" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetFeedbackStatus">🔎</button> 
 							<input id="TeacherReport" placeholder="ID У Отчет" title="Вводим id пользователя для открытия полной информации что П вносила в отчет и когда и по какой комнате" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="GetTeacherReport">🔎</button>  
+                            <button id="GetTeacherReport">🔎</button>
  							<input id="UserActions" placeholder="ID У/П действ" title="Вводим id пользователя для открытия информации о действиях в личном кабинете" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetUserActions">🔎</button>  
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>                       
@@ -401,6 +408,314 @@ var win_Techsummary = //
 </span>
 </div>`;
 
+var win_servicedesk =
+    `<div style="display: flex; width: 430px;">
+<span style="width: 430px">
+        <span style="cursor: -webkit-grab;">
+                <div style="margin: 5px; width: 400;" id="SrvDskSummary">
+                        <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
+                </div>
+				
+                <div id="servicedeskinfo">
+                    <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
+                    <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
+                    <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
+                    <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">Schedule</button>
+                    <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">Billing-QA</button>
+                    <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">Onboarding</button>
+                    <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">Telephony</button>
+                    <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
+                    <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
+                    <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
+                </div>
+				
+				<div id="teacherssrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
+					<button class="teacbtn" id="teacherstatistic">Статистика</button>
+					<button class="teacbtn" id="teacherstudy">Моё обучение</button>
+					<button class="teacbtn" id="teacherbreak">Перерыв</button>
+					<button class="teacbtn" id="teachermoney">Финансы</button>
+					<button class="teacbtn" id="teachermap">Карта роста</button>
+					<button class="teacbtn" id="teachertimetable">Расписание</button>
+					<button class="teacbtn" id="teacherperenos">Запрос на перенос</button>
+					<button class="teacbtn" id="teacherwidgetbalance">Виджет баланса</button>
+					<button class="teacbtn" id="teacherwidgetlessonmark">Виджет отметки уроков</button>
+					<button class="teacbtn" id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
+					<button class="teacbtn" id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
+					<button class="teacbtn" id="teacherwidgetKPI">Виджет KPI</button>
+					<button class="teacbtn" id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
+					<button class="teacbtn" id="teacherTRMquestions">Вопросы по ТРМ</button>
+					<button class="teacbtn" id="teacherunderground">Подземный стук</button>
+				</div>
+				
+				<div id="crm2srvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
+					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
+					<button class="crm2sbtn" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
+					<button class="crm2sbtn" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
+					<button class="crm2sbtn" id="crm2paymenthistory">Вопросы про виджет "История платежей"</button>
+					<button class="crm2sbtn" id="crm2convertsrc">Вопросы по "Визардам конвертации услуги"</button>
+					<button class="crm2sbtn" id="crm2actionshistory">Вопросы о "История действий"</button>
+					<button class="crm2sbtn" id="crm2familycard">Вопросы о карточке "Семья"</button>
+					<button class="crm2sbtn" id="crm2profile">Вопросы о "Профиле" заявки</button>
+					<button class="crm2sbtn" id="crm2communications">Вопросы по разделу "Коммуникации"</button>
+					<button class="crm2sbtn" id="crm2taskpoolsoporovd">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
+					<button class="crm2sbtn" id="crm2taskpoolsales">Проблемы с функционалом пула задач "список задач" продажи</button>
+					<button class="crm2sbtn" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
+					<button class="crm2sbtn" id="crm2changestk">Смена STK услуги</button>
+				</div>
+				
+				<div id="authsrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
+					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
+					<button class="authbtn" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
+					<button class="authbtn" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
+					<button class="authbtn" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
+					<button class="authbtn" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
+					<button class="authbtn" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
+					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
+					<button class="authbtn" id="authbusinessq">Бизнес вопросы</button>
+					<button class="authbtn" id="authunderground">Подземный стук</button>
+				</div>
+				
+				<div id="schedulesrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support</p>
+					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
+					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
+					<button class="schdbtn" id="ttquestions">Вопросы по ТТ</button>
+					<button class="schdbtn" id="ttacceptzapros">Подтвердить запрос в ЛКП для переподбора ВП</button>
+					<button class="schdbtn" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
+					<button class="schdbtn" id="ttneurobot">Нейроробот</button>
+					<button class="schdbtn" id="ttunderground">Подземный стук</button>
+				</div>	
+
+				<div id="billingqasrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support</p>
+					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
+					<button class="bilqabtn" id="billqapaylendings">Оплата с лендингов</button>
+					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
+				</div>
+				
+				<div id="c1srvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#c1-support</p>
+					<button class="c1sbtn" id="c1verstka">Проблемы с версткой</button>
+					<button class="c1sbtn" id="c1payonboarding">Не завершился онбординг после оплаты</button>
+					<button class="c1sbtn" id="c1redirects">Циклические редиректы</button>
+					<button class="c1sbtn" id="c1underground">Подземный стук</button>
+				</div>
+				
+				<div id="telephonysrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#telephony-support</p>
+					<button class="telepbtn" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
+					<button class="telepbtn" id="teloutgoing">Проблема с исходящим вызовом</button>
+					<button class="telepbtn" id="telincoming">Проблема с входящим вызовом</button>
+					<button class="telepbtn" id="telspeaking">Проблема во время разговора</button>
+					<button class="telepbtn" id="telrtstat">Проблема с реал-тайм статистикой</button>
+					<button class="telepbtn" id="telcallinfo">Запрос информации по звонку</button>
+					<button class="telepbtn" id="telredicall">Проблема при переводе вызова</button>
+					<button class="telepbtn" id="telunderground">Подземный стук</button>
+				</div>	
+
+				<div id="billingsrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#billing</p>
+					<button class="billbtn" id="billcheques">Чеки/Инвойсы</button>
+					<button class="billbtn" id="billdataanal">Data analytics</button>
+					<button class="billbtn" id="billtaskfordev">Задача для разработки</button>
+					<button class="billbtn" id="billadmreturn">Админка возвратов</button>
+					<button class="billbtn" id="billtroublcodecard">Проблема с кодом для привязки карты</button>
+					<button class="billbtn" id="billpaymentbot">Вilling Payment Bot</button>
+					<button class="billbtn" id="billschemes">Схемы вознаграждения </button>
+					<button class="billbtn" id="billselfemployee">Самозанятые </button>
+					<button class="billbtn" id="billrequisites">Реквизиты</button>
+					<button class="billbtn" id="billpayments">Выплаты</button>
+					<button class="billbtn" id="billspisanie">Списание средств</button>
+					<button class="billbtn" id="billreturns">Возвраты</button>
+					<button class="billbtn" id="billpaymentmesystems">Платежные системы</button>
+					<button class="billbtn" id="billwidgetpayment">Виджет оплаты</button>
+					<button class="billbtn" id="billpay">Оплата</button>
+					<button class="billbtn" id="billcredit">Рассрочка</button>
+					<button class="billbtn" id="billoferta">Оферты</button>
+					<button class="billbtn" id="billlendings">Лендинги</button>
+					<button class="billbtn" id="billterms">Terms</button>
+					<button class="billbtn" id="billsubscribtions">Подписки</button>
+					<button class="billbtn" id="billbundles">Бандлы</button>
+					<button class="billbtn" id="billtehproblemsprod">Технические проблемы на production</button>
+					<button class="billbtn" id="billroles">Роли и доступы</button>
+					<button class="billbtn" id="billbusanalys">Бизнес-анализ</button>
+					<button class="billbtn" id="billtechconv">Техническое обсуждение</button>
+				</div>
+				
+				<div id="skysmartsrvdskoptions" style="display: none; margin-left:5px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
+					<button class="kidsbtn" id="skysmartcontent">Контент</button>
+					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
+					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
+					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
+					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
+					<button class="kidsbtn" id="skysmartcabinet">Детский ЛКУ</button>
+					<button class="kidsbtn" id="skysmartcertificate">Сертификаты</button>
+					<button class="kidsbtn" id="skysmartgroup">Групповые и параллельные уроки</button>
+					<button class="kidsbtn" id="skysmartpages">Страницы skysmart</button>
+					<button class="kidsbtn" id="skysmartappparents">Приложение skysmart parents</button>
+					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
+				</div>
+				
+				<div id="mrktsrvdskoptions" style="display: none;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#mrkt-bill-questions</p>
+					<button class="mrktbtn" id="mrktsubscribptions">Подписки</button>
+					<button class="mrktbtn" id="mrktcertificates">Заказ сертификатов</button>
+					<button class="mrktbtn" id="mrktpromocodes">Заказ промокодов</button>
+					<button class="mrktbtn" id="mrktdisablends">Отключение НДС</button>
+					<button class="mrktbtn" id="mrktnachisl">Начисления (срочные, журналисты, PR)</button>
+					<button class="mrktbtn" id="mrktdoublelessons">Удвоение уроков (сотрудники)</button>
+					<button class="mrktbtn" id="mrktpriceq">Вопросы по прайсам</button>
+					<button class="mrktbtn" id="mrktreferal">Реферальная программа</button>
+					<button class="mrktbtn" id="mrktcertconsult">Сертификаты консультация / тех. проблема</button>
+					<button class="mrktbtn" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
+					<button class="mrktbtn" id="mrktunderground">Подземный стук</button>
+				</div>
+	        </span>
+			
+				<div id="kidsform" style="display: none; margin:5px;">
+					<textarea id="customfield_1" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_2" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_3" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_4" placeholder="ID Ученика" oninput="onlyNumber(this)" style="width: 420px;"></input>
+					<br>
+					<input id="customfield_5" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="width: 420px;"></input>
+					<br>
+					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="teachersform" style="display: none; margin:5px;">
+					<input id="customfield_6" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_7" placeholder="ID Преподавателя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_9" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_10" placeholder="Фактическое поведение"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="onboardingform" style="display: none; margin:5px;">
+					<input id="customfield_11" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_12" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_13" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_14" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_15" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="billqaform" style="display: none; margin:5px;">
+					<input id="customfield_16" placeholder="Название продукта?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_17" placeholder="Прайссет и позиция?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_19" placeholder="Какое юрлицо?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_20" placeholder="Согласовано ли юрлицо с финансовым директором (Рустам)?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_21" placeholder="Адрес страницы, где будет использоваться" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_22" placeholder="Адрес страницы, если оплата не прошла"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<input id="customfield_23" placeholder="Адрес страницы, в случае успеха" oninput="noDoubts(this)" style="width: 420px;"></input>
+					<br>
+					<textarea id="customfield_24" placeholder="Описание для пользователя" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_25" placeholder="Slack-канал, для уведомлений о новых оплатах" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="scheduleform" style="display: none; margin:5px;">
+					<input id="customfield_26" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_27" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_28" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_29" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_30" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_31" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="billingform" style="display: none; margin:5px;">
+					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_35" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_36" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_6" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="telephonyform" style="display: none; margin:5px;">
+					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_38" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_39" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="authform" style="display: none; margin:5px;">
+					<input id="customfield_40" placeholder="ID пользователя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="crm2form" style="display: none; margin:5px;">
+					<input id="customfield_42" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_43" placeholder="ID Услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_44" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_45" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_46" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="mrktform" style="display: none; margin:5px;">
+					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+
+			
+</span>
+</div>`;
+
 
 let audio
 
@@ -408,6 +723,14 @@ function maxLengthCheck(object) // функция ограничения кол-
 {
     if (object.value.length > object.maxLength)
         object.value = object.value.slice(0, object.maxLength)
+}
+
+function onlyNumber(object) { // функция для разрешения ввода только цифр
+		object.value = object.value.replace(/[^0-9]/g, '');
+}
+
+function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
+		object.value = object.value.replace(/["']/gi, '');
 }
 
 
@@ -454,6 +777,11 @@ if (localStorage.getItem('winTopTimetable') == null) { // началоное п�
 if (localStorage.getItem('winTopTechSum') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
     localStorage.setItem('winTopTechSum', '120');
     localStorage.setItem('winLeftTechSum', '295');
+}
+
+if (localStorage.getItem('winTopServDsk') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopServDsk', '120');
+    localStorage.setItem('winLeftServDsk', '295');
 }
 
 
@@ -657,6 +985,12 @@ butServ.innerHTML = "⚜"
 butServ.style.marginRight = "15px";
 butServ.style.cursor = "pointer";
 
+let servDsk = document.createElement('div')
+servDsk.id = "servDsk"
+servDsk.innerHTML = "ServiceDesk"
+servDsk.style.marginRight = "15px";
+servDsk.style.cursor = "pointer";
+
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
 maskBack.innerHTML = "Вернуть"
@@ -806,6 +1140,13 @@ wintTechSummary.style.display = 'none';
 wintTechSummary.setAttribute('id', 'AF_TechSummary');
 wintTechSummary.innerHTML = win_Techsummary;
 
+let wintServDsk = document.createElement('div'); // создание окна ссылок
+document.body.append(wintServDsk);
+wintServDsk.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServDsk.style.display = 'none';
+wintServDsk.setAttribute('id', 'AF_ServDsk');
+wintServDsk.innerHTML = win_servicedesk;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -918,6 +1259,20 @@ wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedow
     document.addEventListener('mousemove', listener11);
 }
 wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listener11); }
+
+var listener12 = function (e, a) { // сохранение позиции окна доступов
+    wintServDsk.style.left = Number(e.clientX - myX12) + "px";
+    wintServDsk.style.top = Number(e.clientY - myY12) + "px";
+    localStorage.setItem('winTopServDsk', String(Number(e.clientY - myY12)));
+    localStorage.setItem('winLeftServDsk', String(Number(e.clientX - myX12)));
+};
+
+wintServDsk.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX12 = a.layerX;
+    window.myY12 = a.layerY;
+    document.addEventListener('mousemove', listener12);
+}
+wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listener12); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -1183,8 +1538,8 @@ function move_again_AF() {
             window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
         };
         TeacherReport.value = "";
-    }
-	
+    }   
+
 	document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
         if (UserActions.value == "") {
             console.log('Введите id в поле')
@@ -1293,6 +1648,9 @@ function move_again_AF() {
         };
         cpuname.value = "";
     }
+	
+
+
 
     var abortTimeOut = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null) {
@@ -3135,6 +3493,156 @@ function move_again_AF() {
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
+	
+	document.getElementById('hideMeSrvDsk').onclick = function() {
+		if (document.getElementById('AF_ServDsk').style.display == '') {
+					$('.sdbtn').click(function() {  
+					$('.sdbtn').not(this).removeClass('activebtnsd');
+					$(this).toggleClass('activebtnsd');
+					});	
+
+					$('.teacbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.kidsbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+										
+					$('.bilqabtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.c1sbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.schdbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.telepbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.authbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.crm2sbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.mrktbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});
+					
+					$('.billbtn').click(function() {  
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});					
+            document.getElementById('AF_ServDsk').style.display = 'none'
+		}
+	}
 
 
     document.getElementById('setting').onclick = function () {
@@ -3165,9 +3673,8 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
-    }
-
-
+    }   
+	
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
@@ -6193,6 +6700,8 @@ function prepTp() {
 
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
+		include("https://dimentorexpo.github.io/ServiceDesk.js")
+		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
     }, 2000)
 
 }
@@ -6216,6 +6725,7 @@ function firstLoadPage() {
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
             btnAdd1.insertBefore(butServ, btnAdd1.children[1])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[2])
         }, 2000)
 
         setInterval(startTimer, 1000)
