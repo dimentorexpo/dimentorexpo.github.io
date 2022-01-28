@@ -2327,7 +2327,7 @@ function move_again_AF() {
 	
 	
 	    document.getElementById('doskiponboard').onclick = function () {               // сохранение в буфере ссылки для активации АП
-        let skiponblnk = 'https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId';
+        let skiponblnk = 'https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId=';
         if (skiponboarding.value == "")
             console.log('Введите ID услуги в поле')
         else {
