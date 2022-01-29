@@ -6718,6 +6718,7 @@ function prepTp() {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
 		include("https://dimentorexpo.github.io/ServiceDesk.js")
 		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+		include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль обработки JQuery
     }, 2000)
 
 }
