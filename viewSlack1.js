@@ -311,7 +311,7 @@ buttonOpenForm1.id = 'buttonOpenForm1';
 buttonOpenForm1.textContent = "Wal";
 buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
-	  localStorage.removeItem('token');
+	getSlackToken1()
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
 			getSlackToken1()
