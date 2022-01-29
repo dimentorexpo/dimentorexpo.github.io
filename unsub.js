@@ -265,7 +265,7 @@ for(let i = 0; i < blocks.length; i++) {
 
 let buttonOpenForm = document.createElement('div');
 buttonOpenForm.id = 'buttonOpenForm';
-buttonOpenForm.textContent = "Unsub";
+buttonOpenForm.textContent = "Uns";
 buttonOpenForm.style.marginRight = "30px";
 buttonOpenForm.onclick = function() {
 	if(socketOpened == 0) {
