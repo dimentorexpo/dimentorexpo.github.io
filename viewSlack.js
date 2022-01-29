@@ -235,7 +235,7 @@ function fillForm1(viewStringify) {
 		document.getElementById('buttonOpenForm1').style.display = ''
 		console.log("форма закрыта");
 		document.getElementById('buttonOpenForm1').innerHTML = "Wait";
-		setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 3000);
+		setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Wal"}, 3000);
 	}
 	
 	button.onclick = function() {
@@ -268,7 +268,7 @@ function fillForm1(viewStringify) {
 		document.getElementById('formToSlack').remove()
 		document.getElementById('buttonOpenForm1').style.display = ''
 	document.getElementById('buttonOpenForm1').innerHTML = "Wait";
-	setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Баг-репорт"}, 10500);
+	setTimeout(function() {document.getElementById('buttonOpenForm1').innerHTML = "Wal"}, 10500);
 		
 	}
 	function validateSlackForm1() {
@@ -308,7 +308,7 @@ function fillForm1(viewStringify) {
 
 let buttonOpenForm1 = document.createElement('div');
 buttonOpenForm1.id = 'buttonOpenForm1';
-buttonOpenForm1.textContent = "Баг-репорт";
+buttonOpenForm1.textContent = "Wal";
 buttonOpenForm1.style.marginRight = "15px";
 buttonOpenForm1.onclick = function() {
 	if(socketOpened == 0) {
