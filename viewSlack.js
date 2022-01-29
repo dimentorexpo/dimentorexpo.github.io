@@ -24,7 +24,7 @@ function getSlackToken1() {            // функция получения то
 			}
 		}
 	}
-	setTimeout(tokenToLocalStorage, 2000)
+	setTimeout(tokenToLocalStorage1, 2000)
 }
 
 function openSlackSocket1() {          // Функция открытия Сокета и использования токена Слака
