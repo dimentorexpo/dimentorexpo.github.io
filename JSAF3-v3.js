@@ -229,7 +229,9 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getskipAP" style="width: 25.23px;">💾</button>
+					<button id="getskipAP" style="width: 25.23px;">💾</button>				
+					<input id="skiponboarding" placeholder="ID ус(skip Onbo)" title="копируем услуги, где нужно отключить онбоардинг в ЛКУ" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<button id="doskiponboard" style="width: 25.23px;">💾</button>
 					<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 				</div>		
@@ -2321,6 +2323,19 @@ function move_again_AF() {
         document.getElementById('getskipAP').innerHTML = "✅";
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
+    }
+	
+	
+	    document.getElementById('doskiponboard').onclick = function () {               // сохранение в буфере ссылки для активации АП
+        let skiponblnk = 'https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId=';
+        if (skiponboarding.value == "")
+            console.log('Введите ID услуги в поле')
+        else {
+            copyToClipboard(skiponblnk + skiponboarding.value);
+        };
+        document.getElementById('doskiponboard').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('doskiponboard').innerHTML = "💾" }, 2000);
+        skiponboarding.value = "";
     }
 
     let getageofuser;
