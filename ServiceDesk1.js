@@ -3182,23 +3182,23 @@ function getslacklnk() {
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktsubscribptions').textContent) {
 					console.log("Подписки: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
 					
-					// document.getElementById('responseTextarea1').value = `{  "headers": {
-					 // "content-type": "application/x-www-form-urlencoded",
-					 // "sec-fetch-mode": "cors",
-					 // "sec-fetch-site": "same-origin",
-					 // "x-requested-with": "XMLHttpRequest",
-					 // "x-sitemesh-off": "true"
-					  // },
-					  // "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889",
-					  // "referrerPolicy": "strict-origin-when-cross-origin",
-					  // "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
-					 // "method": "POST",
-					  // "mode": "cors",
-					  // "credentials": "include"
-					  // }`
-					 // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889";
-					 // document.getElementById('responseTextarea3').value = ''
-					 // document.getElementById('sendResponse').click()
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_47').value = "";
 					document.getElementById('customfield_48').value = "";
