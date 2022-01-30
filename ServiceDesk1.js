@@ -23,7 +23,7 @@ function getprsup() { //функция для получения ссылки н
   "credentials": "include"
          }`
         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-        document.getElementById('responseTextarea3').value = 'testo'
+        document.getElementById('responseTextarea3').value = 'pstickets'
         document.getElementById('sendResponse').click()
 
         setTimeout(async () => {
@@ -42,15 +42,15 @@ function getprsup() { //функция для получения ссылки н
   "credentials": "include"
                  }`
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-                document.getElementById('responseTextarea3').value = 'testo'
+                document.getElementById('responseTextarea3').value = 'pstickets'
                 document.getElementById('sendResponse').click()
 
-                 psarr = document.getElementById('responseTextarea1').getAttribute('testo');
+                 psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
                  psarr = await psarr;
 				 
-				 document.getElementById('responseTextarea1').removeAttribute('testo');
+				 document.getElementById('responseTextarea1').removeAttribute('pstickets');
 
-                 let sortarr = testo.match(/PS-(\d+)/g);
+                 let sortarr = psarr.match(/PS-(\d+)/g);
                  sortarr = sortarr.sort().reverse();
 				 firstEl = sortarr[0];
 
@@ -3205,7 +3205,7 @@ function getslacklnk() {
 					document.getElementById('customfield_49').value = "";
 					
 					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 7000);
+					setTimeout(getslacklnk, 8000);
 					
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktcertificates').textContent) {
