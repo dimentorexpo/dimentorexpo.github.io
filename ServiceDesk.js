@@ -1,5 +1,119 @@
 //Global variables
 let jiratoken;
+let psarr=[];
+let firstEl;
+let slacklnk;
+let infoarr;
+
+//func initialize
+
+function getprsup() { //функция для получения ссылки на последний проект в джира
+    document.getElementById('responseTextarea1').value = `{    "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+         }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+        document.getElementById('responseTextarea3').value = 'pstickets'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async () => {
+            document.getElementById('responseTextarea1').value = `{   "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+                 }`
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+                document.getElementById('responseTextarea3').value = 'pstickets'
+                document.getElementById('sendResponse').click()
+
+                 psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
+                 psarr = await psarr;
+				 
+				 document.getElementById('responseTextarea1').removeAttribute('pstickets');
+
+                 let sortarr = psarr.match(/PS-(\d+)/g);
+                 sortarr = sortarr.sort().reverse();
+				 firstEl = sortarr[0];
+
+                 console.log("Testo massiv " + sortarr);
+                 console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/"+firstEl);
+				 sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/"+firstEl);
+            
+        }, 2000);
+
+}
+
+function getslacklnk() {
+    document.getElementById('responseTextarea1').value = `{    "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+         }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
+        document.getElementById('responseTextarea3').value = 'slacklnkhere'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async () => {
+            document.getElementById('responseTextarea1').value = `{    "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+         }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
+        document.getElementById('responseTextarea3').value = 'slacklnkhere'
+        document.getElementById('sendResponse').click()
+
+                 infoarr = document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
+                 infoarr = await infoarr;
+				 document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
+
+                 slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
+
+                 console.log("Slack link " + slacklnk);
+				 sendComment("Slack Service Desk link: " + slacklnk);
+
+            
+        }, 2000);
+
+}
+
 
 //main
 	document.getElementById('servDsk').onclick = function () {
@@ -384,6 +498,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstudy').textContent) {
 					console.log("Моё обучение: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -411,6 +528,10 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherbreak').textContent){
 					console.log("Перерыв: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
@@ -437,6 +558,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachermoney').textContent){
 					console.log("Финансы: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -464,6 +588,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachermap').textContent){
 					console.log("Карта роста: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -492,6 +619,9 @@ let jiratoken;
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
 						
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachertimetable').textContent){
 					console.log("Расписание: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
@@ -518,6 +648,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherperenos').textContent){
 					console.log("Запросы на перенос занятия: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -545,6 +678,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetbalance').textContent){
 					console.log("Виджет баланса: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -572,6 +708,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetlessonmark').textContent){
 					console.log("Виджет отметки уроков: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -599,6 +738,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetplanfact').textContent){
 					console.log("Виджет плана/факта уроков: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -626,6 +768,9 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgettimetableweek').textContent){
 					console.log("Виджет расписания на неделю: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -653,6 +798,10 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";	
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetKPI').textContent){
 					console.log("Виджет KPI: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
@@ -678,7 +827,11 @@ let jiratoken;
 					document.getElementById('customfield_7').value = "";
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
-					document.getElementById('customfield_10').value = "";	
+					document.getElementById('customfield_10').value = "";
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetmystudents').textContent){
 					console.log("Виджет 'Мои ученики': " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
@@ -705,6 +858,10 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";	
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherTRMquestions').textContent){
 					console.log("Вопросы по TRM': " + "Description: " + idstd + " STR: " + idteach + " ER: " + ary + " AR: " + dscr);
 					
@@ -731,6 +888,10 @@ let jiratoken;
 					document.getElementById('customfield_8').value = "";
 					document.getElementById('customfield_9').value = "";
 					document.getElementById('customfield_10').value = "";	
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherunderground').textContent){
 					console.log("Подземный стук': " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
@@ -755,10 +916,13 @@ let jiratoken;
 					document.getElementById('customfield_6').value = "";
 					document.getElementById('customfield_7').value = "";
 					document.getElementById('customfield_8').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else 
 						console.log("Not found");
-				}
-					
+					}
 				} else {
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
@@ -824,8 +988,11 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
-					}
-					else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfeedback').textContent) {
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfeedback').textContent) {
 					console.log("Обратная связь: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -851,6 +1018,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcontent').textContent) {
 					console.log("Контент: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 										
@@ -877,6 +1048,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
 					console.log("Страница ДЗ и тестов: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -903,6 +1078,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartprogress').textContent) {
 					console.log("Страница прогресса: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -929,6 +1108,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcabinet').textContent) {
 					console.log("Детский ЛКУ: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -955,6 +1138,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcertificate').textContent) {
 					console.log("Сертификаты: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -981,6 +1168,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartgroup').textContent) {
 					console.log("Групповые и параллельные уроки: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -1007,6 +1198,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpages').textContent) {
 					console.log("Страницы skysmart: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -1033,6 +1228,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartappparents').textContent) {
 					console.log("Приложение skysmart parents: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -1059,6 +1258,10 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartonetoone').textContent) {
 					console.log("Уроки 1:1: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID service: " + servid);
 					
@@ -1085,12 +1288,13 @@ let jiratoken;
 					document.getElementById('customfield_3').value = "";
 					document.getElementById('customfield_4').value = "";
 					document.getElementById('customfield_5').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else
 					console.log("Not found")
-					}
-					
-
-						
+					}	
 				} else {
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';  // подумать как поправить
 					document.getElementById('kidsform').style.display = 'none';
@@ -1204,8 +1408,11 @@ let jiratoken;
 					document.getElementById('customfield_16').value = "";
 					document.getElementById('customfield_17').value = "";
 					document.getElementById('customfield_18').value = "";
-					}
-					else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqapaylendings').textContent) {
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqapaylendings').textContent) {
 					console.log("Оплата с лендингов : " + "Название продукта " + idstd + "Прайсет " + idserv + "Description " + dscr + "Jur person " + jur + "Soglasovano s fin dir" + soglas + "Page link where " + pagef + "Page link failed " + pagel + "Page link success " + pages + "User descr" + usrdesc + "Slack chanel " + sclackch);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -1236,6 +1443,10 @@ let jiratoken;
 					document.getElementById('customfield_23').value = "";
 					document.getElementById('customfield_24').value = "";
 					document.getElementById('customfield_25').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqabalancecorrect').textContent) {
 					console.log("Проверка баланса у на расхождения : " + "ID student " + idstd + "ID service " + idserv + "Description " + dscr);
 					
@@ -1261,10 +1472,11 @@ let jiratoken;
 					document.getElementById('customfield_17').value = "";
 					document.getElementById('customfield_18').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else console.log("Not found");
 					}
-					
-					
 				} else {
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('billqaform').style.display = 'none';	
@@ -1357,6 +1569,9 @@ let jiratoken;
 					document.getElementById('customfield_13').value = "";
 					document.getElementById('customfield_14').value = "";
 					document.getElementById('customfield_15').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1payonboarding').textContent){
 					console.log("Не завершился онбординг после оплаты: " + "ID student: " + idstd + " ID service: " + idserv +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
@@ -1384,6 +1599,10 @@ let jiratoken;
 					document.getElementById('customfield_13').value = "";
 					document.getElementById('customfield_14').value = "";
 					document.getElementById('customfield_15').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1redirects').textContent){
 					console.log("Циклические редиректы: " + "ID student: " + idstd + " ID service: " + idserv +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 							
@@ -1410,6 +1629,9 @@ let jiratoken;
 					document.getElementById('customfield_13').value = "";
 					document.getElementById('customfield_14').value = "";
 					document.getElementById('customfield_15').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1underground').textContent){
 					console.log("Подземный стук: " + "ID student: " + idstd + " ID service: " + idserv +  " Description: " + dscr);
@@ -1437,6 +1659,9 @@ let jiratoken;
 					document.getElementById('customfield_13').value = "";
 					document.getElementById('customfield_14').value = "";
 					document.getElementById('customfield_15').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else
 						console.log("Not found");
@@ -1590,6 +1815,9 @@ let jiratoken;
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_28').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttdisableAP').textContent) {
 					console.log("Отключение АП в ЛКУ: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Reason " + str);
 										
@@ -1615,6 +1843,9 @@ let jiratoken;
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_28').value = "";
 					document.getElementById('customfield_29').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttquestions').textContent) {
 					console.log("Вопросы по ТТ: " + " ID student " + idstd + " Description " + dscr + " STR " + str + " ER " + erx + " AR " + ary);
@@ -1643,6 +1874,9 @@ let jiratoken;
 					document.getElementById('customfield_30').value = "";
 					document.getElementById('customfield_31').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttacceptzapros').textContent) {
 					console.log("Подтвердить запрос в ЛКП для переподбора ВП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr)
 					
@@ -1666,7 +1900,10 @@ let jiratoken;
 					 
 					document.getElementById('customfield_26').value = "";
 					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";		
+					document.getElementById('customfield_28').value = "";	
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);					
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttnottaskpodbor').textContent) {
 					console.log("Почему нет задачи подбора ?: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr)
@@ -1691,7 +1928,12 @@ let jiratoken;
 					 
 					document.getElementById('customfield_26').value = "";
 					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";				
+					document.getElementById('customfield_28').value = "";
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttneurobot').textContent) {
 					console.log("Нейробот: " + " ID student " + idstd + " ID service " + idserv + " STR " + str + " ER " + erx + " AR " + ary)
 					
@@ -1717,7 +1959,11 @@ let jiratoken;
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_29').value = "";				
 					document.getElementById('customfield_30').value = "";				
-					document.getElementById('customfield_31').value = "";				
+					document.getElementById('customfield_31').value = "";		
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttunderground').textContent) {
 					console.log("Подземный стук: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr);
 					
@@ -1741,9 +1987,11 @@ let jiratoken;
 					 
 					document.getElementById('customfield_26').value = "";
 					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";				
+					document.getElementById('customfield_28').value = "";	
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);					
 			
-					
 					} else console.log("Not found");
 				}
 												
@@ -1885,6 +2133,9 @@ let jiratoken;
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teloutgoing').textContent) {
 					console.log("Проблема с исходящим вызовом: " + " ID operator " + ids + " Description " + erx); 
 					
@@ -1909,6 +2160,9 @@ let jiratoken;
 					document.getElementById('customfield_37').value = "";
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telincoming').textContent) {
 					console.log("Проблема с входящим вызовом: " + " ID operator " + ids + " Description " + erx); 
@@ -1935,6 +2189,9 @@ let jiratoken;
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telspeaking').textContent) {
 					console.log("Проблема во время разговора: " + " ID operator " + ids + " Description " + erx); 
 
@@ -1959,6 +2216,9 @@ let jiratoken;
 					document.getElementById('customfield_37').value = "";
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telrtstat').textContent) {
 					console.log("Проблема с реал-тайм статистикой: " + " Description " + ids + " ER " + erx + " AR " + ary); 
@@ -1985,6 +2245,9 @@ let jiratoken;
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telcallinfo').textContent) {
 					console.log("Запрос информации по звонку: " + " ID operator " + ids + " Description " + erx); 
 										
@@ -2009,6 +2272,9 @@ let jiratoken;
 					document.getElementById('customfield_37').value = "";
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telredicall').textContent) {
 					console.log("Проблема при переводе вызова: " + " ID operator " + ids + " Description " + erx); 
@@ -2035,6 +2301,9 @@ let jiratoken;
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telunderground').textContent) {
 					console.log("Подземный стук: " + " Description " + erx); 
 					
@@ -2059,6 +2328,9 @@ let jiratoken;
 					document.getElementById('customfield_37').value = "";
 					document.getElementById('customfield_38').value = "";
 					document.getElementById('customfield_39').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else
 						console.log("Not found");
@@ -2191,6 +2463,9 @@ let jiratoken;
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2google').textContent) {
 					console.log("Проблемы с 2FA : проблема с google authenticator: " + " Work email " + ids + " Description " + dscr); 
 										
@@ -2214,6 +2489,10 @@ let jiratoken;
 					 
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2faemail').textContent) {
 					console.log("Проблемы с 2FA: не приходит письмо о восстановлении пароля: " + " Work email " + ids + " Description " + dscr); 
 										
@@ -2237,6 +2516,9 @@ let jiratoken;
 					 
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2fasms').textContent) {
 					console.log("Проблемы с 2FA: не приходит смс: " + " Work email " + ids + " Description " + dscr); 
@@ -2262,6 +2544,9 @@ let jiratoken;
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesteach').textContent) {
 					console.log("Удаление / добавление ролей Преподавателям: " + " ID teacher " + ids + " Description " + dscr); 
 										
@@ -2285,6 +2570,9 @@ let jiratoken;
 					 
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesstud').textContent) {
 					console.log("Удаление / добавление ролей Ученикам: " + " ID student " + ids + " Description " + dscr); 
@@ -2310,6 +2598,9 @@ let jiratoken;
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authlogcheck').textContent) {
 					console.log("Проверка логов в ID: " + " ID phy lica " + ids + " Description " + dscr); 
 										
@@ -2333,6 +2624,9 @@ let jiratoken;
 					 
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authbusinessq').textContent) {
 					console.log("Бизнес вопросы: " + " Description " + dscr); 
@@ -2358,6 +2652,9 @@ let jiratoken;
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authunderground').textContent) {
 					console.log("Подземный стук: " + " Description " + dscr); 
 										
@@ -2382,11 +2679,12 @@ let jiratoken;
 					document.getElementById('customfield_40').value = "";
 					document.getElementById('customfield_41').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else
 						console.log("Not found");
 					}
-					
-					
 				} else {
 					document.getElementById('authsrvdskoptions').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
@@ -2594,6 +2892,10 @@ let jiratoken;
 					document.getElementById('customfield_44').value = "";
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskssales').textContent) {
 					console.log("Вопросы по задачам Продаж: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
 										
@@ -2620,6 +2922,9 @@ let jiratoken;
 					document.getElementById('customfield_44').value = "";
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2lessonhistory').textContent) {
 					console.log("Вопросы по Истории уроков: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
@@ -2648,6 +2953,9 @@ let jiratoken;
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2paymenthistory').textContent) {
 					console.log("Вопросы по Истории платежей: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
 										
@@ -2674,6 +2982,9 @@ let jiratoken;
 					document.getElementById('customfield_44').value = "";
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2convertsrc').textContent) {
 					console.log("Вопросы по Визардам конвертации услуги: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
@@ -2702,6 +3013,9 @@ let jiratoken;
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2actionshistory').textContent) {
 					console.log("Вопросы по Истории действий: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
 										
@@ -2728,6 +3042,9 @@ let jiratoken;
 					document.getElementById('customfield_44').value = "";
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2familycard').textContent) {
 					console.log("Вопросы о карточке Семья: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
@@ -2756,6 +3073,9 @@ let jiratoken;
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2profile').textContent) {
 					console.log("Вопросы о Профиле заявки: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
 										
@@ -2782,6 +3102,9 @@ let jiratoken;
 					document.getElementById('customfield_44').value = "";
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2communications').textContent) {
 					console.log("Вопросы по разделу Коммуникации: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
@@ -2810,6 +3133,9 @@ let jiratoken;
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskpoolsoporovd').textContent) {
 					console.log("Проблемы с функционалом пула задач список задач сопровождение: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
 										
@@ -2836,6 +3162,9 @@ let jiratoken;
 					document.getElementById('customfield_44').value = "";
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskpoolsales').textContent) {
 					console.log("Проблемы с функционалом пула задач список задач продажи: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
@@ -2864,6 +3193,9 @@ let jiratoken;
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2migrationcrm').textContent) {
 					console.log("Миграция компании из CRM1 в CRM2: " + " Link to service " + ids + " Description " + dscr); 
 										
@@ -2890,6 +3222,9 @@ let jiratoken;
 					document.getElementById('customfield_44').value = "";
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2changestk').textContent) {
 					console.log("Смена STK услуги: " + " Link to service " + ids + " Service ID " + servid + " Description " + dscr); 
@@ -2918,12 +3253,12 @@ let jiratoken;
 					document.getElementById('customfield_45').value = "";
 					document.getElementById('customfield_46').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} 
 						else console.log("Not found");
 					}
-					
-					
-					
 				} else {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('crm2form').style.display = 'none';	
@@ -3090,6 +3425,10 @@ let jiratoken;
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktcertificates').textContent) {
 					console.log("Заказ сертификата: " + " Description " + dscr);
 					
@@ -3114,6 +3453,9 @@ let jiratoken;
 					document.getElementById('customfield_47').value = "";
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpromocodes').textContent) {
 					console.log("Заказ промокодов: " + " Description " + dscr);
@@ -3140,6 +3482,9 @@ let jiratoken;
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktdisablends').textContent) {
 					console.log("Отключение НДС: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
 					
@@ -3164,6 +3509,9 @@ let jiratoken;
 					document.getElementById('customfield_47').value = "";
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktnachisl').textContent) {
 					console.log("Начисления (срочные, журналисты, PR): " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
@@ -3190,6 +3538,9 @@ let jiratoken;
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktdoublelessons').textContent) {
 					console.log("Удвоение уроков: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
 					
@@ -3214,6 +3565,9 @@ let jiratoken;
 					document.getElementById('customfield_47').value = "";
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpriceq').textContent) {
 					console.log("Вопросы по прайсам: " + " ID stud " + idstd + " Description " + dscr);
@@ -3240,6 +3594,9 @@ let jiratoken;
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktreferal').textContent) {
 					console.log("Реферальная программа: " + " ID прглашающего " + idstd + " Id приглашенного " + servid + " Description " + dscr);
 					
@@ -3264,6 +3621,9 @@ let jiratoken;
 					document.getElementById('customfield_47').value = "";
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktcertconsult').textContent) {
 					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
@@ -3290,6 +3650,9 @@ let jiratoken;
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpromocodesconsult').textContent) {
 					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
 					
@@ -3315,6 +3678,9 @@ let jiratoken;
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
 					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktunderground').textContent) {
 					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
 					
@@ -3339,6 +3705,9 @@ let jiratoken;
 					document.getElementById('customfield_47').value = "";
 					document.getElementById('customfield_48').value = "";
 					document.getElementById('customfield_49').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 					
 					}
 					
@@ -3584,6 +3953,10 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billdataanal').textContent) {
 					console.log("Data analytics: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);	
 						
@@ -3610,6 +3983,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtaskfordev').textContent) {
 					console.log("Задача для разработки: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3637,6 +4013,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billadmreturn').textContent) {
 					console.log("Админка возвратов: " + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3664,6 +4043,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtroublcodecard').textContent) {
 					console.log("Проблема с кодом для привязки карты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3691,6 +4073,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpaymentbot').textContent) {
 					console.log("Billing payment bot: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3718,6 +4103,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billschemes').textContent) {
 					console.log("Схемы вознаграждения: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3745,6 +4133,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billselfemployee').textContent) {
 					console.log("Самозанятые: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3772,6 +4163,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					}  else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billrequisites').textContent) {
 					console.log("Реквизиты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3799,6 +4193,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpayments').textContent) {
 					console.log("Выплаты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3826,6 +4223,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billspisanie').textContent) {
 					console.log("Списание средств: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3853,6 +4253,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billreturns').textContent) {
 					console.log("Возвраты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3880,6 +4283,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpaymentmesystems').textContent) {
 					console.log("Платежные системы: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3907,6 +4313,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billwidgetpayment').textContent) {
 					console.log("Виджет оплаты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3934,6 +4343,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpay').textContent) {
 					console.log("Оплата: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3961,6 +4373,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billcredit').textContent) {
 					console.log("Рассрочка: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -3988,6 +4403,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					}  else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billoferta').textContent) {
 					console.log("Оферты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4015,6 +4433,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billlendings').textContent) {
 					console.log("Лендинги: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4042,6 +4463,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					}  else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billterms').textContent) {
 					console.log("Terms: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4069,6 +4493,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					}    else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billsubscribtions').textContent) {
 					console.log("Подписки: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4096,6 +4523,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billbundles').textContent) {
 					console.log("Бандлы: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4123,6 +4553,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtehproblemsprod').textContent) {
 					console.log("Технические проблемы на production: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4150,6 +4583,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					}  else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billroles').textContent) {
 					console.log("Роли и доступы: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4177,6 +4613,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billbusanalys').textContent) {
 					console.log("Бизнес Анализ: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4204,6 +4643,9 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					}  else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtechconv').textContent) {
 					console.log("Техническое обсуждение: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);	
@@ -4231,16 +4673,13 @@ let jiratoken;
 					document.getElementById('customfield_34').value = "";
 					document.getElementById('customfield_35').value = "";
 					document.getElementById('customfield_36').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 						
 					}                                       
-					
 					else console.log("Not found"); 
-					
-					}
-					
-					
-					
-					
+					}					
 				} else {
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 					document.getElementById('billingform').style.display = 'none';
