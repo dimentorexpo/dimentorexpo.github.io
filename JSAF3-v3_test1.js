@@ -5288,7 +5288,6 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none' 
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent == "1 line")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent = "1 line 24/7"
-            }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
