@@ -107,7 +107,7 @@ function getslacklnk() {
                  slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
 
                  console.log("Slack link " + slacklnk);
-				 sendComment("Slack Service Desk link: " + slacklnk);
+				 sendComment("Не забудь проверить ссылку, что задача точно создалась! - Slack Service Desk link: " + slacklnk);
 
             
         }, 2000);
