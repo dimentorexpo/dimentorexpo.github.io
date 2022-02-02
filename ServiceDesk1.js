@@ -1396,7 +1396,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/577",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1459,7 +1459,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/570",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18975=${idstd}&customfield_18976=${idserv}&&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18975=${idstd}&customfield_18976=${idserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1802,7 +1802,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1830,7 +1830,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/565",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&customfield_18319=${str}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18319=${str}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1889,7 +1889,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/563",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1917,7 +1917,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/562",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1976,7 +1976,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/567",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18976=${idserv}&customfield_18975=${idstd}&&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18976=${idserv}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
