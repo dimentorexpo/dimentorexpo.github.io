@@ -424,9 +424,9 @@ var win_servicedesk =
 						<span style="color:bisque">Token Status:</span>
 						<span id="jiratknstatus">🟢</span>
 						<span style="color:yellow">Prev.task</span>
-						<button id="prevtask" style="width: 80px" title="Предыдущая задача">PS-21706</button>
+						<button id="prevtask" style="width: 80px" title="Предыдущая задача"></button>
 						<span style="color:cyan">Last task</span>
-						<button id="newtask" style="width: 80px" title="Последняя задача">PS-21708</button>
+						<button id="newtask" style="width: 80px" title="Последняя задача"></button>
                 </div>
 				
                 <div id="servicedeskinfo" style="margin-left:20px;">
