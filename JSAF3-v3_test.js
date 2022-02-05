@@ -853,7 +853,6 @@ butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
 
-
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -1327,16 +1326,7 @@ document.getElementById('databox').ondblclick = function () { // скрытие 
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
-document.getElementById('setteststd').onclick = function() {
-	if (document.getElementById('test_std').value != '') 
-		localstorage.setItem('test_stud', document.getElementById('test_std').value)
-	else console.log("Ведите ID тестового ученика")
-}
-document.getElementById('settestteach').onclick = function() {
-	if (document.getElementById('test_teach').value != '') 
-		localstorage.setItem('test_teach', document.getElementById('test_teach').value)
-	else console.log("Ведите ID тестового преподавателя")
-}
+
 
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
