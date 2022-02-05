@@ -4,8 +4,64 @@ let psarr=[];
 let firstEl;
 let slacklnk;
 let infoarr;
+let lasttsk;
+let prevtsk = document.getElementById('prevtask').innerText;
 
 //func initialize
+
+function getprsuplasttask() { //функция для получения ссылки на последний проект в джира
+    document.getElementById('responseTextarea1').value = `{    "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+         }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+        document.getElementById('responseTextarea3').value = 'pstickets'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async () => {
+            document.getElementById('responseTextarea1').value = `{   "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+                 }`
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+                document.getElementById('responseTextarea3').value = 'pstickets'
+                document.getElementById('sendResponse').click()
+
+                 psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
+                 psarr = await psarr;
+				 
+				 document.getElementById('responseTextarea1').removeAttribute('pstickets');
+
+                 let sortarr = psarr.match(/PS-(\d+)/g);
+                 sortarr = sortarr.sort().reverse();
+				 firstEl = sortarr[0];
+
+				prevtsk.innerText=firstEl;
+            
+        }, 2000);
+
+}
+
 
 function getprsup() { //функция для получения ссылки на последний проект в джира
     document.getElementById('responseTextarea1').value = `{    "headers": {
@@ -145,6 +201,8 @@ function getslacklnk() {
                         document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 						console.log("TOKEN: " + jiratoken);
 					}, 1000)
+					
+					getprsuplasttask();
 					
 					
 					$('.sdbtn').click(function() {  
