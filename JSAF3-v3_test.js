@@ -979,17 +979,6 @@ button4.onclick = function () {
     btn1_student.click()
 }
 
-document.getElementById('setteststd').onclick = function() {
-	if (document.getElementById('test_std').value != '') 
-		localstorage.setItem('test_stud', document.getElementById('test_std').value)
-	else console.log("Ведите ID тестового ученика")
-}
-document.getElementById('settestteach').onclick = function() {
-	if (document.getElementById('test_teach').value != '') 
-		localstorage.setItem('test_teach', document.getElementById('test_teach').value)
-	else console.log("Ведите ID тестового преподавателя")
-}
-
 let addInfoUser = document.createElement('div')
 
 let hashBut = document.createElement('div')
@@ -1336,6 +1325,17 @@ document.getElementById('lessomstatdata').ondblclick = function () { // скры
 }
 document.getElementById('databox').ondblclick = function () { // скрытие окна статистики по двойному клику
     document.getElementById('AF_LessonStatus').style.display = 'none';
+}
+
+document.getElementById('setteststd').onclick = function() {
+	if (document.getElementById('test_std').value != '') 
+		localstorage.setItem('test_stud', document.getElementById('test_std').value)
+	else console.log("Ведите ID тестового ученика")
+}
+document.getElementById('settestteach').onclick = function() {
+	if (document.getElementById('test_teach').value != '') 
+		localstorage.setItem('test_teach', document.getElementById('test_teach').value)
+	else console.log("Ведите ID тестового преподавателя")
 }
 
 let wintAF = document.createElement('div');
