@@ -110,9 +110,9 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px"></button>				
+				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px"></button>	
+				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>	
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
