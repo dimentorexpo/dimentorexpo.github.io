@@ -6797,7 +6797,7 @@ let tokenlog;
 let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
-btnpm.style = "background-color: #3CB371 ; margin-left: 5px;"; 
+btnpm.style = "background-color: #3CB371 ; margin: 5px;"; 
 
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
@@ -6807,7 +6807,7 @@ btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371 ; margin: 5px;";
+btntid.style = "background-color: #3CB371 ; margin-left: 5px;";
 
 document.getElementById('testMath').replaceWith(btnpm);
 document.getElementById('testStudent').replaceWith(btnsid);
