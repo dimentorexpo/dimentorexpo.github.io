@@ -420,11 +420,11 @@ var win_servicedesk =
 <span style="width: 430px">
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 400;" id="SrvDskSummary">
-                        <div id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</div>
-						<div style="color:bisque">Token Status:</div>
-						<div id="jiratknstatus"></div>
-						<div id="prevtask" style="width: 30px">1</button>
-						<div id="newtask" style="width: 30px">2</button>
+                        <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
+						<span style="color:bisque">Token Status:</span>
+						<span id="jiratknstatus"></span>
+						<span id="prevtask" style="width: 30px">1</span>
+						<span id="newtask" style="width: 30px">2</span>
                 </div>
 				
                 <div id="servicedeskinfo">
