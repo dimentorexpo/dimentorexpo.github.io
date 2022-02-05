@@ -1382,7 +1382,7 @@ function move_again_AF() {
 	document.getElementById('settestteach').onclick = function() {
 			if (document.getElementById('test_teach').value != '') {
 				localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-				document.getElementById('test_std').value = '';
+				document.getElementById('test_teach').value = '';
 			} else console.log("Ведите ID тестового преподавателя")
 	}
 
@@ -6798,7 +6798,21 @@ let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
 btnpm.style.backgroundColor = "#3CB371";
+
+let btnsid = document.createElement('button')
+btnsid.innerText = "У";
+btnsid.id = "sidcode";
+btnsid.style.backgroundColor = "#3CB371";
+
+let btntid = document.createElement('button')
+btntid.innerText = "П";
+btntid.id = "tidcode";
+btntid.style.backgroundColor = "#3CB371";
+
 document.getElementById('testMath').replaceWith(btnpm);
+document.getElementById('testStudent').replaceWith(btnsid);
+document.getElementById('testTeacher').replaceWith(btnpm);
+
 btnpm.onclick = async function () {
     document.getElementById('responseTextarea1').value = `{
 			  "headers": {
