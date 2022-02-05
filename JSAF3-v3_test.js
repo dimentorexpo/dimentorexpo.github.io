@@ -979,12 +979,12 @@ button4.onclick = function () {
     btn1_student.click()
 }
 
-setteststd.onclick = function() {
+document.getElementById('setteststd').onclick = function() {
 	if (document.getElementById('test_std').value != '') 
 		localstorage.setItem('test_stud', document.getElementById('test_std').value)
 	else console.log("Ведите ID тестового ученика")
 }
-settestteach.onclick = function() {
+document.getElementById('settestteach').onclick = function() {
 	if (document.getElementById('test_teach').value != '') 
 		localstorage.setItem('test_teach', document.getElementById('test_teach').value)
 	else console.log("Ведите ID тестового преподавателя")
