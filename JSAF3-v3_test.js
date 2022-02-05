@@ -423,8 +423,8 @@ var win_servicedesk =
                         <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
 						<span style="color:bisque">Token Status:</span>
 						<span id="jiratknstatus"></span>
-						<span id="prevtask" style="width: 30px">1</span>
-						<span id="newtask" style="width: 30px">2</span>
+						<button id="prevtask" style="width: 30px" title="Предыдущая задача"></button>
+						<button id="newtask" style="width: 30px" title="Последняя задача"></button>
                 </div>
 				
                 <div id="servicedeskinfo">
