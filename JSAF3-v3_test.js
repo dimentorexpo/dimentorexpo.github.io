@@ -1372,6 +1372,17 @@ function move_again_AF() {
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
         audio.play()
     }
+	
+	document.getElementById('setteststd').onclick = function() {
+			if (document.getElementById('test_std').value != '') 
+				localstorage.setItem('test_stud', document.getElementById('test_std').value)
+			else console.log("Ведите ID тестового ученика")
+	}
+	document.getElementById('settestteach').onclick = function() {
+			if (document.getElementById('test_teach').value != '') 
+				localstorage.setItem('test_teach', document.getElementById('test_teach').value)
+			else console.log("Ведите ID тестового преподавателя")
+	}
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
