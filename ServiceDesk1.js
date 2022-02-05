@@ -122,6 +122,14 @@ function getprsup() { //функция для получения ссылки н
                  console.log("Testo massiv " + sortarr);
                  console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/"+firstEl);
 				// sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/"+firstEl);
+				
+				lasttsk = firstEl;
+				
+				if(lasttsk > prevtsk) {
+					document.getElementById('newtask').innerText = lasttsk;
+				} else if(lasttsk <= prevtsk) {
+					alert("Новая задача не была создана, проверь консоль на ошибки и там же сможешь найти текст при заполнении полей!")
+				}
             
         }, 2000);
 
