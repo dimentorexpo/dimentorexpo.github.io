@@ -109,6 +109,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
+				<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
@@ -976,6 +977,17 @@ button4.onclick = function () {
             document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     btn1_student.click()
+}
+
+setteststd.onclick = function() {
+	if (document.getElementById('test_std').value != '') 
+		localstorage.setItem('test_stud', document.getElementById('test_std').value)
+	else console.log("Ведите ID тестового ученика")
+}
+settestteach.onclick = function() {
+	if (document.getElementById('test_teach').value != '') 
+		localstorage.setItem('test_teach', document.getElementById('test_teach').value)
+	else console.log("Ведите ID тестового преподавателя")
 }
 
 let addInfoUser = document.createElement('div')
