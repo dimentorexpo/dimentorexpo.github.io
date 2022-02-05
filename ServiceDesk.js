@@ -56,7 +56,7 @@ function getprsup() { //функция для получения ссылки н
 
                  console.log("Testo massiv " + sortarr);
                  console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/"+firstEl);
-				 sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/"+firstEl);
+				// sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/"+firstEl);
             
         }, 2000);
 
@@ -107,7 +107,7 @@ function getslacklnk() {
                  slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
 
                  console.log("Slack link " + slacklnk);
-				 sendComment("Не забудь проверить ссылку, что задача точно создалась! - Slack Service Desk link: " + slacklnk);
+				// sendComment("Не забудь проверить ссылку, что задача точно создалась! - Slack Service Desk link: " + slacklnk);
 
             
         }, 2000);
