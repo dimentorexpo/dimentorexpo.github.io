@@ -109,6 +109,11 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
 				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
+				<br>
+				<input id="test_std" placeholder="ID тест У" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
+				<input id="test_teach" placeholder="ID тест П" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>	
 			</div>
 				
 			<div style="margin: 5px; width: 350px">
@@ -848,7 +853,6 @@ butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
 
-
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -1322,6 +1326,8 @@ document.getElementById('databox').ondblclick = function () { // скрытие 
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
+
+
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
 wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -1366,6 +1372,19 @@ function move_again_AF() {
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
         audio.play()
     }
+	
+	document.getElementById('setteststd').onclick = function() {
+			if (document.getElementById('test_std').value != '') {
+				localStorage.setItem('test_stud', document.getElementById('test_std').value);
+				document.getElementById('test_std').value = '';
+			} else console.log("Ведите ID тестового ученика")
+	}
+	document.getElementById('settestteach').onclick = function() {
+			if (document.getElementById('test_teach').value != '') {
+				localStorage.setItem('test_teach', document.getElementById('test_teach').value);
+				document.getElementById('test_teach').value = '';
+			} else console.log("Ведите ID тестового преподавателя")
+	}
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
@@ -6778,8 +6797,22 @@ let tokenlog;
 let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
-btnpm.style.backgroundColor = "#3CB371";
+btnpm.style = "background-color: #3CB371 ; margin: 5px;"; 
+
+let btnsid = document.createElement('button')
+btnsid.innerText = "У";
+btnsid.id = "sidcode";
+btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
+
+let btntid = document.createElement('button')
+btntid.innerText = "П";
+btntid.id = "tidcode";
+btntid.style = "background-color: #3CB371 ; margin-left: 5px;";
+
 document.getElementById('testMath').replaceWith(btnpm);
+document.getElementById('testStudent').replaceWith(btnsid);
+document.getElementById('testTeacher').replaceWith(btntid);
+
 btnpm.onclick = async function () {
     document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -6836,6 +6869,130 @@ btnpm.onclick = async function () {
 
     }, 500)
 }
+
+btnsid.onclick = async function () {
+	let teststudid = localStorage.getItem('test_stud');
+	if (teststudid != null || teststudid != '') {
+    document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				"content-type": "application/x-www-form-urlencoded",
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1"
+			  },
+			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${teststudid}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}`
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+    document.getElementById('responseTextarea3').value = 'senddata1'
+    document.getElementById('sendResponse').click()
+
+    setTimeout(async function () {
+
+        document.getElementById('responseTextarea1').value = `{
+				   "headers": {
+					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+				  },
+				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": null,
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+			}`
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
+        document.getElementById('responseTextarea3').value = 'senddata1'
+        document.getElementById('sendResponse').click()
+
+        lginfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        lginfo = await lginfo;
+
+        lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+        lginfo = lginfo[lginfo.length - 1].split("\"");
+        //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
+        copyToClipboard1(lginfo[1])
+        document.getElementById('responseTextarea1').removeAttribute('senddata1')
+
+
+    }, 500)
+	
+	} else alert("Введите ID тестового ученика в настройках ⚙");
+}
+
+btntid.onclick = async function () {
+	let testteachid = localStorage.getItem('test_teach');
+	if (testteachid != null || testteachid != '') {
+    document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				"content-type": "application/x-www-form-urlencoded",
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1"
+			  },
+			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${testteachid}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}`
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+    document.getElementById('responseTextarea3').value = 'senddata2'
+    document.getElementById('sendResponse').click()
+
+    setTimeout(async function () {
+
+        document.getElementById('responseTextarea1').value = `{
+				   "headers": {
+					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+				  },
+				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": null,
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+			}`
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
+        document.getElementById('responseTextarea3').value = 'senddata2'
+        document.getElementById('sendResponse').click()
+
+        lginfo = document.getElementById('responseTextarea1').getAttribute('senddata2');
+        lginfo = await lginfo;
+
+        lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+        lginfo = lginfo[lginfo.length - 1].split("\"");
+        //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
+        copyToClipboard1(lginfo[1])
+        document.getElementById('responseTextarea1').removeAttribute('senddata2')
+
+
+    }, 500)
+	
+	} else alert("Введите ID тестового преподавателя в настройках ⚙");
+}
+
+
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
         localStorage.setItem('hesoyam', '0')
