@@ -6811,7 +6811,7 @@ btntid.style.backgroundColor = "#3CB371";
 
 document.getElementById('testMath').replaceWith(btnpm);
 document.getElementById('testStudent').replaceWith(btnsid);
-document.getElementById('testTeacher').replaceWith(btnpm);
+document.getElementById('testTeacher').replaceWith(btntid);
 
 btnpm.onclick = async function () {
     document.getElementById('responseTextarea1').value = `{
