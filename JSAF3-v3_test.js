@@ -442,7 +442,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
                 </div>
 				
-				<div id="teacherssrvdskoptions" style="display: none;">
+				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
 					<button class="teacbtn" id="teacherstatistic">Статистика</button>
 					<button class="teacbtn" id="teacherstudy">Моё обучение</button>
@@ -461,7 +461,7 @@ var win_servicedesk =
 					<button class="teacbtn" id="teacherunderground">Подземный стук</button>
 				</div>
 				
-				<div id="crm2srvdskoptions" style="display: none;">
+				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
 					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
 					<button class="crm2sbtn" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
@@ -478,7 +478,7 @@ var win_servicedesk =
 					<button class="crm2sbtn" id="crm2changestk">Смена STK услуги</button>
 				</div>
 				
-				<div id="authsrvdskoptions" style="display: none;">
+				<div id="authsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
 					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
 					<button class="authbtn" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
@@ -491,7 +491,7 @@ var win_servicedesk =
 					<button class="authbtn" id="authunderground">Подземный стук</button>
 				</div>
 				
-				<div id="schedulesrvdskoptions" style="display: none;">
+				<div id="schedulesrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support</p>
 					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
 					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
@@ -502,14 +502,14 @@ var win_servicedesk =
 					<button class="schdbtn" id="ttunderground">Подземный стук</button>
 				</div>	
 
-				<div id="billingqasrvdskoptions" style="display: none;">
+				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support</p>
 					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
 					<button class="bilqabtn" id="billqapaylendings">Оплата с лендингов</button>
 					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
 				</div>
 				
-				<div id="c1srvdskoptions" style="display: none;">
+				<div id="c1srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#c1-support</p>
 					<button class="c1sbtn" id="c1verstka">Проблемы с версткой</button>
 					<button class="c1sbtn" id="c1payonboarding">Не завершился онбординг после оплаты</button>
@@ -517,7 +517,7 @@ var win_servicedesk =
 					<button class="c1sbtn" id="c1underground">Подземный стук</button>
 				</div>
 				
-				<div id="telephonysrvdskoptions" style="display: none;">
+				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#telephony-support</p>
 					<button class="telepbtn" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
 					<button class="telepbtn" id="teloutgoing">Проблема с исходящим вызовом</button>
@@ -529,7 +529,7 @@ var win_servicedesk =
 					<button class="telepbtn" id="telunderground">Подземный стук</button>
 				</div>	
 
-				<div id="billingsrvdskoptions" style="display: none;">
+				<div id="billingsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#billing</p>
 					<button class="billbtn" id="billcheques">Чеки/Инвойсы</button>
 					<button class="billbtn" id="billdataanal">Data analytics</button>
@@ -558,7 +558,7 @@ var win_servicedesk =
 					<button class="billbtn" id="billtechconv">Техническое обсуждение</button>
 				</div>
 				
-				<div id="skysmartsrvdskoptions" style="display: none; margin-left:5px;">
+				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
 					<button class="kidsbtn" id="skysmartcontent">Контент</button>
 					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
@@ -573,7 +573,7 @@ var win_servicedesk =
 					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
 				</div>
 				
-				<div id="mrktsrvdskoptions" style="display: none;">
+				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#mrkt-bill-questions</p>
 					<button class="mrktbtn" id="mrktsubscribptions">Подписки</button>
 					<button class="mrktbtn" id="mrktcertificates">Заказ сертификатов</button>
@@ -589,7 +589,7 @@ var win_servicedesk =
 				</div>
 	        </span>
 			
-				<div id="kidsform" style="display: none; margin:5px;">
+				<div id="kidsform" style="display: none; margin-left:20px;">
 					<textarea id="customfield_1" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_2" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
@@ -603,7 +603,7 @@ var win_servicedesk =
 					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="teachersform" style="display: none; margin:5px;">
+				<div id="teachersform" style="display: none; margin-left:20px;">
 					<input id="customfield_6" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<input id="customfield_7" placeholder="ID Преподавателя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
@@ -617,7 +617,7 @@ var win_servicedesk =
 					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="onboardingform" style="display: none; margin:5px;">
+				<div id="onboardingform" style="display: none; margin-left:20px;">
 					<input id="customfield_11" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<input id="customfield_12" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
@@ -631,7 +631,7 @@ var win_servicedesk =
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="billqaform" style="display: none; margin:5px;">
+				<div id="billqaform" style="display: none; margin-left:20px;">
 					<input id="customfield_16" placeholder="Название продукта?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<input id="customfield_17" placeholder="Прайссет и позиция?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
@@ -655,7 +655,7 @@ var win_servicedesk =
 					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="scheduleform" style="display: none; margin:5px;">
+				<div id="scheduleform" style="display: none; margin-left:20px;">
 					<input id="customfield_26" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<input id="customfield_27" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
@@ -671,7 +671,7 @@ var win_servicedesk =
 					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="billingform" style="display: none; margin:5px;">
+				<div id="billingform" style="display: none; margin-left:20px;">
 					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
@@ -685,7 +685,7 @@ var win_servicedesk =
 					<button id="create_6" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="telephonyform" style="display: none; margin:5px;">
+				<div id="telephonyform" style="display: none; margin-left:20px;">
 					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_38" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
@@ -695,7 +695,7 @@ var win_servicedesk =
 					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="authform" style="display: none; margin:5px;">
+				<div id="authform" style="display: none; margin-left:20px;">
 					<input id="customfield_40" placeholder="ID пользователя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
@@ -703,7 +703,7 @@ var win_servicedesk =
 					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="crm2form" style="display: none; margin:5px;">
+				<div id="crm2form" style="display: none; margin-left:20px;">
 					<input id="customfield_42" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_43" placeholder="ID Услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
@@ -716,7 +716,7 @@ var win_servicedesk =
 					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
-				<div id="mrktform" style="display: none; margin:5px;">
+				<div id="mrktform" style="display: none; margin-left:20px;">
 					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
