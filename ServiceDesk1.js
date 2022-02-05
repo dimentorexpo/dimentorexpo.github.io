@@ -5,7 +5,7 @@ let firstEl;
 let slacklnk;
 let infoarr;
 let lasttsk;
-let prevtsk = document.getElementById('prevtask').innerText;
+let prevtsk;
 
 //func initialize
 
@@ -56,7 +56,8 @@ function getprsuplasttask() { //функция для получения ссы�
                  sortarr = sortarr.sort().reverse();
 				 firstEl = sortarr[0];
 
-				prevtsk.innerText=firstEl;
+				prevtsk=firstEl;
+				document.getElementById('prevtask').innerText=prevtsk;
             
         }, 2000);
 
