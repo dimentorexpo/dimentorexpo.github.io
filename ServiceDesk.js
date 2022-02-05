@@ -135,9 +135,13 @@ function getslacklnk() {
 					document.getElementById('sendResponse').click()
 						
 					    jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-						if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null)
+						if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
 					    jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
-						else alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
+						document.getElementById('jiratknstatus').innerText ="🟢"
+					} else {
+						alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
+						document.getElementById('jiratknstatus').innerText ="🔴"	
+					}
                         document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 						console.log("TOKEN: " + jiratoken);
 					}, 1000)
