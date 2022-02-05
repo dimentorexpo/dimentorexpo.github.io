@@ -6797,17 +6797,17 @@ let tokenlog;
 let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
-btnpm.style.backgroundColor = "#3CB371";
+btnpm.style = "background-color: #3CB371 ; margin-left: 5px;"; 
 
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
-btnsid.style.backgroundColor = "#3CB371";
+btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
 
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style.backgroundColor = "#3CB371";
+btntid.style = "background-color: #3CB371 ; margin-left: 5px;";
 
 document.getElementById('testMath').replaceWith(btnpm);
 document.getElementById('testStudent').replaceWith(btnsid);
