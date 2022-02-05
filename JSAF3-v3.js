@@ -416,18 +416,20 @@ var win_Techsummary = //
 </div>`;
 
 var win_servicedesk =
-    `<div style="display: flex; width: 430px;">
-<span style="width: 430px">
+    `<div style="display: flex; width: 465px;">
+		<span style="width: 465px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 400;" id="SrvDskSummary">
+                <div style="margin: 5px; width: 465;" id="SrvDskSummary">
                         <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
 						<span style="color:bisque">Token Status:</span>
-						<span id="jiratknstatus"></span>
-						<button id="prevtask" style="width: 70px" title="Предыдущая задача"></button>
-						<button id="newtask" style="width: 70px" title="Последняя задача"></button>
+						<span id="jiratknstatus">🟢</span>
+						<span style="color:yellow">Prev.task</span>
+						<button id="prevtask" style="width: 80px" title="Предыдущая задача"></button>
+						<span style="color:cyan">Last task</span>
+						<button id="newtask" style="width: 80px" title="Последняя задача"></button>
                 </div>
 				
-                <div id="servicedeskinfo">
+                <div id="servicedeskinfo" style="margin-left:20px;">
                     <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
                     <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
                     <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
