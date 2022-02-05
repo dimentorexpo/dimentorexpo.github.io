@@ -58,6 +58,14 @@ function getprsuplasttask() { //функция для получения ссы�
 
 				prevtsk=firstEl;
 				document.getElementById('prevtask').innerText=prevtsk;
+				
+				document.getElementById('prevtask').onclick = function() {
+					if (document.getElementById('prevtask').innerText == "") {
+						console.log('Введите Задача не найдена')
+					} else {
+						window.open("https://jira.skyeng.tech/browse/" + prevtsk);
+					};
+				}
             
         }, 2000);
 
