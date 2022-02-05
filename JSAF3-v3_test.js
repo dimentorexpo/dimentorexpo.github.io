@@ -421,6 +421,10 @@ var win_servicedesk =
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 400;" id="SrvDskSummary">
                         <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
+						<p>Token Status:</p>
+						<div id="jiratknstatus"></div>
+						<button id="prevtask" style="width: 30px">1</button>
+						<button id="newtask" style="width: 30px">2</button>
                 </div>
 				
                 <div id="servicedeskinfo">
