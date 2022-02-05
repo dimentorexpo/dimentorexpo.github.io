@@ -121,12 +121,12 @@ function getprsup() { //функция для получения ссылки н
 
                  console.log("Testo massiv " + sortarr);
                  console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/"+firstEl);
-				// sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/"+firstEl);
-				
+				 
 				lasttsk = firstEl;
 				
 				if(lasttsk > prevtsk) {
 					document.getElementById('newtask').innerText = lasttsk;
+					sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/"+lasttsk);
 				} else if(lasttsk <= prevtsk) {
 					alert("Новая задача не была создана, проверь консоль на ошибки и там же сможешь найти текст при заполнении полей!")
 				}
@@ -136,6 +136,7 @@ function getprsup() { //функция для получения ссылки н
 }
 
 function getslacklnk() {
+	if (lasttsk > prevtsk) {
     document.getElementById('responseTextarea1').value = `{    "headers": {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     "sec-fetch-dest": "document",
@@ -150,7 +151,7 @@ function getslacklnk() {
   "mode": "cors",
   "credentials": "include"
          }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
         document.getElementById('responseTextarea3').value = 'slacklnkhere'
         document.getElementById('sendResponse').click()
 
@@ -180,11 +181,11 @@ function getslacklnk() {
                  slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
 
                  console.log("Slack link " + slacklnk);
-				// sendComment("Не забудь проверить ссылку, что задача точно создалась! - Slack Service Desk link: " + slacklnk);
+				 sendComment("Не забудь проверить ссылку, что задача точно создалась! - Slack Service Desk link: " + slacklnk);
 
             
         }, 2000);
-
+	} else console.log("Задача не была создана, поэтому в заметки нечего размещать)"
 }
 
 
