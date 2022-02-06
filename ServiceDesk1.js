@@ -550,8 +550,11 @@ function getslacklnk() {
 					let idstd = document.getElementById('customfield_6').value;
 					let idteach = document.getElementById('customfield_7').value;
 					let dscr = document.getElementById('customfield_8').value;
+					dscr = dscr.replace(/\n/g,'\\n');
 					let erx = document.getElementById('customfield_9').value ;
+					erx = erx.replace(/\n/g,'\\n');
 					let	ary = document.getElementById('customfield_10').value ;
+					ary = ary.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstatistic').textContent){
 					console.log("Статистика: " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
 					
@@ -1038,8 +1041,11 @@ function getslacklnk() {
 										
 					document.getElementById('create_1').onclick = function() {
 					let dscr = document.getElementById('customfield_1').value;
+					dscr = dscr.replace(/\n/g,'\\n');
 					let erx = document.getElementById('customfield_2').value;
+					erx = erx.replace(/\n/g,'\\n');
 					let ary = document.getElementById('customfield_3').value;
+					ary = ary.replace(/\n/g,'\\n');
 					let idstd = document.getElementById('customfield_4').value ;
 					let	servid = document.getElementById('customfield_5').value ;
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
@@ -1455,15 +1461,25 @@ function getslacklnk() {
 					
 					document.getElementById('create_4').onclick = function() {
 					let idstd = document.getElementById('customfield_16').value;
+					idstd = idstd.replace(/\n/g,'\\n');
 					let idserv = document.getElementById('customfield_17').value;
+					idserv = idserv.replace(/\n/g,'\\n');
 					let dscr = document.getElementById('customfield_18').value;
+					dscr = dscr.replace(/\n/g,'\\n');
 					let jur = document.getElementById('customfield_19').value ;
+					jur = jur.replace(/\n/g,'\\n');
 					let	soglas = document.getElementById('customfield_20').value ;
+					soglas = soglas.replace(/\n/g,'\\n');
 					let	pagef = document.getElementById('customfield_21').value ;
+					pagef = pagef.replace(/\n/g,'\\n');
 					let	pagel = document.getElementById('customfield_22').value ;
+					pagel = pagel.replace(/\n/g,'\\n');
 					let	pages = document.getElementById('customfield_23').value ;
+					pages = pages.replace(/\n/g,'\\n');
 					let	usrdesc = document.getElementById('customfield_24').value ;
+					usrdesc = usrdesc.replace(/\n/g,'\\n');
 					let	sclackch = document.getElementById('customfield_25').value ;
+					sclackch = sclackch.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
 					console.log("Вопросы по рассрочке: " + "ID student " + idstd + "ID service " + idserv + "Description " + dscr);
 					
@@ -1621,8 +1637,11 @@ function getslacklnk() {
 					let idstd = document.getElementById('customfield_11').value;
 					let idserv = document.getElementById('customfield_12').value;
 					let dscr = document.getElementById('customfield_13').value;
+					dscr = dscr.replace(/\n/g,'\\n');
 					let erx = document.getElementById('customfield_14').value ;
+					erx = erx.replace(/\n/g,'\\n');
 					let	ary = document.getElementById('customfield_15').value ;
+					ary = ary.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1verstka').textContent){
 					console.log("Проблемы с версткой: " + "ID student: " + idstd + " ID service: " + idserv +  " Description: " + dscr);
 					
@@ -1867,9 +1886,13 @@ function getslacklnk() {
 					let idstd = document.getElementById('customfield_26').value;
 					let idserv = document.getElementById('customfield_27').value;
 					let dscr = document.getElementById('customfield_28').value;
+					dscr = dscr.replace(/\n/g,'\\n');
 					let str = document.getElementById('customfield_29').value ;
+					str = str.replace(/\n/g,'\\n');
 					let	erx = document.getElementById('customfield_30').value ;
+					erx = erx.replace(/\n/g,'\\n');
 					let	ary = document.getElementById('customfield_31').value ;
+					ary = ary.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttenableAP').textContent) {
 					console.log("Подключение АП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr);
 					
@@ -2187,7 +2210,9 @@ function getslacklnk() {
 					document.getElementById('create_7').onclick = function() {
 					let ids = document.getElementById('customfield_37').value;
 					let erx = document.getElementById('customfield_38').value;
+					erx = erx.replace(/\n/g,'\\n');
 					let ary = document.getElementById('customfield_39').value ;
+					ary = ary.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telnoaccess').textContent) {
 					console.log("Отсутствие доступа к странице телефонии: " + " ID operator " + ids + " Description " + erx);
 					
@@ -2518,7 +2543,9 @@ function getslacklnk() {
 					
 					document.getElementById('create_8').onclick = function() {
 					let ids = document.getElementById('customfield_40').value;
+					ids = ids.replace(/\n/g,'\\n');
 					let dscr = document.getElementById('customfield_41').value;
+					dscr = dscr.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdevq').textContent) {
 					console.log("Вопросы к разработке: " + " Description " + dscr); 
 										
@@ -2942,10 +2969,15 @@ function getslacklnk() {
 					
 					document.getElementById('create_9').onclick = function() {
 					let ids = document.getElementById('customfield_42').value;
+					ids = ids.replace(/\n/g,'\\n');
 					let servid = document.getElementById('customfield_43').value;
+					servid = servid.replace(/\n/g,'\\n');
 					let dscr = document.getElementById('customfield_44').value;
+					dscr = dscr.replace(/\n/g,'\\n');
 					let erx = document.getElementById('customfield_45').value;
+					erx = erx.replace(/\n/g,'\\n');
 					let ary = document.getElementById('customfield_46').value; 
+					ary = ary.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskssoprovod').textContent) {
 					console.log("Вопросы по задачам Сопровождения: " + " Link to service " + ids + " Description " + dscr + " ER " + erx +  " AR " + ary); 
 										
@@ -3478,8 +3510,11 @@ function getslacklnk() {
 
 					document.getElementById('create_10').onclick = function() {
 					let idstd = document.getElementById('customfield_47').value;
+					idstd = idstd.replace(/\n/g,'\\n');
 					let servid = document.getElementById('customfield_48').value;
+					servid = servid.replace(/\n/g,'\\n');
 					let dscr = document.getElementById('customfield_49').value ;
+					dscr = dscr.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktsubscribptions').textContent) {
 					console.log("Подписки: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
 					
@@ -4005,8 +4040,11 @@ function getslacklnk() {
 					let idstd = document.getElementById('customfield_32').value ;
 					let	servid = document.getElementById('customfield_33').value ;
 					let str = document.getElementById('customfield_34').value;
+					str = str.replace(/\n/g,'\\n');
 					let erx = document.getElementById('customfield_35').value;
+					erx = erx.replace(/\n/g,'\\n');
 					let ary = document.getElementById('customfield_36').value;
+					ary = ary.replace(/\n/g,'\\n');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billcheques').textContent) {
 					console.log("Чеки/инвойсы: " + "  Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
