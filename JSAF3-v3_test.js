@@ -920,20 +920,6 @@ butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
 
-
-$(window).keyup(function(e){
-	var target = $('.checkbox-ios input:focus');
-	if (e.keyCode == 9 && $(target).length){
-		$(target).parent().addClass('focused');
-	}
-});
- 
-$('.checkbox-ios input').focusout(function(){
-	$(this).parent().removeClass('focused');
-});
-
-
-
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -4948,6 +4934,17 @@ function startTimer() {
             if (txt != "Взять запрос (0)")
                 audio.play()
         }
+		
+		$(window).keyup(function(e){
+			var target = $('.checkbox-audio input:focus');
+			if (e.keyCode == 9 && $(target).length){
+				$(target).parent().addClass('focused');
+			}
+		});
+		 
+		$('.checkbox-audio input').focusout(function(){
+			$(this).parent().removeClass('focused');
+		});
 
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
         vertical = user = ""
@@ -7132,6 +7129,8 @@ function toUTF8Array(str) {
     }
     return utf8;
 }
+
+
 
 function decToHex(dec) {
     var hexStr = '0123456789ABCDEF';
