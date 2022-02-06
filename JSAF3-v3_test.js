@@ -4096,22 +4096,6 @@ function move_again_AF() {
             document.getElementById('switcher').innerHTML = 'ВКЛ';
     }
 	
-	
-	$(window).keyup(function(e){
-			var target = $('.checkbox-audio input:focus');
-			if (e.keyCode == 9 && $(target).length){
-				$(target).parent().addClass('focused');
-				localStorage.setItem('audio', '1');
-			}
-		});
-		 
-		$('.checkbox-audio input').focusout(function(){
-			$(this).parent().removeClass('focused');
-				localStorage.setItem('audio', '0');
-		});
-
-
-
     addInfoUser.style.textAlign = "center"
     addInfoUser.style.color = "white"
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
@@ -5405,32 +5389,7 @@ function timerHideButtons() {
                     if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
                         selectorList[i].style.backgroundColor = 'green'
                 }
-            }
-			
-            // document.querySelectorAll('.ant-btn-primary')[1].onclick = function () { // добавление заметки куда создана задача, отключил так как АФ сделали обнову
-                // let chechkvar = document.querySelectorAll('.ant-form-item-control-input-content');
-                // for (let i = 0; i < chechkvar.length; i++) {
-                    // if (chechkvar[i].innerText == "Техподдержка исход crm2") {
-                        // sendComment("Задача создана на Техподдержка исход crm2");
-                    // } else if (chechkvar[i].innerText == "Техподдержка 2-я линия crm2") {
-                        // sendComment("Задача создана на Техподдержка 2-я линия crm2");
-                    // } else if (chechkvar[i].innerText == "Skyes") {
-                        // sendComment("Задача создана на Skyes");
-                    // } else if (chechkvar[i].innerText == "Teachers Care crm2") {
-                        // sendComment("Задача создана на Teachers Care crm2");
-                    // } else if (chechkvar[i].innerText == "Вопросы эссе (UTC crm2)") {
-                        // sendComment("Задача создана на Вопросы эссе (UTC crm2)");
-                    // } else if (chechkvar[i].innerText == "Кризис менеджеры") {
-                        // sendComment("Задача создана на Кризис менеджеры");
-                    // } else if (chechkvar[i].innerText == "Teachers support") {
-                        // sendComment("Задача создана на Teachers support");
-                    // } else if (chechkvar[i].innerText == "Контент") {
-                        // sendComment("Задача создана на Контент");
-                    // } else if (chechkvar[i].innerText == "Словарь") {
-                        // sendComment("Задача создана на Словарь");
-                    // }
-                // }
-            // }
+            }			
         }
     }
 }
@@ -5894,6 +5853,19 @@ document.getElementById('getfile').onclick = function () {
         link.click();
     }
 }
+
+	$(window).keyup(function(e){
+			var target = $('.checkbox-audio input:focus');
+			if (e.keyCode == 9 && $(target).length){
+				$(target).parent().addClass('focused');
+				localStorage.setItem('audio', '1');
+			}
+		});
+		 
+		$('.checkbox-audio input').focusout(function(){
+			$(this).parent().removeClass('focused');
+				localStorage.setItem('audio', '0');
+		});
 
 async function sendAnswerTemplate2(word, flag = 0) {
     var tmpTxt = ""
