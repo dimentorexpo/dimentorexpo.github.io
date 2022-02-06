@@ -4095,6 +4095,23 @@ function move_again_AF() {
         else
             document.getElementById('switcher').innerHTML = 'ВКЛ';
     }
+	
+	
+	$(window).keyup(function(e){
+			var target = $('.checkbox-audio input:focus');
+			if (e.keyCode == 9 && $(target).length){
+				$(target).parent().addClass('focused');
+				localStorage.setItem('audio', '1');
+			}
+		});
+		 
+		$('.checkbox-audio input').focusout(function(){
+			$(this).parent().removeClass('focused');
+				localStorage.setItem('audio', '0');
+		});
+
+
+
     addInfoUser.style.textAlign = "center"
     addInfoUser.style.color = "white"
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
@@ -4935,16 +4952,6 @@ function startTimer() {
                 audio.play()
         }
 		
-		$(window).keyup(function(e){
-			var target = $('.checkbox-audio input:focus');
-			if (e.keyCode == 9 && $(target).length){
-				$(target).parent().addClass('focused');
-			}
-		});
-		 
-		$('.checkbox-audio input').focusout(function(){
-			$(this).parent().removeClass('focused');
-		});
 
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
         vertical = user = ""
