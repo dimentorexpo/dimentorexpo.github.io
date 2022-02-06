@@ -5853,7 +5853,7 @@ document.getElementById('getfile').onclick = function () {
         link.click();
     }
 }
-
+window.onload = function() {
 	$(window).keyup(function(e){
 			var target = $('.checkbox-audio input:focus');
 			if (e.keyCode == 9 && $(target).length){
@@ -5866,6 +5866,7 @@ document.getElementById('getfile').onclick = function () {
 			$(this).parent().removeClass('focused');
 				localStorage.setItem('audio', '0');
 		});
+}
 
 async function sendAnswerTemplate2(word, flag = 0) {
     var tmpTxt = ""
