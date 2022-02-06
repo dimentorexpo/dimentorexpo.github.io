@@ -27,61 +27,6 @@ function mystyles() {
 	.activebtnsd {
 		background-color: #ff6347;
 	}
-	
-		.checkbox-audio {
-			display: inline-block;    
-			height: 28px;    
-			line-height: 28px;  
-			margin-right: 10px;      
-			position: relative;
-			vertical-align: middle;
-			font-size: 14px;
-			user-select: none;	
-		}
-		.checkbox-audio .checkbox-audio-switch {
-			position: relative;	
-			display: inline-block;
-			box-sizing: border-box;			
-			width: 56px;	
-			height: 28px;
-			border: 1px solid rgba(0, 0, 0, .1);
-			border-radius: 25%/50%;	
-			vertical-align: top;
-			background: #eee;
-			transition: .2s;
-		}
-		.checkbox-audio .checkbox-audio-switch:before {
-			content: '';
-			position: absolute;
-			top: 1px;
-			left: 1px;	
-			display: inline-block;
-			width: 24px;	
-			height: 24px;
-			border-radius: 50%;
-			background: white;
-			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-			transition: .15s;
-		}
-		.checkbox-audio input[type=checkbox] {
-			display: block;	
-			width: 0;
-			height: 0;	
-			position: absolute;
-			z-index: -1;
-			opacity: 0;
-		}
-		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before {
-			box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
-		}
-		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch {
-			background: limegreen;
-		}
-		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
-			transform:translateX(28px);
-		}
-	
-	
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -156,12 +101,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
 				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
-				
-				<label class="checkbox-audio">
-					<input type="checkbox" checked>
-						<span class="checkbox-audio-switch"></span>
-				</label>
-				
 				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Убрать окно с Info</label>
 				<br>
 				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
@@ -4095,7 +4034,6 @@ function move_again_AF() {
         else
             document.getElementById('switcher').innerHTML = 'ВКЛ';
     }
-	
     addInfoUser.style.textAlign = "center"
     addInfoUser.style.color = "white"
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
@@ -4935,7 +4873,6 @@ function startTimer() {
             if (txt != "Взять запрос (0)")
                 audio.play()
         }
-		
 
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
         vertical = user = ""
@@ -5389,7 +5326,7 @@ function timerHideButtons() {
                     if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
                         selectorList[i].style.backgroundColor = 'green'
                 }
-            }			
+            }
         }
     }
 }
@@ -5852,20 +5789,6 @@ document.getElementById('getfile').onclick = function () {
         link.setAttribute("download", "LowCSAT.html");
         link.click();
     }
-}
-window.onload = function() {
-	$(window).keyup(function(e){
-			var target = $('.checkbox-audio input:focus');
-			if (e.keyCode == 9 && $(target).length){
-				$(target).parent().addClass('focused');
-				localStorage.setItem('audio', '1');
-			}
-		});
-		 
-		$('.checkbox-audio input').focusout(function(){
-			$(this).parent().removeClass('focused');
-				localStorage.setItem('audio', '0');
-		});
 }
 
 async function sendAnswerTemplate2(word, flag = 0) {
@@ -7109,8 +7032,6 @@ function toUTF8Array(str) {
     }
     return utf8;
 }
-
-
 
 function decToHex(dec) {
     var hexStr = '0123456789ABCDEF';
