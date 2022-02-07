@@ -64,6 +64,10 @@ function mystyles() {
 			transition: .15s;
 		}
 		
+		.checkbox-audio .checkbox-audio-switch:after {
+			content: '🔈';
+		}
+		
 		.checkbox-audio input[type=checkbox] {
 			display: block;	
 			width: 0;
