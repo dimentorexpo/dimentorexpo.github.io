@@ -3992,7 +3992,7 @@ function move_again_AF() {
 			document.getElementById('sound_save').innerText = "✅";
 			document.getElementById('sound_adr').value = "";
 				setTimeout(function() {
-					document.getElementById('sound_save').innerText = "💾;
+					document.getElementById('sound_save').innerText = "💾";
 				}, 3000);
 		}
     }
