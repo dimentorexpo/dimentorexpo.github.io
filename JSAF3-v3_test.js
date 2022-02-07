@@ -39,7 +39,6 @@ function mystyles() {
 			user-select: none;	
 		}
 		.checkbox-audio .checkbox-audio-switch {
-			content: 'OFF';
 			position: relative;	
 			display: inline-block;
 			box-sizing: border-box;			
@@ -52,7 +51,7 @@ function mystyles() {
 			transition: .2s;
 		}
 		.checkbox-audio .checkbox-audio-switch:before {
-			content: 'ON';
+			content: '🔊';
 			position: absolute;
 			top: 1px;
 			left: 1px;	
