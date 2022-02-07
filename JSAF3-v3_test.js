@@ -1501,15 +1501,6 @@ function move_again_AF() {
         }
     }
 
-    if (localStorage.getItem('disableomelchenkowindow') == 1) {
-        document.getElementById('main_easy_win').style.display = "none";
-        cboxstatus.checked = true;
-    } else {
-        cboxstatus.checked = false;
-    }
-
-
-
     // обработка нажатий на странице доступов
     document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
         if (kibsvid.value == "") {
@@ -3750,10 +3741,18 @@ function move_again_AF() {
 					}
 				}
 				
-				if (localStorage.getItem('audio') == '0')
-							document.getElementById('audioswitcher').checked = false;
-				else
-							document.getElementById('audioswitcher').checked = true;
+				    if (localStorage.getItem('disableomelchenkowindow') == 1) {
+						document.getElementById('main_easy_win').style.display = "none";
+						cboxstatus.checked = true;
+					} else {
+						cboxstatus.checked = false;
+					}
+					
+				
+					if (localStorage.getItem('audio') == '0')
+								document.getElementById('audioswitcher').checked = false;
+					else
+								document.getElementById('audioswitcher').checked = true;
 	
 				document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
 					
