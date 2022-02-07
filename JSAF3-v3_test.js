@@ -3721,6 +3721,9 @@ function move_again_AF() {
 		}
 	}
 
+				if (localStorage.getItem('audiovol') !=null) {
+					audio.volume = localStorage.getItem('audiovol');
+				} else audio.volume = 1;
 
     document.getElementById('setting').onclick = function () {
         if (document.getElementById('set_bar').style.display == '')
@@ -3730,10 +3733,7 @@ function move_again_AF() {
             document.getElementById('addTmp').style.display = 'none'
 			
 				let range = document.getElementById('range');
-				if (localStorage.getItem('audiovol') !=null) {
-					audio.volume = localStorage.getItem('audiovol');
-				} else audio.volume = 1;
-				
+			
 				range.onchange = function(){
 					if (localStorage.getItem('audiovol') !=null) {
 						this.value = localStorage.getItem('audiovol');
