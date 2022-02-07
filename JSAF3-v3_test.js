@@ -3733,12 +3733,8 @@ function move_again_AF() {
 			
 				let range = document.getElementById('range');
 				range.onchange = function(){
+					audio.volume = this.value;
 					
-					if (this.value == this.max && this.value >0) {
-						this.value = this.max - 0.1;
-					} else if (this.value == min && this.value <1) {
-						this.value =  this.min  + 0.1;
-					}
 				  // if (this.value == this.min){
 					// audio.volume = 0;
 				  // } else if(this.value == this.max){
