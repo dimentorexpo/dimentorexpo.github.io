@@ -3987,9 +3987,14 @@ function move_again_AF() {
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
         if (document.getElementById('sound_adr').value == "")
             audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
-        else
+        else {
             audio = new Audio(document.getElementById('sound_adr').value);
-        document.getElementById('sound_adr').value = "";
+			document.getElementById('sound_save').innerText = "✅";
+			document.getElementById('sound_adr').value = "";
+				setTimeout(function() {
+					document.getElementById('sound_save').innerText = "💾;
+				}, 3000);
+		}
     }
 
     if (flagLangBut == 0) {
