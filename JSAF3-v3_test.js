@@ -163,6 +163,11 @@ var win_AFhelper =  // описание элементов главного ок
 						<span class="checkbox-audio-switch"></span>
 				</label>
 				
+				<br>
+				
+				<input id="range" min="0" max="100" value="0" type="range">
+
+				
 				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Скрыть Info</label>
 				<br>
 				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
@@ -3726,6 +3731,15 @@ function move_again_AF() {
         else {
             document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
+			
+				let range = document.getElementById('range');
+				range.onchange = function(){
+				  if (this.value == this.min){
+					audio.volume = 0;
+				  } else if(this.value == this.max){
+					audio.volume = 1;
+				  }
+				}
 			
 			    let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
 				var cboxstatus = document.getElementById('removeinfowindow');
