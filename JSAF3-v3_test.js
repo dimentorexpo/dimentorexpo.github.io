@@ -1527,9 +1527,7 @@ function move_again_AF() {
 			else
 				document.getElementById('audioswitcher').checked = true;
 		}
-		
-		
-	}
+	})
 	
 	
 
