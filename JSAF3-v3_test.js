@@ -38,8 +38,7 @@ function mystyles() {
 			font-size: 14px;
 			user-select: none;	
 		}
-		.checkbox-audio .checkbox-audio-switch:after {
-			content: '🔈';
+		.checkbox-audio .checkbox-audio-switch {
 			position: relative;	
 			display: inline-block;
 			box-sizing: border-box;			
@@ -63,6 +62,20 @@ function mystyles() {
 			background: white;
 			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 			transition: .15s;
+		}
+		
+		.checkbox-audio .checkbox-audio-switch:after {
+			content: '🔈';
+			position: relative;	
+			display: inline-block;
+			box-sizing: border-box;			
+			width: 56px;	
+			height: 28px;
+			border: 1px solid rgba(0, 0, 0, .1);
+			border-radius: 25%/50%;	
+			vertical-align: top;
+			background: #eee;
+			transition: .2s;
 		}
 		.checkbox-audio input[type=checkbox] {
 			display: block;	
