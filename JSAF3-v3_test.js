@@ -1501,36 +1501,6 @@ function move_again_AF() {
         }
     }
 
-
-
-
-    let flagcheckbox = 0;
-    var cboxstatus = document.getElementById('removeinfowindow');
-    cboxstatus.addEventListener('click', function () {
-
-        if (!cboxstatus.checked) {
-            document.getElementById('main_easy_win').style.display = "";
-            flagcheckbox = 0;
-            localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-        } else {   // поставить checked, если он не установлен 
-            document.getElementById('main_easy_win').style.display = "none";
-            flagcheckbox = 1;
-            localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-        }
-    })
-	
-	document.getElementsByClassName('checkbox-audio-switch')[0].addEventListener('click', function () {
-		
-		if (localStorage.getItem('audio') != null) {
-			if (localStorage.getItem('audio') == '0')
-				document.getElementById('audioswitcher').checked = false;
-			else
-				document.getElementById('audioswitcher').checked = true;
-		}
-	})
-	
-	
-
     if (localStorage.getItem('disableomelchenkowindow') == 1) {
         document.getElementById('main_easy_win').style.display = "none";
         cboxstatus.checked = true;
@@ -3764,6 +3734,41 @@ function move_again_AF() {
         else {
             document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
+			
+			    let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
+				var cboxstatus = document.getElementById('removeinfowindow');
+				cboxstatus.onclick = function () {
+
+					if (!cboxstatus.checked) {
+						document.getElementById('main_easy_win').style.display = "";
+						flagcheckbox = 0;
+						localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+					} else {   // поставить checked, если он не установлен 
+						document.getElementById('main_easy_win').style.display = "none";
+						flagcheckbox = 1;
+						localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+					}
+				}
+				
+				if (localStorage.getItem('audio') == '0') {
+							document.getElementById('audioswitcher').checked = false;
+				else {
+							document.getElementById('audioswitcher').checked = true;
+	
+				document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+					
+					if (localStorage.getItem('audio') != null) {
+						if (localStorage.getItem('audio') == '0') {
+							document.getElementById('audioswitcher').checked = true;
+							localStorage.setItem('audio', '1');
+						} else {
+							document.getElementById('audioswitcher').checked = false;
+							localStorage.setItem('audio', '0');
+						}
+					}
+				}
+	
+	
         }
     }
 
