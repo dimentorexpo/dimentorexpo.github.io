@@ -64,19 +64,6 @@ function mystyles() {
 			transition: .15s;
 		}
 		
-		.checkbox-audio-switch:after {
-			content: '🔈';
-			position: relative;	
-			display: inline-block;
-			box-sizing: border-box;			
-			width: 56px;	
-			height: 28px;
-			border: 1px solid rgba(0, 0, 0, .1);
-			border-radius: 25%/50%;	
-			vertical-align: top;
-			background: #eee;
-			transition: .2s;
-		}
 		.checkbox-audio input[type=checkbox] {
 			display: block;	
 			width: 0;
