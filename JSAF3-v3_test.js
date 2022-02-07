@@ -3736,7 +3736,6 @@ function move_again_AF() {
 			
 				range.onchange = function(){
 					if (localStorage.getItem('audiovol') !=null) {
-						this.value = localStorage.getItem('audiovol');
 						audio.volume = this.value;
 						localStorage.setItem('audiovol',audio.volume);
 					} else localStorage.setItem('audiovol',this.value);
