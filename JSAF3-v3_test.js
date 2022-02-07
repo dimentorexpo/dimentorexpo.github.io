@@ -3723,7 +3723,7 @@ function move_again_AF() {
 
 				if (localStorage.getItem('audiovol') !=null) {
 					audio.volume = localStorage.getItem('audiovol');
-				} else audio.volume = 1;
+				} else localStorage.setItem('audiovol',1);
 
     document.getElementById('setting').onclick = function () {
         if (document.getElementById('set_bar').style.display == '')
