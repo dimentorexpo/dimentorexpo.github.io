@@ -153,27 +153,28 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 		</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
-			<div style="margin: 5px; width: 350px">
+<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button> 
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
 				
 				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
-					<input id="audioswitcher" type="checkbox" checked>
+					<input id="audioswitcher" type="checkbox" checked="">
 						<span class="checkbox-audio-switch"></span>
 				</label>
-				
+					<br>
+				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
-				
-				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Скрыть Info</label>
-				<br>
-				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+					<br>	
+				<label style="color:bisque"><input type="checkbox" id="removeinfowindow">Скрыть Info</label>
+					<br>
+				<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
-				<br>
-				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
-				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
-				<br>
+					<br>
+				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px">01 : 13 : 02</button>
+				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
+					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
