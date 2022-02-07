@@ -158,7 +158,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
 				
 				<label class="checkbox-audio">
-					<input type="checkbox" checked>
+					<input id="audioswitcher" type="checkbox" checked>
 						<span class="checkbox-audio-switch"></span>
 				</label>
 				
@@ -1518,6 +1518,20 @@ function move_again_AF() {
             localStorage.setItem('disableomelchenkowindow', flagcheckbox)
         }
     })
+	
+	document.getElementsByClassName('checkbox-audio-switch')[0].addEventListener('click', function () {
+		
+		if (localStorage.getItem('audio') != null) {
+			if (localStorage.getItem('audio') == '0')
+				document.getElementById('audioswitcher').checked = false;
+			else
+				document.getElementById('audioswitcher').checked = true;
+		}
+		
+		
+	}
+	
+	
 
     if (localStorage.getItem('disableomelchenkowindow') == 1) {
         document.getElementById('main_easy_win').style.display = "none";
