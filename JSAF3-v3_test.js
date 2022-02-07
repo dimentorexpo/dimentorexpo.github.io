@@ -3750,9 +3750,9 @@ function move_again_AF() {
 					}
 				}
 				
-				if (localStorage.getItem('audio') == '0') {
+				if (localStorage.getItem('audio') == '0')
 							document.getElementById('audioswitcher').checked = false;
-				else {
+				else
 							document.getElementById('audioswitcher').checked = true;
 	
 				document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
