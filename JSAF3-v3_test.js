@@ -38,7 +38,8 @@ function mystyles() {
 			font-size: 14px;
 			user-select: none;	
 		}
-		.checkbox-audio .checkbox-audio-switch {
+		.checkbox-audio .checkbox-audio-switch:after {
+			content: '🔈';
 			position: relative;	
 			display: inline-block;
 			box-sizing: border-box;			
