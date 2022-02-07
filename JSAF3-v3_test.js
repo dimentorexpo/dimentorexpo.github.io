@@ -51,7 +51,7 @@ function mystyles() {
 			transition: .2s;
 		}
 		.checkbox-audio .checkbox-audio-switch:before {
-			content: '🔊';
+			content: '🔈';
 			position: absolute;
 			top: 1px;
 			left: 1px;	
@@ -62,10 +62,6 @@ function mystyles() {
 			background: white;
 			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 			transition: .15s;
-		}
-		
-		.checkbox-audio .checkbox-audio-switch:after {
-			content: '🔈';
 		}
 		
 		.checkbox-audio input[type=checkbox] {
@@ -83,6 +79,7 @@ function mystyles() {
 			background: limegreen;
 		}
 		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
+			content: '🔊';
 			transform:translateX(28px);
 		}
 	
