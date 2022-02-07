@@ -165,21 +165,7 @@ var win_AFhelper =  // описание элементов главного ок
 				
 				<br>
 				
-				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range" list="tickmarks">
-				<datalist id="tickmarks">
-				  <option value="0" label="0%">
-				  <option value="0.1">
-				  <option value="0.2">
-				  <option value="0.3">
-				  <option value="0.4">
-				  <option value="0.5" label="50%">
-				  <option value="0.6">
-				  <option value="0.7">
-				  <option value="0.8">
-				  <option value="0.9">
-				  <option value="1.0" label="100%">
-				</datalist>
-
+				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
 				
 				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Скрыть Info</label>
 				<br>
@@ -3747,11 +3733,17 @@ function move_again_AF() {
 			
 				let range = document.getElementById('range');
 				range.onchange = function(){
-				  if (this.value == this.min){
-					audio.volume = 0;
-				  } else if(this.value == this.max){
-					audio.volume = 1;
-				  }
+					
+					if (this.value == this.max && this.value >0) {
+						this.value = this.max - 0.1;
+					} else if (this.value == min && this.value <1) {
+						this.value =  this.min  + 0.1;
+					}
+				  // if (this.value == this.min){
+					// audio.volume = 0;
+				  // } else if(this.value == this.max){
+					// audio.volume = 1;
+				  // }
 				}
 			
 			    let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
