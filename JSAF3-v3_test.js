@@ -155,8 +155,8 @@ var win_AFhelper =  // описание элементов главного ок
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 			<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
-				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button> 
+				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
 				
 				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
 					<input id="audioswitcher" type="checkbox" checked>
