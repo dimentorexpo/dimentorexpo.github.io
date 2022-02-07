@@ -3731,7 +3731,11 @@ function move_again_AF() {
 			
 				let range = document.getElementById('range');
 				range.onchange = function(){
-					audio.volume = this.value;
+					if (localStorage.getItem('audiovol') !=null) {
+						this.value = localStorage.getItem('audiovol');
+						audio.volume = this.value;
+						localStorage.setItem('audiovol',audio.volume);
+					} else localStorage.setItem('audiovol',this.value);
 				}
 			
 			    let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
