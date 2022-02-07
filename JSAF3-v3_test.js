@@ -165,7 +165,7 @@ var win_AFhelper =  // описание элементов главного ок
 				
 				<br>
 				
-				<input id="range" min="0" max="100" value="0" type="range">
+				<input id="range" min="0" max="1" value="1" step="0.1" type="range">
 
 				
 				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Скрыть Info</label>
