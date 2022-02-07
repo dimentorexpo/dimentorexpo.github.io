@@ -155,9 +155,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
-				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
 				
-				<label class="checkbox-audio">
+				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
 					<input id="audioswitcher" type="checkbox" checked>
 						<span class="checkbox-audio-switch"></span>
 				</label>
@@ -4086,31 +4085,6 @@ function move_again_AF() {
     }
     screenshots2()
     setInterval(screenshots2, 5000)
-
-    document.getElementById('switcher').onclick = function () {
-        if (this.innerHTML == "ВКЛ") {
-            this.innerHTML = "ВЫКЛ";
-            localStorage.setItem('audio', '0');
-        } else {
-            this.innerHTML = "ВКЛ";
-            localStorage.setItem('audio', '1');
-        }
-    }
-
-
-    if (localStorage.getItem('audio') == 0) {
-        document.getElementById('switcher').innerHTML = "ВЫКЛ"
-    }
-    if (localStorage.getItem('audio') == 1) {
-        document.getElementById('switcher').innerHTML = "ВКЛ"
-    }
-
-    if (localStorage.getItem('audio') != null) {
-        if (localStorage.getItem('audio') == '0')
-            document.getElementById('switcher').innerHTML = 'ВЫКЛ';
-        else
-            document.getElementById('switcher').innerHTML = 'ВКЛ';
-    }
 	
     addInfoUser.style.textAlign = "center"
     addInfoUser.style.color = "white"
