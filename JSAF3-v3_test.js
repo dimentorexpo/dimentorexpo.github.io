@@ -809,7 +809,7 @@ function onlyNumber(object) { // функция для разрешения вв
 }
 
 function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
-		object.value = object.value.replace(/["']/gi, '');
+		object.value = object.value.replace(/["'\\]/gi, '');
 }
 
 
