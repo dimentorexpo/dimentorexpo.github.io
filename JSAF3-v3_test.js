@@ -163,8 +163,6 @@ var win_AFhelper =  // описание элементов главного ок
 						<span class="checkbox-audio-switch"></span>
 				</label>
 				
-				<br>
-				
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
 				
 				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Скрыть Info</label>
@@ -3734,12 +3732,6 @@ function move_again_AF() {
 				let range = document.getElementById('range');
 				range.onchange = function(){
 					audio.volume = this.value;
-					
-				  // if (this.value == this.min){
-					// audio.volume = 0;
-				  // } else if(this.value == this.max){
-					// audio.volume = 1;
-				  // }
 				}
 			
 			    let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
