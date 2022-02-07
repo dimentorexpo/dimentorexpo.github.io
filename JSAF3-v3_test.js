@@ -3733,6 +3733,8 @@ function move_again_AF() {
             document.getElementById('addTmp').style.display = 'none'
 			
 				let range = document.getElementById('range');
+				range.value = localStorage.getItem('audiovol');
+				
 			
 				range.onchange = function(){
 					if (localStorage.getItem('audiovol') !=null) {
