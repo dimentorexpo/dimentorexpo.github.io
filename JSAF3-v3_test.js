@@ -3760,7 +3760,7 @@ function move_again_AF() {
 						if (localStorage.getItem('audio') == '0') {
 							document.getElementById('audioswitcher').checked = true;
 							localStorage.setItem('audio', '1');
-						} else {
+						} else if (localStorage.getItem('audio') == '1') {
 							document.getElementById('audioswitcher').checked = false;
 							localStorage.setItem('audio', '0');
 						}
