@@ -64,7 +64,7 @@ function mystyles() {
 			transition: .15s;
 		}
 		
-		.checkbox-audio .checkbox-audio-switch:after {
+		.checkbox-audio-switch:after {
 			content: '🔈';
 			position: relative;	
 			display: inline-block;
