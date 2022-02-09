@@ -27,6 +27,63 @@ function mystyles() {
 	.activebtnsd {
 		background-color: #ff6347;
 	}
+	
+		.checkbox-audio {
+			display: inline-block;    
+			height: 28px;    
+			line-height: 28px;  
+			margin-right: 10px;      
+			position: relative;
+			vertical-align: middle;
+			font-size: 14px;
+			user-select: none;	
+		}
+		.checkbox-audio .checkbox-audio-switch {
+			position: relative;	
+			display: inline-block;
+			box-sizing: border-box;			
+			width: 56px;	
+			height: 28px;
+			border: 1px solid rgba(0, 0, 0, .1);
+			border-radius: 25%/50%;	
+			vertical-align: top;
+			background: #eee;
+			transition: .2s;
+		}
+		.checkbox-audio .checkbox-audio-switch:before {
+			content: '🔈';
+			position: absolute;
+			top: 1px;
+			left: 1px;	
+			display: inline-block;
+			width: 24px;	
+			height: 24px;
+			border-radius: 50%;
+			background: white;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+			transition: .15s;
+		}
+		
+		.checkbox-audio input[type=checkbox] {
+			display: block;	
+			width: 0;
+			height: 0;	
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before {
+			box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+		}
+		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch {
+			background: limegreen;
+		}
+		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
+			content: '🔊';
+			transform:translateX(28px);
+		}
+	
+	
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -96,20 +153,29 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 		</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
-			<div style="margin: 5px; width: 350px">
+		<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">save</button> 
-				<button title="Проверка звука при добавленной ссылке" id="sound_test">test</button>
-				<button title="Включение и отключение звука в АФ входящих запросов" id="switcher">ВКЛ</button>
-				<label style="color:bisque"><input type="checkbox" id="removeinfowindow"/>Убрать окно с Info</label>
-				<br>
-				<input title="Ввод часа от 0 до 23 для будильника"" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button> 
+				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
+				
+				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
+					<input id="audioswitcher" type="checkbox" checked="">
+						<span class="checkbox-audio-switch"></span>
+				</label>
+				
+				<label style="color:bisque"><input type="checkbox" id="removeinfowindow">Скрыть Info</label>
+					<br>
+				<span style="color:bisque">Громкость звука в АФ</span>
+				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
+				
+					<br>
+				<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 				<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
-				<br>
-				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
-				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px"></button>
-				<br>
+					<br>
+				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px">01 : 23 : 40</button>
+				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
+					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
@@ -1439,33 +1505,6 @@ function move_again_AF() {
             document.getElementById("clock_remin").innerHTML = time;
         }
     }
-
-
-
-
-    let flagcheckbox = 0;
-    var cboxstatus = document.getElementById('removeinfowindow');
-    cboxstatus.addEventListener('click', function () {
-
-        if (!cboxstatus.checked) {
-            document.getElementById('main_easy_win').style.display = "";
-            flagcheckbox = 0;
-            localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-        } else {   // поставить checked, если он не установлен 
-            document.getElementById('main_easy_win').style.display = "none";
-            flagcheckbox = 1;
-            localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-        }
-    })
-
-    if (localStorage.getItem('disableomelchenkowindow') == 1) {
-        document.getElementById('main_easy_win').style.display = "none";
-        cboxstatus.checked = true;
-    } else {
-        cboxstatus.checked = false;
-    }
-
-
 
     // обработка нажатий на странице доступов
     document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
@@ -3684,6 +3723,9 @@ function move_again_AF() {
 		}
 	}
 
+				if (localStorage.getItem('audiovol') !=null) {
+					audio.volume = localStorage.getItem('audiovol');
+				} else localStorage.setItem('audiovol',1);
 
     document.getElementById('setting').onclick = function () {
         if (document.getElementById('set_bar').style.display == '')
@@ -3691,6 +3733,60 @@ function move_again_AF() {
         else {
             document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
+			
+				let range = document.getElementById('range');
+				range.value = localStorage.getItem('audiovol');
+				
+			
+				range.onchange = function(){
+					if (localStorage.getItem('audiovol') !=null) {
+						audio.volume = this.value;
+						localStorage.setItem('audiovol',audio.volume);
+					} else localStorage.setItem('audiovol',this.value);
+				}
+			
+			    let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
+				var cboxstatus = document.getElementById('removeinfowindow');
+				cboxstatus.onclick = function () {
+
+					if (!cboxstatus.checked) {
+						document.getElementById('main_easy_win').style.display = "";
+						flagcheckbox = 0;
+						localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+					} else {   // поставить checked, если он не установлен 
+						document.getElementById('main_easy_win').style.display = "none";
+						flagcheckbox = 1;
+						localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+					}
+				}
+				
+				    if (localStorage.getItem('disableomelchenkowindow') == 1) {
+						document.getElementById('main_easy_win').style.display = "none";
+						cboxstatus.checked = true;
+					} else {
+						cboxstatus.checked = false;
+					}
+					
+				
+					if (localStorage.getItem('audio') == '0')
+								document.getElementById('audioswitcher').checked = false;
+					else
+								document.getElementById('audioswitcher').checked = true;
+	
+				document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+					
+					if (localStorage.getItem('audio') != null) {
+						if (localStorage.getItem('audio') == '0') {
+							document.getElementById('audioswitcher').checked = false;
+							localStorage.setItem('audio', '1');
+						} else if (localStorage.getItem('audio') == '1') {
+							document.getElementById('audioswitcher').checked = true;
+							localStorage.setItem('audio', '0');
+						}
+					}
+				}
+	
+	
         }
     }
 
@@ -3891,9 +3987,14 @@ function move_again_AF() {
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
         if (document.getElementById('sound_adr').value == "")
             audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
-        else
+        else {
             audio = new Audio(document.getElementById('sound_adr').value);
-        document.getElementById('sound_adr').value = "";
+			document.getElementById('sound_save').innerText = "✅";
+			document.getElementById('sound_adr').value = "";
+				setTimeout(function() {
+					document.getElementById('sound_save').innerText = "💾";
+				}, 3000);
+		}
     }
 
     if (flagLangBut == 0) {
@@ -4009,31 +4110,7 @@ function move_again_AF() {
     }
     screenshots2()
     setInterval(screenshots2, 5000)
-
-    document.getElementById('switcher').onclick = function () {
-        if (this.innerHTML == "ВКЛ") {
-            this.innerHTML = "ВЫКЛ";
-            localStorage.setItem('audio', '0');
-        } else {
-            this.innerHTML = "ВКЛ";
-            localStorage.setItem('audio', '1');
-        }
-    }
-
-
-    if (localStorage.getItem('audio') == 0) {
-        document.getElementById('switcher').innerHTML = "ВЫКЛ"
-    }
-    if (localStorage.getItem('audio') == 1) {
-        document.getElementById('switcher').innerHTML = "ВКЛ"
-    }
-
-    if (localStorage.getItem('audio') != null) {
-        if (localStorage.getItem('audio') == '0')
-            document.getElementById('switcher').innerHTML = 'ВЫКЛ';
-        else
-            document.getElementById('switcher').innerHTML = 'ВКЛ';
-    }
+	
     addInfoUser.style.textAlign = "center"
     addInfoUser.style.color = "white"
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
@@ -4867,12 +4944,13 @@ function startTimer() {
 
     }
 
-    if (document.getElementById('switcher').innerHTML == "ВКЛ")
+    if (document.getElementById('audioswitcher').checked == true)
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
             txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
             if (txt != "Взять запрос (0)")
                 audio.play()
         }
+		
 
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
         vertical = user = ""
@@ -5326,7 +5404,7 @@ function timerHideButtons() {
                     if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
                         selectorList[i].style.backgroundColor = 'green'
                 }
-            }
+            }			
         }
     }
 }
@@ -7032,6 +7110,8 @@ function toUTF8Array(str) {
     }
     return utf8;
 }
+
+
 
 function decToHex(dec) {
     var hexStr = '0123456789ABCDEF';
