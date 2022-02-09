@@ -629,6 +629,7 @@ var win_servicedesk =
 					<button class="kidsbtn" id="skysmartcontent">Контент</button>
 					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
 					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
+					<button class="kidsbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
 					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
 					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
 					<button class="kidsbtn" id="skysmartcabinet">Детский ЛКУ</button>
