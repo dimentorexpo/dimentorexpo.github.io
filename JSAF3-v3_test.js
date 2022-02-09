@@ -629,6 +629,7 @@ var win_servicedesk =
 					<button class="kidsbtn" id="skysmartcontent">Контент</button>
 					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
 					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
+					<button class="kidsbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
 					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
 					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
 					<button class="kidsbtn" id="skysmartcabinet">Детский ЛКУ</button>
@@ -6794,7 +6795,7 @@ function prepTp() {
 
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-		include("https://dimentorexpo.github.io/ServiceDesk.js")
+		include("https://dimentorexpo.github.io/ServiceDesk1.js")
 		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 		include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
 		include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
