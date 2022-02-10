@@ -3739,6 +3739,14 @@ function move_again_AF() {
             document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
 			
+			if(localStorage.getItem('test_stud') !="" || localStorage.getItem('test_stud') != null) {
+				document.getElementById('test_std').value = localStorage.getItem('test_stud');
+			}
+			
+			if(localStorage.getItem('test_teach') !="" || localStorage.getItem('test_teach') != null) {
+				document.getElementById('test_teach').value = localStorage.getItem('test_teach');
+			}
+			
 				let range = document.getElementById('range');
 				range.value = localStorage.getItem('audiovol');
 				
