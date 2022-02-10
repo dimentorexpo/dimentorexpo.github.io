@@ -6582,7 +6582,29 @@ async function getStats() {           // функция получения ст�
     quechatscount.style.marginLeft = '50px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
-
+	
+		let dcc = document.getElementsByClassName('chtcnt')
+		let summcnt=0;
+		for(i=0;i<dcc.length;i++) {
+		summcnt = summcnt + Number(dcc[i].textContent)
+		}
+		
+		let dc = document.getElementsByClassName('chtclosed')
+		let summclsd=0;
+		for(i=0;i<dc.length;i++) {
+		summclsd = summclsd + Number(dc[i].textContent)
+		}
+	
+		let sumchatclosed = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+    sumchatclosed.textContent = 'Сумма закрытых чатов: ' + summclsd;
+    sumchatclosed.style.marginLeft = '50px'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
+	
+	 let sumchatcount = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+    sumchatcount.textContent = 'Сумма пощупаных чатов: ' + summcnt;
+    sumchatcount.style.marginLeft = '50px'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
+	
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
