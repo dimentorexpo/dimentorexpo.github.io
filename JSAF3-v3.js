@@ -3741,11 +3741,11 @@ function move_again_AF() {
 			
 			if(localStorage.getItem('test_stud') !="" || localStorage.getItem('test_stud') != null) {
 				document.getElementById('test_std').value = localStorage.getItem('test_stud');
-			}
+			} else document.getElementById('test_std').value = "";
 			
 			if(localStorage.getItem('test_teach') !="" || localStorage.getItem('test_teach') != null) {
 				document.getElementById('test_teach').value = localStorage.getItem('test_teach');
-			}
+			} else document.getElementById('test_teach').value = "";
 			
 				let range = document.getElementById('range');
 				range.value = localStorage.getItem('audiovol');
@@ -6528,11 +6528,13 @@ async function getStats() {           // функция получения ст�
                     for (let j = 0; j < operatorNames.length; j++)
                         if (array[i].operator == operatorNames[j]) {
                             td.textContent = operatorChatCount[j]
+							td.classList.add("chtcnt");
                             break
                         }
                     break;
                 case 1:
                     td.textContent = array[i].conversationClosed;
+					td.classList.add("chtclosed");
                     break;
                 case 3:
                     var averageAnswerTime = Math.floor(array[i].averageAnswerTime / 1000)
@@ -6580,7 +6582,29 @@ async function getStats() {           // функция получения ст�
     quechatscount.style.marginLeft = '50px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
-
+	
+		let dcc = document.getElementsByClassName('chtcnt')
+		let summcnt=0;
+		for(i=0;i<dcc.length;i++) {
+		summcnt = summcnt + Number(dcc[i].textContent)
+		}
+		
+		let dc = document.getElementsByClassName('chtclosed')
+		let summclsd=0;
+		for(i=0;i<dc.length;i++) {
+		summclsd = summclsd + Number(dc[i].textContent)
+		}
+	
+		let sumchatclosed = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+    sumchatclosed.textContent = 'Сумма закрытых чатов: ' + summclsd;
+    sumchatclosed.style.marginLeft = '50px'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
+	
+	 let sumchatcount = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+    sumchatcount.textContent = 'Сумма пощупаных чатов: ' + summcnt;
+    sumchatcount.style.marginLeft = '50px'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
+	
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
