@@ -1450,13 +1450,11 @@ function move_again_AF() {
 	document.getElementById('setteststd').onclick = function() {
 			if (document.getElementById('test_std').value != '') {
 				localStorage.setItem('test_stud', document.getElementById('test_std').value);
-				document.getElementById('test_std').value = '';
 			} else console.log("Ведите ID тестового ученика")
 	}
 	document.getElementById('settestteach').onclick = function() {
 			if (document.getElementById('test_teach').value != '') {
 				localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-				document.getElementById('test_teach').value = '';
 			} else console.log("Ведите ID тестового преподавателя")
 	}
 
