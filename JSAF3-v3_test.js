@@ -6519,6 +6519,7 @@ async function getStats() {           // функция получения ст�
         var tr = document.createElement('tr')
         for (let j = 0; j < 5; j++) {
             var td = document.createElement('td')
+			td.classList.add("testo");
             switch (j) {
                 case 0:
                     td.textContent = array[i].operator;
