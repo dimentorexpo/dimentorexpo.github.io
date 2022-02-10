@@ -6596,12 +6596,12 @@ async function getStats() {           // функция получения ст�
 		}
 	
 		let sumchatclosed = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
-    sumchatclosed.textContent = 'Сумма закрытых чатов: ' + summclsd;
+    sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
     sumchatclosed.style.marginLeft = '50px'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
 	
 	 let sumchatcount = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
-    sumchatcount.textContent = 'Сумма пощупаных чатов: ' + summcnt;
+    sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
 	
