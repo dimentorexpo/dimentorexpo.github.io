@@ -6519,7 +6519,6 @@ async function getStats() {           // функция получения ст�
         var tr = document.createElement('tr')
         for (let j = 0; j < 5; j++) {
             var td = document.createElement('td')
-			td.classList.add("testo");
             switch (j) {
                 case 0:
                     td.textContent = array[i].operator;
@@ -6529,11 +6528,13 @@ async function getStats() {           // функция получения ст�
                     for (let j = 0; j < operatorNames.length; j++)
                         if (array[i].operator == operatorNames[j]) {
                             td.textContent = operatorChatCount[j]
+							td.classList.add("chtcnt");
                             break
                         }
                     break;
                 case 1:
                     td.textContent = array[i].conversationClosed;
+					td.classList.add("chtclosed");
                     break;
                 case 3:
                     var averageAnswerTime = Math.floor(array[i].averageAnswerTime / 1000)
