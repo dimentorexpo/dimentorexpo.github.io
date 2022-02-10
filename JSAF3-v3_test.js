@@ -3741,11 +3741,11 @@ function move_again_AF() {
 			
 			if(localStorage.getItem('test_stud') !="" || localStorage.getItem('test_stud') != null) {
 				document.getElementById('test_std').value = localStorage.getItem('test_stud');
-			}
+			} else document.getElementById('test_std').value = "";
 			
 			if(localStorage.getItem('test_teach') !="" || localStorage.getItem('test_teach') != null) {
 				document.getElementById('test_teach').value = localStorage.getItem('test_teach');
-			}
+			} else document.getElementById('test_teach').value = "";
 			
 				let range = document.getElementById('range');
 				range.value = localStorage.getItem('audiovol');
