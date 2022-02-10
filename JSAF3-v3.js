@@ -176,9 +176,9 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px">01 : 23 : 40</button>
 				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
 					<br>
-				<input id="test_std" placeholder="ID тест У" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
-				<input id="test_teach" placeholder="ID тест П" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>	
 			</div>
 				
@@ -3738,6 +3738,14 @@ function move_again_AF() {
         else {
             document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
+			
+			if(localStorage.getItem('test_stud') !="" || localStorage.getItem('test_stud') != null) {
+				document.getElementById('test_std').value = localStorage.getItem('test_stud');
+			}
+			
+			if(localStorage.getItem('test_teach') !="" || localStorage.getItem('test_teach') != null) {
+				document.getElementById('test_teach').value = localStorage.getItem('test_teach');
+			}
 			
 				let range = document.getElementById('range');
 				range.value = localStorage.getItem('audiovol');
