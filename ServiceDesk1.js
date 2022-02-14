@@ -4972,6 +4972,19 @@ function getslacklnk() {
 						}
 					}
 					
+					document.getElementById('create_11').onclick = function() {
+					let idstdserv = document.getElementById('customfield_50').value ;
+					let	idteach = document.getElementById('customfield_51').value ;
+					let dscr = document.getElementById('customfield_52').value;
+					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let str = document.getElementById('customfield_53').value;
+					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let erx = document.getElementById('customfield_54').value;
+					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let ary = document.getElementById('customfield_55').value;
+					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					}
+					
 				} else console.log("test");
 				}
    }
