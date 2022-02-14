@@ -4879,7 +4879,7 @@ function getslacklnk() {
 				}
 		 }	 
    
-					document.getElementById('optionVimbugs').onclick = function() {
+					document.getElementById('optionVimbugs').onclick = function() { //vimbugs
 				if (document.getElementById('vimbugsoptions').style.display != '') {
 					document.getElementById('vimbugsoptions').style.display = '';
 					document.getElementById('vimbugsform').style.display = '';	
@@ -4905,6 +4905,72 @@ function getslacklnk() {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
+					
+					document.getElementById('lessonbutwidg').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+
+					document.getElementById('automark').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('cmscontentadult').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('adulthwlestest').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="none";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('showcaseadult').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('vimboxpages').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
 					
 				} else console.log("test");
 				}
