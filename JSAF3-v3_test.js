@@ -664,7 +664,7 @@ var win_servicedesk =
 					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
 					<button class="vimbugsbtn" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
 					<button class="vimbugsbtn" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
-					<button class="vimbugsbtn" id="vimboxpages">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
+					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 				</div>
 				
 	        </span>
