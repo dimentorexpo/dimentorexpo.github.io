@@ -4983,6 +4983,13 @@ function getslacklnk() {
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let ary = document.getElementById('customfield_55').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
 					}
 					
 				} else console.log("test");
