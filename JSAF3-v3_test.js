@@ -655,6 +655,17 @@ var win_servicedesk =
 					<button class="mrktbtn" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
 					<button class="mrktbtn" id="mrktunderground">Подземный стук</button>
 				</div>
+				
+				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#vim-bugs</p>
+					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
+					<button class="vimbugsbtn" id="automark">Автоотметка по урокам взрослых У</button>
+					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
+					<button class="vimbugsbtn" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
+					<button class="vimbugsbtn" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
+					<button class="vimbugsbtn" id="vimboxpages">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
+				</div>
+				
 	        </span>
 			
 				<div id="kidsform" style="display: none; margin-left:20px;">
