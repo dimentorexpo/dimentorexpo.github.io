@@ -239,6 +239,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -253,6 +254,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 										
@@ -267,6 +269,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -281,6 +284,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -295,6 +299,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -309,6 +314,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -323,6 +329,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -337,6 +344,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -351,6 +359,7 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -365,10 +374,26 @@ function getslacklnk() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
+					
+					$('.vimbugsbtn').click(function() {  //поправить
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});	
 
-					document.getElementById('optionTeacher').onclick = function() {
+					document.getElementById('optionTeacher').onclick = function() { // Teachers
 				if (document.getElementById('teacherssrvdskoptions').style.display != ''){
 					document.getElementById('teacherssrvdskoptions').style.display = '';
 					document.getElementById('teachersform').style.display = '';
@@ -382,7 +407,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
-
+					document.getElementById('vimbugsform').style.display = 'none';	
+					
+					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -1014,7 +1041,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-		 			document.getElementById('optionSkysmart').onclick = function() {
+		 			document.getElementById('optionSkysmart').onclick = function() { // Skysmart KIDS
 				if (document.getElementById('skysmartsrvdskoptions').style.display != '') {
 					document.getElementById('skysmartsrvdskoptions').style.display = '';
 					document.getElementById('kidsform').style.display = '';
@@ -1028,7 +1055,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
 					
+					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -1417,7 +1446,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-		 		 	document.getElementById('optionBillingQA').onclick = function() {
+		 		 	document.getElementById('optionBillingQA').onclick = function() { //BillingQA
 				if (document.getElementById('billingqasrvdskoptions').style.display != '') {
 					document.getElementById('billingqasrvdskoptions').style.display = '';
 					document.getElementById('billqaform').style.display = '';
@@ -1431,7 +1460,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
 					
+					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('c1srvdskoptions').style.display = 'none';
@@ -1609,7 +1640,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-		 		 	document.getElementById('optionOnboarding').onclick = function() {
+		 		 	document.getElementById('optionOnboarding').onclick = function() { //C1 Onboarding
 				if (document.getElementById('c1srvdskoptions').style.display != '') {
 					document.getElementById('c1srvdskoptions').style.display = '';
 					document.getElementById('onboardingform').style.display = '';
@@ -1622,8 +1653,10 @@ function getslacklnk() {
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
-					document.getElementById('telephonyform').style.display = 'none';	
+					document.getElementById('telephonyform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
 					
+					document.getElementById('vimbugsoptions').style.display = 'none';						
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1802,7 +1835,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-					document.getElementById('optionSchedule').onclick = function() {
+					document.getElementById('optionSchedule').onclick = function() { // Schedule
 				if (document.getElementById('schedulesrvdskoptions').style.display != '') {
 					document.getElementById('schedulesrvdskoptions').style.display = '';
 					document.getElementById('scheduleform').style.display = '';	
@@ -1816,7 +1849,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
-										
+					document.getElementById('vimbugsform').style.display = 'none';	
+					
+					document.getElementById('vimbugsoptions').style.display = 'none';			
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -2134,7 +2169,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-		 			document.getElementById('optionTelephony').onclick = function() {
+		 			document.getElementById('optionTelephony').onclick = function() { //Telephony
 				if (document.getElementById('telephonysrvdskoptions').style.display != '') {
 					document.getElementById('telephonysrvdskoptions').style.display = '';
 					document.getElementById('telephonyform').style.display = '';	
@@ -2148,7 +2183,9 @@ function getslacklnk() {
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
-										
+					document.getElementById('vimbugsform').style.display = 'none';	
+					
+					document.getElementById('vimbugsoptions').style.display = 'none';				
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -2477,7 +2514,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-		 		 	document.getElementById('optionAuth').onclick = function() {
+		 		 	document.getElementById('optionAuth').onclick = function() { //Auth
 				if (document.getElementById('authsrvdskoptions').style.display != '') {
 					document.getElementById('authsrvdskoptions').style.display = '';
 					document.getElementById('authform').style.display = '';	
@@ -2491,7 +2528,9 @@ function getslacklnk() {
 					document.getElementById('billingform').style.display = 'none';	
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';
-										
+					document.getElementById('vimbugsform').style.display = 'none';	
+					
+					document.getElementById('vimbugsoptions').style.display = 'none';				
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -2829,7 +2868,7 @@ function getslacklnk() {
 				
 		 }
 		 
-		 		 	document.getElementById('optionCRM2').onclick = function() {
+		 		 	document.getElementById('optionCRM2').onclick = function() { //CRM2
 				if (document.getElementById('crm2srvdskoptions').style.display != '') {
 					document.getElementById('crm2srvdskoptions').style.display = '';
 					document.getElementById('crm2form').style.display = '';		
@@ -2843,7 +2882,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('billingform').style.display = 'none';	
 					document.getElementById('mrktform').style.display = 'none';	
-									
+					document.getElementById('vimbugsform').style.display = 'none';	
+					
+					document.getElementById('vimbugsoptions').style.display = 'none';		
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -3407,7 +3448,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-					document.getElementById('optionMrkt').onclick = function() {
+					document.getElementById('optionMrkt').onclick = function() { //MRKT
 				if (document.getElementById('mrktsrvdskoptions').style.display != '') {
 					document.getElementById('mrktsrvdskoptions').style.display = '';
 					document.getElementById('mrktform').style.display = '';	
@@ -3420,8 +3461,10 @@ function getslacklnk() {
 					document.getElementById('telephonyform').style.display = 'none';	
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';	
-					document.getElementById('billingform').style.display = 'none';	
-										
+					document.getElementById('billingform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
+					
+					document.getElementById('vimbugsoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -3866,7 +3909,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-		 			document.getElementById('optionBilling').onclick = function() {
+		 			document.getElementById('optionBilling').onclick = function() { //billing
 				if (document.getElementById('billingsrvdskoptions').style.display != '') {
 					document.getElementById('billingsrvdskoptions').style.display = '';
 					document.getElementById('billingform').style.display = '';
@@ -3879,8 +3922,10 @@ function getslacklnk() {
 					document.getElementById('telephonyform').style.display = 'none';	
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';	
-					document.getElementById('mrktform').style.display = 'none';	
+					document.getElementById('mrktform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
 					
+					document.getElementById('vimbugsoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -4833,4 +4878,300 @@ function getslacklnk() {
 					document.getElementById('billingform').style.display = 'none';
 				}
 		 }	 
-    }
+   
+					document.getElementById('optionVimbugs').onclick = function() { //vimbugs
+				if (document.getElementById('vimbugsoptions').style.display != '') {
+					document.getElementById('vimbugsoptions').style.display = '';
+					document.getElementById('vimbugsform').style.display = '';	
+										
+					document.getElementById('mrktform').style.display = 'none';	
+					document.getElementById('kidsform').style.display = 'none';
+					document.getElementById('teachersform').style.display = 'none';
+					document.getElementById('onboardingform').style.display = 'none';
+					document.getElementById('billqaform').style.display = 'none';
+					document.getElementById('scheduleform').style.display = 'none';
+					document.getElementById('telephonyform').style.display = 'none';	
+					document.getElementById('authform').style.display = 'none';	
+					document.getElementById('crm2form').style.display = 'none';	
+					document.getElementById('billingform').style.display = 'none';	
+										
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+					document.getElementById('c1srvdskoptions').style.display = 'none';
+					document.getElementById('schedulesrvdskoptions').style.display = 'none';
+					document.getElementById('telephonysrvdskoptions').style.display = 'none';
+					document.getElementById('authsrvdskoptions').style.display = 'none';
+					document.getElementById('crm2srvdskoptions').style.display = 'none';
+					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('mrktsrvdskoptions').style.display = 'none';
+					
+					document.getElementById('lessonbutwidg').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+
+					document.getElementById('automark').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('cmscontentadult').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('adulthwlestest').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="none";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('showcaseadult').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('vimboxpages').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('create_11').onclick = function() {
+					let idstdserv = document.getElementById('customfield_50').value ;
+					let	idteach = document.getElementById('customfield_51').value ;
+					let dscr = document.getElementById('customfield_52').value;
+					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let str = document.getElementById('customfield_53').value;
+					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let erx = document.getElementById('customfield_54').value;
+					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let ary = document.getElementById('customfield_55').value;
+					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('lessonbutwidg').textContent) {
+					console.log("Виджет входа у взрослых У и П: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/935",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/935";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('automark').textContent) {
+					console.log("Автоотметка по урокам взрослых У: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/934",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/934";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('cmscontentadult').textContent) {
+					console.log("Взрослый англиский: CMS и контент на взрослой платформе: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/933",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/933";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('adulthwlestest').textContent) {
+					console.log("Взрослый английский: Домашки, уроки, тесты: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/932",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/932";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('showcaseadult').textContent) {
+					console.log("Шоукейс взрослого П/взрослого У: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/931",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18321=${ary}&customfield_18320=${erx}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/931";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxpages').textContent) {
+					console.log("Любые страницы содержащие vimbox, но при этом не содержащие kids в URL: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/936",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/936";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else console.log("Not found");
+					}
+					
+				} else console.log("test");
+				}
+   }

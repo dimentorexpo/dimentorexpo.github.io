@@ -507,6 +507,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
                     <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
                     <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
+                    <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">Vim-bugs</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -655,6 +656,17 @@ var win_servicedesk =
 					<button class="mrktbtn" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
 					<button class="mrktbtn" id="mrktunderground">Подземный стук</button>
 				</div>
+				
+				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#vim-bugs</p>
+					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
+					<button class="vimbugsbtn" id="automark">Автоотметка по урокам взрослых У</button>
+					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
+					<button class="vimbugsbtn" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
+					<button class="vimbugsbtn" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
+					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
+				</div>
+				
 	        </span>
 			
 				<div id="kidsform" style="display: none; margin-left:20px;">
@@ -791,6 +803,21 @@ var win_servicedesk =
 					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="vimbugsform" style="display: none; margin-left:20px;">
+					<input id="customfield_50" placeholder="ID Ученика и услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_51" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_52" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_53" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_54" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_55" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_11" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
 			
@@ -3596,6 +3623,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3610,6 +3638,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 										
@@ -3624,6 +3653,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3638,6 +3668,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3652,6 +3683,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3666,6 +3698,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3680,6 +3713,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3694,6 +3728,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3708,6 +3743,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3722,8 +3758,24 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
-					});					
+					});		
+
+					$('.vimbugsbtn').click(function() {  //поправить
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+					});						
             document.getElementById('AF_ServDsk').style.display = 'none'
 		}
 	}
