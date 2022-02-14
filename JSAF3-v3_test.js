@@ -3623,6 +3623,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3637,6 +3638,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 										
@@ -3651,6 +3653,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3665,6 +3668,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3679,6 +3683,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3693,6 +3698,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3707,6 +3713,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3721,6 +3728,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3735,6 +3743,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -3749,6 +3758,7 @@ function move_again_AF() {
 					$('.crm2sbtn').not(this).removeClass('activebtn');
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});		
 
