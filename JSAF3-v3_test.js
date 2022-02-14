@@ -658,7 +658,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#vim-bugs</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#vim-bugs</p>
 					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
 					<button class="vimbugsbtn" id="automark">Автоотметка по урокам взрослых У</button>
 					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
