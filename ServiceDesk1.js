@@ -4852,6 +4852,8 @@ function getslacklnk() {
 					document.getElementById('optionVimbugs').onclick = function() {
 				if (document.getElementById('vimbugsoptions').style.display != '') {
 					document.getElementById('vimbugsoptions').style.display = '';
+					document.getElementById('vimbugsform').style.display = '';	
+										
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('kidsform').style.display = 'none';
 					document.getElementById('teachersform').style.display = 'none';
