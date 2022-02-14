@@ -804,6 +804,21 @@ var win_servicedesk =
 					<br>
 					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
+				
+				<div id="vimbugsform" style="display: none; margin-left:20px;">
+					<input id="customfield_50" placeholder="ID Ученика и услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_51" placeholder="ID преподавателя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_52" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_53" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_54" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_55" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_11" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
 
 			
 </span>
