@@ -507,6 +507,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
                     <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
                     <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
+                    <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">Vim-bugs</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -6842,7 +6843,7 @@ function prepTp() {
 
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-		include("https://dimentorexpo.github.io/ServiceDesk.js")
+		include("https://dimentorexpo.github.io/ServiceDesk1.js")
 		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 		include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
 		include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
