@@ -539,7 +539,7 @@ function getslacklnk() {
 					document.getElementById('teacherunderground').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="ID ученика(optional)";
-							document.getElementById('customfield_7').placeholder ="ID преподавателя(optional)";
+							document.getElementById('customfield_7').placeholder ="ID услуги(optional)";
 							document.getElementById('customfield_8').placeholder ="Краткое и структурированное описание проблемы";
 							document.getElementById('customfield_9').style.display ="none";
 							document.getElementById('customfield_10').style.display ="none";
@@ -976,7 +976,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherunderground').textContent){
-					console.log("Подземный стук': " + "ID student: " + idstd + " ID teacher: " + idteach +  " Description: " + dscr + " ER: " + erx + " AR: " + ary);
+					console.log("Подземный стук': " + "ID student: " + idstd + " ID service: " + idteach +  " Description: " + dscr);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
