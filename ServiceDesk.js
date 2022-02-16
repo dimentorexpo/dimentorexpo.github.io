@@ -5207,7 +5207,7 @@ function getslacklnk() {
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
-					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxpages').textContent) {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('adultselfstudy').textContent) {
 					console.log("Adults self-study: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -5237,7 +5237,7 @@ function getslacklnk() {
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
-					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxpages').textContent) {
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('premiumflip').textContent) {
 					console.log("Premium и Flip: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
