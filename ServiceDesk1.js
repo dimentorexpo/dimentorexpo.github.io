@@ -4972,6 +4972,28 @@ function getslacklnk() {
 						}
 					}
 					
+					document.getElementById('adultselfstudy').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="none";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
+					document.getElementById('premiumflip').onclick = function() {
+						if (document.getElementById('vimbugsform').style.display == '') {
+							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_52').style.display ="none";
+							document.getElementById('customfield_53').style.display ="";
+							document.getElementById('customfield_54').style.display ="";
+							document.getElementById('customfield_55').style.display ="";
+						}
+					}
+					
 					document.getElementById('create_11').onclick = function() {
 					let idstdserv = document.getElementById('customfield_50').value ;
 					let	idteach = document.getElementById('customfield_51').value ;
