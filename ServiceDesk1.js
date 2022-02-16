@@ -4996,7 +4996,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/935",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -5027,7 +5027,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/934",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -5058,7 +5058,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/933",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -5089,7 +5089,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/932",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -5119,7 +5119,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/931",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18321=${ary}&customfield_18320=${erx}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18321=${ary}&customfield_18320=${erx}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -5150,7 +5150,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/936",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18975=${idteach}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -5162,6 +5162,66 @@ function getslacklnk() {
 					document.getElementById('customfield_50').value ="";
 					document.getElementById('customfield_51').value ="";
 					document.getElementById('customfield_52').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxpages').textContent) {
+					console.log("Adults self-study: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/942",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/942";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_53').value ="";
+					document.getElementById('customfield_54').value ="";
+					document.getElementById('customfield_55').value ="";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxpages').textContent) {
+					console.log("Premium и Flip: " + "  Id student and service: " + idstdserv + " ID teacher " + idteach + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					 document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/941",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&customfield_18976=${idteach}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/941";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_50').value ="";
+					document.getElementById('customfield_51').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
 					document.getElementById('customfield_55').value ="";
