@@ -4909,7 +4909,9 @@ function getslacklnk() {
 					document.getElementById('lessonbutwidg').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="Ссылка на ID услуги ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
 							document.getElementById('customfield_52').style.display ="";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
@@ -4920,7 +4922,9 @@ function getslacklnk() {
 					document.getElementById('automark').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="Ссылка на ID услуги ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
 							document.getElementById('customfield_52').style.display ="";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
@@ -4931,7 +4935,9 @@ function getslacklnk() {
 					document.getElementById('cmscontentadult').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="Ссылка на ID услуги ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
 							document.getElementById('customfield_52').style.display ="";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
@@ -4942,7 +4948,9 @@ function getslacklnk() {
 					document.getElementById('adulthwlestest').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="Ссылка на ID услуги ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
 							document.getElementById('customfield_52').style.display ="none";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
@@ -4953,7 +4961,9 @@ function getslacklnk() {
 					document.getElementById('showcaseadult').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="Ссылка на ID услуги ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
 							document.getElementById('customfield_52').style.display ="";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
@@ -4964,7 +4974,9 @@ function getslacklnk() {
 					document.getElementById('vimboxpages').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="Ссылка на ID услуги ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
 							document.getElementById('customfield_52').style.display ="";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
@@ -4975,7 +4987,9 @@ function getslacklnk() {
 					document.getElementById('adultselfstudy').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="ID Ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Услуги";
 							document.getElementById('customfield_52').style.display ="none";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
@@ -4986,7 +5000,9 @@ function getslacklnk() {
 					document.getElementById('premiumflip').onclick = function() {
 						if (document.getElementById('vimbugsform').style.display == '') {
 							document.getElementById('customfield_50').style.display ="";
+							document.getElementById('customfield_50').placeholder ="ID Ученика";
 							document.getElementById('customfield_51').style.display ="";
+							document.getElementById('customfield_51').placeholder ="ID Услуги";
 							document.getElementById('customfield_52').style.display ="none";
 							document.getElementById('customfield_53').style.display ="";
 							document.getElementById('customfield_54').style.display ="";
