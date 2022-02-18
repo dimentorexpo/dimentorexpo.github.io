@@ -1654,6 +1654,14 @@ function move_again_AF() {
     })
     document.getElementById('faqext').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971")    // открываем инструкцию по расширению
+    }) 
+
+	document.getElementById('curVeriOS').addEventListener('click', function () {
+        window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")    // открываем инструкцию по расширению
+    })
+
+	document.getElementById('curVerAndroid').addEventListener('click', function () {
+        window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")    // открываем инструкцию по расширению
     })
     document.getElementById('talksadm').addEventListener('click', function () {
         window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
