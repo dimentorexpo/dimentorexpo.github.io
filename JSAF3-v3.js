@@ -308,9 +308,9 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				 
 				<div style="margin: 5px; width: 550px" id="links_butd">	
-                    <button title="копирует в буфер обмена команду setStatus('lesson_select') для перехода в материалы урока" id="materiallesson" style="width:105px">Mater MAT💾</button>
-					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:105px">Redo MAT💾</button>
-					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:105px">Enable NS💾</button>
+                    <button title="копирует в буфер обмена команду setStatus('lesson_select') для перехода в материалы урока" id="materiallesson" style="width:100px">Mater MAT💾</button>
+					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
+					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.57</button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.49</button>
 			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
