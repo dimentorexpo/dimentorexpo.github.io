@@ -309,6 +309,7 @@ var win_Links =  // описание элементов окна ссылок
 				 
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:105px">Redo MAT💾</button>
+					<button title="копирует в буфер обмена команду setStatus('lesson_select') для выбора темы" id="selectlesson" style="width:105px">Select💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:105px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.57</button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.49</button>
@@ -1707,6 +1708,12 @@ function move_again_AF() {
         copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
         document.getElementById('restartlesson').innerHTML = "Copied!";
         setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
+    })   
+
+	document.getElementById('selectlesson').addEventListener('click', function () {
+        copyToClipboard("setStatus('lesson_select')")   // копируем ссылку в буфер для перезапуска урока математики
+        document.getElementById('selectlesson').innerHTML = "Copied!";
+        setTimeout(function () { document.getElementById('selectlesson').innerHTML = "Select💾" }, 2000);
     })
 
     document.getElementById('enableNS').addEventListener('click', function () {
