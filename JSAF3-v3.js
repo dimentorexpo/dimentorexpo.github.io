@@ -4993,7 +4993,7 @@ function startTimer() {
         if (tmrs[i][2] == 0)
             t = 1
         else
-            t = 12
+            t = 8 // таймер отсчета
         var curTime3 = (t * 60) - Math.floor((curTime2 - curTime1) / 1000);
         if (curTime3 < 0)
             continue
