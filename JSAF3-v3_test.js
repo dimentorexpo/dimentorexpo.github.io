@@ -306,7 +306,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 					<input id="reportmvu" placeholder="У отчет МВУ" title="Введите ID ученика, чтобы в буфер обмена скопировать ссылку на отчет МВУ и открывать ее под преподавателем" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getmvureport" style="width: 25.23px;">🚀</button>
+					<button id="getmvureport" style="width: 25.23px;">💾</button>
 				</div>		
 				 
 				<div style="margin: 5px; width: 550px" id="links_butd">	
@@ -1770,8 +1770,10 @@ function move_again_AF() {
         if (reportmvu.value == "")
             console.log('Введите ID в поле')
         else {
-            window.open('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
+		copyToClipboard('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
         };
+        document.getElementById('getmvureport').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
         reportmvu.value = "";
     }
 	
