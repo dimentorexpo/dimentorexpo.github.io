@@ -5492,7 +5492,7 @@ function timerHideButtons() {
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
-            let selectorList = document.querySelectorAll('.sc-fznKkj');
+            let selectorList = document.querySelectorAll('.sc-fznZeY');
             if (selectorList.length > 5) {
                 for (let i = 0; i < selectorList.length; i++) {
                     if (selectorList[i].innerText == "Техподдержка исход crm2")
