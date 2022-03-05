@@ -4958,7 +4958,7 @@ function refreshTimer() {
                 var cT = new Date();
                 var curT1 = tmrs[i][3]
                 var curT2 = Number(cT);
-                var curT3 = (6 * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
+                var curT3 = (8 * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
                 if (curT3 < 0)
                     btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA"
             }
@@ -5007,7 +5007,7 @@ function startTimer() {
         if (tmrs[i][2] == 0)
             t = 1
         else
-            t = 8 // таймер отсчета автозакрытия
+            t = 10 // таймер отсчета автозакрытия
         var curTime3 = (t * 60) - Math.floor((curTime2 - curTime1) / 1000);
         if (curTime3 < 0)
             continue
