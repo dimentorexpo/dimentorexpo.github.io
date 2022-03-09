@@ -127,7 +127,7 @@ var win_AFhelper =  // описание элементов главного ок
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
+					<button id="languageAF" title="Переключает язык Russian/English" style="width:100px">Russian</button>
 					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
@@ -144,9 +144,9 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left:41px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:100px; margin-left:41px">Заметки</button>
+				<button title="Переключение для выбора Send или Rework сообщение" id="msg1" style="width:100px;">Send to chat</button>
+				<button title="Send текст" id="snd" style="width:50px; margin-left:41px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:100px; margin-left:41px">Notes</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -290,7 +290,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="startjirasearch">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
-					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на Russian" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
@@ -392,7 +392,7 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
 						<button title="TRM 2.0 для информации по П" id="newtrm" style="margin-left: 5px; display: none; width: 25.23px;">🗿</button>
 						<button title="Личная страница П, как видят ученики" id="personalteacherpage" style="margin-left: 5px; display: none; width: 25.23px;">🎭</button>
-						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
+						<button title="Изменяет Язык обслуживания для профиля на Russian" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
 						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" style="margin-left: 5px; width: 25.23px;">💰</button>
 						<button title="Информацию об ученике в СРМ1" id="getcrmoneinfo" style="margin-left: 5px; width: 25.23px;">🎭</button>
 						<button title="Просмотр прошедших и предстоящих уроков" id="getpastandfuturelessons" style="margin-left: 5px; width: 25.23px;">📆</button>
@@ -668,7 +668,7 @@ var win_servicedesk =
 					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
 					<button class="vimbugsbtn" id="automark">Автоотметка по урокам взрослых У</button>
 					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
-					<button class="vimbugsbtn" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
+					<button class="vimbugsbtn" id="adulthwlestest">Взрослый English: Домашки, уроки, тесты</button>
 					<button class="vimbugsbtn" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
 					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 				</div>
@@ -2776,36 +2776,6 @@ function move_again_AF() {
     let werechats = false;
     let chatisopen = "";
 
-    // async function chatstatus() { // проверка наличия чатов в истории и активного чата
-    // let tempvariable = document.getElementById('idstudent').value;
-    // tempvariable = tempvariable.trim();
-    // document.getElementById('ChatStatus').style.display = "none";
-    // document.getElementById('getcurrentstatus').style.display = "none";
-    // await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-    // "headers": {
-    // "content-type": "application/json",
-    // "sec-fetch-dest": "empty",
-    // "sec-fetch-mode": "cors",
-    // "sec-fetch-site": "same-origin"
-    // },
-    // "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-    // "referrerPolicy": "strict-origin-when-cross-origin",
-    // "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
-    // "method": "POST",
-    // "mode": "cors",
-    // "credentials": "include"
-    // }).then(r => r.json()).then(data => infres = data)
-    // if (infres.total > 0) {
-    // werechats = true;
-    // convid = infres.items[0].conversationId;
-    // if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-    // chatisopen = true;
-    // else
-    // chatisopen = false;
-    // } else if (infres.total == 0)
-    // werechats = false;
-    // }
-
     async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
         tempvariable = tempvariable.trim();
@@ -3596,12 +3566,12 @@ function move_again_AF() {
     }
 
     document.getElementById('msg').onclick = function () {
-        if (this.innerHTML == "Чат") {
-            this.innerHTML = "Заметки";
-            localStorage.setItem('msg', 'Заметки')
+        if (this.innerHTML == "Chat") {
+            this.innerHTML = "Notes";
+            localStorage.setItem('msg', 'Notes')
         } else {
-            this.innerHTML = "Чат";
-            localStorage.setItem('msg', 'Чат')
+            this.innerHTML = "Chat";
+            localStorage.setItem('msg', 'Chat')
         }
     }
 
@@ -3616,7 +3586,7 @@ function move_again_AF() {
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2 && localStorage.getItem('scriptAdr') != TP_addr3) {
         document.getElementById('msg1').style.display = 'none'
         document.getElementById('snd').style.marginLeft = '120px'
-        document.getElementById('msg1').innerHTML = 'Доработать'
+        document.getElementById('msg1').innerHTML = 'Rework'
         document.getElementById('testUsers').style.display = 'none'
     } else {
         prepTp()
@@ -4098,11 +4068,11 @@ function move_again_AF() {
 
     if (flagLangBut == 0) {
         document.getElementById('languageAF').onclick = function () {
-            if (this.innerHTML == "Русский") {
-                this.innerHTML = "Английский";
+            if (this.innerHTML == "Russian") {
+                this.innerHTML = "English";
                 document.getElementById('AF_helper').style.background = "#EBC7DF"
             } else {
-                this.innerHTML = "Русский";
+                this.innerHTML = "Russian";
                 document.getElementById('AF_helper').style.background = "#464451"
             }
         }
@@ -4110,12 +4080,12 @@ function move_again_AF() {
 
 
     document.getElementById('msg1').onclick = function () {
-        if (this.innerHTML == "Отправить") {
-            this.innerHTML = "Доработать";
-            localStorage.setItem('msg1', 'Доработать')
+        if (this.innerHTML == "Send") {
+            this.innerHTML = "Rework";
+            localStorage.setItem('msg1', 'Rework')
         } else {
-            this.innerHTML = "Отправить";
-            localStorage.setItem('msg1', 'Отправить')
+            this.innerHTML = "Send";
+            localStorage.setItem('msg1', 'Send')
         }
     }
     document.getElementById('snd').onclick = function () {
@@ -4321,13 +4291,13 @@ async function buttonsFromDoc(butName) {
         else
             butName = "ус+брауз (П)"
 
-    if (butName == 'Привет') {
+    if (butName == 'Hello') {
         a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
         a = a.split(' ')
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-        if (document.getElementById('languageAF').innerHTML == "Русский")
-            if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
+        if (document.getElementById('languageAF').innerHTML == "Russian")
+            if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Rework")
                 txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             else
                 txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
@@ -4686,7 +4656,7 @@ function msgFromTable(btnName) {
             } else {
                 newTag(table[l][8])
             }
-            if (document.getElementById('languageAF').innerHTML == "Русский") {
+            if (document.getElementById('languageAF').innerHTML == "Russian") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -4785,7 +4755,7 @@ async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 
     var accuracy = curTemplate[7]
     var values = await getInfo(0)
     var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-    if (document.getElementById('msg1').innerHTML == "Доработать" && flag2 == 0) {
+    if (document.getElementById('msg1').innerHTML == "Rework" && flag2 == 0) {
         document.getElementById('inp').value = tmpText
         template_text = template
         word_text = word
@@ -4827,7 +4797,7 @@ async function sendAnswer(txt, flag = 1, time = "10:00") {
     txt3 = txt3.split("\"").join("\\\"")
     txt3 = txt3.split('<p></p>').join("<p><br></p>")
     txt3 = txt3.substr(0, txt3.length - 2)
-    if (document.getElementById('msg1').innerHTML == "Доработать" && flag) {
+    if (document.getElementById('msg1').innerHTML == "Rework" && flag) {
         resetFlags()
         document.getElementById('inp').value = txt
     }
@@ -4858,7 +4828,7 @@ async function getInfo(flag1 = 1) {
     }
     if (adr1 == undefined)
         adr1 = ""
-    if (document.getElementById('msg1').innerHTML != "Доработать" || flag1 == 0) {
+    if (document.getElementById('msg1').innerHTML != "Rework" || flag1 == 0) {
         await fetch("https://skyeng.autofaq.ai/api/conversations/" + adr1)
             .then(response => response.json())
             .then(result => { sessionId = result.sessionId; chatsArray.push(result); localStorage.setItem('serviceIdGlob', result.serviceId) });
@@ -6002,7 +5972,7 @@ async function sendAnswerTemplate2(word, flag = 0) {
         } catch (e) { }
     if (tmpTxt == "")
         tmpTxt = word
-    if (document.getElementById('msg1').innerHTML == "Доработать" && flag == 0) {
+    if (document.getElementById('msg1').innerHTML == "Rework" && flag == 0) {
         document.getElementById('inp').value = tmpTxt
         template_flag = 1
         template_flag2 = 1
@@ -6371,7 +6341,7 @@ function customTemplates(language = '') {
             tmp1 = localStorage.getItem('tmp_name_' + language + index)
             localStorage.setItem('tmp_name_' + language + index, localStorage.getItem('tmp_name_' + language + index2))
             localStorage.setItem('tmp_name_' + language + index2, tmp1)
-            if (document.getElementById('languageAF').innerHTML == "Русский")
+            if (document.getElementById('languageAF').innerHTML == "Russian")
                 customTemplates()
             else
                 customTemplates('en_')
@@ -6397,7 +6367,7 @@ function customTemplates(language = '') {
             tmp1 = localStorage.getItem('tmp_name_' + language + index)
             localStorage.setItem('tmp_name_' + language + index, localStorage.getItem('tmp_name_' + language + index2))
             localStorage.setItem('tmp_name_' + language + index2, tmp1)
-            if (document.getElementById('languageAF').innerHTML == "Русский")
+            if (document.getElementById('languageAF').innerHTML == "Russian")
                 customTemplates()
             else
                 customTemplates('en_')
@@ -6481,12 +6451,12 @@ function customTemplates(language = '') {
     cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
 
     document.getElementById('languageAF').onclick = function () {
-        if (this.innerHTML == "Русский") {
-            this.innerHTML = "Английский";
+        if (this.innerHTML == "Russian") {
+            this.innerHTML = "English";
             document.getElementById('AF_helper').style.background = "#EBC7DF"
             customTemplates('en_')
         } else {
-            this.innerHTML = "Русский";
+            this.innerHTML = "Russian";
             document.getElementById('AF_helper').style.background = "#464451"
             customTemplates()
         }
