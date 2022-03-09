@@ -3613,7 +3613,7 @@ function move_again_AF() {
     document.getElementById('type_TP_new').onclick = weWillNotBeSlaves;
     document.getElementById('type_TP_eng').onclick = wewillbeenglish;
 
-    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2) {
+    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2 && localStorage.getItem('scriptAdr') != TP_addr3) {
         document.getElementById('msg1').style.display = 'none'
         document.getElementById('snd').style.marginLeft = '120px'
         document.getElementById('msg1').innerHTML = 'Доработать'
@@ -5080,7 +5080,7 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
                 nextClassstudentId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         }
-        if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) { // поиск группы, с которой  сейчас идет занятие
+        if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2 || localStorage.getItem('scriptAdr') == TP_addr3) { // поиск группы, с которой  сейчас идет занятие
             if (nextClassMode == 'group') {
                 nextClassstudentId = nextClassstudentId.split(',')[0]
                 document.getElementsByClassName('expert-user_details-list')[1].childNodes[nextClassModeId].childNodes[1].textContent = 'group '
@@ -5207,7 +5207,7 @@ function startTimer() {
         }
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) {
+    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2 || localStorage.getItem('scriptAdr') == TP_addr3) {
         if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
             if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
@@ -5309,7 +5309,7 @@ function startTimer() {
     }
 
 
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) || localStorage.getItem('scriptAdr') == TP_addr3) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
