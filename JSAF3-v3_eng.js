@@ -4285,11 +4285,11 @@ function transfPageButtons(textFromTable) {
 }
 
 async function buttonsFromDoc(butName) {
-    if (butName == "ус+брауз")
+    if (butName == "dev+brow")
         if (user == 'student')
-            butName = "ус+брауз (У)"
+            butName = "dev+brow (S)"
         else
-            butName = "ус+брауз (П)"
+            butName = "dev+brow (T)"
 
     if (butName == 'Hello') {
         a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
@@ -4566,9 +4566,9 @@ function refreshTemplates() {
                         newBut.setAttribute('onclick', 'buttonsFromDoc(this.innerText)')
                         if (newBut.innerText == 'Урок NS')
                             newBut.id = "NS"
-                        if (newBut.innerText == 'ус+брауз (У)')
-                            newBut.innerText = "ус+брауз"
-                        if (newBut.innerText == 'ус+брауз (П)')
+                        if (newBut.innerText == 'dev+brow (S)')
+                            newBut.innerText = "dev+brow"
+                        if (newBut.innerText == 'dev+brow (T)')
                             continue
                         if (addTmpFlag == 0)
                             b.lastElementChild.lastElementChild.appendChild(newBut)
