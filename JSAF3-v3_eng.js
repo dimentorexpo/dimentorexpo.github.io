@@ -1445,7 +1445,7 @@ var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFF
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec'
 var TP_addr2 = 'https://script.google.com/macros/s/AKfycbxnGXdfgYTfmBiviW_sxBa2Q1YhhiutNv5FEk9ZVw/exec'
-var TP_addr3 = 'https://script.google.com/macros/s/AKfycbxYHTZDN8xH-t_i6rpel4WpHUq8zpG1FPtB39hExzM2ZRtrYbl16N5pgEDQSprgy99a/exec'
+var TP_addr3 = 'https://script.google.com/macros/s/AKfycbwhPFAPSth4KF7CIoZrxpUf2M3CsirqHZFRPHsZ2wqD6L4I3bC1y1Ko0aX0_9zmvM83/exec'
 var flagLangBut = 0
 function move_again_AF() {
 
