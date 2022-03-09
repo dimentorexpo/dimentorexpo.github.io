@@ -753,6 +753,10 @@ var win_servicedesk =
 					<br>
 					<textarea id="customfield_31" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
+					<textarea id="customfield_300" placeholder="Насколько массовая проблема?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_301" placeholder="На какие метрики влияет проблема?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
 					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				

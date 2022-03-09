@@ -1873,6 +1873,8 @@ function getslacklnk() {
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
 							document.getElementById('customfield_31').style.display = 'none';
+							document.getElementById('customfield_300').style.display = '';
+							document.getElementById('customfield_301').style.display = '';
 						}
 					}
 					
@@ -1886,6 +1888,8 @@ function getslacklnk() {
 							document.getElementById('customfield_29').placeholder ="Причина отключения АП? (ОБЯЗАТЕЛЬНО)";
 							document.getElementById('customfield_30').style.display = 'none';
 							document.getElementById('customfield_31').style.display = 'none';
+							document.getElementById('customfield_300').style.display = '';
+							document.getElementById('customfield_301').style.display = '';
 						}
 					}
 					
@@ -1898,6 +1902,8 @@ function getslacklnk() {
 							document.getElementById('customfield_29').placeholder ="Как воспроизвести ошибку?";
 							document.getElementById('customfield_30').style.display = '';
 							document.getElementById('customfield_31').style.display = '';
+							document.getElementById('customfield_300').style.display = '';
+							document.getElementById('customfield_301').style.display = '';
 						}
 					}
 					
@@ -1910,6 +1916,8 @@ function getslacklnk() {
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
 							document.getElementById('customfield_31').style.display = 'none';
+							document.getElementById('customfield_300').style.display = '';
+							document.getElementById('customfield_301').style.display = '';
 						}
 					}
 					
@@ -1922,6 +1930,8 @@ function getslacklnk() {
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
 							document.getElementById('customfield_31').style.display = 'none';
+							document.getElementById('customfield_300').style.display = '';
+							document.getElementById('customfield_301').style.display = '';
 						}
 					}
 					
@@ -1933,6 +1943,8 @@ function getslacklnk() {
 							document.getElementById('customfield_29').style.display = '';
 							document.getElementById('customfield_30').style.display = '';
 							document.getElementById('customfield_31').style.display = '';
+							document.getElementById('customfield_300').style.display = '';
+							document.getElementById('customfield_301').style.display = '';
 						}
 					}
 					
@@ -1944,6 +1956,8 @@ function getslacklnk() {
 							document.getElementById('customfield_29').style.display = 'none';
 							document.getElementById('customfield_30').style.display = 'none';
 							document.getElementById('customfield_31').style.display = 'none';
+							document.getElementById('customfield_300').style.display = '';
+							document.getElementById('customfield_301').style.display = '';
 						}
 					}
 					
@@ -1958,8 +1972,12 @@ function getslacklnk() {
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let	ary = document.getElementById('customfield_31').value ;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let	mas = document.getElementById('customfield_300').value ;
+					mas = mas.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let	metrik = document.getElementById('customfield_301').value ;
+					metrik = metrik.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttenableAP').textContent) {
-					console.log("Подключение АП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr);
+					console.log("Подключение АП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1970,7 +1988,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18976=${idserv}&customfield_18975=${idstd}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1982,12 +2000,14 @@ function getslacklnk() {
 					document.getElementById('customfield_26').value = "";
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_28').value = "";
+					document.getElementById('customfield_300').value = "";
+					document.getElementById('customfield_301').value = "";
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttdisableAP').textContent) {
-					console.log("Отключение АП в ЛКУ: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Reason " + str);
+					console.log("Отключение АП в ЛКУ: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Reason " + str + " Массовая? " + mas + " Метрики " + metrik);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1998,7 +2018,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/565",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18319=${str}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -2011,12 +2031,14 @@ function getslacklnk() {
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_28').value = "";
 					document.getElementById('customfield_29').value = "";
+					document.getElementById('customfield_300').value = "";
+					document.getElementById('customfield_301').value = "";
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttquestions').textContent) {
-					console.log("Вопросы по ТТ: " + " ID student " + idstd + " Description " + dscr + " STR " + str + " ER " + erx + " AR " + ary);
+					console.log("Вопросы по ТТ: " + " ID student " + idstd + " Description " + dscr + " STR " + str + " ER " + erx + " AR " + ary + " Массовая? " + mas + " Метрики " + metrik);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2027,7 +2049,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/564",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -2041,12 +2063,14 @@ function getslacklnk() {
 					document.getElementById('customfield_29').value = "";
 					document.getElementById('customfield_30').value = "";
 					document.getElementById('customfield_31').value = "";
+					document.getElementById('customfield_300').value = "";
+					document.getElementById('customfield_301').value = "";
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttacceptzapros').textContent) {
-					console.log("Подтвердить запрос в ЛКП для переподбора ВП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr)
+					console.log("Подтвердить запрос в ЛКП для переподбора ВП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik)
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2057,7 +2081,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/563",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -2069,12 +2093,14 @@ function getslacklnk() {
 					document.getElementById('customfield_26').value = "";
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_28').value = "";	
+					document.getElementById('customfield_300').value = "";
+					document.getElementById('customfield_301').value = "";
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);					
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttnottaskpodbor').textContent) {
-					console.log("Почему нет задачи подбора ?: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr)
+					console.log("Почему нет задачи подбора ?: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik)
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2085,7 +2111,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/562",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -2097,13 +2123,15 @@ function getslacklnk() {
 					document.getElementById('customfield_26').value = "";
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_28').value = "";
+					document.getElementById('customfield_300').value = "";
+					document.getElementById('customfield_301').value = "";
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttneurobot').textContent) {
-					console.log("Нейробот: " + " ID student " + idstd + " ID service " + idserv + " STR " + str + " ER " + erx + " AR " + ary)
+					console.log("Нейробот: " + " ID student " + idstd + " ID service " + idserv + " STR " + str + " ER " + erx + " AR " + ary + " Массовая? " + mas + " Метрики " + metrik)
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2114,7 +2142,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/880",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${idserv}sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -2127,13 +2155,15 @@ function getslacklnk() {
 					document.getElementById('customfield_27').value = "";
 					document.getElementById('customfield_29').value = "";				
 					document.getElementById('customfield_30').value = "";				
-					document.getElementById('customfield_31').value = "";		
+					document.getElementById('customfield_31').value = "";
+					document.getElementById('customfield_300').value = "";
+					document.getElementById('customfield_301').value = "";					
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttunderground').textContent) {
-					console.log("Подземный стук: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr);
+					console.log("Подземный стук: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2144,7 +2174,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/567",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18976=${idserv}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18976=${idserv}&customfield_18975=${idstd}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -2155,7 +2185,9 @@ function getslacklnk() {
 					 
 					document.getElementById('customfield_26').value = "";
 					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";	
+					document.getElementById('customfield_28').value = "";
+					document.getElementById('customfield_300').value = "";
+					document.getElementById('customfield_301').value = "";					
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);					
