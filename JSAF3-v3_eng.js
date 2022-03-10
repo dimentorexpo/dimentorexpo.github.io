@@ -496,314 +496,318 @@ var win_servicedesk =
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
-					<button class="teacbtn" id="teacherstatistic">Статистика</button>
-					<button class="teacbtn" id="teacherstudy">Моё обучение</button>
-					<button class="teacbtn" id="teacherbreak">Перерыв</button>
-					<button class="teacbtn" id="teachermoney">Финансы</button>
-					<button class="teacbtn" id="teachermap">Карта роста</button>
-					<button class="teacbtn" id="teachertimetable">Расписание</button>
-					<button class="teacbtn" id="teacherperenos">Запрос на перенос</button>
-					<button class="teacbtn" id="teacherwidgetbalance">Виджет баланса</button>
-					<button class="teacbtn" id="teacherwidgetlessonmark">Виджет отметки уроков</button>
-					<button class="teacbtn" id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
-					<button class="teacbtn" id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
-					<button class="teacbtn" id="teacherwidgetKPI">Виджет KPI</button>
-					<button class="teacbtn" id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
-					<button class="teacbtn" id="teacherTRMquestions">Вопросы по ТРМ</button>
-					<button class="teacbtn" id="teacherunderground">Подземный стук</button>
+					<button class="teacbtn" id="teacherstatistic">Statisctic</button>
+					<button class="teacbtn" id="teacherstudy">My learning</button>
+					<button class="teacbtn" id="teacherbreak">Break</button>
+					<button class="teacbtn" id="teachermoney">Finance</button>
+					<button class="teacbtn" id="teachermap">Growth Map</button>
+					<button class="teacbtn" id="teachertimetable">Timetable</button>
+					<button class="teacbtn" id="teacherperenos">Request to move lesson</button>
+					<button class="teacbtn" id="teacherwidgetbalance">Widget of balance</button>
+					<button class="teacbtn" id="teacherwidgetlessonmark">Widget of mark lesson</button>
+					<button class="teacbtn" id="teacherwidgetplanfact">Widget of plan/fact of the lessons</button>
+					<button class="teacbtn" id="teacherwidgettimetableweek">Widget of timetable on the week</button>
+					<button class="teacbtn" id="teacherwidgetKPI">Widget KPI</button>
+					<button class="teacbtn" id="teacherwidgetmystudents">Widget "My students"</button>
+					<button class="teacbtn" id="teacherTRMquestions">Questions by ТРМ</button>
+					<button class="teacbtn" id="teacherunderground">Underground</button>
 				</div>
 				
 				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
-					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
-					<button class="crm2sbtn" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
-					<button class="crm2sbtn" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
-					<button class="crm2sbtn" id="crm2paymenthistory">Вопросы про виджет "История платежей"</button>
-					<button class="crm2sbtn" id="crm2convertsrc">Вопросы по "Визардам конвертации услуги"</button>
-					<button class="crm2sbtn" id="crm2actionshistory">Вопросы о "История действий"</button>
-					<button class="crm2sbtn" id="crm2familycard">Вопросы о карточке "Семья"</button>
-					<button class="crm2sbtn" id="crm2profile">Вопросы о "Профиле" заявки</button>
-					<button class="crm2sbtn" id="crm2communications">Вопросы по разделу "Коммуникации"</button>
-					<button class="crm2sbtn" id="crm2taskpoolsoporovd">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
-					<button class="crm2sbtn" id="crm2taskpoolsales">Проблемы с функционалом пула задач "список задач" продажи</button>
-					<button class="crm2sbtn" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
-					<button class="crm2sbtn" id="crm2changestk">Смена STK услуги</button>
+					<button class="crm2sbtn" id="crm2taskssoprovod">Questions on "Escorts"</button>
+					<button class="crm2sbtn" id="crm2taskssales">Questions on  "Sales"</button>
+					<button class="crm2sbtn" id="crm2lessonhistory">Questions on  "Lesson history"</button>
+					<button class="crm2sbtn" id="crm2paymenthistory">Questions on widget "Payment history"</button>
+					<button class="crm2sbtn" id="crm2convertsrc">Questions on  "Wizard of the service convertation"</button>
+					<button class="crm2sbtn" id="crm2actionshistory">Questions on "Actions history"</button>
+					<button class="crm2sbtn" id="crm2familycard">Questions on "Family" card</button>
+					<button class="crm2sbtn" id="crm2profile">Questions on  "Profile"</button>
+					<button class="crm2sbtn" id="crm2communications">Questions on "Communications"</button>
+					<button class="crm2sbtn" id="crm2taskpoolsoporovd">Problems with "task list"</button>
+					<button class="crm2sbtn" id="crm2taskpoolsales">Problems with "task list" sales</button>
+					<button class="crm2sbtn" id="crm2migrationcrm">Migration of company from CRM1 to CRM2</button>
+					<button class="crm2sbtn" id="crm2changestk">Change STK of the service</button>
 				</div>
 				
 				<div id="authsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
-					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
-					<button class="authbtn" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
-					<button class="authbtn" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
-					<button class="authbtn" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
-					<button class="authbtn" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
-					<button class="authbtn" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
-					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
-					<button class="authbtn" id="authbusinessq">Бизнес вопросы</button>
-					<button class="authbtn" id="authunderground">Подземный стук</button>
+					<button class="authbtn" id="authdevq">Questions to developers</button>
+					<button class="authbtn" id="auth2google">Troubles with 2FA : google authenticator</button>
+					<button class="authbtn" id="auth2faemail">Troubles with 2FA no password recovery letter</button>
+					<button class="authbtn" id="auth2fasms">Troubles with 2FA: no sms code</button>
+					<button class="authbtn" id="authdeladdrolesteach">Remove/Add roles to the teacher</button>
+					<button class="authbtn" id="authdeladdrolesstud">Remove/Add roles to the student</button>
+					<button class="authbtn" id="authlogcheck">Check logs by ID</button>
+					<button class="authbtn" id="authbusinessq">Business questions</button>
+					<button class="authbtn" id="authunderground">Underground</button>
 				</div>
 				
 				<div id="schedulesrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support</p>
-					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
-					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
-					<button class="schdbtn" id="ttquestions">Вопросы по ТТ</button>
-					<button class="schdbtn" id="ttacceptzapros">Подтвердить запрос в ЛКП для переподбора ВП</button>
-					<button class="schdbtn" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
-					<button class="schdbtn" id="ttneurobot">Нейроробот</button>
-					<button class="schdbtn" id="ttunderground">Подземный стук</button>
+					<button class="schdbtn" id="ttenableAP">Enable AP</button>
+					<button class="schdbtn" id="ttdisableAP">Disable АP</button>
+					<button class="schdbtn" id="ttquestions">Questions by ТТ</button>
+					<button class="schdbtn" id="ttacceptzapros">Accept request to matching temporary teacher</button>
+					<button class="schdbtn" id="ttnottaskpodbor">Why is there no matching task ?</button>
+					<button class="schdbtn" id="ttneurobot">Neurobot</button>
+					<button class="schdbtn" id="ttunderground">Underground</button>
 				</div>	
 
 				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support</p>
-					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
-					<button class="bilqabtn" id="billqapaylendings">Оплата с лендингов</button>
-					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
+					<button class="bilqabtn" id="billqarassroch">Questtions about installments of the student</button>
+					<button class="bilqabtn" id="billqapaylendings">Payment from landings</button>
+					<button class="bilqabtn" id="billqabalancecorrect">Check student balance on difference</button>
 				</div>
 				
 				<div id="c1srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#c1-support</p>
-					<button class="c1sbtn" id="c1verstka">Проблемы с версткой</button>
-					<button class="c1sbtn" id="c1payonboarding">Не завершился онбординг после оплаты</button>
-					<button class="c1sbtn" id="c1redirects">Циклические редиректы</button>
-					<button class="c1sbtn" id="c1underground">Подземный стук</button>
+					<button class="c1sbtn" id="c1verstka">Problems with the layout</button>
+					<button class="c1sbtn" id="c1payonboarding">Onboarding has not been completed after payment</button>
+					<button class="c1sbtn" id="c1redirects">Cyclic redirects</button>
+					<button class="c1sbtn" id="c1underground">Underground</button>
 				</div>
 				
 				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#telephony-support</p>
-					<button class="telepbtn" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
-					<button class="telepbtn" id="teloutgoing">Проблема с исходящим вызовом</button>
-					<button class="telepbtn" id="telincoming">Проблема с входящим вызовом</button>
-					<button class="telepbtn" id="telspeaking">Проблема во время разговора</button>
-					<button class="telepbtn" id="telrtstat">Проблема с реал-тайм статистикой</button>
-					<button class="telepbtn" id="telcallinfo">Запрос информации по звонку</button>
-					<button class="telepbtn" id="telredicall">Проблема при переводе вызова</button>
-					<button class="telepbtn" id="telunderground">Подземный стук</button>
+					<button class="telepbtn" id="telnoaccess">Lack of access to the telephony page</button>
+					<button class="telepbtn" id="teloutgoing">Problem with outgoing call</button>
+					<button class="telepbtn" id="telincoming">Problem with incoming call</button>
+					<button class="telepbtn" id="telspeaking">The problem during the conversation</button>
+					<button class="telepbtn" id="telrtstat">The problem with real-time statistics</button>
+					<button class="telepbtn" id="telcallinfo">Request information on a call</button>
+					<button class="telepbtn" id="telredicall">Problem when transferring a call</button>
+					<button class="telepbtn" id="telunderground">Underground</button>
 				</div>	
 
 				<div id="billingsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#billing</p>
-					<button class="billbtn" id="billcheques">Чеки/Инвойсы</button>
+					<button class="billbtn" id="billcheques">Receipts/Invoices</button>
 					<button class="billbtn" id="billdataanal">Data analytics</button>
-					<button class="billbtn" id="billtaskfordev">Задача для разработки</button>
-					<button class="billbtn" id="billadmreturn">Админка возвратов</button>
-					<button class="billbtn" id="billtroublcodecard">Проблема с кодом для привязки карты</button>
+					<button class="billbtn" id="billtaskfordev">Task for development</button>
+					<button class="billbtn" id="billadmreturn">Refunds Admin Panel</button>
+					<button class="billbtn" id="billtroublcodecard">Problem with the code for linking the card</button>
 					<button class="billbtn" id="billpaymentbot">Вilling Payment Bot</button>
-					<button class="billbtn" id="billschemes">Схемы вознаграждения </button>
-					<button class="billbtn" id="billselfemployee">Самозанятые </button>
-					<button class="billbtn" id="billrequisites">Реквизиты</button>
-					<button class="billbtn" id="billpayments">Выплаты</button>
-					<button class="billbtn" id="billspisanie">Списание средств</button>
-					<button class="billbtn" id="billreturns">Возвраты</button>
-					<button class="billbtn" id="billpaymentmesystems">Платежные системы</button>
-					<button class="billbtn" id="billwidgetpayment">Виджет оплаты</button>
-					<button class="billbtn" id="billpay">Оплата</button>
-					<button class="billbtn" id="billcredit">Рассрочка</button>
-					<button class="billbtn" id="billoferta">Оферты</button>
-					<button class="billbtn" id="billlendings">Лендинги</button>
+					<button class="billbtn" id="billschemes">Reward schemes</button>
+					<button class="billbtn" id="billselfemployee">Self - employed </button>
+					<button class="billbtn" id="billrequisites">Requisites</button>
+					<button class="billbtn" id="billpayments">Payments</button>
+					<button class="billbtn" id="billspisanie">Debiting funds</button>
+					<button class="billbtn" id="billreturns">Refunds</button>
+					<button class="billbtn" id="billpaymentmesystems">Payment systems</button>
+					<button class="billbtn" id="billwidgetpayment">Payment Widget</button>
+					<button class="billbtn" id="billpay">Payment</button>
+					<button class="billbtn" id="billcredit">Installments</button>
+					<button class="billbtn" id="billoferta">Offers</button>
+					<button class="billbtn" id="billlendings">Landing pages</button>
 					<button class="billbtn" id="billterms">Terms</button>
-					<button class="billbtn" id="billsubscribtions">Подписки</button>
-					<button class="billbtn" id="billbundles">Бандлы</button>
-					<button class="billbtn" id="billtehproblemsprod">Технические проблемы на production</button>
-					<button class="billbtn" id="billroles">Роли и доступы</button>
-					<button class="billbtn" id="billbusanalys">Бизнес-анализ</button>
-					<button class="billbtn" id="billtechconv">Техническое обсуждение</button>
+					<button class="billbtn" id="billsubscribtions">Subscriptions</button>
+					<button class="billbtn" id="billbundles">Bundles</button>
+					<button class="billbtn" id="billtehproblemsprod">Technical problems on production</button>
+					<button class="billbtn" id="billroles">Roles and accesses</button>
+					<button class="billbtn" id="billbusanalys">Business analysis</button>
+					<button class="billbtn" id="billtechconv">Technical discussion</button>
 				</div>
 				
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
-					<button class="kidsbtn" id="skysmartcontent">Контент</button>
-					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
-					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
-					<button class="kidsbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
-					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
-					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
-					<button class="kidsbtn" id="skysmartcabinet">Детский ЛКУ</button>
-					<button class="kidsbtn" id="skysmartcertificate">Сертификаты</button>
-					<button class="kidsbtn" id="skysmartgroup">Групповые и параллельные уроки</button>
-					<button class="kidsbtn" id="skysmartpages">Страницы skysmart</button>
-					<button class="kidsbtn" id="skysmartappparents">Приложение skysmart parents</button>
-					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
+					<button class="kidsbtn" id="skysmartcontent">Content</button>
+					<button class="kidsbtn" id="skysmartfeedback">Feedback</button>
+					<button class="kidsbtn" id="skysmartfamily">Operations with the family</button>
+					<button class="kidsbtn" id="skysmartpersotrackprogress">Persotreks and progress widget</button>
+					<button class="kidsbtn" id="skysmarthomework">HW and Tests page</button>
+					<button class="kidsbtn" id="skysmartprogress">Progress page</button>
+					<button class="kidsbtn" id="skysmartcabinet">Children's cabinet</button>
+					<button class="kidsbtn" id="skysmartcertificate">Certificates</button>
+					<button class="kidsbtn" id="skysmartgroup">Group and parallel lessons</button>
+					<button class="kidsbtn" id="skysmartpages">Pages skysmart</button>
+					<button class="kidsbtn" id="skysmartappparents">Application skysmart parents</button>
+					<button class="kidsbtn" id="skysmartonetoone">Lessons 1:1</button>
 				</div>
 				
 				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#mrkt-bill-questions</p>
-					<button class="mrktbtn" id="mrktsubscribptions">Подписки</button>
-					<button class="mrktbtn" id="mrktcertificates">Заказ сертификатов</button>
-					<button class="mrktbtn" id="mrktpromocodes">Заказ промокодов</button>
-					<button class="mrktbtn" id="mrktdisablends">Отключение НДС</button>
-					<button class="mrktbtn" id="mrktnachisl">Начисления (срочные, журналисты, PR)</button>
-					<button class="mrktbtn" id="mrktdoublelessons">Удвоение уроков (сотрудники)</button>
-					<button class="mrktbtn" id="mrktpriceq">Вопросы по прайсам</button>
-					<button class="mrktbtn" id="mrktreferal">Реферальная программа</button>
-					<button class="mrktbtn" id="mrktcertconsult">Сертификаты консультация / тех. проблема</button>
-					<button class="mrktbtn" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
-					<button class="mrktbtn" id="mrktunderground">Подземный стук</button>
+					<button class="mrktbtn" id="mrktsubscribptions">Subscriptions</button>
+					<button class="mrktbtn" id="mrktcertificates">Ordering certificates</button>
+					<button class="mrktbtn" id="mrktpromocodes">Ordering promo codes</button>
+					<button class="mrktbtn" id="mrktdisablends">Disabling VAT</button>
+					<button class="mrktbtn" id="mrktnachisl">Accruals (urgent, journalists, PR)</button>
+					<button class="mrktbtn" id="mrktdoublelessons">Doubling lessons (employees)</button>
+					<button class="mrktbtn" id="mrktpriceq">Questions about price lists</button>
+					<button class="mrktbtn" id="mrktreferal">Referral program</button>
+					<button class="mrktbtn" id="mrktcertconsult">Certificates consultation / technical problem</button>
+					<button class="mrktbtn" id="mrktpromocodesconsult">Promo codes consultation / technical problem</button>
+					<button class="mrktbtn" id="mrktunderground">Underground</button>
 				</div>
 				
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#vim-bugs</p>
-					<button class="vimbugsbtn" id="adultselfstudy">Adults Self-Study</button>
-					<button class="vimbugsbtn" id="premiumflip">Premium и Flip</button>
-					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
-					<button class="vimbugsbtn" id="automark">Автоотметка по урокам взрослых У</button>
-					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
-					<button class="vimbugsbtn" id="adulthwlestest">Взрослый English: Домашки, уроки, тесты</button>
-					<button class="vimbugsbtn" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
-					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
-				</div>
+					 <p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#vim-bugs</p>
+					 <button class="vimbugsbtn" id="adultselfstudy">Adults Self-Study</button>
+					 <button class="vimbugsbtn" id="premiumflip">Premium and Flip</button>
+					 <button class="vimbugsbtn" id="lessonbutwidg">Adult entry widget Y and N</button>
+					 <button class="vimbugsbtn" id="automark">Auto-tagging for adult lessons at</button>
+					 <button class="vimbugsbtn" id="cmscontentadult">Adult English: CMS and content on an adult platform</button>
+					 <button class="vimbugsbtn" id="adulthwlestest">Adult English: Homework, lessons, tests</button>
+					 <button class="vimbugsbtn" id="showcaseadult">Adult P/adult Y showcase</button>
+					 <button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Any pages containing vimbox, but not containing kids in the URL</button>
+				 </div>
 				
 	        </span>
 			
 				<div id="kidsform" style="display: none; margin-left:20px;">
-					<textarea id="customfield_1" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_1" placeholder="How do I reproduce the error?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_2" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_2" placeholder="Expected behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_3" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_3" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<input id="customfield_4" placeholder="ID Ученика" oninput="onlyNumber(this)" style="width: 420px;"></input>
+					<input id="customfield_4" placeholder="Student ID" oninput="onlyNumber(this)" style="width: 420px;"></input>
 					<br>
-					<input id="customfield_5" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="width: 420px;"></input>
+					<input id="customfield_5" placeholder="Teacher ID" oninput="onlyNumber(this)" style="width: 420px;"></input>
 					<br>
-					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="teachersform" style="display: none; margin-left:20px;">
-					<input id="customfield_6" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_6" placeholder="Student ID" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_7" placeholder="ID Преподавателя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_7" placeholder="Teacher ID" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_8" placeholder="How do I reproduce the error?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_9" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_9" placeholder="Expected behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_10" placeholder="Фактическое поведение"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_10" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_2" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="onboardingform" style="display: none; margin-left:20px;">
-					<input id="customfield_11" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_11" placeholder="Student ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_12" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_12" placeholder="Service ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_13" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_13" placeholder="Short and structured description of the problem" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_14" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_14" placeholder="Expected behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_15" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_15" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_3" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="billqaform" style="display: none; margin-left:20px;">
-					<input id="customfield_16" placeholder="Название продукта?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_16" placeholder="Product name?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_17" placeholder="Прайссет и позиция?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_17" placeholder="Price set and position?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_18" placeholder="How do I reproduce the error?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_19" placeholder="Какое юрлицо?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_19" placeholder="Which legal entity?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_20" placeholder="Согласовано ли юрлицо с финансовым директором (Рустам)?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_20" placeholder="Has the legal entity been approved by the CFO (Rustam)?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_21" placeholder="Адрес страницы, где будет использоваться" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_21" placeholder="Address of page where" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_22" placeholder="Адрес страницы, если оплата не прошла"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_22" placeholder="Page address if payment failed" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<input id="customfield_23" placeholder="Адрес страницы, в случае успеха" oninput="noDoubts(this)" style="width: 420px;"></input>
+					<input id="customfield_23" placeholder="Page address if successful" oninput="noDoubts(this)" style="width: 420px;"></input>
 					<br>
-					<textarea id="customfield_24" placeholder="Описание для пользователя" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_24" placeholder="Description for user" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_25" placeholder="Slack-канал, для уведомлений о новых оплатах" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_25" placeholder="Slack channel for new payment notifications" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_4" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="scheduleform" style="display: none; margin-left:20px;">
-					<input id="customfield_26" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_26" placeholder="Student ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_27" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_27" placeholder="Service ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_28" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_28" placeholder="A brief and structured description of the problem" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_29" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_29" placeholder="How do I reproduce the error?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_30" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_30" placeholder="Expected behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_31" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_31" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<textarea id="customfield_300" placeholder="How massive is the problem?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_301" placeholder="What metrics are affected by the issue?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_5" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
-				
+			
 				<div id="billingform" style="display: none; margin-left:20px;">
-					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_32" placeholder="Student ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_33" placeholder="Service ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_34" placeholder="How do I reproduce the error?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_35" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_35" placeholder="Expected behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_36" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_36" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_6" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_6" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="telephonyform" style="display: none; margin-left:20px;">
-					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_37" placeholder="A brief and structured description of the problem" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_38" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_38" placeholder="Expected behavior" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_39" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_39" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_7" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="authform" style="display: none; margin-left:20px;">
-					<input id="customfield_40" placeholder="ID пользователя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_40" placeholder="User ID" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_41" placeholder="Short and structured description of the problem" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_8" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="crm2form" style="display: none; margin-left:20px;">
-					<input id="customfield_42" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_43" placeholder="ID Услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_42" placeholder="Student ID" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_43" placeholder="Service ID" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_44" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_44" placeholder="A brief and structured description of the problem" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_45" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>					
-					<textarea id="customfield_46" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_45" placeholder="Expected behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<textarea id="customfield_46" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_9" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="mrktform" style="display: none; margin-left:20px;">
-					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_47" placeholder="Student ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_48" placeholder="Service ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_49" placeholder="Short and structured description of the problem" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_10" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 				
 				<div id="vimbugsform" style="display: none; margin-left:20px;">
-					<input id="customfield_50" placeholder="Ссылка на ID услуги ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_51" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_50" placeholder="Student Service ID Link" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_51" placeholder="Teacher ID" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_52" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_52" placeholder="Short and structured description of the problem" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_53" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_53" placeholder="How do I reproduce the error?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_54" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>					
-					<textarea id="customfield_55" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_54" placeholder="Expected behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
-					<button id="create_11" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<textarea id="customfield_55" placeholder="Actual behavior" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_11" style="width: 150px; position:relative; left:30%;">Create</button>
 				</div>
 
 			
