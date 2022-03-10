@@ -154,7 +154,7 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
-				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<input id="sound_adr" placeholder="Sound url" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button> 
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
 				
@@ -163,9 +163,9 @@ var win_AFhelper =  // описание элементов главного ок
 						<span class="checkbox-audio-switch"></span>
 				</label>
 				
-				<label style="color:bisque"><input type="checkbox" id="removeinfowindow">Скрыть Info</label>
+				<label style="color:bisque"><input type="checkbox" id="removeinfowindow">Hide Info</label>
 					<br>
-				<span style="color:bisque">Громкость звука в АФ</span>
+				<span style="color:bisque">Sound volume</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
 				
 					<br>
@@ -4234,7 +4234,7 @@ function refreshTemplates() {
                 phone = document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText
                 if (phone == "-") {
                     phone = ""
-                    document.getElementById('phone_tr').placeholder = "Телефон"
+                    document.getElementById('phone_tr').placeholder = "Phone"
                 } else
                     document.getElementById('phone_tr').placeholder = phone
             }
@@ -4242,15 +4242,15 @@ function refreshTemplates() {
                 email = document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText
                 if (email == "-") {
                     email = ""
-                    document.getElementById('email_tr').placeholder = "Почта"
+                    document.getElementById('email_tr').placeholder = "Email"
                 }
                 document.getElementById('email_tr').placeholder = email
             }
         } else {
             if (document.getElementById('email_tr') != undefined)
-                document.getElementById('email_tr').placeholder = "Почта"
+                document.getElementById('email_tr').placeholder = "Email"
             if (document.getElementById('phone_tr') != undefined)
-                document.getElementById('phone_tr').placeholder = "Телефон"
+                document.getElementById('phone_tr').placeholder = "Phone"
         }
     }, 1000)
     templatesAF = []
