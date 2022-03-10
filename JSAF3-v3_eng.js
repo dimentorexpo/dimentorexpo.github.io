@@ -127,7 +127,7 @@ var win_AFhelper =  // описание элементов главного ок
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" title="Переключает язык Russian/English" style="width:100px">Russian</button>
+					<button id="languageAF" title="Переключает язык Russian/English" style="width:100px">English</button>
 					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
@@ -244,48 +244,33 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button title="Отображает актуальные креды к BrowserStack" id="creds" style="width:50px;">ℹ</button>
 					<button title="Открывает раздел для генерирования одноразового пароля для мобильного приложения" id="passappgen" style="width:50px;">📲</button>
-					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" style="width:50px;">📚</button>
-					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" style="width:50px;">📆</button>
 					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" style="width: 50px;">📋</button>
-					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" style="width: 50px;">💼</button>
-					<button title="Открывает инструкцию по пробникам" id="probnikinstr" style="width: 50px;">🗃</button>
                     <button title="Открывает известные баги на платформе" id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
 					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
-					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
-					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
+					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Billing</button>
+					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Compens</button>
 					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
-					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
-					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
-					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
-					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
+					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Admin</button>
+					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Search$</button>
+					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Suggestions</button>
+					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Features</button>
 					<button title="Открывает новый TRM 2.0 с инфой о преподавателях" id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
-					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
-					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Подписки</button>
-					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button title="открывает фичи групп для активации связи на ГУ" id="groupfeatures" style="width:105px; margin-top: 3px">Фичи Групп</button>
+					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Subscribe</button>
 					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
-					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
-					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button title="CMS словаря" id="cmswordssearch" style="width:105px; margin-top: 3px">CMS словаря</button>
-					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
-					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
+					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Certificates</button>
+					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Promocodes</button>
+					<button title="CMS словаря" id="cmswordssearch" style="width:105px; margin-top: 3px">CMS vocab</button>
 				</div>	
 				<div style="margin: 5px; width: 550px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
-					<input id="grid" placeholder="ID ГУ(OLD)" title="вводим ID группы, чтобы перейти в админку КГЛ и просмотреть общий список учеников, статус группы и П" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="groupadm">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="sguid">🔎</button>
 					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="credits">🔎</button>
 					<input id="iplookup" placeholder="IP У/П/Vimbox" title="вводим IP У/П/Платформы, чтобы получить информацию о месторасположении географического адреса и получения информации о хостинге" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="gotolookip">🔎</button>
-					<input id="lgssearch" placeholder="ID Группы" title="Введите ID LGS или обычной группы KGL для просмотра информации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getlgsinfo">🔎</button>
 					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="startjirasearch">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -311,12 +296,9 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				 
 				<div style="margin: 5px; width: 550px" id="links_butd">	
-                    <button title="копирует в буфер обмена команду setStatus('lesson_select') для перехода в материалы урока" id="materiallesson" style="width:100px">Mater MAT💾</button>
-					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.58</button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.51</button>
-			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
 				</div>		
 			</span>
 	</span>
@@ -1697,27 +1679,9 @@ function move_again_AF() {
     document.getElementById('subscribebilling').addEventListener('click', function () {
         window.open("https://billing-api.skyeng.ru/subscriptions")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
     })
-    document.getElementById('apelation').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
-    })
-    document.getElementById('groupfeatures').addEventListener('click', function () {
-        window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
-    })
 
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
-    })
-
-    document.getElementById('materiallesson').addEventListener('click', function () {
-        copyToClipboard("setStatus('lesson_select')")   // копируем ссылку в буфер для перезапуска материалов урока
-        document.getElementById('materiallesson').innerHTML = "Copied!";
-        setTimeout(function () { document.getElementById('materiallesson').innerHTML = "Mater MAT💾" }, 2000);
-    })
-
-    document.getElementById('restartlesson').addEventListener('click', function () {
-        copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
-        document.getElementById('restartlesson').innerHTML = "Copied!";
-        setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
     })
 
     document.getElementById('enableNS').addEventListener('click', function () {
@@ -1731,9 +1695,6 @@ function move_again_AF() {
     document.getElementById('trmnew').addEventListener('click', function () {
         window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
     })
-    document.getElementById('testroom').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")    // открываем ссылку в админку тестовых комнат
-    })
 
     document.getElementById('certificates').addEventListener('click', function () {
         window.open("https://billing-marketing.skyeng.ru/certificate/certSearch")    // открываем ссылку в новой вкладке на Подарочные сертификаты
@@ -1745,14 +1706,6 @@ function move_again_AF() {
 
     document.getElementById('cmswordssearch').addEventListener('click', function () {
         window.open("https://dictionary.skyeng.ru/cms/word/333")    // открываем ссылку для просмотра CMSки слова мининг переводы и тп
-    })
-
-    document.getElementById('TCQnew').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfZbw1GkZzerHWQGGbYslV6AsGTGxEKhNZFC1LV-TySHca9Fw/viewform")    // открываем ссылку в новой вкладке на форму для внесения вопросов от П TC
-    })
-
-    document.getElementById('TCQtable').addEventListener('click', function () {
-        window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
     })
 
     document.getElementById('userfeatures').addEventListener('click', function () {
@@ -1865,16 +1818,6 @@ function move_again_AF() {
         cmsstepid.value = "";
     }
 	
-	    document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
-        let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
-        if (grid.value == "")
-            console.log('Введите id в поле')
-        else {
-            window.open(lnngr + grid.value);
-        };
-        grid.value = "";
-    }
-
     document.getElementById('checkbalance').onclick = function () {
         window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
     }
@@ -2384,16 +2327,6 @@ function move_again_AF() {
         } else if (document.querySelector('#hide_or_display').textContent == "свернуть")
             document.getElementById('user_id').value = document.getElementById('idstudent').value;
         search.click()
-    }
-
-    document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
-        let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
-        if (studguid.value == "")
-            console.log('Введите id  ученика в поле')
-        else {
-            window.open(lnksgu + studguid.value);
-        };
-        studguid.value = "";
     }
 
     document.getElementById('credits').onclick = function () {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
@@ -3555,16 +3488,6 @@ function move_again_AF() {
         jirasearch.value = "";
     }
 
-    document.getElementById('getlgsinfo').onclick = function () {                  // открытие админки LGS по ID группы
-        let lgslink = 'https://learning-groups-storage.skyeng.ru/group/';
-        if (lgssearch.value == "")
-            console.log('Введите текст в поле')
-        else {
-            window.open(lgslink + lgssearch.value + '?cp=(section:participants)');
-        };
-        lgssearch.value = "";
-    }
-
     document.getElementById('msg').onclick = function () {
         if (this.innerHTML == "Chat") {
             this.innerHTML = "Notes";
@@ -3946,14 +3869,6 @@ function move_again_AF() {
         alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: LCUmDtBpuRKZh>zMlLYGH");
     }
 
-    document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
-    }
-
-    document.getElementById('datsyurl').onclick = function () { // открытие Календаря
-        window.open("https://datsy.ru/")
-    }
-
     document.getElementById('gettechsummary').onclick = async function () {
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
@@ -4044,14 +3959,6 @@ function move_again_AF() {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
     })
 
-    document.getElementById('probniki').addEventListener('click', function () {
-        window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
-    })
-
-    document.getElementById('probnikinstr').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
-    })
-
     document.getElementById('sound_save').onclick = function () {
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
         if (document.getElementById('sound_adr').value == "")
@@ -4068,11 +3975,11 @@ function move_again_AF() {
 
     if (flagLangBut == 0) {
         document.getElementById('languageAF').onclick = function () {
-            if (this.innerHTML == "Russian") {
-                this.innerHTML = "English";
+            if (this.innerHTML == "English") {
+                this.innerHTML = "Spanish";
                 document.getElementById('AF_helper').style.background = "#EBC7DF"
             } else {
-                this.innerHTML = "Russian";
+                this.innerHTML = "English";
                 document.getElementById('AF_helper').style.background = "#464451"
             }
         }
@@ -4296,7 +4203,7 @@ async function buttonsFromDoc(butName) {
         a = a.split(' ')
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-        if (document.getElementById('languageAF').innerHTML == "Russian")
+        if (document.getElementById('languageAF').innerHTML == "English")
             if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Rework")
                 txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             else
@@ -4656,7 +4563,7 @@ function msgFromTable(btnName) {
             } else {
                 newTag(table[l][8])
             }
-            if (document.getElementById('languageAF').innerHTML == "Russian") {
+            if (document.getElementById('languageAF').innerHTML == "English") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -6341,7 +6248,7 @@ function customTemplates(language = '') {
             tmp1 = localStorage.getItem('tmp_name_' + language + index)
             localStorage.setItem('tmp_name_' + language + index, localStorage.getItem('tmp_name_' + language + index2))
             localStorage.setItem('tmp_name_' + language + index2, tmp1)
-            if (document.getElementById('languageAF').innerHTML == "Russian")
+            if (document.getElementById('languageAF').innerHTML == "English")
                 customTemplates()
             else
                 customTemplates('en_')
@@ -6367,7 +6274,7 @@ function customTemplates(language = '') {
             tmp1 = localStorage.getItem('tmp_name_' + language + index)
             localStorage.setItem('tmp_name_' + language + index, localStorage.getItem('tmp_name_' + language + index2))
             localStorage.setItem('tmp_name_' + language + index2, tmp1)
-            if (document.getElementById('languageAF').innerHTML == "Russian")
+            if (document.getElementById('languageAF').innerHTML == "English")
                 customTemplates()
             else
                 customTemplates('en_')
@@ -6451,12 +6358,12 @@ function customTemplates(language = '') {
     cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
 
     document.getElementById('languageAF').onclick = function () {
-        if (this.innerHTML == "Russian") {
-            this.innerHTML = "English";
+        if (this.innerHTML == "English") {
+            this.innerHTML = "Spanish";
             document.getElementById('AF_helper').style.background = "#EBC7DF"
             customTemplates('en_')
         } else {
-            this.innerHTML = "Russian";
+            this.innerHTML = "English";
             document.getElementById('AF_helper').style.background = "#464451"
             customTemplates()
         }
