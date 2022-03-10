@@ -6947,17 +6947,17 @@ let lginfo;
 let tokenlog;
 //getlogginer()
 let btnpm = document.createElement('button')
-btnpm.innerText = "ПМ";
+btnpm.innerText = "CT";
 btnpm.id = "mathteachercode";
 btnpm.style = "background-color: #3CB371 ; margin: 5px;"; 
 
 let btnsid = document.createElement('button')
-btnsid.innerText = "У";
+btnsid.innerText = "S";
 btnsid.id = "sidcode";
 btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
 
 let btntid = document.createElement('button')
-btntid.innerText = "П";
+btntid.innerText = "T";
 btntid.id = "tidcode";
 btntid.style = "background-color: #3CB371 ; margin-left: 5px;";
 
