@@ -4007,7 +4007,7 @@ function move_again_AF() {
 
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
-    button1.innerHTML = "Скрипт";
+    button1.innerHTML = "Script";
     button1.style.marginRight = "15px";
     button1.style.display = 'none'
     button1.onclick = function () {
@@ -6724,16 +6724,16 @@ function prepTp() {
 
     let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
     buttonGetStat.id = 'buttonGetStat';
-    buttonGetStat.innerHTML = "Статистика";
+    buttonGetStat.innerHTML = "Statistica";
     buttonGetStat.style.marginLeft = "15px";
     buttonGetStat.onclick = function () {
-        if (this.textContent == 'Скрыть стату') {
+        if (this.textContent == 'Hide stat') {
             if (this.getAttribute('disabled') != null)
                 return
             if (document.getElementById('tableStats') != undefined) {
                 document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
             }
-            this.textContent = 'Статистика'
+            this.textContent = 'Statistica'
 
             document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
 
@@ -6749,13 +6749,13 @@ function prepTp() {
             } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
                 document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
             } else {
-                this.textContent = 'Неверная страница'
-                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
+                this.textContent = 'Wrong page'
+                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Statistica" }, 500)
                 return
             }
             getStats()
             document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-            this.textContent = 'Загрузка'
+            this.textContent = 'Loading'
         }
     }
     document.getElementById('app-header').append(buttonGetStat)
