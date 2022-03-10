@@ -425,7 +425,7 @@ function getslacklnk() {
 					document.getElementById('teacherstatistic').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -435,7 +435,7 @@ function getslacklnk() {
 					document.getElementById('teacherstudy').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -445,7 +445,7 @@ function getslacklnk() {
 					document.getElementById('teacherbreak').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -455,7 +455,7 @@ function getslacklnk() {
 					document.getElementById('teachermoney').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -465,7 +465,7 @@ function getslacklnk() {
 					document.getElementById('teachermap').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -475,7 +475,7 @@ function getslacklnk() {
 					document.getElementById('teachertimetable').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -485,7 +485,7 @@ function getslacklnk() {
 					document.getElementById('teacherperenos').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -495,7 +495,7 @@ function getslacklnk() {
 					document.getElementById('teacherwidgetbalance').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -505,7 +505,7 @@ function getslacklnk() {
 					document.getElementById('teacherwidgetlessonmark').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -515,7 +515,7 @@ function getslacklnk() {
 					document.getElementById('teacherwidgetplanfact').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -525,7 +525,7 @@ function getslacklnk() {
 					document.getElementById('teacherwidgettimetableweek').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -535,7 +535,7 @@ function getslacklnk() {
 					document.getElementById('teacherwidgetKPI').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') { 
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -545,7 +545,7 @@ function getslacklnk() {
 					document.getElementById('teacherwidgetmystudents').onclick = function() {
 						if (document.getElementById('teachersform').style.display == '') {
 							document.getElementById('customfield_6').placeholder ="Student ID";
-							document.getElementById('customfield_7').placeholder ="Instructor ID";
+							document.getElementById('customfield_7').placeholder ="Teacher ID";
 							document.getElementById('customfield_8').placeholder ="How do I reproduce the error?";
 							document.getElementById('customfield_9').style.display ="";
 							document.getElementById('customfield_10').style.display ="";
@@ -1909,7 +1909,7 @@ function getslacklnk() {
 					document.getElementById('ttacceptzapros').onclick = function() {
 						if (document.getElementById('scheduleform').style.display == '') {
 							document.getElementById('customfield_27').style.display = '';
-							document.getElementById('customfield_27').placeholder ="Instructor ID";
+							document.getElementById('customfield_27').placeholder ="Teacher ID";
 							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_28').placeholder ="Concise and structured problem description (optional)";
 							document.getElementById('customfield_29').style.display = 'none';
@@ -1949,7 +1949,7 @@ function getslacklnk() {
 					
 					document.getElementById('ttunderground').onclick = function() {
 						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').placeholder ="Instructor ID";
+							document.getElementById('customfield_27').placeholder ="Teacher ID";
 							document.getElementById('customfield_28').placeholder ="Concise and structured description of the problem";
 							document.getElementById('customfield_28').style.display = '';
 							document.getElementById('customfield_29').style.display = 'none';
