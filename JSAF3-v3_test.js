@@ -1,5 +1,6 @@
 //Global vars
 
+
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);
@@ -172,7 +173,7 @@ var win_AFhelper =  // описание элементов главного ок
 				
 					<br>	
 				<span style="color:bisque">Таймер автозакрытия:</span>
-				<input title="Ввод числа для автозакрытия, при этом от этого числа будет отнято 2 минуты чтобы чат закрасился в фиолетовый цвет, то есть при значении 12 на 10 минуте чат зальется фиолетовым цветом оповещая, что скоро будет закрыт" id="autoclosetime" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="2" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> 
+				<input title="Ввод числа для автозакрытия, при этом от этого числа будет отнято 2 минуты чтобы чат закрасился в фиолетовый цвет, то есть при значении по-умолчанию 12 на 10 минуте чат зальется фиолетовым цветом оповещая, что скоро будет закрыт" id="autoclosetime" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="2" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> 
 				<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
 				
 					<br>
@@ -908,6 +909,10 @@ if (localStorage.getItem('winTopServDsk') == null) { // началоное по�
     localStorage.setItem('winLeftServDsk', '295');
 }
 
+//Для таймера автозакрытия
+if (localStorage.getItem('aclstime') == null) {
+	localStorage.setItem('aclstime') = 12;
+}
 
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
