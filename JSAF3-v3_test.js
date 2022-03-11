@@ -911,7 +911,7 @@ if (localStorage.getItem('winTopServDsk') == null) { // началоное по�
 
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
-	localStorage.setItem('aclstime') = 12;
+	localStorage.setItem('aclstime', 12);
 }
 
 if (localStorage.getItem('scriptAdr') == null) {
