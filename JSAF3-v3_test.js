@@ -909,11 +909,6 @@ if (localStorage.getItem('winTopServDsk') == null) { // началоное по�
     localStorage.setItem('winLeftServDsk', '295');
 }
 
-//Для таймера автозакрытия
-if (localStorage.getItem('aclstime') == null) {
-	localStorage.setItem('aclstime', 12);
-}
-
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
@@ -1800,6 +1795,7 @@ function move_again_AF() {
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
     }
+	
     document.getElementById('setreminder').onclick = function () {  // выставляем будильник
         document.getElementById('reminderstatus').textContent = "🔔";
         localStorage.setItem('setchas', setchas.value);
@@ -3845,6 +3841,24 @@ function move_again_AF() {
 			if(localStorage.getItem('test_teach') !="" || localStorage.getItem('test_teach') != null) {
 				document.getElementById('test_teach').value = localStorage.getItem('test_teach');
 			} else document.getElementById('test_teach').value = "";
+			
+			//Для таймера автозакрытия
+				if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') !="") {
+					document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+				} else { 
+					localStorage.setItem('aclstime', 12);
+					document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+				}
+			
+			//для таймера autoclose
+			
+				document.getElementById('setautoclosetime').onclick = function() {
+			if (document.getElementById('autoclosetime').value != '') {
+				localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
+			} else console.log("Базовое значение равно 12 минут")
+			}
+			
+			//
 			
 				let range = document.getElementById('range');
 				range.value = localStorage.getItem('audiovol');
