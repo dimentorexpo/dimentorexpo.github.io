@@ -268,7 +268,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
 					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
 					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button title="Открывает новый TRM 2.0 с инфой о преподавателях" id="trmnew" style="width:105px; margin-top: 3px">TRM2</button>
+					<button title="Открывает сайт для просмотра ошибок и логов в комнате" id="trshoothing" style="width:105px; margin-top: 3px">Troubleshooting</button>
 					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
 					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Подписки</button>
 					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
@@ -1742,8 +1742,8 @@ function move_again_AF() {
     document.getElementById('browserstack').addEventListener('click', function () {
         window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
     })
-    document.getElementById('trmnew').addEventListener('click', function () {
-        window.open("https://trm.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
+    document.getElementById('trshoothing').addEventListener('click', function () {
+        window.open("hhttps://video-trouble-shooter.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
     })
     document.getElementById('testroom').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")    // открываем ссылку в админку тестовых комнат
