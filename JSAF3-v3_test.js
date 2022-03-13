@@ -5514,11 +5514,11 @@ setInterval(checJiraF, 1000);
 
 function paintstatus() {
 	if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") 
-		document.querySelectorAll('.user_menu-status-name')[1].style.background = "red";
+		document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
 	else  if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") 
-		document.querySelectorAll('.user_menu-status-name')[1].style.background = "green";
+		document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
 	else  if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") 
-		document.querySelectorAll('.user_menu-status-name')[1].style.background = "yellow";
+		document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
 }
 setInterval(paintstatus, 5000);
 
