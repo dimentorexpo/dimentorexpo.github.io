@@ -5513,7 +5513,7 @@ function checJiraF() {
 setInterval(checJiraF, 1000);
 
 function paintstatus() {
-	if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.URL != "https://skyeng.autofaq.ai/tickets/common") {
+	if (document.URL != "https://skyeng.autofaq.ai/tickets/archive") {
 	if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
 		document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
 		document.querySelectorAll('.ant-btn')[1].style.background = "red";
@@ -5535,7 +5535,6 @@ function paintstatus() {
 			document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
 			document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
 		}
-	 console.log("Not paint"); 
 	}
 
 }
