@@ -318,7 +318,6 @@ var win_Links =  // описание элементов окна ссылок
 				</div>		
 				 
 				<div style="margin: 5px; width: 550px" id="links_butd">	
-                    <button title="копирует в буфер обмена команду setStatus('lesson_select') для перехода в материалы урока" id="materiallesson" style="width:100px">Mater MAT💾</button>
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.59</button>
@@ -823,7 +822,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="vimbugsform" style="display: none; margin-left:20px;">
-					<input id="customfield_50" placeholder="Ссылка на ID услуги ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_50" placeholder="ID ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_51" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<textarea id="customfield_52" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
@@ -1720,12 +1719,6 @@ function move_again_AF() {
 
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
-    })
-
-    document.getElementById('materiallesson').addEventListener('click', function () {
-        copyToClipboard("setStatus('lesson_select')")   // копируем ссылку в буфер для перезапуска материалов урока
-        document.getElementById('materiallesson').innerHTML = "Copied!";
-        setTimeout(function () { document.getElementById('materiallesson').innerHTML = "Mater MAT💾" }, 2000);
     })
 
     document.getElementById('restartlesson').addEventListener('click', function () {

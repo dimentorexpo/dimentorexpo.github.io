@@ -822,7 +822,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="vimbugsform" style="display: none; margin-left:20px;">
-					<input id="customfield_50" placeholder="Ссылка на ID услуги ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_50" placeholder="ID ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_51" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<textarea id="customfield_52" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
