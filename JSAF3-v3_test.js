@@ -1981,17 +1981,17 @@ function move_again_AF() {
             commonidentity = await commonidentity;
 
             if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-                emailidentity = "📧✔";
-                phoneidentity = "☎✔";
+                emailidentity = "📧✖";
+                phoneidentity = "☎✖";
             } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                emailidentity = "📧✖";
-                phoneidentity = "☎✔";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
                 emailidentity = "📧✔";
                 phoneidentity = "☎✖";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
                 emailidentity = "📧✖";
-                phoneidentity = "☎✖";
+                phoneidentity = "☎✔";
+            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+                emailidentity = "📧✔";
+                phoneidentity = "☎✔";
             }
 
             document.getElementById('responseTextarea1').removeAttribute('responseupdate')
