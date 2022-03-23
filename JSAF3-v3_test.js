@@ -5537,7 +5537,7 @@ function paintstatus() {
 setInterval(paintstatus, 5000);
 
 function backbtn() {
-	if document.getElementById('search') != null)
+	if (document.getElementById('search') != null)
 	document.getElementById('back_btn').style.display = "";	
 }
 
