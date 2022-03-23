@@ -5536,6 +5536,13 @@ function paintstatus() {
 
 setInterval(paintstatus, 5000);
 
+function backbtn() {
+	if document.getElementById('search') != null)
+	document.getElementById('back_btn').style.display = "";	
+}
+
+setInterval(backbtn, 5000);
+
 function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
