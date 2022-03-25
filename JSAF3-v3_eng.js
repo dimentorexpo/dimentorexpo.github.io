@@ -1167,7 +1167,7 @@ hashBut.onclick = function () {
             setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
         } else {
             adr1 = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-24/' + adr1)
             document.getElementById('hashBut').innerHTML = "Скопировано"
             setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
         }
