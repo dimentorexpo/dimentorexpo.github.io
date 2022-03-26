@@ -850,11 +850,11 @@ function maxLengthCheck(object) // функция ограничения кол-
 }
 
 function onlyNumber(object) { // функция для разрешения ввода только цифр
-		object.value = object.value.replace(/[^0-9-]/g, '');
+    object.value = object.value.replace(/[^0-9-]/g, '');
 }
 
 function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
-		object.value = object.value.replace(/["'\\]/gi, '');
+    object.value = object.value.replace(/["'\\]/gi, '');
 }
 
 
@@ -910,46 +910,46 @@ if (localStorage.getItem('winTopServDsk') == null) { // началоное по�
 
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
-	localStorage.setItem('aclstime', 12);
+    localStorage.setItem('aclstime', 12);
 }
 
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
-let button2 = document.createElement('p');
+let button2 = document.createElement('span');
 button2.id = 'userIdScript';
-button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
-let button3 = document.createElement('p');
+button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+let button3 = document.createElement('span');
 button3.id = 'nextStudentIdScript';
-button3.innerHTML = '<a style="color: black; width:40px; cursor: pointer;">Info</a>';
-let buttonserv = document.createElement('p');
+button3.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
-buttonserv.innerHTML = "⚜";
+buttonserv.innerHTML = " ⚜ ";
 buttonserv.style.width = "20px";
 buttonserv.style.cursor = "pointer";
-let buttonservstud = document.createElement('p');
+let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
-buttonservstud.innerHTML = "⚜";
+buttonservstud.innerHTML = " ⚜ ";
 buttonservstud.style.width = "20px";
 buttonservstud.style.cursor = "pointer";
-let buttonservteach = document.createElement('p');
+let buttonservteach = document.createElement('span');
 buttonservteach.id = 'nextTeacherServiceInfo1';
-buttonservteach.innerHTML = "⚜";
+buttonservteach.innerHTML = " ⚜ ";
 buttonservteach.style.width = "20px";
 buttonservteach.style.cursor = "pointer";
-let button4 = document.createElement('p');
+let button4 = document.createElement('span');
 button4.id = 'nextTeacherIdScript';
-button4.innerHTML = '<a style="color: black; cursor: pointer;">Info</a>';
-let buttonhistory = document.createElement('p');
+button4.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
+let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋</a>';
-let buttonnextstudentid = document.createElement('p');
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
+let buttonnextstudentid = document.createElement('span');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
-buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(У)</a>';
-let buttonnextteacherid = document.createElement('p');
+buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+let buttonnextteacherid = document.createElement('span');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
-buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;">Chat History📋(П)</a>';
+buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
 butteachid.innerHTML = "👽 (ID П) П обратился ";
@@ -1493,17 +1493,17 @@ function move_again_AF() {
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
         audio.play()
     }
-	
-	document.getElementById('setteststd').onclick = function() {
-			if (document.getElementById('test_std').value != '') {
-				localStorage.setItem('test_stud', document.getElementById('test_std').value);
-			} else console.log("Ведите ID тестового ученика")
-	}
-	document.getElementById('settestteach').onclick = function() {
-			if (document.getElementById('test_teach').value != '') {
-				localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-			} else console.log("Ведите ID тестового преподавателя")
-	}
+
+    document.getElementById('setteststd').onclick = function () {
+        if (document.getElementById('test_std').value != '') {
+            localStorage.setItem('test_stud', document.getElementById('test_std').value);
+        } else console.log("Ведите ID тестового ученика")
+    }
+    document.getElementById('settestteach').onclick = function () {
+        if (document.getElementById('test_teach').value != '') {
+            localStorage.setItem('test_teach', document.getElementById('test_teach').value);
+        } else console.log("Ведите ID тестового преподавателя")
+    }
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
@@ -1634,8 +1634,8 @@ function move_again_AF() {
         };
         rpayid.value = "";
     }
-	
-	
+
+
 
     document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
         if (FeedbackStatus.value == "") {
@@ -1653,9 +1653,9 @@ function move_again_AF() {
             window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
         };
         TeacherReport.value = "";
-    }   
+    }
 
-	document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
+    document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
         if (UserActions.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -1672,13 +1672,13 @@ function move_again_AF() {
     })
     document.getElementById('faqext').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971")    // открываем инструкцию по расширению
-    }) 
+    })
 
-	document.getElementById('curVeriOS').addEventListener('click', function () {
+    document.getElementById('curVeriOS').addEventListener('click', function () {
         window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")    // открываем инструкцию по расширению
     })
 
-	document.getElementById('curVerAndroid').addEventListener('click', function () {
+    document.getElementById('curVerAndroid').addEventListener('click', function () {
         window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")    // открываем инструкцию по расширению
     })
     document.getElementById('talksadm').addEventListener('click', function () {
@@ -1773,19 +1773,19 @@ function move_again_AF() {
             window.open(lnkgr + cpuname.value);
         };
         cpuname.value = "";
-    }    
-	
-	document.getElementById('getmvureport').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
+    }
+
+    document.getElementById('getmvureport').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
         if (reportmvu.value == "")
             console.log('Введите ID в поле')
         else {
-		copyToClipboard('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
+            copyToClipboard('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
         };
         document.getElementById('getmvureport').innerHTML = "✅";
         setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
         reportmvu.value = "";
     }
-	
+
 
 
 
@@ -1793,7 +1793,7 @@ function move_again_AF() {
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
     }
-	
+
     document.getElementById('setreminder').onclick = function () {  // выставляем будильник
         document.getElementById('reminderstatus').textContent = "🔔";
         localStorage.setItem('setchas', setchas.value);
@@ -1872,8 +1872,8 @@ function move_again_AF() {
         };
         cmsstepid.value = "";
     }
-	
-	    document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
+
+    document.getElementById('groupadm').onclick = function () {                     //переход в админку редактора группы
         let lnngr = 'https://cabinet.skyeng.ru/admin/group/edit?id=';
         if (grid.value == "")
             console.log('Введите id в поле')
@@ -1886,11 +1886,11 @@ function move_again_AF() {
     document.getElementById('checkbalance').onclick = function () {
         window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
     }
-	
-	    document.getElementById('getcrmoneinfo').onclick = function () {
+
+    document.getElementById('getcrmoneinfo').onclick = function () {
         window.open("https://cabinet.skyeng.ru/orderV2/student/id/" + document.getElementById('idstudent').value)
     }
-	
+
     document.getElementById('getkglinfokid').onclick = function () {
         window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
     }
@@ -2461,9 +2461,9 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
         skipAP.value = "";
     }
-	
-	
-	    document.getElementById('doskiponboard').onclick = function () {               // сохранение в буфере ссылки для активации АП
+
+
+    document.getElementById('doskiponboard').onclick = function () {               // сохранение в буфере ссылки для активации АП
         let skiponblnk = 'https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId=';
         if (skiponboarding.value == "")
             console.log('Введите ID услуги в поле')
@@ -3025,8 +3025,8 @@ function move_again_AF() {
                         document.getElementById('changelocalelng').style.display = ""
                     }
                     document.getElementById('checkbalance').style.display = "";
-					document.getElementById('getcrmoneinfo').style.display = "";
-					document.getElementById('getcrmoneinfo').style.display = "";
+                    document.getElementById('getcrmoneinfo').style.display = "";
+                    document.getElementById('getcrmoneinfo').style.display = "";
                     document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('getpastandfuturelessons').style.display = "";
@@ -3063,7 +3063,7 @@ function move_again_AF() {
                         document.getElementById('changelocalelng').style.display = ""
                     }
                     document.getElementById('checkbalance').style.display = "";
-					document.getElementById('getcrmoneinfo').style.display = "";
+                    document.getElementById('getcrmoneinfo').style.display = "";
                     document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('getpastandfuturelessons').style.display = "";
@@ -3078,7 +3078,7 @@ function move_again_AF() {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + teachername + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "🌍: " + countryofuser + "<br>";
                     document.getElementById('changelocalelng').style.display = "none";
                     document.getElementById('checkbalance').style.display = "none";
-					document.getElementById('getcrmoneinfo').style.display = "none";
+                    document.getElementById('getcrmoneinfo').style.display = "none";
                     document.getElementById('getkglinfokid').style.display = "none";
                     document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('getpastandfuturelessons').style.display = "none";
@@ -3088,7 +3088,7 @@ function move_again_AF() {
                 } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;">Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
                     document.getElementById('checkbalance').style.display = "none";
-					document.getElementById('getcrmoneinfo').style.display = "";
+                    document.getElementById('getcrmoneinfo').style.display = "";
                     document.getElementById('getkglinfokid').style.display = "none";
                     document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('newtrm').style.display = "none";
@@ -3646,185 +3646,185 @@ function move_again_AF() {
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
-	
-	document.getElementById('hideMeSrvDsk').onclick = function() {
-		if (document.getElementById('AF_ServDsk').style.display == '') {
-					$('.sdbtn').click(function() {  
-					$('.sdbtn').not(this).removeClass('activebtnsd');
-					$(this).toggleClass('activebtnsd');
-					});	
 
-					$('.teacbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.kidsbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-										
-					$('.bilqabtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.c1sbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.schdbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.telepbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.authbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.crm2sbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.mrktbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.billbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});		
+    document.getElementById('hideMeSrvDsk').onclick = function () {
+        if (document.getElementById('AF_ServDsk').style.display == '') {
+            $('.sdbtn').click(function () {
+                $('.sdbtn').not(this).removeClass('activebtnsd');
+                $(this).toggleClass('activebtnsd');
+            });
 
-					$('.vimbugsbtn').click(function() {  //поправить
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});						
+            $('.teacbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.kidsbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.bilqabtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.c1sbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.schdbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.telepbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.authbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.crm2sbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.mrktbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.billbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.vimbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
             document.getElementById('AF_ServDsk').style.display = 'none'
-		}
-	}
+        }
+    }
 
-				if (localStorage.getItem('audiovol') !=null) {
-					audio.volume = localStorage.getItem('audiovol');
-				} else localStorage.setItem('audiovol',1);
+    if (localStorage.getItem('audiovol') != null) {
+        audio.volume = localStorage.getItem('audiovol');
+    } else localStorage.setItem('audiovol', 1);
 
     document.getElementById('setting').onclick = function () {
         if (document.getElementById('set_bar').style.display == '')
@@ -3832,86 +3832,86 @@ function move_again_AF() {
         else {
             document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
-			
-			if(localStorage.getItem('test_stud') !="" || localStorage.getItem('test_stud') != null) {
-				document.getElementById('test_std').value = localStorage.getItem('test_stud');
-			} else document.getElementById('test_std').value = "";
-			
-			if(localStorage.getItem('test_teach') !="" || localStorage.getItem('test_teach') != null) {
-				document.getElementById('test_teach').value = localStorage.getItem('test_teach');
-			} else document.getElementById('test_teach').value = "";
-			
-			//Для таймера автозакрытия
-				if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') !="") {
-					document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-				} else { 
-					localStorage.setItem('aclstime', 12);
-					document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-				}
-			
-			//для таймера autoclose
-			
-				document.getElementById('setautoclosetime').onclick = function() {
-					if (document.getElementById('autoclosetime').value != '') {
-						localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
-					} else console.log("Базовое значение равно 12 минут")
-				}
-			
-			//
-			
-				let range = document.getElementById('range');
-				range.value = localStorage.getItem('audiovol');
-				
-			
-				range.onchange = function(){
-					if (localStorage.getItem('audiovol') !=null) {
-						audio.volume = this.value;
-						localStorage.setItem('audiovol',audio.volume);
-					} else localStorage.setItem('audiovol',this.value);
-				}
-			
-			    let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
-				var cboxstatus = document.getElementById('removeinfowindow');
-				cboxstatus.onclick = function () {
 
-					if (!cboxstatus.checked) {
-						document.getElementById('main_easy_win').style.display = "";
-						flagcheckbox = 0;
-						localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-					} else {   // поставить checked, если он не установлен 
-						document.getElementById('main_easy_win').style.display = "none";
-						flagcheckbox = 1;
-						localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-					}
-				}
-				
-				    if (localStorage.getItem('disableomelchenkowindow') == 1) {
-						document.getElementById('main_easy_win').style.display = "none";
-						cboxstatus.checked = true;
-					} else {
-						cboxstatus.checked = false;
-					}
-					
-				
-					if (localStorage.getItem('audio') == '0')
-								document.getElementById('audioswitcher').checked = false;
-					else
-								document.getElementById('audioswitcher').checked = true;
-	
-				document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
-					
-					if (localStorage.getItem('audio') != null) {
-						if (localStorage.getItem('audio') == '0') {
-							document.getElementById('audioswitcher').checked = false;
-							localStorage.setItem('audio', '1');
-						} else if (localStorage.getItem('audio') == '1') {
-							document.getElementById('audioswitcher').checked = true;
-							localStorage.setItem('audio', '0');
-						}
-					}
-				}
-	
-	
+            if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
+                document.getElementById('test_std').value = localStorage.getItem('test_stud');
+            } else document.getElementById('test_std').value = "";
+
+            if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
+                document.getElementById('test_teach').value = localStorage.getItem('test_teach');
+            } else document.getElementById('test_teach').value = "";
+
+            //Для таймера автозакрытия
+            if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
+                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+            } else {
+                localStorage.setItem('aclstime', 12);
+                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+            }
+
+            //для таймера autoclose
+
+            document.getElementById('setautoclosetime').onclick = function () {
+                if (document.getElementById('autoclosetime').value != '') {
+                    localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
+                } else console.log("Базовое значение равно 12 минут")
+            }
+
+            //
+
+            let range = document.getElementById('range');
+            range.value = localStorage.getItem('audiovol');
+
+
+            range.onchange = function () {
+                if (localStorage.getItem('audiovol') != null) {
+                    audio.volume = this.value;
+                    localStorage.setItem('audiovol', audio.volume);
+                } else localStorage.setItem('audiovol', this.value);
+            }
+
+            let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
+            var cboxstatus = document.getElementById('removeinfowindow');
+            cboxstatus.onclick = function () {
+
+                if (!cboxstatus.checked) {
+                    document.getElementById('main_easy_win').style.display = "";
+                    flagcheckbox = 0;
+                    localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+                } else {   // поставить checked, если он не установлен 
+                    document.getElementById('main_easy_win').style.display = "none";
+                    flagcheckbox = 1;
+                    localStorage.setItem('disableomelchenkowindow', flagcheckbox)
+                }
+            }
+
+            if (localStorage.getItem('disableomelchenkowindow') == 1) {
+                document.getElementById('main_easy_win').style.display = "none";
+                cboxstatus.checked = true;
+            } else {
+                cboxstatus.checked = false;
+            }
+
+
+            if (localStorage.getItem('audio') == '0')
+                document.getElementById('audioswitcher').checked = false;
+            else
+                document.getElementById('audioswitcher').checked = true;
+
+            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+
+                if (localStorage.getItem('audio') != null) {
+                    if (localStorage.getItem('audio') == '0') {
+                        document.getElementById('audioswitcher').checked = false;
+                        localStorage.setItem('audio', '1');
+                    } else if (localStorage.getItem('audio') == '1') {
+                        document.getElementById('audioswitcher').checked = true;
+                        localStorage.setItem('audio', '0');
+                    }
+                }
+            }
+
+
         }
     }
 
@@ -3934,8 +3934,8 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
-    }   
-	
+    }
+
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
@@ -4045,11 +4045,11 @@ function move_again_AF() {
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
-		if (getcurmonthLS <10) {
-			getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-		} else {
-			getcurmonthLS = (getdateset.getMonth() + 1);
-		}
+        if (getcurmonthLS < 10) {
+            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        } else {
+            getcurmonthLS = (getdateset.getMonth() + 1);
+        }
         if (getdateset.getDate() < 10) {
             todayLS = "0" + getdateset.getDate();
             document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
@@ -4059,7 +4059,7 @@ function move_again_AF() {
             document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
             document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
-		
+
 
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
@@ -4072,12 +4072,12 @@ function move_again_AF() {
         let getyear = getcurdate.getFullYear();
         let getcurmonth = (getcurdate.getMonth() + 1)
         let today = getcurdate.getDate();
-		
-		if (getcurmonth <10) {
-			getcurmonth = "0" + (getcurdate.getMonth() + 1);
-		} else {
-			getcurmonth = (getcurdate.getMonth() + 1);
-		}
+
+        if (getcurmonth < 10) {
+            getcurmonth = "0" + (getcurdate.getMonth() + 1);
+        } else {
+            getcurmonth = (getcurdate.getMonth() + 1);
+        }
 
         if (getcurdate.getDate() < 10) {
             today = "0" + getcurdate.getDate();
@@ -4114,12 +4114,12 @@ function move_again_AF() {
             audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
         else {
             audio = new Audio(document.getElementById('sound_adr').value);
-			document.getElementById('sound_save').innerText = "✅";
-			document.getElementById('sound_adr').value = "";
-				setTimeout(function() {
-					document.getElementById('sound_save').innerText = "💾";
-				}, 3000);
-		}
+            document.getElementById('sound_save').innerText = "✅";
+            document.getElementById('sound_adr').value = "";
+            setTimeout(function () {
+                document.getElementById('sound_save').innerText = "💾";
+            }, 3000);
+        }
     }
 
     if (flagLangBut == 0) {
@@ -4172,7 +4172,7 @@ function move_again_AF() {
             bool = 1;
         }
         if (e.key == 'Enter' && bool == 1) {
-            refCurTimer(localStorage.getItem('aclstime')+":00")
+            refCurTimer(localStorage.getItem('aclstime') + ":00")
         }
     }
     window.onkeyup = function (e) {
@@ -4235,7 +4235,7 @@ function move_again_AF() {
     }
     screenshots2()
     setInterval(screenshots2, 5000)
-	
+
     addInfoUser.style.textAlign = "center"
     addInfoUser.style.color = "white"
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
@@ -4801,7 +4801,7 @@ async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 
     if (curTemplate == undefined)
         curTemplate = await loadTemplates(template, word)
     //addTimer()
-    time = localStorage.getItem('aclstime')+":00"
+    time = localStorage.getItem('aclstime') + ":00"
     var documentId = curTemplate[1]
     var serviceId = curTemplate[2]
     var queryId = curTemplate[3]
@@ -4843,7 +4843,7 @@ async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 
         });
     }
 }
-async function sendAnswer(txt, flag = 1, time = localStorage.getItem('aclstime')+":00") {
+async function sendAnswer(txt, flag = 1, time = localStorage.getItem('aclstime') + ":00") {
     //addTimer()
     var values = await getInfo(flag)
     var adr = values[0]; var adr1 = values[1]; var uid = values[2]
@@ -4915,9 +4915,9 @@ function addTimer() {
         let serv2 = document.createElement('div')
         tm.childNodes[0].appendChild(serv)
         tm.childNodes[1].appendChild(serv2)
-        tm.childNodes[0].childNodes[2].innerHTML = localStorage.getItem('aclstime')+":00"
+        tm.childNodes[0].childNodes[2].innerHTML = localStorage.getItem('aclstime') + ":00"
         let d = new Date()
-        tmrs[idk] = [localStorage.getItem('aclstime')+":00", tm.childNodes[1].childNodes[0].innerText, 1, number(d), ""]
+        tmrs[idk] = [localStorage.getItem('aclstime') + ":00", tm.childNodes[1].childNodes[0].innerText, 1, number(d), ""]
         idk++
     }
 }
@@ -4940,7 +4940,7 @@ function addTimers() {
             }
         }
         if (flag == 0)
-            tmrs[idk++] = [localStorage.getItem('aclstime')+":00", nm, 1, Number(d), ""]
+            tmrs[idk++] = [localStorage.getItem('aclstime') + ":00", nm, 1, Number(d), ""]
 
         k++
     }
@@ -4987,7 +4987,7 @@ function refreshTimer() {
                 var cT = new Date();
                 var curT1 = tmrs[i][3]
                 var curT2 = Number(cT);
-                var curT3 = ((localStorage.getItem('aclstime')-2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
+                var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
                 if (curT3 < 0)
                     btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA"
             }
@@ -5063,7 +5063,7 @@ function startTimer() {
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
         if (document.getElementsByClassName('ant-btn ant-btn-primary')[0] !== undefined)
             document.getElementsByClassName('ant-btn ant-btn-primary')[0].onclick = function () {
-                refCurTimer(localStorage.getItem('aclstime')+":00")
+                refCurTimer(localStorage.getItem('aclstime') + ":00")
             }
         refreshTimer()
 
@@ -5075,7 +5075,7 @@ function startTimer() {
             if (txt != "Взять запрос (0)")
                 audio.play()
         }
-		
+
 
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
         vertical = user = ""
@@ -5093,7 +5093,7 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML")
                 for (k = 0; k < idk; k++) {
                     if (tmrs[k][1] == name) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") 
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок")
                             tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
                         else
                             tmrs[k][4] = ""
@@ -5507,29 +5507,29 @@ function checJiraF() {
 setInterval(checJiraF, 1000);
 
 function paintstatus() {
-	if (document.URL != "https://skyeng.autofaq.ai/tickets/archive") {
-	if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
-		document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-		document.querySelectorAll('.ant-btn')[1].style.background = "red";
-	} else  if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
-		document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-		document.querySelectorAll('.ant-btn')[1].style.background = "green";
-	} else  if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
-		document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-		document.querySelectorAll('.ant-btn')[1].style.background = "yellow";
-	}
-	} else {
-		if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
-			document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-			document.querySelectorAll('.ant-btn')[2].style.background = "red";
-		} else  if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
-			document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-			document.querySelectorAll('.ant-btn')[2].style.background = "green";
-		} else  if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
-			document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-			document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
-		}
-	}
+    if (document.URL != "https://skyeng.autofaq.ai/tickets/archive") {
+        if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
+            document.querySelectorAll('.ant-btn')[1].style.background = "red";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
+            document.querySelectorAll('.ant-btn')[1].style.background = "green";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
+            document.querySelectorAll('.ant-btn')[1].style.background = "yellow";
+        }
+    } else {
+        if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
+            document.querySelectorAll('.ant-btn')[2].style.background = "red";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
+            document.querySelectorAll('.ant-btn')[2].style.background = "green";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
+            document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
+        }
+    }
 
 }
 
@@ -5537,8 +5537,8 @@ function paintstatus() {
 setInterval(paintstatus, 5000);
 
 function backbtn() {
-	if (document.getElementById('search') != null)
-	document.getElementById('back_btn').style.display = "";	
+    if (document.getElementById('search') != null)
+        document.getElementById('back_btn').style.display = "";
 }
 
 setInterval(backbtn, 5000);
@@ -5566,7 +5566,7 @@ function timerHideButtons() {
                     if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
                         selectorList[i].style.backgroundColor = 'green'
                 }
-            }			
+            }
         }
     }
 }
@@ -6078,7 +6078,7 @@ async function sendAnswerTemplate2(word, flag = 0) {
         tmpTxt = tmpTxt.split('<p></p>').join("<p><br></p>")
         tmpTxt = tmpTxt.substr(0, tmpTxt.length - 2)
         var values = await getInfo(0)
-        refCurTimer(localStorage.getItem('aclstime')+":00")
+        refCurTimer(localStorage.getItem('aclstime') + ":00")
         var adr = values[0]; var adr1 = values[1]; var uid = values[2]
         fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
             "headers": {
@@ -6677,13 +6677,13 @@ async function getStats() {           // функция получения ст�
                     for (let j = 0; j < operatorNames.length; j++)
                         if (array[i].operator == operatorNames[j]) {
                             td.textContent = operatorChatCount[j]
-							td.classList.add("chtcnt");
+                            td.classList.add("chtcnt");
                             break
                         }
                     break;
                 case 1:
                     td.textContent = array[i].conversationClosed;
-					td.classList.add("chtclosed");
+                    td.classList.add("chtclosed");
                     break;
                 case 3:
                     var averageAnswerTime = Math.floor(array[i].averageAnswerTime / 1000)
@@ -6731,29 +6731,29 @@ async function getStats() {           // функция получения ст�
     quechatscount.style.marginLeft = '50px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
-	
-		let dcc = document.getElementsByClassName('chtcnt')
-		let summcnt=0;
-		for(i=0;i<dcc.length;i++) {
-		summcnt = summcnt + Number(dcc[i].textContent)
-		}
-		
-		let dc = document.getElementsByClassName('chtclosed')
-		let summclsd=0;
-		for(i=0;i<dc.length;i++) {
-		summclsd = summclsd + Number(dc[i].textContent)
-		}
-	
-		let sumchatclosed = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+
+    let dcc = document.getElementsByClassName('chtcnt')
+    let summcnt = 0;
+    for (i = 0; i < dcc.length; i++) {
+        summcnt = summcnt + Number(dcc[i].textContent)
+    }
+
+    let dc = document.getElementsByClassName('chtclosed')
+    let summclsd = 0;
+    for (i = 0; i < dc.length; i++) {
+        summclsd = summclsd + Number(dc[i].textContent)
+    }
+
+    let sumchatclosed = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
     sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
     sumchatclosed.style.marginLeft = '50px'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
-	
-	 let sumchatcount = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+
+    let sumchatcount = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
-	
+
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
@@ -6980,10 +6980,10 @@ function prepTp() {
 
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-		include("https://dimentorexpo.github.io/ServiceDesk.js")
-		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-		include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
-		include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
+        include("https://dimentorexpo.github.io/ServiceDesk.js")
+        include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+        include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
+        include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
 
 }
@@ -7042,7 +7042,7 @@ let tokenlog;
 let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
-btnpm.style = "background-color: #3CB371 ; margin: 5px;"; 
+btnpm.style = "background-color: #3CB371 ; margin: 5px;";
 
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
@@ -7116,9 +7116,9 @@ btnpm.onclick = async function () {
 }
 
 btnsid.onclick = async function () {
-	let teststudid = localStorage.getItem('test_stud');
-	if (teststudid != null || teststudid != '') {
-    document.getElementById('responseTextarea1').value = `{
+    let teststudid = localStorage.getItem('test_stud');
+    if (teststudid != null || teststudid != '') {
+        document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
@@ -7135,13 +7135,13 @@ btnsid.onclick = async function () {
 			  "mode": "cors",
 			  "credentials": "include"
 			}`
-    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-    document.getElementById('responseTextarea3').value = 'senddata1'
-    document.getElementById('sendResponse').click()
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+        document.getElementById('responseTextarea3').value = 'senddata1'
+        document.getElementById('sendResponse').click()
 
-    setTimeout(async function () {
+        setTimeout(async function () {
 
-        document.getElementById('responseTextarea1').value = `{
+            document.getElementById('responseTextarea1').value = `{
 				   "headers": {
 					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 					"sec-fetch-dest": "document",
@@ -7157,29 +7157,29 @@ btnsid.onclick = async function () {
 				  "mode": "cors",
 				  "credentials": "include"
 			}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-        document.getElementById('responseTextarea3').value = 'senddata1'
-        document.getElementById('sendResponse').click()
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
+            document.getElementById('responseTextarea3').value = 'senddata1'
+            document.getElementById('sendResponse').click()
 
-        lginfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-        lginfo = await lginfo;
+            lginfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
+            lginfo = await lginfo;
 
-        lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-        lginfo = lginfo[lginfo.length - 1].split("\"");
-        //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
-        copyToClipboard1(lginfo[1])
-        document.getElementById('responseTextarea1').removeAttribute('senddata1')
+            lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+            lginfo = lginfo[lginfo.length - 1].split("\"");
+            //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
+            copyToClipboard1(lginfo[1])
+            document.getElementById('responseTextarea1').removeAttribute('senddata1')
 
 
-    }, 500)
-	
-	} else alert("Введите ID тестового ученика в настройках ⚙");
+        }, 500)
+
+    } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
 btntid.onclick = async function () {
-	let testteachid = localStorage.getItem('test_teach');
-	if (testteachid != null || testteachid != '') {
-    document.getElementById('responseTextarea1').value = `{
+    let testteachid = localStorage.getItem('test_teach');
+    if (testteachid != null || testteachid != '') {
+        document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
@@ -7196,13 +7196,13 @@ btntid.onclick = async function () {
 			  "mode": "cors",
 			  "credentials": "include"
 			}`
-    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-    document.getElementById('responseTextarea3').value = 'senddata2'
-    document.getElementById('sendResponse').click()
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+        document.getElementById('responseTextarea3').value = 'senddata2'
+        document.getElementById('sendResponse').click()
 
-    setTimeout(async function () {
+        setTimeout(async function () {
 
-        document.getElementById('responseTextarea1').value = `{
+            document.getElementById('responseTextarea1').value = `{
 				   "headers": {
 					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 					"sec-fetch-dest": "document",
@@ -7218,23 +7218,23 @@ btntid.onclick = async function () {
 				  "mode": "cors",
 				  "credentials": "include"
 			}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-        document.getElementById('responseTextarea3').value = 'senddata2'
-        document.getElementById('sendResponse').click()
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
+            document.getElementById('responseTextarea3').value = 'senddata2'
+            document.getElementById('sendResponse').click()
 
-        lginfo = document.getElementById('responseTextarea1').getAttribute('senddata2');
-        lginfo = await lginfo;
+            lginfo = document.getElementById('responseTextarea1').getAttribute('senddata2');
+            lginfo = await lginfo;
 
-        lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-        lginfo = lginfo[lginfo.length - 1].split("\"");
-        //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
-        copyToClipboard1(lginfo[1])
-        document.getElementById('responseTextarea1').removeAttribute('senddata2')
+            lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+            lginfo = lginfo[lginfo.length - 1].split("\"");
+            //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
+            copyToClipboard1(lginfo[1])
+            document.getElementById('responseTextarea1').removeAttribute('senddata2')
 
 
-    }, 500)
-	
-	} else alert("Введите ID тестового преподавателя в настройках ⚙");
+        }, 500)
+
+    } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
 
