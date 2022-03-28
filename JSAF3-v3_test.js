@@ -1,4 +1,4 @@
-//Global vars
+﻿//Global vars
 
 
 function mystyles() {
@@ -917,10 +917,10 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
 }
 
-let button2 = document.createElement('span');
+let button2 = document.createElement('p');
 button2.id = 'userIdScript';
 button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
-let button3 = document.createElement('span');
+let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 let buttonserv = document.createElement('span');
@@ -938,7 +938,7 @@ buttonservteach.id = 'nextTeacherServiceInfo1';
 buttonservteach.innerHTML = " ⚜ ";
 buttonservteach.style.width = "20px";
 buttonservteach.style.cursor = "pointer";
-let button4 = document.createElement('span');
+let button4 = document.createElement('p');
 button4.id = 'nextTeacherIdScript';
 button4.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
 let buttonhistory = document.createElement('span');
