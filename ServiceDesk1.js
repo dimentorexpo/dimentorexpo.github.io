@@ -4937,114 +4937,9 @@ function getslacklnk() {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
-					
-					document.getElementById('lessonbutwidg').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
-							document.getElementById('customfield_52').style.display ="";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-
-					document.getElementById('automark').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
-							document.getElementById('customfield_52').style.display ="";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-					
-					document.getElementById('cmscontentadult').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
-							document.getElementById('customfield_52').style.display ="";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-					
-					document.getElementById('adulthwlestest').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
-							document.getElementById('customfield_52').style.display ="none";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-					
-					document.getElementById('showcaseadult').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
-							document.getElementById('customfield_52').style.display ="";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-					
-					document.getElementById('vimboxpages').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Преподавателя";
-							document.getElementById('customfield_52').style.display ="";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-					
-					document.getElementById('adultselfstudy').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Услуги";
-							document.getElementById('customfield_52').style.display ="none";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-					
-					document.getElementById('premiumflip').onclick = function() {
-						if (document.getElementById('vimbugsform').style.display == '') {
-							document.getElementById('customfield_50').style.display ="";
-							document.getElementById('customfield_50').placeholder ="ID Ученика";
-							document.getElementById('customfield_51').style.display ="";
-							document.getElementById('customfield_51').placeholder ="ID Услуги";
-							document.getElementById('customfield_52').style.display ="none";
-							document.getElementById('customfield_53').style.display ="";
-							document.getElementById('customfield_54').style.display ="";
-							document.getElementById('customfield_55').style.display ="";
-						}
-					}
-					
+										
 					document.getElementById('create_11').onclick = function() {
 					let idstdserv = document.getElementById('customfield_50').value ;
-					let	idteach = document.getElementById('customfield_51').value ;
 					let dscr = document.getElementById('customfield_52').value;
 					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let str = document.getElementById('customfield_53').value;
@@ -5076,7 +4971,6 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
 					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
@@ -5107,7 +5001,6 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
 					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
@@ -5138,7 +5031,6 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
 					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
@@ -5169,7 +5061,7 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
 					document.getElementById('customfield_55').value ="";
@@ -5199,7 +5091,6 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
 					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
@@ -5230,7 +5121,6 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
 					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
@@ -5261,7 +5151,7 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
 					document.getElementById('customfield_55').value ="";
@@ -5291,7 +5181,7 @@ function getslacklnk() {
 					 document.getElementById('sendResponse').click()
 					 
 					document.getElementById('customfield_50').value ="";
-					document.getElementById('customfield_51').value ="";
+					document.getElementById('customfield_52').value ="";
 					document.getElementById('customfield_53').value ="";
 					document.getElementById('customfield_54').value ="";
 					document.getElementById('customfield_55').value ="";
