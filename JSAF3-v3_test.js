@@ -574,9 +574,7 @@ var win_servicedesk =
 					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
 					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
 					<button class="schdbtn" id="ttquestions">Вопросы по ТТ</button>
-					<button class="schdbtn" id="ttacceptzapros">Подтвердить запрос в ЛКП для переподбора ВП</button>
 					<button class="schdbtn" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
-					<button class="schdbtn" id="ttneurobot">Нейроробот</button>
 					<button class="schdbtn" id="ttunderground">Подземный стук</button>
 				</div>	
 
