@@ -433,7 +433,7 @@ function getslacklnk() {
 					let ary = document.getElementById('customfield_10').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstatistic').textContent){
-					console.log("Статистика: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Статистика: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -463,7 +463,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstudy').textContent) {
-					console.log("Моё обучение: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Моё обучение: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -493,7 +493,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherbreak').textContent){
-					console.log("Перерыв: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Перерыв: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -523,7 +523,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachermoney').textContent){
-					console.log("Финансы: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Финансы: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -553,7 +553,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachermap').textContent){
-					console.log("Карта роста: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Карта роста: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -583,7 +583,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachertimetable').textContent){
-					console.log("Расписание: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Расписание: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -613,7 +613,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherperenos').textContent){
-					console.log("Запросы на перенос занятия: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Запросы на перенос занятия: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -643,7 +643,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetbalance').textContent){
-					console.log("Виджет баланса: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Виджет баланса: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -673,7 +673,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetlessonmark').textContent){
-					console.log("Виджет отметки уроков: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Виджет отметки уроков: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -703,7 +703,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetplanfact').textContent){
-					console.log("Виджет плана/факта уроков: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Виджет плана/факта уроков: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -733,7 +733,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgettimetableweek').textContent){
-					console.log("Виджет расписания на неделю: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Виджет расписания на неделю: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -763,7 +763,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetKPI').textContent){
-					console.log("Виджет KPI: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Виджет KPI: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -793,7 +793,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetmystudents').textContent){
-					console.log("Виджет 'Мои ученики': " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Виджет 'Мои ученики': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -823,7 +823,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherTRMquestions').textContent){
-					console.log("Вопросы по TRM': " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по TRM': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -853,7 +853,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherunderground').textContent){
-					console.log("Подземный стук': " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Подземный стук': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -932,7 +932,7 @@ function getslacklnk() {
 					let ary = document.getElementById('customfield_5').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
-					console.log("Операции с семьей: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Операции с семьей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -962,7 +962,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpersotrackprogress').textContent) {
-					console.log("Персотреки и виджет прогресса: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Персотреки и виджет прогресса: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -992,7 +992,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfeedback').textContent) {
-					console.log("Обратная связь: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Обратная связь: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1022,7 +1022,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcontent').textContent) {
-					console.log("Контент: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Контент: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1052,7 +1052,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
-					console.log("Страница ДЗ и тестов: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Страница ДЗ и тестов: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1082,7 +1082,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartprogress').textContent) {
-					console.log("Страница прогресса: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Страница прогресса: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1112,7 +1112,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcabinet').textContent) {
-					console.log("Детский ЛКУ: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Детский ЛКУ: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1142,7 +1142,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcertificate').textContent) {
-					console.log("Сертификаты: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Сертификаты: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1172,7 +1172,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartgroup').textContent) {
-					console.log("Групповые и параллельные уроки: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Групповые и параллельные уроки: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1202,7 +1202,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpages').textContent) {
-					console.log("Страницы skysmart: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Страницы skysmart: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1232,7 +1232,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartappparents').textContent) {
-					console.log("Приложение skysmart parents: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Приложение skysmart parents: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1262,7 +1262,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartonetoone').textContent) {
-					console.log("Уроки 1:1: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Уроки 1:1: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1340,7 +1340,7 @@ function getslacklnk() {
 					let ary = document.getElementById('customfield_20').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
-					console.log("Вопросы по рассрочке: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по рассрочке: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1370,7 +1370,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqabalancecorrect').textContent) {
-					console.log("Проверка баланса у на расхождения : " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проверка баланса у на расхождения : " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1445,7 +1445,7 @@ function getslacklnk() {
 					let ary = document.getElementById('customfield_15').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1verstka').textContent){
-					console.log("Проблемы с версткой: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проблемы с версткой: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1475,7 +1475,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1payonboarding').textContent){
-					console.log("Не завершился онбординг после оплаты: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Не завершился онбординг после оплаты: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1505,7 +1505,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1redirects').textContent){
-					console.log("Циклические редиректы: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Циклические редиректы: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 							
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1535,7 +1535,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 						
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1underground').textContent){
-					console.log("Подземный стук: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Подземный стук: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1614,7 +1614,7 @@ function getslacklnk() {
 					let ary = document.getElementById('customfield_25').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttenableAP').textContent) {
-					console.log("Подключение АП: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Подключение АП: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1645,7 +1645,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttdisableAP').textContent) {
-					console.log("Отключение АП в ЛКУ: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Отключение АП в ЛКУ: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1675,7 +1675,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttquestions').textContent) {
-					console.log("Вопросы по ТТ: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по ТТ: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1705,7 +1705,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttnottaskpodbor').textContent) {
-					console.log("Почему нет задачи подбора ?: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Почему нет задачи подбора ?: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1736,7 +1736,7 @@ function getslacklnk() {
 
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttunderground').textContent) {
-					console.log("Подземный стук: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Подземный стук: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2158,7 +2158,7 @@ function getslacklnk() {
 					let ary = document.getElementById('customfield_30').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdevq').textContent) {
-					console.log("Вопросы к разработке: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы к разработке: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2188,7 +2188,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2google').textContent) {
-					console.log("Проблемы с 2FA : проблема с google authenticator: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проблемы с 2FA : проблема с google authenticator: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2218,7 +2218,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2faemail').textContent) {
-					console.log("Проблемы с 2FA: не приходит письмо о восстановлении пароля: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проблемы с 2FA: не приходит письмо о восстановлении пароля: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2248,7 +2248,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('auth2fasms').textContent) {
-					console.log("Проблемы с 2FA: не приходит смс: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проблемы с 2FA: не приходит смс: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2278,7 +2278,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesteach').textContent) {
-					console.log("Удаление / добавление ролей Преподавателям: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Удаление / добавление ролей Преподавателям: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2308,7 +2308,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdeladdrolesstud').textContent) {
-					console.log("Удаление / добавление ролей Ученикам: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Удаление / добавление ролей Ученикам: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2338,7 +2338,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authlogcheck').textContent) {
-					console.log("Проверка логов в ID: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проверка логов в ID: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2368,7 +2368,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authunderground').textContent) {
-					console.log("Подземный стук: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Подземный стук: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2446,7 +2446,7 @@ function getslacklnk() {
 					let ary = document.getElementById('customfield_44').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskssoprovod').textContent) {
-					console.log("Вопросы по задачам Сопровождения: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по задачам Сопровождения: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2476,7 +2476,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskssales').textContent) {
-					console.log("Вопросы по задачам Продаж: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по задачам Продаж: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2506,7 +2506,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2lessonhistory').textContent) {
-					console.log("Вопросы по Истории уроков: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по Истории уроков: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2536,7 +2536,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2paymenthistory').textContent) {
-					console.log("Вопросы по Истории платежей: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по Истории платежей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2566,7 +2566,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2convertsrc').textContent) {
-					console.log("Вопросы по Визардам конвертации услуги: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по Визардам конвертации услуги: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2596,7 +2596,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2actionshistory').textContent) {
-					console.log("Вопросы по Истории действий: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по Истории действий: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2626,7 +2626,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2familycard').textContent) {
-					console.log("Вопросы о карточке Семья: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы о карточке Семья: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2656,7 +2656,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2profile').textContent) {
-					console.log("Вопросы о Профиле заявки: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы о Профиле заявки: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2686,7 +2686,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2communications').textContent) {
-					console.log("Вопросы по разделу Коммуникации: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Вопросы по разделу Коммуникации: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2716,7 +2716,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskpoolsoporovd').textContent) {
-					console.log("Проблемы с функционалом пула задач список задач сопровождение: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проблемы с функционалом пула задач список задач сопровождение: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2746,7 +2746,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskpoolsales').textContent) {
-					console.log("Проблемы с функционалом пула задач список задач продажи: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Проблемы с функционалом пула задач список задач продажи: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2776,7 +2776,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2migrationcrm').textContent) {
-					console.log("Миграция компании из CRM1 в CRM2: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Миграция компании из CRM1 в CRM2: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -2806,7 +2806,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2changestk').textContent) {
-					console.log("Смена STK услуги: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Смена STK услуги: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4314,7 +4314,7 @@ function getslacklnk() {
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('lessonbutwidg').textContent) {
-					console.log("Виджет входа у взрослых У и П: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Виджет входа у взрослых У и П: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4344,7 +4344,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('automark').textContent) {
-					console.log("Автоотметка по урокам взрослых У: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Автоотметка по урокам взрослых У: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4374,7 +4374,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('cmscontentadult').textContent) {
-					console.log("Взрослый англиский: CMS и контент на взрослой платформе: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Взрослый англиский: CMS и контент на взрослой платформе: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4404,7 +4404,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('adulthwlestest').textContent) {
-					console.log("Взрослый английский: Домашки, уроки, тесты: " + "  Id student and service: " + idstdserv + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Взрослый английский: Домашки, уроки, тесты: " + "  Id student and teacher: " + idstdserv + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4434,7 +4434,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('showcaseadult').textContent) {
-					console.log("Шоукейс взрослого П/взрослого У: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Шоукейс взрослого П/взрослого У: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4464,7 +4464,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxpages').textContent) {
-					console.log("Любые страницы содержащие vimbox, но при этом не содержащие kids в URL: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Любые страницы содержащие vimbox, но при этом не содержащие kids в URL: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4494,7 +4494,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('adultselfstudy').textContent) {
-					console.log("Adults self-study: " + "  Id student and service: " + idstdserv + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Adults self-study: " + "  Id student and teacher: " + idstdserv + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -4524,7 +4524,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('premiumflip').textContent) {
-					console.log("Premium и Flip: " + "  Id student and service: " + idstdserv + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Premium и Flip: " + "  Id student and teacher: " + idstdserv + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
