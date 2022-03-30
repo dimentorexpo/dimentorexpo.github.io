@@ -518,6 +518,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
                     <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">Vim-bugs</button>
+                    <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">Vim-video-call</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -538,7 +539,7 @@ var win_servicedesk =
 					<button class="teacbtn" id="teacherTRMquestions">Вопросы по ТРМ</button>
 					<button class="teacbtn" id="teacherunderground">Подземный стук</button>
 				</div>
-				
+								
 				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
 					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
@@ -675,8 +676,13 @@ var win_servicedesk =
 					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 				</div>
 				
+				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#vim-video-call</p>
+					<button class="teacbtn" id="vimvidqa">Обращение к QA</button>
+				</div>
+				
 	        </span>
-			
+						
 				<div id="kidsform" style="display: none; margin-left:20px;">
 					<input id="customfield_1" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
@@ -820,6 +826,20 @@ var win_servicedesk =
 					<textarea id="customfield_55" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_11" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="vimvideocallform" style="display: none; margin-left:20px;">
+					<input id="customfield_56" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_57" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_58" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_59" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_60" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_12" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
 			
