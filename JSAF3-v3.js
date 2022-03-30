@@ -565,7 +565,6 @@ var win_servicedesk =
 					<button class="authbtn" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
 					<button class="authbtn" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
 					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
-					<button class="authbtn" id="authbusinessq">Бизнес вопросы</button>
 					<button class="authbtn" id="authunderground">Подземный стук</button>
 				</div>
 				
@@ -574,16 +573,13 @@ var win_servicedesk =
 					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
 					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
 					<button class="schdbtn" id="ttquestions">Вопросы по ТТ</button>
-					<button class="schdbtn" id="ttacceptzapros">Подтвердить запрос в ЛКП для переподбора ВП</button>
 					<button class="schdbtn" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
-					<button class="schdbtn" id="ttneurobot">Нейроробот</button>
 					<button class="schdbtn" id="ttunderground">Подземный стук</button>
 				</div>	
 
 				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support</p>
 					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
-					<button class="bilqabtn" id="billqapaylendings">Оплата с лендингов</button>
 					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
 				</div>
 				
@@ -710,61 +706,59 @@ var win_servicedesk =
 				</div>
 				
 				<div id="onboardingform" style="display: none; margin-left:20px;">
-					<input id="customfield_11" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_12" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<textarea id="customfield_12" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_13" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_13" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_14" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
+					<br>					
 					<textarea id="customfield_15" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="billqaform" style="display: none; margin-left:20px;">
-					<input id="customfield_16" placeholder="Название продукта?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_17" placeholder="Прайссет и позиция?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<textarea id="customfield_17" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_19" placeholder="Какое юрлицо?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_20" placeholder="Согласовано ли юрлицо с финансовым директором (Рустам)?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_21" placeholder="Адрес страницы, где будет использоваться" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_22" placeholder="Адрес страницы, если оплата не прошла"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<input id="customfield_23" placeholder="Адрес страницы, в случае успеха" oninput="noDoubts(this)" style="width: 420px;"></input>
-					<br>
-					<textarea id="customfield_24" placeholder="Описание для пользователя" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_25" placeholder="Slack-канал, для уведомлений о новых оплатах" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_19" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_20" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="scheduleform" style="display: none; margin-left:20px;">
-					<input id="customfield_26" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_21" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_27" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<textarea id="customfield_22" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_28" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_23" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_29" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_30" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_31" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_300" placeholder="Насколько массовая проблема?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_301" placeholder="На какие метрики влияет проблема?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_24" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_25" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="authform" style="display: none; margin-left:20px;">
+					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_27" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_28" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_29" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_30" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="billingform" style="display: none; margin-left:20px;">
@@ -790,24 +784,17 @@ var win_servicedesk =
 					<br>
 					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-				
-				<div id="authform" style="display: none; margin-left:20px;">
-					<input id="customfield_40" placeholder="ID пользователя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
-					<br>
-					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
-					<br>
-					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				
+								
 				<div id="crm2form" style="display: none; margin-left:20px;">
-					<input id="customfield_42" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_43" placeholder="ID Услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_40" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_44" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_41" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_45" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_42" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_43" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>					
-					<textarea id="customfield_46" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_44" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
@@ -6979,7 +6966,7 @@ function prepTp() {
 
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-        include("https://dimentorexpo.github.io/ServiceDesk1.js")
+        include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
