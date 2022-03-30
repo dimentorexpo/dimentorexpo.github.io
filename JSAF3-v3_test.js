@@ -518,7 +518,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
                     <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">Vim-bugs</button>
-                    <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">Vim-video-call</button>
+                    <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">Vim-vid-call</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">

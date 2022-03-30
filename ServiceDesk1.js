@@ -1407,6 +1407,85 @@ function getslacklnk() {
 				}
 		 }
 		 
+		 document.getElementById('optionVimvideocall').onclick = function() { //Vim-video-call
+				if (document.getElementById('vimvidoptions').style.display != '') {
+					document.getElementById('vimvidoptions').style.display = '';
+					document.getElementById('vimvideocallform').style.display = '';
+					
+					document.getElementById('kidsform').style.display = 'none';	
+					document.getElementById('teachersform').style.display = 'none';						
+					document.getElementById('onboardingform').style.display = 'none';	
+					document.getElementById('scheduleform').style.display = 'none';
+					document.getElementById('billingform').style.display = 'none';	
+					document.getElementById('mrktform').style.display = 'none';	
+					document.getElementById('crm2form').style.display = 'none';
+					document.getElementById('authform').style.display = 'none';	
+					document.getElementById('telephonyform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
+					
+					document.getElementById('vimbugsoptions').style.display = 'none';
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('c1srvdskoptions').style.display = 'none';
+					document.getElementById('schedulesrvdskoptions').style.display = 'none';
+					document.getElementById('telephonysrvdskoptions').style.display = 'none';
+					document.getElementById('authsrvdskoptions').style.display = 'none';
+					document.getElementById('crm2srvdskoptions').style.display = 'none';
+					document.getElementById('mrktsrvdskoptions').style.display = 'none';
+					document.getElementById('billingsrvdskoptions').style.display = 'none';
+									
+					//Начало окрашивания кнопок и добавление закрашивания при переключении
+										
+					document.getElementById('create_4').onclick = function() {
+					let idstdserv = document.getElementById('customfield_56').value ;
+					let dscr = document.getElementById('customfield_57').value;
+					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let str = document.getElementById('customfield_58').value;
+					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let erx = document.getElementById('customfield_59').value;
+					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let ary = document.getElementById('customfield_60').value;
+					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/944",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/944";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_56').value = "";
+					document.getElementById('customfield_57').value = "";
+					document.getElementById('customfield_58').value = "";
+					document.getElementById('customfield_59').value = "";
+					document.getElementById('customfield_60').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else console.log("Not found");
+					}
+				} else {
+					document.getElementById('vimvidoptions').style.display = 'none';
+					document.getElementById('vimvideocallform').style.display = 'none';	
+				}
+		 }
+		 
+		 //End of vim video call
+		 
 		 		 	document.getElementById('optionOnboarding').onclick = function() { //C1 Onboarding
 				if (document.getElementById('c1srvdskoptions').style.display != '') {
 					document.getElementById('c1srvdskoptions').style.display = '';
