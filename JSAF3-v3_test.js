@@ -565,7 +565,6 @@ var win_servicedesk =
 					<button class="authbtn" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
 					<button class="authbtn" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
 					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
-					<button class="authbtn" id="authbusinessq">Бизнес вопросы</button>
 					<button class="authbtn" id="authunderground">Подземный стук</button>
 				</div>
 				
