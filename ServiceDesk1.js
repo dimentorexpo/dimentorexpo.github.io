@@ -1363,6 +1363,8 @@ function getslacklnk() {
 					document.getElementById('customfield_16').value = "";
 					document.getElementById('customfield_17').value = "";
 					document.getElementById('customfield_18').value = "";
+					document.getElementById('customfield_19').value = "";
+					document.getElementById('customfield_20').value = "";
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
@@ -1391,6 +1393,8 @@ function getslacklnk() {
 					document.getElementById('customfield_16').value = "";
 					document.getElementById('customfield_17').value = "";
 					document.getElementById('customfield_18').value = "";
+					document.getElementById('customfield_19').value = "";
+					document.getElementById('customfield_20').value = "";
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
