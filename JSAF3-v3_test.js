@@ -583,7 +583,6 @@ var win_servicedesk =
 				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support</p>
 					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
-					<button class="bilqabtn" id="billqapaylendings">Оплата с лендингов</button>
 					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
 				</div>
 				
@@ -724,7 +723,6 @@ var win_servicedesk =
 				</div>
 				
 				<div id="billqaform" style="display: none; margin-left:20px;">
-				
 					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
 					<textarea id="customfield_17" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
