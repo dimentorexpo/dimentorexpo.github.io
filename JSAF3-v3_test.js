@@ -724,25 +724,16 @@ var win_servicedesk =
 				</div>
 				
 				<div id="billqaform" style="display: none; margin-left:20px;">
-					<input id="customfield_16" placeholder="Название продукта?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+				
+					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<input id="customfield_17" placeholder="Прайссет и позиция?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<textarea id="customfield_17" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_19" placeholder="Какое юрлицо?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_20" placeholder="Согласовано ли юрлицо с финансовым директором (Рустам)?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_21" placeholder="Адрес страницы, где будет использоваться" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_22" placeholder="Адрес страницы, если оплата не прошла"  oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<input id="customfield_23" placeholder="Адрес страницы, в случае успеха" oninput="noDoubts(this)" style="width: 420px;"></input>
-					<br>
-					<textarea id="customfield_24" placeholder="Описание для пользователя" oninput="noDoubts(this)" style="width: 420px;"></textarea>
-					<br>
-					<textarea id="customfield_25" placeholder="Slack-канал, для уведомлений о новых оплатах" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_19" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_20" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
