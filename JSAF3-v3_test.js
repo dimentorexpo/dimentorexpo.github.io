@@ -676,7 +676,7 @@ var win_servicedesk =
 					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 				</div>
 				
-				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
+				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#vim-video-call</p>
 					<button class="teacbtn" id="vimvidqa">Обращение к QA</button>
 				</div>
