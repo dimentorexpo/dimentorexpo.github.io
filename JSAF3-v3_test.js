@@ -748,6 +748,20 @@ var win_servicedesk =
 					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
+				<div id="authform" style="display: none; margin-left:20px;">
+					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_27" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_28" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_29" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_30" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
 				<div id="billingform" style="display: none; margin-left:20px;">
 					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
@@ -771,15 +785,7 @@ var win_servicedesk =
 					<br>
 					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-				
-				<div id="authform" style="display: none; margin-left:20px;">
-					<input id="customfield_40" placeholder="ID пользователя" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
-					<br>
-					<textarea id="customfield_41" placeholder="Краткое и структурированное описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
-					<br>
-					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				
+								
 				<div id="crm2form" style="display: none; margin-left:20px;">
 					<input id="customfield_42" placeholder="ID Ученика" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<input id="customfield_43" placeholder="ID Услуги" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
