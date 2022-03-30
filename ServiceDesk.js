@@ -1069,16 +1069,17 @@ function getslacklnk() {
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 										
 					document.getElementById('create_1').onclick = function() {
-					let dscr = document.getElementById('customfield_1').value;
+					let idstdserv = document.getElementById('customfield_1').value ;
+					let dscr = document.getElementById('customfield_2').value;
 					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let erx = document.getElementById('customfield_2').value;
+					let str = document.getElementById('customfield_3').value;
+					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let erx = document.getElementById('customfield_4').value;
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let ary = document.getElementById('customfield_3').value;
+					let ary = document.getElementById('customfield_5').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let idstd = document.getElementById('customfield_4').value ;
-					let	servid = document.getElementById('customfield_5').value ;
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
-					console.log("Операции с семьей: " + "Description: " + dscr + " " + "ER: " + erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Операции с семьей: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1089,7 +1090,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1108,7 +1109,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpersotrackprogress').textContent) {
-					console.log("Персотреки и виджет прогресса: " + "Description: " + dscr + " " + "ER: " + erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Персотреки и виджет прогресса: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1119,7 +1120,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/905",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18321=${ary}&customfield_18320=${erx}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1138,7 +1139,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfeedback').textContent) {
-					console.log("Обратная связь: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Обратная связь: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1149,7 +1150,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/819",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1168,7 +1169,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcontent').textContent) {
-					console.log("Контент: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Контент: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1179,7 +1180,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/890",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1198,7 +1199,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
-					console.log("Страница ДЗ и тестов: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Страница ДЗ и тестов: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1209,7 +1210,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/817",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1228,7 +1229,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartprogress').textContent) {
-					console.log("Страница прогресса: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Страница прогресса: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1239,7 +1240,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/818",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1258,7 +1259,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcabinet').textContent) {
-					console.log("Детский ЛКУ: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Детский ЛКУ: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1269,7 +1270,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/821",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1288,7 +1289,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcertificate').textContent) {
-					console.log("Сертификаты: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Сертификаты: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1299,7 +1300,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/820",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1318,7 +1319,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartgroup').textContent) {
-					console.log("Групповые и параллельные уроки: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Групповые и параллельные уроки: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1329,7 +1330,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/816",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1348,7 +1349,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpages').textContent) {
-					console.log("Страницы skysmart: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Страницы skysmart: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1359,7 +1360,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/824",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1378,7 +1379,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartappparents').textContent) {
-					console.log("Приложение skysmart parents: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Приложение skysmart parents: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1389,7 +1390,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/823",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1408,7 +1409,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartonetoone').textContent) {
-					console.log("Уроки 1:1: " + "Description: " + dscr + " " + "ER: " +  erx + " " + "AR: " + ary + " " + "ID student: " + idstd + " " + "ID teacher: " + servid);
+					console.log("Уроки 1:1: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1419,7 +1420,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/815",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					 "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"

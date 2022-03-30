@@ -682,15 +682,15 @@ var win_servicedesk =
 	        </span>
 			
 				<div id="kidsform" style="display: none; margin-left:20px;">
-					<textarea id="customfield_1" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<input id="customfield_1" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_2" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_2" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_3" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_3" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<input id="customfield_4" placeholder="ID Ученика" oninput="onlyNumber(this)" style="width: 420px;"></input>
-					<br>
-					<input id="customfield_5" placeholder="ID Преподавателя" oninput="onlyNumber(this)" style="width: 420px;"></input>
+					<textarea id="customfield_4" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_5" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
@@ -6979,7 +6979,7 @@ function prepTp() {
 
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-        include("https://dimentorexpo.github.io/ServiceDesk.js")
+        include("https://dimentorexpo.github.io/ServiceDesk1.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
