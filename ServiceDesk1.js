@@ -1328,75 +1328,19 @@ function getslacklnk() {
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 									
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
-					
-					document.getElementById('billqarassroch').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
-							document.getElementById('customfield_16').placeholder ="ID ученика";
-							document.getElementById('customfield_17').placeholder ="ID услуги";
-							document.getElementById('customfield_18').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_19').style.display = 'none';
-							document.getElementById('customfield_20').style.display = 'none';
-							document.getElementById('customfield_21').style.display = 'none';
-							document.getElementById('customfield_22').style.display = 'none';
-							document.getElementById('customfield_23').style.display = 'none';
-							document.getElementById('customfield_24').style.display = 'none';
-							document.getElementById('customfield_25').style.display = 'none';
-						}
-					}
-					
-					document.getElementById('billqapaylendings').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
-							document.getElementById('customfield_16').placeholder ="Название продукта?";
-							document.getElementById('customfield_17').placeholder ="Прайссет и позиция?";
-							document.getElementById('customfield_18').placeholder ="Как воспроизвести ошибку?";
-							document.getElementById('customfield_19').style.display = '';
-							document.getElementById('customfield_20').style.display = '';
-							document.getElementById('customfield_21').style.display = '';
-							document.getElementById('customfield_22').style.display = '';
-							document.getElementById('customfield_23').style.display = '';
-							document.getElementById('customfield_24').style.display = '';
-							document.getElementById('customfield_25').style.display = '';
-						}
-					}
-					
-					document.getElementById('billqabalancecorrect').onclick = function() {
-						if (document.getElementById('billqaform').style.display == '') {
-							document.getElementById('customfield_16').placeholder ="ID ученика";
-							document.getElementById('customfield_17').placeholder ="ID услуги";
-							document.getElementById('customfield_18').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_19').style.display = 'none';
-							document.getElementById('customfield_20').style.display = 'none';
-							document.getElementById('customfield_21').style.display = 'none';
-							document.getElementById('customfield_22').style.display = 'none';
-							document.getElementById('customfield_23').style.display = 'none';
-							document.getElementById('customfield_24').style.display = 'none';
-							document.getElementById('customfield_25').style.display = 'none';
-						}
-					}
-					
+										
 					document.getElementById('create_4').onclick = function() {
-					let idstd = document.getElementById('customfield_16').value;
-					idstd = idstd.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let idserv = document.getElementById('customfield_17').value;
-					idserv = idserv.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let dscr = document.getElementById('customfield_18').value;
+					let idstdserv = document.getElementById('customfield_16').value ;
+					let dscr = document.getElementById('customfield_17').value;
 					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let jur = document.getElementById('customfield_19').value ;
-					jur = jur.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	soglas = document.getElementById('customfield_20').value ;
-					soglas = soglas.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	pagef = document.getElementById('customfield_21').value ;
-					pagef = pagef.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	pagel = document.getElementById('customfield_22').value ;
-					pagel = pagel.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	pages = document.getElementById('customfield_23').value ;
-					pages = pages.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	usrdesc = document.getElementById('customfield_24').value ;
-					usrdesc = usrdesc.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	sclackch = document.getElementById('customfield_25').value ;
-					sclackch = sclackch.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let str = document.getElementById('customfield_18').value;
+					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let erx = document.getElementById('customfield_19').value;
+					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let ary = document.getElementById('customfield_20').value;
+					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
-					console.log("Вопросы по рассрочке: " + "ID student " + idstd + "ID service " + idserv + "Description " + dscr);
+					console.log("Вопросы по рассрочке: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1407,7 +1351,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/577",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1423,43 +1367,8 @@ function getslacklnk() {
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
-					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqapaylendings').textContent) {
-					console.log("Оплата с лендингов : " + "Название продукта " + idstd + "Прайсет " + idserv + "Description " + dscr + "Jur person " + jur + "Soglasovano s fin dir" + soglas + "Page link where " + pagef + "Page link failed " + pagel + "Page link success " + pages + "User descr" + usrdesc + "Slack chanel " + sclackch);
-										
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/571",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18319=${dscr}&customfield_18320=${jur}&customfield_18321=${soglas}&customfield_18808=${pagef}&customfield_18317=${pagel}&customfield_18221=${pages}&customfield_18316=${usrdesc}&customfield_18315=${sclackch}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/571";
-					 document.getElementById('responseTextarea3').value = ''
-					 document.getElementById('sendResponse').click()
-					 
-					document.getElementById('customfield_16').value = "";
-					document.getElementById('customfield_17').value = "";
-					document.getElementById('customfield_18').value = "";
-					document.getElementById('customfield_19').value = "";
-					document.getElementById('customfield_20').value = "";
-					document.getElementById('customfield_21').value = "";
-					document.getElementById('customfield_22').value = "";
-					document.getElementById('customfield_23').value = "";
-					document.getElementById('customfield_24').value = "";
-					document.getElementById('customfield_25').value = "";
-					
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqabalancecorrect').textContent) {
-					console.log("Проверка баланса у на расхождения : " + "ID student " + idstd + "ID service " + idserv + "Description " + dscr);
+					console.log("Проверка баланса у на расхождения : " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1470,7 +1379,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/570",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18975=${idstd}&customfield_18976=${idserv}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
