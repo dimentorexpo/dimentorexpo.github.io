@@ -1602,121 +1602,19 @@ function getslacklnk() {
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
 									
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
-					
-					document.getElementById('ttenableAP').onclick = function() {
-						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').style.display = '';
-							document.getElementById('customfield_27').placeholder ="ID услуги";
-							document.getElementById('customfield_28').style.display = '';
-							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_29').style.display = 'none';
-							document.getElementById('customfield_30').style.display = 'none';
-							document.getElementById('customfield_31').style.display = 'none';
-							document.getElementById('customfield_300').style.display = '';
-							document.getElementById('customfield_301').style.display = '';
-						}
-					}
-					
-					document.getElementById('ttdisableAP').onclick = function() {
-						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').style.display = '';
-							document.getElementById('customfield_27').placeholder ="ID услуги";
-							document.getElementById('customfield_28').style.display = '';
-							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_29').style.display = '';
-							document.getElementById('customfield_29').placeholder ="Причина отключения АП? (ОБЯЗАТЕЛЬНО)";
-							document.getElementById('customfield_30').style.display = 'none';
-							document.getElementById('customfield_31').style.display = 'none';
-							document.getElementById('customfield_300').style.display = '';
-							document.getElementById('customfield_301').style.display = '';
-						}
-					}
-					
-					document.getElementById('ttquestions').onclick = function() {
-						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').style.display = 'none';
-							document.getElementById('customfield_28').style.display = '';
-							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_29').style.display = '';
-							document.getElementById('customfield_29').placeholder ="Как воспроизвести ошибку?";
-							document.getElementById('customfield_30').style.display = '';
-							document.getElementById('customfield_31').style.display = '';
-							document.getElementById('customfield_300').style.display = '';
-							document.getElementById('customfield_301').style.display = '';
-						}
-					}
-					
-					document.getElementById('ttacceptzapros').onclick = function() {
-						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').style.display = '';
-							document.getElementById('customfield_27').placeholder ="ID преподавателя";
-							document.getElementById('customfield_28').style.display = '';
-							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы (optional)";
-							document.getElementById('customfield_29').style.display = 'none';
-							document.getElementById('customfield_30').style.display = 'none';
-							document.getElementById('customfield_31').style.display = 'none';
-							document.getElementById('customfield_300').style.display = '';
-							document.getElementById('customfield_301').style.display = '';
-						}
-					}
-					
-					document.getElementById('ttnottaskpodbor').onclick = function() {
-						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').style.display = '';
-							document.getElementById('customfield_27').placeholder ="ID услуги";
-							document.getElementById('customfield_28').style.display = '';
-							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_29').style.display = 'none';
-							document.getElementById('customfield_30').style.display = 'none';
-							document.getElementById('customfield_31').style.display = 'none';
-							document.getElementById('customfield_300').style.display = '';
-							document.getElementById('customfield_301').style.display = '';
-						}
-					}
-					
-					document.getElementById('ttneurobot').onclick = function() {
-						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').style.display = '';
-							document.getElementById('customfield_27').placeholder ="ID услуги";
-							document.getElementById('customfield_28').style.display = 'none';
-							document.getElementById('customfield_29').style.display = '';
-							document.getElementById('customfield_30').style.display = '';
-							document.getElementById('customfield_31').style.display = '';
-							document.getElementById('customfield_300').style.display = '';
-							document.getElementById('customfield_301').style.display = '';
-						}
-					}
-					
-					document.getElementById('ttunderground').onclick = function() {
-						if (document.getElementById('scheduleform').style.display == '') {
-							document.getElementById('customfield_27').placeholder ="ID преподавателя";
-							document.getElementById('customfield_28').placeholder ="Краткое и структурированное описание проблемы";
-							document.getElementById('customfield_28').style.display = '';
-							document.getElementById('customfield_29').style.display = 'none';
-							document.getElementById('customfield_30').style.display = 'none';
-							document.getElementById('customfield_31').style.display = 'none';
-							document.getElementById('customfield_300').style.display = '';
-							document.getElementById('customfield_301').style.display = '';
-						}
-					}
-					
+										
 					document.getElementById('create_5').onclick = function() {
-					let idstd = document.getElementById('customfield_26').value;
-					let idserv = document.getElementById('customfield_27').value;
-					let dscr = document.getElementById('customfield_28').value;
+					let idstdserv = document.getElementById('customfield_21').value ;
+					let dscr = document.getElementById('customfield_22').value;
 					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let str = document.getElementById('customfield_29').value ;
+					let str = document.getElementById('customfield_23').value;
 					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	erx = document.getElementById('customfield_30').value ;
+					let erx = document.getElementById('customfield_24').value;
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	ary = document.getElementById('customfield_31').value ;
+					let ary = document.getElementById('customfield_25').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	mas = document.getElementById('customfield_300').value ;
-					mas = mas.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					let	metrik = document.getElementById('customfield_301').value ;
-					metrik = metrik.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttenableAP').textContent) {
-					console.log("Подключение АП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik);
+					console.log("Подключение АП: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1727,7 +1625,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/566",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18976=${idserv}&customfield_18975=${idstd}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1736,17 +1634,18 @@ function getslacklnk() {
 					 document.getElementById('responseTextarea3').value = ''
 					 document.getElementById('sendResponse').click()
 					 
-					document.getElementById('customfield_26').value = "";
-					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";
-					document.getElementById('customfield_300').value = "";
-					document.getElementById('customfield_301').value = "";
+					document.getElementById('customfield_21').value = "";
+					document.getElementById('customfield_22').value = "";
+					document.getElementById('customfield_23').value = "";
+					document.getElementById('customfield_24').value = "";
+					document.getElementById('customfield_25').value = "";
+					
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttdisableAP').textContent) {
-					console.log("Отключение АП в ЛКУ: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Reason " + str + " Массовая? " + mas + " Метрики " + metrik);
+					console.log("Отключение АП в ЛКУ: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1757,7 +1656,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/565",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1766,18 +1665,17 @@ function getslacklnk() {
 					 document.getElementById('responseTextarea3').value = ''
 					 document.getElementById('sendResponse').click()
 					 
-					document.getElementById('customfield_26').value = "";
-					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";
-					document.getElementById('customfield_29').value = "";
-					document.getElementById('customfield_300').value = "";
-					document.getElementById('customfield_301').value = "";
+					document.getElementById('customfield_21').value = "";
+					document.getElementById('customfield_22').value = "";
+					document.getElementById('customfield_23').value = "";
+					document.getElementById('customfield_24').value = "";
+					document.getElementById('customfield_25').value = "";
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttquestions').textContent) {
-					console.log("Вопросы по ТТ: " + " ID student " + idstd + " Description " + dscr + " STR " + str + " ER " + erx + " AR " + ary + " Массовая? " + mas + " Метрики " + metrik);
+					console.log("Вопросы по ТТ: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1788,7 +1686,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/564",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1797,49 +1695,17 @@ function getslacklnk() {
 					 document.getElementById('responseTextarea3').value = ''
 					 document.getElementById('sendResponse').click()
 					 
-					document.getElementById('customfield_26').value = "";
-					document.getElementById('customfield_28').value = "";
-					document.getElementById('customfield_29').value = "";
-					document.getElementById('customfield_30').value = "";
-					document.getElementById('customfield_31').value = "";
-					document.getElementById('customfield_300').value = "";
-					document.getElementById('customfield_301').value = "";
+					document.getElementById('customfield_21').value = "";
+					document.getElementById('customfield_22').value = "";
+					document.getElementById('customfield_23').value = "";
+					document.getElementById('customfield_24').value = "";
+					document.getElementById('customfield_25').value = "";
 					
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 					
-					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttacceptzapros').textContent) {
-					console.log("Подтвердить запрос в ЛКП для переподбора ВП: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik)
-					
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/563",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/563";
-					 document.getElementById('responseTextarea3').value = ''
-					 document.getElementById('sendResponse').click()
-					 
-					document.getElementById('customfield_26').value = "";
-					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";	
-					document.getElementById('customfield_300').value = "";
-					document.getElementById('customfield_301').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);					
-					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttnottaskpodbor').textContent) {
-					console.log("Почему нет задачи подбора ?: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik)
+					console.log("Почему нет задачи подбора ?: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1850,7 +1716,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/562",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18808=${dscr}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1859,50 +1725,18 @@ function getslacklnk() {
 					 document.getElementById('responseTextarea3').value = ''
 					 document.getElementById('sendResponse').click()
 					 
-					document.getElementById('customfield_26').value = "";
-					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";
-					document.getElementById('customfield_300').value = "";
-					document.getElementById('customfield_301').value = "";
+					document.getElementById('customfield_21').value = "";
+					document.getElementById('customfield_22').value = "";
+					document.getElementById('customfield_23').value = "";
+					document.getElementById('customfield_24').value = "";
+					document.getElementById('customfield_25').value = "";
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 
-					
-					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttneurobot').textContent) {
-					console.log("Нейробот: " + " ID student " + idstd + " ID service " + idserv + " STR " + str + " ER " + erx + " AR " + ary + " Массовая? " + mas + " Метрики " + metrik)
-					
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/880",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${idserv}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/880";
-					 document.getElementById('responseTextarea3').value = ''
-					 document.getElementById('sendResponse').click()
-					 
-					document.getElementById('customfield_26').value = "";
-					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_29').value = "";				
-					document.getElementById('customfield_30').value = "";				
-					document.getElementById('customfield_31').value = "";
-					document.getElementById('customfield_300').value = "";
-					document.getElementById('customfield_301').value = "";					
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttunderground').textContent) {
-					console.log("Подземный стук: " + " ID student " + idstd + " ID service " + idserv + " Description " + dscr + " Массовая? " + mas + " Метрики " + metrik);
+					console.log("Подземный стук: " + "  Id student and service: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -1913,7 +1747,7 @@ function getslacklnk() {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/567",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&customfield_18976=${idserv}&customfield_18975=${idstd}&customfield_18813=${mas}&customfield_18814=${metrik}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -1922,11 +1756,11 @@ function getslacklnk() {
 					 document.getElementById('responseTextarea3').value = ''
 					 document.getElementById('sendResponse').click()
 					 
-					document.getElementById('customfield_26').value = "";
-					document.getElementById('customfield_27').value = "";
-					document.getElementById('customfield_28').value = "";
-					document.getElementById('customfield_300').value = "";
-					document.getElementById('customfield_301').value = "";					
+					document.getElementById('customfield_21').value = "";
+					document.getElementById('customfield_22').value = "";
+					document.getElementById('customfield_23').value = "";
+					document.getElementById('customfield_24').value = "";
+					document.getElementById('customfield_25').value = "";				
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);					
