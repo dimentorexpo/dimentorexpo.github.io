@@ -240,6 +240,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -255,6 +256,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 										
@@ -270,6 +272,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -285,6 +288,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -300,6 +304,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -315,6 +320,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -330,6 +336,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -345,6 +352,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -360,6 +368,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -375,6 +384,7 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});
 					
@@ -390,8 +400,25 @@ function getslacklnk() {
 					$('.mrktbtn').not(this).removeClass('activebtn');
 					$('.billbtn').not(this).removeClass('activebtn');
 					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
 					$(this).toggleClass('activebtn');
 					});	
+					
+					$('.vimvidsbtn').click(function () {  //поправить
+					$('.kidsbtn').not(this).removeClass('activebtn');
+					$('.bilqabtn').not(this).removeClass('activebtn');
+					$('.teacbtn').not(this).removeClass('activebtn');
+					$('.c1sbtn').not(this).removeClass('activebtn');
+					$('.schdbtn').not(this).removeClass('activebtn');
+					$('.telepbtn').not(this).removeClass('activebtn');
+					$('.authbtn').not(this).removeClass('activebtn');
+					$('.crm2sbtn').not(this).removeClass('activebtn');
+					$('.mrktbtn').not(this).removeClass('activebtn');
+					$('.billbtn').not(this).removeClass('activebtn');
+					$('.vimbugsbtn').not(this).removeClass('activebtn');
+					$('.vimvidsbtn').not(this).removeClass('activebtn');
+					$(this).toggleClass('activebtn');
+				});
 
 					document.getElementById('optionTeacher').onclick = function() { // Teachers
 				if (document.getElementById('teacherssrvdskoptions').style.display != ''){
@@ -408,7 +435,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -909,7 +938,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
@@ -1315,7 +1346,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -1407,7 +1440,7 @@ function getslacklnk() {
 				}
 		 }
 		 
-		 document.getElementById('optionVimvideocall').onclick = function() { //Vim-video-call
+					document.getElementById('optionVimvideocall').onclick = function() { //Vim-video-call
 				if (document.getElementById('vimvidoptions').style.display != '') {
 					document.getElementById('vimvidoptions').style.display = '';
 					document.getElementById('vimvideocallform').style.display = '';
@@ -1417,6 +1450,7 @@ function getslacklnk() {
 					document.getElementById('onboardingform').style.display = 'none';	
 					document.getElementById('scheduleform').style.display = 'none';
 					document.getElementById('billingform').style.display = 'none';	
+					document.getElementById('billqaform').style.display = 'none';	
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
@@ -1433,10 +1467,12 @@ function getslacklnk() {
 					document.getElementById('crm2srvdskoptions').style.display = 'none';
 					document.getElementById('mrktsrvdskoptions').style.display = 'none';
 					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+
 									
 					//Начало окрашивания кнопок и добавление закрашивания при переключении
 										
-					document.getElementById('create_4').onclick = function() {
+					document.getElementById('create_12').onclick = function() {
 					let idstdserv = document.getElementById('customfield_56').value ;
 					let dscr = document.getElementById('customfield_57').value;
 					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
@@ -1483,9 +1519,7 @@ function getslacklnk() {
 					document.getElementById('vimvideocallform').style.display = 'none';	
 				}
 		 }
-		 
-		 //End of vim video call
-		 
+		 	 
 		 		 	document.getElementById('optionOnboarding').onclick = function() { //C1 Onboarding
 				if (document.getElementById('c1srvdskoptions').style.display != '') {
 					document.getElementById('c1srvdskoptions').style.display = '';
@@ -1500,8 +1534,10 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
-					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimbugsform').style.display = 'none';
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';					
 					document.getElementById('vimbugsoptions').style.display = 'none';						
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -1668,7 +1704,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';			
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -1868,7 +1906,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';				
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -2213,7 +2253,9 @@ function getslacklnk() {
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';				
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -2501,7 +2543,9 @@ function getslacklnk() {
 					document.getElementById('billingform').style.display = 'none';	
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';		
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -2938,7 +2982,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';	
 					document.getElementById('billingform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -3399,7 +3445,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';	
 					document.getElementById('mrktform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -4369,7 +4417,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';	
 					document.getElementById('billingform').style.display = 'none';	
-										
+					document.getElementById('vimvideocallform').style.display = 'none';		
+
+					document.getElementById('vimvidoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
 					document.getElementById('billingqasrvdskoptions').style.display = 'none';
