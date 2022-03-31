@@ -6812,7 +6812,7 @@ async function checkkcpower() {
 		let found =[];
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
-		if (document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
+		if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
 	
 		await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
@@ -6859,7 +6859,7 @@ async function checktppower() {
 		let found =[];
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
-		if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку')
+		if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
 	
 		await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
