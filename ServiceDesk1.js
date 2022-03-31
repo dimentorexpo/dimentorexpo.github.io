@@ -686,7 +686,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -1199,7 +1201,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -1617,7 +1621,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -1736,7 +1742,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -1826,7 +1834,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -2005,7 +2015,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -2217,7 +2229,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -2574,7 +2588,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -2874,7 +2890,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -3323,7 +3341,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -3796,7 +3816,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -4778,7 +4800,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -5079,7 +5103,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';					
@@ -5169,7 +5195,9 @@ function getslacklnk() {
 					document.getElementById('tripwireform').style.display = 'none';
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';											
 					document.getElementById('tripwireoptions').style.display = 'none';
@@ -5259,7 +5287,9 @@ function getslacklnk() {
 					document.getElementById('chatform').style.display = 'none';	
 					document.getElementById('analystform').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';										
 					document.getElementById('analystoptions').style.display = 'none';					
 					document.getElementById('chatqaoptions').style.display = 'none';
@@ -5349,7 +5379,9 @@ function getslacklnk() {
 					document.getElementById('chatform').style.display = 'none';
 					document.getElementById('tripwireform').style.display = 'none';	
 					document.getElementById('corpform').style.display = 'none';	
-						
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';							
 					document.getElementById('corpoptions').style.display = 'none';
 					document.getElementById('tripwireoptions').style.display = 'none';		
 					document.getElementById('chatqaoptions').style.display = 'none';
@@ -5439,7 +5471,9 @@ function getslacklnk() {
 					document.getElementById('chatform').style.display = 'none';
 					document.getElementById('tripwireform').style.display = 'none';	
 					document.getElementById('analystform').style.display = 'none';	
-
+					document.getElementById('marketingform').style.display = 'none';	
+				
+					document.getElementById('marketingptions').style.display = 'none';					
 					document.getElementById('analystoptions').style.display = 'none';
 					document.getElementById('tripwireoptions').style.display = 'none';		
 					document.getElementById('chatqaoptions').style.display = 'none';
@@ -5505,6 +5539,98 @@ function getslacklnk() {
 				} else {
 					document.getElementById('corpoptions').style.display = 'none';
 					document.getElementById('corpform').style.display = 'none';	
+				}
+		 }
+		 
+					document.getElementById('optionMarketing').onclick = function() { //marketing-qa (landing pages)
+				if (document.getElementById('marketingptions').style.display != '') {
+					document.getElementById('marketingptions').style.display = '';
+					document.getElementById('corpform').style.display = '';
+					
+					document.getElementById('kidsform').style.display = 'none';	
+					document.getElementById('teachersform').style.display = 'none';						
+					document.getElementById('onboardingform').style.display = 'none';	
+					document.getElementById('scheduleform').style.display = 'none';
+					document.getElementById('billingform').style.display = 'none';	
+					document.getElementById('billqaform').style.display = 'none';	
+					document.getElementById('mrktform').style.display = 'none';	
+					document.getElementById('crm2form').style.display = 'none';
+					document.getElementById('authform').style.display = 'none';	
+					document.getElementById('telephonyform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
+					document.getElementById('vimvideocallform').style.display = 'none';
+					document.getElementById('studcabform').style.display = 'none';	
+					document.getElementById('chatform').style.display = 'none';
+					document.getElementById('tripwireform').style.display = 'none';	
+					document.getElementById('analystform').style.display = 'none';	
+					document.getElementById('corpform').style.display = 'none';	
+					
+					document.getElementById('corpoptions').style.display = 'none';
+					document.getElementById('analystoptions').style.display = 'none';
+					document.getElementById('tripwireoptions').style.display = 'none';		
+					document.getElementById('chatqaoptions').style.display = 'none';
+					document.getElementById('studcaboptions').style.display = 'none';					
+					document.getElementById('vimvidoptions').style.display = 'none';
+					document.getElementById('vimbugsoptions').style.display = 'none';
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('c1srvdskoptions').style.display = 'none';
+					document.getElementById('schedulesrvdskoptions').style.display = 'none';
+					document.getElementById('telephonysrvdskoptions').style.display = 'none';
+					document.getElementById('authsrvdskoptions').style.display = 'none';
+					document.getElementById('crm2srvdskoptions').style.display = 'none';
+					document.getElementById('mrktsrvdskoptions').style.display = 'none';
+					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+
+									
+					//Начало окрашивания кнопок и добавление закрашивания при переключении
+										
+					document.getElementById('create_18').onclick = function() {
+					let idstdserv = document.getElementById('customfield_86').value ;
+					let dscr = document.getElementById('customfield_87').value;
+					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let str = document.getElementById('customfield_88').value;
+					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let erx = document.getElementById('customfield_89').value;
+					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let ary = document.getElementById('customfield_90').value;
+					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('marketingqa').textContent) {
+					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/945",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/945";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_86').value = "";
+					document.getElementById('customfield_87').value = "";
+					document.getElementById('customfield_88').value = "";
+					document.getElementById('customfield_89').value = "";
+					document.getElementById('customfield_90').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else console.log("Not found");
+					}
+				} else {
+					document.getElementById('marketingptions').style.display = 'none';
+					document.getElementById('marketingform').style.display = 'none';	
 				}
 		 }
 		 
