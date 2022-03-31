@@ -681,7 +681,9 @@ function getslacklnk() {
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -1184,7 +1186,9 @@ function getslacklnk() {
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -1592,7 +1596,9 @@ function getslacklnk() {
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -1701,7 +1707,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
+					document.getElementById('studcabform').style.display = 'none';		
 					
+					document.getElementById('studcaboptions').style.display = 'none';					
 					document.getElementById('vimbugsoptions').style.display = 'none';
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -1781,7 +1789,9 @@ function getslacklnk() {
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';					
 					document.getElementById('vimbugsoptions').style.display = 'none';						
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -1950,7 +1960,9 @@ function getslacklnk() {
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';			
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -2152,7 +2164,9 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';				
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -2499,7 +2513,9 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';				
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -2789,7 +2805,9 @@ function getslacklnk() {
 					document.getElementById('mrktform').style.display = 'none';	
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';		
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -3227,8 +3245,10 @@ function getslacklnk() {
 					document.getElementById('crm2form').style.display = 'none';	
 					document.getElementById('billingform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('vimvideocallform').style.display = 'none';	
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';					
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -3691,7 +3711,9 @@ function getslacklnk() {
 					document.getElementById('mrktform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
 					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
@@ -4662,8 +4684,10 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('crm2form').style.display = 'none';	
 					document.getElementById('billingform').style.display = 'none';	
-					document.getElementById('vimvideocallform').style.display = 'none';		
-
+					document.getElementById('vimvideocallform').style.display = 'none';	
+					document.getElementById('studcabform').style.display = 'none';		
+					
+					document.getElementById('studcaboptions').style.display = 'none';
 					document.getElementById('vimvidoptions').style.display = 'none';					
 					document.getElementById('teacherssrvdskoptions').style.display = 'none';
 					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
@@ -4954,7 +4978,7 @@ function getslacklnk() {
 					document.getElementById('authform').style.display = 'none';	
 					document.getElementById('telephonyform').style.display = 'none';
 					document.getElementById('vimbugsform').style.display = 'none';	
-					document.getElementById('vimvideocallformform').style.display = 'none';	
+					document.getElementById('vimvideocallform').style.display = 'none';	
 					
 					document.getElementById('vimvidoptions').style.display = 'none';
 					document.getElementById('vimbugsoptions').style.display = 'none';
@@ -5019,4 +5043,6 @@ function getslacklnk() {
 					document.getElementById('studcabform').style.display = 'none';	
 				}
 		 }
+		 
+		 
    }
