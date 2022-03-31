@@ -6829,10 +6829,10 @@ async function checkkcpower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
 				cntc++;
-				found += result.rows[i].operator.fullName + " | Chat count: " + result.rows[i].aCnt + " | Operator status: " + result.rows[i].operator.status + '<br>';
+				found += result.rows[i].operator.fullName + " | Chat count: " + result.rows[i].aCnt + " | Status: " + result.rows[i].operator.status + '<br>';
 				}
 			}
-	console.log("Сотрудников на линии: " + cntc);
+				found += '<br>' + "Сотрудников на линии: " + cntc;
         }, 1000)
 
     setTimeout(function () {
