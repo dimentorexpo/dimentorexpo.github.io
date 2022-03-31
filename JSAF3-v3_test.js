@@ -6803,6 +6803,8 @@ async function checkkcpower() {
 		let cntc=0;
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
+		if (document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
 	
 		await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 		  "headers": {
@@ -6823,16 +6825,16 @@ async function checkkcpower() {
 		  "credentials": "include"
 		}).then(r=>r.json()).then(result => {
         setTimeout(function () {
-			for (let i=0; i<testo.rows.length;i++) {
-				if (testo.rows[i].operator != null && testo.rows[i].operator.status != "Offline" && testo.rows[i].operator.fullName.match(/КЦ/)) {
+			for (let i=0; i<result.rows.length;i++) {
+				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
 				cntc++;
-				str += testo.rows[i].operator.fullName + " | Chat count: " + testo.rows[i].aCnt + " | Operator status: " + testo.rows[i].operator.status + '<br>';
+				str += result.rows[i].operator.fullName + " | Chat count: " + result.rows[i].aCnt + " | Operator status: " + result.rows[i].operator.status + '<br>';
 				}
 			}
         }, 1000)
 	console.log("Сотрудников на линии: " + cntc);
 
-    document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
+    document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
 })
 }
 
