@@ -6802,7 +6802,6 @@ async function getStats() {           // функция получения ст�
 async function checkkcpower() {
 		let cntc=0;
 		let found =[];
-		found = '<br>'
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
 		if (document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
@@ -6838,7 +6837,7 @@ async function checkkcpower() {
 
     setTimeout(function () {
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-		str.innerHTML = found;
+		str.innerHTML = '<br>' + found;
     }, 1000)
 
     document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
