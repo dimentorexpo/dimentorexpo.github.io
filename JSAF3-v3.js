@@ -5906,20 +5906,21 @@ document.getElementById('startlookstatus').onclick = function () {
                 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
                     if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
 
-                        let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+                        let text ='У: ' + arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
                         //	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-                            text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
-                            text = text + ' | at: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-                            text = text + ' | by: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-                            text = text + ' | type: ' + arregetted[0].result[0].classes[i].type;
+							text = text + ' | услуга : ' + arregetted[0].result[0].classes[i].educationServiceId;
+                            text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                            text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | кем: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+                            text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
                             if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                text = text + ' | comment: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-                            text = text + ' | removed | at: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('input');
@@ -5929,20 +5930,21 @@ document.getElementById('startlookstatus').onclick = function () {
                         tempor.value = text;
                         //    console.log(text);
                     } else if (document.getElementById('idstudentforsearch').value == "") {
-                        let text = arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+                        let text ='У: ' + arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
                         //	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-                            text = text + ' | status: ' + arregetted[0].result[0].classes[i].classStatus.status;
-                            text = text + ' | at: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-                            text = text + ' | by: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-                            text = text + ' | type: ' + arregetted[0].result[0].classes[i].type;
+							text = text + ' | услуга : ' + arregetted[0].result[0].classes[i].educationServiceId;
+                            text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                            text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | кем: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+                            text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
                             if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                text = text + ' | comment: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-                            text = text + ' | removed | at: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('input');
