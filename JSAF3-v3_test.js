@@ -6840,9 +6840,9 @@ async function checkkcpower() {
 				allcntc+=result.rows[i].aCnt;
 				if(result.rows[i].operator.status == "Online")
 					result.rows[i].operator.status = "🟢"
-				else if result.rows[i].operator.status == "Busy"
+				else if (result.rows[i].operator.status == "Busy")
 				result.rows[i].operator.status ="🟡"
-				else if result.rows[i].operator.status == "Pause"
+				else if (result.rows[i].operator.status == "Pause")
 				result.rows[i].operator.status = "🔴"
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
