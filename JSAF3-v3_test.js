@@ -6808,6 +6808,7 @@ async function getStats() {           // функция получения ст�
 
 async function checkkcpower() {
 		let cntc=0;
+		let allcntc=0;
 		let found =[];
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
@@ -6836,10 +6837,11 @@ async function checkkcpower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
 				cntc++;
+				allcntc+=result.rows[i].aCnt;
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
 			}
-				found += '<br>' + "Сотрудников на линии: " + cntc;
+				found += '<br>' + "Сотрудников на линии: " + cntc + '<br>' + "Всего чатов в работе: " + allcntc;
         }, 1000)
 
     setTimeout(function () {
@@ -6853,6 +6855,7 @@ async function checkkcpower() {
 
 async function checktppower() {
 		let cntc=0;
+		let allcntc=0;
 		let found =[];
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
@@ -6881,10 +6884,11 @@ async function checktppower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
 				cntc++;
+				allcntc += result.rows[i].aCnt;
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
 			}
-				found += '<br>' + "Сотрудников на линии: " + cntc;
+				found += '<br>' + "Сотрудников на линии: " + cntc + '<br>' + "Всего чатов в работе: " + allcntc;
         }, 1000)
 
     setTimeout(function () {
