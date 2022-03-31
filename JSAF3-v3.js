@@ -6837,6 +6837,8 @@ async function checkkcpower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
 				cntc++;
+				if (result.rows[i].aCnt == null)
+				result.rows[i].aCnt = 0;
 				allcntc+=result.rows[i].aCnt;
 				if(result.rows[i].operator.status == "Online")
 					result.rows[i].operator.status = "🟢 Онлайн"
@@ -6890,6 +6892,8 @@ async function checktppower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
 				cntc++;
+				if (result.rows[i].aCnt == null)
+					result.rows[i].aCnt = 0;
 				allcntc += result.rows[i].aCnt;
 				if(result.rows[i].operator.status == "Online")
 				result.rows[i].operator.status = "🟢 Онлайн"
