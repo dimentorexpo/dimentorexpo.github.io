@@ -1759,7 +1759,7 @@ function getslacklnk() {
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let ary = document.getElementById('customfield_60').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimvidqa').textContent) {
 					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -5084,7 +5084,7 @@ function getslacklnk() {
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let ary = document.getElementById('customfield_65').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('studcabqa').textContent) {
 					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -5172,7 +5172,7 @@ function getslacklnk() {
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let ary = document.getElementById('customfield_70').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('chatqa').textContent) {
 					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -5260,7 +5260,7 @@ function getslacklnk() {
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let ary = document.getElementById('customfield_75').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwqa').textContent) {
 					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -5348,7 +5348,7 @@ function getslacklnk() {
 					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
 					let ary = document.getElementById('customfield_80').value;
 					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
-					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('analystsqa').textContent) {
 					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					document.getElementById('responseTextarea1').value = `{  "headers": {
