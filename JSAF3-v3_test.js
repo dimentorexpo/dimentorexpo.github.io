@@ -6831,8 +6831,9 @@ async function checkkcpower() {
 				str += result.rows[i].operator.fullName + " | Chat count: " + result.rows[i].aCnt + " | Operator status: " + result.rows[i].operator.status + '<br>';
 				}
 			}
-        }, 1000)
 	console.log("Сотрудников на линии: " + cntc);
+        }, 1000)
+
 
     document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
 })
