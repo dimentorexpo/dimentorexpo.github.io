@@ -6764,6 +6764,13 @@ async function getStats() {           // функция получения ст�
     quechatscount.style.marginLeft = '50px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
+	
+	let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    kcpower.textContent = 'Нагрузка КЦ'
+    kcpower.id = 'buttonKCpower'
+    kcpower.style.marginLeft = '50px'
+    kcpower.onclick = checkkcpower
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
@@ -6789,6 +6796,37 @@ async function getStats() {           // функция получения ст�
 
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
+}
+
+
+function checkkcpower() {
+			fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+		  "headers": {
+			"accept": "*/*",
+			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"99\", \"Google Chrome\";v=\"99\"",
+			"sec-ch-ua-mobile": "?0",
+			"sec-ch-ua-platform": "\"Windows\"",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/assigned",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r=>r.json()).then(data=>testo=data)
+		
+	let cntc=0;
+	for (let i=0; i<testo.rows.length;i++) {
+    if (testo.rows[i].operator != null && testo.rows[i].operator.status != "Offline" && testo.rows[i].operator.fullName.match(/КЦ/)) {
+        cntc++;
+        console.log(testo.rows[i].operator.fullName + " | Chat count: " + testo.rows[i].aCnt + " | Operator status: " + testo.rows[i].operator.status);
+    }
+	}
+	console.log("Сотрудников на линии: " + cntc);
 }
 
 let chatneraspcount;
