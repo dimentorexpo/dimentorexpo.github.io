@@ -5545,7 +5545,7 @@ function getslacklnk() {
 					document.getElementById('optionMarketing').onclick = function() { //marketing-qa (landing pages)
 				if (document.getElementById('marketingptions').style.display != '') {
 					document.getElementById('marketingptions').style.display = '';
-					document.getElementById('corpform').style.display = '';
+					document.getElementById('marketingform').style.display = '';
 					
 					document.getElementById('kidsform').style.display = 'none';	
 					document.getElementById('teachersform').style.display = 'none';						
