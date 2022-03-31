@@ -6801,6 +6801,7 @@ async function getStats() {           // функция получения ст�
 
 async function checkkcpower() {
 		let cntc=0;
+		let found =[];
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
 		if (document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
@@ -6828,7 +6829,7 @@ async function checkkcpower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
 				cntc++;
-				str += result.rows[i].operator.fullName + " | Chat count: " + result.rows[i].aCnt + " | Operator status: " + result.rows[i].operator.status + '<br>';
+				found += result.rows[i].operator.fullName + " | Chat count: " + result.rows[i].aCnt + " | Operator status: " + result.rows[i].operator.status + '<br>';
 				}
 			}
 	console.log("Сотрудников на линии: " + cntc);
@@ -6836,6 +6837,7 @@ async function checkkcpower() {
 
     setTimeout(function () {
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+		str.innerHTML = found;
     }, 1000)
 
     document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
