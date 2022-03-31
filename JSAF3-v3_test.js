@@ -6834,6 +6834,9 @@ async function checkkcpower() {
 	console.log("Сотрудников на линии: " + cntc);
         }, 1000)
 
+    setTimeout(function () {
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+    }, 1000)
 
     document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
 })
