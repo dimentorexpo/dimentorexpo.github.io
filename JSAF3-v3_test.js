@@ -519,6 +519,13 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">Vim-bugs</button>
                     <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">Vim-vid-call</button>
+                    <button class="sdbtn" id="optionStudcab" style="margin-left:2px; margin-top:2px; width:80px;">Studcabinet</button>
+                    <button class="sdbtn" id="optionChat" style="margin-left:2px; margin-top:2px; width:80px;">Chat</button>
+                    <button class="sdbtn" id="optionTripwire" style="margin-left:2px; margin-top:2px; width:80px;">Tripwire</button>
+                    <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">KPI T</button>
+                    <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">Corp</button>
+                    <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">Landings</button>
+                    <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">Mobile bugs</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -678,7 +685,42 @@ var win_servicedesk =
 				
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#vim-video-call</p>
-					<button class="vimvidsbtn" id="vimvidqa">Обращение к QA</button>
+					<button class="vimvidsbtn" id="vimvidqa">Обращение для QA</button>
+				</div>
+				
+				<div id="studcaboptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#student-cabinet-bugs</p>
+					<button class="studcabbtn" id="studcabqa">Обращение для QA</button>
+				</div>
+				
+				<div id="chatqaoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#chat-qa-support</p>
+					<button class="chatqabtn" id="chatqa">Обращение для QA</button>
+				</div>
+				
+				<div id="tripwireoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#exp-tripwire-bugs</p>
+					<button class="tripwbtn" id="tripwqa">Обращение для QA</button>
+				</div>
+							
+				<div id="analystoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#analyst-gm-tl</p>
+					<button class="analystbtn" id="analystsqa">Обращение для QA</button>
+				</div>
+				
+				<div id="corpoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#corp-support</p>
+					<button class="corpbtn" id="corpqa">Обращение для QA</button>
+				</div>
+				
+				<div id="marketingptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#marketing-qa</p>
+					<button class="marketingbtn" id="marketingqa">Обращение для QA</button>
+				</div>
+				
+				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#mobile-bugs</p>
+					<button class="mobbugsbtn" id="mobbugsqa">Обращение для QA</button>
 				</div>
 				
 	        </span>
