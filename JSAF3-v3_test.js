@@ -525,7 +525,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">KPI T</button>
                     <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">Corp</button>
                     <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">Landings</button>
-                    <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">Mobile bugs</button>
+                    <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">Mobile bug</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
