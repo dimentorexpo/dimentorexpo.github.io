@@ -6764,6 +6764,20 @@ async function getStats() {           // функция получения ст�
     quechatscount.style.marginLeft = '50px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
+	
+	let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    kcpower.textContent = 'Нагрузка КЦ'
+    kcpower.id = 'buttonKCpower'
+    kcpower.style.marginLeft = '50px'
+    kcpower.onclick = checkkcpower
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
+	
+	let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    tppower.textContent = 'Нагрузка ТП'
+    tppower.id = 'buttonTPpower'
+    tppower.style.marginLeft = '50px'
+    tppower.onclick = checktppower
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
@@ -6789,6 +6803,101 @@ async function getStats() {           // функция получения ст�
 
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
+}
+
+
+async function checkkcpower() {
+		let cntc=0;
+		let allcntc=0;
+		let found =[];
+	    let str = document.createElement('p')
+		str.style.paddingLeft = '50px' 
+		if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+	
+		await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+		  "headers": {
+			"accept": "*/*",
+			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"99\", \"Google Chrome\";v=\"99\"",
+			"sec-ch-ua-mobile": "?0",
+			"sec-ch-ua-platform": "\"Windows\"",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/assigned",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r=>r.json()).then(result => {
+        setTimeout(function () {
+			for (let i=0; i<result.rows.length;i++) {
+				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
+				cntc++;
+				allcntc+=result.rows[i].aCnt;
+				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
+				}
+			}
+				found += '<br>' + "Сотрудников на линии: " + cntc + '<br>' + "Всего чатов в работе: " + allcntc;
+        }, 1000)
+
+    setTimeout(function () {
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+		str.innerHTML = '<br>' + found;
+    }, 1000)
+
+    document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
+})
+}
+
+async function checktppower() {
+		let cntc=0;
+		let allcntc=0;
+		let found =[];
+	    let str = document.createElement('p')
+		str.style.paddingLeft = '50px' 
+		if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+	
+		await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+		  "headers": {
+			"accept": "*/*",
+			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"99\", \"Google Chrome\";v=\"99\"",
+			"sec-ch-ua-mobile": "?0",
+			"sec-ch-ua-platform": "\"Windows\"",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/assigned",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r=>r.json()).then(result => {
+        setTimeout(function () {
+			for (let i=0; i<result.rows.length;i++) {
+				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
+				cntc++;
+				allcntc += result.rows[i].aCnt;
+				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
+				}
+			}
+				found += '<br>' + "Сотрудников на линии: " + cntc + '<br>' + "Всего чатов в работе: " + allcntc;
+        }, 1000)
+
+    setTimeout(function () {
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+		str.innerHTML = '<br>' + found;
+    }, 1000)
+
+    document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
+})
 }
 
 let chatneraspcount;
