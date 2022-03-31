@@ -228,197 +228,442 @@ function getslacklnk() {
 					$(this).toggleClass('activebtnsd');
 					});
 					
-					$('.teacbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.kidsbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-										
-					$('.bilqabtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.c1sbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.schdbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.telepbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.authbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.crm2sbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.mrktbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.billbtn').click(function() {  
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});
-					
-					$('.vimbugsbtn').click(function() {  //поправить
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-					});	
-					
-					$('.vimvidsbtn').click(function () {  //поправить
-					$('.kidsbtn').not(this).removeClass('activebtn');
-					$('.bilqabtn').not(this).removeClass('activebtn');
-					$('.teacbtn').not(this).removeClass('activebtn');
-					$('.c1sbtn').not(this).removeClass('activebtn');
-					$('.schdbtn').not(this).removeClass('activebtn');
-					$('.telepbtn').not(this).removeClass('activebtn');
-					$('.authbtn').not(this).removeClass('activebtn');
-					$('.crm2sbtn').not(this).removeClass('activebtn');
-					$('.mrktbtn').not(this).removeClass('activebtn');
-					$('.billbtn').not(this).removeClass('activebtn');
-					$('.vimbugsbtn').not(this).removeClass('activebtn');
-					$('.vimvidsbtn').not(this).removeClass('activebtn');
-					$(this).toggleClass('activebtn');
-				});
+            $('.teacbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.kidsbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.bilqabtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.c1sbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.schdbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.telepbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.authbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.crm2sbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.mrktbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.billbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.vimbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+			
+			 $('.vimvidsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+			
+			$('.studcabbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+			
+			$('.chatqabtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+			$('.tripwbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+			$('.analystbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+			$('.corpbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });	
+
+			$('.marketingbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });	
+
+			$('.mobbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+				$('.vimvidsbtn').not(this).removeClass('activebtn');
+				$('.studcabbtn').not(this).removeClass('activebtn');
+				$('.chatqabtn').not(this).removeClass('activebtn');
+				$('.tripwbtn').not(this).removeClass('activebtn');
+				$('.analystbtn').not(this).removeClass('activebtn');
+				$('.corpbtn').not(this).removeClass('activebtn');
+				$('.marketingbtn').not(this).removeClass('activebtn');
+				$('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
 
 					document.getElementById('optionTeacher').onclick = function() { // Teachers
 				if (document.getElementById('teacherssrvdskoptions').style.display != ''){
@@ -4685,6 +4930,93 @@ function getslacklnk() {
 					} else console.log("Not found");
 					}
 					
-				} else console.log("test");
+				} 
+				
+				else {
+					document.getElementById('vimbugsoptions').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
+					}
 				}
+				
+				document.getElementById('optionStudcab').onclick = function() { //student-cabinet-bugs
+				if (document.getElementById('studcaboptions').style.display != '') {
+					document.getElementById('studcaboptions').style.display = '';
+					document.getElementById('studcabform').style.display = '';
+					
+					document.getElementById('kidsform').style.display = 'none';	
+					document.getElementById('teachersform').style.display = 'none';						
+					document.getElementById('onboardingform').style.display = 'none';	
+					document.getElementById('scheduleform').style.display = 'none';
+					document.getElementById('billingform').style.display = 'none';	
+					document.getElementById('billqaform').style.display = 'none';	
+					document.getElementById('mrktform').style.display = 'none';	
+					document.getElementById('crm2form').style.display = 'none';
+					document.getElementById('authform').style.display = 'none';	
+					document.getElementById('telephonyform').style.display = 'none';
+					document.getElementById('vimbugsform').style.display = 'none';	
+					document.getElementById('vimvideocallformform').style.display = 'none';	
+					
+					document.getElementById('vimvidoptions').style.display = 'none';
+					document.getElementById('vimbugsoptions').style.display = 'none';
+					document.getElementById('teacherssrvdskoptions').style.display = 'none';
+					document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+					document.getElementById('c1srvdskoptions').style.display = 'none';
+					document.getElementById('schedulesrvdskoptions').style.display = 'none';
+					document.getElementById('telephonysrvdskoptions').style.display = 'none';
+					document.getElementById('authsrvdskoptions').style.display = 'none';
+					document.getElementById('crm2srvdskoptions').style.display = 'none';
+					document.getElementById('mrktsrvdskoptions').style.display = 'none';
+					document.getElementById('billingsrvdskoptions').style.display = 'none';
+					document.getElementById('billingqasrvdskoptions').style.display = 'none';
+
+									
+					//Начало окрашивания кнопок и добавление закрашивания при переключении
+										
+					document.getElementById('create_13').onclick = function() {
+					let idstdserv = document.getElementById('customfield_61').value ;
+					let dscr = document.getElementById('customfield_62').value;
+					dscr = dscr.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let str = document.getElementById('customfield_63').value;
+					str = str.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let erx = document.getElementById('customfield_64').value;
+					erx = erx.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					let ary = document.getElementById('customfield_65').value;
+					ary = ary.replace(/\n/g,'\\n').replace(/\r/g,'\\r');
+					if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
+					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/946",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/946";
+					 document.getElementById('responseTextarea3').value = ''
+					 document.getElementById('sendResponse').click()
+					 
+					document.getElementById('customfield_61').value = "";
+					document.getElementById('customfield_62').value = "";
+					document.getElementById('customfield_63').value = "";
+					document.getElementById('customfield_64').value = "";
+					document.getElementById('customfield_65').value = "";
+					
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+					
+					} else console.log("Not found");
+					}
+				} else {
+					document.getElementById('studcaboptions').style.display = 'none';
+					document.getElementById('studcabform').style.display = 'none';	
+				}
+		 }
    }
