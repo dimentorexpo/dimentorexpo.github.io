@@ -6802,6 +6802,7 @@ async function getStats() {           // функция получения ст�
 async function checkkcpower() {
 		let cntc=0;
 		let found =[];
+		found = '<br>'
 	    let str = document.createElement('p')
 		str.style.paddingLeft = '50px' 
 		if (document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
