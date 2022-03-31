@@ -529,7 +529,7 @@ var win_servicedesk =
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#teachers-qa-support; канал по вопросам ЛКП, ТРМ</p>
 					<button class="teacbtn" id="teacherstatistic">Статистика</button>
 					<button class="teacbtn" id="teacherstudy">Моё обучение</button>
 					<button class="teacbtn" id="teacherbreak">Перерыв</button>
@@ -548,7 +548,7 @@ var win_servicedesk =
 				</div>
 								
 				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support; канал поддержки CRM2</p>
 					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
 					<button class="crm2sbtn" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
 					<button class="crm2sbtn" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
@@ -565,7 +565,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="authsrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:190px;">#auth; Обсуждение общих вопросов по проектам Auth/ID (авторизация, роли и доступы, данные пользователей и т. д.)</p>
 					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
 					<button class="authbtn" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
 					<button class="authbtn" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
@@ -577,7 +577,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="schedulesrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#schedule-qa-support; Канал по вопросам расписания ученика, ТТ, автоподбора и ручного подбора</p>
 					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
 					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
 					<button class="schdbtn" id="ttquestions">Вопросы по ТТ</button>
@@ -586,13 +586,13 @@ var win_servicedesk =
 				</div>	
 
 				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:130px;">#billing-qa-support; Канал для рассмотрения причины расхождений баланса учеников</p>
 					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
 					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
 				</div>
 				
 				<div id="c1srvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#c1-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#c1-support; Поддержка витрины оплаты (Не виджет оплаты в pcs), Onboarding (Kids&Adult), Scoring, AutoIntroLesson (АвтоВУ)</p>
 					<button class="c1sbtn" id="c1verstka">Проблемы с версткой</button>
 					<button class="c1sbtn" id="c1payonboarding">Не завершился онбординг после оплаты</button>
 					<button class="c1sbtn" id="c1redirects">Циклические редиректы</button>
@@ -600,7 +600,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#telephony-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#telephony-support; Канал для поддержки внутренней телефонии</p>
 					<button class="telepbtn" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
 					<button class="telepbtn" id="teloutgoing">Проблема с исходящим вызовом</button>
 					<button class="telepbtn" id="telincoming">Проблема с входящим вызовом</button>
@@ -641,7 +641,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
 					<button class="kidsbtn" id="skysmartcontent">Контент</button>
 					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
 					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
@@ -657,7 +657,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#mrkt-bill-questions</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:120px;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
 					<button class="mrktbtn" id="mrktsubscribptions">Подписки</button>
 					<button class="mrktbtn" id="mrktcertificates">Заказ сертификатов</button>
 					<button class="mrktbtn" id="mrktpromocodes">Заказ промокодов</button>
@@ -672,7 +672,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#vim-bugs</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#vim-bugs; Проблемы со взрослой платформой vimbox</p>
 					<button class="vimbugsbtn" id="adultselfstudy">Adults Self-Study</button>
 					<button class="vimbugsbtn" id="premiumflip">Premium и Flip</button>
 					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
@@ -684,42 +684,42 @@ var win_servicedesk =
 				</div>
 				
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#vim-video-call</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#vim-video-call; Разработка модуля видеосвязи</p>
 					<button class="vimvidsbtn" id="vimvidqa">Обращение для QA</button>
 				</div>
 				
 				<div id="studcaboptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#student-cabinet-bugs</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru</p>
 					<button class="studcabbtn" id="studcabqa">Обращение для QA</button>
 				</div>
 				
 				<div id="chatqaoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#chat-qa-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
 					<button class="chatqabtn" id="chatqa">Обращение для QA</button>
 				</div>
 				
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#exp-tripwire-bugs</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
 					<button class="tripwbtn" id="tripwqa">Обращение для QA</button>
 				</div>
 							
 				<div id="analystoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#analyst-gm-tl</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#analysts-gm-tl; канал аналитиков teachers продукта</p>
 					<button class="analystbtn" id="analystsqa">Обращение для QA</button>
 				</div>
 				
 				<div id="corpoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#corp-support</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#corp-support; Канал поддержки по вопросам корпоративных клиентов: ЛККК (не ЛКУ), начислялка, self-study, карточка компании.</p>
 					<button class="corpbtn" id="corpqa">Обращение для QA</button>
 				</div>
 				
 				<div id="marketingptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#marketing-qa</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#marketing-qa; (регистрации, детские главные, взрослые главные, лендосы на лпг/тильде)</p>
 					<button class="marketingbtn" id="marketingqa">Обращение для QA</button>
 				</div>
 				
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#mobile-bugs</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:150px;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
 					<button class="mobbugsbtn" id="mobbugsqa">Обращение для QA</button>
 				</div>
 				
