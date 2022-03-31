@@ -6808,6 +6808,8 @@ async function getStats() {           // функция получения ст�
 
 async function checkkcpower() {
 		let cntc=0;
+		let busycnt=0;
+		let pausecnt=0;
 		let allcntc=0;
 		let found =[];
 	    let str = document.createElement('p')
@@ -6837,6 +6839,10 @@ async function checkkcpower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
 				cntc++;
+				if (result.rows[i].operator.status == "Busy")
+					busycnt++;
+				else if (result.rows[i].operator.status == "Pause")
+					pausecnt++;
 				if (result.rows[i].aCnt == null)
 				result.rows[i].aCnt = 0;
 				allcntc+=result.rows[i].aCnt;
@@ -6849,7 +6855,7 @@ async function checkkcpower() {
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
 			}
-				found += '<br>' + "Сотрудников на линии: " + cntc + '<br>' + "Всего чатов в работе: " + allcntc;
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc;
         }, 1000)
 
     setTimeout(function () {
@@ -6863,6 +6869,8 @@ async function checkkcpower() {
 
 async function checktppower() {
 		let cntc=0;
+		let busycnt=0;
+		let pausecnt=0;
 		let allcntc=0;
 		let found =[];
 	    let str = document.createElement('p')
@@ -6892,6 +6900,10 @@ async function checktppower() {
 			for (let i=0; i<result.rows.length;i++) {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
 				cntc++;
+				if (result.rows[i].operator.status == "Busy")
+					busycnt++;
+				else if (result.rows[i].operator.status == "Pause")
+					pausecnt++;
 				if (result.rows[i].aCnt == null)
 					result.rows[i].aCnt = 0;
 				allcntc += result.rows[i].aCnt;
@@ -6904,7 +6916,7 @@ async function checktppower() {
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
 			}
-				found += '<br>' + "Сотрудников на линии: " + cntc + '<br>' + "Всего чатов в работе: " + allcntc;
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc;
         }, 1000)
 
     setTimeout(function () {
