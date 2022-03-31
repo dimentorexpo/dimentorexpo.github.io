@@ -6838,6 +6838,12 @@ async function checkkcpower() {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
 				cntc++;
 				allcntc+=result.rows[i].aCnt;
+				if(result.rows[i].operator.status == "Online")
+					result.rows[i].operator.status = "🟢 Онлайн"
+				else if (result.rows[i].operator.status == "Busy")
+				result.rows[i].operator.status ="🟡 Занят"
+				else if (result.rows[i].operator.status == "Pause")
+				result.rows[i].operator.status = "🔴 Перерыв"
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
 			}
@@ -6885,6 +6891,12 @@ async function checktppower() {
 				if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
 				cntc++;
 				allcntc += result.rows[i].aCnt;
+				if(result.rows[i].operator.status == "Online")
+				result.rows[i].operator.status = "🟢 Онлайн"
+				else if (result.rows[i].operator.status == "Busy")
+				result.rows[i].operator.status ="🟡 Занят"
+				else if (result.rows[i].operator.status == "Pause")
+				result.rows[i].operator.status = "🔴 Перерыв"
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
 			}
