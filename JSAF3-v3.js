@@ -7250,9 +7250,9 @@ async function checkkcpower() {
 			}
 			if ( allcntc/(cntc-pausecnt) <= 2.2)
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
-			else if ( allcntc/(cntc-pausecnt-busycnt)> 2.2 && allcntc/(cntc-pausecnt) <= 3.2 )
+			else if ( allcntc/(cntc-pausecnt-busycnt)> 2.2 && allcntc/(cntc-pausecnt-busycnt) <= 3.2 )
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
-			else if ( allcntc/(cntc-pausecnt-busycnt)> 3.2 && allcntc/(cntc-pausecnt) <= 4.4 )
+			else if ( allcntc/(cntc-pausecnt-busycnt)> 3.2 && allcntc/(cntc-pausecnt-busycnt) <= 4.4 )
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)>=4.5)
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
@@ -7318,9 +7318,9 @@ async function checktppower() {
 			}
 			if ( allcntc/(cntc-pausecnt) <= 2.2)
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
-			else if ( allcntc/(cntc-pausecnt-busycnt)> 2.2 && allcntc/(cntc-pausecnt) <= 3.2 )
+			else if ( allcntc/(cntc-pausecnt-busycnt)> 2.2 && allcntc/(cntc-pausecnt-busycnt) <= 3.2 )
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
-			else if ( allcntc/(cntc-pausecnt-busycnt)> 3.2 && allcntc/(cntc-pausecnt) <= 4.4 )
+			else if ( allcntc/(cntc-pausecnt-busycnt)> 3.2 && allcntc/(cntc-pausecnt-busycnt) <= 4.4 )
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)>=4.5)
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
