@@ -7316,7 +7316,7 @@ async function checktppower() {
 				found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
 				}
 			}
-			found = found.sort();
+
 			if ( allcntc/(cntc-pausecnt-busycnt) <= 2.2)
 				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)> 2.2 && allcntc/(cntc-pausecnt-busycnt) <= 3.2 )
