@@ -7249,13 +7249,13 @@ async function checkkcpower() {
 				}
 			}
 			if ( allcntc/(cntc-pausecnt-busycnt) <= 2.2)
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)> 2.2 && allcntc/(cntc-pausecnt-busycnt) <= 3.2 )
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)> 3.2 && allcntc/(cntc-pausecnt-busycnt) <= 4.4 )
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)>=4.5)
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
         }, 1000)
 
     setTimeout(function () {
@@ -7318,13 +7318,13 @@ async function checktppower() {
 			}
 
 			if ( allcntc/(cntc-pausecnt-busycnt) <= 2.2)
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)> 2.2 && allcntc/(cntc-pausecnt-busycnt) <= 3.2 )
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)> 3.2 && allcntc/(cntc-pausecnt-busycnt) <= 4.4 )
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
 			else if ( allcntc/(cntc-pausecnt-busycnt)>=4.5)
-				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
+				found += '<br>' + "Сотрудников на линии: " + cntc +  " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc-busycnt-pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
         }, 1000)
 
     setTimeout(function () {
