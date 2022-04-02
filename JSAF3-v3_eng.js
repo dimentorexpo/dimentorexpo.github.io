@@ -1172,7 +1172,7 @@ hashBut.onclick = function () {
             setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
         }
     } else {
-        if (localStorage.getItem('scriptAdr') == TS_addr)
+        if (localStorage.getItem('scriptAdr') == TP_addr3)
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-24/' + adr1)
         else
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-24/' + adr1)
