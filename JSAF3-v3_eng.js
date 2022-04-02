@@ -1173,9 +1173,9 @@ hashBut.onclick = function () {
         }
     } else {
         if (localStorage.getItem('scriptAdr') == TS_addr)
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-24/' + adr1)
         else
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-24/' + adr1)
         document.getElementById('hashBut').innerHTML = "Скопировано"
         setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
     }
