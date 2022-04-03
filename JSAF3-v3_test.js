@@ -4530,23 +4530,29 @@ function move_again_AF() {
 		let tempgrid = document.getElementById('idgrouptolist').value;
 		
 		document.getElementById('responseTextarea1').value = '{}'
-        document.getElementById('responseTextarea2').value = "https://learning-groups-storage.skyeng.ru/group/"+tempgrid;
+        document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
         document.getElementById('responseTextarea3').value = 'heredata'
         document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://learning-groups-storage.skyeng.ru/group/"+tempgrid;
-            document.getElementById('responseTextarea3').value = 'heredata'
-            document.getElementById('sendResponse').click()
 		
-		    grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
+		grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
 			grdata = await grdata;
             grdata = JSON.parse(grdata);
 			document.getElementById('responseTextarea1').removeAttribute('heredata');
 			console.log(grdata);
+
+        // setTimeout(async function () {
+            // document.getElementById('responseTextarea1').value = '{}'
+            // document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
+            // document.getElementById('responseTextarea3').value = 'heredata'
+            // document.getElementById('sendResponse').click()
+		
+		    // grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
+			// grdata = await grdata;
+            // grdata = JSON.parse(grdata);
+			// document.getElementById('responseTextarea1').removeAttribute('heredata');
+			// console.log(grdata);
 			
-	}, 2000) 
+	// }, 2000) 
 	
 	} // end of func getidgrouptolist
 
