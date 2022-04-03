@@ -4549,7 +4549,7 @@ function move_again_AF() {
 			console.log(grdata);
 			
 			for (let i=0; i<grdata.data.students.length;i++) {
-				dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId);    
+				dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId;    
 			}
 			
 			document.getElementById('grlistinfo').innerHTML = dataarr;
