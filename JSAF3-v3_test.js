@@ -4552,8 +4552,9 @@ function move_again_AF() {
 			for (let i=0; i<grdata.data.students.length;i++) {
 				dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
 			}
-			
-		document.getElementById('grlistinfo').innerHTML = dataarr; 
+			if (grdata.data.teachers ==null || grdata.data.teachers == undefined)
+			document.getElementById('grlistinfo').innerHTML = dataarr; 
+			else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId ; 
 		}
 			
 	}, 2000) 
