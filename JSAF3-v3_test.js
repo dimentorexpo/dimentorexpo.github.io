@@ -4543,18 +4543,18 @@ function move_again_AF() {
             document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
             document.getElementById('responseTextarea3').value = 'heredata'
             document.getElementById('sendResponse').click()
-		
 		    grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
 			grdata = await grdata;
             grdata = JSON.parse(grdata);
 			document.getElementById('responseTextarea1').removeAttribute('heredata');
-			console.log(grdata);
 			
+		if (grdata !=null || grdata !=undefined) { 
 			for (let i=0; i<grdata.data.students.length;i++) {
 				dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
 			}
 			
-			document.getElementById('grlistinfo').innerHTML = dataarr;
+		document.getElementById('grlistinfo').innerHTML = dataarr; 
+		}
 			
 	}, 2000) 
 	
