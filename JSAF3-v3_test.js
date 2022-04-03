@@ -4526,11 +4526,13 @@ function move_again_AF() {
         else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
-
-
+	
 
 	document.getElementById('getidgrouptolist').onclick = async function() {
 		let grdata = [];
+		let namedata = [];
+		let namearr=[];
+		let surnamearr =[];
 		let dataarr = [];
 		let tempgrid = document.getElementById('idgrouptolist').value;
 		
@@ -4549,11 +4551,10 @@ function move_again_AF() {
             grdata = JSON.parse(grdata);
 			document.getElementById('responseTextarea1').removeAttribute('heredata');
 			
-					let namedata = [];
-		let namearr=[];
-		let surnamearr =[];
-		function dofindnames() {
-							document.getElementById('responseTextarea1').value = `{
+		if (grdata !=null || grdata !=undefined) { 
+			for (let i=0; i<grdata.data.students.length;i++) {
+				
+						document.getElementById('responseTextarea1').value = `{
 							  "headers": {
 								"accept": "application/json, text/plain, */*",
 								"sec-fetch-dest": "empty",
@@ -4592,18 +4593,11 @@ function move_again_AF() {
 									namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
 									namedata = await namedata;
 									namedata = JSON.parse(namedata);
-									namearr += namedata.data.name + ",";
-									surnamearr += namedata.data.surname + ",";
+									//namearr += namedata.data.name + ",";
+									//surnamearr += namedata.data.surname + ",";
 									document.getElementById('responseTextarea1').removeAttribute('dataname');
-								}, 2000);
-}	
-			
-		if (grdata !=null || grdata !=undefined) { 
-			for (let i=0; i<grdata.data.students.length;i++) {
-					dofindnames();
-					console.log(namearr);
-				
-						dataarr += " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
+									dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
+						}, 2000);
 					}
 					if (grdata.data.teachers ==null || grdata.data.teachers == undefined)
 					document.getElementById('grlistinfo').innerHTML = dataarr; 
@@ -4613,8 +4607,6 @@ function move_again_AF() {
 	}, 2000) 
 	
 	} // end of func getidgrouptolist
-	
-
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
