@@ -4524,6 +4524,43 @@ function move_again_AF() {
         else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
+	
+	let grdata = [];
+	document.getElementById('getidgrouptolist').onclick = function() {
+		let tempgrid = document.getElementById('idgrouptolist').value;
+		
+		 document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
+			  },
+			  "referrer": "https://learning-groups-storage.skyeng.ru/",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+				}`
+        document.getElementById('responseTextarea2').value = "https://learning-groups-storage.skyeng.ru/group/"+tempgrid;
+        document.getElementById('responseTextarea3').value = 'heredata'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(function () {
+            document.getElementById('responseTextarea1').value = `{}`
+            document.getElementById('responseTextarea2').value = "https://learning-groups-storage.skyeng.ru/group/"+tempgrid;
+            document.getElementById('responseTextarea3').value = 'heredata'
+            document.getElementById('sendResponse').click()
+		
+		    grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
+            grdata = JSON.parse(grdata);
+			document.getElementById('responseTextarea1').removeAttribute('heredata');
+			console.log(grdata);
+			
+	}, 2000) 
+	
+	} // end of func getidgrouptolist
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
