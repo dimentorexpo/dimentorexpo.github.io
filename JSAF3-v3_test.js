@@ -4531,6 +4531,8 @@ function move_again_AF() {
 	document.getElementById('getidgrouptolist').onclick = async function() {
 		let grdata = [];
 		let namedata = [];
+		let namearr=[];
+		let surnamearr =[];
 		let dataarr = [];
 		let tempgrid = document.getElementById('idgrouptolist').value;
 		
@@ -4577,10 +4579,12 @@ function move_again_AF() {
 									namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
 									namedata = await namedata;
 									namedata = JSON.parse(namedata);
+									namearr += namedata.data.name + ",";
+									surnamearr += namedata.data.surname + ",";
 									document.getElementById('responseTextarea1').removeAttribute('dataname');
 								}, 2000);
 				
-						dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
+						dataarr += " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
 					}
 					if (grdata.data.teachers ==null || grdata.data.teachers == undefined)
 					document.getElementById('grlistinfo').innerHTML = dataarr; 
