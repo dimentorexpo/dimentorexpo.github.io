@@ -4553,6 +4553,24 @@ function move_again_AF() {
 			
 		if (grdata !=null || grdata !=undefined) { 
 			for (let i=0; i<grdata.data.students.length;i++) {
+				
+								document.getElementById('responseTextarea1').value = `{
+									   "headers": {
+										"accept": "application/json, text/plain, */*",
+										"sec-fetch-dest": "empty",
+										"sec-fetch-mode": "cors",
+										"sec-fetch-site": "same-site"
+									  },
+									  "referrer": "https://crm2.skyeng.ru/",
+									  "referrerPolicy": "strict-origin-when-cross-origin",
+									  "body": null,
+									  "method": "GET",
+									  "mode": "cors",
+									  "credentials": "include"
+									}`
+									document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+grdata.data.students[i].userId+"?crm2=true&debugParam=person-page";
+									document.getElementById('responseTextarea3').value = 'dataname'
+									document.getElementById('sendResponse').click()
 									
 						        setTimeout(async function () {
 									document.getElementById('responseTextarea1').value = `{
