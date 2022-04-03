@@ -4446,6 +4446,13 @@ function move_again_AF() {
             document.getElementById('AF_Stat').style.display = 'none'
         else
             document.getElementById('AF_Stat').style.display = ''
+    } 
+
+	document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_GrList').style.display == '')
+            document.getElementById('AF_GrList').style.display = 'none'
+        else
+            document.getElementById('AF_GrList').style.display = ''
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
