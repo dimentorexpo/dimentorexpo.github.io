@@ -4526,34 +4526,12 @@ function move_again_AF() {
         else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
-	
 
-	document.getElementById('getidgrouptolist').onclick = async function() {
-		let grdata = [];
 		let namedata = [];
 		let namearr=[];
 		let surnamearr =[];
-		let dataarr = [];
-		let tempgrid = document.getElementById('idgrouptolist').value;
-		
-		document.getElementById('responseTextarea1').value = '{}'
-        document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
-        document.getElementById('responseTextarea3').value = 'heredata'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
-            document.getElementById('responseTextarea3').value = 'heredata'
-            document.getElementById('sendResponse').click()
-		    grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
-			grdata = await grdata;
-            grdata = JSON.parse(grdata);
-			document.getElementById('responseTextarea1').removeAttribute('heredata');
-			
-		if (grdata !=null || grdata !=undefined) { 
-			for (let i=0; i<grdata.data.students.length;i++) {
-						document.getElementById('responseTextarea1').value = `{
+function dofindnames() {
+							document.getElementById('responseTextarea1').value = `{
 							  "headers": {
 								"accept": "application/json, text/plain, */*",
 								"sec-fetch-dest": "empty",
@@ -4591,10 +4569,37 @@ function move_again_AF() {
 									document.getElementById('sendResponse').click()
 									namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
 									namedata = await namedata;
+									namedata = JSON.parse(namedata);
 									namearr += namedata.data.name + ",";
 									surnamearr += namedata.data.surname + ",";
 									document.getElementById('responseTextarea1').removeAttribute('dataname');
 								}, 2000);
+}	
+
+	document.getElementById('getidgrouptolist').onclick = async function() {
+		let grdata = [];
+		let dataarr = [];
+		let tempgrid = document.getElementById('idgrouptolist').value;
+		
+		document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
+        document.getElementById('responseTextarea3').value = 'heredata'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
+            document.getElementById('responseTextarea3').value = 'heredata'
+            document.getElementById('sendResponse').click()
+		    grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
+			grdata = await grdata;
+            grdata = JSON.parse(grdata);
+			document.getElementById('responseTextarea1').removeAttribute('heredata');
+			
+		if (grdata !=null || grdata !=undefined) { 
+			for (let i=0; i<grdata.data.students.length;i++) {
+					dofindnames();
+					console.log(namearr);
 				
 						dataarr += " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
 					}
@@ -4606,6 +4611,8 @@ function move_again_AF() {
 	}, 2000) 
 	
 	} // end of func getidgrouptolist
+	
+
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
