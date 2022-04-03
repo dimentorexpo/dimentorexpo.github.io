@@ -390,8 +390,8 @@ var win_GrList =  // описание элементов окна ссылок
 							<button title="Запуск получения списка учеников группы" id="getidgrouptolist">Get info</button>
 						</div>
 												
-						<div id="grlistinfo">
-							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
+						<div id="grlstdiv">
+							 <p id="grlistinfo" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 						</div>
                 </span>
