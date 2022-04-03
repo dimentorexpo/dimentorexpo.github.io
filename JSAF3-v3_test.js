@@ -389,13 +389,15 @@ var win_GrList =  // описание элементов окна ссылок
 							<input id="idgrouptolist" placeholder="ID группы" title="Введите ID группы для получения списка учеников" autocomplete="off" type="text" style="text-align: center; width: 200px; color: black;margin-left:5px">
 							<button title="Запуск получения списка учеников группы" id="getidgrouptolist">Get info</button>
 						</div>
+						
+				</span>
 												
 						<div id="grlstdiv">
 							 <br>
 							 <p id="grlistinfo" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 						</div>
-                </span>
+                
         </span>
 </div>`;
 
@@ -4549,7 +4551,7 @@ function move_again_AF() {
 			console.log(grdata);
 			
 			for (let i=0; i<grdata.data.students.length;i++) {
-				dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId;    
+				dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
 			}
 			
 			document.getElementById('grlistinfo').innerHTML = dataarr;
