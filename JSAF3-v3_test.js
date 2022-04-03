@@ -4591,7 +4591,6 @@ function move_again_AF() {
 									document.getElementById('sendResponse').click()
 									namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
 									namedata = await namedata;
-									namedata = JSON.parse(namedata);
 									namearr += namedata.data.name + ",";
 									surnamearr += namedata.data.surname + ",";
 									document.getElementById('responseTextarea1').removeAttribute('dataname');
