@@ -4525,8 +4525,10 @@ function move_again_AF() {
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 	
-	let grdata = [];
+
 	document.getElementById('getidgrouptolist').onclick = async function() {
+		let grdata = [];
+		let dataarr = [];
 		let tempgrid = document.getElementById('idgrouptolist').value;
 		
 		document.getElementById('responseTextarea1').value = '{}'
@@ -4545,6 +4547,12 @@ function move_again_AF() {
             grdata = JSON.parse(grdata);
 			document.getElementById('responseTextarea1').removeAttribute('heredata');
 			console.log(grdata);
+			
+			for (let i=0; i<grdata.data.students.length;i++) {
+				dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId);    
+			}
+			
+			document.getElementById('grlistinfo').innerHTML = dataarr;
 			
 	}, 2000) 
 	
