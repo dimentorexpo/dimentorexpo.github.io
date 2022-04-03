@@ -391,6 +391,7 @@ var win_GrList =  // описание элементов окна ссылок
 						</div>
 												
 						<div id="grlstdiv">
+							 <br>
 							 <p id="grlistinfo" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 						</div>
