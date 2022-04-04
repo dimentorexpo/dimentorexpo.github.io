@@ -4606,10 +4606,10 @@ function move_again_AF() {
                     namedata = JSON.parse(namedata);
                     arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
                     namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
-                }, 500)
+                }, 1000)
                 //    }
             }
-        }, 1000);
+        }, 5000);
 
 
     } // end of func getidgrouptolist
