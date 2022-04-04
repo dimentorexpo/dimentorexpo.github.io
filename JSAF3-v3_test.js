@@ -4609,7 +4609,7 @@ function move_again_AF() {
                     }, 500)
                 }
             }
-        }, 2000);
+        }, 1000);
 
 
     } // end of func getidgrouptolist
