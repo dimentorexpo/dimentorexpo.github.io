@@ -4552,7 +4552,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('heredata');
 
             if (grdata != null || grdata != undefined) {
-                for (let i = 0; i < grdata.data.students.length; i++) {
+                for (let k = 0; k < grdata.data.students.length; k++) {
 
                     document.getElementById('responseTextarea1').value = `{
                                        "headers": {
@@ -4568,7 +4568,7 @@ function move_again_AF() {
                                       "mode": "cors",
                                       "credentials": "include"
                                     }`
-                    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[i].userId + "?crm2=true&debugParam=person-page";
+                    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[k].userId + "?crm2=true&debugParam=person-page";
                     document.getElementById('responseTextarea3').value = 'dataname'
                     document.getElementById('sendResponse').click()
 
@@ -4587,14 +4587,15 @@ function move_again_AF() {
                                       "mode": "cors",
                                       "credentials": "include"
                                     }`
-                        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[i].userId + "?crm2=true&debugParam=person-page";
+                        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[k].userId + "?crm2=true&debugParam=person-page";
                         document.getElementById('responseTextarea3').value = 'dataname'
                         document.getElementById('sendResponse').click()
                         namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
                         namedata = JSON.parse(namedata);
                         //namearr += namedata.data.name + ",";
                         //surnamearr += namedata.data.surname + ",";
-                        dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';
+                        if (namedata != null)
+                            dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[k].userId + " ID услуги: " + grdata.data.students[k].educationServiceId + '<br>';
                         document.getElementById('responseTextarea1').removeAttribute('dataname');
                     }, 500);
                 }
