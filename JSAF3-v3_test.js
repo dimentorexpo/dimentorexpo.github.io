@@ -4530,9 +4530,6 @@ function move_again_AF() {
 
     document.getElementById('getidgrouptolist').onclick = async function () {
         let grdata = [];
-        let namedata = [];
-        let namearr = [];
-        let surnamearr = [];
         let dataarr = [];
         let tempgrid = document.getElementById('idgrouptolist').value;
 
@@ -4552,61 +4549,15 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('heredata');
 
             if (grdata != null || grdata != undefined) {
-                for (let k = 0; k < grdata.data.students.length; k++) {
-
-                    document.getElementById('responseTextarea1').value = `{
-                                       "headers": {
-                                        "accept": "application/json, text/plain, */*",
-                                        "sec-fetch-dest": "empty",
-                                        "sec-fetch-mode": "cors",
-                                        "sec-fetch-site": "same-site"
-                                      },
-                                      "referrer": "https://crm2.skyeng.ru/",
-                                      "referrerPolicy": "strict-origin-when-cross-origin",
-                                      "body": null,
-                                      "method": "GET",
-                                      "mode": "cors",
-                                      "credentials": "include"
-                                    }`
-                    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[k].userId + "?crm2=true&debugParam=person-page";
-                    document.getElementById('responseTextarea3').value = 'dataname'
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(function () {
-                        document.getElementById('responseTextarea1').value = `{
-                                       "headers": {
-                                        "accept": "application/json, text/plain, */*",
-                                        "sec-fetch-dest": "empty",
-                                        "sec-fetch-mode": "cors",
-                                        "sec-fetch-site": "same-site"
-                                      },
-                                      "referrer": "https://crm2.skyeng.ru/",
-                                      "referrerPolicy": "strict-origin-when-cross-origin",
-                                      "body": null,
-                                      "method": "GET",
-                                      "mode": "cors",
-                                      "credentials": "include"
-                                    }`
-                        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[k].userId + "?crm2=true&debugParam=person-page";
-                        document.getElementById('responseTextarea3').value = 'dataname'
-                        document.getElementById('sendResponse').click()
-                        namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
-                        namedata = JSON.parse(namedata);
-                        //namearr += namedata.data.name + ",";
-                        //surnamearr += namedata.data.surname + ",";
-                        if (namedata != null)
-                            dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[k].userId + " ID услуги: " + grdata.data.students[k].educationServiceId + '<br>';
-                        else dataarr += " ID У: " + grdata.data.students[k].userId + " ID услуги: " + grdata.data.students[k].educationServiceId + '<br>';
-                        document.getElementById('responseTextarea1').removeAttribute('dataname');
-                    }, 1000);
+                for (let i = 0; i < grdata.data.students.length; i++) {
+                    dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';
                 }
                 if (grdata.data.teachers == null || grdata.data.teachers == undefined)
                     document.getElementById('grlistinfo').innerHTML = dataarr;
                 else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId;
             }
-        }, 1000)
 
-
+        }, 2000)
 
     } // end of func getidgrouptolist
 
