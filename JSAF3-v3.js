@@ -4535,7 +4535,7 @@ function move_again_AF() {
         let dataarr = [];
         document.getElementById('grlistinfo').innerHTML = "";
         let tempgrid = document.getElementById('idgrouptolist').value;
-        tempgrid = tempgrid.grid();
+        tempgrid = tempgrid.trim();
 
         document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
