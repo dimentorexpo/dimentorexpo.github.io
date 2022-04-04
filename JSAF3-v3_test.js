@@ -4530,6 +4530,7 @@ function move_again_AF() {
     let grdata = [];
     document.getElementById('getidgrouptolist').onclick = async function () {
         let dataarr = [];
+        document.getElementById('grlistinfo').innerHTML = "";
         let tempgrid = document.getElementById('idgrouptolist').value;
 
         document.getElementById('responseTextarea1').value = '{}'
@@ -4602,7 +4603,7 @@ function move_again_AF() {
                     namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
                     namedata = JSON.parse(namedata);
                     arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
-
+                    namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
                 }, 1000)
             }
         }
