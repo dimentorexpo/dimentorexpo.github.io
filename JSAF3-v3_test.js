@@ -4527,65 +4527,10 @@ function move_again_AF() {
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 
-    let grdata = [];
-    let dataarr = [];
-    let arrname = [];
-    let arrsurname = [];
-    function getgrnames() {
-        let tmparray;
-        let namedata = [];
-        if (grdata != null)
-            tmparray = grdata;
-
-        for (let k = 0; k < tmparray.data.students.length; k++) {
-
-            document.getElementById('responseTextarea1').value = `{
-                           "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "sec-fetch-dest": "empty",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-site"
-                          },
-                          "referrer": "https://crm2.skyeng.ru/",
-                          "referrerPolicy": "strict-origin-when-cross-origin",
-                          "body": null,
-                          "method": "GET",
-                          "mode": "cors",
-                          "credentials": "include"
-                        }`
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + tmparray.data.students[k].userId + "?crm2=true&debugParam=person-page";
-            document.getElementById('responseTextarea3').value = 'dataname'
-            document.getElementById('sendResponse').click()
-
-            setTimeout(function () {
-                document.getElementById('responseTextarea1').value = `{
-                           "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "sec-fetch-dest": "empty",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-site"
-                          },
-                          "referrer": "https://crm2.skyeng.ru/",
-                          "referrerPolicy": "strict-origin-when-cross-origin",
-                          "body": null,
-                          "method": "GET",
-                          "mode": "cors",
-                          "credentials": "include"
-                        }`
-                document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + tmparray.data.students[k].userId + "?crm2=true&debugParam=person-page";
-                document.getElementById('responseTextarea3').value = 'dataname'
-                document.getElementById('sendResponse').click()
-                namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
-                namedata = JSON.parse(namedata);
-                arrname += namedata.data.name + ",";
-                arrsurname += namedata.data.surname + ","
-            }, 1000)
-
-        } // end of for
-    } // end of func
-
 
     document.getElementById('getidgrouptolist').onclick = async function () {
+        let grdata = [];
+        let dataarr = [];
         let tempgrid = document.getElementById('idgrouptolist').value;
 
         document.getElementById('responseTextarea1').value = '{}'
@@ -4604,11 +4549,8 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('heredata');
 
             if (grdata != null || grdata != undefined) {
-                getgrnames();
-                console.log(arrname);
-                console.log(arrsurname);
                 for (let i = 0; i < grdata.data.students.length; i++) {
-                    dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';
+                    dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<span class="getstname">👁‍🗨</span>' + '<span class="stname"></span>' + '<br>';
                 }
                 if (grdata.data.teachers == null || grdata.data.teachers == undefined)
                     document.getElementById('grlistinfo').innerHTML = dataarr;
