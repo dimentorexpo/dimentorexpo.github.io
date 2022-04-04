@@ -4563,6 +4563,7 @@ function move_again_AF() {
             let arstname = document.querySelectorAll('.stname');
             let getstnamearr = document.querySelectorAll('.getstname');
             for (let f = 0; f < getstnamearr.length; f++) {
+                //    getstnamearr[f].onclick = function () {
 
                 document.getElementById('responseTextarea1').value = `{
                                                "headers": {
@@ -4606,222 +4607,222 @@ function move_again_AF() {
                     arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
                     namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
                 }, 500)
+                //    }
             }
-        }
         }, 1000);
 
 
-} // end of func getidgrouptolist
+    } // end of func getidgrouptolist
 
 
 
-document.getElementById('getStats').onclick = function () { // открытие Статистики
-    let getcurdate = new Date()
-    let getyear = getcurdate.getFullYear();
-    let getcurmonth = (getcurdate.getMonth() + 1)
-    let today = getcurdate.getDate();
+    document.getElementById('getStats').onclick = function () { // открытие Статистики
+        let getcurdate = new Date()
+        let getyear = getcurdate.getFullYear();
+        let getcurmonth = (getcurdate.getMonth() + 1)
+        let today = getcurdate.getDate();
 
-    if (getcurmonth < 10) {
-        getcurmonth = "0" + (getcurdate.getMonth() + 1);
-    } else {
-        getcurmonth = (getcurdate.getMonth() + 1);
-    }
-
-    if (getcurdate.getDate() < 10) {
-        today = "0" + getcurdate.getDate();
-        document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
-        document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-    } else {
-        today = getcurdate.getDate();
-        document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
-        document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-    }
-    document.querySelector('#chatcommentsdata').style.display = "none"
-    document.querySelector('#lowCSATcount').style.display = "none"
-    if (document.getElementById('AF_Stat').style.display == '')
-        document.getElementById('AF_Stat').style.display = 'none'
-    else
-        document.getElementById('AF_Stat').style.display = ''
-}
-
-document.getElementById('passappgen').addEventListener('click', function () {
-    window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
-})
-
-document.getElementById('probniki').addEventListener('click', function () {
-    window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
-})
-
-document.getElementById('grouplist').addEventListener('click', function () {
-    if (document.getElementById('AF_GrList').style.display == '')
-        document.getElementById('AF_GrList').style.display = 'none'
-    else
-        document.getElementById('AF_GrList').style.display = ''
-})
-
-document.getElementById('probnikinstr').addEventListener('click', function () {
-    window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
-})
-
-document.getElementById('sound_save').onclick = function () {
-    localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
-    if (document.getElementById('sound_adr').value == "")
-        audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
-    else {
-        audio = new Audio(document.getElementById('sound_adr').value);
-        document.getElementById('sound_save').innerText = "✅";
-        document.getElementById('sound_adr').value = "";
-        setTimeout(function () {
-            document.getElementById('sound_save').innerText = "💾";
-        }, 3000);
-    }
-}
-
-if (flagLangBut == 0) {
-    document.getElementById('languageAF').onclick = function () {
-        if (this.innerHTML == "Русский") {
-            this.innerHTML = "Английский";
-            document.getElementById('AF_helper').style.background = "#EBC7DF"
+        if (getcurmonth < 10) {
+            getcurmonth = "0" + (getcurdate.getMonth() + 1);
         } else {
-            this.innerHTML = "Русский";
-            document.getElementById('AF_helper').style.background = "#464451"
+            getcurmonth = (getcurdate.getMonth() + 1);
+        }
+
+        if (getcurdate.getDate() < 10) {
+            today = "0" + getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        } else {
+            today = getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        }
+        document.querySelector('#chatcommentsdata').style.display = "none"
+        document.querySelector('#lowCSATcount').style.display = "none"
+        if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
+        else
+            document.getElementById('AF_Stat').style.display = ''
+    }
+
+    document.getElementById('passappgen').addEventListener('click', function () {
+        window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
+    })
+
+    document.getElementById('probniki').addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
+    })
+
+    document.getElementById('grouplist').addEventListener('click', function () {
+        if (document.getElementById('AF_GrList').style.display == '')
+            document.getElementById('AF_GrList').style.display = 'none'
+        else
+            document.getElementById('AF_GrList').style.display = ''
+    })
+
+    document.getElementById('probnikinstr').addEventListener('click', function () {
+        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
+    })
+
+    document.getElementById('sound_save').onclick = function () {
+        localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
+        if (document.getElementById('sound_adr').value == "")
+            audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
+        else {
+            audio = new Audio(document.getElementById('sound_adr').value);
+            document.getElementById('sound_save').innerText = "✅";
+            document.getElementById('sound_adr').value = "";
+            setTimeout(function () {
+                document.getElementById('sound_save').innerText = "💾";
+            }, 3000);
         }
     }
-}
 
-
-document.getElementById('msg1').onclick = function () {
-    if (this.innerHTML == "Отправить") {
-        this.innerHTML = "Доработать";
-        localStorage.setItem('msg1', 'Доработать')
-    } else {
-        this.innerHTML = "Отправить";
-        localStorage.setItem('msg1', 'Отправить')
-    }
-}
-document.getElementById('snd').onclick = function () {
-    document.getElementById('snd').setAttribute('disabled', 'disabled')
-    setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
-    if (document.getElementById('msg').innerHTML == "Чат") {
-        if (template_flag == 1) {
-            if (template_flag2 == 1)
-                sendAnswerTemplate2(document.getElementById('inp').value, 1)
-            else
-                sendAnswerTemplate("", "", 1, document.getElementById('inp').value, 1)
-        } else {
-            sendAnswer(document.getElementById('inp').value, 0)
-        }
-    }
-    else
-        sendComment(document.getElementById('inp').value)
-    document.getElementById('inp').value = ""
-
-    if (document.getElementById('phone_tr') != undefined)
-        document.getElementById('phone_tr').value = ""
-    if (document.getElementById('email_tr') != undefined)
-        document.getElementById('email_tr').value = ""
-}
-
-window.onkeydown = function (e) {
-    if (e.key == 'Control') {
-        bool = 1;
-    }
-    if (e.key == 'Enter' && bool == 1) {
-        refCurTimer(localStorage.getItem('aclstime') + ":00")
-    }
-}
-window.onkeyup = function (e) {
-    if (e.key == 'Control') {
-        bool = 0;
-    }
-}
-
-let button1 = document.createElement('div');
-button1.id = 'scriptBut';
-button1.innerHTML = "Скрипт";
-button1.style.marginRight = "15px";
-button1.style.display = 'none'
-button1.onclick = function () {
-    document.getElementById('AF_helper').style.display = 'flex'
-    this.style.display = 'none'
-}
-var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-btnAdd.insertBefore(button1, btnAdd.children[0])
-
-
-
-function screenshots() {
-    if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined)
-        for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
-                var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
-                var img = document.createElement('img')
-                img.src = div.querySelector('a').href
-                img.onclick = function () {
-                    if (this.style.width == '500px')
-                        this.style.width = '100px'
-                    else
-                        this.style.width = '500px'
-                }
-                img.style.width = '100px'
-                div.querySelector('a').replaceWith(img)
+    if (flagLangBut == 0) {
+        document.getElementById('languageAF').onclick = function () {
+            if (this.innerHTML == "Русский") {
+                this.innerHTML = "Английский";
+                document.getElementById('AF_helper').style.background = "#EBC7DF"
+            } else {
+                this.innerHTML = "Русский";
+                document.getElementById('AF_helper').style.background = "#464451"
             }
         }
-}
-screenshots()
-setInterval(screenshots, 5000)
-function screenshots2() {
-    if (document.getElementsByClassName('chat-messages')[0] != undefined)
-        for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
-            if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
-                var div = document.getElementsByClassName('chat-messages')[0].children[i]
-                var img = document.createElement('img')
-                img.src = div.querySelector('a').href
-                img.onclick = function () {
-                    if (this.style.width == '500px')
-                        this.style.width = '100px'
-                    else
-                        this.style.width = '500px'
-                }
-                img.style.width = '100px'
-                div.querySelector('a').replaceWith(img)
+    }
+
+
+    document.getElementById('msg1').onclick = function () {
+        if (this.innerHTML == "Отправить") {
+            this.innerHTML = "Доработать";
+            localStorage.setItem('msg1', 'Доработать')
+        } else {
+            this.innerHTML = "Отправить";
+            localStorage.setItem('msg1', 'Отправить')
+        }
+    }
+    document.getElementById('snd').onclick = function () {
+        document.getElementById('snd').setAttribute('disabled', 'disabled')
+        setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
+        if (document.getElementById('msg').innerHTML == "Чат") {
+            if (template_flag == 1) {
+                if (template_flag2 == 1)
+                    sendAnswerTemplate2(document.getElementById('inp').value, 1)
+                else
+                    sendAnswerTemplate("", "", 1, document.getElementById('inp').value, 1)
+            } else {
+                sendAnswer(document.getElementById('inp').value, 0)
             }
         }
-}
-screenshots2()
-setInterval(screenshots2, 5000)
+        else
+            sendComment(document.getElementById('inp').value)
+        document.getElementById('inp').value = ""
 
-addInfoUser.style.textAlign = "center"
-addInfoUser.style.color = "white"
-addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
-loginer = document.getElementById('testUsers')
-loginer.appendChild(addInfoUser)
+        if (document.getElementById('phone_tr') != undefined)
+            document.getElementById('phone_tr').value = ""
+        if (document.getElementById('email_tr') != undefined)
+            document.getElementById('email_tr').value = ""
+    }
+
+    window.onkeydown = function (e) {
+        if (e.key == 'Control') {
+            bool = 1;
+        }
+        if (e.key == 'Enter' && bool == 1) {
+            refCurTimer(localStorage.getItem('aclstime') + ":00")
+        }
+    }
+    window.onkeyup = function (e) {
+        if (e.key == 'Control') {
+            bool = 0;
+        }
+    }
+
+    let button1 = document.createElement('div');
+    button1.id = 'scriptBut';
+    button1.innerHTML = "Скрипт";
+    button1.style.marginRight = "15px";
+    button1.style.display = 'none'
+    button1.onclick = function () {
+        document.getElementById('AF_helper').style.display = 'flex'
+        this.style.display = 'none'
+    }
+    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+    btnAdd.insertBefore(button1, btnAdd.children[0])
 
 
-loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
-var listener3 = function (e, a) {
-    loginer.style.left = Number(e.clientX - myX3) + "px";
-    loginer.style.top = Number(e.clientY - myY3) + "px";
-    localStorage.setItem('winTop3', String(Number(e.clientY - myY3)));
-    localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
-};
-loginer.childNodes[1].onmousedown = function (a) {
-    window.myX3 = a.layerX;
-    window.myY3 = a.layerY;
-    document.addEventListener('mousemove', listener3);
-}
-loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
 
-user = "student"
+    function screenshots() {
+        if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined)
+            for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
+                    var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
+                    var img = document.createElement('img')
+                    img.src = div.querySelector('a').href
+                    img.onclick = function () {
+                        if (this.style.width == '500px')
+                            this.style.width = '100px'
+                        else
+                            this.style.width = '500px'
+                    }
+                    img.style.width = '100px'
+                    div.querySelector('a').replaceWith(img)
+                }
+            }
+    }
+    screenshots()
+    setInterval(screenshots, 5000)
+    function screenshots2() {
+        if (document.getElementsByClassName('chat-messages')[0] != undefined)
+            for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
+                if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
+                    var div = document.getElementsByClassName('chat-messages')[0].children[i]
+                    var img = document.createElement('img')
+                    img.src = div.querySelector('a').href
+                    img.onclick = function () {
+                        if (this.style.width == '500px')
+                            this.style.width = '100px'
+                        else
+                            this.style.width = '500px'
+                    }
+                    img.style.width = '100px'
+                    div.querySelector('a').replaceWith(img)
+                }
+            }
+    }
+    screenshots2()
+    setInterval(screenshots2, 5000)
 
-if (localStorage.getItem('msg') != null) {
-    document.getElementById('msg').innerHTML = localStorage.getItem('msg')
-}
-if (localStorage.getItem('msg1') != null) {
-    document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
-}
+    addInfoUser.style.textAlign = "center"
+    addInfoUser.style.color = "white"
+    addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
+    loginer = document.getElementById('testUsers')
+    loginer.appendChild(addInfoUser)
 
-getText()
+
+    loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
+    var listener3 = function (e, a) {
+        loginer.style.left = Number(e.clientX - myX3) + "px";
+        loginer.style.top = Number(e.clientY - myY3) + "px";
+        localStorage.setItem('winTop3', String(Number(e.clientY - myY3)));
+        localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
+    };
+    loginer.childNodes[1].onmousedown = function (a) {
+        window.myX3 = a.layerX;
+        window.myY3 = a.layerY;
+        document.addEventListener('mousemove', listener3);
+    }
+    loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
+
+    user = "student"
+
+    if (localStorage.getItem('msg') != null) {
+        document.getElementById('msg').innerHTML = localStorage.getItem('msg')
+    }
+    if (localStorage.getItem('msg1') != null) {
+        document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
+    }
+
+    getText()
 }
 
 
