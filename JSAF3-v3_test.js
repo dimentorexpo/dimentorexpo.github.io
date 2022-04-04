@@ -4596,8 +4596,9 @@ function move_again_AF() {
                         //surnamearr += namedata.data.surname + ",";
                         if (namedata != null)
                             dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[k].userId + " ID услуги: " + grdata.data.students[k].educationServiceId + '<br>';
+                        else dataarr += " ID У: " + grdata.data.students[k].userId + " ID услуги: " + grdata.data.students[k].educationServiceId + '<br>';
                         document.getElementById('responseTextarea1').removeAttribute('dataname');
-                    }, 500);
+                    }, 1000);
                 }
                 if (grdata.data.teachers == null || grdata.data.teachers == undefined)
                     document.getElementById('grlistinfo').innerHTML = dataarr;
