@@ -378,16 +378,16 @@ var win_Stat =  // описание элементов окна ссылок
 </div>`;
 
 var win_GrList =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 550px;">
-        <span style="width: 550px">
+    `<div style="display: flex; width: 450px;">
+        <span style="width: 450px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 400;" id="statdata">
+                        <div style="margin: 5px; width: 450;" id="statdata">
                                 <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						
 						<div>
-							<input id="idgrouptolist" placeholder="ID группы" title="Введите ID группы для получения списка учеников" autocomplete="off" type="text" style="text-align: center; width: 200px; color: black;margin-left:5px">
-							<button title="Запуск получения списка учеников группы" id="getidgrouptolist">Get info</button>
+                        <input id="idgrouptolist" placeholder="ID группы" title="Введите ID группы для получения списка учеников" autocomplete="off" type="text" style="text-align: center; width: 80px; color: black;margin-left:5px; position:absolute; left: 30%;">
+						<button title="Запуск получения списка учеников группы" style="position:relative; left: 50%;" id="getidgrouptolist+">Get info</button>
 						</div>
 						
 				</span>
