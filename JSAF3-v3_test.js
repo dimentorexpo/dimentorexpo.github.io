@@ -4550,7 +4550,7 @@ function move_again_AF() {
 
             if (grdata != null || grdata != undefined) {
                 for (let i = 0; i < grdata.data.students.length; i++) {
-                    dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + +" " + '<span class="getstname" style="cursor:pointer">👁‍🗨</span>' + '<span class="stname"></span>' + '<br>';
+                    dataarr += "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + " " + '<span class="getstname" style="cursor:pointer">👁‍🗨</span>' + '<span class="stname"></span>' + '<br>';
                 }
                 if (grdata.data.teachers == null || grdata.data.teachers == undefined)
                     document.getElementById('grlistinfo').innerHTML = dataarr;
