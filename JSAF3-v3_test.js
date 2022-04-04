@@ -378,8 +378,8 @@ var win_Stat =  // описание элементов окна ссылок
 </div>`;
 
 var win_GrList =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 550px;">
-        <span style="width: 550px">
+    `<div style="display: flex; width: 450px;">
+        <span style="width: 450px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 400;" id="grlistdata">
                                 <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
