@@ -4557,7 +4557,7 @@ function move_again_AF() {
                 else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId;
             }
 
-        }, 2000)
+        }, 500)
 
         setTimeout(() => {
             let arstname = document.querySelectorAll('.stname');
