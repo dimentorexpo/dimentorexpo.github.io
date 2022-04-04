@@ -4597,7 +4597,7 @@ function move_again_AF() {
                         //surnamearr += namedata.data.surname + ",";
                         dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';
                         document.getElementById('responseTextarea1').removeAttribute('dataname');
-                    }, 1000);
+                    }, 2000);
                 }
                 if (grdata.data.teachers == null || grdata.data.teachers == undefined)
                     document.getElementById('grlistinfo').innerHTML = dataarr;
