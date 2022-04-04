@@ -256,6 +256,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" style="width: 50px;">📋</button>
 					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" style="width: 50px;">💼</button>
 					<button title="Открывает инструкцию по пробникам" id="probnikinstr" style="width: 50px;">🗃</button>
+					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" style="width: 50px;">👩‍👧‍👧</button>
                     <button title="Открывает известные баги на платформе" id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
@@ -373,6 +374,30 @@ var win_Stat =  // описание элементов окна ссылок
 							 <p id="chatcommentsdata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; overflow:auto"></p>
 						</div>
                 </span>
+        </span>
+</div>`;
+
+var win_GrList =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 450px;">
+        <span style="width: 450px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 400;" id="grlistdata">
+                                <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+						
+						<div>
+                        <input id="idgrouptolist" placeholder="ID группы" title="Введите ID группы для получения списка учеников" autocomplete="off" type="text" style="text-align: center; width: 80px; color: black;margin-left:5px; position:relative; left:30%;">
+							<button title="Запуск получения списка учеников группы" id="getidgrouptolist" style="position:relative; left:30%;">Get info</button>
+						</div>
+						
+				</span>
+												
+						<div id="grlstdiv">
+							 <br>
+							 <p id="grlistinfo" style="margin-left: 5px; color:bisque;"></span>
+							 <br>
+						</div>
+                
         </span>
 </div>`;
 
@@ -1053,6 +1078,11 @@ if (localStorage.getItem('winTopServDsk') == null) { // началоное по�
     localStorage.setItem('winLeftServDsk', '295');
 }
 
+if (localStorage.getItem('winTopGrList') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopGrList', '120');
+    localStorage.setItem('winLeftGrList', '295');
+}
+
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
     localStorage.setItem('aclstime', 12);
@@ -1419,6 +1449,13 @@ wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
+let wintGrList = document.createElement('div'); // создание окна ссылок
+document.body.append(wintGrList);
+wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrList') + 'px; left: ' + localStorage.getItem('winLeftGrList') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintGrList.style.display = 'none';
+wintGrList.setAttribute('id', 'AF_GrList');
+wintGrList.innerHTML = win_GrList;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -1545,6 +1582,20 @@ wintServDsk.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
     document.addEventListener('mousemove', listener12);
 }
 wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listener12); }
+
+var listener13 = function (e, a) { // сохранение позиции окна доступов
+    wintGrList.style.left = Number(e.clientX - myX13) + "px";
+    wintGrList.style.top = Number(e.clientY - myY13) + "px";
+    localStorage.setItem('winTopGrList', String(Number(e.clientY - myY13)));
+    localStorage.setItem('winLeftGrList', String(Number(e.clientX - myX13)));
+};
+
+wintGrList.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX13 = a.layerX;
+    window.myY13 = a.layerY;
+    document.addEventListener('mousemove', listener13);
+}
+wintGrList.onmouseup = function () { document.removeEventListener('mousemove', listener13); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -4400,6 +4451,13 @@ function move_again_AF() {
             document.getElementById('AF_Stat').style.display = ''
     }
 
+    document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_GrList').style.display == '')
+            document.getElementById('AF_GrList').style.display = 'none'
+        else
+            document.getElementById('AF_GrList').style.display = ''
+    }
+
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
         alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: LCUmDtBpuRKZh>zMlLYGH");
     }
@@ -4469,6 +4527,105 @@ function move_again_AF() {
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 
+    let grdata = [];
+    document.getElementById('getidgrouptolist').onclick = async function () {
+        let dataarr = [];
+        document.getElementById('grlistinfo').innerHTML = "";
+        let tempgrid = document.getElementById('idgrouptolist').value;
+
+        document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
+        document.getElementById('responseTextarea3').value = 'heredata'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
+            document.getElementById('responseTextarea3').value = 'heredata'
+            document.getElementById('sendResponse').click()
+            grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
+            grdata = await grdata;
+            grdata = JSON.parse(grdata);
+            document.getElementById('responseTextarea1').removeAttribute('heredata');
+
+            if (grdata != null || grdata != undefined) {
+                for (let i = 0; i < grdata.data.students.length; i++) {
+                    dataarr += '<span class="grstdcrm" style="cursor:pointer" title="открывает профиль в CRM">🧸</span>' + "ID У:" + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + " " + '<span class="getstname" style="cursor:pointer" title="Узнать имя и фамилию ученика, если раз нажали не появилось нажмите через секунду второй раз, быстро на все глаза не нажимайте, иначе получите некорректную информацию">👁‍🗨</span>' + '<span class="stname"></span>' + '<br>';
+                }
+                if (grdata.data.teachers == null || grdata.data.teachers == undefined)
+                    document.getElementById('grlistinfo').innerHTML = dataarr;
+                else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId;
+            }
+
+        }, 500)
+
+        setTimeout(() => {
+            let arstname = document.querySelectorAll('.stname');
+            let getstnamearr = document.querySelectorAll('.getstname');
+            for (let f = 0; f < getstnamearr.length; f++) {
+                getstnamearr[f].onclick = function () {
+
+                    document.getElementById('responseTextarea1').value = `{
+                                               "headers": {
+                                                "accept": "application/json, text/plain, */*",
+                                                "sec-fetch-dest": "empty",
+                                                "sec-fetch-mode": "cors",
+                                                "sec-fetch-site": "same-site"
+                                              },
+                                              "referrer": "https://crm2.skyeng.ru/",
+                                              "referrerPolicy": "strict-origin-when-cross-origin",
+                                              "body": null,
+                                              "method": "GET",
+                                              "mode": "cors",
+                                              "credentials": "include"
+                                            }`
+                    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
+                    document.getElementById('responseTextarea3').value = 'dataname'
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(async function () {
+                        document.getElementById('responseTextarea1').value = `{
+                                               "headers": {
+                                                "accept": "application/json, text/plain, */*",
+                                                "sec-fetch-dest": "empty",
+                                                "sec-fetch-mode": "cors",
+                                                "sec-fetch-site": "same-site"
+                                              },
+                                              "referrer": "https://crm2.skyeng.ru/",
+                                              "referrerPolicy": "strict-origin-when-cross-origin",
+                                              "body": null,
+                                              "method": "GET",
+                                              "mode": "cors",
+                                              "credentials": "include"
+                                            }`
+                        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
+                        document.getElementById('responseTextarea3').value = 'dataname'
+                        document.getElementById('sendResponse').click()
+                        namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
+                        namedata = await namedata;
+                        namedata = JSON.parse(namedata);
+                        arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
+                        namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
+                    }, 500)
+                }
+            }
+        }, 1000);
+
+        setTimeout(() => {
+            let grstdcrmarr = document.querySelectorAll('.grstdcrm');
+            for (let f = 0; f < grstdcrmarr.length; f++) {
+                grstdcrmarr[f].onclick = function () {
+                    window.open("https://crm2.skyeng.ru/persons/" + grdata.data.students[f].userId)
+                }
+            }
+        }, 1000);
+
+
+
+    } // end of func getidgrouptolist
+
+
+
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
         let getyear = getcurdate.getFullYear();
@@ -4504,6 +4661,13 @@ function move_again_AF() {
 
     document.getElementById('probniki').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
+    })
+
+    document.getElementById('grouplist').addEventListener('click', function () {
+        if (document.getElementById('AF_GrList').style.display == '')
+            document.getElementById('AF_GrList').style.display = 'none'
+        else
+            document.getElementById('AF_GrList').style.display = ''
     })
 
     document.getElementById('probnikinstr').addEventListener('click', function () {
