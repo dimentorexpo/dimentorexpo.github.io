@@ -4559,30 +4559,12 @@ function move_again_AF() {
 
         }, 2000)
 
-        let arstname = document.querySelectorAll('.stname');
-        let getstnamearr = document.querySelectorAll('.getstname');
-        for (let f = 0; f < getstnamearr.length; f++) {
-            getstnamearr[f].onclick = function () {
+        setTimeout(() => {
+            let arstname = document.querySelectorAll('.stname');
+            let getstnamearr = document.querySelectorAll('.getstname');
+            for (let f = 0; f < getstnamearr.length; f++) {
+                getstnamearr[f].onclick = function () {
 
-                document.getElementById('responseTextarea1').value = `{
-                                               "headers": {
-                                                "accept": "application/json, text/plain, */*",
-                                                "sec-fetch-dest": "empty",
-                                                "sec-fetch-mode": "cors",
-                                                "sec-fetch-site": "same-site"
-                                              },
-                                              "referrer": "https://crm2.skyeng.ru/",
-                                              "referrerPolicy": "strict-origin-when-cross-origin",
-                                              "body": null,
-                                              "method": "GET",
-                                              "mode": "cors",
-                                              "credentials": "include"
-                                            }`
-                document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
-                document.getElementById('responseTextarea3').value = 'dataname'
-                document.getElementById('sendResponse').click()
-
-                setTimeout(function () {
                     document.getElementById('responseTextarea1').value = `{
                                                "headers": {
                                                 "accept": "application/json, text/plain, */*",
@@ -4600,13 +4582,34 @@ function move_again_AF() {
                     document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
                     document.getElementById('responseTextarea3').value = 'dataname'
                     document.getElementById('sendResponse').click()
-                    namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
-                    namedata = JSON.parse(namedata);
-                    arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
-                    namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
-                }, 1000)
+
+                    setTimeout(function () {
+                        document.getElementById('responseTextarea1').value = `{
+                                               "headers": {
+                                                "accept": "application/json, text/plain, */*",
+                                                "sec-fetch-dest": "empty",
+                                                "sec-fetch-mode": "cors",
+                                                "sec-fetch-site": "same-site"
+                                              },
+                                              "referrer": "https://crm2.skyeng.ru/",
+                                              "referrerPolicy": "strict-origin-when-cross-origin",
+                                              "body": null,
+                                              "method": "GET",
+                                              "mode": "cors",
+                                              "credentials": "include"
+                                            }`
+                        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
+                        document.getElementById('responseTextarea3').value = 'dataname'
+                        document.getElementById('sendResponse').click()
+                        namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
+                        namedata = JSON.parse(namedata);
+                        arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
+                        namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
+                    }, 1000)
+                }
             }
-        }
+        }, 1000);
+
 
     } // end of func getidgrouptolist
 
