@@ -4559,7 +4559,7 @@ function move_again_AF() {
 
         }, 2000)
 
-        let arstname = document.getElementsByClassName('.stname');
+        let arstname = document.querySelectorAll('.stname');
         let getstnamearr = document.querySelectorAll('.getstname');
         for (let f = 0; f < getstnamearr.length; f++) {
             getstnamearr[f].onclick = function () {
