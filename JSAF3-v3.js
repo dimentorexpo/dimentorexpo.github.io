@@ -1615,6 +1615,9 @@ document.getElementById('linksd_kib_box').ondblclick = function () { // скры
 document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
+document.getElementById('grlistdata').ondblclick = function () { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_GrList').style.display = 'none';
+}
 document.getElementById('HeadTimetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Timetable').style.display = 'none';
     document.getElementById('timetabledata').innerHTML = "";
