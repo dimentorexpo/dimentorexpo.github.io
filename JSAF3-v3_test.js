@@ -4449,9 +4449,9 @@ function move_again_AF() {
             document.getElementById('AF_Stat').style.display = 'none'
         else
             document.getElementById('AF_Stat').style.display = ''
-    } 
+    }
 
-	document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_GrList').style.display == '')
             document.getElementById('AF_GrList').style.display = 'none'
         else
@@ -4526,35 +4526,35 @@ function move_again_AF() {
         else
             document.getElementById('AF_LessonStatus').style.display = ''
     }
-	
 
-	document.getElementById('getidgrouptolist').onclick = async function() {
-		let grdata = [];
-		let namedata = [];
-		let namearr=[];
-		let surnamearr =[];
-		let dataarr = [];
-		let tempgrid = document.getElementById('idgrouptolist').value;
-		
-		document.getElementById('responseTextarea1').value = '{}'
-        document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
+
+    document.getElementById('getidgrouptolist').onclick = async function () {
+        let grdata = [];
+        let namedata = [];
+        let namearr = [];
+        let surnamearr = [];
+        let dataarr = [];
+        let tempgrid = document.getElementById('idgrouptolist').value;
+
+        document.getElementById('responseTextarea1').value = '{}'
+        document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
         document.getElementById('responseTextarea3').value = 'heredata'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/"+tempgrid;
+            document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
             document.getElementById('responseTextarea3').value = 'heredata'
             document.getElementById('sendResponse').click()
-		    grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
-			grdata = await grdata;
+            grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
+            grdata = await grdata;
             grdata = JSON.parse(grdata);
-			document.getElementById('responseTextarea1').removeAttribute('heredata');
-			
-		if (grdata !=null || grdata !=undefined) { 
-			for (let i=0; i<grdata.data.students.length;i++) {
-				
-								document.getElementById('responseTextarea1').value = `{
+            document.getElementById('responseTextarea1').removeAttribute('heredata');
+
+            if (grdata != null || grdata != undefined) {
+                for (let i = 0; i < grdata.data.students.length; i++) {
+
+                    document.getElementById('responseTextarea1').value = `{
 									   "headers": {
 										"accept": "application/json, text/plain, */*",
 										"sec-fetch-dest": "empty",
@@ -4568,12 +4568,12 @@ function move_again_AF() {
 									  "mode": "cors",
 									  "credentials": "include"
 									}`
-									document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+grdata.data.students[i].userId+"?crm2=true&debugParam=person-page";
-									document.getElementById('responseTextarea3').value = 'dataname'
-									document.getElementById('sendResponse').click()
-									
-						        setTimeout(async function () {
-									document.getElementById('responseTextarea1').value = `{
+                    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[i].userId + "?crm2=true&debugParam=person-page";
+                    document.getElementById('responseTextarea3').value = 'dataname'
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(async function () {
+                        document.getElementById('responseTextarea1').value = `{
 									   "headers": {
 										"accept": "application/json, text/plain, */*",
 										"sec-fetch-dest": "empty",
@@ -4587,26 +4587,26 @@ function move_again_AF() {
 									  "mode": "cors",
 									  "credentials": "include"
 									}`
-									document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/"+grdata.data.students[i].userId+"?crm2=true&debugParam=person-page";
-									document.getElementById('responseTextarea3').value = 'dataname'
-									document.getElementById('sendResponse').click()
-									namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
-									namedata = await namedata;
-									namedata = JSON.parse(namedata);
-									//namearr += namedata.data.name + ",";
-									//surnamearr += namedata.data.surname + ",";
-									document.getElementById('responseTextarea1').removeAttribute('dataname');
-									dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';    
-						}, 1000);
-					}
-					if (grdata.data.teachers ==null || grdata.data.teachers == undefined)
-					document.getElementById('grlistinfo').innerHTML = dataarr; 
-					else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId ; 
-		}
-			
-	}, 2000) 
-	
-	} // end of func getidgrouptolist
+                        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[i].userId + "?crm2=true&debugParam=person-page";
+                        document.getElementById('responseTextarea3').value = 'dataname'
+                        document.getElementById('sendResponse').click()
+                        namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
+                        namedata = await namedata;
+                        namedata = JSON.parse(namedata);
+                        //namearr += namedata.data.name + ",";
+                        //surnamearr += namedata.data.surname + ",";
+                        dataarr += namedata.data.name + " " + namedata.data.surname + " ID У: " + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + '<br>';
+                        document.getElementById('responseTextarea1').removeAttribute('dataname');
+                    }, 1000);
+                }
+                if (grdata.data.teachers == null || grdata.data.teachers == undefined)
+                    document.getElementById('grlistinfo').innerHTML = dataarr;
+                else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId;
+            }
+
+        }, 2000)
+
+    } // end of func getidgrouptolist
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
@@ -4644,13 +4644,13 @@ function move_again_AF() {
     document.getElementById('probniki').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
     })
-	
-	document.getElementById('grouplist').addEventListener('click', function() {
-		if (document.getElementById('AF_GrList').style.display == '')
+
+    document.getElementById('grouplist').addEventListener('click', function () {
+        if (document.getElementById('AF_GrList').style.display == '')
             document.getElementById('AF_GrList').style.display = 'none'
         else
             document.getElementById('AF_GrList').style.display = ''
-	})
+    })
 
     document.getElementById('probnikinstr').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
