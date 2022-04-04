@@ -4583,7 +4583,7 @@ function move_again_AF() {
                     document.getElementById('responseTextarea3').value = 'dataname'
                     document.getElementById('sendResponse').click()
 
-                    setTimeout(function () {
+                    setTimeout(async function () {
                         document.getElementById('responseTextarea1').value = `{
                                                "headers": {
                                                 "accept": "application/json, text/plain, */*",
@@ -4602,13 +4602,14 @@ function move_again_AF() {
                         document.getElementById('responseTextarea3').value = 'dataname'
                         document.getElementById('sendResponse').click()
                         namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
+                        namedata = await namedata;
                         namedata = JSON.parse(namedata);
                         arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
                         namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
                     }, 1000)
                 }
             }
-        }, 1000);
+        }, 5000);
 
 
     } // end of func getidgrouptolist
