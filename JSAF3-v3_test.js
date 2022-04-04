@@ -4611,7 +4611,7 @@ function move_again_AF() {
             }
         }, 1000);
 
-        let grstdcrmarr = document.querySelectorAll('grstdcrm');
+        let grstdcrmarr = document.querySelectorAll('.grstdcrm');
         for (let f = 0; f < grstdcrmarr.length; f++) {
             grstdcrmarr[f].onclick = function () {
                 window.open("https://crm2.skyeng.ru/persons/" + grdata.data.students[f].userId)
