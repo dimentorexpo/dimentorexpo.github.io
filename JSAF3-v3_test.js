@@ -4458,6 +4458,7 @@ function move_again_AF() {
         if (document.getElementById('AF_GrList').style.display == '') {
             document.getElementById('AF_GrList').style.display = 'none';
             document.getElementById('grlistinfo').innerText = "";
+            document.getElementById('idgrouptolist').value = "";
         } else
             document.getElementById('AF_GrList').style.display = '';
     }
