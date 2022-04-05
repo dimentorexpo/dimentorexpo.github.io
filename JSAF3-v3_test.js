@@ -4455,10 +4455,11 @@ function move_again_AF() {
     }
 
     document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_GrList').style.display == '')
-            document.getElementById('AF_GrList').style.display = 'none'
-        else
-            document.getElementById('AF_GrList').style.display = ''
+        if (document.getElementById('AF_GrList').style.display == '') {
+            document.getElementById('AF_GrList').style.display = 'none';
+            document.getElementById('grlistinfo').innerText = "";
+        } else
+            document.getElementById('AF_GrList').style.display = '';
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
