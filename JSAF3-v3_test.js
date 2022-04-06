@@ -5953,8 +5953,8 @@ function startTimer() {
         let btn8 = document.createElement('span');
         btn8.id = 'KCfail'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
-        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">КЦ❗</a>';
-        btn8.setAttribute('onClick', 'sendComment("#очередькц");')
+        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
+        btn8.setAttribute('onClick', 'newTaggg("queue");')
 
         let btn9 = document.createElement('span');
         btn9.id = 'AFkal'
