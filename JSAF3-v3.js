@@ -4455,10 +4455,12 @@ function move_again_AF() {
     }
 
     document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_GrList').style.display == '')
-            document.getElementById('AF_GrList').style.display = 'none'
-        else
-            document.getElementById('AF_GrList').style.display = ''
+        if (document.getElementById('AF_GrList').style.display == '') {
+            document.getElementById('AF_GrList').style.display = 'none';
+            document.getElementById('grlistinfo').innerText = "";
+            document.getElementById('idgrouptolist').value = "";
+        } else
+            document.getElementById('AF_GrList').style.display = '';
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
@@ -5919,58 +5921,22 @@ function startTimer() {
         btn2.setAttribute('onClick', 'newTaggg("oo");')
 
         let btn3 = document.createElement('span');
-        btn3.id = 'SMS'
+        btn3.id = 'KCfail'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
-        btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">СМС</a>';
-        btn3.setAttribute('onClick', 'sendComment("#неприходитсмс");')
+        btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
+        btn3.setAttribute('onClick', 'newTaggg("queue");')
 
         let btn4 = document.createElement('span');
-        btn4.id = 'math'
+        btn4.id = 'ishod'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
-        btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Мат-Т</a>';
-        btn4.setAttribute('onClick', 'sendComment("#мат-телефон");')
+        btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
+        btn4.setAttribute('onClick', 'sendComment("#Передача на исход");')
 
         let btn5 = document.createElement('span');
-        btn5.id = 'kodium'
+        btn5.id = 'operatormistake'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
-        btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Кодиум</a>';
-        btn5.setAttribute('onClick', 'sendComment("#kodium");')
-
-        let btn6 = document.createElement('span');
-        btn6.id = 'SStudy'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
-        btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Self-Study</a>';
-        btn6.setAttribute('onClick', 'sendComment("#Self-Study");')
-
-        let btn7 = document.createElement('span');
-        btn7.id = 'Li'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
-        btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Life</a>';
-        btn7.setAttribute('onClick', 'sendComment("#Life");')
-
-        let btn8 = document.createElement('span');
-        btn8.id = 'KCfail'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
-        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">КЦ❗</a>';
-        btn8.setAttribute('onClick', 'sendComment("#очередькц");')
-
-        let btn9 = document.createElement('span');
-        btn9.id = 'AFkal'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn9)
-        btn9.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">AF</a>';
-        btn9.setAttribute('onClick', 'sendComment("#задержкаАФ");')
-
-        let btn10 = document.createElement('span');
-        btn10.id = 'ishod'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
-        btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
-        btn10.setAttribute('onClick', 'sendComment("#Передача на исход");')
-
-        let btn11 = document.createElement('span');
-        btn11.id = 'operatormistake'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
-        btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Не помогли</a>';
-        btn11.setAttribute('onClick', 'newTaggg("didnt_help");')
+        btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Не помогли</a>';
+        btn5.setAttribute('onClick', 'newTaggg("didnt_help");')
     }
 }
 
