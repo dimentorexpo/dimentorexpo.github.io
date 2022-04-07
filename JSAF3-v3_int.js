@@ -127,7 +127,7 @@ var win_AFhelper =  // описание элементов главного ок
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
-					<button id="languageAF" title="Переключает язык Russian/English" style="width:100px">English</button>
+					<button id="languageAF" title="Переключает язык Russian/English" style="width:100px">Русский</button>
 					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
@@ -6331,12 +6331,12 @@ function customTemplates(language = '') {
     cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
 
     document.getElementById('languageAF').onclick = function () {
-        if (this.innerHTML == "English") {
-            this.innerHTML = "Spanish";
+        if (this.innerHTML == "Русский") {
+            this.innerHTML = "Английский";
             document.getElementById('AF_helper').style.background = "#EBC7DF"
             customTemplates('en_')
         } else {
-            this.innerHTML = "English";
+            this.innerHTML = "Русский";
             document.getElementById('AF_helper').style.background = "#464451"
             customTemplates()
         }
