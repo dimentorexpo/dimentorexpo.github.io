@@ -3482,7 +3482,7 @@ function move_again_AF() {
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2 && localStorage.getItem('scriptAdr') != TP_addr3) {
         document.getElementById('msg1').style.display = 'none'
         document.getElementById('snd').style.marginLeft = '120px'
-        document.getElementById('msg1').innerHTML = 'Rework'
+        document.getElementById('msg1').innerHTML = 'Доработать'
         document.getElementById('testUsers').style.display = 'none'
     } else {
         prepTp()
@@ -4176,8 +4176,8 @@ async function buttonsFromDoc(butName) {
         a = a.split(' ')
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-        if (document.getElementById('languageAF').innerHTML == "English")
-            if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Rework")
+        if (document.getElementById('languageAF').innerHTML == "Русский")
+            if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
                 txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             else
                 txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
@@ -4536,7 +4536,7 @@ function msgFromTable(btnName) {
             } else {
                 newTag(table[l][8])
             }
-            if (document.getElementById('languageAF').innerHTML == "English") {
+            if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
                 }
@@ -4635,7 +4635,7 @@ async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 
     var accuracy = curTemplate[7]
     var values = await getInfo(0)
     var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-    if (document.getElementById('msg1').innerHTML == "Rework" && flag2 == 0) {
+    if (document.getElementById('msg1').innerHTML == "Доработать" && flag2 == 0) {
         document.getElementById('inp').value = tmpText
         template_text = template
         word_text = word
@@ -4677,7 +4677,7 @@ async function sendAnswer(txt, flag = 1, time = "10:00") {
     txt3 = txt3.split("\"").join("\\\"")
     txt3 = txt3.split('<p></p>').join("<p><br></p>")
     txt3 = txt3.substr(0, txt3.length - 2)
-    if (document.getElementById('msg1').innerHTML == "Rework" && flag) {
+    if (document.getElementById('msg1').innerHTML == "Доработать" && flag) {
         resetFlags()
         document.getElementById('inp').value = txt
     }
@@ -4708,7 +4708,7 @@ async function getInfo(flag1 = 1) {
     }
     if (adr1 == undefined)
         adr1 = ""
-    if (document.getElementById('msg1').innerHTML != "Rework" || flag1 == 0) {
+    if (document.getElementById('msg1').innerHTML != "Доработать" || flag1 == 0) {
         await fetch("https://skyeng.autofaq.ai/api/conversations/" + adr1)
             .then(response => response.json())
             .then(result => { sessionId = result.sessionId; chatsArray.push(result); localStorage.setItem('serviceIdGlob', result.serviceId) });
@@ -5852,7 +5852,7 @@ async function sendAnswerTemplate2(word, flag = 0) {
         } catch (e) { }
     if (tmpTxt == "")
         tmpTxt = word
-    if (document.getElementById('msg1').innerHTML == "Rework" && flag == 0) {
+    if (document.getElementById('msg1').innerHTML == "Доработать" && flag == 0) {
         document.getElementById('inp').value = tmpTxt
         template_flag = 1
         template_flag2 = 1
@@ -6221,7 +6221,7 @@ function customTemplates(language = '') {
             tmp1 = localStorage.getItem('tmp_name_' + language + index)
             localStorage.setItem('tmp_name_' + language + index, localStorage.getItem('tmp_name_' + language + index2))
             localStorage.setItem('tmp_name_' + language + index2, tmp1)
-            if (document.getElementById('languageAF').innerHTML == "English")
+            if (document.getElementById('languageAF').innerHTML == "Русский")
                 customTemplates()
             else
                 customTemplates('en_')
@@ -6247,7 +6247,7 @@ function customTemplates(language = '') {
             tmp1 = localStorage.getItem('tmp_name_' + language + index)
             localStorage.setItem('tmp_name_' + language + index, localStorage.getItem('tmp_name_' + language + index2))
             localStorage.setItem('tmp_name_' + language + index2, tmp1)
-            if (document.getElementById('languageAF').innerHTML == "English")
+            if (document.getElementById('languageAF').innerHTML == "Русский")
                 customTemplates()
             else
                 customTemplates('en_')
