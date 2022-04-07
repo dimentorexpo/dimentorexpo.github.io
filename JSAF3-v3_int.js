@@ -3462,12 +3462,12 @@ function move_again_AF() {
     }
 
     document.getElementById('msg').onclick = function () {
-        if (this.innerHTML == "Chat") {
-            this.innerHTML = "Notes";
-            localStorage.setItem('msg', 'Notes')
+        if (this.innerHTML == "Чат") {
+            this.innerHTML = "Заметки";
+            localStorage.setItem('msg', 'Заметки')
         } else {
-            this.innerHTML = "Chat";
-            localStorage.setItem('msg', 'Chat')
+            this.innerHTML = "Чат";
+            localStorage.setItem('msg', 'Чат')
         }
     }
 
