@@ -3948,11 +3948,11 @@ function move_again_AF() {
 
     if (flagLangBut == 0) {
         document.getElementById('languageAF').onclick = function () {
-            if (this.innerHTML == "English") {
-                this.innerHTML = "Spanish";
+            if (this.innerHTML == "Русский") {
+                this.innerHTML = "Английский";
                 document.getElementById('AF_helper').style.background = "#EBC7DF"
             } else {
-                this.innerHTML = "English";
+                this.innerHTML = "Русский";
                 document.getElementById('AF_helper').style.background = "#464451"
             }
         }
@@ -3960,12 +3960,12 @@ function move_again_AF() {
 
 
     document.getElementById('msg1').onclick = function () {
-        if (this.innerHTML == "Send") {
-            this.innerHTML = "Rework";
-            localStorage.setItem('msg1', 'Rework')
+        if (this.innerHTML == "Отправить") {
+            this.innerHTML = "Доработать";
+            localStorage.setItem('msg1', 'Доработать')
         } else {
-            this.innerHTML = "Send";
-            localStorage.setItem('msg1', 'Send')
+            this.innerHTML = "Отправить";
+            localStorage.setItem('msg1', 'Отправить')
         }
     }
     document.getElementById('snd').onclick = function () {
@@ -4896,7 +4896,7 @@ function startTimer() {
     if (document.getElementById('audioswitcher').checked == true)
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
             txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-            if (txt != "Acccept request (0)")
+            if (txt != "Взять запрос (0)")
                 audio.play()
         }
 		
