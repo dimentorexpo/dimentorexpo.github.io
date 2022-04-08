@@ -7457,6 +7457,7 @@ async function checktppower() {
 
 async function gettpthemes() {
     let count = {};
+    document.getElementById('buttongetthemes').textContent = 'Загрузка'
     let stringChatsWithComment = ""
     let sctc = 0;
     let page;
