@@ -4717,7 +4717,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('sndbot').onclick = function () {
+    document.getElementById('sndbot').onclick = async function () {
         var values = await getInfo(flag)
         var adr = values[0]; var adr1 = values[1]; var uid = values[2]
         let txt4 = document.getElementById('inp').value;
