@@ -7531,6 +7531,7 @@ async function gettpthemes() {
                 "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
+            sctc = test.total;
             for (let i = 0; i < test.items.length; i++) {
                 let flagComment = 0
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
@@ -7551,16 +7552,21 @@ async function gettpthemes() {
     stringChatsWithComment = stringChatsWithComment.split(',');
     stringChatsWithComment.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
     console.log(count);
-    found = "⏩SC/TC: " + count[1027] + '<br>' + "📱Jira🚧: " + count[1068] + '<br>' + "📱🔀QA: " + count[1031] + '<br>' + "🔇Связь устр: " + count[1038] + '<br>' + "🔇Связь сбой: " + count[1040] + '<br>' + "🔇Связь инет: " + count[1037] +
-        '<br>' + "🔀QA: " + count[1029] + '<br>' + "🔀2Л: " + count[1026] + '<br>' + "🔀Контент: " + count[1028] + '<br>' + "⛱ЛК консультация🧠: " +
-        count[1034] + '<br>' + "⛱ЛК сбой: " + count[1035] + '<br>' + "⛱ЛК инет/устр: " + count[1036] + '<br>' + "⛱ЛК, Jira🚧: " + count[1069] + '<br>' +
-        "🔐Данные вход🔑: " + count[1048] + '<br>' + "🎎Дубль: " + count[1057] + '<br>' + "❌Отказ от помощи: " + count[1060] + '<br>' +
-        "💲Ошибка при оплате: " + count[858] + '<br>' + "💲Понимание оплаты: " + count[859] + '<br>' + "📜Пожелания и предложения: " + count[1055] +
-        '<br>' + "🔥Серв ЛК: " + count[1063] + '<br>' + "🔥Серв связь: " + count[1066] + '<br>' + "🔥Серв вх/подкл🔐: " + count[1065];
+    found = "⏩SC/TC: " + count[1027] + "   |   " + ((count[1027] / sctc) * 100).toFixed(1) + "%" + '<br>' + "📱Jira🚧: " + count[1068] + "   |   " + ((count[1068] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "📱🔀QA: " + count[1031] + "   |   " + ((count[1031] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔇Связь устр: " + count[1038] + "   |   " + ((count[1038] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "🔇Связь сбой: " + count[1040] + "   |   " + ((count[1040] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔇Связь инет: " + count[1037] + "   |   " + ((count[1037] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "🔀QA: " + count[1029] + "   |   " + ((count[1029] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔀2Л: " + count[1026] + "  |  " + ((count[1026] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "🔀Контент: " + count[1028] + "   |   " + ((count[1028] / sctc) * 100).toFixed(1) + "%" + '<br>' + "⛱ЛК консультация🧠: " + count[1034] + "   |   " + ((count[1034] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "⛱ЛК сбой: " + count[1035] + "   |   " + ((count[1035] / sctc) * 100).toFixed(1) + "%" + '<br>' + "⛱ЛК инет/устр: " + count[1036] + "    |   " + ((count[1036] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "⛱ЛК, Jira🚧: " + count[1069] + "   |   " + ((count[1069] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔐Данные вход🔑: " + count[1048] + "   |   " + ((count[1048] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "🎎Дубль: " + count[1057] + "   |   " + ((count[1057] / sctc) * 100).toFixed(1) + "%" + '<br>' + "❌Отказ от помощи: " + count[1060] + "   |    " + ((count[1060] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "💲Ошибка при оплате: " + count[858] + "   |   " + ((count[858] / sctc) * 100).toFixed(1) + "%" + '<br>' + "💲Понимание оплаты: " + count[859] + "   |   " + ((count[859] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "📜Пожелания и предложения: " + count[1055] + "   |   " + ((count[1055] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔥Серв ЛК: " + count[1063] + "   |   " + ((count[1063] / sctc) * 100).toFixed(1) + "%" +
+        '<br>' + "🔥Серв связь: " + count[1066] + "   |   " + ((count[1066] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔥Серв вх/подкл🔐: " + count[1065] + "   |   " + ((count[1065] / sctc) * 100).toFixed(1) + "%";
 
     setTimeout(function () {
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-        str.innerHTML = '<br>' + found;
+        str.innerHTML = '<br>' + found + '<br>' + "Всего чатов за день:" + sctc;
     }, 1000)
 
     document.getElementById('buttongetthemes').textContent = 'Повторить проверку'
