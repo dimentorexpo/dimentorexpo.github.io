@@ -7266,23 +7266,30 @@ async function getStats() {           // функция получения ст�
     let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
     quechatscount.textContent = 'Узнать кол-во чатов в очереди'
     quechatscount.id = 'buttonQueChatsCount'
-    quechatscount.style.marginLeft = '50px'
+    quechatscount.style.marginLeft = '10px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
 
     let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     kcpower.textContent = 'Нагрузка КЦ'
     kcpower.id = 'buttonKCpower'
-    kcpower.style.marginLeft = '50px'
+    kcpower.style.marginLeft = '10px'
     kcpower.onclick = checkkcpower
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
 
     let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     tppower.textContent = 'Нагрузка ТП'
     tppower.id = 'buttonTPpower'
-    tppower.style.marginLeft = '50px'
+    tppower.style.marginLeft = '10px'
     tppower.onclick = checktppower
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
+
+    let closedthemes = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    closedthemes.textContent = 'Тематики ТП 24ч'
+    closedthemes.id = 'buttongetthemes'
+    closedthemes.style.marginLeft = '10px'
+    closedthemes.onclick = gettpthemes
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(closedthemes)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
@@ -7319,7 +7326,7 @@ async function checkkcpower() {
     let found = [];
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttongetthemes').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
 
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
@@ -7387,7 +7394,7 @@ async function checktppower() {
     let found = [];
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttongetthemes').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
 
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
@@ -7448,12 +7455,100 @@ async function checktppower() {
     })
 }
 
+async function gettpthemes() {
+
+    var date = new Date()
+    day = month = ""
+    if (date.getMonth() < 9)
+        month = "0" + (date.getMonth() + 1)
+    else
+        month = (date.getMonth() + 1)
+    if (date.getDate() < 10)
+        day = "0" + date.getDate()
+    else
+        day = date.getDate()
+
+    var secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
+    date = date - 24 * 60 * 60 * 1000
+    var date2 = new Date()
+    date2.setTime(date)
+
+    if (date2.getMonth() < 9)
+        month2 = "0" + (date2.getMonth() + 1)
+    else
+        month2 = (date2.getMonth() + 1)
+    if (date2.getDate() < 10)
+        day2 = "0" + date2.getDate()
+    else
+        day2 = date2.getDate()
+
+    var firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
+
+
+    let count = {};
+    let stringChatsWithComment = ""
+    let sctc = 0;
+    let page;
+    let found = [];
+    let str = document.createElement('p')
+    str.style.paddingLeft = '50px'
+    if (document.getElementById('buttongetthemes').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+    document.getElementById('buttongetthemes').textContent = 'Загрузка'
+
+    try {
+        test = ''
+        page = 1;
+        while (true) {
+            await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            for (let i = 0; i < test.items.length; i++) {
+                let flagComment = 0
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(response => response.json()).then(data => {
+                        stringChatsWithComment += data.payload.topicId.value + ","
+                    })
+            }
+
+
+            if ((test.total / 100) > page) {
+                page++;
+            } else break;
+        }
+
+    } catch (e) {
+        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
+    }
+    stringChatsWithComment = stringChatsWithComment.split(',');
+    stringChatsWithComment.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+    console.log(count);
+    found = "⏩SC/TC: " + count[1027] + '<br>' + "📱Jira🚧: " + count[1068] + '<br>' + "📱🔀QA: " + count[1031] + '<br>' + "🔇Связь устр: " + count[1038] + '<br>' + "🔇Связь сбой: " + count[1040] + '<br>' + "🔇Связь инет: " + count[1037] +
+        '<br>' + "🔀QA: " + count[1029] + '<br>' + "🔀2Л: " + count[1026] + '<br>' + "🔀Контент: " + count[1028] + '<br>' + "⛱ЛК консультация🧠: " +
+        count[1034] + '<br>' + "⛱ЛК сбой: " + count[1035] + '<br>' + "⛱ЛК инет/устр: " + count[1036] + '<br>' + "⛱ЛК, Jira🚧: " + count[1069] + '<br>' +
+        "🔐Данные вход🔑: " + count[1048] + '<br>' + "🎎Дубль: " + count[1057] + '<br>' + "❌Отказ от помощи: " + count[1060] + '<br>' +
+        "💲Ошибка при оплате: " + count[858] + '<br>' + "💲Понимание оплаты: " + count[859] + '<br>' + "📜Пожелания и предложения: " + count[1055] +
+        '<br>' + "🔥Серв ЛК: " + count[1063] + '<br>' + "🔥Серв связь: " + count[1066] + '<br>' + "🔥Серв вх/подкл🔐: " + count[1065];
+
+    setTimeout(function () {
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+        str.innerHTML = '<br>' + found;
+    }, 1000)
+
+    document.getElementById('buttongetthemes').textContent = 'Повторить проверку'
+}
+
+
 let chatneraspcount;
 let chattpquecount;
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
+    if (document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttongetthemes').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     var date = new Date()
     day = month = ""
@@ -7672,7 +7767,7 @@ function prepTp() {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-       // include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
+        // include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
 
