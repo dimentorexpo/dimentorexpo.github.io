@@ -7455,6 +7455,62 @@ async function checktppower() {
     })
 }
 
+async function gettpthemes() {
+    let count = {};
+    let stringChatsWithComment = ""
+    let sctc = 0;
+    let page;
+    let found = [];
+    let str = document.createElement('p')
+    str.style.paddingLeft = '50px'
+    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+
+    try {
+        test = ''
+        page = 1;
+        while (true) {
+            await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"36f8e73f-35aa-4004-b779-38d50f4ae188\"],\"tsFrom\":\"2022-04-05T21:00:00.000Z\",\"tsTo\":\"2022-04-06T20:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            for (let i = 0; i < test.items.length; i++) {
+                let flagComment = 0
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(response => response.json()).then(data => {
+                        stringChatsWithComment += data.payload.topicId.value + ","
+                    })
+            }
+
+
+            if ((test.total / 100) > page) {
+                page++;
+            } else break;
+        }
+
+    } catch (e) {
+        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
+    }
+    stringChatsWithComment = stringChatsWithComment.split(',');
+    stringChatsWithComment.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+    console.log(count);
+    found = "SC/TC: " + count[1027] + "\n" + "JIRA MOB: " + count[1068] + "\n" + "ЛК консультация: " + count[1034] + "\n" + "MOB QA: " +
+        count[1031] + "\n" + "Связь устр: " + count[1038] + "\n" + "QA: " + count[1029] + "\n" + "2Л: " + count[1026] + "\n" + "контент: " +
+        count[1028] + "\n" + "ЛК сбой: " + count[1035] + "\n" + "ЛК инет/устр: " + count[1036] + "\n" + "Связь инет: " + count[1037] + "\n" +
+        "данные вход: " + count[1048] + "\n" + "Дубль: " + count[1057] + "\n" + "Отказ от помощи: " + count[1060] + "\n" + "ЛК Jira: " + count[1069];
+
+    setTimeout(function () {
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+        str.innerHTML = '<br>' + found;
+    }, 1000)
+
+    document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
+}
+
+
 let chatneraspcount;
 let chattpquecount;
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП 
