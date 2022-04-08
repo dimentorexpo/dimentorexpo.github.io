@@ -7486,7 +7486,6 @@ async function gettpthemes() {
 
 
     let count = {};
-    document.getElementById('buttongetthemes').textContent = 'Загрузка'
     let stringChatsWithComment = ""
     let sctc = 0;
     let page;
@@ -7495,6 +7494,7 @@ async function gettpthemes() {
     str.style.paddingLeft = '50px'
     if (document.getElementById('buttongetthemes').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+    document.getElementById('buttongetthemes').textContent = 'Загрузка'
 
     try {
         test = ''
