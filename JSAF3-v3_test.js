@@ -7266,23 +7266,30 @@ async function getStats() {           // функция получения ст�
     let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
     quechatscount.textContent = 'Узнать кол-во чатов в очереди'
     quechatscount.id = 'buttonQueChatsCount'
-    quechatscount.style.marginLeft = '20px'
+    quechatscount.style.marginLeft = '10px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
 
     let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     kcpower.textContent = 'Нагрузка КЦ'
     kcpower.id = 'buttonKCpower'
-    kcpower.style.marginLeft = '20px'
+    kcpower.style.marginLeft = '10px'
     kcpower.onclick = checkkcpower
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
 
     let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     tppower.textContent = 'Нагрузка ТП'
     tppower.id = 'buttonTPpower'
-    tppower.style.marginLeft = '20px'
+    tppower.style.marginLeft = '10px'
     tppower.onclick = checktppower
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
+
+    let closedthemes = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    closedthemes.textContent = 'Тематики ТП 24ч'
+    closedthemes.id = 'buttongetthemes'
+    closedthemes.style.marginLeft = '10px'
+    closedthemes.onclick = checktppower
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(closedthemes)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
