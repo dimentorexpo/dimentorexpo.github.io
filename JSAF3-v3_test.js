@@ -4707,6 +4707,16 @@ function move_again_AF() {
         }
     }
 
+    document.getElementById('sndbot').onclick = function () {
+        if (this.innerHTML == "🦸‍♂️") {
+            this.innerHTML = "🦸‍♂️";
+            localStorage.setItem('sndbot', '🦸‍♂️')
+        } else {
+            this.innerHTML = "🤖";
+            localStorage.setItem('sndbot', '🤖')
+        }
+    }
+
 
     document.getElementById('msg1').onclick = function () {
         if (this.innerHTML == "Отправить") {
