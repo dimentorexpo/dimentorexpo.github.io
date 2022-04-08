@@ -7715,7 +7715,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
 function prepTp() {
     document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '41px'
+    document.getElementById('snd').style.marginLeft = '11px'
     document.getElementById('testUsers').style.display = ''
     flagLangBut = 1
     customTemplates()
