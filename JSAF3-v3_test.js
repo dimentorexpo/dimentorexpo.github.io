@@ -7475,7 +7475,7 @@ async function gettpthemes() {
                 "headers": {
                     "content-type": "application/json",
                 },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"36f8e73f-35aa-4004-b779-38d50f4ae188\"],\"tsFrom\":\"2022-04-05T21:00:00.000Z\",\"tsTo\":\"2022-04-06T20:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"2022-04-06T21:00:00.000Z\",\"tsTo\":\"2022-04-07T20:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
             for (let i = 0; i < test.items.length; i++) {
