@@ -7493,7 +7493,7 @@ async function gettpthemes() {
     let found = [];
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttongetthemes').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
 
     try {
