@@ -7456,6 +7456,35 @@ async function checktppower() {
 }
 
 async function gettpthemes() {
+
+    var date = new Date()
+    day = month = ""
+    if (date.getMonth() < 9)
+        month = "0" + (date.getMonth() + 1)
+    else
+        month = (date.getMonth() + 1)
+    if (date.getDate() < 10)
+        day = "0" + date.getDate()
+    else
+        day = date.getDate()
+
+    var secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
+    date = date - 24 * 60 * 60 * 1000
+    var date2 = new Date()
+    date2.setTime(date)
+
+    if (date2.getMonth() < 9)
+        month2 = "0" + (date2.getMonth() + 1)
+    else
+        month2 = (date2.getMonth() + 1)
+    if (date2.getDate() < 10)
+        day2 = "0" + date2.getDate()
+    else
+        day2 = date2.getDate()
+
+    var firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
+
+
     let count = {};
     document.getElementById('buttongetthemes').textContent = 'Загрузка'
     let stringChatsWithComment = ""
@@ -7475,7 +7504,7 @@ async function gettpthemes() {
                 "headers": {
                     "content-type": "application/json",
                 },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"2022-04-06T21:00:00.000Z\",\"tsTo\":\"2022-04-07T20:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
             for (let i = 0; i < test.items.length; i++) {
