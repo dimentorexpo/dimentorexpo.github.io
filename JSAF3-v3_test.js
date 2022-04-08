@@ -148,7 +148,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-                <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:21px">🦸‍♂️</button>
+                <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:21px">🤖</button>
 				<button title="Отправить текст" id="snd" style="width:50px; margin-left:11px">send</button>
 				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:35px">Заметки</button>
 			</div>
@@ -4707,17 +4707,6 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('sndbot').onclick = function () {
-        if (this.innerHTML == "🦸‍♂️") {
-            this.innerHTML = "🤖";
-            localStorage.setItem('sndbot', '🤖')
-        } else {
-            this.innerHTML = "🦸‍♂️";
-            localStorage.setItem('sndbot', '🦸‍♂️')
-        }
-    }
-
-
     document.getElementById('msg1').onclick = function () {
         if (this.innerHTML == "Отправить") {
             this.innerHTML = "Доработать";
@@ -4727,6 +4716,24 @@ function move_again_AF() {
             localStorage.setItem('msg1', 'Отправить')
         }
     }
+
+    document.getElementById('sndbot').onclick = function () {
+        var values = await getInfo(flag)
+        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+        let txt4 = document.getElementById('inp').value;
+        if (document.getElementById('msg').innerHTML == "Чат")
+            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                "headers": {
+                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
+                },
+                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt4 + ",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+                "method": "POST",
+                "credentials": "include"
+            });
+        document.getElementById('inp').value = "";
+    }
+
+
     document.getElementById('snd').onclick = function () {
         document.getElementById('snd').setAttribute('disabled', 'disabled')
         setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
