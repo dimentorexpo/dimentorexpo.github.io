@@ -7288,7 +7288,7 @@ async function getStats() {           // функция получения ст�
     closedthemes.textContent = 'Тематики ТП 24ч'
     closedthemes.id = 'buttongetthemes'
     closedthemes.style.marginLeft = '10px'
-    closedthemes.onclick = checktppower
+    closedthemes.onclick = gettpthemes
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(closedthemes)
 
     let dcc = document.getElementsByClassName('chtcnt')
@@ -7507,7 +7507,7 @@ async function gettpthemes() {
         str.innerHTML = '<br>' + found;
     }, 1000)
 
-    document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
+    document.getElementById('buttongetthemes').textContent = 'Повторить проверку'
 }
 
 
