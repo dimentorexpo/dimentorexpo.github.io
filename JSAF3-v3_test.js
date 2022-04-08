@@ -4718,18 +4718,21 @@ function move_again_AF() {
     }
 
     document.getElementById('sndbot').onclick = async function () {
+        let txt = document.getElementById('inp').value;
         var values = await getInfo(flag)
         var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-        let txt4 = document.getElementById('inp').value;
-        txt4 = txt4.split("\"").join("\\\"")
-        txt4 = txt4.split('<p></p>').join("<p><br></p>")
-        txt4 = txt4.substr(0, txt4.length - 2)
+        var txt2 = txt.split('\n')
+        var txt3 = ""
+        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
+        txt3 = txt3.split("\"").join("\\\"")
+        txt3 = txt3.split('<p></p>').join("<p><br></p>")
+        txt3 = txt3.substr(0, txt3.length - 2)
         if (document.getElementById('msg').innerHTML == "Чат")
             fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                 "headers": {
                     "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
                 },
-                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt4 + ",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + ",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
                 "method": "POST",
                 "credentials": "include"
             });
