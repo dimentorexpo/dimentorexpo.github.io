@@ -4723,7 +4723,7 @@ function move_again_AF() {
         let txt4 = document.getElementById('inp').value;
         txt4 = txt4.split("\"").join("\\\"")
         txt4 = txt4.split('<p></p>').join("<p><br></p>")
-        txt4 = txt4.substr(0, txt3.length - 2)
+        txt4 = txt4.substr(0, txt4.length - 2)
         if (document.getElementById('msg').innerHTML == "Чат")
             fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                 "headers": {
