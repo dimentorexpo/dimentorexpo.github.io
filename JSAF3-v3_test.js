@@ -7266,21 +7266,21 @@ async function getStats() {           // функция получения ст�
     let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
     quechatscount.textContent = 'Узнать кол-во чатов в очереди'
     quechatscount.id = 'buttonQueChatsCount'
-    quechatscount.style.marginLeft = '50px'
+    quechatscount.style.marginLeft = '20px'
     quechatscount.onclick = checkChatCountQue
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
 
     let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     kcpower.textContent = 'Нагрузка КЦ'
     kcpower.id = 'buttonKCpower'
-    kcpower.style.marginLeft = '50px'
+    kcpower.style.marginLeft = '20px'
     kcpower.onclick = checkkcpower
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
 
     let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     tppower.textContent = 'Нагрузка ТП'
     tppower.id = 'buttonTPpower'
-    tppower.style.marginLeft = '50px'
+    tppower.style.marginLeft = '20px'
     tppower.onclick = checktppower
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
 
@@ -7672,7 +7672,7 @@ function prepTp() {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-       // include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
+        // include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
 
