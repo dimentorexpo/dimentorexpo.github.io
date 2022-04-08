@@ -7531,6 +7531,7 @@ async function gettpthemes() {
                 "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
+			sctc = test.total;
             for (let i = 0; i < test.items.length; i++) {
                 let flagComment = 0
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
@@ -7560,7 +7561,7 @@ async function gettpthemes() {
 
     setTimeout(function () {
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-        str.innerHTML = '<br>' + found;
+        str.innerHTML = '<br>' + found + '<br>' + "Всего тематик:" + sctc;
     }, 1000)
 
     document.getElementById('buttongetthemes').textContent = 'Повторить проверку'
