@@ -7497,10 +7497,10 @@ async function gettpthemes() {
     stringChatsWithComment = stringChatsWithComment.split(',');
     stringChatsWithComment.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
     console.log(count);
-    found = "SC/TC: " + count[1027] + "\n" + "JIRA MOB: " + count[1068] + "\n" + "ЛК консультация: " + count[1034] + "\n" + "MOB QA: " +
-        count[1031] + "\n" + "Связь устр: " + count[1038] + "\n" + "QA: " + count[1029] + "\n" + "2Л: " + count[1026] + "\n" + "контент: " +
-        count[1028] + "\n" + "ЛК сбой: " + count[1035] + "\n" + "ЛК инет/устр: " + count[1036] + "\n" + "Связь инет: " + count[1037] + "\n" +
-        "данные вход: " + count[1048] + "\n" + "Дубль: " + count[1057] + "\n" + "Отказ от помощи: " + count[1060] + "\n" + "ЛК Jira: " + count[1069];
+    found = "SC/TC: " + count[1027] + '<br>' + "JIRA MOB: " + count[1068] + '<br>' + "ЛК консультация: " + count[1034] + '<br>' + "MOB QA: " +
+        count[1031] + '<br>' + "Связь устр: " + count[1038] + '<br>' + "QA: " + count[1029] + '<br>' + "2Л: " + count[1026] + '<br>' + "контент: " +
+        count[1028] + '<br>' + "ЛК сбой: " + count[1035] + '<br>' + "ЛК инет/устр: " + count[1036] + '<br>' + "Связь инет: " + count[1037] + '<br>' +
+        "данные вход: " + count[1048] + '<br>' + "Дубль: " + count[1057] + '<br>' + "Отказ от помощи: " + count[1060] + '<br>' + "ЛК Jira: " + count[1069];
 
     setTimeout(function () {
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
