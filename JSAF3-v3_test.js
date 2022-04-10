@@ -2630,16 +2630,41 @@ function move_again_AF() {
     }
 	
 	    document.getElementById('setchatskids').onclick = function () {                  // добавляем чаты с учениками skysmart
-        let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
+		let d = document.cookie;
+		d = d.match(/token_global=(.*)/);
+		let sidarr=[];
+		
+        let hashlnk = 'fetch("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium"';
         if (idteacherkid.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard(hashlnk + idteacherkid.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+            copyToClipboard(hashlnk + "\",headers\": \{ \"authorization\": \"Bearer\"" + d[1] + " , \}, \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
         };
         document.getElementById('setchatskids').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
         idteacherkid.value = "";
     }
+	
+	
+	//
+	
+	// {
+  // "headers": {
+    // "authorization": "Bearer" + d[1],
+  // },
+  // "method": "GET",
+  // "credentials": "include"
+// }).then(r=>r.json()).then(data=>studarr=data)
+// studarr;
+
+// for (let i=0; i <studarr.results.length;i++) {
+// sidarr += studarr.results[i].userId  + ","
+// }
+// sidarr = sidarr.split(',');
+// console.log(sidarr);
+
+
+	
 	
 	    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
         let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
