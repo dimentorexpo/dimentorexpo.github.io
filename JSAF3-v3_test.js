@@ -2640,27 +2640,7 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
         idteacherkid.value = "";
     }
-	
-	
-	//
-	
-	// 
-  // { "headers":
-//  { "authorization": "Bearer" + d[1],},
-  // "method": "GET",
-  // "credentials": "include"
-// }).then(r=>r.json()).then(data=>studarr=data)
-// studarr;
-
-// for (let i=0; i <studarr.results.length;i++) {
-// sidarr += studarr.results[i].userId  + ","
-// }
-// sidarr = sidarr.split(',');
-// console.log(sidarr);
-
-
-	
-	
+		
 	    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
         let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
         if (idteacheradult.value == "")
