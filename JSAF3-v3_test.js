@@ -315,9 +315,9 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getmvureport" style="width: 25.23px;">💾</button>
                     <input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
-                    <input id="idteacherkid" placeholder="ID П Kid💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Skysmart (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                    <input id="idteacherkid" placeholder="ID П Kids 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Skysmart (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setchatskids" style="width: 25.23px;">💾</button> 
-					<input id="idteacheradult" placeholder="ID П Adu💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<input id="idteacheradult" placeholder="ID П Adults 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>		
 				 
@@ -2628,6 +2628,32 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
         lookhash.value = "";
     }
+	
+	    document.getElementById('setchatskids').onclick = function () {                  // добавляем чаты с учениками skysmart
+        let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
+        if (idteacherkid.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+        };
+        document.getElementById('setchatskids').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
+        lookhash.value = "";
+    }
+	
+	    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
+        let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
+        if (idteacheradult.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+        };
+        document.getElementById('setchatsadults').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
+        lookhash.value = "";
+    }
+	
+	
     document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
         let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
         if (enablerAP.value == "")
