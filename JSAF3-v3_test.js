@@ -2634,7 +2634,7 @@ function move_again_AF() {
         if (idteacherkid.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-		copyToClipboard("let d = document.cookie;"  + "\n" + "d = d.match(/token_global=(.*)/);" +  "\n" +  "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] + , \}, \"method\":\"GET\", \"credentials\":\"include\" \} ) \;");
+		copyToClipboard("let d = document.cookie;"  + "\n" + "d = d.match(/token_global=(.*)/);" +  "\n" +  "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} ) \;");
         };
         document.getElementById('setchatskids').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
@@ -2644,10 +2644,9 @@ function move_again_AF() {
 	
 	//
 	
-	// {
-  // "headers": {
-    // "authorization": "Bearer" + d[1],
-  // },
+	// 
+  // { "headers":
+//  { "authorization": "Bearer" + d[1],},
   // "method": "GET",
   // "credentials": "include"
 // }).then(r=>r.json()).then(data=>studarr=data)
