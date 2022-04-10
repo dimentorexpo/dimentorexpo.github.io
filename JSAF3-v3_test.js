@@ -2638,7 +2638,7 @@ function move_again_AF() {
         if (idteacherkid.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-		copyToClipboard(hashlnk + "\", {headers\": \{ \"authorization\": \"Bearer\"" + d[1] + " , \}, \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+		copyToClipboard(hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\"" + d[1] + " , \}, \"method\":\"GET\", \"credentials\":\"include\" \} ) \;");
         };
         document.getElementById('setchatskids').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
