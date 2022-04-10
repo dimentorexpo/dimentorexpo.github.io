@@ -2630,15 +2630,11 @@ function move_again_AF() {
     }
 	
 	    document.getElementById('setchatskids').onclick = function () {                  // добавляем чаты с учениками skysmart
-		let d = document.cookie;
-		d = d.match(/token_global=(.*)/);
-		let sidarr=[];
-		
         let hashlnk = 'fetch("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium"';
         if (idteacherkid.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-		copyToClipboard(hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\"" + d[1] + " , \}, \"method\":\"GET\", \"credentials\":\"include\" \} ) \;");
+		copyToClipboard("let d = document.cookie;"  + "\n" + "d = d.match(/token_global=(.*)/);" +  "\n" +  "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\"" + d[1] + " , \}, \"method\":\"GET\", \"credentials\":\"include\" \} ) \;");
         };
         document.getElementById('setchatskids').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
