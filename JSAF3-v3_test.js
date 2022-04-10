@@ -316,9 +316,9 @@ var win_Links =  // описание элементов окна ссылок
                     <input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
                     <input id="idteacherkid" placeholder="ID П Kid💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Skysmart (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="setchatskids" style="width: 25.23px;">🚀</button> 
+					<button id="setchatskids" style="width: 25.23px;">💾</button> 
 					<input id="idteacheradult" placeholder="ID П Adu💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="setchatsadults" style="width: 25.23px;">🚀</button>
+					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>		
 				 
 				<div style="margin: 5px; width: 550px" id="links_butd">	
