@@ -4727,6 +4727,7 @@ function move_again_AF() {
         txt3 = txt3.split("\"").join("\\\"")
         txt3 = txt3.split('<p></p>').join("<p><br></p>")
         txt3 = txt3.substr(0, txt3.length - 2)
+		refCurTimer(time)
         if (document.getElementById('msg').innerHTML == "Чат")
             fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                 "headers": {
