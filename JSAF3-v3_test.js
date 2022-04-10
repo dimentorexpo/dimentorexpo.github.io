@@ -148,8 +148,8 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left:11px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:35px">Заметки</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left:41px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:60px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -7743,7 +7743,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
 function prepTp() {
     document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '11px'
+    document.getElementById('snd').style.marginLeft = '41px'
     document.getElementById('testUsers').style.display = ''
     flagLangBut = 1
     customTemplates()
