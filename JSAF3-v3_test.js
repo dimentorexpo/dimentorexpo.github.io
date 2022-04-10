@@ -148,8 +148,9 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left:41px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:60px">Заметки</button>
+                <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:21px">🤖</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left:11px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:35px">Заметки</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -4716,27 +4717,27 @@ function move_again_AF() {
         }
     }
 
-    // document.getElementById('sndbot').onclick = async function () {
-        // let txt = document.getElementById('inp').value;
-        // var values = await getInfo(flag)
-        // var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-        // var txt2 = txt.split('\n')
-        // var txt3 = ""
-        // txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
-        // txt3 = txt3.split("\"").join("\\\"")
-        // txt3 = txt3.split('<p></p>').join("<p><br></p>")
-        // txt3 = txt3.substr(0, txt3.length - 2)
-        // if (document.getElementById('msg').innerHTML == "Чат")
-            // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                // "headers": {
-                    // "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
-                // },
-                // "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
-                // "method": "POST",
-                // "credentials": "include"
-            // });
-        // document.getElementById('inp').value = "";
-    // }
+    document.getElementById('sndbot').onclick = async function () {
+        let txt = document.getElementById('inp').value;
+        var values = await getInfo(flag)
+        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+        var txt2 = txt.split('\n')
+        var txt3 = ""
+        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
+        txt3 = txt3.split("\"").join("\\\"")
+        txt3 = txt3.split('<p></p>').join("<p><br></p>")
+        txt3 = txt3.substr(0, txt3.length - 2)
+        if (document.getElementById('msg').innerHTML == "Чат")
+            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                "headers": {
+                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
+                },
+                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+                "method": "POST",
+                "credentials": "include"
+            });
+        document.getElementById('inp').value = "";
+    }
 
 
     document.getElementById('snd').onclick = function () {
@@ -7743,7 +7744,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
 function prepTp() {
     document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '41px'
+    document.getElementById('snd').style.marginLeft = '11px'
     document.getElementById('testUsers').style.display = ''
     flagLangBut = 1
     customTemplates()
