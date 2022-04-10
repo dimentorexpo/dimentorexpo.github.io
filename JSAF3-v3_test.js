@@ -2634,11 +2634,11 @@ function move_again_AF() {
         if (idteacherkid.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+            copyToClipboard(hashlnk + idteacherkid.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
         };
         document.getElementById('setchatskids').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
-        lookhash.value = "";
+        idteacherkid.value = "";
     }
 	
 	    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
@@ -2646,11 +2646,11 @@ function move_again_AF() {
         if (idteacheradult.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+            copyToClipboard(hashlnk + idteacheradult.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
         };
         document.getElementById('setchatsadults').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
-        lookhash.value = "";
+        idteacheradult.value = "";
     }
 	
 	
