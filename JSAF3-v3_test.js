@@ -2642,11 +2642,11 @@ function move_again_AF() {
     }
 		
 	    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
-        let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
+        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/'+document.getElementById('idteacheradult').value.trim()+'/students"';
         if (idteacheradult.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard(hashlnk + idteacheradult.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+		copyToClipboard("let d = document.cookie;"  + "\n" + "d = d.match(/token_global=(.*)/);" +  "\n" +  "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" +document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
         };
         document.getElementById('setchatsadults').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
