@@ -7634,7 +7634,9 @@ async function checkChatCountQue() { // функция проверки коли
         month2 = (date2.getMonth() + 1)
     if (date2.getDate() < 10)
         day2 = "0" + (date2.getDate()) // убрал -1 
-    else
+        else if (date2.getDate() == 10)
+            day2 = (date2.getDate());
+    else 
         day2 = (date2.getDate() - 1)
 
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
