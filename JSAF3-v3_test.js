@@ -5332,21 +5332,6 @@ function newTag(valueId) {
     });
 }
 
-function newTaggg(tagName) {
-    let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
-        chatId = document.location.pathname.split('/')[3]
-    else
-        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-        "headers": {
-            "content-type": "application/json",
-        },
-        "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
-        "method": "POST",
-        "credentials": "include"
-    });
-}
 
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
@@ -5355,14 +5340,8 @@ function msgFromTable(btnName) {
                 console.log("Не значения тематики")
             } else {
                 newTag(table[l][8])
-            }
-			
-			if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
-                console.log("Не значения тематики")
-            } else {
-                newTaggg(table[l][9])
-            }
-			
+				newTaggg(table[l][9])
+            }		
 			
             if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
@@ -6020,21 +5999,21 @@ function startTimer() {
     }
 }
 
-// function newTaggg(tagName) {
-    // let chatId = ''
-    // if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
-        // chatId = document.location.pathname.split('/')[3]
-    // else
-        // chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    // fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-        // "headers": {
-            // "content-type": "application/json",
-        // },
-        // "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
-        // "method": "POST",
-        // "credentials": "include"
-    // });
-// }
+function newTaggg(tagName) {
+    let chatId = ''
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+        chatId = document.location.pathname.split('/')[3]
+    else
+        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        "headers": {
+            "content-type": "application/json",
+        },
+        "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
+        "method": "POST",
+        "credentials": "include"
+    });
+}
 
 
 function addbuttonsintegration() {
