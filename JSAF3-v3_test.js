@@ -5341,15 +5341,7 @@ function msgFromTable(btnName) {
             } else {
                 newTag(table[l][8])
 				console.log(table[l][8])
-				console.log(table[l][9])
             }	
-
-            // if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
-                // console.log("Не значения тематики")
-            // } else {
-                // newTaggg(table[l][9])
-				// console.log(table[l][9]);
-            // }					
 			
             if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
