@@ -1662,7 +1662,7 @@ var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec'
-var TP_addr2 = 'https://script.google.com/macros/s/AKfycbxARCreNyVYkn4feuYIzbhGpEbmr7cXPBIQYogp9GAdabA38FsV/exec'
+var TP_addr2 = 'https://script.google.com/macros/s/AKfycbxibQo20NjEsIsPAMuBKEXpzLGG6PKLxIns8ZWiO09D4Y4IhvP3Z4h-QY4nBVU7G-GyGA/exec'
 var flagLangBut = 0
 function move_again_AF() {
 
@@ -5340,7 +5340,12 @@ function msgFromTable(btnName) {
                 console.log("Не значения тематики")
             } else {
                 newTag(table[l][8])
-				console.log(table[l][8])
+            }	
+			
+			if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
+                console.log("Не значения тематики")
+            } else {
+                newTaggg(table[l][9])
             }	
 			
             if (document.getElementById('languageAF').innerHTML == "Русский") {
