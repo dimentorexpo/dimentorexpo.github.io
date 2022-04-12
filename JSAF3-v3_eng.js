@@ -884,7 +884,7 @@ if (localStorage.getItem('winTopServDsk') == null) { // началоное по�
 
 
 if (localStorage.getItem('scriptAdr') == null) {
-    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec');
+    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbwhPFAPSth4KF7CIoZrxpUf2M3CsirqHZFRPHsZ2wqD6L4I3bC1y1Ko0aX0_9zmvM83/exec');
 }
 
 let button2 = document.createElement('p');
