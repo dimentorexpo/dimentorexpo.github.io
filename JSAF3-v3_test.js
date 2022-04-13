@@ -131,12 +131,11 @@ var win_AFhelper =  // описание элементов главного ок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
-					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:20px;">hide</button>
+					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
 					<div id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
-					<button id="thememenu" title="Открывает панель с меню тематик" style="width:23px; float: right; margin-right: 5px">⚠</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -1663,7 +1662,7 @@ var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec'
-var TP_addr2 = 'https://script.google.com/macros/s/AKfycbwgmUqogmYH_mRQOFelhPvmk9xCabowzLjg9li1Sg-_jJ_Zs1LKvbzWwVhhLL5mkhY3sg/exec'
+var TP_addr2 = 'https://script.google.com/macros/s/AKfycbxARCreNyVYkn4feuYIzbhGpEbmr7cXPBIQYogp9GAdabA38FsV/exec'
 var flagLangBut = 0
 function move_again_AF() {
 
@@ -5333,7 +5332,6 @@ function newTag(valueId) {
     });
 }
 
-
 function msgFromTable(btnName) {
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
@@ -5341,14 +5339,7 @@ function msgFromTable(btnName) {
                 console.log("Не значения тематики")
             } else {
                 newTag(table[l][8])
-            }	
-			
-			if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
-                console.log("Не значения тематики")
-            } else {
-                newTaggg(table[l][9])
-            }	
-			
+            }
             if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
