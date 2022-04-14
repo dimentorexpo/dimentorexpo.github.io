@@ -5992,7 +5992,7 @@ function startTimer() {
         btn5.id = 'recgiv'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
         btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Даны реком</a>';
-        btn5.setAttribute('onClick', 'newTaggg("recommendations_given");')	
+        btn5.setAttribute('onClick', 'newTaggg("recommendations_given ");')	
 
 		let btn6 = document.createElement('span');
         btn6.id = 'noactreq'
