@@ -6064,7 +6064,13 @@ function startTimer() {
         btn17.id = '2lsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn17)
         btn17.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">2Л</a>';
-        btn17.setAttribute('onClick', 'newTaggg("request_forwarded_to_2l_tp");')
+        btn17.setAttribute('onClick', 'newTaggg("request_forwarded_to_2l_tp");')	
+
+		let btn18 = document.createElement('span');
+        btn18.id = 'devsend'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn18)
+        btn18.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Jira</a>';
+        btn18.setAttribute('onClick', 'newTaggg("request_forwarded_to_development");')
     }
 }
 
