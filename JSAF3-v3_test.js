@@ -7425,12 +7425,12 @@ async function getStats() {           // функция получения ст�
     tppower.onclick = checktppower
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
 
-    let closedthemes = document.createElement('button') // кнопка для проверки нагрузки КЦ
-    closedthemes.textContent = 'Тематики ТП 24ч'
-    closedthemes.id = 'buttongetthemes'
-    closedthemes.style.marginLeft = '10px'
-    closedthemes.onclick = gettpthemes
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(closedthemes)
+    // let closedthemes = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    // closedthemes.textContent = 'Тематики ТП 24ч'
+    // closedthemes.id = 'buttongetthemes'
+    // closedthemes.style.marginLeft = '10px'
+    // closedthemes.onclick = gettpthemes
+    // document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(closedthemes)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
@@ -7596,98 +7596,98 @@ async function checktppower() {
     })
 }
 
-async function gettpthemes() {
+// async function gettpthemes() {
 
-    var date = new Date()
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
+    // var date = new Date()
+    // day = month = ""
+    // if (date.getMonth() < 9)
+        // month = "0" + (date.getMonth() + 1)
+    // else
+        // month = (date.getMonth() + 1)
+    // if (date.getDate() < 10)
+        // day = "0" + date.getDate()
+    // else
+        // day = date.getDate()
 
-    var secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
+    // var secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
+    // date = date - 24 * 60 * 60 * 1000
+    // var date2 = new Date()
+    // date2.setTime(date)
 
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
+    // if (date2.getMonth() < 9)
+        // month2 = "0" + (date2.getMonth() + 1)
+    // else
+        // month2 = (date2.getMonth() + 1)
+    // if (date2.getDate() < 10)
+        // day2 = "0" + date2.getDate()
+    // else
+        // day2 = date2.getDate()
 
-    var firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-
-
-    let count = {};
-    let stringChatsWithComment = ""
-    let sctc = 0;
-    let page;
-    let found = [];
-    let str = document.createElement('p')
-    str.style.paddingLeft = '50px'
-    if (document.getElementById('buttongetthemes').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-    document.getElementById('buttongetthemes').textContent = 'Загрузка'
-
-    try {
-        test = ''
-        page = 1;
-        while (true) {
-            await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-                "headers": {
-                    "content-type": "application/json",
-                },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
-                "method": "POST",
-            }).then(r => r.json()).then(r => test = r)
-            sctc = test.total;
-            for (let i = 0; i < test.items.length; i++) {
-                let flagComment = 0
-                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
-                    .then(response => response.json()).then(data => {
-                        stringChatsWithComment += data.payload.topicId.value + ","
-                    })
-            }
+    // var firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
 
 
-            if ((test.total / 100) > page) {
-                page++;
-            } else break;
-        }
+    // let count = {};
+    // let stringChatsWithComment = ""
+    // let sctc = 0;
+    // let page;
+    // let found = [];
+    // let str = document.createElement('p')
+    // str.style.paddingLeft = '50px'
+    // if (document.getElementById('buttongetthemes').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+        // document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+    // document.getElementById('buttongetthemes').textContent = 'Загрузка'
 
-    } catch (e) {
-        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
-    }
-    stringChatsWithComment = stringChatsWithComment.split(',');
-    stringChatsWithComment.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-    console.log(count);
-    found = "⏩SC/TC: " + count[1027] + "   |   " + ((count[1027] / sctc) * 100).toFixed(1) + "%" + '<br>' + "📱Jira🚧: " + count[1068] + "   |   " + ((count[1068] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "📱🔀QA: " + count[1031] + "   |   " + ((count[1031] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔇Связь устр: " + count[1038] + "   |   " + ((count[1038] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "🔇Связь сбой: " + count[1040] + "   |   " + ((count[1040] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔇Связь инет: " + count[1037] + "   |   " + ((count[1037] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "🔀QA: " + count[1029] + "   |   " + ((count[1029] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔀2Л: " + count[1026] + "  |  " + ((count[1026] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "🔀Контент: " + count[1028] + "   |   " + ((count[1028] / sctc) * 100).toFixed(1) + "%" + '<br>' + "⛱ЛК консультация🧠: " + count[1034] + "   |   " + ((count[1034] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "⛱ЛК сбой: " + count[1035] + "   |   " + ((count[1035] / sctc) * 100).toFixed(1) + "%" + '<br>' + "⛱ЛК инет/устр: " + count[1036] + "    |   " + ((count[1036] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "⛱ЛК, Jira🚧: " + count[1069] + "   |   " + ((count[1069] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔐Данные вход🔑: " + count[1048] + "   |   " + ((count[1048] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "🎎Дубль: " + count[1057] + "   |   " + ((count[1057] / sctc) * 100).toFixed(1) + "%" + '<br>' + "❌Отказ от помощи: " + count[1060] + "   |    " + ((count[1060] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "💲Ошибка при оплате: " + count[858] + "   |   " + ((count[858] / sctc) * 100).toFixed(1) + "%" + '<br>' + "💲Понимание оплаты: " + count[859] + "   |   " + ((count[859] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "📜Пожелания и предложения: " + count[1055] + "   |   " + ((count[1055] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔥Серв ЛК: " + count[1063] + "   |   " + ((count[1063] / sctc) * 100).toFixed(1) + "%" +
-        '<br>' + "🔥Серв связь: " + count[1066] + "   |   " + ((count[1066] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔥Серв вх/подкл🔐: " + count[1065] + "   |   " + ((count[1065] / sctc) * 100).toFixed(1) + "%";
+    // try {
+        // test = ''
+        // page = 1;
+        // while (true) {
+            // await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                // "headers": {
+                    // "content-type": "application/json",
+                // },
+                // "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                // "method": "POST",
+            // }).then(r => r.json()).then(r => test = r)
+            // sctc = test.total;
+            // for (let i = 0; i < test.items.length; i++) {
+                // let flagComment = 0
+                // await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    // .then(response => response.json()).then(data => {
+                        // stringChatsWithComment += data.payload.topicId.value + ","
+                    // })
+            // }
 
-    setTimeout(function () {
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-        str.innerHTML = '<br>' + found + '<br>' + "Всего чатов за день:" + sctc;
-    }, 1000)
 
-    document.getElementById('buttongetthemes').textContent = 'Повторить проверку'
-}
+            // if ((test.total / 100) > page) {
+                // page++;
+            // } else break;
+        // }
+
+    // } catch (e) {
+        // console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
+    // }
+    // stringChatsWithComment = stringChatsWithComment.split(',');
+    // stringChatsWithComment.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+    // console.log(count);
+    // found = "⏩SC/TC: " + count[1027] + "   |   " + ((count[1027] / sctc) * 100).toFixed(1) + "%" + '<br>' + "📱Jira🚧: " + count[1068] + "   |   " + ((count[1068] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "📱🔀QA: " + count[1031] + "   |   " + ((count[1031] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔇Связь устр: " + count[1038] + "   |   " + ((count[1038] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "🔇Связь сбой: " + count[1040] + "   |   " + ((count[1040] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔇Связь инет: " + count[1037] + "   |   " + ((count[1037] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "🔀QA: " + count[1029] + "   |   " + ((count[1029] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔀2Л: " + count[1026] + "  |  " + ((count[1026] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "🔀Контент: " + count[1028] + "   |   " + ((count[1028] / sctc) * 100).toFixed(1) + "%" + '<br>' + "⛱ЛК консультация🧠: " + count[1034] + "   |   " + ((count[1034] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "⛱ЛК сбой: " + count[1035] + "   |   " + ((count[1035] / sctc) * 100).toFixed(1) + "%" + '<br>' + "⛱ЛК инет/устр: " + count[1036] + "    |   " + ((count[1036] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "⛱ЛК, Jira🚧: " + count[1069] + "   |   " + ((count[1069] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔐Данные вход🔑: " + count[1048] + "   |   " + ((count[1048] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "🎎Дубль: " + count[1057] + "   |   " + ((count[1057] / sctc) * 100).toFixed(1) + "%" + '<br>' + "❌Отказ от помощи: " + count[1060] + "   |    " + ((count[1060] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "💲Ошибка при оплате: " + count[858] + "   |   " + ((count[858] / sctc) * 100).toFixed(1) + "%" + '<br>' + "💲Понимание оплаты: " + count[859] + "   |   " + ((count[859] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "📜Пожелания и предложения: " + count[1055] + "   |   " + ((count[1055] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔥Серв ЛК: " + count[1063] + "   |   " + ((count[1063] / sctc) * 100).toFixed(1) + "%" +
+        // '<br>' + "🔥Серв связь: " + count[1066] + "   |   " + ((count[1066] / sctc) * 100).toFixed(1) + "%" + '<br>' + "🔥Серв вх/подкл🔐: " + count[1065] + "   |   " + ((count[1065] / sctc) * 100).toFixed(1) + "%";
+
+    // setTimeout(function () {
+        // document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+        // str.innerHTML = '<br>' + found + '<br>' + "Всего чатов за день:" + sctc;
+    // }, 1000)
+
+    // document.getElementById('buttongetthemes').textContent = 'Повторить проверку'
+// }
 
 
 let chatneraspcount;
