@@ -5066,7 +5066,7 @@ function getslacklnk() {
 					setTimeout(getslacklnk, 8000);
 					
 					} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('premiumflip').textContent) {
-					console.log("Premium и Flip: " + "  Id student and teacher: " + idstdserv + "Descript " + dscr " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Premium и Flip: " + "  Id student and teacher: " + idstdserv + "Descript " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 					
 					 document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
