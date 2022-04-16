@@ -2630,44 +2630,44 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
         lookhash.value = "";
     }
-	
-	    document.getElementById('setchatskids').onclick = function () {                  // добавляем чаты с учениками skysmart
+
+    document.getElementById('setchatskids').onclick = function () {                  // добавляем чаты с учениками skysmart
         let hashlnk = '\n' + 'await fetch("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium"';
         if (idteacherkid.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-		copyToClipboard("let d = document.cookie;"  + "\n" + "d = d.match(/token_global=(.*)/);" +  "\n" +  "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.results.length;i++) \{ sidarr += studarr.results[i].userId  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" +document.getElementById('idteacherkid').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
+            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.results.length;i++) \{ sidarr += studarr.results[i].userId  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacherkid').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
         };
         document.getElementById('setchatskids').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
         idteacherkid.value = "";
     }
 
-	document.getElementById('setchatskidscc').onclick = function () {                  // добавляем чаты с учениками skysmart
+    document.getElementById('setchatskidscc').onclick = function () {                  // добавляем чаты с учениками skysmart
         let hashlnk = '\n' + 'await fetch("https://api-computer-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=digital_literacy_kids_f2f,python_kids_f2f,programming_kids_f2f,web_dev_kids_f2f,making_games_kids_f2f,computer_courses_app_inventor_kids_f2f,computer_courses_thunkable_kids_f2f,computer_courses_scratch_kids_f2f,computer_courses_unreal_kids_f2f,computer_courses_roblox_kids_f2f,computer_courses_unity_kids_f2f,computer_courses_construct_kids_f2f,computer_courses_minecraft_kids_f2f,computer_courses_app_inventor_kids_f2g,computer_courses_scratch_kids_f2g,computer_courses_thunkable_kids_f2g,computer_courses_web_dev_kids_f2g,computer_courses_digital_literacy_mac_kids_f2f,computer_courses_digital_literacy_windows_kids_f2f"';
         if (idteacherkidcc.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-		copyToClipboard("let d = document.cookie;"  + "\n" + "d = d.match(/token_global=(.*)/);" +  "\n" +  "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.results.length;i++) \{ sidarr += studarr.results[i].userId  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" +document.getElementById('idteacherkidcc').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
+            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.results.length;i++) \{ sidarr += studarr.results[i].userId  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacherkidcc').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
         };
         document.getElementById('setchatskidscc').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatskidscc').innerHTML = "💾" }, 2000);
         idteacherkidcc.value = "";
     }
-		
-	    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
-        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/'+document.getElementById('idteacheradult').value.trim()+'/students"';
+
+    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
+        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
         if (idteacheradult.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-		copyToClipboard("let d = document.cookie;"  + "\n" + "d = d.match(/token_global=(.*)/);" +  "\n" +  "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" +document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
+            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
         };
         document.getElementById('setchatsadults').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
         idteacheradult.value = "";
     }
-	
-	
+
+
     document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
         let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
         if (enablerAP.value == "")
@@ -4771,7 +4771,7 @@ function move_again_AF() {
         txt3 = txt3.split("\"").join("\\\"")
         txt3 = txt3.split('<p></p>').join("<p><br></p>")
         txt3 = txt3.substr(0, txt3.length - 2)
-		
+
         if (document.getElementById('msg').innerHTML == "Чат")
             fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                 "headers": {
@@ -4782,7 +4782,7 @@ function move_again_AF() {
                 "credentials": "include"
             });
         document.getElementById('inp').value = "";
-		refCurTimer(time)
+        refCurTimer(time)
     }
 
 
@@ -5354,13 +5354,13 @@ function msgFromTable(btnName) {
             } else {
                 newTag(table[l][8])
             }
-			
-			if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
+
+            if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
                 console.log("Не значения тематики")
             } else {
-                newTaggg(table[l][9])
-            }	
-			
+                newTags(table[l][9])
+            }
+
             if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
@@ -6007,87 +6007,87 @@ function startTimer() {
         btn4.id = 'nothelp'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
         btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Не помогли</a>';
-        btn4.setAttribute('onClick', 'newTaggg("didnt_help");') 
+        btn4.setAttribute('onClick', 'newTaggg("didnt_help");')
 
-		let btn5 = document.createElement('span');
+        let btn5 = document.createElement('span');
         btn5.id = 'recgiv'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
         btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Даны реком</a>';
-        btn5.setAttribute('onClick', 'newTaggg("recommendations_given ");')	
+        btn5.setAttribute('onClick', 'newTaggg("recommendations_given ");')
 
-		let btn6 = document.createElement('span');
+        let btn6 = document.createElement('span');
         btn6.id = 'noactreq'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
         btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Действ не треб</a>';
-        btn6.setAttribute('onClick', 'newTaggg("no_action_required");')		
-		
-		let btn7 = document.createElement('span');
+        btn6.setAttribute('onClick', 'newTaggg("no_action_required");')
+
+        let btn7 = document.createElement('span');
         btn7.id = 'TCsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
         btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">TC</a>';
-        btn7.setAttribute('onClick', 'newTaggg("request_forwarded_to_tc");')	
+        btn7.setAttribute('onClick', 'newTaggg("request_forwarded_to_tc");')
 
-		let btn8 = document.createElement('span');
+        let btn8 = document.createElement('span');
         btn8.id = 'SCsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
         btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">SC</a>';
         btn8.setAttribute('onClick', 'newTaggg("request_forwarded_to_sc");')
 
-		let btn9 = document.createElement('span');
+        let btn9 = document.createElement('span');
         btn9.id = 'QAsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn9)
         btn9.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">QA</a>';
-        btn9.setAttribute('onClick', 'newTaggg("request_forwarded_to_channel_qa");')	
+        btn9.setAttribute('onClick', 'newTaggg("request_forwarded_to_channel_qa");')
 
-		let btn10 = document.createElement('span');
+        let btn10 = document.createElement('span');
         btn10.id = 'TPcallsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
         btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
-        btn10.setAttribute('onClick', 'newTaggg("request_forwarded_to_outgoing_tp_crm2");')		
-		
-		let btn11 = document.createElement('span');
+        btn10.setAttribute('onClick', 'newTaggg("request_forwarded_to_outgoing_tp_crm2");')
+
+        let btn11 = document.createElement('span');
         btn11.id = 'contentsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
         btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Контент</a>';
-        btn11.setAttribute('onClick', 'newTaggg("request_forwarded_to_content");')	
+        btn11.setAttribute('onClick', 'newTaggg("request_forwarded_to_content");')
 
-		let btn12 = document.createElement('span');
+        let btn12 = document.createElement('span');
         btn12.id = 'doublechat'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn12)
         btn12.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Дубль</a>';
         btn12.setAttribute('onClick', 'newTaggg("double");')
 
-		let btn13 = document.createElement('span');
+        let btn13 = document.createElement('span');
         btn13.id = 'servis'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn13)
         btn13.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Серверные</a>';
-        btn13.setAttribute('onClick', 'newTaggg("server_issues");')		
-		
-		let btn14 = document.createElement('span');
+        btn13.setAttribute('onClick', 'newTaggg("server_issues");')
+
+        let btn14 = document.createElement('span');
         btn14.id = 'controln'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn14)
         btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Контроль</a>';
-        btn14.setAttribute('onClick', 'newTaggg("request_control");')	
+        btn14.setAttribute('onClick', 'newTaggg("request_control");')
 
-		let btn15 = document.createElement('span');
+        let btn15 = document.createElement('span');
         btn15.id = 'refuse'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn15)
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
-		
-		let btn16 = document.createElement('span');
+
+        let btn16 = document.createElement('span');
         btn16.id = 'solvd'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn16)
         btn16.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Решен</a>';
-        btn16.setAttribute('onClick', 'newTaggg("request_solved");')	
+        btn16.setAttribute('onClick', 'newTaggg("request_solved");')
 
-		let btn17 = document.createElement('span');
+        let btn17 = document.createElement('span');
         btn17.id = '2lsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn17)
         btn17.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">2Л</a>';
-        btn17.setAttribute('onClick', 'newTaggg("request_forwarded_to_2l_tp");')	
+        btn17.setAttribute('onClick', 'newTaggg("request_forwarded_to_2l_tp");')
 
-		let btn18 = document.createElement('span');
+        let btn18 = document.createElement('span');
         btn18.id = 'devsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn18)
         btn18.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Jira</a>';
@@ -6109,6 +6109,32 @@ function newTaggg(tagName) {
         "method": "POST",
         "credentials": "include"
     });
+}
+
+function newTags(tagName) {
+    let chatId = ''
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+        chatId = document.location.pathname.split('/')[3]
+    else
+        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+    if (tagName.split(',').length < 2)
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
+            "method": "POST",
+            "credentials": "include"
+        });
+    else if (tagName.split(',').length == 2)
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName[0] + "\" + ,\"" + tagName[1] + "\"]}]}",
+            "method": "POST",
+            "credentials": "include"
+        });
 }
 
 
@@ -7633,9 +7659,9 @@ async function checkChatCountQue() { // функция проверки коли
         month2 = (date2.getMonth() + 1)
     if (date2.getDate() < 10)
         day2 = "0" + (date2.getDate()) // убрал -1 
-        else if (date2.getDate() == 10)
-            day2 = (date2.getDate());
-    else 
+    else if (date2.getDate() == 10)
+        day2 = (date2.getDate());
+    else
         day2 = (date2.getDate() - 1)
 
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
