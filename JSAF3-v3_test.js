@@ -6131,7 +6131,7 @@ function newTags(tagName) {
             "headers": {
                 "content-type": "application/json",
             },
-            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName[0] + "\" + ,\"" + tagName[1] + "\"]}]}",
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName.split(',')[0] + "\" + ,\"" + tagName.split(',')[1] + "\"]}]}",
             "method": "POST",
             "credentials": "include"
         });
