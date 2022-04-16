@@ -1001,9 +1001,11 @@ var win_servicedesk =
 				<div id="mobileform" style="display: none; margin-left:20px;">
 					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_92" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+                    <textarea id="customfield_911" placeholder="Приложение / Версия / Платформа" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_93" placeholder="Название типа запроса" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+                    <textarea id="customfield_912" placeholder="Девайс / ОС" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_92" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
 					<textarea id="customfield_94" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
