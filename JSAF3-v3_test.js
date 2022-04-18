@@ -6406,7 +6406,6 @@ document.getElementById('gofindit').onclick = function () {
     console.log(stringChatsWithComment);
 }
 
-}
 
 document.getElementById('getstatfromperiod').onclick = async function () {
     let datefrom = document.getElementById('dateFrom').value + "T21:00:00.000Z";
