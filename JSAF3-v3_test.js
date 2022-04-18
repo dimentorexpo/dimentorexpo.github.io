@@ -6467,7 +6467,7 @@ document.getElementById('getstatfromperiod').onclick = async function () {
     }
 }
 
-document.getElementById('gofindit').onclick = function () {
+document.getElementById('gofindit').onclick = async function () {
     let curval = document.getElementById('thematics').value;
     let count = {};
     let stringChatsWithComment = ""
