@@ -383,6 +383,21 @@ var win_Stat =  // описание элементов окна ссылок
 									<option value="1809">Уроки</option>
 									<option value="1810">Чат</option>
 									<option value="tmob">*TeachersMob*</option>
+                                    <option value="1833">Авторизация</option>
+									<option value="1836">Видж распис</option>
+									<option value="1839">Чат</option>
+									<option value="1835">Видж финанс</option>
+									<option value="1838">Профиль</option>
+									<option value="1840">Сторис</option>
+									<option value="1837">Стр распис</option>
+									<option value="1834">Стр финанс</option>
+									<option value="sksmpar">*Skysmart род*</option>
+                                    <option value="1884">Другое</option>
+									<option value="1883">Материалы</option>
+									<option value="1880">Предметы и баланс</option>
+									<option value="1881">Профиль родителя</option>
+									<option value="1879">Расписание</option>
+									<option value="1882">Чат</option>
 								</select>
 					    </div>
 						<div id="chatcoutnsinfo">
