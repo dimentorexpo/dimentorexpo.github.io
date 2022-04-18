@@ -6469,6 +6469,8 @@ document.getElementById('getstatfromperiod').onclick = async function () {
 
 document.getElementById('gofindit').onclick = async function () {
     let curval = document.getElementById('thematics').value;
+    let datefrom3 = document.getElementById('dateFrom').value + "T21:00:00.000Z";
+    let dateto3 = document.getElementById('dateTo').value + "T20:59:59.059Z";
     let count = {};
     let stringChatsWithComment = ""
     let sctc = 0;
@@ -6481,7 +6483,7 @@ document.getElementById('gofindit').onclick = async function () {
                 "headers": {
                     "content-type": "application/json",
                 },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom3 + "\",\"tsTo\":\"" + dateto3 + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
             sctc = test.total;
