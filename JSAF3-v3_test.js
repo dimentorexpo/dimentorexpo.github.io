@@ -355,6 +355,17 @@ var win_Stat =  // описание элементов окна ссылок
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 550;" id="statdata">
                                 <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
+								<select id="thematics">
+									<option value="skmob">*SkyengMob*</option>
+									<option value="1804">Авторизация</option>
+									<option value="1805">Домашка</option>
+									<option value="1806">Оплата</option>
+									<option value="1807">Профиль</option>
+									<option value="1808">Тренажер слов</option>
+									<option value="1809">Уроки</option>
+									<option value="1810">Чат</option>
+									<option value="tmob">*TeachersMob*</option>
+								</select>
                         </div>
                         <div style="margin: 5px; width: 550px" id="statbox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
@@ -372,17 +383,6 @@ var win_Stat =  // описание элементов окна ссылок
 							 <button title="очищает значения поля" id="clearall">Очистить</button>
 							 <button title="загружает полученные результаты как для Чаты с ксат <4 так и для чатов с комментариями в виде HTML файла" id="getfile">🔰</button>
 							 <br>
-								<select id="thematics">
-									<option value="skmob">*SkyengMob*</option>
-									<option value="1804">Авторизация</option>
-									<option value="1805">Домашка</option>
-									<option value="1806">Оплата</option>
-									<option value="1807">Профиль</option>
-									<option value="1808">Тренажер слов</option>
-									<option value="1809">Уроки</option>
-									<option value="1810">Чат</option>
-									<option value="tmob">*TeachersMob*</option>
-								</select>
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
