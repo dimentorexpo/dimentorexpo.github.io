@@ -6367,44 +6367,7 @@ async function whoAmI() {
 
 // Тут будет функция запуска получения информации о статистики
 
-document.getElementById('gofindit').onclick = function () {
-    let curval = document.getElementById('thematics').value;
-    let count = {};
-    let stringChatsWithComment = ""
-    let sctc = 0;
-    let page;
-    try {
-        test = ''
-        page = 1;
-        while (true) {
-            await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-                "headers": {
-                    "content-type": "application/json",
-                },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
-                "method": "POST",
-            }).then(r => r.json()).then(r => test = r)
-            sctc = test.total;
-            for (let i = 0; i < test.items.length; i++) {
-                let flagComment = 0
-                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
-                    .then(response => response.json()).then(data => {
-                        if (data.payload.topicId.value == curval)
-                            stringChatsWithComment += data.payload.topicId.value + " " + data.id + "\n";
-                    })
-            }
 
-
-            if ((test.total / 100) > page) {
-                page++;
-            } else break;
-        }
-
-    } catch (e) {
-        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
-    }
-    console.log(stringChatsWithComment);
-}
 
 
 document.getElementById('getstatfromperiod').onclick = async function () {
@@ -6504,6 +6467,44 @@ document.getElementById('getstatfromperiod').onclick = async function () {
     }
 }
 
+document.getElementById('gofindit').onclick = function () {
+    let curval = document.getElementById('thematics').value;
+    let count = {};
+    let stringChatsWithComment = ""
+    let sctc = 0;
+    let page;
+    try {
+        test = ''
+        page = 1;
+        while (true) {
+            await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            sctc = test.total;
+            for (let i = 0; i < test.items.length; i++) {
+                let flagComment = 0
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(response => response.json()).then(data => {
+                        if (data.payload.topicId.value == curval)
+                            stringChatsWithComment += data.payload.topicId.value + " " + data.id + "\n";
+                    })
+            }
+
+
+            if ((test.total / 100) > page) {
+                page++;
+            } else break;
+        }
+
+    } catch (e) {
+        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
+    }
+    console.log(stringChatsWithComment);
+}
 
 //Функция очищения выведенной информации после поиска 
 document.getElementById('clearall').onclick = function () {
