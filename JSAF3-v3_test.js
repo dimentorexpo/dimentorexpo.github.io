@@ -6471,7 +6471,7 @@ document.getElementById('gofindit').onclick = async function () {
     let curval = document.getElementById('thematics').value;
     let datefrom3 = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto3 = document.getElementById('dateTo').value + "T20:59:59.059Z";
-    let count = {};
+    let count = 0;
     let stringChatsWithComment = ""
     let sctc = 0;
     let page;
@@ -6491,8 +6491,10 @@ document.getElementById('gofindit').onclick = async function () {
                 let flagComment = 0
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(response => response.json()).then(data => {
-                        if (data.payload.topicId.value == curval)
+                        if (data.payload.topicId.value == curval) {
                             stringChatsWithComment += data.payload.topicId.value + " " + data.id + "\n";
+                            count++;
+                        }
                     })
             }
 
@@ -6506,6 +6508,7 @@ document.getElementById('gofindit').onclick = async function () {
         console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
     }
     console.log(stringChatsWithComment);
+    console.log("count: " + count);
 }
 
 //Функция очищения выведенной информации после поиска 
