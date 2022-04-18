@@ -374,7 +374,7 @@ var win_Stat =  // описание элементов окна ссылок
 							 <button title="загружает полученные результаты как для Чаты с ксат <4 так и для чатов с комментариями в виде HTML файла" id="getfile">🔰</button>
 							 <br>
 							 	<select style="position:absolute; top:150px;" id="thematics">
-									<option style="background-color:green; color:white" value="skmob">*SkyengMob*</option>
+									<option style="background-color:green; color:white" value="skmob">Skyeng👨‍🎓Mob</option>
 									<option value="1804">Авторизация</option>
 									<option value="1805">Домашка</option>
 									<option value="1806">Оплата</option>
@@ -382,7 +382,7 @@ var win_Stat =  // описание элементов окна ссылок
 									<option value="1808">Тренажер слов</option>
 									<option value="1809">Уроки</option>
 									<option value="1810">Чат</option>
-									<option style="background-color:green; color:white" value="tmob">*TeachersMob*</option>
+									<option style="background-color:green; color:white" value="tmob">Teachers👽Mob</option>
                                     <option value="1833">Авторизация</option>
 									<option value="1836">Виджет расписания</option>
 									<option value="1839">Чат</option>
@@ -391,7 +391,7 @@ var win_Stat =  // описание элементов окна ссылок
 									<option value="1840">Сторис</option>
 									<option value="1837">Стр расписания</option>
 									<option value="1834">Стр финансов</option>
-									<option style="background-color:green; color:white" value="sksmpar">*Skysmart род*</option>
+									<option style="background-color:green; color:white" value="sksmpar">Skysmart👪родителям</option>
                                     <option value="1884">Другое</option>
 									<option value="1883">Материалы</option>
 									<option value="1880">Предметы и баланс</option>
@@ -399,7 +399,7 @@ var win_Stat =  // описание элементов окна ссылок
 									<option value="1879">Расписание</option>
 									<option value="1882">Чат</option>
 								</select>
-                               <button title="ищет чаты по тематике" id="gofindit">Find</button> 
+                               <button style="position:absolute; top: 150px; left:360px;" title="ищет чаты по тематике" id="gofindit">Find</button> 
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
