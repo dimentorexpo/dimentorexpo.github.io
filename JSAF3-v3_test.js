@@ -364,6 +364,7 @@ var win_Stat =  // описание элементов окна ссылок
 						<div>
 							<input id="commenttosearch" placeholder="Слово или фраза для поиска среди закрытых чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
 						</div>
+						</span>
 												
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
 							 <button title="Получает статистику, считает среднюю оценку всех чатов за период, и отображает чаты без тематики" id="getstatfromperiod">Получить статистику</button>
@@ -392,7 +393,6 @@ var win_Stat =  // описание элементов окна ссылок
 							 <p id="lowCSATcount" style="width:550px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
 							 <p id="chatcommentsdata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; overflow:auto"></p>
 						</div>
-                </span>
         </span>
 </div>`;
 
