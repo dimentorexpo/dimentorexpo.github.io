@@ -6586,8 +6586,8 @@ document.getElementById('gofindit').onclick = async function () {
     strcsatnew.innerHTML = 'Чаты с тематикой: ' + '<br>' + stringChatsWithComment;
     document.getElementById('gofindit').textContent = "Find";
 
-    let csatcontainer = document.querySelectorAll('.lowcsatschats');
-    let csatchattids = document.querySelectorAll('.seechat');
+    let csatcontainer = document.querySelectorAll('.seechat');
+    let csatchattids = document.querySelectorAll('.csatchatids');
     for (let j = 0; j < csatcontainer.length; j++) {
         csatcontainer[j].onclick = function () {
 
