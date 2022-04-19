@@ -6566,7 +6566,7 @@ document.getElementById('gofindit').onclick = async function () {
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(response => response.json()).then(data => {
                         if (data.payload.topicId.value == curval) {
-                            stringChatsWithComment += data.payload.topicId.value + " " + data.id + "\n";
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + data.id + '</a>' + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>';
                             count++;
                         }
                     })
@@ -6584,6 +6584,23 @@ document.getElementById('gofindit').onclick = async function () {
 
     document.querySelector('#themesdata').style.display = ""
     strcsatnew.innerHTML = 'Чаты с тематикой: ' + '<br>' + stringChatsWithComment;
+    document.getElementById('gofindit').textContent = "Find";
+
+    let csatcontainer = document.querySelectorAll('.lowcsatschats');
+    let csatchattids = document.querySelectorAll('.seechat');
+    for (let j = 0; j < csatcontainer.length; j++) {
+        csatcontainer[j].onclick = function () {
+
+            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+                hide_or_display.click()
+                document.getElementById('chat_id').value = csatchattids[j].innerText;
+                search.click()
+            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+                document.getElementById('chat_id').value = csatchattids[j].innerText;
+                search.click()
+            }
+        }
+    }
 
     console.log(stringChatsWithComment);
     console.log("count: " + count);
