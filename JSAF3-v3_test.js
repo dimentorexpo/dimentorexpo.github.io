@@ -398,7 +398,77 @@ var win_Stat =  // описание элементов окна ссылок
 									<option value="1881">Профиль родителя</option>
 									<option value="1879">Расписание</option>
 									<option value="1882">Чат</option>
-								</select>
+									<option style="background-color:DarkKhaki;" value="solanka">Different</option>
+                                    <option value="2034">Прочее</option>
+									<option value="2030">Slack-вход</option>
+									<option value="1745">Оценка</option>
+									<option value="2020">Логи ур У</option>
+									<option value="2019">Логи ур П</option>
+									<option value="2018">БД ур оператор</option>
+									<option value="2017">БД ур система</option>
+									<option style="background-color:DarkKhaki;" value="payf">Проблемы с оплатой</option>
+                                    <option value="1077">Вина школы</option>
+									<option value="1658">Консультация</option>
+									<option value="1661">Карта У</option>
+									<option value="1662">Сбой</option>
+									<option value="1660">Подписки</option>
+									<option style="background-color:DarkKhaki;" value="hwtr">Проблемы с ДЗ</option>
+                                    <option value="1744">Контент</option>
+									<option value="1745">Оценка</option>
+									<option value="1746">Словарь</option>
+									<option value="1747">Упражнение</option>
+									<option style="background-color:DarkKhaki;" value="svyaz">Проблемы связь</option>
+                                    <option value="1581">ОС/брауз ниж мин</option>
+									<option value="1589">Конс раб св</option>
+									<option value="1582">Корп с/ус</option>
+									<option value="1583">ОС/браузер</option>
+                                    <option value="1586">ПК</option>
+									<option value="1584">Гарнитура</option>
+									<option value="1585">Камера</option>
+									<option value="1580">Блок ПО</option>
+									<option value="1594">Не подерж брауз</option>
+									<option value="1595">Не под кам гарн пк</option>
+                                    <option value="1593">Сбой платф</option>
+									<option value="1592">Сб задерж кам</option>
+									<option value="1587">Инет ниж мин</option>
+									<option value="1590">Сб плат блк прер</option>
+									<option value="1588">Хар ниж мин</option>
+									<option value="1591">Сб задерж зв</option>
+									<option style="background-color:DarkKhaki;" value="lkp">Проблемы ЛКП</option>
+                                    <option value="1721">Группа</option>
+									<option value="1714">Чат</option>
+									<option value="1719">Финансы</option>
+									<option value="1717">Упражнения</option>
+                                    <option value="1712">Карта роста</option>
+									<option value="1716">Настройки</option>
+									<option value="1718">Перерыв</option>
+									<option value="1715">Профиль</option>
+									<option value="1720">Раб на пров</option>
+									<option value="1713">Расписание</option>
+									<option style="background-color:DarkKhaki;" value="lku">Проблемы ЛКУ</option>
+                                    <option value="1708">Чат</option>
+									<option value="1710">Профиль</option>
+									<option value="1706">Видж прогр</option>
+									<option value="1707">Ис зан/портф</option>
+                                    <option value="1709">Семья</option>
+									<option value="1711">Настройки</option>
+									<option value="1705">Навыки</option>
+									<option value="1704">Грамматика</option>
+									<option style="background-color:DarkKhaki;" value="autrise">Проблемы вход</option>
+                                    <option value="1632">Не привяз почт/тел</option>
+									<option value="1635">Данные</option>
+									<option value="1634">Сброс пароля</option>
+									<option value="1631">Консультация</option>
+                                    <option value="1633">Сбой</option>
+									<option style="background-color:DarkKhaki;" value="autrise">Проблемы подкл</option>
+                                    <option value="1624">Истек подпис</option>
+									<option value="1627">Консультациия</option>
+									<option value="1629">Нет кн входа</option>
+									<option value="1628">У не в ГУ</option>
+                                    <option value="1625">Ур в др вр</option>
+									<option value="1626">У отпуск</option>
+                                    <option value="1630">Неакт кн вх</option>
+                                    </select>
                                <button style="position:absolute; top: 150px; left:360px;" title="ищет чаты по тематике" id="gofindit">Find</button> 
 					    </div>
 						<div id="chatcoutnsinfo">
