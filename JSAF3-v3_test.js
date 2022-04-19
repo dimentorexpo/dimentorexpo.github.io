@@ -6583,7 +6583,7 @@ document.getElementById('gofindit').onclick = async function () {
     }
 
     document.querySelector('#themesdata').style.display = ""
-    strcsatnew.innerHTML = 'Чаты с тематикой: ' + '<br>' + stringChatsWithComment;
+    strcsatnew.innerHTML = 'Чаты с тематикой: ' + '<br>' + stringChatsWithComment + '<br>' + 'Количество обращений по этой теме: ' + count;
     document.getElementById('gofindit').textContent = "Find";
 
     let csatcontainer = document.querySelectorAll('.seechat');
@@ -6616,6 +6616,7 @@ document.getElementById('clearall').onclick = function () {
     document.querySelector('#chatcommentsdata').innerText = ""
     document.querySelector('#chatcommentsdata').style.display = "none"
     document.querySelector('#commenttosearch').value = ""
+    document.querySelector('#themesdata').innerText = ""
 }
 
 document.getElementById('clearlessonstatus').onclick = function () {
