@@ -454,13 +454,13 @@ var win_Stat =  // описание элементов окна ссылок
 									<option value="1711">Настройки</option>
 									<option value="1705">Навыки</option>
 									<option value="1704">Грамматика</option>
-									<option style="background-color:DarkKhaki;" value="autrise">Проблемы вход</option>
+									<option style="background-color:DarkKhaki;" value="problvh">Проблемы вход</option>
                                     <option value="1632">Не привяз почт/тел</option>
 									<option value="1635">Данные</option>
 									<option value="1634">Сброс пароля</option>
 									<option value="1631">Консультация</option>
                                     <option value="1633">Сбой</option>
-									<option style="background-color:DarkKhaki;" value="autrise">Проблемы подкл</option>
+									<option style="background-color:DarkKhaki;" value="problpodk">Проблемы подкл</option>
                                     <option value="1624">Истек подпис</option>
 									<option value="1627">Консультациия</option>
 									<option value="1629">Нет кн входа</option>
@@ -468,6 +468,35 @@ var win_Stat =  // описание элементов окна ссылок
                                     <option value="1625">Ур в др вр</option>
 									<option value="1626">У отпуск</option>
                                     <option value="1630">Неакт кн вх</option>
+									<option style="background-color:DarkKhaki;" value="lesfunc">Функционал урок</option>
+                                    <option value="1772">STT</option>
+									<option value="1773">TTT</option>
+									<option value="1767">Вложения</option>
+									<option value="1771">Демонстрация экр</option>
+                                    <option value="1768">Доска</option>
+									<option value="2037">Заметки</option>
+                                    <option value="1775">Отпр ДЗ на ур</option>
+                                    <option value="1770">Перекл материалов</option>
+									<option value="1776">Ауд/вид плеер</option>
+                                    <option value="1769">Словарь на ур</option>
+                                    <option value="1774">Упражн на ур</option>
+									<option style="background-color:DarkKhaki;" value="feedbk">Отзывы и пожел</option>
+                                    <option value="1970">Vim-контент</option>
+									<option value="1971">Vim-оценка</option>
+									<option value="1972">Vim-словарь</option>
+									<option value="1973">Vim-упражнения</option>
+                                    <option value="1966">ЛК-ОС род</option>
+									<option value="1965">ЛК-пер,отм ур</option>
+                                    <option value="1967">ЛК-профиль</option>
+                                    <option value="1968">ЛК-семья</option>
+									<option value="1969">ЛК чат</option>
+                                    <option value="1974">App Skyeng</option>
+                                    <option value="1975">App Teachers</option>
+                                    <option value="1979">App Skypro</option>
+                                    <option value="1976">App класс</option>
+									<option value="1977">App решения</option>
+                                    <option value="1978">App Skysmart род</option>
+                                    <option value="1980">Прочее</option>
                                     </select>
                                <button style="position:absolute; top: 150px; left:360px;" title="ищет чаты по тематике" id="gofindit">Find</button> 
                                <button style="position:absolute; top: 150px; left:430px;" title="меняет тематику в хеше чата указанном выше в поле ввода и выбранной тематикой из выпадающего списка" id="changetheme">Change</button> 
