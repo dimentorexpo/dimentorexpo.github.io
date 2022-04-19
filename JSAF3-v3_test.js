@@ -6549,6 +6549,7 @@ document.getElementById('gofindit').onclick = async function () {
     let stringChatsWithComment = ""
     let sctc = 0;
     let page;
+    let tagflag;
     try {
         test = ''
         page = 1;
@@ -6566,7 +6567,28 @@ document.getElementById('gofindit').onclick = async function () {
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(response => response.json()).then(data => {
                         if (data.payload.topicId.value == curval) {
-                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + data.id + '</a>' + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>';
+                            if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_outgoing_tp_crm2")
+                                tagflag = "Запрос передан на исход ТП1Л CRM2"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "recommendations_given ")
+                                tagflag = "Рекомендации даны"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "refusal_of_help")
+                                tagflag = "Отказ от помощи"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_solved")
+                                tagflag = "Задача решена"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_solved")
+                                tagflag = "Задача решена"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_2l_tp")
+                                tagflag = "Задача передана на ТП2Л"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_channel_qa")
+                                tagflag = "Задача передана в QA"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_development")
+                                tagflag = "Задача передана в разработку"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_sc")
+                                tagflag = "Задача передана в SC"
+                            else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_tc")
+                                tagflag = "Задача передана в TC"
+
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + data.id + " " + tagflag + '</a>' + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>';
                             count++;
                         }
                     })
