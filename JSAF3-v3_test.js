@@ -6570,7 +6570,7 @@ document.getElementById('getstatfromperiod').onclick = async function () {
 document.getElementById('changetheme').onclick = function () {
     let curval = document.getElementById('thematics').value;
     let chatId = document.getElementById('commenttosearch').value;
-    if (chatId != null || chatId != undefined)
+    if (chatId != null || chatId != undefined || chatId == "")
         fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
