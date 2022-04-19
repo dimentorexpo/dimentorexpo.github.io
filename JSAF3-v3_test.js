@@ -477,6 +477,7 @@ var win_Stat =  // описание элементов окна ссылок
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
 							 <p id="chatsinfoout" style="width:550px; color:bisque; margin-left:5px"></p>
 							 <p id="lowCSATcount" style="width:550px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
+							 <p id="themesdata" style="width:550px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
 							 <p id="chatcommentsdata" style="width:550px;color:bisque; max-height:400px; margin-left:5px; overflow:auto"></p>
 						</div>
         </span>
@@ -6539,6 +6540,9 @@ document.getElementById('getstatfromperiod').onclick = async function () {
 
 document.getElementById('gofindit').onclick = async function () {
     let curval = document.getElementById('thematics').value;
+    let strcsatnew = document.getElementById('themesdata');
+    strcsatnew.textContent = "Загрузка"
+    document.getElementById('gofindit').textContent = "Загрузка";
     let datefrom3 = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto3 = document.getElementById('dateTo').value + "T20:59:59.059Z";
     let count = 0;
@@ -6577,6 +6581,10 @@ document.getElementById('gofindit').onclick = async function () {
     } catch (e) {
         console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
     }
+
+    document.querySelector('#themesdata').style.display = ""
+    strcsatnew.innerHTML = 'Чаты с тематикой: ' + '<br>' + stringChatsWithComment;
+
     console.log(stringChatsWithComment);
     console.log("count: " + count);
 }
