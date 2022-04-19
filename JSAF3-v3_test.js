@@ -6550,6 +6550,9 @@ document.getElementById('gofindit').onclick = async function () {
     let sctc = 0;
     let page;
     let tagflag;
+    let timestmp;
+    let tsh;
+    let tsm;
     try {
         test = ''
         page = 1;
@@ -6588,7 +6591,16 @@ document.getElementById('gofindit').onclick = async function () {
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_tc")
                                 tagflag = "Задача передана в TC"
 
-                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + data.id + '</a>' + " " + tagflag + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>';
+                            timestmp = new Date(data.messages[0].ts);
+                            if ((timestmp.getUTCHours() + 3) < 10)
+                                tsh = "0" + (timestmp.getUTCHours() + 3);
+                            else tsh = (timestmp.getUTCHours() + 3);
+
+                            if (timestmp.getMinutes() < 10)
+                                tsm = "0" + timestmp.getMinutes();
+                            else tsm = timestmp.getMinutes();
+
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + data.id + '</a>' + " " + tagflag + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + tsh + ":" + tsm + '</br>';
                             count++;
                         }
                     })
