@@ -6588,7 +6588,7 @@ document.getElementById('gofindit').onclick = async function () {
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_tc")
                                 tagflag = "Задача передана в TC"
 
-                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + data.id + " " + tagflag + '</a>' + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>';
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + data.id + '</a>' + " " + tagflag + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>';
                             count++;
                         }
                     })
