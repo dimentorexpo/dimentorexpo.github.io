@@ -385,7 +385,7 @@ var win_Stat =  // описание элементов окна ссылок
 									<option style="background-color:DarkKhaki;" value="tmob">Teachers👽Mob</option>
                                     <option value="1833">-Авторизация</option>
 									<option value="1836">-Виджет расписания</option>
-									<option value="1839">--Чат</option>
+									<option value="1839">-Чат</option>
 									<option value="1835">-Виджет финансов</option>
 									<option value="1838">-Профиль</option>
 									<option value="1840">-Сторис</option>
@@ -422,7 +422,7 @@ var win_Stat =  // описание элементов окна ссылок
 									<option value="1582">-Корп с/ус</option>
 									<option value="1583">-ОС/браузер</option>
                                     <option value="1586">-ПК</option>
-									<option value="1584">--Гарнитура</option>
+									<option value="1584">-Гарнитура</option>
 									<option value="1585">-Камера</option>
 									<option value="1580">-Блок ПО</option>
 									<option value="1594">-Не подерж брауз</option>
