@@ -470,7 +470,7 @@ var win_Stat =  // описание элементов окна ссылок
                                     <option value="1630">Неакт кн вх</option>
                                     </select>
                                <button style="position:absolute; top: 150px; left:360px;" title="ищет чаты по тематике" id="gofindit">Find</button> 
-                               <button style="position:absolute; top: 150px; left:400px;" title="меняет тематику в хеше чата указанном выше в поле ввода и выбранной тематикой из выпадающего списка" id="changetheme">Change</button> 
+                               <button style="position:absolute; top: 150px; left:430px;" title="меняет тематику в хеше чата указанном выше в поле ввода и выбранной тематикой из выпадающего списка" id="changetheme">Change</button> 
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
@@ -6537,6 +6537,21 @@ document.getElementById('getstatfromperiod').onclick = async function () {
     } catch {
         strnew.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
+}
+
+document.getElementById('changetheme').onclick = function () {
+    let curval = document.getElementById('thematics').value;
+    let chatId = document.getElementById('commenttosearch').value;
+    if (chatId != null || chatId != undefined)
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"topicId\",\"value\":\"" + curval + "\"}]}",
+            "method": "POST",
+            "credentials": "include"
+        });
+    else alert("Введите хэш чата в длинное поле по центру");
 }
 
 document.getElementById('gofindit').onclick = async function () {
