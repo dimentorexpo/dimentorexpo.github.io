@@ -470,6 +470,7 @@ var win_Stat =  // описание элементов окна ссылок
                                     <option value="1630">Неакт кн вх</option>
                                     </select>
                                <button style="position:absolute; top: 150px; left:360px;" title="ищет чаты по тематике" id="gofindit">Find</button> 
+                               <button style="position:absolute; top: 150px; left:400px;" title="меняет тематику в хеше чата указанном выше в поле ввода и выбранной тематикой из выпадающего списка" id="changetheme">Change</button> 
 					    </div>
 						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
