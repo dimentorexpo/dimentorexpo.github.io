@@ -4639,7 +4639,7 @@ function move_again_AF() {
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: ax@skyeng.ru , pwd: LCUmDtBpuRKZh>zMlLYGH");
+        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: SFPDybNPSpcJ_AI_h4Lv");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
