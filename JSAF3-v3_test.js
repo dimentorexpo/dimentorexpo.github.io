@@ -6634,6 +6634,7 @@ document.getElementById('gofindit').onclick = async function () {
                                 tagflag = "Задача передана в SC"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_tc")
                                 tagflag = "Задача передана в TC"
+							else tagflag = "Не выставлена тема/ др тема"
 
                             timestmp = new Date(data.messages[0].ts);
                             if ((timestmp.getUTCHours() + 3) < 10)
