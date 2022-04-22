@@ -6355,24 +6355,24 @@ setInterval(checJiraF, 1000);
 
 function paintstatus() {
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive") {
-        if (document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null && document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
+        if (document.querySelectorAll('.user_menu-status-name')[1] != undefined || document.querySelectorAll('.user_menu-status-name')[1] !=null || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[1].style.background = "red";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null && document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
+        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined || document.querySelectorAll('.user_menu-status-name')[1] !=null || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[1].style.background = "green";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null && document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
+        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined || document.querySelectorAll('.user_menu-status-name')[1] !=null || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
             document.querySelectorAll('.ant-btn')[1].style.background = "yellow";
         }
     } else {
-        if (document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null && document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
+        if (document.querySelectorAll('.user_menu-status-name')[1] != undefined || document.querySelectorAll('.user_menu-status-name')[1] !=null || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[2].style.background = "red";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null && document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
+        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined || document.querySelectorAll('.user_menu-status-name')[1] !=null || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[2].style.background = "green";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null && document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
+        } else if (document.querySelectorAll('.user_menu-status-name')[1] != undefined || document.querySelectorAll('.user_menu-status-name')[1] !=null || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
             document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
         }
