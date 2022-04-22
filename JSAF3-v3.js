@@ -6354,7 +6354,7 @@ function checJiraF() {
 setInterval(checJiraF, 1000);
 
 function paintstatus() {
-    if (document.URL != "https://skyeng.autofaq.ai/tickets/archive") {
+    if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[1].style.background = "red";
@@ -6365,7 +6365,7 @@ function paintstatus() {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
             document.querySelectorAll('.ant-btn')[1].style.background = "yellow";
         }
-    } else {
+    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null)  {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[2].style.background = "red";
@@ -6634,6 +6634,7 @@ document.getElementById('gofindit').onclick = async function () {
                                 tagflag = "Задача передана в SC"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_tc")
                                 tagflag = "Задача передана в TC"
+							else tagflag = "Не выставлена тема/ др тема"
 
                             timestmp = new Date(data.messages[0].ts);
                             if ((timestmp.getUTCHours() + 3) < 10)
