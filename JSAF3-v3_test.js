@@ -6367,7 +6367,7 @@ function checJiraF() {
 setInterval(checJiraF, 1000);
 
 function checkthemestatus() {
-	if (document.location.href == 'https://skyeng.autofaq.ai/tickets/assigned/' || document.location.href == 'https://skyeng.autofaq.ai/tickets/archive') 
+	if (document.location.pathname.split('/')[3] == undefined) 
 		console.log("not active chats")
 	else {
 		let temparr = document.location.pathname.split('/')[3];
