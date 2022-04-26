@@ -6334,7 +6334,7 @@ butteachidfstd.addEventListener('click', function () {
 
 function checJiraF() {
 	try {
-    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:" && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null) {
+    if (document.querySelector(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null || "#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
@@ -6348,7 +6348,7 @@ function checJiraF() {
                 console.log("DONE!")
             }
         }
-    } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:" && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null) {
+    } else if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null || document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
         document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU") .onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU") .innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
