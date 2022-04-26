@@ -1,6 +1,5 @@
 ﻿//Global vars
 
-
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);
@@ -3818,9 +3817,8 @@ function move_again_AF() {
                     } else {
                         issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?.)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
                     }
-                }
-
-
+                } 
+  
                 document.getElementById('issuetable').innerHTML = issues;
 
                 let barray = document.querySelectorAll('.jiraissues');
@@ -6333,7 +6331,8 @@ butteachidfstd.addEventListener('click', function () {
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
 
 function checJiraF() {
-    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:" && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null) {
+	try {
+    if (document.querySelector(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null || "#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
@@ -6347,7 +6346,7 @@ function checJiraF() {
                 console.log("DONE!")
             }
         }
-    } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:" && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null) {
+    } else if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null || document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
         document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU") .onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU") .innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
@@ -6362,12 +6361,14 @@ function checJiraF() {
             }
         }
 	}
+	} catch (e) { }
 }
-
+     
 setInterval(checJiraF, 1000);
 
 function checkthemestatus() {
-	if (document.location.pathname.split('/')[3] == undefined) 
+	try {
+	if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/')[2] != "assigned") 
 		console.log("not active chats")
 	else {
 		let temparr = document.location.pathname.split('/')[3];
@@ -6396,6 +6397,7 @@ function checkthemestatus() {
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
 			} 
 	} 
+	} catch (e) { }
 }
 
 setInterval(checkthemestatus, 3000);
