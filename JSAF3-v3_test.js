@@ -1,4 +1,4 @@
-﻿//Global vars
+//Global vars
 
 
 function mystyles() {
