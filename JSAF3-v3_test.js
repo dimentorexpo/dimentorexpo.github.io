@@ -6352,6 +6352,22 @@ function checJiraF() {
 
 setInterval(checJiraF, 1000);
 
+function checkthemestatus() {
+	if (document.location.href != 'https://skyeng.autofaq.ai/tickets/assigned/') {
+		let temparr = document.location.pathname.split('/')[3];
+		fetch("https://skyeng.autofaq.ai/api/conversations/"+temparr, {
+		}).then(r=>r.json()).then(r=>pldata=r)
+
+			if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы") {
+				document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
+				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
+				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
+			}
+	} 
+}
+
+setInterval(checkthemestatus, 1000);
+
 function paintstatus() {
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
