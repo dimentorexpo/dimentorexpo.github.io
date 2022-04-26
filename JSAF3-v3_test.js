@@ -6363,7 +6363,7 @@ function checJiraF() {
             }
         }
 	}
-	} catch (e) { console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack); }
+	} catch (e) { }
 }
 
 setInterval(checJiraF, 1000);
@@ -6399,7 +6399,7 @@ function checkthemestatus() {
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
 			} 
 	} 
-	} catch (e) { console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack); }
+	} catch (e) { }
 }
 
 setInterval(checkthemestatus, 3000);
