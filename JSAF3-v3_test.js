@@ -6333,6 +6333,7 @@ butteachidfstd.addEventListener('click', function () {
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
 
 function checJiraF() {
+	try {
     if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:" && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null) {
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
@@ -6362,11 +6363,13 @@ function checJiraF() {
             }
         }
 	}
+	} catch (e) { }
 }
 
 setInterval(checJiraF, 1000);
 
 function checkthemestatus() {
+	try {
 	if (document.location.pathname.split('/')[3] == undefined) 
 		console.log("not active chats")
 	else {
@@ -6396,6 +6399,7 @@ function checkthemestatus() {
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
 			} 
 	} 
+	} catch (e) { }
 }
 
 setInterval(checkthemestatus, 3000);
