@@ -6358,12 +6358,12 @@ function checkthemestatus() {
 		fetch("https://skyeng.autofaq.ai/api/conversations/"+temparr, {
 		}).then(r=>r.json()).then(r=>pldata=r)
 
-			if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы") {
+			if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
 				document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
-			} else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы") {
+			} else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
 				document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
