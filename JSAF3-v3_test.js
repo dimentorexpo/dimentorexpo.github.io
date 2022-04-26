@@ -6353,7 +6353,7 @@ function checJiraF() {
 setInterval(checJiraF, 1000);
 
 function checkthemestatus() {
-	if (document.location.href != 'https://skyeng.autofaq.ai/tickets/assigned/') {
+	if (document.location.href != 'https://skyeng.autofaq.ai/tickets/assigned/' && document.location.href != 'https://skyeng.autofaq.ai/tickets/archive') {
 		let temparr = document.location.pathname.split('/')[3];
 		fetch("https://skyeng.autofaq.ai/api/conversations/"+temparr, {
 		}).then(r=>r.json()).then(r=>pldata=r)
@@ -6379,7 +6379,7 @@ function checkthemestatus() {
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
 			} 
-	}
+	} else console.log("Not active chat");
 }
 
 setInterval(checkthemestatus, 1000);
