@@ -6384,7 +6384,7 @@ function checkthemestatus() {
 	} 
 }
 
-setInterval(checkthemestatus, 1000);
+setInterval(checkthemestatus, 3000);
 
 function paintstatus() {
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null) {
