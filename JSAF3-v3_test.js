@@ -5917,7 +5917,7 @@ function startTimer() {
                     }
                     groupId = res.split('/admin/student/view/')[1].split('<td>')[3].split('</td')[0]
                     let button = document.createElement('a')
-                    button.href = 'https://cabinet.skyeng.ru/admin/group/edit?id=' + groupId
+                    button.href = 'https://learning-groups-storage.skyeng.ru/group/' + groupId + '?cp=(section:participants)'
                     button.target = '_blank'
                     button.textContent = groupId
                     button.style.marginRight = '15px'
