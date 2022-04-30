@@ -682,7 +682,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">Corp</button>
                     <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">Landings</button>
                     <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">Mobile bug</button>
-                    <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">Educ. Model</button>
+                    <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">Ed Model</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -800,7 +800,7 @@ var win_servicedesk =
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
 					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
-					<button class="kidsbtn" id="skysmartgroup">Групповые и параллельные уроки</button>
+					<button class="kidsbtn" id="skysmartgroup">Групп и параллельные уроки</button>
 					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
 				</div>	
 
