@@ -682,6 +682,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">Corp</button>
                     <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">Landings</button>
                     <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">Mobile bug</button>
+                    <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">Educ. Model</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -798,18 +799,18 @@ var win_servicedesk =
 				
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
-					<button class="kidsbtn" id="skysmartcontent">Контент</button>
-					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
-					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
-					<button class="kidsbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
 					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
-					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
-					<button class="kidsbtn" id="skysmartcabinet">Детский ЛКУ</button>
-					<button class="kidsbtn" id="skysmartcertificate">Сертификаты</button>
 					<button class="kidsbtn" id="skysmartgroup">Групповые и параллельные уроки</button>
-					<button class="kidsbtn" id="skysmartpages">Страницы skysmart</button>
-					<button class="kidsbtn" id="skysmartappparents">Приложение skysmart parents</button>
 					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
+				</div>	
+
+				<div id="edumodeloptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#em-qa-support: Канал для обращений по функционалу Educational Model</p>
+					<button class="kidsbtn" id="edumgoal">Анкета целей</button>
+					<button class="kidsbtn" id="skysmartfeedback">Сертификаты</button>
+					<button class="kidsbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
+					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
+					<button class="kidsbtn" id="skysmartpages">Обратная связь</button>
 				</div>
 				
 				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
