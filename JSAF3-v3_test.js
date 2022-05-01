@@ -357,8 +357,9 @@ var win_Marks =  // описание элементов окна ссылок
                         </div>
 						
 						<div>
-							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации за последние 6 месяцев по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 240px; color: black;margin-left:5px">
-							<button id="findmarksstat">Найти</button>
+							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации за последние 6 месяцев по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
+							<button id="findmarksstat">🔎</button>
+							<button id="clearmarksstat">🧹</button>
 						</div>
 						
 						
@@ -4749,7 +4750,9 @@ function move_again_AF() {
 			document.getElementById('useridsearch').value ="";			
 			}
 			
-
+			document.getElementById('clearmarksstat').onclick = function(){
+				document.getElementById('markstable').innerHTML="";
+			}
 		}
     }
 
@@ -6945,6 +6948,8 @@ document.getElementById('clearall').onclick = function () {
     document.querySelector('#commenttosearch').value = ""
     document.querySelector('#themesdata').innerText = ""
 }
+
+
 
 document.getElementById('clearlessonstatus').onclick = function () {
     if (confirm("Вы уверены, что хотите очистить?")) {
