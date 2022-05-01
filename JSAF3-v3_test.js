@@ -348,6 +348,28 @@ var win_Jira =  // описание элементов окна ссылок
         </span>
 </div>`;
 
+var win_Marks =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 300px;">
+        <span style="width: 300px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 300px;" id="jira_1str">
+                                <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+						
+						<div>
+							<input id="useridsearch" placeholder="ID У/П для поиска статистики оценок" title="Ввведите ID ученика или учителя для получения информации за последние 6 месяцев по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 200px; color: black;margin-left:5px">
+							<button id="findmarksstat">Найти</button>
+						</div>
+						
+						
+			    </span>
+						
+                        <div style="margin: 5px; width: 550px" id="marks_box">
+                                <p id="markstable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
+                        </div>
+        </span>
+</div>`;
+
 var win_Stat =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -1234,6 +1256,11 @@ if (localStorage.getItem('winTopGrList') == null) { // началоное пол
     localStorage.setItem('winLeftGrList', '295');
 }
 
+if (localStorage.getItem('winTopMarks') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopMarks', '120');
+    localStorage.setItem('winLeftMarks', '295');
+}
+
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
     localStorage.setItem('aclstime', 12);
@@ -1438,6 +1465,12 @@ butServ.innerHTML = "⚜"
 butServ.style.marginRight = "15px";
 butServ.style.cursor = "pointer";
 
+let butMarks = document.createElement('div')
+butMarks.id = "butMarks"
+butMarks.innerHTML = "📊"
+butMarks.style.marginRight = "15px";
+butMarks.style.cursor = "pointer";
+
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "SD"
@@ -1468,8 +1501,6 @@ maskBack.onclick = function () {
         setTimeout(function () { document.getElementById('maskBack').innerHTML = "Вернуть" }, 3000)
     }
 }
-
-
 
 let maskBackHide = document.createElement('span')
 maskBackHide.id = "maskBackHide"
@@ -1508,9 +1539,6 @@ maskBackHide.onclick = function () {
             }
         }
 }
-
-
-
 
 hashBut.onclick = function () {
     adr = document.location.href
@@ -1606,6 +1634,13 @@ wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top:
 wintGrList.style.display = 'none';
 wintGrList.setAttribute('id', 'AF_GrList');
 wintGrList.innerHTML = win_GrList;
+
+let wintMarks = document.createElement('div'); // создание окна ссылок
+document.body.append(wintMarks);
+wintMarks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMarks') + 'px; left: ' + localStorage.getItem('winLeftMarks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintMarks.style.display = 'none';
+wintMarks.setAttribute('id', 'AF_Marks');
+wintMarks.innerHTML = win_Marks;
 
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -1747,6 +1782,20 @@ wintGrList.firstElementChild.firstElementChild.firstElementChild.onmousedown = f
     document.addEventListener('mousemove', listener13);
 }
 wintGrList.onmouseup = function () { document.removeEventListener('mousemove', listener13); }
+
+var listener14 = function (e, a) { // сохранение позиции окна доступов
+    wintMarks.style.left = Number(e.clientX - myX14) + "px";
+    wintMarks.style.top = Number(e.clientY - myY14) + "px";
+    localStorage.setItem('winTopMarks', String(Number(e.clientY - myY14)));
+    localStorage.setItem('winLeftMarks', String(Number(e.clientX - myX14)));
+};
+
+wintMarks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX14 = a.layerX;
+    window.myY14 = a.layerY;
+    document.addEventListener('mousemove', listener14);
+}
+wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listener14); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -4621,6 +4670,13 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
+    } 
+
+	document.getElementById('butMarks').onclick = function () {
+        if (document.getElementById('AF_Marks').style.display == '')
+            document.getElementById('AF_Marks').style.display = 'none'
+        else
+            document.getElementById('AF_Marks').style.display = ''
     }
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
@@ -8243,7 +8299,8 @@ function firstLoadPage() {
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
             btnAdd1.insertBefore(butServ, btnAdd1.children[1])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[2])
+            btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
         }, 2000)
 
         setInterval(startTimer, 1000)
