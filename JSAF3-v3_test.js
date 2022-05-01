@@ -365,7 +365,7 @@ var win_Marks =  // описание элементов окна ссылок
 			    </span>
 						
                         <div style="margin: 5px; width: 550px" id="marks_box">
-                                <p id="markstable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
+                                <p id="markstable" style="max-height:400px; margin-left:5px; color:bisque; overflow:auto;"></p>
                         </div>
         </span>
 </div>`;
