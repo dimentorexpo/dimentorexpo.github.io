@@ -357,7 +357,7 @@ var win_Marks =  // описание элементов окна ссылок
                         </div>
 						
 						<div>
-							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации за последние 6 месяцев по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
+							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
 							<button id="findmarksstat">🔎</button>
 							<button id="clearmarksstat">🧹</button>
 						</div>
