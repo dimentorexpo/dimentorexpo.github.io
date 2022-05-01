@@ -4734,7 +4734,7 @@ function move_again_AF() {
 		}
 			flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
 			console.log(count);	
-			document.getElementById('markstable').innerHTML =count;			
+			document.getElementById('markstable').innerHTML = "Оценка 1: " + count[1] + '<br>' + "Оценка 2: " + count[2] + '<br>' + "Оценка 3: " + count[3] + '<br>'+ "Оценка 4: " + count[4] + '<br>' + "Оценка 5: " + count[5] + '<br>';			
 			document.getElementById('useridsearch').value ="";			
 			}
 			
