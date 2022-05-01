@@ -4748,7 +4748,7 @@ function move_again_AF() {
 			if (count[5]==undefined)
 				count[5]=0;
 			markscount = (count[1]+count[2]+count[3]+count[4]+count[5]);
-			document.getElementById('markstable').innerHTML = 'Оценка 1 🤬: ' + count[1] + ' | ' + (count[1]/markscount)*100  + '<br>' + 'Оценка 2 🤢: ' + count[2] + ' | ' + (count[2]/markscount)*100 '<br>' + 'Оценка 3 😐: ' + count[3] + ' | ' + (count[3]/markscount)*100 '<br>'+ 'Оценка 4 🥴: ' + count[4] + ' | ' + (count[4]/markscount)*100 '<br>' + 'Оценка 5 😊: ' + count[5] + ' | ' + (count[5]/markscount)*100 '<br>' + 'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total ;			
+			document.getElementById('markstable').innerHTML = 'Оценка 1 🤬: ' + count[1] + ' | ' + (count[1]/markscount)*100  + '<br>' + 'Оценка 2 🤢: ' + count[2] + ' | ' + (count[2]/markscount)*100 + '<br>' + 'Оценка 3 😐: ' + count[3] + ' | ' + (count[3]/markscount)*100 + '<br>'+ 'Оценка 4 🥴: ' + count[4] + ' | ' + (count[4]/markscount)*100 + '<br>' + 'Оценка 5 😊: ' + count[5] + ' | ' + (count[5]/markscount)*100 + '<br>' + 'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total ;			
 			document.getElementById('useridsearch').value ="";			
 			}
 			
