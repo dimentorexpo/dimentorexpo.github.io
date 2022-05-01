@@ -4755,7 +4755,7 @@ function move_again_AF() {
                     'Оценка 4 🥴: ' + count[4] + ' ..|.. ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                     'Оценка 5 😊: ' + count[5] + ' ..|.. ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
                     'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
-                    '% оценок к кол-ву обращений:' + ((markscount / datamarks.total) * 100).toFixed(1);
+                    'Соотношение оценок к кол-ву обращений:' + ((markscount / datamarks.total) * 100).toFixed(1) + '%';
                 document.getElementById('useridsearch').value = "";
             }
 
