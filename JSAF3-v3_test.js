@@ -4679,7 +4679,7 @@ function move_again_AF() {
         else {
             document.getElementById('AF_Marks').style.display = ''
             document.getElementById('findmarksstat').onclick = async function () {
-                let tempval = document.getElementById('useridsearch').value;
+                let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
 
                 var date = new Date()
