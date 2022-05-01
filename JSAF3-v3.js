@@ -682,6 +682,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">Corp</button>
                     <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">Landings</button>
                     <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">Mobile bug</button>
+                    <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">Ed Model</button>
                 </div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -798,18 +799,18 @@ var win_servicedesk =
 				
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
-					<button class="kidsbtn" id="skysmartcontent">Контент</button>
-					<button class="kidsbtn" id="skysmartfeedback">Обратная связь</button>
-					<button class="kidsbtn" id="skysmartfamily">Операции с семьёй</button>
-					<button class="kidsbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
 					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
-					<button class="kidsbtn" id="skysmartprogress">Страница прогресса</button>
-					<button class="kidsbtn" id="skysmartcabinet">Детский ЛКУ</button>
-					<button class="kidsbtn" id="skysmartcertificate">Сертификаты</button>
-					<button class="kidsbtn" id="skysmartgroup">Групповые и параллельные уроки</button>
-					<button class="kidsbtn" id="skysmartpages">Страницы skysmart</button>
-					<button class="kidsbtn" id="skysmartappparents">Приложение skysmart parents</button>
+					<button class="kidsbtn" id="skysmartgroup">Групп и параллельные уроки</button>
 					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
+				</div>	
+
+				<div id="edumodeloptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#em-qa-support: Канал для обращений по функционалу Educational Model</p>
+					<button class="edumodbtn" id="edumgoal">Анкета целей</button>
+					<button class="edumodbtn" id="skysmartfeedback">Сертификаты</button>
+					<button class="edumodbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
+					<button class="edumodbtn" id="skysmartprogress">Страница прогресса</button>
+					<button class="edumodbtn" id="skysmartpages">Обратная связь</button>
 				</div>
 				
 				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
@@ -1141,6 +1142,20 @@ var win_servicedesk =
 					<textarea id="customfield_96" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_19" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="edumodelform" style="display: none; margin-left:20px;">
+					<input id="customfield_97" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_98" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_99" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_100" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_101" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_20" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 			
 </span>
@@ -4009,6 +4024,7 @@ function move_again_AF() {
 
             $('.teacbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4032,6 +4048,31 @@ function move_again_AF() {
 
             $('.kidsbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+			
+			$('.edumodbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4055,6 +4096,7 @@ function move_again_AF() {
 
             $('.bilqabtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4078,6 +4120,7 @@ function move_again_AF() {
 
             $('.c1sbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4101,6 +4144,7 @@ function move_again_AF() {
 
             $('.schdbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4124,6 +4168,7 @@ function move_again_AF() {
 
             $('.telepbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4147,6 +4192,7 @@ function move_again_AF() {
 
             $('.authbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4170,6 +4216,7 @@ function move_again_AF() {
 
             $('.crm2sbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4193,6 +4240,7 @@ function move_again_AF() {
 
             $('.mrktbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4216,6 +4264,7 @@ function move_again_AF() {
 
             $('.billbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4239,6 +4288,7 @@ function move_again_AF() {
 
             $('.vimbugsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4262,6 +4312,7 @@ function move_again_AF() {
 
             $('.vimvidsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4285,6 +4336,7 @@ function move_again_AF() {
 
             $('.studcabbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4308,6 +4360,7 @@ function move_again_AF() {
 
             $('.chatqabtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4331,6 +4384,7 @@ function move_again_AF() {
 
             $('.tripwbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4354,6 +4408,7 @@ function move_again_AF() {
 
             $('.analystbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4377,6 +4432,7 @@ function move_again_AF() {
 
             $('.corpbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4400,6 +4456,7 @@ function move_again_AF() {
 
             $('.marketingbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4423,6 +4480,7 @@ function move_again_AF() {
 
             $('.mobbugsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
+				$('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -6332,7 +6390,7 @@ butteachidfstd.addEventListener('click', function () {
 
 function checJiraF() {
 	try {
-    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null || document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
+    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
         document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
@@ -6346,7 +6404,7 @@ function checJiraF() {
                 console.log("DONE!")
             }
         }
-    } else if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null || document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
+    } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") !=null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
         document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU") .onclick = function () {
             if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU") .innerText != "Пусто") {
                 sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
@@ -6380,21 +6438,25 @@ function checkthemestatus() {
 				document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
+				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "15px;"
 			} else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
 				document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
+				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "15px;"
 			} else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
 				document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
+				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "12px;"
 			} else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
 				document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"// перекрасить в красный цвет поле где Пусто
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
 				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
+				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "12px;"
 			} 
 	} 
 	} catch (e) { }

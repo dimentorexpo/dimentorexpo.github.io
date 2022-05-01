@@ -230,6 +230,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.teacbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -253,6 +254,31 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.kidsbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
+		$('.bilqabtn').not(this).removeClass('activebtn');
+		$('.teacbtn').not(this).removeClass('activebtn');
+		$('.c1sbtn').not(this).removeClass('activebtn');
+		$('.schdbtn').not(this).removeClass('activebtn');
+		$('.telepbtn').not(this).removeClass('activebtn');
+		$('.authbtn').not(this).removeClass('activebtn');
+		$('.crm2sbtn').not(this).removeClass('activebtn');
+		$('.mrktbtn').not(this).removeClass('activebtn');
+		$('.billbtn').not(this).removeClass('activebtn');
+		$('.vimbugsbtn').not(this).removeClass('activebtn');
+		$('.vimvidsbtn').not(this).removeClass('activebtn');
+		$('.studcabbtn').not(this).removeClass('activebtn');
+		$('.chatqabtn').not(this).removeClass('activebtn');
+		$('.tripwbtn').not(this).removeClass('activebtn');
+		$('.analystbtn').not(this).removeClass('activebtn');
+		$('.corpbtn').not(this).removeClass('activebtn');
+		$('.marketingbtn').not(this).removeClass('activebtn');
+		$('.mobbugsbtn').not(this).removeClass('activebtn');
+		$(this).toggleClass('activebtn');
+	});	
+	
+	$('.edumodbtn').click(function () {
+		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -276,6 +302,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.bilqabtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -299,6 +326,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.c1sbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -322,6 +350,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.schdbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -345,6 +374,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.telepbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -368,6 +398,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.authbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -391,6 +422,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.crm2sbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -414,6 +446,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.mrktbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -437,6 +470,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.billbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -460,6 +494,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.vimbugsbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -483,6 +518,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.vimvidsbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -506,6 +542,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.studcabbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -529,6 +566,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.chatqabtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -552,6 +590,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.tripwbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -575,6 +614,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.analystbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -598,6 +638,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.corpbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -621,6 +662,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.marketingbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -644,6 +686,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.mobbugsbtn').click(function () {  //поправить
 		$('.kidsbtn').not(this).removeClass('activebtn');
+		$('.edumodbtn').not(this).removeClass('activebtn');
 		$('.bilqabtn').not(this).removeClass('activebtn');
 		$('.teacbtn').not(this).removeClass('activebtn');
 		$('.c1sbtn').not(this).removeClass('activebtn');
@@ -688,7 +731,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -1205,7 +1250,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -1235,127 +1282,7 @@ document.getElementById('servDsk').onclick = function () {
 				erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
 				let ary = document.getElementById('customfield_5').value;
 				ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
-					console.log("Операции с семьей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/822";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpersotrackprogress').textContent) {
-					console.log("Персотреки и виджет прогресса: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/905",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/905";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfeedback').textContent) {
-					console.log("Обратная связь: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/819",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/819";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcontent').textContent) {
-					console.log("Контент: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/890",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/890";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
+				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
 					console.log("Страница ДЗ и тестов: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -1384,97 +1311,7 @@ document.getElementById('servDsk').onclick = function () {
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartprogress').textContent) {
-					console.log("Страница прогресса: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/818",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/818";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcabinet').textContent) {
-					console.log("Детский ЛКУ: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/821",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					 "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/821";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcertificate').textContent) {
-					console.log("Сертификаты: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/820",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/820";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
+					
 				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartgroup').textContent) {
 					console.log("Групповые и параллельные уроки: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1493,66 +1330,6 @@ document.getElementById('servDsk').onclick = function () {
 					  "credentials": "include"
 					  }`
 					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/816";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpages').textContent) {
-					console.log("Страницы skysmart: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/824",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					 "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/824";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					document.getElementById('customfield_1').value = "";
-					document.getElementById('customfield_2').value = "";
-					document.getElementById('customfield_3').value = "";
-					document.getElementById('customfield_4').value = "";
-					document.getElementById('customfield_5').value = "";
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartappparents').textContent) {
-					console.log("Приложение skysmart parents: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/823",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/823";
 					document.getElementById('responseTextarea3').value = ''
 					document.getElementById('sendResponse').click()
 
@@ -1603,7 +1380,221 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('kidsform').style.display = 'none';
 		}
 	}
+	
+	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS
+		if (document.getElementById('edumodeloptions').style.display != '') {
+			document.getElementById('edumodeloptions').style.display = '';
+			document.getElementById('edumodelform').style.display = '';
 
+			document.getElementById('teachersform').style.display = 'none';
+			document.getElementById('onboardingform').style.display = 'none';
+			document.getElementById('billqaform').style.display = 'none';
+			document.getElementById('scheduleform').style.display = 'none';
+			document.getElementById('billingform').style.display = 'none';
+			document.getElementById('mrktform').style.display = 'none';
+			document.getElementById('crm2form').style.display = 'none';
+			document.getElementById('authform').style.display = 'none';
+			document.getElementById('telephonyform').style.display = 'none';
+			document.getElementById('vimbugsform').style.display = 'none';
+			document.getElementById('vimvideocallform').style.display = 'none';
+			document.getElementById('studcabform').style.display = 'none';
+			document.getElementById('chatform').style.display = 'none';
+			document.getElementById('tripwireform').style.display = 'none';
+			document.getElementById('analystform').style.display = 'none';
+			document.getElementById('corpform').style.display = 'none';
+			document.getElementById('marketingform').style.display = 'none';
+			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('kidsform').style.display = 'none';
+
+			document.getElementById('mobbugsoptions').style.display = 'none';
+			document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+			document.getElementById('marketingptions').style.display = 'none';
+			document.getElementById('corpoptions').style.display = 'none';
+			document.getElementById('analystoptions').style.display = 'none';
+			document.getElementById('tripwireoptions').style.display = 'none';
+			document.getElementById('chatqaoptions').style.display = 'none';
+			document.getElementById('studcaboptions').style.display = 'none';
+			document.getElementById('vimvidoptions').style.display = 'none';
+			document.getElementById('vimbugsoptions').style.display = 'none';
+			document.getElementById('teacherssrvdskoptions').style.display = 'none';
+			document.getElementById('billingqasrvdskoptions').style.display = 'none';
+			document.getElementById('c1srvdskoptions').style.display = 'none';
+			document.getElementById('schedulesrvdskoptions').style.display = 'none';
+			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			document.getElementById('authsrvdskoptions').style.display = 'none';
+			document.getElementById('crm2srvdskoptions').style.display = 'none';
+			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			document.getElementById('billingsrvdskoptions').style.display = 'none';
+
+			document.getElementById('create_20').onclick = function () {
+				let idstdserv = document.getElementById('customfield_97').value;
+				let dscr = document.getElementById('customfield_98').value;
+				dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+				let str = document.getElementById('customfield_99').value;
+				str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+				let erx = document.getElementById('customfield_100').value;
+				erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+				let ary = document.getElementById('customfield_101').value;
+				ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
+					console.log("Анкета целей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/983",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/983";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					document.getElementById('customfield_97').value = "";
+					document.getElementById('customfield_98').value = "";
+					document.getElementById('customfield_99').value = "";
+					document.getElementById('customfield_100').value = "";
+					document.getElementById('customfield_101').value = "";
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartpersotrackprogress').textContent) {
+					console.log("Персотреки и виджет прогресса: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/980",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/980";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					document.getElementById('customfield_97').value = "";
+					document.getElementById('customfield_98').value = "";
+					document.getElementById('customfield_99').value = "";
+					document.getElementById('customfield_100').value = "";
+					document.getElementById('customfield_101').value = "";
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfeedback').textContent) {
+					console.log("Обратная связь: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/979",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/979";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					document.getElementById('customfield_97').value = "";
+					document.getElementById('customfield_98').value = "";
+					document.getElementById('customfield_99').value = "";
+					document.getElementById('customfield_100').value = "";
+					document.getElementById('customfield_101').value = "";
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartprogress').textContent) {
+					console.log("Страница прогресса: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/981",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/981";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					document.getElementById('customfield_97').value = "";
+					document.getElementById('customfield_98').value = "";
+					document.getElementById('customfield_99').value = "";
+					document.getElementById('customfield_100').value = "";
+					document.getElementById('customfield_101').value = "";
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartcertificate').textContent) {
+					console.log("Сертификаты: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/982",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					   "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/982";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					document.getElementById('customfield_97').value = "";
+					document.getElementById('customfield_98').value = "";
+					document.getElementById('customfield_99').value = "";
+					document.getElementById('customfield_100').value = "";
+					document.getElementById('customfield_101').value = "";
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+
+				} else
+					console.log("Not found")
+			}
+		} else {
+			document.getElementById('edumodeloptions').style.display = 'none';  // подумать как поправить
+			document.getElementById('edumodelform').style.display = 'none';
+		}
+	}
+	
 	document.getElementById('optionBillingQA').onclick = function () { //BillingQA
 		if (document.getElementById('billingqasrvdskoptions').style.display != '') {
 			document.getElementById('billingqasrvdskoptions').style.display = '';
@@ -1627,7 +1618,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -1750,7 +1743,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -1844,7 +1839,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -2027,7 +2024,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -2243,7 +2242,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -2604,7 +2605,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -2908,7 +2911,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -3361,7 +3366,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -3838,7 +3845,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -4824,7 +4833,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -5129,7 +5140,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -5223,7 +5236,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -5317,7 +5332,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -5411,7 +5428,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -5505,7 +5524,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('analystform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('analystoptions').style.display = 'none';
@@ -5599,7 +5620,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('analystform').style.display = 'none';
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('mobileform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
 			document.getElementById('analystoptions').style.display = 'none';
@@ -5693,7 +5716,9 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('analystform').style.display = 'none';
 			document.getElementById('corpform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
+			document.getElementById('edumodelform').style.display = 'none';
 
+			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
 			document.getElementById('analystoptions').style.display = 'none';
