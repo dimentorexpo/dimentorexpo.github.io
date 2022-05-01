@@ -4734,7 +4734,7 @@ function move_again_AF() {
 		}
 			flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
 			console.log(count);	
-			document.getElementById('markstable').innerHTML =flagok;			
+			document.getElementById('markstable').innerHTML =count;			
 			document.getElementById('useridsearch').value ="";			
 			}
 			
