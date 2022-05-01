@@ -4681,7 +4681,6 @@ function move_again_AF() {
 				let tempval = document.getElementById('useridsearch').value;
 				
 				    var date = new Date()
-					date2.setTime(date - 8 * 60 * 60 * 1000)
 
 					day = month = ""
 					if (date.getMonth() < 9)
