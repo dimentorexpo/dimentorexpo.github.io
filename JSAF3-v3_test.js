@@ -4729,6 +4729,7 @@ function move_again_AF() {
 		}).then(r=>r.json()).then(r=>datamarks=r)
 
 		let count = {};
+		let markscount=0;
 		let flagok=[];
 		for (let i=0; i<datamarks.items.length;i++) {
 			if (datamarks.items[i].stats.rate !=undefined)
@@ -4746,7 +4747,8 @@ function move_again_AF() {
 				count[4]=0;
 			if (count[5]==undefined)
 				count[5]=0;
-			document.getElementById('markstable').innerHTML = 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>'+ 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + 'Всего оценок: ' + (count[1]+count[2]+count[3]+count[4]+count[5]) + '<br>' + 'Обращений с начала года: ' + datamarks.total ;			
+			markscount = (count[1]+count[2]+count[3]+count[4]+count[5]);
+			document.getElementById('markstable').innerHTML = 'Оценка 1 🤬: ' + count[1] + ' | ' + (count[1]/markscount)*100  + '<br>' + 'Оценка 2 🤢: ' + count[2] + ' | ' + (count[2]/markscount)*100 '<br>' + 'Оценка 3 😐: ' + count[3] + ' | ' + (count[3]/markscount)*100 '<br>'+ 'Оценка 4 🥴: ' + count[4] + ' | ' + (count[4]/markscount)*100 '<br>' + 'Оценка 5 😊: ' + count[5] + ' | ' + (count[5]/markscount)*100 '<br>' + 'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total ;			
 			document.getElementById('useridsearch').value ="";			
 			}
 			
