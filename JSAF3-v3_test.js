@@ -4734,6 +4734,16 @@ function move_again_AF() {
 		}
 			flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
 			console.log(count);	
+			if (count[1]==undefined)
+				count[1]=0;
+			if (count[2]==undefined)
+				count[2]=0;
+			if (count[3]==undefined)
+				count[3]=0;
+			if (count[4]==undefined)
+				count[4]=0;
+			if (count[5]==undefined)
+				count[5]=0;
 			document.getElementById('markstable').innerHTML = "Оценка 1: " + count[1] + '<br>' + "Оценка 2: " + count[2] + '<br>' + "Оценка 3: " + count[3] + '<br>'+ "Оценка 4: " + count[4] + '<br>' + "Оценка 5: " + count[5] + '<br>';			
 			document.getElementById('useridsearch').value ="";			
 			}
