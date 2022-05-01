@@ -4675,8 +4675,70 @@ function move_again_AF() {
 	document.getElementById('butMarks').onclick = function () {
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
-        else
+        else {
             document.getElementById('AF_Marks').style.display = ''
+			document.getElementById('findmarksstat').onclick = function() {
+				let tempval = document.getElementById('useridsearch').value;
+				
+				    var date = new Date()
+					date2.setTime(date - 8 * 60 * 60 * 1000)
+
+					day = month = ""
+					if (date.getMonth() < 9)
+						month = "0" + (date.getMonth() + 1)
+					else
+						month = (date.getMonth() + 1)
+					if (date.getDate() < 10)
+						day = "0" + date.getDate()
+					else
+						day = date.getDate()
+					if (date.getHours() < 10)
+						hours = '0' + date.getHours()
+					else
+						hours = date.getHours()
+					if (date.getMinutes() < 10)
+						minutes = '0' + date.getMinutes()
+					else
+						minutes = date.getMinutes()
+					if (date.getSeconds() < 10)
+						seconds = '0' + date.getSeconds()
+					else
+						seconds = date.getSeconds()
+
+					secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
+	
+			await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+		  "headers": {
+			"accept": "*/*",
+			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"content-type": "application/json",
+			"sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
+			"sec-ch-ua-mobile": "?0",
+			"sec-ch-ua-platform": "\"Windows\"",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\""+tempval+"\",\"tsFrom\":\"2022-01-01T00:00:00.000Z\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		}).then(r=>r.json()).then(r=>testo=r)
+
+		let count = {};
+		let flagok=[];
+		for (let i=0; i<testo.items.length;i++) {
+			if (testo.items[i].stats.rate !=undefined)
+				flagok.push(testo.items[i].stats.rate.rate)
+		}
+			flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+			console.log(count);			
+			}
+			
+			document.getElementById('useridsearch').value ="";
+		}
     }
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
