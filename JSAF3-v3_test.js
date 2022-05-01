@@ -357,7 +357,7 @@ var win_Marks =  // описание элементов окна ссылок
                         </div>
 						
 						<div>
-							<input id="useridsearch" placeholder="ID У/П для поиска статистики оценок" title="Ввведите ID ученика или учителя для получения информации за последние 6 месяцев по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 200px; color: black;margin-left:5px">
+							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации за последние 6 месяцев по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 240px; color: black;margin-left:5px">
 							<button id="findmarksstat">Найти</button>
 						</div>
 						
@@ -4701,6 +4701,13 @@ function move_again_AF() {
             document.getElementById('AF_Jira').style.display = 'none'
         else
             document.getElementById('AF_Jira').style.display = ''
+    }
+
+    document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Marks').style.display == '')
+            document.getElementById('AF_Marks').style.display = 'none'
+        else
+            document.getElementById('AF_Marks').style.display = ''
     }
 
     document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
