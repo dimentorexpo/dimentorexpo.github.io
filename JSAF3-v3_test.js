@@ -1443,6 +1443,12 @@ marksstata.onclick = async function() {
                     'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
                     'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%';
                 document.getElementById('useridsearch').value = "";
+				
+		    document.getElementById('clearmarksstat').onclick = function () {
+                document.getElementById('markstable').innerHTML = "";
+            }
+			
+			
         }
 
 buttonnextstudentid.onclick = function () {
