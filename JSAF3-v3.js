@@ -348,6 +348,29 @@ var win_Jira =  // описание элементов окна ссылок
         </span>
 </div>`;
 
+var win_Marks =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 300px;">
+        <span style="width: 300px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 300px;" id="jira_1str">
+                                <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+						
+						<div>
+							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
+							<button id="findmarksstat">🔎</button>
+							<button id="clearmarksstat">🧹</button>
+						</div>
+						
+						
+			    </span>
+						
+                        <div style="margin: 5px; width: 550px" id="marks_box">
+                                <p id="markstable" style="max-height:400px; margin-left:5px; color:bisque; overflow:auto;"></p>
+                        </div>
+        </span>
+</div>`;
+
 var win_Stat =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -1234,6 +1257,11 @@ if (localStorage.getItem('winTopGrList') == null) { // началоное пол
     localStorage.setItem('winLeftGrList', '295');
 }
 
+if (localStorage.getItem('winTopMarks') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+    localStorage.setItem('winTopMarks', '120');
+    localStorage.setItem('winLeftMarks', '295');
+}
+
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
     localStorage.setItem('aclstime', 12);
@@ -1438,6 +1466,12 @@ butServ.innerHTML = "⚜"
 butServ.style.marginRight = "15px";
 butServ.style.cursor = "pointer";
 
+let butMarks = document.createElement('div')
+butMarks.id = "butMarks"
+butMarks.innerHTML = "📊"
+butMarks.style.marginRight = "15px";
+butMarks.style.cursor = "pointer";
+
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "SD"
@@ -1468,8 +1502,6 @@ maskBack.onclick = function () {
         setTimeout(function () { document.getElementById('maskBack').innerHTML = "Вернуть" }, 3000)
     }
 }
-
-
 
 let maskBackHide = document.createElement('span')
 maskBackHide.id = "maskBackHide"
@@ -1508,9 +1540,6 @@ maskBackHide.onclick = function () {
             }
         }
 }
-
-
-
 
 hashBut.onclick = function () {
     adr = document.location.href
@@ -1606,6 +1635,13 @@ wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top:
 wintGrList.style.display = 'none';
 wintGrList.setAttribute('id', 'AF_GrList');
 wintGrList.innerHTML = win_GrList;
+
+let wintMarks = document.createElement('div'); // создание окна ссылок
+document.body.append(wintMarks);
+wintMarks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMarks') + 'px; left: ' + localStorage.getItem('winLeftMarks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintMarks.style.display = 'none';
+wintMarks.setAttribute('id', 'AF_Marks');
+wintMarks.innerHTML = win_Marks;
 
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -1747,6 +1783,20 @@ wintGrList.firstElementChild.firstElementChild.firstElementChild.onmousedown = f
     document.addEventListener('mousemove', listener13);
 }
 wintGrList.onmouseup = function () { document.removeEventListener('mousemove', listener13); }
+
+var listener14 = function (e, a) { // сохранение позиции окна доступов
+    wintMarks.style.left = Number(e.clientX - myX14) + "px";
+    wintMarks.style.top = Number(e.clientY - myY14) + "px";
+    localStorage.setItem('winTopMarks', String(Number(e.clientY - myY14)));
+    localStorage.setItem('winLeftMarks', String(Number(e.clientX - myX14)));
+};
+
+wintMarks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX14 = a.layerX;
+    window.myY14 = a.layerY;
+    document.addEventListener('mousemove', listener14);
+}
+wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listener14); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -3832,8 +3882,8 @@ function move_again_AF() {
                     } else {
                         issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?.)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
                     }
-                } 
-  
+                }
+
                 document.getElementById('issuetable').innerHTML = issues;
 
                 let barray = document.querySelectorAll('.jiraissues');
@@ -4024,7 +4074,7 @@ function move_again_AF() {
 
             $('.teacbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4048,7 +4098,7 @@ function move_again_AF() {
 
             $('.kidsbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4069,8 +4119,8 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
-			
-			$('.edumodbtn').click(function () {
+
+            $('.edumodbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
                 $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
@@ -4096,7 +4146,7 @@ function move_again_AF() {
 
             $('.bilqabtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4120,7 +4170,7 @@ function move_again_AF() {
 
             $('.c1sbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4144,7 +4194,7 @@ function move_again_AF() {
 
             $('.schdbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4168,7 +4218,7 @@ function move_again_AF() {
 
             $('.telepbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4192,7 +4242,7 @@ function move_again_AF() {
 
             $('.authbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4216,7 +4266,7 @@ function move_again_AF() {
 
             $('.crm2sbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4240,7 +4290,7 @@ function move_again_AF() {
 
             $('.mrktbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4264,7 +4314,7 @@ function move_again_AF() {
 
             $('.billbtn').click(function () {
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4288,7 +4338,7 @@ function move_again_AF() {
 
             $('.vimbugsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4312,7 +4362,7 @@ function move_again_AF() {
 
             $('.vimvidsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4336,7 +4386,7 @@ function move_again_AF() {
 
             $('.studcabbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4360,7 +4410,7 @@ function move_again_AF() {
 
             $('.chatqabtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4384,7 +4434,7 @@ function move_again_AF() {
 
             $('.tripwbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4408,7 +4458,7 @@ function move_again_AF() {
 
             $('.analystbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4432,7 +4482,7 @@ function move_again_AF() {
 
             $('.corpbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4456,7 +4506,7 @@ function move_again_AF() {
 
             $('.marketingbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4480,7 +4530,7 @@ function move_again_AF() {
 
             $('.mobbugsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
-				$('.edumodbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
                 $('.teacbtn').not(this).removeClass('activebtn');
                 $('.c1sbtn').not(this).removeClass('activebtn');
@@ -4623,6 +4673,98 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = ''
     }
 
+    document.getElementById('butMarks').onclick = function () {
+        if (document.getElementById('AF_Marks').style.display == '')
+            document.getElementById('AF_Marks').style.display = 'none'
+        else {
+            document.getElementById('AF_Marks').style.display = ''
+            document.getElementById('findmarksstat').onclick = async function () {
+                let tempval = document.getElementById('useridsearch').value.trim();
+                document.getElementById('markstable').innerText = "Загрузка..."
+
+                var date = new Date()
+
+                day = month = ""
+                if (date.getMonth() < 9)
+                    month = "0" + (date.getMonth() + 1)
+                else
+                    month = (date.getMonth() + 1)
+                if (date.getDate() < 10)
+                    day = "0" + date.getDate()
+                else
+                    day = date.getDate()
+                if (date.getHours() < 10)
+                    hours = '0' + date.getHours()
+                else
+                    hours = date.getHours()
+                if (date.getMinutes() < 10)
+                    minutes = '0' + date.getMinutes()
+                else
+                    minutes = date.getMinutes()
+                if (date.getSeconds() < 10)
+                    seconds = '0' + date.getSeconds()
+                else
+                    seconds = date.getSeconds()
+
+                secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
+
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                    "headers": {
+                        "accept": "*/*",
+                        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                        "content-type": "application/json",
+                        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
+                        "sec-ch-ua-mobile": "?0",
+                        "sec-ch-ua-platform": "\"Windows\"",
+                        "sec-fetch-dest": "empty",
+                        "sec-fetch-mode": "cors",
+                        "sec-fetch-site": "same-origin"
+                    },
+                    "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+                    "referrerPolicy": "strict-origin-when-cross-origin",
+                    "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\"2022-01-01T00:00:00.000Z\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => datamarks = r)
+
+                let count = {};
+                let markscount = 0;
+                let flagok = [];
+                for (let i = 0; i < datamarks.items.length; i++) {
+                    if (datamarks.items[i].stats.rate != undefined)
+                        flagok.push(datamarks.items[i].stats.rate.rate)
+                }
+                flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+                console.log(count);
+                if (count[1] == undefined)
+                    count[1] = 0;
+                if (count[2] == undefined)
+                    count[2] = 0;
+                if (count[3] == undefined)
+                    count[3] = 0;
+                if (count[4] == undefined)
+                    count[4] = 0;
+                if (count[5] == undefined)
+                    count[5] = 0;
+                markscount = (count[1] + count[2] + count[3] + count[4] + count[5]);
+                document.getElementById('markstable').innerHTML = 'Пользователь 🕵️‍♀️: ' + tempval + '<br>' +
+                    'Оценка 1 🤬: ' + count[1] + ' ...... ' + ((count[1] / markscount) * 100).toFixed(1) + '%' + '<br>' +
+                    'Оценка 2 🤢: ' + count[2] + ' ...... ' + ((count[2] / markscount) * 100).toFixed(1) + "%" + '<br>' +
+                    'Оценка 3 😐: ' + count[3] + ' ...... ' + ((count[3] / markscount) * 100).toFixed(1) + "%" + '<br>' +
+                    'Оценка 4 🥴: ' + count[4] + ' ...... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
+                    'Оценка 5 😊: ' + count[5] + ' ...... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
+                    'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
+                    'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%';
+                document.getElementById('useridsearch').value = "";
+            }
+
+            document.getElementById('clearmarksstat').onclick = function () {
+                document.getElementById('markstable').innerHTML = "";
+            }
+        }
+    }
+
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
@@ -4645,6 +4787,13 @@ function move_again_AF() {
             document.getElementById('AF_Jira').style.display = 'none'
         else
             document.getElementById('AF_Jira').style.display = ''
+    }
+
+    document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Marks').style.display == '')
+            document.getElementById('AF_Marks').style.display = 'none'
+        else
+            document.getElementById('AF_Marks').style.display = ''
     }
 
     document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
@@ -6389,83 +6538,83 @@ butteachidfstd.addEventListener('click', function () {
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
 
 function checJiraF() {
-	try {
-    if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") !=null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
-        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
-                console.log("DONE!")
+    try {
+        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
+            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                    console.log("DONE!")
+                }
             }
-        }
 
-        document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
-                console.log("DONE!")
+            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                    console.log("DONE!")
+                }
             }
-        }
-    } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") !=null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
-        document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU") .innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
-                console.log("DONE!")
+        } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
+            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                    console.log("DONE!")
+                }
             }
-        }
 
-        document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-            if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
-                sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
-                console.log("DONE!")
+            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                    console.log("DONE!")
+                }
             }
         }
-	}
-	} catch (e) { }
+    } catch (e) { }
 }
-     
+
 setInterval(checJiraF, 1000);
 
 function checkthemestatus() {
-	try {
-	if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/')[2] != "assigned") 
-		console.log("not active chats")
-	else {
-		let temparr = document.location.pathname.split('/')[3];
-		fetch("https://skyeng.autofaq.ai/api/conversations/"+temparr, {
-		}).then(r=>r.json()).then(r=>pldata=r)
+    try {
+        if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/')[2] != "assigned")
+            console.log("not active chats")
+        else {
+            let temparr = document.location.pathname.split('/')[3];
+            fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
+            }).then(r => r.json()).then(r => pldata = r)
 
-			if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
-				document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
-				document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "15px;"
-			} else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
-				document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
-				document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "15px;"
-			} else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
-				document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
-				document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "12px;"
-			} else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
-				document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
-				document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"// перекрасить в красный цвет поле где Пусто
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
-				document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "12px;"
-			} 
-	} 
-	} catch (e) { }
+            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
+                document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
+                document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "15px;"
+            } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
+                document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
+                document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "15px;"
+            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
+                document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
+                document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "12px;"
+            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
+                document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
+                document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"// перекрасить в красный цвет поле где Пусто
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
+                document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "12px;"
+            }
+        }
+    } catch (e) { }
 }
 
 setInterval(checkthemestatus, 3000);
 
 function paintstatus() {
-    if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null) {
+    if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[1].style.background = "red";
@@ -6476,7 +6625,7 @@ function paintstatus() {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
             document.querySelectorAll('.ant-btn')[1].style.background = "yellow";
         }
-    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] !=null)  {
+    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             document.querySelectorAll('.ant-btn')[2].style.background = "red";
@@ -6745,7 +6894,7 @@ document.getElementById('gofindit').onclick = async function () {
                                 tagflag = "Задача передана в SC"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_tc")
                                 tagflag = "Задача передана в TC"
-							else tagflag = "Нет темы/ др тема/2+"
+                            else tagflag = "Нет темы/ др тема/2+"
 
                             timestmp = new Date(data.messages[0].ts);
                             if ((timestmp.getUTCHours() + 3) < 10)
@@ -6808,6 +6957,8 @@ document.getElementById('clearall').onclick = function () {
     document.querySelector('#commenttosearch').value = ""
     document.querySelector('#themesdata').innerText = ""
 }
+
+
 
 document.getElementById('clearlessonstatus').onclick = function () {
     if (confirm("Вы уверены, что хотите очистить?")) {
@@ -8243,7 +8394,8 @@ function firstLoadPage() {
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
             btnAdd1.insertBefore(butServ, btnAdd1.children[1])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[2])
+            btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
         }, 2000)
 
         setInterval(startTimer, 1000)
