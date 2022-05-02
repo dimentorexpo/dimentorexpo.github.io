@@ -1447,8 +1447,6 @@ marksstata.onclick = async function() {
                 document.getElementById('markstable').innerHTML = "";
             }
         }
-	
-}
 
 buttonnextstudentid.onclick = function () {
     if (document.querySelector('#hide_or_display').textContent != "свернуть") {
