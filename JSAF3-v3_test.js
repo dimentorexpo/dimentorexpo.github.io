@@ -1389,6 +1389,8 @@ marksstata.onclick = async function() {
 				 for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
 				                document.getElementById('useridsearch').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+				 }
+				 let tempval = document.getElementById('useridsearch').value;
 							 findmarksstat.click();
 							 document.getElementById('markstable').innerText = "Загрузка..."
 
@@ -1441,11 +1443,6 @@ marksstata.onclick = async function() {
                     'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
                     'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%';
                 document.getElementById('useridsearch').value = "";
-            }
-
-            document.getElementById('clearmarksstat').onclick = function () {
-                document.getElementById('markstable').innerHTML = "";
-            }
         }
 
 buttonnextstudentid.onclick = function () {
