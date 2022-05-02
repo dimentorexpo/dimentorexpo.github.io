@@ -1355,7 +1355,7 @@ buttonhistory.onclick = function () { //функция приска пр ист�
     }
 }
 
-marksstata.onclick = function() {
+marksstata.onclick = async function() {
 	
 	 if (document.getElementById('AF_Marks').style.display == 'none')
             document.getElementById('AF_Marks').style.display = ''
