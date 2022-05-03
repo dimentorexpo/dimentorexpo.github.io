@@ -1409,10 +1409,13 @@ marksstata.onclick = async function () {
     }).then(r => r.json()).then(r => datamarks = r)
 
     let count = {};
+    let clswoutmark = 0;
     let markscount = 0;
     let flagok = [];
     for (let i = 0; i < datamarks.items.length; i++) {
-        if (datamarks.items[i].stats.rate != undefined)
+        if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate == undefined)
+            clswoutmark++;
+        if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate != undefined)
             flagok.push(datamarks.items[i].stats.rate.rate)
     }
     flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
@@ -1435,14 +1438,14 @@ marksstata.onclick = async function () {
         'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
         'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
         'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
-        'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%';
+        'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
+        'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
+        'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
     document.getElementById('useridsearch').value = "";
 
     document.getElementById('clearmarksstat').onclick = function () {
         document.getElementById('markstable').innerHTML = "";
     }
-
-
 }
 
 buttonnextstudentid.onclick = function () {
@@ -4822,10 +4825,13 @@ function move_again_AF() {
                 }).then(r => r.json()).then(r => datamarks = r)
 
                 let count = {};
+                let clswoutmark = 0;
                 let markscount = 0;
                 let flagok = [];
                 for (let i = 0; i < datamarks.items.length; i++) {
-                    if (datamarks.items[i].stats.rate != undefined)
+                    if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate == undefined)
+                        clswoutmark++;
+                    if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate != undefined)
                         flagok.push(datamarks.items[i].stats.rate.rate)
                 }
                 flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
@@ -4848,7 +4854,9 @@ function move_again_AF() {
                     'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                     'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
                     'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
-                    'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%';
+                    'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
+                    'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
+                    'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
                 document.getElementById('useridsearch').value = "";
             }
 
