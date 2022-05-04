@@ -8493,7 +8493,7 @@ async function checkCSAT() {             // функция проверки CSAT
                     })
                 if (flagCsat == 1)
                     if (test.items[i].stats.rate != undefined)
-                        if (test.items[i].stats.rate.rate != undefined) {
+                        if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 4) {
                             csatScore += test.items[i].stats.rate.rate
                             csatCount++
                             flagok.push(test.items[i].stats.rate.rate)
