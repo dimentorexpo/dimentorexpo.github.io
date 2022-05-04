@@ -8474,6 +8474,8 @@ async function checkCSAT() {             // функция проверки CSAT
             for (let i = 0; i < test.items.length; i++) {
                 let flagCsat = 0
                 let flagTopic = 0
+                let count = {};
+                let flagok = [];
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
@@ -8490,10 +8492,14 @@ async function checkCSAT() {             // функция проверки CSAT
                         if (test.items[i].stats.rate.rate != undefined) {
                             csatScore += test.items[i].stats.rate.rate
                             csatCount++
+                            flagok.push(testo.items[i].stats.rate.rate)
                         }
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
             }
+
+            flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+            console.log(count);
 
             if (stringChatsWithoutTopic == "")
                 stringChatsWithoutTopic = ' нет таких'
