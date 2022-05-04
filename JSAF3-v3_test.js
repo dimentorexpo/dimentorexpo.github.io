@@ -8492,7 +8492,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         if (test.items[i].stats.rate.rate != undefined) {
                             csatScore += test.items[i].stats.rate.rate
                             csatCount++
-                            flagok.push(testo.items[i].stats.rate.rate)
+                            flagok.push(test.items[i].stats.rate.rate)
                         }
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
