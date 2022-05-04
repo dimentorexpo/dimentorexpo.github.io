@@ -8502,7 +8502,7 @@ async function checkCSAT() {             // функция проверки CSAT
                 page = 2
             } else {
                 if (stringChatsWithoutTopic == "")
-                    stringChatsWithoutTopic = ' нет таких'
+                    stringChatsWithoutTopic = ' нет чатов без тематики'
                 flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
                 console.log(count);
                 if (count[1] == undefined)
