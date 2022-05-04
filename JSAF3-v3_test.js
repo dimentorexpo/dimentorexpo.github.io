@@ -7072,7 +7072,7 @@ document.getElementById('gofindit').onclick = async function () {
                     .then(response => response.json()).then(data => {
                         if (data.payload.topicId.value == curval) {
                             if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_outgoing_tp_crm2")
-                                tagflag = "Запрос передан на исход ТП1Л CRM2"
+                                tagflag = "Исход ТП1Л CRM2"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "recommendations_given ")
                                 tagflag = "Рекомендации даны"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "refusal_of_help")
@@ -7082,11 +7082,11 @@ document.getElementById('gofindit').onclick = async function () {
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_solved")
                                 tagflag = "Задача решена"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_2l_tp")
-                                tagflag = "Задача передана на ТП2Л"
+                                tagflag = "->ТП2Л"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_channel_qa")
-                                tagflag = "Задача передана в QA"
+                                tagflag = "Передача в QA"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_development")
-                                tagflag = "Задача передана в разработку"
+                                tagflag = "Задача в разработку"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_sc")
                                 tagflag = "Задача передана в SC"
                             else if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_tc")
