@@ -8498,11 +8498,11 @@ async function checkCSAT() {             // функция проверки CSAT
                             csatCount++
                             flagok.push(test.items[i].stats.rate.rate)
                             if (test.items[i].stats.rate.rate == 1)
-                                flagvbad += '•' + test.items[i].stats.conversationId + '<br>'
+                                flagvbad += '• ' + test.items[i].stats.conversationId + '<br>'
                             if (test.items[i].stats.rate.rate == 2)
-                                flagbad += '•' + test.items[i].stats.conversationId + '<br>'
+                                flagbad += '• ' + test.items[i].stats.conversationId + '<br>'
                             if (test.items[i].stats.rate.rate == 3)
-                                flagmid += '•' + test.items[i].stats.conversationId + '<br>'
+                                flagmid += '• ' + test.items[i].stats.conversationId + '<br>'
                         }
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
