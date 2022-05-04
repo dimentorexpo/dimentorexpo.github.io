@@ -8462,6 +8462,8 @@ async function checkCSAT() {             // функция проверки CSAT
         let stringChatsWithoutTopic = ""
         csatScore = 0
         csatCount = 0
+        let flagok = [];
+        let count = {};
         while (true) {
             test = ''
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
@@ -8490,18 +8492,32 @@ async function checkCSAT() {             // функция проверки CSAT
                         if (test.items[i].stats.rate.rate != undefined) {
                             csatScore += test.items[i].stats.rate.rate
                             csatCount++
+                            flagok.push(test.items[i].stats.rate.rate)
                         }
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
             }
 
-            if (stringChatsWithoutTopic == "")
-                stringChatsWithoutTopic = ' нет таких'
-            str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic
-
             if (test.total > 100 && page == 1) {
                 page = 2
             } else {
+                if (stringChatsWithoutTopic == "")
+                    stringChatsWithoutTopic = ' нет чатов без тематики'
+                flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+                if (count[1] == undefined)
+                    count[1] = 0;
+                if (count[2] == undefined)
+                    count[2] = 0;
+                if (count[3] == undefined)
+                    count[3] = 0;
+                if (count[4] == undefined)
+                    count[4] = 0;
+                if (count[5] == undefined)
+                    count[5] = 0;
+                str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
+                    'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
+                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic
                 break
             }
         }
@@ -8509,6 +8525,8 @@ async function checkCSAT() {             // функция проверки CSAT
         str.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
+
+
 }
 
 function prepTp() {
