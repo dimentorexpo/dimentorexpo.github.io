@@ -8498,8 +8498,7 @@ async function checkCSAT() {             // функция проверки CSAT
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
             }
 
-            flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-            console.log(count);
+
 
             if (stringChatsWithoutTopic == "")
                 stringChatsWithoutTopic = ' нет таких'
@@ -8509,6 +8508,8 @@ async function checkCSAT() {             // функция проверки CSAT
             if (test.total > 100 && page == 1) {
                 page = 2
             } else {
+                flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+                console.log(count);
                 break
             }
         }
