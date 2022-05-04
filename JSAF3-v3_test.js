@@ -8462,6 +8462,7 @@ async function checkCSAT() {             // функция проверки CSAT
         let stringChatsWithoutTopic = ""
         csatScore = 0
         csatCount = 0
+        let flagok = [];
         while (true) {
             test = ''
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
@@ -8475,7 +8476,6 @@ async function checkCSAT() {             // функция проверки CSAT
                 let flagCsat = 0
                 let flagTopic = 0
                 let count = {};
-                let flagok = [];
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
