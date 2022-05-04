@@ -8498,11 +8498,11 @@ async function checkCSAT() {             // функция проверки CSAT
                             csatCount++
                             flagok.push(test.items[i].stats.rate.rate)
                             if (test.items[i].stats.rate.rate == 1)
-                                flagvbad += test.items[i].stats.conversationId + '<br>'
+                                flagvbad += '•' + test.items[i].stats.conversationId + '<br>'
                             if (test.items[i].stats.rate.rate == 2)
-                                flagbad += test.items[i].stats.conversationId + '<br>'
-                            if (test.items[i].stats.rate.rate == 5)
-                                flagmid += test.items[i].stats.conversationId + '<br>'
+                                flagbad += '•' + test.items[i].stats.conversationId + '<br>'
+                            if (test.items[i].stats.rate.rate == 3)
+                                flagmid += '•' + test.items[i].stats.conversationId + '<br>'
                         }
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
@@ -8525,9 +8525,9 @@ async function checkCSAT() {             // функция проверки CSAT
                 if (count[5] == undefined)
                     count[5] = 0;
                 str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
-                    "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
-                    'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + flagmid + '<br>' + stringChatsWithoutTopic
+                    "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
+                    'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
+                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic
                 break
             }
         }
