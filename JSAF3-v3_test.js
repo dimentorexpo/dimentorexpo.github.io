@@ -8493,16 +8493,16 @@ async function checkCSAT() {             // функция проверки CSAT
                     })
                 if (flagCsat == 1)
                     if (test.items[i].stats.rate != undefined)
-                        if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 4) {
+                        if (test.items[i].stats.rate.rate != undefined) {
                             csatScore += test.items[i].stats.rate.rate
                             csatCount++
                             flagok.push(test.items[i].stats.rate.rate)
-                        } else if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 1) {
-                            flagvbad.push(test.items[i].stats.conversationId)
-                        } else if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 2) {
-                            flagbad.push(test.items[i].stats.conversationId)
-                        } else if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 5) {
-                            flagmid.push(test.items[i].stats.conversationId)
+                            if (test.items[i].stats.rate.rate == 1)
+                                flagvbad += test.items[i].stats.conversationId + '<br>'
+                            if (test.items[i].stats.rate.rate == 2)
+                                flagbad += test.items[i].stats.conversationId + '<br>'
+                            if (test.items[i].stats.rate.rate == 5)
+                                flagmid += test.items[i].stats.conversationId + '<br>'
                         }
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
@@ -8527,7 +8527,7 @@ async function checkCSAT() {             // функция проверки CSAT
                 str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                     "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                     'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + flagmid + 'br' + stringChatsWithoutTopic
+                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + flagmid + '<br>' + stringChatsWithoutTopic
                 break
             }
         }
