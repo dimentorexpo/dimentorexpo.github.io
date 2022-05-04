@@ -8497,7 +8497,8 @@ async function checkCSAT() {             // функция проверки CSAT
 
             if (stringChatsWithoutTopic == "")
                 stringChatsWithoutTopic = ' нет таких'
-            str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic
+            str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                "Количество оценок: " + csatCount + '<br>' + stringChatsWithoutTopic
 
             if (test.total > 100 && page == 1) {
                 page = 2
