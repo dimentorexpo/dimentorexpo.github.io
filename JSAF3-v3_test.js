@@ -8498,6 +8498,9 @@ async function checkCSAT() {             // функция проверки CSAT
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
             }
 
+            flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+            console.log(count);
+
             if (stringChatsWithoutTopic == "")
                 stringChatsWithoutTopic = ' нет таких'
             str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
@@ -8513,8 +8516,7 @@ async function checkCSAT() {             // функция проверки CSAT
         str.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
-    flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-    console.log(count);
+
 
 }
 
