@@ -8476,6 +8476,9 @@ async function checkCSAT() {             // функция проверки CSAT
             for (let i = 0; i < test.items.length; i++) {
                 let flagCsat = 0
                 let flagTopic = 0
+                let flagvbad;
+                let flagbad;
+                let flagmid;
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
@@ -8493,6 +8496,12 @@ async function checkCSAT() {             // функция проверки CSAT
                             csatScore += test.items[i].stats.rate.rate
                             csatCount++
                             flagok.push(test.items[i].stats.rate.rate)
+                        } else if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 1) {
+                            flagvbad.push(test.items[i].stats.conversationId)
+                        } else if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 2) {
+                            flagbad.push(test.items[i].stats.conversationId)
+                        } else if (test.items[i].stats.rate.rate != undefined && test.items[i].stats.rate.rate == 5) {
+                            flagmid.push(test.items[i].stats.conversationId)
                         }
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
@@ -8517,7 +8526,7 @@ async function checkCSAT() {             // функция проверки CSAT
                 str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                     "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                     'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic
+                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + flagmid + 'br' + stringChatsWithoutTopic
                 break
             }
         }
