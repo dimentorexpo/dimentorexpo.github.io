@@ -6773,7 +6773,7 @@ setInterval(checJiraF, 1000);
 function checkthemestatus() {
     try {
         if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/')[2] != "assigned")
-            console.log("not active chats")
+            var errrrrrrrrrrrrrrrrrrrrrr = "no active chats";
         else {
             let temparr = document.location.pathname.split('/')[3];
             fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
