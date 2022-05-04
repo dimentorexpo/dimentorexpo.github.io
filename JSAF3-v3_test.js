@@ -8503,10 +8503,22 @@ async function checkCSAT() {             // функция проверки CSAT
             } else {
                 if (stringChatsWithoutTopic == "")
                     stringChatsWithoutTopic = ' нет таких'
-                str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
-                    "Количество оценок: " + csatCount + '<br>' + stringChatsWithoutTopic
                 flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
                 console.log(count);
+                if (count[1] == undefined)
+                    count[1] = 0;
+                if (count[2] == undefined)
+                    count[2] = 0;
+                if (count[3] == undefined)
+                    count[3] = 0;
+                if (count[4] == undefined)
+                    count[4] = 0;
+                if (count[5] == undefined)
+                    count[5] = 0;
+                str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    "Количество оценок: " + csatCount + 'из них: Оценка 1 🤬: ' + count[1] + '<br>' +
+                    'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
+                    'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic
                 break
             }
         }
