@@ -830,10 +830,10 @@ var win_servicedesk =
 				<div id="edumodeloptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#em-qa-support: Канал для обращений по функционалу Educational Model</p>
 					<button class="edumodbtn" id="edumgoal">Анкета целей</button>
-					<button class="edumodbtn" id="skysmartfeedback">Сертификаты</button>
+					<button class="edumodbtn" id="skysmartcertificate">Сертификаты</button>
 					<button class="edumodbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
 					<button class="edumodbtn" id="skysmartprogress">Страница прогресса</button>
-					<button class="edumodbtn" id="skysmartpages">Обратная связь</button>
+					<button class="edumodbtn" id="skysmartfeedback">Обратная связь</button>
 				</div>
 				
 				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
