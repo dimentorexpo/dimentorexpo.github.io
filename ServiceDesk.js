@@ -274,8 +274,8 @@ document.getElementById('servDsk').onclick = function () {
 		$('.marketingbtn').not(this).removeClass('activebtn');
 		$('.mobbugsbtn').not(this).removeClass('activebtn');
 		$(this).toggleClass('activebtn');
-	});	
-	
+	});
+
 	$('.edumodbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
 		$('.edumodbtn').not(this).removeClass('activebtn');
@@ -1311,7 +1311,7 @@ document.getElementById('servDsk').onclick = function () {
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
-					
+
 				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartgroup').textContent) {
 					console.log("Групповые и параллельные уроки: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1380,7 +1380,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('kidsform').style.display = 'none';
 		}
 	}
-	
+
 	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS
 		if (document.getElementById('edumodeloptions').style.display != '') {
 			document.getElementById('edumodeloptions').style.display = '';
@@ -1436,7 +1436,7 @@ document.getElementById('servDsk').onclick = function () {
 				erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
 				let ary = document.getElementById('customfield_101').value;
 				ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
+				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('edumgoal').textContent) {
 					console.log("Анкета целей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -1594,7 +1594,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('edumodelform').style.display = 'none';
 		}
 	}
-	
+
 	document.getElementById('optionBillingQA').onclick = function () { //BillingQA
 		if (document.getElementById('billingqasrvdskoptions').style.display != '') {
 			document.getElementById('billingqasrvdskoptions').style.display = '';
