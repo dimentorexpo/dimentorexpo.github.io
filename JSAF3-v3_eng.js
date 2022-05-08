@@ -5835,7 +5835,7 @@ async function sendAnswerTemplate2(word, flag = 0) {
                 },
                 "referrer": adr,
                 "referrerPolicy": "no-referrer-when-downgrade",
-                "body": "{\"query\":\"" + word + "\",\"answersLimit\":25,\"autoFaqServiceIds\":[121388, 121384]}",
+                "body": "{\"query\":\"" + word + "\",\"answersLimit\":25,\"autoFaqServiceIds\":[121767]}",
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
