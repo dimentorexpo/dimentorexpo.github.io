@@ -2044,7 +2044,7 @@ var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec'
-var TP_addr2 = 'https://script.google.com/macros/s/AKfycbwgmUqogmYH_mRQOFelhPvmk9xCabowzLjg9li1Sg-_jJ_Zs1LKvbzWwVhhLL5mkhY3sg/exec'
+var TP_addr2 = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 var flagLangBut = 0
 function move_again_AF() {
 
@@ -5822,7 +5822,7 @@ function refreshTemplates() {
                         newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
-					case 'Темы2':
+					case 'Темыadd':
                         var newBut = document.createElement('button')
                         newBut.innerText = c[0]
                         newBut.style.marginRight = '4px'

@@ -5822,13 +5822,20 @@ function refreshTemplates() {
                         newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
-                    case 'Темы':
+					case 'Темыadd':
                         var newBut = document.createElement('button')
                         newBut.innerText = c[0]
                         newBut.style.marginRight = '4px'
                         newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
+                    case 'Темы':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break 
                     default:
                         break
                 }
