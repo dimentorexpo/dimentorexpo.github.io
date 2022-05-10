@@ -6778,6 +6778,8 @@ async function remandressl() {
             document.getElementsByClassName('-type-primary')[3].appendChild(reset)
         else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
             document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+		else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+            document.getElementsByClassName('-type-primary')[1].appendChild(reset)
 
         async function resetslide() {
 
