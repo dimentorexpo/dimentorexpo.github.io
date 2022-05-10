@@ -6706,111 +6706,113 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl(){
-	let remove = document.createElement('span')
-remove.id = "removebtn"
-remove.textContent = "❌"
-	remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 630px;'
-	remove.onclick = removeslide;
-if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework")
-    document.getElementsByClassName('-type-primary')[4].appendChild(remove)
-else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
-document.getElementsByClassName('-type-primary')[3].appendChild(remove)
-else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
-document.getElementsByClassName('-type-primary')[3].appendChild(remove)
+	if (document.URL.split('/')[2] == "vimbox.skyeng.ru") {
+				let remove = document.createElement('span')
+			remove.id = "removebtn"
+			remove.textContent = "❌"
+				remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 630px;'
+				remove.onclick = removeslide;
+			if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework")
+				document.getElementsByClassName('-type-primary')[4].appendChild(remove)
+			else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+			document.getElementsByClassName('-type-primary')[3].appendChild(remove)
+			else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+			document.getElementsByClassName('-type-primary')[3].appendChild(remove)
 
 
-async function removeslide() {
-    let d = document.cookie;
-d = d.match(/token_global=(.*)/);
+			async function removeslide() {
+				let d = document.cookie;
+			d = d.match(/token_global=(.*)/);
 
-await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/"+document.URL.split('/')[4]+"/join", {
-  "headers": {
-    "accept": "application/json, text/plain, */*",
-    "accept-language": "ru",
-    "authorization": "Bearer" + d[1],
-  },
-  "method": "PATCH",
-  "mode": "cors",
-  "credentials": "include"
-}).then(r=>r.json()).then(data=>testo=data)
+			await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/"+document.URL.split('/')[4]+"/join", {
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"accept-language": "ru",
+				"authorization": "Bearer" + d[1],
+			  },
+			  "method": "PATCH",
+			  "mode": "cors",
+			  "credentials": "include"
+			}).then(r=>r.json()).then(data=>testo=data)
 
-for (let i=0; i<testo.lessonPlan.Homework.length;i++) {
+			for (let i=0; i<testo.lessonPlan.Homework.length;i++) {
 
-await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/"+testo.workbooks[0].id+"/step/"+testo.lessonPlan.Homework[i].stepUUID, {
-  "headers": {
-    "authorization": "Bearer" + d[1], 
-  },
-  "method": "DELETE",
-  "mode": "cors",
-  "credentials": "include"
-});
+			await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/"+testo.workbooks[0].id+"/step/"+testo.lessonPlan.Homework[i].stepUUID, {
+			  "headers": {
+				"authorization": "Bearer" + d[1], 
+			  },
+			  "method": "DELETE",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			}
+
+			for (let i=0; i<testo.lessonPlan.Lesson.length;i++) {
+
+			await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/"+testo.workbooks[0].id+"/step/"+testo.lessonPlan.Lesson[i].stepUUID, {
+			  "headers": {
+				"authorization": "Bearer" + d[1], 
+			  },
+			  "method": "DELETE",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			}
+
+			alert("Слайды успешно отозваны с домашнего задания с категорий Lesson и Homework!")
+			}
+
+			// аналогично для сброса прогресса слайдов
+
+			let reset = document.createElement('span')
+			reset.id = "resetbtn"
+			reset.textContent = "🔄"
+				reset.style = 'cursor:pointer; position:absolute; top: 12px; left: 660px;'
+				reset.onclick = resetslide;
+			if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework")
+				document.getElementsByClassName('-type-primary')[4].appendChild(reset)
+			else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+			document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+			else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+			document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+
+			async function resetslide() {
+
+			let d = document.cookie;
+			d = d.match(/token_global=(.*)/);
+
+			await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/"+document.URL.split('/')[4]+"/join", {
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"accept-language": "ru",
+				"authorization": "Bearer" + d[1],
+			  },
+			  "method": "PATCH",
+			  "mode": "cors",
+			  "credentials": "include"
+			}).then(r=>r.json()).then(data=>testo=data)
+
+			for (let i=0; i<testo.lessonPlan.Homework.length;i++) {
+			await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/"+testo.lessonPlan.Homework[i].id+"/reset", {
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"accept-language": "ru",
+				"authorization": "Bearer" + d[1],
+				"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+			  },
+			  "body": "workbookIds[]="+testo.workbooks[0].id,
+			  "method": "DELETE",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			}
+			alert("Слайды из категории Homework сброшены успешно!")
+
+			}
+	}
 }
 
-for (let i=0; i<testo.lessonPlan.Lesson.length;i++) {
-
-await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/"+testo.workbooks[0].id+"/step/"+testo.lessonPlan.Lesson[i].stepUUID, {
-  "headers": {
-    "authorization": "Bearer" + d[1], 
-  },
-  "method": "DELETE",
-  "mode": "cors",
-  "credentials": "include"
-});
-}
-
-alert("Слайды успешно отозваны с домашнего задания с категорий Lesson и Homework!")
-}
-
-// аналогично для сброса прогресса слайдов
-
-let reset = document.createElement('span')
-reset.id = "resetbtn"
-reset.textContent = "🔄"
-	reset.style = 'cursor:pointer; position:absolute; top: 12px; left: 660px;'
-	reset.onclick = resetslide;
-if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework")
-    document.getElementsByClassName('-type-primary')[4].appendChild(reset)
-else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
-document.getElementsByClassName('-type-primary')[3].appendChild(reset)
-else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
-document.getElementsByClassName('-type-primary')[3].appendChild(reset)
-
-async function resetslide() {
-
-let d = document.cookie;
-d = d.match(/token_global=(.*)/);
-
-await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/"+document.URL.split('/')[4]+"/join", {
-  "headers": {
-    "accept": "application/json, text/plain, */*",
-    "accept-language": "ru",
-    "authorization": "Bearer" + d[1],
-  },
-  "method": "PATCH",
-  "mode": "cors",
-  "credentials": "include"
-}).then(r=>r.json()).then(data=>testo=data)
-
-for (let i=0; i<testo.lessonPlan.Homework.length;i++) {
-await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/"+testo.lessonPlan.Homework[i].id+"/reset", {
-  "headers": {
-    "accept": "application/json, text/plain, */*",
-    "accept-language": "ru",
-    "authorization": "Bearer" + d[1],
-    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-  },
-  "body": "workbookIds[]="+testo.workbooks[0].id,
-  "method": "DELETE",
-  "mode": "cors",
-  "credentials": "include"
-});
-}
-alert("Слайды из категории Homework сброшены успешно!")
-
-}
-}
-
-setInterval(remandressl, 10000);
+setInterval(remandressl, 3000);
 
 let getidusrteachreq;
 butteachid.addEventListener('click', function () {
