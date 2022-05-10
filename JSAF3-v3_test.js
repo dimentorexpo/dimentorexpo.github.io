@@ -6706,7 +6706,7 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl(){
-	if (document.URL.split('/')[2] == "vimbox.skyeng.ru") {
+	if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3]  == "vimbox.skyeng.ru/workbook") {
 				let remove = document.createElement('span')
 			remove.id = "removebtn"
 			remove.textContent = "❌"
