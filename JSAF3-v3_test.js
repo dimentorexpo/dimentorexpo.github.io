@@ -7258,7 +7258,7 @@ async function addChatsBiology() {
 setInterval(remandressl, 3000);
 
 // async function skysmartchats() {
-		Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
+	//	Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
 	
 // let achatb = document.createElement('span')
 // achatb.id = "achatbtn"
