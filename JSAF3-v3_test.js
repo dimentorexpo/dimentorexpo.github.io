@@ -6846,11 +6846,16 @@ async function remandressl() {
             window.location.reload();
 
         }
-    }
+    }	
 	
-	// Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
+}
+
+setInterval(remandressl, 3000);
+
+async function skysmartchats() {
+		// Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
 	
-	let achatb = document.createElement('span')
+let achatb = document.createElement('span')
 achatb.id = "achatbtn"
 achatb.textContent = "💬"
 achatb.style = 'cursor:pointer;'
@@ -6909,8 +6914,6 @@ if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + docume
     achatb.onclick = addChatsBiology;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
 }
-
-
 
 
 async function addChatseng() {
@@ -7251,11 +7254,9 @@ async function addChatsBiology() {
     } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
 }
 
-	
-	
 }
 
-setInterval(remandressl, 3000);
+setInterval(skysmartchats, 3000);
 
 let getidusrteachreq;
 butteachid.addEventListener('click', function () {
