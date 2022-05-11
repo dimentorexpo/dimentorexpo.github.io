@@ -316,10 +316,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getmvureport" style="width: 25.23px;">💾</button>
                     <input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
-                    <input id="idteacherkid" placeholder="ID П Kids 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Skysmart (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="setchatskids" style="width: 25.23px;">💾</button>  
-					<input id="idteacherkidcc" placeholder="ID П Kid KK💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Skysmart Компьютерных курсов (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="setchatskidscc" style="width: 25.23px;">💾</button> 
 					<input id="idteacheradult" placeholder="ID П Adults 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>		
@@ -3011,30 +3007,6 @@ function move_again_AF() {
         document.getElementById('gethash').innerHTML = "✅";
         setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
         lookhash.value = "";
-    }
-
-    document.getElementById('setchatskids').onclick = function () {                  // добавляем чаты с учениками skysmart
-        let hashlnk = '\n' + 'await fetch("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium"';
-        if (idteacherkid.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.results.length;i++) \{ if (studarr.results[i].status != \"sleep\") \n sidarr += studarr.results[i].userId  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacherkid').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
-        };
-        document.getElementById('setchatskids').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('setchatskids').innerHTML = "💾" }, 2000);
-        idteacherkid.value = "";
-    }
-
-    document.getElementById('setchatskidscc').onclick = function () {                  // добавляем чаты с учениками skysmart
-        let hashlnk = '\n' + 'await fetch("https://api-computer-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=digital_literacy_kids_f2f,python_kids_f2f,programming_kids_f2f,web_dev_kids_f2f,making_games_kids_f2f,computer_courses_app_inventor_kids_f2f,computer_courses_thunkable_kids_f2f,computer_courses_scratch_kids_f2f,computer_courses_unreal_kids_f2f,computer_courses_roblox_kids_f2f,computer_courses_unity_kids_f2f,computer_courses_construct_kids_f2f,computer_courses_minecraft_kids_f2f,computer_courses_app_inventor_kids_f2g,computer_courses_scratch_kids_f2g,computer_courses_thunkable_kids_f2g,computer_courses_web_dev_kids_f2g,computer_courses_digital_literacy_mac_kids_f2f,computer_courses_digital_literacy_windows_kids_f2f"';
-        if (idteacherkidcc.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.results.length;i++) \{ if (studarr.results[i].status != \"sleep\") \n sidarr += studarr.results[i].userId  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacherkidcc').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
-        };
-        document.getElementById('setchatskidscc').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('setchatskidscc').innerHTML = "💾" }, 2000);
-        idteacherkidcc.value = "";
     }
 
     document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
