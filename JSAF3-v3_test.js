@@ -5382,6 +5382,16 @@ function move_again_AF() {
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
+				 if (localStorage.getItem('disablelpmwindow') == 1) 
+          document.getElementById('testUsers').style.display = "none";
+	  else (localStorage.getItem('disablelpmwindow') == 0) 
+          document.getElementById('testUsers').style.display = "";
+		  
+      if (localStorage.getItem('disableomelchenkowindow') == 1) 
+          document.getElementById('main_easy_win').style.display = "none";
+		else (localStorage.getItem('disableomelchenkowindow') == 0) 
+          document.getElementById('main_easy_win').style.display = "";	
+		
     }
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
@@ -9029,18 +9039,6 @@ btntid.onclick = async function () {
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
-
-document.addEventListener("DOMContentLoaded", () => {
-		 if (localStorage.getItem('disablelpmwindow') == 1) 
-          document.getElementById('testUsers').style.display = "none";
-	  else (localStorage.getItem('disablelpmwindow') == 0) 
-          document.getElementById('testUsers').style.display = "";
-		  
-      if (localStorage.getItem('disableomelchenkowindow') == 1) 
-          document.getElementById('main_easy_win').style.display = "none";
-		else (localStorage.getItem('disableomelchenkowindow') == 0) 
-          document.getElementById('main_easy_win').style.display = "";		
-})
 
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
