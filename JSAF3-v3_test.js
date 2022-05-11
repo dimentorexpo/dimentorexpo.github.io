@@ -175,6 +175,9 @@ var win_AFhelper =  // описание элементов главного ок
 				<span style="color:bisque">Таймер автозакрытия:</span>
 				<input title="Ввод числа для автозакрытия, при этом от этого числа будет отнято 2 минуты чтобы чат закрасился в фиолетовый цвет, то есть при значении по-умолчанию 12 на 10 минуте чат зальется фиолетовым цветом оповещая, что скоро будет закрыт" id="autoclosetime" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="2" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> 
 				<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
+					<br>
+					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с Л П ПМ</label>
+				
 				
 					<br>
 				<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
@@ -4813,6 +4816,29 @@ function move_again_AF() {
                 cboxstatus.checked = true;
             } else {
                 cboxstatus.checked = false;
+            }
+			
+			//Скрыть окно Л П МВУ
+			let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
+            var lpmboxstatus = document.getElementById('hidelpmwindow');
+            lpmboxstatus.onclick = function () {
+
+                if (!lpmboxstatus.checked) {
+                    document.getElementById('testUsers').style.display = "";
+                    flaglpm = 0;
+                    localStorage.setItem('disablelpmwindow', flaglpm)
+                } else {   // поставить checked, если он не установлен 
+                    document.getElementById('testUsers').style.display = "none";
+                    flaglpm = 1;
+                    localStorage.setItem('disablelpmwindow', flaglpm)
+                }
+            }
+
+            if (localStorage.getItem('disablelpmwindow') == 1) {
+                document.getElementById('testUsers').style.display = "none";
+                lpmboxstatus.checked = true;
+            } else {
+                lpmboxstatus.checked = false;
             }
 
 
