@@ -9030,7 +9030,7 @@ btntid.onclick = async function () {
 }
 
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", () => {
 		 if (localStorage.getItem('disablelpmwindow') == 1) 
           document.getElementById('testUsers').style.display = "none";
 	  else (localStorage.getItem('disablelpmwindow') == 0) 
@@ -9039,8 +9039,8 @@ window.onload = function() {
       if (localStorage.getItem('disableomelchenkowindow') == 1) 
           document.getElementById('main_easy_win').style.display = "none";
 		else (localStorage.getItem('disableomelchenkowindow') == 0) 
-          document.getElementById('main_easy_win').style.display = "";			
-}
+          document.getElementById('main_easy_win').style.display = "";		
+})
 
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
