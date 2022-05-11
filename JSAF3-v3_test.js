@@ -8710,15 +8710,15 @@ function prepTp() {
     document.getElementById('snd').style.marginLeft = '11px'
     document.getElementById('testUsers').style.display = ''
 	
-	 if (localStorage.getItem('disablelpmwindow') == 1) {
+	 if (localStorage.getItem('disablelpmwindow') == 1) 
           document.getElementById('testUsers').style.display = "none";
-	  else (localStorage.getItem('disablelpmwindow') == 0) {
+	  else (localStorage.getItem('disablelpmwindow') == 0) 
           document.getElementById('testUsers').style.display = "";
 		  
-      if (localStorage.getItem('disableomelchenkowindow') == 1) {
-                document.getElementById('main_easy_win').style.display = "none";
-		else (localStorage.getItem('disableomelchenkowindow') == 0) {
-                document.getElementById('main_easy_win').style.display = "";			
+      if (localStorage.getItem('disableomelchenkowindow') == 1) 
+          document.getElementById('main_easy_win').style.display = "none";
+		else (localStorage.getItem('disableomelchenkowindow') == 0) 
+          document.getElementById('main_easy_win').style.display = "";			
 
 			
 			
