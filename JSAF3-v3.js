@@ -178,7 +178,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<br>
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 				
-				
 					<br>
 				<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
@@ -5553,9 +5552,9 @@ async function buttonsFromDoc(butName) {
             else
                 txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
         else
-            txt = "Hello." + '\r\n' + "Please wait a few minutes."
+            txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
 
-        if (txt == "Hello." + '\r\n' + "Please wait a few minutes.")
+        if (txt == "Hello, " + a[0] + "!"  + '\r\n' + "Please wait a few minutes.")
             sendAnswer(txt)
         else
             sendAnswerTemplate2(txt)
