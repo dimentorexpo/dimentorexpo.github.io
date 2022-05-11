@@ -4809,8 +4809,13 @@ function move_again_AF() {
                     localStorage.setItem('disableomelchenkowindow', flagcheckbox)
                 }
             }
-
-
+			
+			 if (localStorage.getItem('disableomelchenkowindow') == 1) {
+                document.getElementById('main_easy_win').style.display = "none";
+                cboxstatus.checked = true;
+            } else {
+                cboxstatus.checked = false;
+            }
 			
 			//Скрыть окно Л П МВУ
 			let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
@@ -4826,6 +4831,13 @@ function move_again_AF() {
                     flaglpm = 1;
                     localStorage.setItem('disablelpmwindow', flaglpm)
                 }
+            }
+			
+			if (localStorage.getItem('disablelpmwindow') == 1) {
+                document.getElementById('testUsers').style.display = "none";
+                lpmboxstatus.checked = true;
+            } else {
+                lpmboxstatus.checked = false;
             }
 
             if (localStorage.getItem('audio') == '0')
@@ -8708,19 +8720,7 @@ async function checkCSAT() {             // функция проверки CSAT
 function prepTp() {
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '11px'
-    document.getElementById('testUsers').style.display = ''
-	
-	 if (localStorage.getItem('disablelpmwindow') == 1) 
-          document.getElementById('testUsers').style.display = "none";
-	  else (localStorage.getItem('disablelpmwindow') == 0) 
-          document.getElementById('testUsers').style.display = "";
-		  
-      if (localStorage.getItem('disableomelchenkowindow') == 1) 
-          document.getElementById('main_easy_win').style.display = "none";
-		else (localStorage.getItem('disableomelchenkowindow') == 0) 
-          document.getElementById('main_easy_win').style.display = "";			
-
-			
+    document.getElementById('testUsers').style.display = ''		
 			
     flagLangBut = 1
     customTemplates()
@@ -9029,6 +9029,18 @@ btntid.onclick = async function () {
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
+
+window.onload = function() {
+		 if (localStorage.getItem('disablelpmwindow') == 1) 
+          document.getElementById('testUsers').style.display = "none";
+	  else (localStorage.getItem('disablelpmwindow') == 0) 
+          document.getElementById('testUsers').style.display = "";
+		  
+      if (localStorage.getItem('disableomelchenkowindow') == 1) 
+          document.getElementById('main_easy_win').style.display = "none";
+		else (localStorage.getItem('disableomelchenkowindow') == 0) 
+          document.getElementById('main_easy_win').style.display = "";			
+}
 
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
