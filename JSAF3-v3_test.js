@@ -6904,7 +6904,7 @@ if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + docume
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsChemistry;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Химии"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/biology') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/biology' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsBiology;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
