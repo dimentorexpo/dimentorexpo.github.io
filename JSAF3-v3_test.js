@@ -7659,7 +7659,7 @@ setInterval(remandressl, 3000);
     // } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
 // }
 
-}
+//}
 
 //setInterval(skysmartchats, 3000);
 
