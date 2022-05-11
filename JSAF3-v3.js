@@ -4816,9 +4816,9 @@ function move_again_AF() {
             } else {
                 cboxstatus.checked = false;
             }
-			
-			//Скрыть окно Л П МВУ
-			let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
+
+            //Скрыть окно Л П МВУ
+            let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
             var lpmboxstatus = document.getElementById('hidelpmwindow');
             lpmboxstatus.onclick = function () {
 
@@ -4839,7 +4839,6 @@ function move_again_AF() {
             } else {
                 lpmboxstatus.checked = false;
             }
-
 
             if (localStorage.getItem('audio') == '0')
                 document.getElementById('audioswitcher').checked = false;
@@ -5383,6 +5382,13 @@ function move_again_AF() {
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
+        //скрывает окна при выбранно опции скрытия КОД
+        if (localStorage.getItem('disablelpmwindow') == 1)
+            document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('disableomelchenkowindow') == 1)
+            document.getElementById('main_easy_win').style.display = "none";
+
     }
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
@@ -5554,7 +5560,7 @@ async function buttonsFromDoc(butName) {
         else
             txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
 
-        if (txt == "Hello, " + a[0] + "!"  + '\r\n' + "Please wait a few minutes.")
+        if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
             sendAnswer(txt)
         else
             sendAnswerTemplate2(txt)
@@ -6803,7 +6809,7 @@ async function remandressl() {
             document.getElementsByClassName('-type-primary')[3].appendChild(reset)
         else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
             document.getElementsByClassName('-type-primary')[3].appendChild(reset)
-		else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+        else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
             document.getElementsByClassName('-type-primary')[1].appendChild(reset)
 
         async function resetslide() {
@@ -8721,7 +8727,12 @@ async function checkCSAT() {             // функция проверки CSAT
 function prepTp() {
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '11px'
-    document.getElementById('testUsers').style.display = ''
+
+
+    if (localStorage.getItem('disablelpmwindow') == 1)
+        document.getElementById('testUsers').style.display = "none";
+    else document.getElementById('testUsers').style.display = ''
+
     flagLangBut = 1
     customTemplates()
     whoAmI()
@@ -8784,13 +8795,20 @@ function include(url) {
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-function firstLoadPage() {
+function firstLoadPage() { //первичаня загрузка страницы
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
         document.getElementById('AF_Links').style.display = 'none';
     } else {
         mystyles()
+
+        if (localStorage.getItem('disablelpmwindow') == 1)
+            document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('disableomelchenkowindow') == 1)
+            document.getElementById('main_easy_win').style.display = "none";
+
         setTimeout(move_again_AF, 3500)
 
         setTimeout(function () {
