@@ -167,8 +167,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<br>
 				<span style="color:bisque">Sound volume</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
-				<br>
-				<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 				
 					<br>
 				<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
@@ -3733,30 +3731,7 @@ function move_again_AF() {
 					} else {
 						cboxstatus.checked = false;
 					}
-					
-			//Скрыть окно У П ПМ
-			// let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
-            // var lpmboxstatus = document.getElementById('hidelpmwindow');
-            // lpmboxstatus.onclick = function () {
-
-                // if (!lpmboxstatus.checked) {
-                    // document.getElementById('testUsers').style.display = "";
-                    // flaglpm = 0;
-                    // localStorage.setItem('disablelpmwindow', flaglpm)
-                // } else {   // поставить checked, если он не установлен 
-                    // document.getElementById('testUsers').style.display = "none";
-                    // flaglpm = 1;
-                    // localStorage.setItem('disablelpmwindow', flaglpm)
-                // }
-            // }
-
-            // if (localStorage.getItem('disablelpmwindow') == 1) {
-                // document.getElementById('testUsers').style.display = "none";
-                // lpmboxstatus.checked = true;
-            // } else {
-                // lpmboxstatus.checked = false;
-            // }	
-					
+									
 				
 					if (localStorage.getItem('audio') == '0')
 								document.getElementById('audioswitcher').checked = false;
