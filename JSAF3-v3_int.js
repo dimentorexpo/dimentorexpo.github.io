@@ -3735,27 +3735,27 @@ function move_again_AF() {
 					}
 					
 			//Скрыть окно У П ПМ
-			let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
-            var lpmboxstatus = document.getElementById('hidelpmwindow');
-            lpmboxstatus.onclick = function () {
+			// let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
+            // var lpmboxstatus = document.getElementById('hidelpmwindow');
+            // lpmboxstatus.onclick = function () {
 
-                if (!lpmboxstatus.checked) {
-                    document.getElementById('testUsers').style.display = "";
-                    flaglpm = 0;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
-                } else {   // поставить checked, если он не установлен 
-                    document.getElementById('testUsers').style.display = "none";
-                    flaglpm = 1;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
-                }
-            }
+                // if (!lpmboxstatus.checked) {
+                    // document.getElementById('testUsers').style.display = "";
+                    // flaglpm = 0;
+                    // localStorage.setItem('disablelpmwindow', flaglpm)
+                // } else {   // поставить checked, если он не установлен 
+                    // document.getElementById('testUsers').style.display = "none";
+                    // flaglpm = 1;
+                    // localStorage.setItem('disablelpmwindow', flaglpm)
+                // }
+            // }
 
-            if (localStorage.getItem('disablelpmwindow') == 1) {
-                document.getElementById('testUsers').style.display = "none";
-                lpmboxstatus.checked = true;
-            } else {
-                lpmboxstatus.checked = false;
-            }	
+            // if (localStorage.getItem('disablelpmwindow') == 1) {
+                // document.getElementById('testUsers').style.display = "none";
+                // lpmboxstatus.checked = true;
+            // } else {
+                // lpmboxstatus.checked = false;
+            // }	
 					
 				
 					if (localStorage.getItem('audio') == '0')
@@ -6742,7 +6742,7 @@ async function checkCSAT() {             // функция проверки CSAT
 function prepTp() {
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '41px'
-    document.getElementById('testUsers').style.display = ''
+    document.getElementById('testUsers').style.display = 'none'
     flagLangBut = 1
     customTemplates()
     whoAmI()
