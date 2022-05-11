@@ -5382,13 +5382,13 @@ function move_again_AF() {
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
+		//скрывает окна при выбранно опции скрытия КОД
 	   if (localStorage.getItem('disablelpmwindow') == 1) 
           document.getElementById('testUsers').style.display = "none";
 		  
       if (localStorage.getItem('disableomelchenkowindow') == 1) 
           document.getElementById('main_easy_win').style.display = "none";
 
-		
     }
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
@@ -8791,13 +8791,20 @@ function include(url) {
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-function firstLoadPage() {
+function firstLoadPage() { //первичаня загрузка страницы
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
         document.getElementById('AF_Links').style.display = 'none';
     } else {
         mystyles()
+		
+	  if (localStorage.getItem('disablelpmwindow') == 1) 
+          document.getElementById('testUsers').style.display = "none";
+		  
+      if (localStorage.getItem('disableomelchenkowindow') == 1) 
+          document.getElementById('main_easy_win').style.display = "none";
+		
         setTimeout(move_again_AF, 3500)
 
         setTimeout(function () {
