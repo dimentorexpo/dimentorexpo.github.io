@@ -6856,51 +6856,51 @@ achatb.textContent = "💬"
 achatb.style = 'cursor:pointer;'
 
 
-if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/english') {
+if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/english' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatseng;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Английскому языку"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/computer-science') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/computer-science' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsCompCours;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Компьютерным курсам"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/chess') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/chess' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsChess;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Шахматам"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/math') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/math' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsMath;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Математике"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/russian') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/russian' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsRuslng;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Русскому языку"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/preschool') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/preschool' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsPreschool;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Дошколке"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/physics') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/physics' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsPhysics;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Физике"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/social-science') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/social-science' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsSocial;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Обществознанию"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/literature') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/literature' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsLiterature;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Литературе"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/history') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/history' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsHistory;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Истории"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/geography') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/geography' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsGeography;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Географии"
-} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/chemistry') {
+} else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] == 'vimbox.skyeng.ru/kids/chemistry' && document.getElementById('achatbtn') == null) {
     document.querySelector('.navigation').appendChild(achatb)
     achatb.onclick = addChatsChemistry;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Химии"
@@ -6909,6 +6909,7 @@ if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + docume
     achatb.onclick = addChatsBiology;
     achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
 }
+
 
 
 
