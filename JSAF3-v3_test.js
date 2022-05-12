@@ -1333,7 +1333,7 @@ buttonservid.style.cursor = "pointer";
 buttonservid.style.marginLeft = "2px";
 buttonservid.style.border = "1px solid black";
 buttonservid.style.borderRadius = "10px";
-buttonservid.style.margin-top = "5px";
+buttonservid.style.marginTop = "5px";
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
