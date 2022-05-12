@@ -7278,7 +7278,7 @@ buttonservid.addEventListener('click', function() {
             getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
         copyToClipboard1(getservidst)
     }
-}
+})
 
 
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
