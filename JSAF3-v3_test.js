@@ -1325,6 +1325,14 @@ butteachidfstd.style.cursor = "pointer";
 butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
+let buttonservid = document.createElement('button');
+buttonservid.id = 'servidstudento';
+buttonservid.innerHTML = "ID услуги У(крит)";
+buttonservid.style.width = "150px";
+buttonservid.style.cursor = "pointer";
+buttonservid.style.marginLeft = "2px";
+buttonservid.style.border = "1px solid black";
+buttonservid.style.borderRadius = "10px";
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
@@ -6688,6 +6696,7 @@ function addbuttonsintegration() {
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachid)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butstdid)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
             for (let i = 0; i < categorylist.length; i++) {
                 if (categorylist[i].innerText == "Техподдержка исход crm2") {
                     categorylist[i].style.color = "red";
@@ -7261,6 +7270,15 @@ butteachidfstd.addEventListener('click', function () {
         copyToClipboard1(getidusrsteach)
     }
 })
+
+let getservidst;
+buttonservid.addEventListener('click', function() {
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId")
+            getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+        copyToClipboard1(getservidst)
+    }
+}
 
 
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
