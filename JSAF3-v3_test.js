@@ -6525,6 +6525,18 @@ function startTimer() {
                             document.getElementById('userTypeId').style.color = "#DC143C"
                         }
                     }
+					
+					//добавил окраску бренда skyeng
+					for(let i=0; i <document.getElementsByClassName('expert-user_details-dt').length;i++) {
+						if (document.getElementsByClassName('expert-user_details-dt')[i].innerText =="brand")
+						{
+							for (let i=0; i<document.getElementsByTagName('p').length;i++) {
+						if (document.getElementsByTagName('p')[i].innerText =="skyeng")
+						document.getElementsByTagName('p')[i].style.background = "#00AEFA";
+					}
+						}
+
+					}
 
                     c.append(a)
 
