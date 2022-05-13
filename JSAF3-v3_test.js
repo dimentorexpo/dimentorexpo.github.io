@@ -5534,9 +5534,9 @@ async function buttonsFromDoc(butName) {
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
         if (document.getElementById('languageAF').innerHTML == "Русский")
-            if (cyrillicPattern.test(a[0]) && document.getElementById('msg1').innerHTML == "Доработать")
+            if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
                 txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-            else
+			else
                 txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
         else
             txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
