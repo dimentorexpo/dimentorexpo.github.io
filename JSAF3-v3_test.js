@@ -9079,7 +9079,7 @@ async function checkCSAT() {             // функция проверки CSAT
 					}
 				}
 				
-				let resultart = ((acc.length - outtarg)/acc.length * 100).toFixed(2);
+				let resultart= (acc.length != 0) ? ((acc.length - outtarg)/acc.length * 100).toFixed(2) : 0;
 				console.log(acc)
 				console.log(" Vne targeta 1 min: " + outtarg  + " ART " + resultart  + "%")		
 						
@@ -9094,6 +9094,7 @@ async function checkCSAT() {             // функция проверки CSAT
                 if (stringChatsWithoutTopic == "")
                     stringChatsWithoutTopic = ' нет чатов без тематики'
                 flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+				
                 if (count[1] == undefined)
                     count[1] = 0;
                 if (count[2] == undefined)
