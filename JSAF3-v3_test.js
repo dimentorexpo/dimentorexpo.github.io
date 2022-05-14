@@ -9029,6 +9029,12 @@ async function checkCSAT() {             // функция проверки CSAT
         let flagvbad = [];
         let flagbad = [];
         let flagmid = [];
+		
+						let cnt=0;
+				let acc=[];
+				let outtarg=0;
+				
+				
         while (true) {
             test = ''
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
@@ -9041,6 +9047,13 @@ async function checkCSAT() {             // функция проверки CSAT
             for (let i = 0; i < test.items.length; i++) {
                 let flagCsat = 0
                 let flagTopic = 0
+				
+					cnt = (test.items[i].stats.averageOperatorAnswerTime / 60)/1000
+					if (isNaN(cnt) == false){
+					acc.push(cnt.toFixed(2) + " Хеш: " + testo.items[i].conversationId)
+						if (cnt>=2)
+						outtarg++;
+					}
 
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
@@ -9051,7 +9064,7 @@ async function checkCSAT() {             // функция проверки CSAT
                                 if (r.payload.topicId != undefined)
                                     if (r.payload.topicId.value == "")
                                         flagTopic = 1
-                        }
+                        }		
                     })
                 if (flagCsat == 1)
                     if (test.items[i].stats.rate != undefined)
@@ -9065,24 +9078,7 @@ async function checkCSAT() {             // функция проверки CSAT
                                 flagbad += '• ' + test.items[i].stats.conversationId + '<br>'
                             if (test.items[i].stats.rate.rate == 3)
                                 flagmid += '• ' + test.items[i].stats.conversationId + '<br>'
-                        }
-						
-				let cnt=0;
-				let acc=[];
-				let outtarg=0;
-				for (let i=0; i<test.items.length;i++) {
-					cnt = (test.items[i].stats.averageOperatorAnswerTime / 60)/1000
-					if (isNaN(cnt) == false){
-					acc.push(cnt.toFixed(2) + " Хеш: " + testo.items[i].conversationId)
-						if (cnt>=2)
-						outtarg++;
-					}
-				}
-				
-				let resultart= (acc.length != 0) ? ((acc.length - outtarg)/acc.length * 100).toFixed(2) : 0;
-				console.log(acc)
-				console.log(" Vne targeta 1 min: " + outtarg  + " ART " + resultart  + "%")		
-						
+                        }				
 						
                 if (flagTopic == 1)
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
@@ -9105,6 +9101,11 @@ async function checkCSAT() {             // функция проверки CSAT
                     count[4] = 0;
                 if (count[5] == undefined)
                     count[5] = 0;
+						
+				let resultart= (acc.length != 0) ? ((acc.length - outtarg)/acc.length * 100).toFixed(2) : 0;
+				console.log(acc)
+				console.log(" Vne targeta 1 min: " + outtarg  + " ART " + resultart  + "%")	
+				
 
                 if (flagvbad == "" && flagbad == "" && flagmid == "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
