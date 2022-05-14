@@ -9050,7 +9050,7 @@ async function checkCSAT() {             // функция проверки CSAT
 				
 					cnt = (test.items[i].stats.averageOperatorAnswerTime / 60)/1000
 					if (isNaN(cnt) == false){
-					acc.push(cnt.toFixed(2) + " Хеш: " + testo.items[i].conversationId)
+					acc.push(cnt.toFixed(2) + " Хеш: " + test.items[i].conversationId)
 						if (cnt>=2)
 						outtarg++;
 					}
@@ -9104,44 +9104,44 @@ async function checkCSAT() {             // функция проверки CSAT
 						
 				let resultart= (acc.length != 0) ? ((acc.length - outtarg)/acc.length * 100).toFixed(2) : 0;
 				console.log(acc)
-				console.log(" Vne targeta 1 min: " + outtarg  + " ART " + resultart  + "%")	
+				console.log("Вне таргета 2 минуты: " + outtarg  + " ART " + resultart  + "%")	
 				
 
                 if (flagvbad == "" && flagbad == "" && flagmid == "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic+ '<br>' + resultart + '%';
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + ' ART: ' + resultart + '%';
                 else if (flagvbad == "" && flagbad == "" && flagmid != "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic+ '<br>' + resultart + '%';
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + ' ART: ' + resultart + '%';
                 else if (flagvbad == "" && flagbad != "" && flagmid != "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic+ '<br>' + resultart + '%';
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + ' ART: ' + resultart + '%';
                 else if (flagvbad != "" && flagbad == "" && flagmid != "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic+ '<br>' + resultart + '%';
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + ' ART: ' + resultart + '%';
                 else if (flagvbad != "" && flagbad != "" && flagmid == "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic+ '<br>' + resultart + '%';
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + ' ART: ' + resultart + '%';
                 else if (flagvbad != "" && flagbad == "" && flagmid == "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic+ '<br>' + resultart + '%';
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + ' ART: ' + resultart + '%';
                 else if (flagvbad == "" && flagbad != "" && flagmid == "")
                     str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + resultart + '%';
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' + ' ART: ' + resultart + '%';
                 break
             }
         }
@@ -9149,8 +9149,6 @@ async function checkCSAT() {             // функция проверки CSAT
         str.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
-
-
 }
 
 function prepTp() {
