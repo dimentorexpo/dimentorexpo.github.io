@@ -7441,9 +7441,7 @@ async function checkthemestatus() {
                         txtbar.childNodes[1].childNodes[5].style.color = 'green';
                     }
                 }
-            }
-			
-	            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:') {
+            } else if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].innerText = "";
 				}
