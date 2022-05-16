@@ -7357,6 +7357,8 @@ async function checkthemestatus() {
 				theme.style = 'color:red; font-weight:700'
 				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
+				if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔')
+				txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
 			}
 				
             } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
@@ -7373,6 +7375,8 @@ async function checkthemestatus() {
 				theme.style = 'color:red; font-weight:700'
 				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
+				if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔')
+				txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
 			}
 			
             } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
@@ -7389,6 +7393,9 @@ async function checkthemestatus() {
 				theme.style = 'color:green; font-weight:700'
 				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
+			
+				if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌')
+				txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
 			}
 			
             } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
@@ -7405,6 +7412,9 @@ async function checkthemestatus() {
 				theme.style = 'color:green; font-weight:700'
 				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
+			
+				if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌')
+				txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
 			}
 			
             }
