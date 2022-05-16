@@ -7410,8 +7410,7 @@ async function checkthemestatus() {
 			
             }
 			
-			if (pldata.payload.educationServiceId.value =='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:')
-			{
+			if (pldata.payload.educationServiceId.value =='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:'){
 				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
 				let theme = document.createElement('div')
@@ -7426,10 +7425,7 @@ async function checkthemestatus() {
 				}
 			}
 				
-			}
-			
-			else if (pldata.payload.educationServiceId.value !='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:')
-			{
+			} else if (pldata.payload.educationServiceId.value !='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:')	{
 				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
 				let theme = document.createElement('div')
@@ -7443,7 +7439,10 @@ async function checkthemestatus() {
 				txtbar.childNodes[1].childNodes[5].style.color='green';
 				}
 			}
-            } 
+            } else if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:') {
+				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+				txtbar.childNodes[1].childNodes[5].innerText = "";
+			}
 		}
     } catch (e) { }
 }
