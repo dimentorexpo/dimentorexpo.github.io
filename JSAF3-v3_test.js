@@ -7427,7 +7427,7 @@ async function checkthemestatus() {
 			
             }
 			
-						if (pldata.payload.educationServiceId.value =='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги')
+			if (pldata.payload.educationServiceId.value =='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:')
 			{
 				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -7444,7 +7444,7 @@ async function checkthemestatus() {
 				
 			}
 			
-			else if (pldata.payload.educationServiceId.value !='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги')
+			else if (pldata.payload.educationServiceId.value !='' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:')
 			{
 				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
