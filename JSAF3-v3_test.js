@@ -6532,6 +6532,8 @@ function startTimer() {
                             for (let i = 0; i < document.getElementsByTagName('p').length; i++) {
                                 if (document.getElementsByTagName('p')[i].innerText == "skyeng")
                                     document.getElementsByTagName('p')[i].style.background = "#00AEFA";
+								else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
+									document.getElementsByTagName('p')[i].style.background = "#2E8B57";
                             }
                         }
 
