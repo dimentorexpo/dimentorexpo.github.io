@@ -7434,11 +7434,11 @@ async function checkthemestatus() {
 				let theme = document.createElement('div')
 				theme.innerText = "Услуга: ❌"
 				theme.style = 'color:red; font-weight:700'
-				if (txtbar.childNodes[1].childNodes[4] == undefined)
+				if (txtbar.childNodes[1].childNodes[5] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
-				if (txtbar.childNodes[1].childNodes[4].innerText == 'Услуга: ✔'){
-				txtbar.childNodes[1].childNodes[4].innerText = "Услуга: ❌";
-				txtbar.childNodes[1].childNodes[4].style.color='red';
+				if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ✔'){
+				txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ❌";
+				txtbar.childNodes[1].childNodes[5].style.color='red';
 				}
 			}
 				
@@ -7451,16 +7451,16 @@ async function checkthemestatus() {
 				let theme = document.createElement('div')
 				theme.innerText = "Услуга: ✔"
 				theme.style = 'color:red; font-weight:700'
-				if (txtbar.childNodes[1].childNodes[4] == undefined)
+				if (txtbar.childNodes[1].childNodes[5] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
-				if (txtbar.childNodes[1].childNodes[4].innerText == 'Услуга: ❌'){
-				txtbar.childNodes[1].childNodes[4].innerText = "Услуга: ✔";
-				txtbar.childNodes[1].childNodes[4].style.color='green';
+				if (txtbar.childNodes[1].childNodes
+                    [5].innerText == 'Услуга: ❌'){
+				txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ✔";
+				txtbar.childNodes[1].childNodes[5].style.color='green';
 				}
 			}
-				
-			}
-        }
+            }
+			
     } catch (e) { }
 }
 
