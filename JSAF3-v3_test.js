@@ -7342,6 +7342,7 @@ async function checkthemestatus() {
             }).then(r => r.json()).then(r => pldata = r)
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
+
 			
 			if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -7357,6 +7358,7 @@ async function checkthemestatus() {
 			}
 				
             } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
+
 				
 			if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -7372,6 +7374,7 @@ async function checkthemestatus() {
 			}
 			
             } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
+
 				
 			if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -7416,6 +7419,7 @@ async function checkthemestatus() {
 				theme.style = 'color:red; font-weight:700'
 				if (txtbar.childNodes[1].childNodes[5] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
+			
 				if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ✔'){
 				txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ❌";
 				txtbar.childNodes[1].childNodes[5].style.color='red';
@@ -7433,13 +7437,13 @@ async function checkthemestatus() {
 				theme.style = 'color:green; font-weight:700'
 				if (txtbar.childNodes[1].childNodes[5] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
-				if (txtbar.childNodes[1].childNodes
-                    [5].innerText == 'Услуга: ❌'){
+			
+				if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ❌'){
 				txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ✔";
 				txtbar.childNodes[1].childNodes[5].style.color='green';
 				}
 			}
-            }
+            } 
 		}
     } catch (e) { }
 }
