@@ -7355,7 +7355,7 @@ async function checkthemestatus() {
 				let theme = document.createElement('div')
 				theme.innerText = "Тема: ❌"
 				theme.style = 'color:red; font-weight:700'
-				if (txtbar.childNodes[1].childNodes[4] != undefined)
+				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
 			}
 				
@@ -7371,7 +7371,7 @@ async function checkthemestatus() {
 				let theme = document.createElement('div')
 				theme.innerText = "Тема: ❌"
 				theme.style = 'color:red; font-weight:700'
-				if (txtbar.childNodes[1].childNodes[4] != undefined)
+				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
 			}
 			
@@ -7387,7 +7387,7 @@ async function checkthemestatus() {
 				let theme = document.createElement('div')
 				theme.innerText = "Тема: ✔"
 				theme.style = 'color:green; font-weight:700'
-				if (txtbar.childNodes[1].childNodes[4] != undefined)
+				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
 			}
 			
@@ -7403,7 +7403,7 @@ async function checkthemestatus() {
 				let theme = document.createElement('div')
 				theme.innerText = "Тема: ✔"
 				theme.style = 'color:green; font-weight:700'
-				if (txtbar.childNodes[1].childNodes[4] != undefined)
+				if (txtbar.childNodes[1].childNodes[4] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
 			}
 			
