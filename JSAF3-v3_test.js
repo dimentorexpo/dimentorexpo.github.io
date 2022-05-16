@@ -7450,7 +7450,7 @@ async function checkthemestatus() {
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
 				let theme = document.createElement('div')
 				theme.innerText = "Услуга: ✔"
-				theme.style = 'color:red; font-weight:700'
+				theme.style = 'color:green; font-weight:700'
 				if (txtbar.childNodes[1].childNodes[5] == undefined)
 				txtbar.childNodes[1].appendChild(theme)
 				if (txtbar.childNodes[1].childNodes
