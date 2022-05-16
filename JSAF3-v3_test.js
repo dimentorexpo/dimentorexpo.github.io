@@ -7340,6 +7340,8 @@ function checkthemestatus() {
             let temparr = document.location.pathname.split('/')[3];
             fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
+			
+
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
                 document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
@@ -7347,24 +7349,55 @@ function checkthemestatus() {
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "15px;"
+			
+			if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
+				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+				let theme.innerText = "Тема: ❌"
+				theme.style = 'color:red; font-weight:700'
+				txtbar.childNodes[1].appendChild(theme)
+			}
+				
             } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
                 document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "red" // перекрасить в красный цвет поле где Пусто
                 document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "red" // красит сам текст выбор темы подтемы
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "15px;"
+				
+				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
+				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+				let theme.innerText = "Тема: ❌"
+				theme.style = 'color:red; font-weight:700'
+				txtbar.childNodes[1].appendChild(theme)
+			}
             } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
                 document.getElementsByClassName('sc-fzqNqU')[2].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
                 document.getElementsByClassName('sc-fzqNqU')[2].style.color = "white" // перекрасить в красный цвет поле где Пусто
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.color = "white"
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[2].style.fontSize = "12px;"
+				
+				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
+				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+				let theme.innerText = "Тема: ✔"
+				notheme.style = 'color:green; font-weight:700'
+				txtbar.childNodes[1].appendChild(theme)
+			}
+			
             } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
                 document.getElementsByClassName('sc-fzqNqU')[3].style.backgroundColor = "green" // перекрасить в красный цвет поле где Пусто
                 document.getElementsByClassName('sc-fzqNqU')[3].style.color = "white"// перекрасить в красный цвет поле где Пусто
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.backgroundColor = "green" // красит сам текст выбор темы подтемы
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.color = "white"
                 document.getElementsByClassName('sc-fznJRM bTIjTR')[3].style.fontSize = "12px;"
+				
+				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
+				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+				let theme.innerText = "Тема: ✔"
+				theme.style = 'color:green; font-weight:700'
+				txtbar.childNodes[1].appendChild(theme)
+			}
+			
             }
         }
     } catch (e) { }
