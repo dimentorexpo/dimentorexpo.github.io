@@ -4042,7 +4042,7 @@ function move_again_AF() {
                     rezissuetable.issueTable.issueKeys.length = 50;
                 for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
-                    if (rezissuetable.issueTable.issueKeys[i] != undefined && document.getElementById('testJira').value != "portfolio" && document.getElementById('testJira').value != "Portfolio" && document.getElementById('testJira').value != "Портфолио" && document.getElementById('testJira').value != "портфолио" && document.getElementById('testJira').value != "404" && document.getElementById('testJira').value != "403" && document.getElementById('testJira').value != "recording" && document.getElementById('testJira').value != "record") {
+                    if (rezissuetable.issueTable.issueKeys[i] != undefined && document.getElementById('testJira').value != "portfolio" && document.getElementById('testJira').value != "Portfolio" && document.getElementById('testJira').value != "Портфолио" && document.getElementById('testJira').value != "портфолио" && document.getElementById('testJira').value != "404" && document.getElementById('testJira').value != "403" && document.getElementById('testJira').value != "recording" && document.getElementById('testJira').value != "record" && document.getElementById('testJira').value != "recording" && document.getElementById('testJira').value != "ситуации") {
                         issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+.?.?)<\/a>/gm)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
                     } else if (rezissuetable.issueTable.issueKeys[i] != undefined && document.getElementById('testJira').value == "403") {
                         let arrmod = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+)<\/a>/gm) + "," + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+)403<\/a>/gm);
@@ -7342,7 +7342,7 @@ async function checkthemestatus() {
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
 
-            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
+            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
@@ -7410,8 +7410,6 @@ async function checkthemestatus() {
                 }
 
             }
-
-
 				
 			if (pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
