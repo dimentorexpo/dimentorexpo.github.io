@@ -7352,7 +7352,8 @@ function checkthemestatus() {
 			
 			if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-				let theme.innerText = "Тема: ❌"
+				let theme = document.createElement('div')
+				theme.innerText = "Тема: ❌"
 				theme.style = 'color:red; font-weight:700'
 				txtbar.childNodes[1].appendChild(theme)
 			}
@@ -7366,7 +7367,8 @@ function checkthemestatus() {
 				
 				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-				let theme.innerText = "Тема: ❌"
+				let theme = document.createElement('div')
+				theme.innerText = "Тема: ❌"
 				theme.style = 'color:red; font-weight:700'
 				txtbar.childNodes[1].appendChild(theme)
 			}
@@ -7379,7 +7381,8 @@ function checkthemestatus() {
 				
 				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-				let theme.innerText = "Тема: ✔"
+				let theme = document.createElement('div')
+				theme.innerText = "Тема: ✔"
 				notheme.style = 'color:green; font-weight:700'
 				txtbar.childNodes[1].appendChild(theme)
 			}
@@ -7393,7 +7396,8 @@ function checkthemestatus() {
 				
 				if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined){
 				let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-				let theme.innerText = "Тема: ✔"
+				let theme = document.createElement('div')
+				theme.innerText = "Тема: ✔"
 				theme.style = 'color:green; font-weight:700'
 				txtbar.childNodes[1].appendChild(theme)
 			}
