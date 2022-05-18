@@ -1,7 +1,6 @@
 ﻿//Global vars
 let pldata;
 
-
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);
@@ -6120,6 +6119,7 @@ async function getInfo(flag1 = 1) {
 async function sendComment(txt) {
     var values = await getInfo(0)
     adr = values[0]; adr1 = values[1]; uid = values[2]
+	localStorage.setItem('SessionIdAF', uid)
     var txt2 = txt.split('\n').join('\\n')
     var txt2 = txt2.split("\"").join("\\\"")
     resetFlags()
