@@ -6759,7 +6759,6 @@ async function remandressl() {
             await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
                 "headers": {
                     "accept": "application/json, text/plain, */*",
-                    "accept-language": "ru",
                     "authorization": "Bearer" + d[1],
                 },
                 "method": "PATCH",
@@ -6822,7 +6821,6 @@ async function remandressl() {
             await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
                 "headers": {
                     "accept": "application/json, text/plain, */*",
-                    "accept-language": "ru",
                     "authorization": "Bearer" + d[1],
                 },
                 "method": "PATCH",
@@ -6834,7 +6832,6 @@ async function remandressl() {
                 await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/" + testo.lessonPlan.Homework[i].id + "/reset", {
                     "headers": {
                         "accept": "application/json, text/plain, */*",
-                        "accept-language": "ru",
                         "authorization": "Bearer" + d[1],
                         "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                     },
