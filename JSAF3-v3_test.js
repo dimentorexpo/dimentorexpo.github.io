@@ -9406,8 +9406,8 @@ btnpm.onclick = async function () {
         document.getElementById('responseTextarea3').value = 'senddata'
         document.getElementById('sendResponse').click()
 
-        lginfo = document.getElementById('responseTextarea1').getAttribute('senddata');
-        lginfo = await lginfo;
+        lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata');
+        //lginfo = await lginfo;
 
         lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
         lginfo = lginfo[lginfo.length - 1].split("\"");
