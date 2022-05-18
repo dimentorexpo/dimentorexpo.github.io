@@ -7872,8 +7872,10 @@ async function checkthemestatus() {
                     }
                 }
             }  
+				if (pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)!=null && pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/) !=undefined && pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/) !='') {
+			
 				let chkbotansw = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/);
-				if (chkbotansw !=null && chkbotansw !=undefined && chkbotansw !='') {
+
 			    if (butName == 'Привет') {
 					a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
 					a = a.split(' ')
