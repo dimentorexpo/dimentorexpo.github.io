@@ -7913,6 +7913,56 @@ setInterval(paintstatus, 5000);
 function backbtn() {
     if (document.getElementById('search') != null)
         document.getElementById('back_btn').style.display = "";
+	
+		if (document.getElementById('search') !=null) {
+		let chthash;
+		let sesid;
+		search.onclick = async () => {
+			chthash = document.getElementById('chat_id').value
+			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
+			.then(r=>r.json()).then(r=>rdata=r)
+			sesid = rdata.sessionId;
+
+		let barea = document.createElement('textarea')
+		barea.id = "notes_field"
+		barea.style.background = "lightgrey";
+		document.getElementById('send_btns').append(barea)
+
+		let btnsndnotes = document.createElement('button')
+		btnsndnotes.innerText = "Notes"
+		btnsndnotes.onclick = notetoclchat;
+		document.getElementById('send_btns').append(btnsndnotes)
+		document.getElementById('send_text').style.display ='none'
+		document.getElementById('send_btn').style.display ='none'
+
+		let zambtnhide = document.getElementsByTagName('a')
+		for (let i=0; i<zambtnhide.length;i++) {
+			if (zambtnhide[i].innerText == 'заметка')
+				zambtnhide[i].style.display = 'none'
+		}
+
+		}
+
+		function notetoclchat() {
+		let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
+
+		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+		  "headers": {
+			"accept": "*/*",
+			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+			"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\""+sesid+"\",\"conversationId\":\""+chthash+"\",\"text\":\""+notemsg+"\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		});
+
+		document.getElementById('notes_field').value =''
+		}
+		}
 }
 
 setInterval(backbtn, 5000);
