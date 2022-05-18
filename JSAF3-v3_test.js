@@ -5562,7 +5562,9 @@ async function buttonsFromDoc(butName) {
 					const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
 					if (document.getElementById('languageAF').innerHTML == "Русский") {
-							if (pldata.messages[0].tpe == "Question" && pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)=='Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать") {
+							if (pldata.messages[0].tpe == "Question" && document.getElementById('msg1').innerHTML == "Доработать") {
+								let drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
+								if (drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос')
 							txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
 						} else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
 							txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
