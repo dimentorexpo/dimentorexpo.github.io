@@ -7898,7 +7898,7 @@ async function checkthemestatus() {
 					return
 
 				}
-				}
+				} else console.log("Открыт исходящий чат, где не было сообщения от пользователя")
 
         }
     } catch (e) { }
