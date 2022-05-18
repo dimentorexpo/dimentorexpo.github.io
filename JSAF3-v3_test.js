@@ -7257,6 +7257,7 @@ async function remandressl() {
 
 switch (subject) {
     case "chess/room":
+		if(document.getElementById('clwbtn') == null) 
         document.getElementsByClassName('root')[0].appendChild(classworkbtn)
         console.log("Шахматы")
 
