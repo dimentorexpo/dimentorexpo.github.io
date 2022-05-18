@@ -7939,6 +7939,7 @@ function backbtn() {
     if (document.getElementById('search') != null)
         document.getElementById('back_btn').style.display = "";
 	
+		if (document.getElementById('search') !=null) {
 		let chthash;
 		let sesid;
 		search.onclick = async () => {
@@ -7987,7 +7988,7 @@ function backbtn() {
 
 		document.getElementById('notes_field').value =''
 		}
-
+		}
 }
 
 setInterval(backbtn, 5000);
