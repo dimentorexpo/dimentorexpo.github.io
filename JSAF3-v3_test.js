@@ -5551,6 +5551,34 @@ async function buttonsFromDoc(butName) {
         // return
 
     // }
+	
+					if (pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)!=null && pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/) !=undefined && pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/) !='') {
+			
+				let chkbotansw = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/);
+
+			    if (butName == 'Привет') {
+					a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+					a = a.split(' ')
+					const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+
+					if (document.getElementById('languageAF').innerHTML == "Русский")
+						if (chkbotansw[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать") {
+							txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+						} else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
+							txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+						else
+							txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+					else
+						txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
+
+					if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
+						sendAnswer(txt)
+					else
+						sendAnswerTemplate2(txt)
+					return
+
+				}
+				} else console.log("Открыт исходящий чат, где не было сообщения от пользователя")
 
     msgFromTable(butName)
 }
@@ -7872,34 +7900,6 @@ async function checkthemestatus() {
                     }
                 }
             }  
-				if (pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)!=null && pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/) !=undefined && pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/) !='') {
-			
-				let chkbotansw = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/);
-
-			    if (butName == 'Привет') {
-					a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-					a = a.split(' ')
-					const cyrillicPattern = /^[\u0400-\u04FF]+$/;
-
-					if (document.getElementById('languageAF').innerHTML == "Русский")
-						if (chkbotansw[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать") {
-							txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-						} else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
-							txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-						else
-							txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-					else
-						txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
-
-					if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
-						sendAnswer(txt)
-					else
-						sendAnswerTemplate2(txt)
-					return
-
-				}
-				} else console.log("Открыт исходящий чат, где не было сообщения от пользователя")
-
         }
     } catch (e) { }
 }
