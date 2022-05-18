@@ -7943,7 +7943,6 @@ function backbtn() {
 		let chthash;
 		let sesid;
 		search.onclick = async () => {
-			console.log("clcked")
 			chthash = document.getElementById('chat_id').value
 			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
 			.then(r=>r.json()).then(r=>rdata=r)
