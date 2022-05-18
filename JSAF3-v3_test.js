@@ -5129,8 +5129,8 @@ function move_again_AF() {
             document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
             document.getElementById('responseTextarea3').value = 'heredata'
             document.getElementById('sendResponse').click()
-            grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
-            grdata = await grdata;
+            grdata = await document.getElementById('responseTextarea1').getAttribute('heredata');
+            //grdata = await grdata;
             grdata = JSON.parse(grdata);
             document.getElementById('responseTextarea1').removeAttribute('heredata');
 

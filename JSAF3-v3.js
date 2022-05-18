@@ -5129,8 +5129,8 @@ function move_again_AF() {
             document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
             document.getElementById('responseTextarea3').value = 'heredata'
             document.getElementById('sendResponse').click()
-            grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
-            grdata = await grdata;
+            grdata = await document.getElementById('responseTextarea1').getAttribute('heredata');
+            //grdata = await grdata;
             grdata = JSON.parse(grdata);
             document.getElementById('responseTextarea1').removeAttribute('heredata');
 
@@ -9406,8 +9406,8 @@ btnpm.onclick = async function () {
         document.getElementById('responseTextarea3').value = 'senddata'
         document.getElementById('sendResponse').click()
 
-        lginfo = document.getElementById('responseTextarea1').getAttribute('senddata');
-        lginfo = await lginfo;
+        lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata');
+        //lginfo = await lginfo;
 
         lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
         lginfo = lginfo[lginfo.length - 1].split("\"");
