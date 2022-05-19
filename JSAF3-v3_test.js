@@ -4044,17 +4044,11 @@ function move_again_AF() {
                 for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
 				if (rezissuetable.issueTable.issueKeys[i] != undefined) {
-					if (document.getElementById('testJira').value == "403") {
-                        let arrmod = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+)<\/a>/gm) + "," + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?\D+)403<\/a>/gm);
-                        arrmod = arrmod.split(',');
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + arrmod[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-                    
-					} else if (document.getElementById('testJira').value == "portfolio" || document.getElementById('testJira').value == "Portfolio" || document.getElementById('testJira').value == "Портфолио" || document.getElementById('testJira').value == "портфолио" || document.getElementById('testJira').value == "404" || document.getElementById('testJira').value == "recording" || document.getElementById('testJira').value == "record" || document.getElementById('testJira').value == "recording" || document.getElementById('testJira').value == "ситуации") {
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(i => i.length >= 27)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-                    } else {
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(i => i.length > 30)[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-                    }
+
+                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable..issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array)  { if (index % 2 !=0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+
 					}
+					
                 }
 
                 document.getElementById('issuetable').innerHTML = issues;
