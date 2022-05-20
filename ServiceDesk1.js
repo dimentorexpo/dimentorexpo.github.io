@@ -274,8 +274,8 @@ document.getElementById('servDsk').onclick = function () {
 		$('.marketingbtn').not(this).removeClass('activebtn');
 		$('.mobbugsbtn').not(this).removeClass('activebtn');
 		$(this).toggleClass('activebtn');
-	});	
-	
+	});
+
 	$('.edumodbtn').click(function () {
 		$('.kidsbtn').not(this).removeClass('activebtn');
 		$('.edumodbtn').not(this).removeClass('activebtn');
@@ -1311,7 +1311,7 @@ document.getElementById('servDsk').onclick = function () {
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
-					
+
 				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartgroup').textContent) {
 					console.log("Групповые и параллельные уроки: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1380,7 +1380,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('kidsform').style.display = 'none';
 		}
 	}
-	
+
 	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS
 		if (document.getElementById('edumodeloptions').style.display != '') {
 			document.getElementById('edumodeloptions').style.display = '';
@@ -1436,7 +1436,7 @@ document.getElementById('servDsk').onclick = function () {
 				erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
 				let ary = document.getElementById('customfield_101').value;
 				ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartfamily').textContent) {
+				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('edumgoal').textContent) {
 					console.log("Анкета целей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
 					document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -1594,7 +1594,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('edumodelform').style.display = 'none';
 		}
 	}
-	
+
 	document.getElementById('optionBillingQA').onclick = function () { //BillingQA
 		if (document.getElementById('billingqasrvdskoptions').style.display != '') {
 			document.getElementById('billingqasrvdskoptions').style.display = '';
@@ -5755,8 +5755,9 @@ document.getElementById('servDsk').onclick = function () {
 				erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
 				let ary = document.getElementById('customfield_96').value;
 				ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+				let priorvalue = document.getElementById('prioritymbugs').value;
 				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mobbugsqa').textContent) {
-					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+					console.log("Обращение к QA: " + " Priority:" + priorvalue +"  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
 					document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -5767,7 +5768,7 @@ document.getElementById('servDsk').onclick = function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/953",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
