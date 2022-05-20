@@ -903,7 +903,8 @@ var win_servicedesk =
                 <button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница </button>
                 <button class="studcabbtn" id="studkidcab">Детский ЛКУ Главная страница </button>
                 <button class="studcabbtn" id="studstories">Stories </button>
-                <button class="studcabbtn" id="studcabrefpage">Страница оплаты, трансфера и истории баланса </button>
+                <button class="studcabbtn" id="studcabrefpage">Реферальная страница</button>
+                <button class="studcabbtn" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса </button>
                 <button class="studcabbtn" id="studcabttmovelesson">Страница расписания и переноса урока </button>
                 <button class="studcabbtn" id="studcabteacherpage">ДСтраница преподавателя </button>
                 <button class="studcabbtn" id="studcabprofilesettings">Страница профиля У настройки </button>
