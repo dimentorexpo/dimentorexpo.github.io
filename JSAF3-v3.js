@@ -1150,6 +1150,16 @@ var win_servicedesk =
 				</div>
 
 				<div id="mobileform" style="display: none; margin-left:20px;">
+						<p><select size="3" multiple name="priority[]" id="prioritymbugs">
+							<option disabled>Приоритет</option>
+							<option value="1">Blocker</option>
+							<option value="2">Critical</option>
+							<option value="10100">Hight</option>
+							<option value="3">Major</option>
+							<option value="4">Minor</option>
+							<option value="5">Trivial</option>		
+					   </select></p>
+					   <br>
 					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
                     <textarea id="customfield_911" placeholder="Приложение / Версия / Платформа" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
