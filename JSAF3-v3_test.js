@@ -7927,26 +7927,25 @@ function backbtn() {
     if (document.getElementById('search') != null)
         document.getElementById('back_btn').style.display = "";
 	
-		
-		if (document.getElementById('notes_field') ==null && document.getElementById('SendNotesToChat')==null) {
-			if(document.getElementById('send_btns') != null) {
-			
-				
 				let barea = document.createElement('textarea')
 				barea.id = "notes_field"
 				barea.style.background = "lightgrey";
 				
-				document.getElementById('send_btns').append(barea)
-
 				let btnsndnotes = document.createElement('button')
 				btnsndnotes.innerText = "Notes"
 				btnsndnotes.id="SendNotesToChat"
 				btnsndnotes.onclick = notetoclchat;
-
-				document.getElementById('send_btns').append(btnsndnotes)
-			
+				
+		
+		if (document.getElementById('notes_field') ==null && document.getElementById('SendNotesToChat')==null) {
+			if(document.getElementById('send_btns') != null) {
+				
 				document.getElementById('send_text').style.display ='none'
 				document.getElementById('send_btn').style.display ='none'
+										
+				document.getElementById('send_btns').append(barea)
+				document.getElementById('send_btns').append(btnsndnotes)
+			
 
 				let zambtnhide = document.getElementsByTagName('a')
 					for (let i=0; i<zambtnhide.length;i++) {
@@ -7954,6 +7953,7 @@ function backbtn() {
 							zambtnhide[i].style.display = 'none'
 					}
 			}
+			
 		} else console.log("Уже добавлено")
 	
 		let sesid;
