@@ -906,7 +906,7 @@ var win_servicedesk =
                 <button class="studcabbtn" id="studcabrefpage">Реферальная страница</button>
                 <button class="studcabbtn" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса </button>
                 <button class="studcabbtn" id="studcabttmovelesson">Страница расписания и переноса урока </button>
-                <button class="studcabbtn" id="studcabteacherpage">ДСтраница преподавателя </button>
+                <button class="studcabbtn" id="studcabteacherpage">Страница преподавателя </button>
                 <button class="studcabbtn" id="studcabprofilesettings">Страница профиля У настройки </button>
                 <button class="studcabbtn" id="studcabfamandcourse">Страница семьи и курсов </button>
                 <button class="studcabbtn" id="studcabshowcase">Страница шоукейса (подключение услуг) </button>
