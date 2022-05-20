@@ -872,21 +872,6 @@ var win_servicedesk =
                 <p style="color:bisque; font-size:18px; position:relative; top:7px; left:10px;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
                 <button class="chatqabtn" id="chatqa">Обращение для QA</button>
                 </div>
-
-				<div id="studcaboptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru </p>
-					<button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница </button>
-					<button class="studcabbtn" id="studkidcab">Детский ЛКУ Главная страница </button>
-					<button class="studcabbtn" id="studstories">Stories </button>
-					<button class="studcabbtn" id="studcabrefpage">Страница оплаты, трансфера и истории баланса </button>
-					<button class="studcabbtn" id="studcabttmovelesson">Страница расписания и переноса урока </button>
-					<button class="studcabbtn" id="studcabteacherpage">ДСтраница преподавателя </button>
-					<button class="studcabbtn" id="studcabprofilesettings">Страница профиля У настройки </button>
-					<button class="studcabbtn" id="studcabfamandcourse">Страница семьи и курсов </button>
-					<button class="studcabbtn" id="studcabshowcase">Страница шоукейса (подключение услуг) </button>
-					<button class="studcabbtn" id="studcabmenunav">Меню навигации (лейаут) </button>
-					<button class="studcabbtn" id="studcabunderground>Подземный стук </button>
-				</div>
 								
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
@@ -912,6 +897,21 @@ var win_servicedesk =
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
 					<button class="mobbugsbtn" id="mobbugsqa">Обращение для QA</button>
 				</div>
+
+                <div id="studcaboptions" style="display: none; margin-left:20px;">
+                <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru </p>
+                <button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница </button>
+                <button class="studcabbtn" id="studkidcab">Детский ЛКУ Главная страница </button>
+                <button class="studcabbtn" id="studstories">Stories </button>
+                <button class="studcabbtn" id="studcabrefpage">Страница оплаты, трансфера и истории баланса </button>
+                <button class="studcabbtn" id="studcabttmovelesson">Страница расписания и переноса урока </button>
+                <button class="studcabbtn" id="studcabteacherpage">ДСтраница преподавателя </button>
+                <button class="studcabbtn" id="studcabprofilesettings">Страница профиля У настройки </button>
+                <button class="studcabbtn" id="studcabfamandcourse">Страница семьи и курсов </button>
+                <button class="studcabbtn" id="studcabshowcase">Страница шоукейса (подключение услуг) </button>
+                <button class="studcabbtn" id="studcabmenunav">Меню навигации (лейаут) </button>
+                <button class="studcabbtn" id="studcabunderground>Подземный стук </button>
+                </div>
 				
 	        </span>
 						
