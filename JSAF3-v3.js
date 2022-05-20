@@ -1151,7 +1151,7 @@ var win_servicedesk =
 
 				<div id="mobileform" style="display: none; margin-left:20px;">
 						<select style="height:28px;" name="priority[]" id="prioritymbugs">
-							<option disabled="">Приоритет</option>
+							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
 							<option value="2">Critical</option>
 							<option value="10100">Hight</option>
