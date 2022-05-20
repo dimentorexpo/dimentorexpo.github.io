@@ -7927,18 +7927,11 @@ function backbtn() {
     if (document.getElementById('search') != null)
         document.getElementById('back_btn').style.display = "";
 	
-		if (document.getElementById('search') !=null) {
-		let chthash;
-		let sesid;
-		search.onclick = async () => {
-			chthash = document.getElementById('chat_id').value
-			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
-			.then(r=>r.json()).then(r=>rdata=r)
-			sesid = rdata.sessionId;
-
+		
 		let barea = document.createElement('textarea')
 		barea.id = "notes_field"
 		barea.style.background = "lightgrey";
+		if(document.getElementById('send_btns') != null) {
 		document.getElementById('send_btns').append(barea)
 
 		let btnsndnotes = document.createElement('button')
@@ -7953,6 +7946,18 @@ function backbtn() {
 			if (zambtnhide[i].innerText == 'заметка')
 				zambtnhide[i].style.display = 'none'
 		}
+
+		}
+	
+		if (document.getElementById('search') !=null) {
+		let chthash;
+		let sesid;
+		search.onclick = async () => {
+			chthash = document.getElementById('chat_id').value
+			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
+			.then(r=>r.json()).then(r=>rdata=r)
+			sesid = rdata.sessionId;
+
 
 		}
 
