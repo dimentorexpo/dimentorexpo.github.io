@@ -7932,15 +7932,16 @@ function backbtn() {
 		barea.id = "notes_field"
 		barea.style.background = "lightgrey";
 		
-
+		if (document.getElementById('notes_field')==null && document.getElementById('SendNotesToChat')==null) {
 		if(document.getElementById('send_btns') != null) {
+		
 		document.getElementById('send_btns').append(barea)
 
 		let btnsndnotes = document.createElement('button')
 		btnsndnotes.innerText = "Notes"
+		btnsndnotes.id="SendNotesToChat"
 		btnsndnotes.onclick = notetoclchat;
-		
-		if (document.getElementById('notes_field')==null) 
+
 		document.getElementById('send_btns').append(btnsndnotes)
 	
 		document.getElementById('send_text').style.display ='none'
@@ -7981,6 +7982,7 @@ function backbtn() {
 		});
 
 		document.getElementById('notes_field').value =''
+		}
 		}
 		
 }
