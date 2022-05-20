@@ -7928,32 +7928,33 @@ function backbtn() {
         document.getElementById('back_btn').style.display = "";
 	
 		
-		let barea = document.createElement('textarea')
-		barea.id = "notes_field"
-		barea.style.background = "lightgrey";
-		
-		if (document.getElementById('notes_field')==null && document.getElementById('SendNotesToChat')==null) {
-		if(document.getElementById('send_btns') != null) {
-		
-		document.getElementById('send_btns').append(barea)
+		if (document.getElementById('notes_field') ==null && document.getElementById('SendNotesToChat')==null) {
+			if(document.getElementById('send_btns') != null) {
+			
+				
+				let barea = document.createElement('textarea')
+				barea.id = "notes_field"
+				barea.style.background = "lightgrey";
+				
+				document.getElementById('send_btns').append(barea)
 
-		let btnsndnotes = document.createElement('button')
-		btnsndnotes.innerText = "Notes"
-		btnsndnotes.id="SendNotesToChat"
-		btnsndnotes.onclick = notetoclchat;
+				let btnsndnotes = document.createElement('button')
+				btnsndnotes.innerText = "Notes"
+				btnsndnotes.id="SendNotesToChat"
+				btnsndnotes.onclick = notetoclchat;
 
-		document.getElementById('send_btns').append(btnsndnotes)
-	
-		document.getElementById('send_text').style.display ='none'
-		document.getElementById('send_btn').style.display ='none'
+				document.getElementById('send_btns').append(btnsndnotes)
+			
+				document.getElementById('send_text').style.display ='none'
+				document.getElementById('send_btn').style.display ='none'
 
-		let zambtnhide = document.getElementsByTagName('a')
-		for (let i=0; i<zambtnhide.length;i++) {
-			if (zambtnhide[i].innerText == 'заметка')
-				zambtnhide[i].style.display = 'none'
-		}
-
-	}
+				let zambtnhide = document.getElementsByTagName('a')
+					for (let i=0; i<zambtnhide.length;i++) {
+						if (zambtnhide[i].innerText == 'заметка')
+							zambtnhide[i].style.display = 'none'
+					}
+			}
+		} else console.log("Уже добавлено")
 	
 		let sesid;
 		async function notetoclchat() {
@@ -7983,8 +7984,6 @@ function backbtn() {
 
 		document.getElementById('notes_field').value =''
 		}
-		}
-		
 }
 
 setInterval(backbtn, 5000);
