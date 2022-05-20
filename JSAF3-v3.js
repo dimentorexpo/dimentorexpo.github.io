@@ -1,4 +1,6 @@
 ﻿//Global vars
+let pldata;
+let drevo;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -5524,27 +5526,56 @@ async function buttonsFromDoc(butName) {
             butName = "ус+брауз (У)"
         else
             butName = "ус+брауз (П)"
+		
 
-    if (butName == 'Привет') {
-        a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-        a = a.split(' ')
-        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-        if (document.getElementById('languageAF').innerHTML == "Русский")
-            if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
-                txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-            else
-                txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-        else
-            txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
+    // if (butName == 'Привет') {
+        // a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+        // a = a.split(' ')
+        // const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-        if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
-            sendAnswer(txt)
-        else
-            sendAnswerTemplate2(txt)
-        return
+        // if (document.getElementById('languageAF').innerHTML == "Русский")
+            // if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
+                // txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+            // else
+                // txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+        // else
+            // txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
 
-    }
+        // if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
+            // sendAnswer(txt)
+        // else
+            // sendAnswerTemplate2(txt)
+        // return
+
+    // }
+	
+
+							
+
+
+			    if (butName == 'Привет') {
+					a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+					a = a.split(' ')
+					const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+
+					if (document.getElementById('languageAF').innerHTML == "Русский") {
+								if (drevo != null  && drevo !=undefined && drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать"){
+									console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
+							txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+								} else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
+							txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+						else
+							txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+					} else
+						txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
+
+					if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
+						sendAnswer(txt)
+					else
+						sendAnswerTemplate2(txt)
+					return
+				}
 
     msgFromTable(butName)
 }
@@ -7748,6 +7779,9 @@ async function checkthemestatus() {
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
+			
+			if (pldata.messages[0].txt !=undefined && pldata.messages[0].txt !=null)
+			drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
@@ -7853,8 +7887,6 @@ async function checkthemestatus() {
                     }
                 }
             }  
-				
-
         }
     } catch (e) { }
 }
