@@ -1,5 +1,4 @@
 ﻿//Global vars
-let pldata;
 
 function mystyles() {
     let mstl = document.createElement('style');
