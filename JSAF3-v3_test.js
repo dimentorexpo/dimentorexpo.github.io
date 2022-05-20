@@ -5530,6 +5530,7 @@ async function buttonsFromDoc(butName) {
 								let drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
 								if (drevo != null  && drevo !=undefined && drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос')
 									console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
+								else console.log("Условия не прошло проверку на приветствие бота")
 								}
 
     if (butName == 'Привет') {
