@@ -7932,6 +7932,7 @@ function backbtn() {
 		barea.id = "notes_field"
 		barea.style.background = "lightgrey";
 		
+
 		if(document.getElementById('send_btns') != null) {
 		document.getElementById('send_btns').append(barea)
 
@@ -7939,7 +7940,10 @@ function backbtn() {
 		let btnsndnotes = document.createElement('button')
 		btnsndnotes.innerText = "Notes"
 		btnsndnotes.onclick = notetoclchat;
+		
+		if (document.getElementById('notes_field')==null) 
 		document.getElementById('send_btns').append(btnsndnotes)
+	
 		document.getElementById('send_text').style.display ='none'
 		document.getElementById('send_btn').style.display ='none'
 
