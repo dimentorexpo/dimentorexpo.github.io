@@ -910,9 +910,9 @@ var win_servicedesk =
                 <button class="studcabbtn" id="studcabfamandcourse">Страница семьи и курсов </button>
                 <button class="studcabbtn" id="studcabshowcase">Страница шоукейса (подключение услуг) </button>
                 <button class="studcabbtn" id="studcabmenunav">Меню навигации (лейаут) </button>
-                <button class="studcabbtn" id="studcabunderground>Подземный стук </button>
+                <button class="studcabbtn" id="studcabunderground">Подземный стук </button>
                 </div>
-				</div>
+
 				
 	        </span>
 						
@@ -1161,7 +1161,8 @@ var win_servicedesk =
 				</div>
 
 				<div id="mobileform" style="display: none; margin-left:20px;">
-						<select style="height:28px;" name="priority[]" id="prioritymbugs">
+				
+						<select style="height:28px;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
 							<option value="2">Critical</option>
@@ -1170,6 +1171,7 @@ var win_servicedesk =
 							<option value="4">Minor</option>
 							<option value="5">Trivial</option>		
 					   </select>
+					   
 					   <br>
 					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
