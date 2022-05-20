@@ -867,7 +867,12 @@ var win_servicedesk =
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-video-call; Разработка модуля видеосвязи</p>
 					<button class="vimvidsbtn" id="vimvidqa">Обращение для QA</button>
 				</div>
-				
+
+                <div id="chatqaoptions" style="display: none; margin-left:20px;">
+                <p style="color:bisque; font-size:18px; position:relative; top:7px; left:10px;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
+                <button class="chatqabtn" id="chatqa">Обращение для QA</button>
+                </div>
+
 				<div id="studcaboptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru</p>
 					<button class="studcabbtn" id="studadultcab">Взрослый ЛКУ: Главная страница</button>
@@ -882,12 +887,7 @@ var win_servicedesk =
 					<button class="studcabbtn" id="studcabmenunav">Меню навигации (лейаут)</button>
 					<button class="studcabbtn" id="studcabunderground>Подземный стук</button>
 				</div>
-				
-				<div id="chatqaoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
-					<button class="chatqabtn" id="chatqa">Обращение для QA</button>
-				</div>
-				
+								
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
 					<button class="tripwbtn" id="tripwqa">Обращение для QA</button>
@@ -4064,12 +4064,12 @@ function move_again_AF() {
                     rezissuetable.issueTable.issueKeys.length = 50;
                 for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
-				if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+                    if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array)  { if (index % 2 !=0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/">.*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
 
-					}
-					
+                    }
+
                 }
 
                 document.getElementById('issuetable').innerHTML = issues;
@@ -5546,56 +5546,56 @@ async function buttonsFromDoc(butName) {
             butName = "ус+брауз (У)"
         else
             butName = "ус+брауз (П)"
-		
+
 
 
     // if (butName == 'Привет') {
-        // a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-        // a = a.split(' ')
-        // const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+    // a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+    // a = a.split(' ')
+    // const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-        // if (document.getElementById('languageAF').innerHTML == "Русский")
-            // if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
-                // txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-            // else
-                // txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-        // else
-            // txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
+    // if (document.getElementById('languageAF').innerHTML == "Русский")
+    // if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
+    // txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+    // else
+    // txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+    // else
+    // txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
 
-        // if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
-            // sendAnswer(txt)
-        // else
-            // sendAnswerTemplate2(txt)
-        // return
+    // if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
+    // sendAnswer(txt)
+    // else
+    // sendAnswerTemplate2(txt)
+    // return
 
     // }
-	
-
-							
 
 
-			    if (butName == 'Привет') {
-					a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-					a = a.split(' ')
-					const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
-					if (document.getElementById('languageAF').innerHTML == "Русский") {
-								if (drevo != null  && drevo !=undefined && drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать"){
-									console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
-							txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-								} else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
-							txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-						else
-							txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-					} else
-						txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
 
-					if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
-						sendAnswer(txt)
-					else
-						sendAnswerTemplate2(txt)
-					return
-				}
+
+    if (butName == 'Привет') {
+        a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+        a = a.split(' ')
+        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+
+        if (document.getElementById('languageAF').innerHTML == "Русский") {
+            if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать") {
+                console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
+                txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+            } else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
+                txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+            else
+                txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+        } else
+            txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
+
+        if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
+            sendAnswer(txt)
+        else
+            sendAnswerTemplate2(txt)
+        return
+    }
 
     msgFromTable(butName)
 }
@@ -6580,8 +6580,8 @@ function startTimer() {
                             for (let i = 0; i < document.getElementsByTagName('p').length; i++) {
                                 if (document.getElementsByTagName('p')[i].innerText == "skyeng")
                                     document.getElementsByTagName('p')[i].style.background = "#00AEFA";
-								else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
-									document.getElementsByTagName('p')[i].style.background = "#2E8B57";
+                                else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
+                                    document.getElementsByTagName('p')[i].style.background = "#2E8B57";
                             }
                         }
 
@@ -7291,420 +7291,420 @@ async function remandressl() {
             alert("Чаты с учениками в разделе 'Биология' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
     }
-	
-	// Добавляем в комнату кнопку Classwork для перезапуска урока
-	
-	let classworkbtn = document.createElement('div')
-		classworkbtn.id = "clwbtn"
-		classworkbtn.innerText = "Classwork"
-		classworkbtn.style = "position:absolute; top:14px; left:65%; cursor: pointer;"
-		let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
-
-switch (subject) {
-    case "chess/room":
-		if(document.getElementById('clwbtn') == null) 
-        document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Шахматы"
-
-        function restchess() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
-
-            fetch("https://api-chess.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
-
-            document.getElementById('clwbtn').innerText = "Done!"
-
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-        }
-
-        classworkbtn.onclick = restchess
-
-        break;
-    case "math/room":
-		if(document.getElementById('clwbtn') == null)
-        document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Математика"
-
-        function restmath() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
-
-            fetch("https://api-math.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
-
-            document.getElementById('clwbtn').innerText = "Done!"
-
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-        }
-
-        classworkbtn.onclick = restmath
-
-        break;
-    case "geography/room":
-		if(document.getElementById('clwbtn') == null)
-        document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Географии"
-
-        function restgeo() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
-
-            fetch("https://api-geography.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
-
-            document.getElementById('clwbtn').innerText = "Done!"
-
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-        }
-
-        classworkbtn.onclick = restgeo
 
-        break;
-    case "preschool/room":
-		if(document.getElementById('clwbtn') == null)
-        document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+    // Добавляем в комнату кнопку Classwork для перезапуска урока
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Дошколка"
+    let classworkbtn = document.createElement('div')
+    classworkbtn.id = "clwbtn"
+    classworkbtn.innerText = "Classwork"
+    classworkbtn.style = "position:absolute; top:14px; left:65%; cursor: pointer;"
+    let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
 
-        function restpreschool() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
-
-            fetch("https://api-preschool.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+    switch (subject) {
+        case "chess/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-            document.getElementById('clwbtn').innerText = "Done!"
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Шахматы"
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+            function restchess() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
 
-        }
+                fetch("https://api-chess.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-        classworkbtn.onclick = restpreschool
+                document.getElementById('clwbtn').innerText = "Done!"
 
-        break;
-    case "social-science/room":
-		if(document.getElementById('clwbtn') == null)
-        document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Обществознания"
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        function restobsh() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
-
-            fetch("https://api-social-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+            }
 
-            document.getElementById('clwbtn').innerText = "Done!"
+            classworkbtn.onclick = restchess
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+            break;
+        case "math/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-        }
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Математика"
 
-        classworkbtn.onclick = restobsh
+            function restmath() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-math.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-        break;
-    case "history/room":
-		if(document.getElementById('clwbtn') == null)
-        document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+                document.getElementById('clwbtn').innerText = "Done!"
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Истории"
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        function resthistory() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
-
-            fetch("https://api-history.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+            }
 
-            document.getElementById('clwbtn').innerText = "Done!"
+            classworkbtn.onclick = restmath
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+            break;
+        case "geography/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-        }
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Географии"
 
-        classworkbtn.onclick = resthistory
+            function restgeo() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-geography.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-        break;
-    case "biology/room":
-		if(document.getElementById('clwbtn') == null)
-	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+                document.getElementById('clwbtn').innerText = "Done!"
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Биологии"
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        function restbio() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
+            }
 
-            fetch("https://api-biology.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+            classworkbtn.onclick = restgeo
 
-            document.getElementById('clwbtn').innerText = "Done!"
+            break;
+        case "preschool/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Дошколка"
 
-        }
+            function restpreschool() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-preschool.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-        classworkbtn.onclick = restbio
+                document.getElementById('clwbtn').innerText = "Done!"
 
-        break;
-    case "english/room":
-		if(document.getElementById('clwbtn') == null)
-	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Английского языка"
+            }
 
-        function resteng() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
+            classworkbtn.onclick = restpreschool
 
-            fetch("https://api-english.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+            break;
+        case "social-science/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Обществознания"
 
-            document.getElementById('clwbtn').innerText = "Done!"
+            function restobsh() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-social-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+                document.getElementById('clwbtn').innerText = "Done!"
 
-        }
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        classworkbtn.onclick = resteng
+            }
 
-        break;
-    case "computer-science/room":
-		if(document.getElementById('clwbtn') == null)
-	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+            classworkbtn.onclick = restobsh
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Компьютерных курсов"
+            break;
+        case "history/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-        function restcompsc() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Истории"
 
-            fetch("https://api-computer-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+            function resthistory() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-history.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-            document.getElementById('clwbtn').innerText = "Done!"
+                document.getElementById('clwbtn').innerText = "Done!"
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        }
+            }
 
-        classworkbtn.onclick = restcompsc
+            classworkbtn.onclick = resthistory
 
-        break;
-    case "physics/room":
-		if(document.getElementById('clwbtn') == null)
-	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+            break;
+        case "biology/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Физики"
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Биологии"
 
-        function restphys() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
+            function restbio() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
 
-            fetch("https://api-physics.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+                fetch("https://api-biology.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-            document.getElementById('clwbtn').innerText = "Done!"
+                document.getElementById('clwbtn').innerText = "Done!"
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        }
+            }
 
-        classworkbtn.onclick = restphys
+            classworkbtn.onclick = restbio
 
-        break;
-    case "literature/room":
-		if(document.getElementById('clwbtn') == null)
-	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+            break;
+        case "english/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Литературы"
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Английского языка"
 
-        function restlit() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
+            function resteng() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
 
-            fetch("https://api-literature.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+                fetch("https://api-english.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-            document.getElementById('clwbtn').innerText = "Done!"
+                document.getElementById('clwbtn').innerText = "Done!"
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        }
+            }
 
-        classworkbtn.onclick = restlit
+            classworkbtn.onclick = resteng
 
-        break;
-    case "chemistry/room":
-		if(document.getElementById('clwbtn') == null)
-	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+            break;
+        case "computer-science/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Химии"
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Компьютерных курсов"
 
-        function restchem() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
+            function restcompsc() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
 
-            fetch("https://api-chemistry.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+                fetch("https://api-computer-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-            document.getElementById('clwbtn').innerText = "Done!"
+                document.getElementById('clwbtn').innerText = "Done!"
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        }
+            }
 
-        classworkbtn.onclick = restchem
+            classworkbtn.onclick = restcompsc
 
-        break;
-    case "russian/room":
-		if(document.getElementById('clwbtn') == null)
-	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+            break;
+        case "physics/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-        classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Русского языка"
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Физики"
 
-        function restrus() {
-            let d = document.cookie;
-            d = d.match(/token_global=(.*)/);
+            function restphys() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
 
-            fetch("https://api-russian.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                "headers": {
-                    "accept": "application/json",
-                    "authorization": "Bearer" + d[1],
-                    "content-type": "application/json",
-                },
-                "body": "{\"status\":\"classwork\",\"name\":null}",
-                "method": "PATCH",
-                "mode": "cors",
-                "credentials": "include"
-            });
+                fetch("https://api-physics.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-            document.getElementById('clwbtn').innerText = "Done!"
+                document.getElementById('clwbtn').innerText = "Done!"
 
-            setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 
-        }
+            }
 
-        classworkbtn.onclick = restrus
+            classworkbtn.onclick = restphys
 
-        break;
+            break;
+        case "literature/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
-	}
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Литературы"
+
+            function restlit() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-literature.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+
+                document.getElementById('clwbtn').innerText = "Done!"
+
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+
+            }
+
+            classworkbtn.onclick = restlit
+
+            break;
+        case "chemistry/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Химии"
+
+            function restchem() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-chemistry.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+
+                document.getElementById('clwbtn').innerText = "Done!"
+
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+
+            }
+
+            classworkbtn.onclick = restchem
+
+            break;
+        case "russian/room":
+            if (document.getElementById('clwbtn') == null)
+                document.getElementsByClassName('root')[0].appendChild(classworkbtn)
+
+            classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Русского языка"
+
+            function restrus() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
+
+                fetch("https://api-russian.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+
+                document.getElementById('clwbtn').innerText = "Done!"
+
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+
+            }
+
+            classworkbtn.onclick = restrus
+
+            break;
+
+    }
 
 }
 
@@ -7799,9 +7799,9 @@ async function checkthemestatus() {
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
-			
-			if (pldata.messages[0].txt !=undefined && pldata.messages[0].txt !=null)
-			drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
+
+            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
+                drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
@@ -7871,14 +7871,14 @@ async function checkthemestatus() {
                 }
 
             }
-			
-						if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор тегов ТП:') {
+
+            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор тегов ТП:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].innerText = "";
-				}
-				
-				
-			if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
+            }
+
+
+            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
@@ -7906,7 +7906,7 @@ async function checkthemestatus() {
                         txtbar.childNodes[1].childNodes[5].style.color = 'green';
                     }
                 }
-            }  
+            }
         }
     } catch (e) { }
 }
@@ -7946,64 +7946,64 @@ setInterval(paintstatus, 5000);
 function backbtn() {
     if (document.getElementById('search') != null)
         document.getElementById('back_btn').style.display = "";
-	
-				let barea = document.createElement('textarea')
-				barea.id = "notes_field"
-				barea.style.background = "lightgrey";
-				
-				let btnsndnotes = document.createElement('button')
-				btnsndnotes.innerText = "Notes"
-				btnsndnotes.id="SendNotesToChat"
-				btnsndnotes.onclick = notetoclchat;
-				
-		
-		if (document.getElementById('notes_field') ==null && document.getElementById('SendNotesToChat')==null) {
-			if(document.getElementById('send_btns') != null) {
-				
-				document.getElementById('send_text').style.display ='none'
-				document.getElementById('send_btn').style.display ='none'
-										
-				document.getElementById('send_btns').append(barea)
-				document.getElementById('send_btns').append(btnsndnotes)
-			
 
-				let zambtnhide = document.getElementsByTagName('a')
-					for (let i=0; i<zambtnhide.length;i++) {
-						if (zambtnhide[i].innerText == 'заметка')
-							zambtnhide[i].style.display = 'none'
-					}
-			}
-			
-		} else console.log("Уже добавлено")
-	
-		let sesid;
-		async function notetoclchat() {
-		let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
+    let barea = document.createElement('textarea')
+    barea.id = "notes_field"
+    barea.style.background = "lightgrey";
 
-			
-			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chathashfromdiv)
-			.then(r=>r.json()).then(r=>rdata=r)
-			sesid = rdata.sessionId;
-			
-			
-		let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
+    let btnsndnotes = document.createElement('button')
+    btnsndnotes.innerText = "Notes"
+    btnsndnotes.id = "SendNotesToChat"
+    btnsndnotes.onclick = notetoclchat;
 
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-		  "headers": {
-			"accept": "*/*",
-			"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-			"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-origin"
-		  },
-		  "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\""+sesid+"\",\"conversationId\":\""+chathashfromdiv+"\",\"text\":\""+notemsg+"\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-		  "method": "POST",
-		  "mode": "cors",
-		  "credentials": "include"
-		});
 
-		document.getElementById('notes_field').value =''
-		}
+    if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
+        if (document.getElementById('send_btns') != null) {
+
+            document.getElementById('send_text').style.display = 'none'
+            document.getElementById('send_btn').style.display = 'none'
+
+            document.getElementById('send_btns').append(barea)
+            document.getElementById('send_btns').append(btnsndnotes)
+
+
+            let zambtnhide = document.getElementsByTagName('a')
+            for (let i = 0; i < zambtnhide.length; i++) {
+                if (zambtnhide[i].innerText == 'заметка')
+                    zambtnhide[i].style.display = 'none'
+            }
+        }
+
+    } else console.log("Уже добавлено")
+
+    let sesid;
+    async function notetoclchat() {
+        let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
+
+
+        await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+            .then(r => r.json()).then(r => rdata = r)
+        sesid = rdata.sessionId;
+
+
+        let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
+
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+
+        document.getElementById('notes_field').value = ''
+    }
 }
 
 setInterval(backbtn, 5000);
