@@ -7286,7 +7286,6 @@ switch (subject) {
     case "chess/room":
 		if(document.getElementById('clwbtn') == null) 
         document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Шахматы")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Шахматы"
 
@@ -7318,7 +7317,6 @@ switch (subject) {
     case "math/room":
 		if(document.getElementById('clwbtn') == null)
         document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Математика")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Математика"
 
@@ -7350,7 +7348,6 @@ switch (subject) {
     case "geography/room":
 		if(document.getElementById('clwbtn') == null)
         document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("География")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Географии"
 
@@ -7382,7 +7379,6 @@ switch (subject) {
     case "preschool/room":
 		if(document.getElementById('clwbtn') == null)
         document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Дошколка")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Дошколка"
 
@@ -7414,7 +7410,6 @@ switch (subject) {
     case "social-science/room":
 		if(document.getElementById('clwbtn') == null)
         document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Обществознание")
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Обществознания"
 
         function restobsh() {
@@ -7445,7 +7440,6 @@ switch (subject) {
     case "history/room":
 		if(document.getElementById('clwbtn') == null)
         document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("История")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Истории"
 
@@ -7477,7 +7471,6 @@ switch (subject) {
     case "biology/room":
 		if(document.getElementById('clwbtn') == null)
 	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Биология")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Биологии"
 
@@ -7509,7 +7502,6 @@ switch (subject) {
     case "english/room":
 		if(document.getElementById('clwbtn') == null)
 	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Английский")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Английского языка"
 
@@ -7541,7 +7533,6 @@ switch (subject) {
     case "computer-science/room":
 		if(document.getElementById('clwbtn') == null)
 	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Компьютерные курсы")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Компьютерных курсов"
 
@@ -7573,7 +7564,6 @@ switch (subject) {
     case "physics/room":
 		if(document.getElementById('clwbtn') == null)
 	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Физика")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Физики"
 
@@ -7605,7 +7595,6 @@ switch (subject) {
     case "literature/room":
 		if(document.getElementById('clwbtn') == null)
 	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Литература")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Литературы"
 
@@ -7637,7 +7626,6 @@ switch (subject) {
     case "chemistry/room":
 		if(document.getElementById('clwbtn') == null)
 	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Химия")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Химии"
 
@@ -7669,7 +7657,6 @@ switch (subject) {
     case "russian/room":
 		if(document.getElementById('clwbtn') == null)
 	    document.getElementsByClassName('root')[0].appendChild(classworkbtn)
-        console.log("Русский язык")
 
         classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Русского языка"
 
