@@ -5526,11 +5526,11 @@ async function buttonsFromDoc(butName) {
         else
             butName = "ус+брауз (П)"
 		
-								if (pldata.messages[0].tpe == "Question" && document.getElementById('msg1').innerHTML == "Доработать") {
-								let drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
-								if (drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос')
-									console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
-								}
+								// if (pldata.messages[0].tpe == "Question" && document.getElementById('msg1').innerHTML == "Доработать") {
+								// let drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
+								// if (drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос')
+									// console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
+								// }
 
     if (butName == 'Привет') {
         a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
