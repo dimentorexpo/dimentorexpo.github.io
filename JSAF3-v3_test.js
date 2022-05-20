@@ -912,6 +912,7 @@ var win_servicedesk =
                 <button class="studcabbtn" id="studcabmenunav">Меню навигации (лейаут) </button>
                 <button class="studcabbtn" id="studcabunderground>Подземный стук </button>
                 </div>
+				</div>
 				
 	        </span>
 						
