@@ -7949,21 +7949,16 @@ function backbtn() {
 				zambtnhide[i].style.display = 'none'
 		}
 
-}
+	}
 	
-
-		// let chthash;
 		let sesid;
-		// search.onclick = async () => {
-			// chthash = document.getElementById('chat_id').value
-			// await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
-			// .then(r=>r.json()).then(r=>rdata=r)
-			// sesid = rdata.sessionId;
-
-
-		// }
-
-		function notetoclchat() {
+		async function notetoclchat() {
+			
+			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chathashfromdiv)
+			.then(r=>r.json()).then(r=>rdata=r)
+			sesid = rdata.sessionId;
+			
+			
 		let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
 
 		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
