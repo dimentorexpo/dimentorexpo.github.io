@@ -7927,20 +7927,15 @@ function backbtn() {
     if (document.getElementById('search') != null)
         document.getElementById('back_btn').style.display = "";
 	
-		if (document.getElementById('search') !=null) {
-		let chthash;
-		let sesid;
-		search.onclick = async () => {
-			chthash = document.getElementById('chat_id').value
-			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
-			.then(r=>r.json()).then(r=>rdata=r)
-			sesid = rdata.sessionId;
-
+		
 		let barea = document.createElement('textarea')
 		barea.id = "notes_field"
 		barea.style.background = "lightgrey";
+		
+		if(document.getElementById('send_btns') != null) {
 		document.getElementById('send_btns').append(barea)
 
+		let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
 		let btnsndnotes = document.createElement('button')
 		btnsndnotes.innerText = "Notes"
 		btnsndnotes.onclick = notetoclchat;
@@ -7954,7 +7949,19 @@ function backbtn() {
 				zambtnhide[i].style.display = 'none'
 		}
 
-		}
+}
+	
+
+		// let chthash;
+		let sesid;
+		// search.onclick = async () => {
+			// chthash = document.getElementById('chat_id').value
+			// await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
+			// .then(r=>r.json()).then(r=>rdata=r)
+			// sesid = rdata.sessionId;
+
+
+		// }
 
 		function notetoclchat() {
 		let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
@@ -7967,7 +7974,7 @@ function backbtn() {
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-origin"
 		  },
-		  "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\""+sesid+"\",\"conversationId\":\""+chthash+"\",\"text\":\""+notemsg+"\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+		  "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\""+sesid+"\",\"conversationId\":\""+chathashfromdiv+"\",\"text\":\""+notemsg+"\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
 		  "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
@@ -7975,7 +7982,7 @@ function backbtn() {
 
 		document.getElementById('notes_field').value =''
 		}
-		}
+		
 }
 
 setInterval(backbtn, 5000);
