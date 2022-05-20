@@ -7931,6 +7931,8 @@ function backbtn() {
 		let barea = document.createElement('textarea')
 		barea.id = "notes_field"
 		barea.style.background = "lightgrey";
+		
+		if (document.getElementById('notes_field') == null) {
 		if(document.getElementById('send_btns') != null) {
 		document.getElementById('send_btns').append(barea)
 
@@ -7948,6 +7950,7 @@ function backbtn() {
 		}
 
 		}
+		}
 	
 		if (document.getElementById('search') !=null) {
 		let chthash;
@@ -7957,7 +7960,6 @@ function backbtn() {
 			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chthash)
 			.then(r=>r.json()).then(r=>rdata=r)
 			sesid = rdata.sessionId;
-
 
 		}
 
