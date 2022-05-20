@@ -7936,7 +7936,6 @@ function backbtn() {
 		if(document.getElementById('send_btns') != null) {
 		document.getElementById('send_btns').append(barea)
 
-		let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
 		let btnsndnotes = document.createElement('button')
 		btnsndnotes.innerText = "Notes"
 		btnsndnotes.onclick = notetoclchat;
@@ -7957,6 +7956,8 @@ function backbtn() {
 	
 		let sesid;
 		async function notetoclchat() {
+		let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
+
 			
 			await fetch("https://skyeng.autofaq.ai/api/conversations/"+chathashfromdiv)
 			.then(r=>r.json()).then(r=>rdata=r)
