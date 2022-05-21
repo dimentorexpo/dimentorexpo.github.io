@@ -713,11 +713,11 @@ var win_servicedesk =
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
 					<button class="stcabmbsbtn" id="mpskyengmainsrv">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
 					<button class="stcabmbsbtn" id="mpskyengschedule">МП Skyeng: расписание и переносы</button>
-					<button class="stcabmbsbtn" id="mpskyengstories">Skyeng: Stories</button>
-					<button class="stcabmbsbtn" id="mpskyengprofile">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
-					<button class="stcabmbsbtn" id="mpskyengbalance">МП Skyeng: страницы оплаты и трансферы</button>
-					<button class="stcabmbsbtn" id="mpskyengreferal">МП Skyeng: реферальная программа</button>
 					<button class="stcabmbsbtn" id="mpskyengpodbor">МП Skyeng: подбор П</button>
+					<button class="stcabmbsbtn" id="mpskyengprofile">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
+					<button class="stcabmbsbtn" id="mpskyengbalance">МП Skyeng: стр оплаты и трансферы</button>
+					<button class="stcabmbsbtn" id="mpskyengreferal">МП Skyeng: рефералка</button>
+					<button class="stcabmbsbtn" id="mpskyengstories">Skyeng: Stories</button>
 					<button class="stcabmbsbtn" id="mpskysmartparents">МП Skysmart Parents</button>
 					<button class="stcabmbsbtn" id="mpunderground">Подземный стук</button>
 				</div>
