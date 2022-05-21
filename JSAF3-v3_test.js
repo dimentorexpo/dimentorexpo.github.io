@@ -686,26 +686,26 @@ var win_servicedesk =
                 </div>
 				
                 <div id="servicedeskinfo" style="margin-left:20px;">
-                    <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">Teachers</button>
-                    <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">CRM2</button>
-                    <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">Auth</button>
-                    <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">Schedule</button>
-                    <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">Billing-QA</button>
-                    <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">Onboarding</button>
-                    <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">Telephony</button>
-                    <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">Billing</button>   
-                    <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">Skysmart</button>
-                    <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">MRKT</button>
-                    <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">Vim-bugs</button>
-                    <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">Vim-vid-call</button>
-                    <button class="sdbtn" id="optionStudcab" style="margin-left:2px; margin-top:2px; width:80px;">Studcabinet</button>
-                    <button class="sdbtn" id="optionChat" style="margin-left:2px; margin-top:2px; width:80px;">Chat</button>
-                    <button class="sdbtn" id="optionTripwire" style="margin-left:2px; margin-top:2px; width:80px;">Tripwire</button>
-                    <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">KPI T</button>
-                    <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">Corp</button>
-                    <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">Landings</button>
-                    <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">Mobile bug</button>
-                    <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">Ed Model</button>
+                    <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">👽Teacher</button>
+                    <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">🧮CRM2</button>
+                    <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">🔐Auth</button>
+                    <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">📆Schedul</button>
+                    <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">💲Billing-QA</button>
+                    <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboarding</button>
+                    <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">📞Telephn</button>
+                    <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>   
+                    <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">🎠Skysmar</button>
+                    <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">🎪MRKT</button>
+                    <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
+                    <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
+                    <button class="sdbtn" id="optionStudcab" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
+                    <button class="sdbtn" id="optionChat" style="margin-left:2px; margin-top:2px; width:80px;">💬Chat</button>
+                    <button class="sdbtn" id="optionTripwire" style="margin-left:2px; margin-top:2px; width:80px;">🗣Tripwire</button>
+                    <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">📊KPI T</button>
+                    <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">💼Corp</button>
+                    <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">📟Landing</button>
+                    <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
+                    <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
                 </div>
 				
