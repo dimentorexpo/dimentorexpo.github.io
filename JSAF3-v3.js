@@ -2045,10 +2045,6 @@ document.getElementById('HeadTechSummary').ondblclick = function () { // скр�
     document.getElementById('AF_TechSummary').style.display = 'none';
     document.getElementById('techsumdata').innerHTML = "";
 }
-document.getElementById('timetabledata').ondblclick = function () { // скрытие окна ссылок по двойному клику
-    document.getElementById('AF_Timetable').style.display = 'none';
-    document.getElementById('timetabledata').innerHTML = "";
-}
 document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
