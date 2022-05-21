@@ -691,7 +691,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">🔐Auth</button>
                     <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">📆Schedul</button>
                     <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">💲Billing-QA</button>
-                    <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboarding</button>
+                    <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
                     <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">📞Telephn</button>
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>   
                     <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">🎠Skysmar</button>
