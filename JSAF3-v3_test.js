@@ -725,7 +725,7 @@ var win_servicedesk =
 				</div>
 				
 				<div id="infraoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">Для удаления email/телефонов и других перс. данных клиентов.</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">Здесь можно получить помощь от команды Инфраструктуры</p>
 					<button class="infrabtn" id="askfordelacc">Запрос на удаление перс. данных</button>
 				</div>
 				
