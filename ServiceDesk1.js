@@ -7021,53 +7021,51 @@ document.getElementById('servDsk').onclick = function () {
 
             document.getElementById('create_23').onclick = function () {
                 let idstdserv = document.getElementById('customfield_114').value;
-                let dscr = document.getElementById('customfield_92').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let issuename = document.getElementById('customfield_911').value;
-                issuename = issuename.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let device = document.getElementById('customfield_912').value;
-                device = device.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_94').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_95').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_96').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let priorvalue = document.getElementById('prioritymbugs').value;
-                if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mobbugsqa').textContent) {
-                    console.log("Обращение к QA: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                let lnk = document.getElementById('customfield_115').value;
+                lnk = lnk.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let commentos = document.getElementById('customfield_117').value;
+                commentos = commentos.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+				let radiosel  = document.getElementsByName('customfield_116');
+                if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('askfordelacc').textContent) {
+                    console.log("Запрос на удаление перс.данных: " + "  Id student and teacher: " + idstdserv + " Link: " + lnk + " Комментарий " + commentos);
 
-                    document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/953",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/953";
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
+					for (let i=0; i<radiosel.length;i++) {
+						if (radiosel[i].checked) {
+							document.getElementById('responseTextarea1').value = `{  "headers": {
+							 "content-type": "application/x-www-form-urlencoded",
+							 "sec-fetch-mode": "cors",
+							 "sec-fetch-site": "same-origin",
+							 "x-requested-with": "XMLHttpRequest",
+							 "x-sitemesh-off": "true"
+							  },
+							  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957",
+							  "referrerPolicy": "strict-origin-when-cross-origin",
+							  "body": "atl_token=${jiratoken}projectId=13437&customfield_18225=${lnk}&customfield_18975=${idstdserv}&customfield_20613=${radiosel[i].value}&customfield_17713=${commentos}&sd-kb-article-viewed=false"",
+							 "method": "POST",
+							  "mode": "cors",
+							  "credentials": "include"
+							  }`
+							document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957";
+							document.getElementById('responseTextarea3').value = ''
+							document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_91').value = "";
-                    document.getElementById('customfield_92').value = "";
-                    document.getElementById('customfield_911').value = "";
-                    document.getElementById('customfield_912').value = "";
-                    document.getElementById('customfield_94').value = "";
-                    document.getElementById('customfield_95').value = "";
-                    document.getElementById('customfield_96').value = "";
+							document.getElementById('customfield_91').value = "";
+							document.getElementById('customfield_92').value = "";
+							document.getElementById('customfield_911').value = "";
+							document.getElementById('customfield_912').value = "";
+							document.getElementById('customfield_94').value = "";
+							document.getElementById('customfield_95').value = "";
+							document.getElementById('customfield_96').value = "";
 
-                    setTimeout(getinfrasupsup, 5000);
-                    setTimeout(getslacklnk, 8000);
+							setTimeout(getinfrasupsup, 5000);
+							setTimeout(getslacklnk, 8000);
+						} else alert("Выберите Да или Нет на вопрос нужен ли официальный ответ")
+					}
+
 
                 } else console.log("Not found");
             }
+			
         } else {
             document.getElementById('infraoptions').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
