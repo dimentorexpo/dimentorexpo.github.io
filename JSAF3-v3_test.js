@@ -707,7 +707,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
-                    <button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mrproject</button>
+                    <button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
                 </div>
 				
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
