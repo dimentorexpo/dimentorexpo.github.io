@@ -1263,13 +1263,13 @@ var win_servicedesk =
 				</div>
 				
 				<div id="infraform" style="display: none; margin-left:20px;">
-					<textarea id="customfield_114" placeholder="Ссылка на запрос (об удалении данных)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<input id="customfield_114" placeholder="ID в системе Auth" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_115" placeholder="ID в системе Auth" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_115" placeholder="Ссылка на запрос (об удалении данных)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<legend id="customfield_116-label">Нужен ли официальный ответ на запрос?</legend>
-					<input class="radio" type="radio" name="customfield_116" value="15820" resolved="">Да
-					<input class="radio" type="radio" name="customfield_116" value="15821" resolved="">Нет
+					<legend style="color:bisque" id="customfield_116-label">Нужен ли официальный ответ на запрос?</legend>
+					<input class="radio" type="radio" name="customfield_116" value="15820" resolved=""><label style="color:bisque; font-size: 16px;">Да</label>
+					<input class="radio" type="radio" name="customfield_116" value="15821" resolved=""><label style="color:bisque; font-size: 16px;">Нет</label>
 					<br>					
 					<textarea id="customfield_117" placeholder="Комментарий" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
@@ -4354,6 +4354,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4380,6 +4381,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4406,6 +4408,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4432,6 +4435,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4458,6 +4462,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4484,6 +4489,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4510,6 +4516,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4536,6 +4543,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4562,6 +4570,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4588,6 +4597,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4614,6 +4624,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4640,6 +4651,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4666,6 +4678,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4692,6 +4705,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4718,6 +4732,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4744,6 +4759,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4770,6 +4786,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4796,6 +4813,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4822,6 +4840,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4848,10 +4867,11 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 			
-			   $('.stcabmbsbtn').click(function () {  //поправить
+			$('.stcabmbsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
                 $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
@@ -4874,6 +4894,7 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
 				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 			
@@ -4900,7 +4921,35 @@ function move_again_AF() {
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
+				
+			$('.infrabtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+				
             });
 
             document.getElementById('AF_ServDsk').style.display = 'none'
