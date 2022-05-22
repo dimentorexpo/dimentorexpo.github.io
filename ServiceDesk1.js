@@ -183,7 +183,7 @@ function getinfrasup() { //функция для получения ссылки
         firstEl = sortisarr[0];
 
         console.log("Testo massiv " + sortisarr);
-        console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
+        console.log("Link tp IS JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
 
         lasttsk = firstEl;
 		flagpsis = 2;
