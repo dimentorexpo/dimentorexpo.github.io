@@ -707,6 +707,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
+                    <button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
                 </div>
 				
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
@@ -905,6 +906,11 @@ var win_servicedesk =
 				<div id="marketingptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#marketing-qa; (регистрации, детские главные, взрослые главные, лендосы на лпг/тильде)</p>
 					<button class="marketingbtn" id="marketingqa">Обращение для QA</button>
+				</div>
+
+				<div id="marketprojbugsptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
+					<button class="marketprojbugsbtn" id="marketprojbugsqa">Обращение для QA</button>
 				</div>
 				
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
@@ -1234,6 +1240,20 @@ var win_servicedesk =
 					<textarea id="customfield_108" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_21" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="marketprojbugsform" style="display: none; margin-left:20px;">
+					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
+					<br>
+					<textarea id="customfield_110" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_111" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_112" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>					
+					<textarea id="customfield_113" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 </span>
@@ -4313,6 +4333,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4338,6 +4359,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4363,6 +4385,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4388,6 +4411,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4413,6 +4437,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4438,6 +4463,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4463,6 +4489,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4488,6 +4515,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4513,6 +4541,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4538,6 +4567,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4563,6 +4593,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4588,6 +4619,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4613,6 +4645,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4638,6 +4671,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4663,6 +4697,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4688,6 +4723,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4713,6 +4749,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4738,6 +4775,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4763,6 +4801,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4788,6 +4827,7 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
 				$('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 			
@@ -4813,11 +4853,35 @@ function move_again_AF() {
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
+				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
-
-
-
+			
+			$('.marketprojbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
 
             document.getElementById('AF_ServDsk').style.display = 'none'
         }
