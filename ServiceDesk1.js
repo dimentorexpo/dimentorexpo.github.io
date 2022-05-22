@@ -245,6 +245,7 @@ function getslacklnk() {
         }, 2000);
 		
     } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+	
 	} else if (flagpsis ==2) {
 		
 		        document.getElementById('responseTextarea1').value = `{    "headers": {
@@ -292,11 +293,10 @@ function getslacklnk() {
             console.log("Slack link " + slacklnk);
             sendComment("Slack Service Desk link: " + slacklnk);
 
-
         }, 2000);
+		
     } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
 		
-	}
 }
 
 
