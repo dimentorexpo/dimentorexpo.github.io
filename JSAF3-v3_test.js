@@ -4924,6 +4924,8 @@ function move_again_AF() {
 				$('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
 				
+			});
+				
 			$('.infrabtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
                 $('.edumodbtn').not(this).removeClass('activebtn');
