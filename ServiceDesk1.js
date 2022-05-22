@@ -6,7 +6,7 @@ let slacklnk;
 let infoarr;
 let lasttsk;
 let prevtsk;
-
+let flagpsis=0;
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний проект в джира
@@ -123,6 +123,7 @@ function getprsup() { //функция для получения ссылки н
         console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
 
         lasttsk = firstEl;
+		flagpsis = 1;
 
         if (lasttsk > prevtsk) {
             document.getElementById('newtask').innerText = lasttsk;
@@ -135,7 +136,65 @@ function getprsup() { //функция для получения ссылки н
 
 }
 
+function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
+    document.getElementById('responseTextarea1').value = `{    "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+         }`
+    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?status=open&reporter=all";
+    document.getElementById('responseTextarea3').value = 'istickets'
+    document.getElementById('sendResponse').click()
+
+    setTimeout(async () => {
+        document.getElementById('responseTextarea1').value = `{   "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+                 }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?status=open&reporter=all";
+        document.getElementById('responseTextarea3').value = 'istickets'
+        document.getElementById('sendResponse').click()
+
+        psarr = await document.getElementById('responseTextarea1').getAttribute('istickets');
+
+        document.getElementById('responseTextarea1').removeAttribute('istickets');
+
+        let sortisarr = psarr.match(/IS-(\d+)/g);
+        sortisarr = sortisarr.sort().reverse();
+        firstEl = sortisarr[0];
+
+        console.log("Testo massiv " + sortisarr);
+        console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
+
+        lasttsk = firstEl;
+		flagpsis = 2;
+		sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
+
+    }, 2000);
+
+}
+
 function getslacklnk() {
+	if (flagpsis == 1) {
     if (lasttsk > prevtsk) {
         document.getElementById('responseTextarea1').value = `{    "headers": {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -174,8 +233,58 @@ function getslacklnk() {
             document.getElementById('responseTextarea3').value = 'slacklnkhere'
             document.getElementById('sendResponse').click()
 
-            infoarr = document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
-            infoarr = await infoarr;
+            infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
+            document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
+
+            slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
+
+            console.log("Slack link " + slacklnk);
+            sendComment("Slack Service Desk link: " + slacklnk);
+
+
+        }, 2000);
+		
+    } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+	} else if (flagpsis ==2) {
+		
+		        document.getElementById('responseTextarea1').value = `{    "headers": {
+					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+				  },
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": null,
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+				}`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
+        document.getElementById('responseTextarea3').value = 'slacklnkhere'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async () => {
+            document.getElementById('responseTextarea1').value = `{    "headers": {
+				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1"
+			  },
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
+            document.getElementById('responseTextarea3').value = 'slacklnkhere'
+            document.getElementById('sendResponse').click()
+
+            infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
             document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
 
             slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
@@ -186,6 +295,8 @@ function getslacklnk() {
 
         }, 2000);
     } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+		
+	}
 }
 
 
@@ -201,14 +312,14 @@ document.getElementById('servDsk').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getjiratoken'
     document.getElementById('sendResponse').click()
 
-    setTimeout(function () {
+    setTimeout(async function () {
 
         document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
         document.getElementById('responseTextarea3').value = 'getjiratoken'
         document.getElementById('sendResponse').click()
 
-        jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+        jiratoken = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
         if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
             jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
             document.getElementById('jiratknstatus').innerText = "🟢"
@@ -6192,7 +6303,7 @@ document.getElementById('servDsk').onclick = function () {
         }
     }
 	
-	    document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages)
+	document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages)
         if (document.getElementById('marketprojbugsptions').style.display != '') {
             document.getElementById('marketprojbugsptions').style.display = '';
             document.getElementById('marketprojbugsform').style.display = '';

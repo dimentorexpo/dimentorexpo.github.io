@@ -6192,7 +6192,7 @@ document.getElementById('servDsk').onclick = function () {
         }
     }
 	
-	    document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages)
+	document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages)
         if (document.getElementById('marketprojbugsptions').style.display != '') {
             document.getElementById('marketprojbugsptions').style.display = '';
             document.getElementById('marketprojbugsform').style.display = '';
