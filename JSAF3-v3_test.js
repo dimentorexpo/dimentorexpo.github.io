@@ -708,6 +708,7 @@ var win_servicedesk =
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
                     <button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
+                    <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px;">🚷studcab</button>
                 </div>
 				
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
@@ -721,6 +722,11 @@ var win_servicedesk =
 					<button class="stcabmbsbtn" id="mpskyengstories">Skyeng: Stories</button>
 					<button class="stcabmbsbtn" id="mpskysmartparents">МП Skysmart Parents</button>
 					<button class="stcabmbsbtn" id="mpunderground">Подземный стук</button>
+				</div>
+				
+				<div id="infraoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">Для удаления email/телефонов и других перс. данных клиентов.</p>
+					<button class="infrabtn" id="askfordelacc">Запрос на удаление перс. данных</button>
 				</div>
 				
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
@@ -1254,6 +1260,20 @@ var win_servicedesk =
 					<textarea id="customfield_113" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
+				<div id="infraform" style="display: none; margin-left:20px;">
+					<textarea id="customfield_114" placeholder="Ссылка на запрос (об удалении данных)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<textarea id="customfield_115" placeholder="ID в системе Auth" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<br>
+					<legend id="customfield_116-label">Нужен ли официальный ответ на запрос?</legend>
+					<input class="radio" type="radio" name="customfield_116" value="15820" resolved="">Да
+					<input class="radio" type="radio" name="customfield_116" value="15821" resolved="">Нет
+					<br>					
+					<textarea id="customfield_117" placeholder="Комментарий" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<br>
+					<button id="create_23" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 </span>

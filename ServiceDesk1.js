@@ -193,7 +193,7 @@ function getinfrasup() { //функция для получения ссылки
 
 }
 
-function getslacklnk() {
+function getslacklnk() { // получаем ссылку на обращение в слака с помощью парсинга номера задачи в джире и вытягивание ссылки с нее 
 	if (flagpsis == 1) {
     if (lasttsk > prevtsk) {
         document.getElementById('responseTextarea1').value = `{    "headers": {
