@@ -6,7 +6,7 @@ let slacklnk;
 let infoarr;
 let lasttsk;
 let prevtsk;
-
+let flagpsis=0;
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний проект в джира
@@ -123,6 +123,7 @@ function getprsup() { //функция для получения ссылки н
         console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
 
         lasttsk = firstEl;
+		flagpsis = 1;
 
         if (lasttsk > prevtsk) {
             document.getElementById('newtask').innerText = lasttsk;
@@ -135,7 +136,65 @@ function getprsup() { //функция для получения ссылки н
 
 }
 
-function getslacklnk() {
+function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
+    document.getElementById('responseTextarea1').value = `{    "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+         }`
+    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?status=open&reporter=all";
+    document.getElementById('responseTextarea3').value = 'istickets'
+    document.getElementById('sendResponse').click()
+
+    setTimeout(async () => {
+        document.getElementById('responseTextarea1').value = `{   "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+                 }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?status=open&reporter=all";
+        document.getElementById('responseTextarea3').value = 'istickets'
+        document.getElementById('sendResponse').click()
+
+        psarr = await document.getElementById('responseTextarea1').getAttribute('istickets');
+
+        document.getElementById('responseTextarea1').removeAttribute('istickets');
+
+        let sortisarr = psarr.match(/IS-(\d+)/g);
+        sortisarr = sortisarr.sort().reverse();
+        firstEl = sortisarr[0];
+
+        console.log("Testo massiv " + sortisarr);
+        console.log("Link tp IS JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
+
+        lasttsk = firstEl;
+		flagpsis = 2;
+		sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
+
+    }, 2000);
+
+}
+
+function getslacklnk() { // получаем ссылку на обращение в слака с помощью парсинга номера задачи в джире и вытягивание ссылки с нее 
+	if (flagpsis == 1) {
     if (lasttsk > prevtsk) {
         document.getElementById('responseTextarea1').value = `{    "headers": {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -174,8 +233,7 @@ function getslacklnk() {
             document.getElementById('responseTextarea3').value = 'slacklnkhere'
             document.getElementById('sendResponse').click()
 
-            infoarr = document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
-            infoarr = await infoarr;
+            infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
             document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
 
             slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
@@ -185,7 +243,60 @@ function getslacklnk() {
 
 
         }, 2000);
+		
     } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+	
+	} else if (flagpsis ==2) {
+		
+		        document.getElementById('responseTextarea1').value = `{    "headers": {
+					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+				  },
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": null,
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+				}`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
+        document.getElementById('responseTextarea3').value = 'slacklnkhere'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async () => {
+            document.getElementById('responseTextarea1').value = `{    "headers": {
+				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1"
+			  },
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
+            document.getElementById('responseTextarea3').value = 'slacklnkhere'
+            document.getElementById('sendResponse').click()
+
+            infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
+            document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
+
+            slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
+
+            console.log("Slack link " + slacklnk);
+            sendComment("Slack Service Desk link: " + slacklnk);
+
+        }, 2000);
+		
+    } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+		
 }
 
 
@@ -201,14 +312,14 @@ document.getElementById('servDsk').onclick = function () {
     document.getElementById('responseTextarea3').value = 'getjiratoken'
     document.getElementById('sendResponse').click()
 
-    setTimeout(function () {
+    setTimeout(async function () {
 
         document.getElementById('responseTextarea1').value = '{}'
         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
         document.getElementById('responseTextarea3').value = 'getjiratoken'
         document.getElementById('sendResponse').click()
 
-        jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+        jiratoken = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
         if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
             jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
             document.getElementById('jiratknstatus').innerText = "🟢"
@@ -251,6 +362,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -277,6 +389,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -303,6 +416,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -329,6 +443,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -355,6 +470,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -381,6 +497,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -407,6 +524,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -433,6 +551,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -459,6 +578,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -485,6 +605,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -511,6 +632,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -537,6 +659,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -563,6 +686,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -589,6 +713,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -615,6 +740,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -641,6 +767,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -667,6 +794,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -693,6 +821,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -719,6 +848,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -745,6 +875,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 	
@@ -771,6 +902,7 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
 		$('.stcabmbsbtn').not(this).removeClass('activebtn');
 		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 	
@@ -797,8 +929,36 @@ document.getElementById('servDsk').onclick = function () {
         $('.mobbugsbtn').not(this).removeClass('activebtn');
         $('.stcabmbsbtn').not(this).removeClass('activebtn');
         $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+		$('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
      });
+	 
+	$('.infrabtn').click(function () {  //поправить
+         $('.kidsbtn').not(this).removeClass('activebtn');
+        $('.edumodbtn').not(this).removeClass('activebtn');
+        $('.bilqabtn').not(this).removeClass('activebtn');
+        $('.teacbtn').not(this).removeClass('activebtn');
+        $('.c1sbtn').not(this).removeClass('activebtn');
+        $('.schdbtn').not(this).removeClass('activebtn');
+        $('.telepbtn').not(this).removeClass('activebtn');
+        $('.authbtn').not(this).removeClass('activebtn');
+        $('.crm2sbtn').not(this).removeClass('activebtn');
+        $('.mrktbtn').not(this).removeClass('activebtn');
+        $('.billbtn').not(this).removeClass('activebtn');
+        $('.vimbugsbtn').not(this).removeClass('activebtn');
+        $('.vimvidsbtn').not(this).removeClass('activebtn');
+        $('.studcabbtn').not(this).removeClass('activebtn');
+        $('.chatqabtn').not(this).removeClass('activebtn');
+        $('.tripwbtn').not(this).removeClass('activebtn');
+        $('.analystbtn').not(this).removeClass('activebtn');
+        $('.corpbtn').not(this).removeClass('activebtn');
+        $('.marketingbtn').not(this).removeClass('activebtn');
+        $('.mobbugsbtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
+		$(this).toggleClass('activebtn');
+	});
 
 
     document.getElementById('optionTeacher').onclick = function () { // Teachers
@@ -827,7 +987,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -1350,7 +1512,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -1508,7 +1672,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('kidsform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1726,7 +1892,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -1855,7 +2023,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -1955,7 +2125,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -2144,7 +2316,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -2366,7 +2540,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -2733,7 +2909,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -3043,7 +3221,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -3502,7 +3682,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -3985,7 +4167,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -4977,7 +5161,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -5288,7 +5474,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -5718,7 +5906,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -5818,7 +6008,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -5918,7 +6110,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -6018,7 +6212,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';					
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -6118,7 +6314,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';		
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -6218,7 +6416,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 			document.getElementById('marketingform').style.display = 'none';
+            document.getElementById('infraform').style.display = 'none';
 			
+            document.getElementById('infraoptions').style.display = 'none';					
 			document.getElementById('marketingptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -6318,7 +6518,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
 			document.getElementById('stcabmbbugsform').style.display = 'none';
 		    document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';								
             document.getElementById('marketprojbugsptions').style.display = 'none';			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -6425,7 +6627,9 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('edumodelform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
 		    document.getElementById('marketprojbugsform').style.display = 'none';	
-						
+            document.getElementById('infraform').style.display = 'none';
+			
+            document.getElementById('infraoptions').style.display = 'none';						
             document.getElementById('marketprojbugsptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -6758,6 +6962,113 @@ document.getElementById('servDsk').onclick = function () {
         } else {
             document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('stcabmbbugsform').style.display = 'none';
+        }
+    }
+	
+	document.getElementById('optionInfra').onclick = function () { //Infra support for delete account 
+        if (document.getElementById('infraoptions').style.display != '') {
+            document.getElementById('infraoptions').style.display = '';
+            document.getElementById('infraform').style.display = '';
+
+            document.getElementById('kidsform').style.display = 'none';
+            document.getElementById('teachersform').style.display = 'none';
+            document.getElementById('onboardingform').style.display = 'none';
+            document.getElementById('scheduleform').style.display = 'none';
+            document.getElementById('billingform').style.display = 'none';
+            document.getElementById('billqaform').style.display = 'none';
+            document.getElementById('mrktform').style.display = 'none';
+            document.getElementById('crm2form').style.display = 'none';
+            document.getElementById('authform').style.display = 'none';
+            document.getElementById('telephonyform').style.display = 'none';
+            document.getElementById('vimbugsform').style.display = 'none';
+            document.getElementById('vimvideocallform').style.display = 'none';
+            document.getElementById('studcabform').style.display = 'none';
+            document.getElementById('chatform').style.display = 'none';
+            document.getElementById('tripwireform').style.display = 'none';
+            document.getElementById('analystform').style.display = 'none';
+            document.getElementById('corpform').style.display = 'none';
+            document.getElementById('marketingform').style.display = 'none';
+            document.getElementById('edumodelform').style.display = 'none';
+			document.getElementById('stcabmbbugsform').style.display = 'none';
+		    document.getElementById('marketprojbugsform').style.display = 'none';
+            document.getElementById('mobileform').style.display = 'none';			
+			
+            document.getElementById('mobbugsoptions').style.display = 'none';			
+            document.getElementById('marketprojbugsptions').style.display = 'none';			
+			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+            document.getElementById('edumodeloptions').style.display = 'none';
+            document.getElementById('marketingptions').style.display = 'none';
+            document.getElementById('corpoptions').style.display = 'none';
+            document.getElementById('analystoptions').style.display = 'none';
+            document.getElementById('tripwireoptions').style.display = 'none';
+            document.getElementById('chatqaoptions').style.display = 'none';
+            document.getElementById('studcaboptions').style.display = 'none';
+            document.getElementById('vimvidoptions').style.display = 'none';
+            document.getElementById('vimbugsoptions').style.display = 'none';
+            document.getElementById('teacherssrvdskoptions').style.display = 'none';
+            document.getElementById('skysmartsrvdskoptions').style.display = 'none';
+            document.getElementById('c1srvdskoptions').style.display = 'none';
+            document.getElementById('schedulesrvdskoptions').style.display = 'none';
+            document.getElementById('telephonysrvdskoptions').style.display = 'none';
+            document.getElementById('authsrvdskoptions').style.display = 'none';
+            document.getElementById('crm2srvdskoptions').style.display = 'none';
+            document.getElementById('mrktsrvdskoptions').style.display = 'none';
+            document.getElementById('billingsrvdskoptions').style.display = 'none';
+            document.getElementById('billingqasrvdskoptions').style.display = 'none';
+
+
+            //Начало окрашивания кнопок и добавление закрашивания при переключении
+
+            document.getElementById('create_23').onclick = function () {
+                let idstdserv = document.getElementById('customfield_114').value;
+                let lnk = document.getElementById('customfield_115').value;
+                lnk = lnk.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let commentos = document.getElementById('customfield_117').value;
+                commentos = commentos.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+				let radiosel  = document.getElementsByName('customfield_116');
+                if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('askfordelacc').textContent) {
+                    console.log("Запрос на удаление перс.данных: " + "  Id student and teacher: " + idstdserv + " Link: " + lnk + " Комментарий " + commentos);
+
+					for (let i=0; i<radiosel.length;i++) {
+						if (radiosel[i].checked) {
+							document.getElementById('responseTextarea1').value = `{  "headers": {
+							 "content-type": "application/x-www-form-urlencoded",
+							 "sec-fetch-mode": "cors",
+							 "sec-fetch-site": "same-origin",
+							 "x-requested-with": "XMLHttpRequest",
+							 "x-sitemesh-off": "true"
+							  },
+							  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957",
+							  "referrerPolicy": "strict-origin-when-cross-origin",
+							  "body": "atl_token=${jiratoken}projectId=13437&customfield_18225=${lnk}&customfield_18975=${idstdserv}&customfield_20613=${radiosel[i].value}&customfield_17713=${commentos}&sd-kb-article-viewed=false"",
+							 "method": "POST",
+							  "mode": "cors",
+							  "credentials": "include"
+							  }`
+							document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957";
+							document.getElementById('responseTextarea3').value = ''
+							document.getElementById('sendResponse').click()
+
+							document.getElementById('customfield_91').value = "";
+							document.getElementById('customfield_92').value = "";
+							document.getElementById('customfield_911').value = "";
+							document.getElementById('customfield_912').value = "";
+							document.getElementById('customfield_94').value = "";
+							document.getElementById('customfield_95').value = "";
+							document.getElementById('customfield_96').value = "";
+
+							setTimeout(getinfrasupsup, 5000);
+							setTimeout(getslacklnk, 8000);
+						} else alert("Выберите Да или Нет на вопрос нужен ли официальный ответ")
+					}
+
+
+                } else console.log("Not found");
+            }
+			
+        } else {
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('infraform').style.display = 'none';
         }
     }
 
