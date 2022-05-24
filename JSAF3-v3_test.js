@@ -7990,13 +7990,14 @@ async function checkthemestatus() {
 			if (document.URL != "https://skyeng.autofaq.ai/tickets/assigned/") { 
 				let leftfield = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0].childNodes[0]
 				let atentsign = document.createElement('div')
+				atentsign.id ="znakvnimanie"
 				atentsign.innerText =""
 				leftfield.append(atentsign)
 				let fristansw = pldata.messages[0].ts
 				fristansw = new Date(fristansw)
 				let now = new Date()
 				let diftime = (now-fristansw)/1000/60
-				if (diftime>2 && atentsign.innerText != "~25м💥" ) {
+				if (diftime>2 && document.getElementById('znakvnimanie').innerText != "~25м💥" ) {
 				atentsign.innerText = "~25м💥"
 
 				} else { atentsign.innerText = "" }
