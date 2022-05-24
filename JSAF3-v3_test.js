@@ -7997,7 +7997,7 @@ async function checkthemestatus() {
 				fristansw = new Date(fristansw)
 				let now = new Date()
 				let diftime = (now-fristansw)/1000/60
-				if (diftime>2 && document.getElementById('znakvnimanie').innerText != "~25м💥" ) {
+				if (diftime>22 && document.getElementById('znakvnimanie').innerText != "~25м💥" ) {
 				atentsign.innerText = "~25м💥"
 
 				} else { atentsign.innerText = "" }
