@@ -7986,8 +7986,25 @@ async function checkthemestatus() {
 
             if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
                 drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
+			
+			
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+
+			if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
+				let leftfield = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0].childNodes[0]
+				let atentsign = document.createElement('div')
+				atentsign.innerText =""
+				leftfield.append(atentsign)
+				let fristansw = pldata.messages[0].ts
+				fristansw = new Date(fristansw)
+				let now = new Date()
+				let diftime = (now-secansw)/1000/60
+				if (diftime>2) {
+				atentsign.innerText = "~ м💥"
+
+				} else { atentsign.innerText = "" }
+			}
 
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
