@@ -7999,9 +7999,9 @@ async function checkthemestatus() {
 				let fristansw = pldata.messages[0].ts
 				fristansw = new Date(fristansw)
 				let now = new Date()
-				let diftime = (now-secansw)/1000/60
+				let diftime = (now-fristansw)/1000/60
 				if (diftime>2) {
-				atentsign.innerText = "~ м💥"
+				atentsign.innerText = "~2м💥"
 
 				} else { atentsign.innerText = "" }
 			}
