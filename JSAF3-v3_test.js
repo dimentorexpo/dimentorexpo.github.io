@@ -7996,7 +7996,7 @@ async function checkthemestatus() {
 				fristansw = new Date(fristansw)
 				let now = new Date()
 				let diftime = (now-fristansw)/1000/60
-				if (diftime>2 && document.getElementById('znakvnimanie') == null ) {
+				if (diftime>22 && document.getElementById('znakvnimanie') == null ) {
 				leftfield.append(atentsign)
 				atentsign.innerText = "~25м💥"
 
