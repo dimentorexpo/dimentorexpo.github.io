@@ -7991,16 +7991,19 @@ async function checkthemestatus() {
 				let leftfield = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0].childNodes[0]
 				let atentsign = document.createElement('div')
 				atentsign.id ="znakvnimanie"
-				atentsign.innerText =""
+				atentsign.innerText = "~25м💥"
+				atentsign.style.display = 'none'
 				let fristansw = pldata.messages[0].ts
 				fristansw = new Date(fristansw)
 				let now = new Date()
 				let diftime = (now-fristansw)/1000/60
-				if (diftime>22 && document.getElementById('znakvnimanie') == null ) {
-				leftfield.append(atentsign)
-				atentsign.innerText = "~25м💥"
+				if (document.getElementById('znakvnimanie') == null) {
+					if (diftime>22) {
+					leftfield.append(atentsign)
+					atentsign.style.display = ''
 
-				} else { atentsign.innerText = "" }
+					} else { atentsign.style.display = 'none' }
+				}
 			}
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
