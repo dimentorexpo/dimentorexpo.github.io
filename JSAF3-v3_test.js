@@ -7992,12 +7992,12 @@ async function checkthemestatus() {
 				let atentsign = document.createElement('div')
 				atentsign.id ="znakvnimanie"
 				atentsign.innerText =""
-				leftfield.append(atentsign)
 				let fristansw = pldata.messages[0].ts
 				fristansw = new Date(fristansw)
 				let now = new Date()
 				let diftime = (now-fristansw)/1000/60
-				if (diftime>22 && document.getElementById('znakvnimanie').innerText != "~25м💥" ) {
+				if (diftime>2 && document.getElementById('znakvnimanie') == null ) {
+				leftfield.append(atentsign)
 				atentsign.innerText = "~25м💥"
 
 				} else { atentsign.innerText = "" }
