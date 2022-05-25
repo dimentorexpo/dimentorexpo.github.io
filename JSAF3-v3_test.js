@@ -9853,8 +9853,8 @@ async function checkCSAT() {             // функция проверки CSAT
                     stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
             }
 
-            if (test.total > 100 && page == 1) {
-                page = 2
+            if (test.total/100 >= page) {
+                page++
             } else {
                 if (stringChatsWithoutTopic == "")
                     stringChatsWithoutTopic = ' нет чатов без тематики'
