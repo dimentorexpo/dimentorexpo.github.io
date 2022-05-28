@@ -9802,7 +9802,7 @@ async function checkCSAT() {             // функция проверки CSAT
         day2 = date2.getDate()
 
     firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-	
+
     try {
         page = 1
         let stringChatsWithoutTopic = ""
@@ -9849,11 +9849,23 @@ async function checkCSAT() {             // функция проверки CSAT
                 for (let k = 0; k < clschatarr.length; k++) {
                     if (test.items[i].conversationId == clschatarr[k]) {
                         if ((test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) > 25) {
+
+                            let tmestmp = new Date((test.items[i].ts.split('[GMT]'))[0]);
+                            let tshrs;
+                            let tsmin
+                            if ((tmestmp.getUTCHours() + 3) < 10)
+                                tshrs = "0" + (tmestmp.getUTCHours() + 3);
+                            else tshrs = (tmestmp.getUTCHours() + 3);
+
+                            if (tmestmp.getMinutes() < 10)
+                                tsmin = "0" + tmestmp.getMinutes();
+                            else tsmin = tmestmp.getMinutes();
+
                             slacount++;
                             abovecloseslaarr += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
                                 '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
                                 clschatarr[k] + '</a>' + ' Время чата: ' + (test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) +
-                                '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '<br>')
+                                '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + ' Создан чат в: ' + tshrs + ":" + tsmin + ' МСК' + '<br>')
                         }
 
                         if (test.items[i].stats.averageOperatorAnswerTime !== undefined && ((test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
