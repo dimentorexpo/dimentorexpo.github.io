@@ -9809,6 +9809,7 @@ async function checkCSAT() {             // функция проверки CSAT
         csatScore = 0
         csatCount = 0
         let flagok = [];
+        let tagsarr = []; //обьявляем пустой массив для хранения тегов чатов
         let count = {};
         let flagvbad = [];
         let flagbad = [];
@@ -9837,6 +9838,10 @@ async function checkCSAT() {             // функция проверки CSAT
                     .then(r => {
                         if (r.operatorId == operatorId) {
                             clschatarr.push(test.items[i].conversationId)
+                            if (r.payload.tags.value == '')
+                                tagsarr.push('Нет тега!')
+                            else
+                                tagsarr.push(r.payload.tags.value) //формирует массив тегов чатов
                             flagCsat = 1
                             if (r.payload != undefined)
                                 if (r.payload.topicId != undefined)
@@ -9865,7 +9870,7 @@ async function checkCSAT() {             // функция проверки CSAT
                             abovecloseslaarr += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
                                 '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
                                 clschatarr[k] + '</a>' + ' Время чата: ' + (test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) +
-                                '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + ' Создан чат в: ' + tshrs + ":" + tsmin + ' МСК' + '<br>')
+                                '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + ' Создан чат в: ' + tshrs + ":" + tsmin + ' МСК ' + tagsarr[k] + '<br>')
                         }
 
                         if (test.items[i].stats.averageOperatorAnswerTime !== undefined && ((test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
@@ -9968,6 +9973,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                console.log(tagsarr) //выводит список полученных тегов с чатов
                 break
             }
         }
