@@ -9840,8 +9840,9 @@ async function checkCSAT() {             // функция проверки CSAT
                             clschatarr.push(test.items[i].conversationId)
                             if (r.payload.tags.value == '')
                                 tagsarr.push('Нет тега!')
-                            else
-                                tagsarr.push(r.payload.tags.value) //формирует массив тегов чатов
+                            else if (r.payload.tags.value == '[\n  \"queue\"\n]')
+                                tagsarr.push('Тег: Очередь КЦ') //добавляет что тег очередь КЦ выставлен
+                            else tagsarr.push(r.payload.tags.value) //формирует массив тегов чатов
                             flagCsat = 1
                             if (r.payload != undefined)
                                 if (r.payload.topicId != undefined)
