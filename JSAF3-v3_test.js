@@ -7142,11 +7142,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7158,7 +7160,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Английский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
@@ -7168,11 +7170,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-computer-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=digital_literacy_kids_f2f,python_kids_f2f,programming_kids_f2f,web_dev_kids_f2f,making_games_kids_f2f,computer_courses_app_inventor_kids_f2f,computer_courses_thunkable_kids_f2f,computer_courses_scratch_kids_f2f,computer_courses_unreal_kids_f2f,computer_courses_roblox_kids_f2f,computer_courses_unity_kids_f2f,computer_courses_construct_kids_f2f,computer_courses_minecraft_kids_f2f,computer_courses_app_inventor_kids_f2g,computer_courses_scratch_kids_f2g,computer_courses_thunkable_kids_f2g,computer_courses_web_dev_kids_f2g,computer_courses_digital_literacy_mac_kids_f2f,computer_courses_digital_literacy_windows_kids_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7184,7 +7188,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Компьютерные курсы' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Компьютерные курсы'")
@@ -7194,11 +7198,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-chess.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chess_kids_f2f,chess_kids_f2f_short_lessons", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7210,7 +7216,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Шахматы' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Шахматы'")
@@ -7220,11 +7226,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-math.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=mathematics_kids,math_kids_exam,math_kids_premium,math_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7236,7 +7244,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Математика' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Математика'")
@@ -7246,11 +7254,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-russian.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=russian_kids,russian_kids_exam_f2f,russian_kids_premium,russian_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7262,7 +7272,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Русский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Русский язык'")
@@ -7272,11 +7282,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-preschool.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=preschool_kids_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7288,7 +7300,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Дошколка' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Дошколка'")
@@ -7298,11 +7310,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-physics.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=physics_kids_f2f,physics_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7314,7 +7328,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Физика' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Физика'")
@@ -7324,11 +7338,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-social-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=social_science_kids_f2f,social_science_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7340,7 +7356,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Обществознание' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Обществознание'")
@@ -7350,11 +7366,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-literature.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_literature_7_grade_folklore,large_classes_literature_7_grade_folklore_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7366,7 +7384,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Литературе' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Литературе'")
@@ -7376,11 +7394,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-history.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_history_7_grade_new_time,large_classes_history_7_grade_new_time_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7392,7 +7412,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'История' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'История'")
@@ -7402,11 +7422,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-geography.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=geography_kids_f2f,large_classes_geography_7_grade_human_on_earth,large_classes_geography_7_grade_human_on_earth_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7418,7 +7440,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'География' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'География'")
@@ -7428,11 +7450,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-chemistry.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chemistry_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7444,7 +7468,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Химия' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Химия'")
@@ -7454,11 +7478,13 @@ async function remandressl() {
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
-        await fetch("https://skysmart-core.skyeng.ru/api/v1/teacher/about", {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
+				 "authorization": "Bearer" + d[1]
             },
-            "credentials": "include"
+            "credentials": "include",
+            "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
         await fetch("https://api-biology.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=biology_kids_f2f,large_classes_biology_7_grade_bacteria_viruses,large_classes_biology_7_grade_bacteria_viruses_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
@@ -7470,7 +7496,7 @@ async function remandressl() {
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.teacherId, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками в разделе 'Биология' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
