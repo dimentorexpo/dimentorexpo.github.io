@@ -9842,6 +9842,8 @@ async function checkCSAT() {             // функция проверки CSAT
                                 tagsarr.push('Нет тега!')
                             else if (r.payload.tags.value == '[\n  \"queue\"\n]')
                                 tagsarr.push('Тег: Очередь КЦ') //добавляет что тег очередь КЦ выставлен
+							else if (r.payload.tags.value == '[\n  \"request_forwarded_to_2l_tp\"\n]')
+                                tagsarr.push('Тег: 2ЛТП') //добавляет что тег очередь КЦ выставлен
                             else tagsarr.push(r.payload.tags.value) //формирует массив тегов чатов
                             flagCsat = 1
                             if (r.payload != undefined)
