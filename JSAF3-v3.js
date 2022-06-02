@@ -5742,10 +5742,10 @@ function transfPageButtons(textFromTable) {
             name = a[0]
         }
         else
-            name = 'Имя'
+            name = a[0]
     }
     else
-        name = 'Имя'
+        name = a[0]
     textFromTable = textFromTable.join(name)
 
     return textFromTable
