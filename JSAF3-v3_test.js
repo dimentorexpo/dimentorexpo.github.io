@@ -1815,16 +1815,11 @@ butmenu.onclick = () => {
     if (menubar.style.display == 'none') {
     menubar.style.display = ''
 		document.addEventListener('click', function(event) {
-		  if (document.getElementById('idmymenu').style.display != 'none')
-		  var e=document.getElementById('idmymenu');
+			var e=document.getElementById('idmymenu');
 		  if (!e.contains(event.target)) e.style.display='none';
 		});
     } else menubar.style.display = 'none'
 }
-
-
-
-
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
