@@ -267,6 +267,7 @@ let buttonOpenForm = document.createElement('div');
 buttonOpenForm.id = 'buttonOpenForm';
 buttonOpenForm.textContent = "Uns";
 buttonOpenForm.style.marginRight = "30px";
+buttonOpenForm.style.cursor = "pointer";
 buttonOpenForm.onclick = function() {
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
