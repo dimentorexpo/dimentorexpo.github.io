@@ -8148,23 +8148,29 @@ function paintstatus() {
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
+			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[2].innerText == 'Перерыв') 
 			document.querySelectorAll('.ant-btn')[2].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
+			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Онлайн')
             document.querySelectorAll('.ant-btn')[2].style.background = "green";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
+			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Занят')
             document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
         }
     } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
+			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[3].innerText == 'Перерыв') 
             document.querySelectorAll('.ant-btn')[3].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
+			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Онлайн')
             document.querySelectorAll('.ant-btn')[3].style.background = "green";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
+			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Занят')
             document.querySelectorAll('.ant-btn')[3].style.background = "yellow";
         }
     }
