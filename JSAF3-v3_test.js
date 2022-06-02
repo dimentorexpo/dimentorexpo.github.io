@@ -1816,7 +1816,7 @@ butmenu.onclick = () => {
     menubar.style.display = ''
 		document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function(event) {
 			var e=document.getElementById('idmymenu');
-		  if (!e.contains(event.target))) e.style.display='none';
+		  if (!e.contains(event.target)) e.style.display='none';
 		});
     } else menubar.style.display = 'none'
 }
