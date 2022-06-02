@@ -1764,7 +1764,7 @@ butMarks.style.cursor = "pointer";
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
-servDsk.innerHTML = "ServiceDesk"
+servDsk.innerHTML = "🛠ServiceDesk"
 servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
 
