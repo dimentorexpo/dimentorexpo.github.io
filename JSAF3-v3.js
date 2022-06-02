@@ -86,7 +86,41 @@ function mystyles() {
 			content: '🔊';
 			transform:translateX(28px);
 		}
-	
+				
+		#servDsk:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}	
+		#buttonOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}		
+		#butServ:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}		
+		#butMarks:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}	
+
+		#servDsk {
+			height:50px;
+		}	
+		#buttonOpenForm {
+			height:50px;
+		}		
+		#butServ {
+			height:50px;
+		}		
+		#butMarks:hover {
+			height:50px;
+		}
+		
 	
 	.switch-btn {
 		display: inline-block;
@@ -1752,21 +1786,45 @@ hashBut.style.marginRight = "15px";
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
-butServ.innerHTML = "⚜"
+butServ.innerHTML = "⚜UserInfo"
 butServ.style.marginRight = "15px";
 butServ.style.cursor = "pointer";
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
-butMarks.innerHTML = "📊"
+butMarks.innerHTML = "📊Оценки"
 butMarks.style.marginRight = "15px";
 butMarks.style.cursor = "pointer";
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
-servDsk.innerHTML = "SD"
+servDsk.innerHTML = "🛠ServiceDesk"
 servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
+
+let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+let menubutarea = document.createElement('div')
+menubutarea.style = 'margin-right:20px;'
+
+let butmenu = document.createElement('button')
+butmenu.innerText = 'Меню'
+butmenu.id = 'headmymenu'
+butmenu.style = 'height:32px;'
+butmenu.classList.add('ant-btn')
+
+let menubar = document.createElement('div')
+menubar.style = 'background: white; position:absolute; left: 68%; top: 80%; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)'
+menubar.id = 'idmymenu'
+
+butmenu.onclick = () => {
+    if (menubar.style.display == 'none') {
+    menubar.style.display = ''
+		document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function(event) {
+			var e=document.getElementById('idmymenu');
+		  if (!e.contains(event.target)) e.style.display='none';
+		});
+    } else menubar.style.display = 'none'
+}
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
@@ -8127,24 +8185,30 @@ function paintstatus() {
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-            document.querySelectorAll('.ant-btn')[1].style.background = "red";
+			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[2].innerText == 'Перерыв') 
+			document.querySelectorAll('.ant-btn')[2].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-            document.querySelectorAll('.ant-btn')[1].style.background = "green";
+			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Онлайн')
+            document.querySelectorAll('.ant-btn')[2].style.background = "green";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-            document.querySelectorAll('.ant-btn')[1].style.background = "yellow";
+			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Занят')
+            document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
         }
     } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-            document.querySelectorAll('.ant-btn')[2].style.background = "red";
+			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[3].innerText == 'Перерыв') 
+            document.querySelectorAll('.ant-btn')[3].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-            document.querySelectorAll('.ant-btn')[2].style.background = "green";
+			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Онлайн')
+            document.querySelectorAll('.ant-btn')[3].style.background = "green";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-            document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
+			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Занят')
+            document.querySelectorAll('.ant-btn')[3].style.background = "yellow";
         }
     }
 
@@ -10140,6 +10204,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
         }, 2000)
+		
+		setTimeout(()=> {
+			headmenulist.insertBefore(menubutarea , headmenulist.children[7])
+			menubutarea.append(butmenu)
+			headmenulist.insertBefore(menubar , headmenulist.children[7])
+			menubar.append(document.getElementById('servDsk'))
+			menubar.append(document.getElementById('buttonOpenForm'))
+			menubar.append(document.getElementById('butServ'))
+			menubar.append(document.getElementById('butMarks'))
+		}, 8000)
 
         setInterval(startTimer, 1000)
     }
