@@ -86,7 +86,11 @@ function mystyles() {
 			content: '🔊';
 			transform:translateX(28px);
 		}
-	
+		
+		#scriptBut:hover {
+			background:grey;
+			color:white;
+		}
 	
 	.switch-btn {
 		display: inline-block;
