@@ -87,7 +87,7 @@ function mystyles() {
 			transform:translateX(28px);
 		}
 		
-		#idmymenu {
+		.mymenu {
 			background: white;
 			position:absolute;
 			left: 68%;
@@ -1821,6 +1821,7 @@ butmenu.classList.add('ant-btn')
 
 let menubar = document.createElement('div')
 menubar.id = 'idmymenu'
+menubar.className = 'mymenu'
 
 butmenu.onclick = () => {
     if (menubar.style.display == 'none') {
