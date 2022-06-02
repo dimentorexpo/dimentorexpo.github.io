@@ -1794,6 +1794,7 @@ menubutarea.style = 'margin-right:20px;'
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
+butmenu.id = 'headmymenu'
 butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
 
@@ -1806,6 +1807,11 @@ butmenu.onclick = () => {
     menubar.style.display = ''
     else menubar.style.display = 'none'
 }
+
+document.addEventListener('click', function(event) {
+  var e=document.getElementById('idmymenu');
+  if (!e.contains(event.target)) e.style.display='none';
+});
 
 
 
