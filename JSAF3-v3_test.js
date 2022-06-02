@@ -86,22 +86,26 @@ function mystyles() {
 			content: '🔊';
 			transform:translateX(28px);
 		}
-		
+				
 		#servDsk:hover {
-			background:SandyBrown;
+			background:DeepSkyBlue;
 			color:white;
+			font-weight:700;
 		}	
 		#buttonOpenForm:hover {
-			background:SandyBrown;
+			background:DeepSkyBlue;
 			color:white;
+			font-weight:700;
 		}		
 		#butServ:hover {
-			background:SandyBrown;
+			background:DeepSkyBlue;
 			color:white;
+			font-weight:700;
 		}		
 		#butMarks:hover {
-			background:SandyBrown;
+			background:DeepSkyBlue;
 			color:white;
+			font-weight:700;
 		}	
 
 		#servDsk {
@@ -116,6 +120,7 @@ function mystyles() {
 		#butMarks:hover {
 			height:50px;
 		}
+		
 	
 	.switch-btn {
 		display: inline-block;
