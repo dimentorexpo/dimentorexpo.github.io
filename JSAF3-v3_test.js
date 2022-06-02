@@ -1818,6 +1818,7 @@ butmenu.onclick = () => {
 }
 
 document.addEventListener('click', function(event) {
+  if (document.getElementById('idmymenu').style.display != 'none')
   var e=document.getElementById('idmymenu');
   if (!e.contains(event.target)) e.style.display='none';
 });
