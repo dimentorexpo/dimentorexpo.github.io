@@ -88,19 +88,19 @@ function mystyles() {
 		}
 		
 		#servDsk:hover {
-			background:grey;
+			background:LightGrey;
 			color:white;
 		}	
 		#buttonOpenForm:hover {
-			background:grey;
+			background:LightGrey;
 			color:white;
 		}		
 		#butServ:hover {
-			background:grey;
+			background:LightGrey;
 			color:white;
 		}		
 		#butMarks:hover {
-			background:grey;
+			background:LightGrey;
 			color:white;
 		}
 	
