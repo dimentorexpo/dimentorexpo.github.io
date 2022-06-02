@@ -1812,16 +1812,17 @@ menubar.style = 'position:absolute; top: 20px; left: 68%; top: 80%; border: 0px 
 menubar.id = 'idmymenu'
 
 butmenu.onclick = () => {
-    if (menubar.style.display == 'none')
+    if (menubar.style.display == 'none') {
     menubar.style.display = ''
-    else menubar.style.display = 'none'
+		document.addEventListener('click', function(event) {
+		  if (document.getElementById('idmymenu').style.display != 'none')
+		  var e=document.getElementById('idmymenu');
+		  if (!e.contains(event.target)) e.style.display='none';
+		});
+    } else menubar.style.display = 'none'
 }
 
-document.addEventListener('click', function(event) {
-  if (document.getElementById('idmymenu').style.display != 'none')
-  var e=document.getElementById('idmymenu');
-  if (!e.contains(event.target)) e.style.display='none';
-});
+
 
 
 
