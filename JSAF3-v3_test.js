@@ -87,7 +87,19 @@ function mystyles() {
 			transform:translateX(28px);
 		}
 		
-		#scriptBut:hover {
+		#servDsk:hover {
+			background:grey;
+			color:white;
+		}	
+		#buttonOpenForm:hover {
+			background:grey;
+			color:white;
+		}		
+		#butServ:hover {
+			background:grey;
+			color:white;
+		}		
+		#butMarks:hover {
 			background:grey;
 			color:white;
 		}
