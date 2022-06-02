@@ -1773,7 +1773,7 @@ let menubutarea = document.createElement('div')
 menubutarea.style = 'margin-right:20px;'
 
 let butmenu = document.createElement('button')
-butmenu.innerText = 'Menu'
+butmenu.innerText = 'Меню'
 butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
 
