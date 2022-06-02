@@ -10159,6 +10159,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butServ, btnAdd1.children[1])
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
+        }, 2000)
+		
+		setTimeout(()=> {
 			headmenulist.insertBefore(menubutarea , headmenulist.children[7])
 			menubutarea.append(butmenu)
 			headmenulist.insertBefore(menubar , headmenulist.children[7])
@@ -10166,7 +10169,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
 			menubar.append(document.getElementById('buttonOpenForm'))
 			menubar.append(document.getElementById('butServ'))
 			menubar.append(document.getElementById('butMarks'))
-        }, 2000)
+		}, 8000)
 
         setInterval(startTimer, 1000)
     }
