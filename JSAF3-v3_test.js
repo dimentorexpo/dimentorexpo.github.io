@@ -89,11 +89,11 @@ function mystyles() {
 		
 		.mymenu {
 			background: white;
-			position:absolute;
+			position:  absolute;
 			left: 68%;
 			top: 80%;
 			border: 0px solid #000000;
-			display:none;
+			display: none;
 			min-height: 60px;
 			min-width: 110px;
 			box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)
