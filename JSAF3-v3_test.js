@@ -88,23 +88,32 @@ function mystyles() {
 		}
 		
 		#servDsk:hover {
-			background:Gainsboro;
+			background:SandyBrown;
 			color:white;
-			height:50px;
 		}	
 		#buttonOpenForm:hover {
-			background:Gainsboro;
+			background:SandyBrown;
 			color:white;
-			height:50px;
 		}		
 		#butServ:hover {
-			background:Gainsboro;
+			background:SandyBrown;
 			color:white;
+		}		
+		#butMarks:hover {
+			background:SandyBrown;
+			color:white;
+		}	
+
+		#servDsk {
+			height:50px;
+		}	
+		#buttonOpenForm {
+			height:50px;
+		}		
+		#butServ {
 			height:50px;
 		}		
 		#butMarks:hover {
-			background:Gainsboro;
-			color:white;
 			height:50px;
 		}
 	
