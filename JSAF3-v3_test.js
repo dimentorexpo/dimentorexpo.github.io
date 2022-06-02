@@ -88,20 +88,24 @@ function mystyles() {
 		}
 		
 		#servDsk:hover {
-			background:LightGrey;
+			background:Gainsboro;
 			color:white;
+			height:50px;
 		}	
 		#buttonOpenForm:hover {
-			background:LightGrey;
+			background:Gainsboro;
 			color:white;
+			height:50px;
 		}		
 		#butServ:hover {
-			background:LightGrey;
+			background:Gainsboro;
 			color:white;
+			height:50px;
 		}		
 		#butMarks:hover {
-			background:LightGrey;
+			background:Gainsboro;
 			color:white;
+			height:50px;
 		}
 	
 	.switch-btn {
