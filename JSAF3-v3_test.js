@@ -1752,19 +1752,19 @@ hashBut.style.marginRight = "15px";
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
-butServ.innerHTML = "⚜"
+butServ.innerHTML = "⚜UserInfo"
 butServ.style.marginRight = "15px";
 butServ.style.cursor = "pointer";
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
-butMarks.innerHTML = "📊"
+butMarks.innerHTML = "📊Оценки"
 butMarks.style.marginRight = "15px";
 butMarks.style.cursor = "pointer";
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
-servDsk.innerHTML = "SD"
+servDsk.innerHTML = "ServiceDesk"
 servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
 
