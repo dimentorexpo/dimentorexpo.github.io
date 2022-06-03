@@ -354,6 +354,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 					<input id="idteacheradult" placeholder="ID П Adults 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
+					<button id="temptodoc" style="width: 25.23px;">!TEST!</button>
 				</div>		
 				 
 				<div style="margin: 5px; width: 550px" id="links_butd">	
@@ -3180,6 +3181,36 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
         idteacheradult.value = "";
     }
+	
+	document.getElementById('temptodoc').onclick = () => {
+		// fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSehbskocVj0Wh1ubRwUbD6rwiG7EDAjNu9ahYWMmgcdswp4zw/formResponse", {
+			  // "headers": {
+				// "content-type": "application/x-www-form-urlencoded",
+			  // },
+			  // "body": "entry.362470677=Flomy&entry.613447261=3221",
+			  // "method": "POST",
+			// });
+			
+			let kto = 'Уточните ID'
+			let link = '5'
+			
+			let body = 'entry.362470677=' + kto + '&entry.613447261=' + link
+			
+			let options = {
+			  "headers": {
+				"content-type": "application/x-www-form-urlencoded",
+			  },
+			  "body": body,
+			  "method": "POST",
+			}
+
+		document.getElementById('responseTextarea1').value = JSON.stringify(options)
+		document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSehbskocVj0Wh1ubRwUbD6rwiG7EDAjNu9ahYWMmgcdswp4zw/formResponse'
+		if(document.getElementById('responseTextarea3') != null)
+			document.getElementById('responseTextarea3').value = ''
+		document.getElementById('sendResponse').click()
+		
+	}
 
 
     document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
