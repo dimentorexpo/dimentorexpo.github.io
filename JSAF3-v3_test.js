@@ -121,7 +121,14 @@ function mystyles() {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
+		}
+
+		#suggestform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
 		}	
+		
 	.radio {
 		width:15px;
 		height:15px;
