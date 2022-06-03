@@ -3191,7 +3191,7 @@ function move_again_AF() {
 			  // "method": "POST",
 			// });
 			
-			let kto = 'Уточните ID'
+			let kto = toUTF8Array('Уточните ID')
 			let link = '55'
 			
 			let body = 'entry.362470677=Уточните ID' + '&entry.613447261=' + link
