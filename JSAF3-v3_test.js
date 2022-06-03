@@ -302,6 +302,7 @@ var win_suggest =  // описание элементов окна доступ�
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 409px;" id="sug_form_main">
                             <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:24px;">♻</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="sug_form_box">
                             <input id="operatornamesuggest" placeholder="Представься, пожалуйста" title="Вводим свою фамилию и имя" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
@@ -1884,7 +1885,7 @@ servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
 
 let butopensugestform = document.createElement('div')
-butopensugestform.id = "suggestform" 
+butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
 butopensugestform.style.marginRight = "15px";
 butopensugestform.style.cursor = "pointer";
@@ -4474,14 +4475,14 @@ function move_again_AF() {
     } else {
         prepTp()
     }
-	
-	document.getElementById('hideMeSugForm').onclick = () => {
-	     if (document.getElementById('AF_Sugform').style.display == '')
+
+    document.getElementById('hideMeSugForm').onclick = () => {
+        if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
         }
-	}
+    }
 
     document.getElementById('hideMenu').onclick = function () {
         document.getElementById('AF_helper').style.display = 'none'
@@ -5275,11 +5276,11 @@ function move_again_AF() {
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
-			
-			document.getElementById('operatornamesuggest').value = afopername;
-			
-			if (document.URL.split('/').length == 6)
-			document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+
+            document.getElementById('operatornamesuggest').value = afopername;
+
+            if (document.URL.split('/').length == 6)
+                document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
         }
     }
 
@@ -8502,7 +8503,7 @@ async function whoAmI() {
         b.rows.forEach(s => {
             if (me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
-				afopername = s.operator.fullName
+                afopername = s.operator.fullName
                 console.log("Мой ID: " + operatorId)
             }
         })
@@ -10355,7 +10356,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
-			btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
 
         setTimeout(() => {
