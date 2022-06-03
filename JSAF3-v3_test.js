@@ -10352,7 +10352,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
-			btnAdd1.insertBefore(hashBut, btnAdd1.children[5])
+			btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
 
         setTimeout(() => {
