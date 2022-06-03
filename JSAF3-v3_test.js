@@ -1,6 +1,7 @@
 ﻿//Global vars
 let pldata;
 let drevo;
+let afopername;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -8496,6 +8497,7 @@ async function whoAmI() {
         b.rows.forEach(s => {
             if (me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
+				afopername = s.operator.fullName
                 console.log("Мой ID: " + operatorId)
             }
         })
