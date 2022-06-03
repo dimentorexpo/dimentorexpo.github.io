@@ -5316,8 +5316,9 @@ function move_again_AF() {
 		
 						console.log('Выбрана тема из предложенных')
 					} else if (topiclist[i].checked && topiclist[i].value =='Другое') {
-					checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
-					let body2 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.2046808006=' + textsuggest 
+					checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)		
+					
+					let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' +  '&entry.1869164503=' + opnamevar  + '&entry.2046808006=' + textsuggest 
 					
 						let options2 = {
 						  "headers": {
