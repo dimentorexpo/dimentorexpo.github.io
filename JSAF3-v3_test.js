@@ -4466,6 +4466,14 @@ function move_again_AF() {
     } else {
         prepTp()
     }
+	
+	document.getElementById('hideMeSugForm').onclick = () => {
+	     if (document.getElementById('AF_Sugform').style.display == '')
+            document.getElementById('AF_Sugform').style.display = 'none'
+        else {
+            document.getElementById('AF_Sugform').style.display = ''
+        }
+	}
 
     document.getElementById('hideMenu').onclick = function () {
         document.getElementById('AF_helper').style.display = 'none'
