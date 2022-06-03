@@ -4185,7 +4185,7 @@ async function buttonsFromDoc(butName) {
             txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
 
         if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
-            sendAnswer(txt)
+            sendAnswerTemplate2(txt)
         else
             sendAnswerTemplate2(txt)
         return
