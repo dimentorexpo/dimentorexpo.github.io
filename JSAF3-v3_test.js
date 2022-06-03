@@ -1820,7 +1820,7 @@ butmenu.onclick = () => {
 			var e=document.getElementById('idmymenu');
 		  if (!e.contains(event.target)) e.style.display='none';
 		});	
-		} else if (document.querySelector('.ant-layout-content .app-body-content-inner-right' !=null) {
+		} else if (document.querySelector('.ant-layout-content .app-body-content-inner-right') !=null) {
 		document.querySelector('.ant-layout-content .app-body-content-inner-right').addEventListener('click', function(event) {
 			var e=document.getElementById('idmymenu');
 		  if (!e.contains(event.target)) e.style.display='none';
