@@ -1,6 +1,7 @@
 ﻿//Global vars
 let pldata;
 let drevo;
+let afopername;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -121,7 +122,18 @@ function mystyles() {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
+		}
+
+		#suggestform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
 		}	
+		
+	.radio {
+		width:15px;
+		height:15px;
+	}
 	
 	.switch-btn {
 		display: inline-block;
@@ -281,6 +293,70 @@ var win_linksd =  // описание элементов окна доступо
                 </span>
         </span>
 </div>`;
+
+// форма для отправки предложений
+
+var win_suggest =  // описание элементов окна доступов
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 409px;" id="sug_form_main">
+                            <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:24px;">♻</button>
+                        </div>
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="sug_form_box">
+                            <input id="operatornamesuggest" placeholder="Представься, пожалуйста" title="Вводим свою фамилию и имя" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<br>
+                            <input id="linktochatsuggest" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ЛКУ" resolved=""> ЛКУ</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ЛКП" resolved=""> ЛКП</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Функционал урока" resolved=""> Функционал урока</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ТТ (Расписание)" resolved=""> ТТ (Расписание)</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="РК" resolved=""> РК</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Виджеты (прогресс/часы и т.п.)" resolved=""> Виджеты (прогресс/часы и т.п.)</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Словарь" resolved=""> Словарь</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Чатик" resolved=""> Чатик</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Оплата" resolved=""> Оплата</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skyeng" resolved=""> Мобильное приложение Skyeng</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skyeng Teachers" resolved=""> Мобильное приложение Skyeng Teachers</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart Интерактивная тетрадь" resolved=""> Мобильное приложение Skysmart Интерактивная тетрадь</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart.Родителям" resolved=""> Мобильное приложение Skysmart.Родителям</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart Students" resolved=""> Мобильное приложение Skysmart Students</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skypro" resolved=""> Мобильное приложение Skypro</label>
+							<br>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Другое" resolved=""> Другое</label>
+							<br>
+							<input id="otheroptionchecked" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<br>
+						</div>
+		</span>	
+						
+						<div>
+                            <textarea id="textsuggest" placeholder="Текст предложения" title="Вводим текст предложения" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
+                        </div>
+        </span>	
+</div>`;
+
+
+
+
 
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
@@ -1372,24 +1448,29 @@ if (localStorage.getItem('winTopTimetable') == null) { // началоное п�
     localStorage.setItem('winLeftTimetable', '295');
 }
 
-if (localStorage.getItem('winTopTechSum') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+if (localStorage.getItem('winTopTechSum') == null) {
     localStorage.setItem('winTopTechSum', '120');
     localStorage.setItem('winLeftTechSum', '295');
 }
 
-if (localStorage.getItem('winTopServDsk') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+if (localStorage.getItem('winTopServDsk') == null) {
     localStorage.setItem('winTopServDsk', '120');
     localStorage.setItem('winLeftServDsk', '295');
 }
 
-if (localStorage.getItem('winTopGrList') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+if (localStorage.getItem('winTopGrList') == null) {
     localStorage.setItem('winTopGrList', '120');
     localStorage.setItem('winLeftGrList', '295');
 }
 
-if (localStorage.getItem('winTopMarks') == null) { // началоное положение окна проверки прошедшего расписания и предстоящих уроков
+if (localStorage.getItem('winTopMarks') == null) {
     localStorage.setItem('winTopMarks', '120');
     localStorage.setItem('winLeftMarks', '295');
+}
+
+if (localStorage.getItem('winTopSugest') == null) {
+    localStorage.setItem('winTopSugest', '120');
+    localStorage.setItem('winLeftSugest', '295');
 }
 
 //Для таймера автозакрытия
@@ -1803,6 +1884,12 @@ servDsk.innerHTML = "🛠ServiceDesk"
 servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
 
+let butopensugestform = document.createElement('div')
+butopensugestform.id = "suggestform"
+butopensugestform.innerHTML = "📝Предложения"
+butopensugestform.style.marginRight = "15px";
+butopensugestform.style.cursor = "pointer";
+
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
@@ -1815,18 +1902,18 @@ menubar.id = 'idmymenu'
 
 butmenu.onclick = () => {
     if (menubar.style.display == 'none') {
-    menubar.style.display = ''
-		if(document.querySelector('.ant-layout-content .expert-chat_content') !=null) {
-		document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function(event) {
-			var e=document.getElementById('idmymenu');
-		  if (!e.contains(event.target)) e.style.display='none';
-		});	
-		} else if (document.querySelector('.ant-layout-content .app-body-content-inner-right') !=null) {
-		document.querySelector('.ant-layout-content .app-body-content-inner-right').addEventListener('click', function(event) {
-			var e=document.getElementById('idmymenu');
-		  if (!e.contains(event.target)) e.style.display='none';
-		});
-		}
+        menubar.style.display = ''
+        if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
+            document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function (event) {
+                var e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            });
+        } else if (document.querySelector('.ant-layout-content .app-body-content-inner-right') != null) {
+            document.querySelector('.ant-layout-content .app-body-content-inner-right').addEventListener('click', function (event) {
+                var e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            });
+        }
     } else menubar.style.display = 'none'
 }
 
@@ -1995,6 +2082,13 @@ wintMarks.style.display = 'none';
 wintMarks.setAttribute('id', 'AF_Marks');
 wintMarks.innerHTML = win_Marks;
 
+let wintSugform = document.createElement('div'); // создание окна ссылок
+document.body.append(wintSugform);
+wintSugform.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSugest') + 'px; left: ' + localStorage.getItem('winLeftSugest') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintSugform.style.display = 'none';
+wintSugform.setAttribute('id', 'AF_Sugform');
+wintSugform.innerHTML = win_suggest;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -2149,6 +2243,20 @@ wintMarks.firstElementChild.firstElementChild.firstElementChild.onmousedown = fu
     document.addEventListener('mousemove', listener14);
 }
 wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listener14); }
+
+var listener15 = function (e, a) { // сохранение позиции окна доступов
+    wintSugform.style.left = Number(e.clientX - myX15) + "px";
+    wintSugform.style.top = Number(e.clientY - myY15) + "px";
+    localStorage.setItem('winTopSugest', String(Number(e.clientY - myY15)));
+    localStorage.setItem('winLeftSugest', String(Number(e.clientX - myX15)));
+};
+
+wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX15 = a.layerX;
+    window.myY15 = a.layerY;
+    document.addEventListener('mousemove', listener15);
+}
+wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -3184,7 +3292,7 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
         idteacheradult.value = "";
     }
-	
+
     document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
         let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
         if (enablerAP.value == "")
@@ -4368,6 +4476,14 @@ function move_again_AF() {
         prepTp()
     }
 
+    document.getElementById('hideMeSugForm').onclick = () => {
+        if (document.getElementById('AF_Sugform').style.display == '')
+            document.getElementById('AF_Sugform').style.display = 'none'
+        else {
+            document.getElementById('AF_Sugform').style.display = ''
+        }
+    }
+
     document.getElementById('hideMenu').onclick = function () {
         document.getElementById('AF_helper').style.display = 'none'
         document.getElementById('scriptBut').style.display = ''
@@ -4413,9 +4529,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4440,9 +4556,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4467,9 +4583,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4494,9 +4610,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4521,9 +4637,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4548,9 +4664,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4575,9 +4691,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4602,9 +4718,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4629,9 +4745,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4656,9 +4772,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4683,9 +4799,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4710,9 +4826,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4737,9 +4853,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4764,9 +4880,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4791,9 +4907,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4818,9 +4934,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4845,9 +4961,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4872,9 +4988,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4899,9 +5015,9 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
             });
 
@@ -4926,68 +5042,13 @@ function move_again_AF() {
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-			
-			$('.stcabmbsbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-				$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-			
-			$('.marketprojbugsbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-				$('.infrabtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
-				
-			});
-				
-			$('.infrabtn').click(function () {  //поправить
+            });
+
+            $('.stcabmbsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
                 $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
@@ -5012,7 +5073,62 @@ function move_again_AF() {
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
-				
+            });
+
+            $('.marketprojbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+
+            });
+
+            $('.infrabtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+
             });
 
             document.getElementById('AF_ServDsk').style.display = 'none'
@@ -5153,6 +5269,83 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
+    }
+
+    document.getElementById('suggestform').onclick = () => {
+        if (document.getElementById('AF_Sugform').style.display == '')
+            document.getElementById('AF_Sugform').style.display = 'none'
+        else {
+            document.getElementById('AF_Sugform').style.display = ''
+
+            document.getElementById('operatornamesuggest').value = afopername;
+
+            if (document.URL.split('/')[5] != '')
+                document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+
+            document.getElementById('refreshchathash').onclick = () => {
+               if (document.URL.split('/')[5] != '')
+                    document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+            }
+			
+			document.getElementById('sendtosuggestdoc').onclick = () => {
+				
+			let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
+			let chatlink = document.getElementById('linktochatsuggest').value
+			let topiclist = document.getElementsByName('topicofsuggest')
+			let checkedtopic;
+			let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
+
+			for (let i=0; i<topiclist.length;i++) {
+					if (topiclist[i].checked && topiclist[i].value !='Другое') {
+					checkedtopic = encodeURIComponent(topiclist[i].value);
+					let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest 
+					
+					let options1 = {
+					  "headers": {
+						"content-type": "application/x-www-form-urlencoded",
+					  },
+					  "body": body1,
+					  "method": "POST",
+					}
+					
+						document.getElementById('responseTextarea1').value = JSON.stringify(options1)
+						document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+						if(document.getElementById('responseTextarea3') != null)
+							document.getElementById('responseTextarea3').value = ''
+						document.getElementById('sendResponse').click()
+		
+						console.log('Выбрана тема из предложенных')
+					} else if (topiclist[i].checked && topiclist[i].value =='Другое') {
+					checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)		
+					
+					let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' +  '&entry.1869164503=' + opnamevar  + '&entry.2046808006=' + textsuggest 
+					
+						let options2 = {
+						  "headers": {
+							"content-type": "application/x-www-form-urlencoded",
+						  },
+						  "body": body2,
+						  "method": "POST",
+						}
+			
+			
+						console.log('Выбрана опция Другое')
+						
+						document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+						document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+						if(document.getElementById('responseTextarea3') != null)
+							document.getElementById('responseTextarea3').value = ''
+						document.getElementById('sendResponse').click()
+					}
+					
+				}
+				
+				document.getElementById('linktochatsuggest').value =''
+				document.getElementById('otheroptionchecked').value =''
+				document.getElementById('textsuggest').value =''
+				
+			}
+        }
     }
 
     document.getElementById('butMarks').onclick = function () {
@@ -5843,26 +6036,26 @@ async function buttonsFromDoc(butName) {
     }
 
     msgFromTable(butName)
-	
-			let nameusedbut = encodeURIComponent(butName)
-			let counter = '1'
-			
-			let body = 'entry.362470677=' + nameusedbut + '&entry.613447261=' + counter
-			
-			let options = {
-			  "headers": {
-				"content-type": "application/x-www-form-urlencoded; cha",
-			  },
-			  "body": body,
-			  "method": "POST",
-			}
 
-		document.getElementById('responseTextarea1').value = JSON.stringify(options)
-		document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSehbskocVj0Wh1ubRwUbD6rwiG7EDAjNu9ahYWMmgcdswp4zw/formResponse'
-		if(document.getElementById('responseTextarea3') != null)
-			document.getElementById('responseTextarea3').value = ''
-		document.getElementById('sendResponse').click()
-	
+    let nameusedbut = encodeURIComponent(butName)
+    let counter = '1'
+
+    let body = 'entry.362470677=' + nameusedbut + '&entry.613447261=' + counter
+
+    let options = {
+        "headers": {
+            "content-type": "application/x-www-form-urlencoded; cha",
+        },
+        "body": body,
+        "method": "POST",
+    }
+
+    document.getElementById('responseTextarea1').value = JSON.stringify(options)
+    document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSehbskocVj0Wh1ubRwUbD6rwiG7EDAjNu9ahYWMmgcdswp4zw/formResponse'
+    if (document.getElementById('responseTextarea3') != null)
+        document.getElementById('responseTextarea3').value = ''
+    document.getElementById('sendResponse').click()
+
 }
 
 function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
@@ -7226,7 +7419,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7254,7 +7447,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7282,7 +7475,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7310,7 +7503,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7338,7 +7531,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7366,7 +7559,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7394,7 +7587,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7422,7 +7615,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7450,7 +7643,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7478,7 +7671,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7506,7 +7699,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7534,7 +7727,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -7562,7 +7755,7 @@ async function remandressl() {
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
-				 "authorization": "Bearer" + d[1]
+                "authorization": "Bearer" + d[1]
             },
             "credentials": "include",
             "method": "POST",
@@ -8093,7 +8286,7 @@ async function checkthemestatus() {
 
             if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
                 drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
-			
+
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
@@ -8208,30 +8401,30 @@ function paintstatus() {
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[2].innerText == 'Перерыв') 
-			document.querySelectorAll('.ant-btn')[2].style.background = "red";
+            if (document.querySelectorAll('.ant-btn')[2].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[2].innerText == 'Перерыв')
+                document.querySelectorAll('.ant-btn')[2].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Онлайн')
-            document.querySelectorAll('.ant-btn')[2].style.background = "green";
+            if (document.querySelectorAll('.ant-btn')[2].innerText == 'Онлайн')
+                document.querySelectorAll('.ant-btn')[2].style.background = "green";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-			if (document.querySelectorAll('.ant-btn')[2].innerText == 'Занят')
-            document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
+            if (document.querySelectorAll('.ant-btn')[2].innerText == 'Занят')
+                document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
         }
     } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[3].innerText == 'Перерыв') 
-            document.querySelectorAll('.ant-btn')[3].style.background = "red";
+            if (document.querySelectorAll('.ant-btn')[3].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[3].innerText == 'Перерыв')
+                document.querySelectorAll('.ant-btn')[3].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Онлайн')
-            document.querySelectorAll('.ant-btn')[3].style.background = "green";
+            if (document.querySelectorAll('.ant-btn')[3].innerText == 'Онлайн')
+                document.querySelectorAll('.ant-btn')[3].style.background = "green";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-			if (document.querySelectorAll('.ant-btn')[3].innerText == 'Занят')
-            document.querySelectorAll('.ant-btn')[3].style.background = "yellow";
+            if (document.querySelectorAll('.ant-btn')[3].innerText == 'Занят')
+                document.querySelectorAll('.ant-btn')[3].style.background = "yellow";
         }
     }
 
@@ -8374,6 +8567,7 @@ async function whoAmI() {
         b.rows.forEach(s => {
             if (me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
+                afopername = s.operator.fullName
                 console.log("Мой ID: " + operatorId)
             }
         })
@@ -9955,7 +10149,7 @@ async function checkCSAT() {             // функция проверки CSAT
                                 tagsarr.push('Нет тега!')
                             else if (r.payload.tags.value == '[\n  \"queue\"\n]')
                                 tagsarr.push('Тег: Очередь КЦ') //добавляет что тег очередь КЦ выставлен
-							else if (r.payload.tags.value == '[\n  \"request_forwarded_to_2l_tp\"\n]')
+                            else if (r.payload.tags.value == '[\n  \"request_forwarded_to_2l_tp\"\n]')
                                 tagsarr.push('Тег: 2ЛТП') //добавляет что тег очередь КЦ выставлен
                             else tagsarr.push(r.payload.tags.value) //формирует массив тегов чатов
                             flagCsat = 1
@@ -10221,26 +10415,28 @@ function firstLoadPage() { //первичаня загрузка страниц�
 
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
             btnAdd1.insertBefore(butServ, btnAdd1.children[1])
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
-		
-		setTimeout(()=> {
-			let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-			let menubutarea = document.createElement('div')
-			menubutarea.style = 'margin-right:20px;'
 
-			headmenulist.insertBefore(menubutarea , headmenulist.children[7])
-			menubutarea.append(butmenu)
-			headmenulist.insertBefore(menubar , headmenulist.children[7])
-			menubar.append(document.getElementById('servDsk'))
-			menubar.append(document.getElementById('buttonOpenForm'))
-			menubar.append(document.getElementById('butServ'))
-			menubar.append(document.getElementById('butMarks'))
-		}, 8000)
+        setTimeout(() => {
+            let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            let menubutarea = document.createElement('div')
+            menubutarea.style = 'margin-right:20px;'
+
+            headmenulist.insertBefore(menubutarea, headmenulist.children[5])
+            menubutarea.append(butmenu)
+            headmenulist.insertBefore(menubar, headmenulist.children[5])
+            menubar.append(document.getElementById('servDsk'))
+            menubar.append(document.getElementById('buttonOpenForm'))
+            menubar.append(document.getElementById('butServ'))
+            menubar.append(document.getElementById('butMarks'))
+            menubar.append(document.getElementById('suggestform'))
+        }, 8000)
 
         setInterval(startTimer, 1000)
     }

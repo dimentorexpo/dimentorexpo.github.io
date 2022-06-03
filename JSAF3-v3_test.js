@@ -5341,6 +5341,8 @@ function move_again_AF() {
 				}
 				
 				document.getElementById('linktochatsuggest').value =''
+				document.getElementById('otheroptionchecked').value =''
+				document.getElementById('textsuggest').value =''
 				
 			}
         }
