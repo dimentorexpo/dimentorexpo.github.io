@@ -5724,14 +5724,15 @@ function move_again_AF() {
         txt3 = txt3.substr(0, txt3.length - 2)
 
         if (document.getElementById('msg').innerHTML == "Чат")
-            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                "headers": {
-                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
-                },
-                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
-                "method": "POST",
-                "credentials": "include"
-            });
+            // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                // "headers": {
+                    // "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
+                // },
+                // "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+                // "method": "POST",
+                // "credentials": "include"
+            // });
+			sendAnswerTemplate2(txt3)
         document.getElementById('inp').value = "";
         refCurTimer(time)
     }
