@@ -5286,6 +5286,62 @@ function move_again_AF() {
                if (document.URL.split('/')[5] != '')
                     document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
             }
+			
+			document.getElementById('sendtosuggestdoc').onclick = () => {
+				
+			let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
+			let chatlink = document.getElementById('linktochatsuggest').value
+			let topiclist = document.getElementsByName('topicofsuggest')
+			let checkedtopic;
+			let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
+
+			for (let i=0; i<topiclist.length;i++) {
+					if (topiclist[i].checked && topiclist[i].value !='Другое') {
+					checkedtopic = encodeURIComponent(topiclist[i].value);
+					let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest 
+					
+					let options1 = {
+					  "headers": {
+						"content-type": "application/x-www-form-urlencoded",
+					  },
+					  "body": body1,
+					  "method": "POST",
+					}
+					
+						document.getElementById('responseTextarea1').value = JSON.stringify(options1)
+						document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+						if(document.getElementById('responseTextarea3') != null)
+							document.getElementById('responseTextarea3').value = ''
+						document.getElementById('sendResponse').click()
+		
+						console.log('Выбрана тема из предложенных')
+					} else if (topiclist[i].checked && topiclist[i].value =='Другое') {
+					checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
+					let body2 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.2046808006=' + textsuggest 
+					
+						let options2 = {
+						  "headers": {
+							"content-type": "application/x-www-form-urlencoded",
+						  },
+						  "body": body2,
+						  "method": "POST",
+						}
+			
+			
+						console.log('Выбрана опция Другое')
+						
+						document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+						document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+						if(document.getElementById('responseTextarea3') != null)
+							document.getElementById('responseTextarea3').value = ''
+						document.getElementById('sendResponse').click()
+					}
+					
+				}
+				
+				document.getElementById('linktochatsuggest').value =''
+				
+			}
         }
     }
 
