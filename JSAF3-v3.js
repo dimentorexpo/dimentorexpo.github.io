@@ -302,7 +302,8 @@ var win_suggest =  // описание элементов окна доступ�
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 409px;" id="sug_form_main">
                             <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
-                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:24px;">♻</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:24px;">♻</button> 
+							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestions" style="width:24px;">🗑</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="sug_form_box">
                             <input id="operatornamesuggest" placeholder="Представься, пожалуйста" title="Вводим свою фамилию и имя" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
@@ -5286,6 +5287,10 @@ function move_again_AF() {
                if (document.URL.split('/')[5] != '')
                     document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
             }
+			
+			document.getElementById('getdocsuggestions').onclick = () =>  {
+			window.open("https://docs.google.com/spreadsheets/d/1bTR1BBwo57H1IOblb4Xkg9irf6jw0QNGzQOgrm_wr-c/edit#gid=706470682")
+			}
 			
 			document.getElementById('sendtosuggestdoc').onclick = () => {
 				
