@@ -3192,9 +3192,9 @@ function move_again_AF() {
 			// });
 			
 			let kto = 'Уточните ID'
-			let link = '5'
+			let link = '55'
 			
-			let body = 'entry.362470677=' + kto + '&entry.613447261=' + link
+			let body = 'entry.362470677=Уточните ID' + '&entry.613447261=' + link
 			
 			let options = {
 			  "headers": {
