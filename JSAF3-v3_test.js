@@ -290,6 +290,7 @@ var win_linksd =  // описание элементов окна доступо
 
 var win_suggest =  // описание элементов окна доступов
     `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 409px;" id="sug_form_main">
                             <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
@@ -333,15 +334,20 @@ var win_suggest =  // описание элементов окна доступ�
 							<br>
 							<input id="otheroptionchecked" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
 							<br>
-                </span>	
 						</div>
+		</span>	
 						
 						<div>
-                            <textarea id="textsuggest" placeholder="Текст предложения" title="Вводим текст предложения" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
+                            <textarea id="textsuggest" placeholder="Текст предложения" title="Вводим текст предложения" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px"></textarea>
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
                         </div>
+        </span>	
 </div>`;
+
+
+
+
 
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
