@@ -1802,10 +1802,6 @@ servDsk.innerHTML = "🛠ServiceDesk"
 servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
 
-let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-let menubutarea = document.createElement('div')
-menubutarea.style = 'margin-right:20px;'
-
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
@@ -10225,6 +10221,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
         }, 2000)
 		
 		setTimeout(()=> {
+			let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+			let menubutarea = document.createElement('div')
+			menubutarea.style = 'margin-right:20px;'
+
 			headmenulist.insertBefore(menubutarea , headmenulist.children[7])
 			menubutarea.append(butmenu)
 			headmenulist.insertBefore(menubar , headmenulist.children[7])
