@@ -10341,6 +10341,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
+            menubar.append(document.getElementById('butopensugestform'))
         }, 8000)
 
         setInterval(startTimer, 1000)
