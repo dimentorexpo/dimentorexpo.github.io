@@ -5279,11 +5279,11 @@ function move_again_AF() {
 
             document.getElementById('operatornamesuggest').value = afopername;
 
-            if (document.URL.split('/').length == 6)
+            if (document.URL.split('/')[5] != '')
                 document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
 
             document.getElementById('refreshchathash').onclick = () => {
-                if (document.URL.split('/').length == 6)
+               if (document.URL.split('/')[5] != '')
                     document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
             }
         }
