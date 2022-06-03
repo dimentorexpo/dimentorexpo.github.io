@@ -5275,6 +5275,8 @@ function move_again_AF() {
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
+			
+			document.getElementById('operatornamesuggest').value = afopername;
         }
     }
 
