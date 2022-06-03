@@ -290,7 +290,6 @@ var win_linksd =  // описание элементов окна доступо
 
 var win_suggest =  // описание элементов окна доступов
     `<div style="display: flex; width: 414px;">
-        <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 409px;" id="sug_form_main">
                             <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
@@ -342,12 +341,7 @@ var win_suggest =  // описание элементов окна доступ�
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
                         </div>
-        </span>	
 </div>`;
-
-
-
-
 
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
