@@ -1863,17 +1863,17 @@ butMarks.innerHTML = "📊Оценки"
 butMarks.style.marginRight = "15px";
 butMarks.style.cursor = "pointer";
 
-let butopensugestform = document.createElement('div')
-butopensugestform.id = "suggestform"
-butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style.marginRight = "15px";
-butopensugestform.style.cursor = "pointer";
-
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
 servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
+
+let butopensugestform = document.createElement('div')
+butopensugestform.id = "suggestform"
+butopensugestform.innerHTML = "📝Предложения"
+butopensugestform.style.marginRight = "15px";
+butopensugestform.style.cursor = "pointer";
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -10341,7 +10341,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
-            menubar.append(document.getElementById('butopensugestform'))
+            menubar.append(document.getElementById('suggestform'))
         }, 8000)
 
         setInterval(startTimer, 1000)
