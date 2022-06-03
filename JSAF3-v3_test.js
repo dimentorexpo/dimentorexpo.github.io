@@ -5279,7 +5279,7 @@ function move_again_AF() {
 			document.getElementById('operatornamesuggest').value = afopername;
 			
 			if (document.URL.split('/').length == 6)
-			document.getElementById('linktochatsuggest').value = document.URL
+			document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
         }
     }
 
