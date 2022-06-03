@@ -1884,7 +1884,7 @@ servDsk.style.marginRight = "15px";
 servDsk.style.cursor = "pointer";
 
 let butopensugestform = document.createElement('div')
-butopensugestform.id = "suggestform"
+butopensugestform.id = "suggestform" 
 butopensugestform.innerHTML = "📝Предложения"
 butopensugestform.style.marginRight = "15px";
 butopensugestform.style.cursor = "pointer";
@@ -5277,6 +5277,9 @@ function move_again_AF() {
             document.getElementById('AF_Sugform').style.display = ''
 			
 			document.getElementById('operatornamesuggest').value = afopername;
+			
+			if (document.URL.split('/').length == 6)
+			document.getElementById('linktochatsuggest').value = document.URL
         }
     }
 
