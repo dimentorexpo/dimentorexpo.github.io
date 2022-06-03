@@ -5278,7 +5278,7 @@ function move_again_AF() {
         else {
             document.getElementById('AF_Sugform').style.display = ''
 
-            document.getElementById('operatornamesuggest').value = afopername;
+            document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
 
             if (document.URL.split('/')[5] != '')
                 document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
