@@ -5281,6 +5281,11 @@ function move_again_AF() {
 
             if (document.URL.split('/').length == 6)
                 document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+
+            document.getElementById('refreshchathash').onclick = () => {
+                if (document.URL.split('/').length == 6)
+                    document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+            }
         }
     }
 
