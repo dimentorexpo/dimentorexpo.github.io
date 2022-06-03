@@ -308,37 +308,37 @@ var win_suggest =  // описание элементов окна доступ�
 							<br>
                             <input id="linktochatsuggest" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ЛКУ" resolved="">ЛКУ</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ЛКУ" resolved=""> ЛКУ</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ЛКП" resolved="">ЛКП</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ЛКП" resolved=""> ЛКП</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Функционал урока" resolved="">Функционал урока</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Функционал урока" resolved=""> Функционал урока</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ТТ (Расписание)" resolved="">ТТ (Расписание)</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="ТТ (Расписание)" resolved=""> ТТ (Расписание)</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="РК" resolved="">РК</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="РК" resolved=""> РК</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Виджеты (прогресс/часы и т.п.)" resolved="">Виджеты (прогресс/часы и т.п.)</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Виджеты (прогресс/часы и т.п.)" resolved=""> Виджеты (прогресс/часы и т.п.)</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Словарь" resolved="">Словарь</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Словарь" resolved=""> Словарь</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Чатик" resolved="">Чатик</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Чатик" resolved=""> Чатик</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Оплата" resolved="">Оплата</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Оплата" resolved=""> Оплата</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skyeng" resolved="">Мобильное приложение Skyeng</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skyeng" resolved=""> Мобильное приложение Skyeng</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skyeng Teachers" resolved="">Мобильное приложение Skyeng Teachers</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skyeng Teachers" resolved=""> Мобильное приложение Skyeng Teachers</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart Интерактивная тетрадь" resolved="">Мобильное приложение Skysmart Интерактивная тетрадь</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart Интерактивная тетрадь" resolved=""> Мобильное приложение Skysmart Интерактивная тетрадь</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart.Родителям" resolved="">Мобильное приложение Skysmart.Родителям</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart.Родителям" resolved=""> Мобильное приложение Skysmart.Родителям</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart Students" resolved="">Мобильное приложение Skysmart Students</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skysmart Students" resolved=""> Мобильное приложение Skysmart Students</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skypro" resolved="">Мобильное приложение Skypro</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Мобильное приложение Skypro" resolved=""> Мобильное приложение Skypro</label>
 							<br>
-							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Другое" resolved="">Другое</label>
+							<label style="margin-left:5px; color:bisque; font-size: 16px;"><input class="radio" type="radio" name="topicofsuggest" value="Другое" resolved=""> Другое</label>
 							<br>
 							<input id="otheroptionchecked" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
 							<br>
