@@ -329,13 +329,13 @@ var win_suggest =  // описание элементов окна доступ�
 							<input class="radio" type="radio" name="topicofsuggest" value="Другое" resolved=""><label style="color:bisque; font-size: 16px;">Другое</label>
 							<br>
 							<input id="otheroptionchecked" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
-							<br>					
+							<br>
+                    </span>					
                             <textarea id="textsuggest" placeholder="Текст предложения" title="Вводим текст предложения" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px"></textarea>
 							<br>
-							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px">Отправить</button>
+							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
 
                         </div>
-                </span>
         </span>
 </div>`;
 
