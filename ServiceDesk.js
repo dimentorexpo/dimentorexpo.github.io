@@ -6140,14 +6140,10 @@ document.getElementById('servDsk').onclick = function () {
 
             document.getElementById('create_16').onclick = function () {
                 let idstdserv = document.getElementById('customfield_76').value;
-                let dscr = document.getElementById('customfield_77').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_78').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_79').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_80').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let dscr = encodeURIComponent(document.getElementById('customfield_77').value);
+                let str = encodeURIComponent(document.getElementById('customfield_78').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_79').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_80').value);
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('analystsqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
