@@ -5320,6 +5320,11 @@ function move_again_AF() {
 						document.getElementById('sendResponse').click()
 		
 						console.log('Выбрана тема из предложенных')
+						sendComment('https://skr.sh/sEHecwURANZ')
+						document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+						setTimeout( ()=> {
+							document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+						}, 3000)
 					} else if (topiclist[i].checked && topiclist[i].value =='Другое') {
 					checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)		
 					
@@ -5333,14 +5338,18 @@ function move_again_AF() {
 						  "method": "POST",
 						}
 			
-			
-						console.log('Выбрана опция Другое')
-						
 						document.getElementById('responseTextarea1').value = JSON.stringify(options2)
 						document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
 						if(document.getElementById('responseTextarea3') != null)
 							document.getElementById('responseTextarea3').value = ''
 						document.getElementById('sendResponse').click()
+						
+						console.log('Выбрана опция Другое')
+						sendComment('https://skr.sh/sEHecwURANZ')
+						document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+						setTimeout( ()=> {
+							document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+						}, 3000)
 					}
 					
 				}
