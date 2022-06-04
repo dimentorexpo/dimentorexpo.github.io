@@ -1259,13 +1259,13 @@ var win_servicedesk =
 				<div id="analystform" style="display: none; margin-left:20px;">
 					<input id="customfield_76" placeholder="ID Пользователей (Id П, Id У)" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></input>
 					<br>
-					<textarea id="customfield_77" placeholder="Описание проблемы" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_77" placeholder="Описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_78" placeholder="Как воспроизвести ошибку?" oninput="noDoubts(this)" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_78" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
 					<br>
-					<textarea id="customfield_79" placeholder="Ожидаемое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_79" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
 					<br>					
-					<textarea id="customfield_80" placeholder="Фактическое поведение" oninput="noDoubts(this)" style="width: 420px;"></textarea>
+					<textarea id="customfield_80" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
 					<br>
 					<button id="create_16" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
