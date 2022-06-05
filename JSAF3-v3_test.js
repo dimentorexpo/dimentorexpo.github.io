@@ -5280,11 +5280,11 @@ function move_again_AF() {
 
             document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
 
-            if (document.URL.split('/')[5] != '')
+            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] !=undefined)
                 document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
 
             document.getElementById('refreshchathash').onclick = () => {
-               if (document.URL.split('/')[5] != '')
+               if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] !=undefined)
                     document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
             }
 			
