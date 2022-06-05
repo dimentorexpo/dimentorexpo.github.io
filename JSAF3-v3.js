@@ -139,8 +139,27 @@ function mystyles() {
 		}
 		
 		.sugops:hover {
+			font-size:18px;
 			color: SteelBlue; 
 			font-weight: 600;
+		}
+		
+		.otherfieldoff {
+			text-align: center;
+			width: 400px;
+			color: black;
+			margin-top: 5px; 
+			background:lightgrey;
+			cursor:wait;
+		}
+		
+		.otherfieldon{
+			text-align: center;
+			width: 400px;
+			color: black;
+			margin-top: 5px; 
+			background:white;
+			cursor:text;
 		}
 		
 	.radio {
@@ -361,7 +380,7 @@ var win_suggest =  // описание элементов окна доступ�
 							<br>
 							<label class="sugops"><input class="radio" type="radio" name="topicofsuggest" value="Другое" resolved=""> Другое</label>
 							<br>
-							<input id="otheroptionchecked" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<input id="otheroptionchecked" class="otherfieldoff" disabled="true" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
 							<br>
 						</div>
 		</span>	
@@ -5296,6 +5315,25 @@ function move_again_AF() {
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
+			
+			let topiclisttgcls = document.getElementsByName('topicofsuggest')
+			
+				for (let i=0; i<topiclisttgcls.length;i++) {
+								topiclisttgcls[i].onclick = () => {
+									if(topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое' ){
+										
+									document.getElementById('otheroptionchecked').classList.remove('otherfieldoff') 
+									document.getElementById('otheroptionchecked').classList.add('otherfieldon') 
+									document.getElementById('otheroptionchecked').removeAttribute('disabled')
+									
+									} else {
+									document.getElementById('otheroptionchecked').classList.add('otherfieldoff') 
+									document.getElementById('otheroptionchecked').classList.remove('otherfieldon') 
+									document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
+									}
+								}
+				}
+				
 
             document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
 
