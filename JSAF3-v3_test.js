@@ -139,7 +139,7 @@ function mystyles() {
 		}
 		
 		.sugops:hover {
-			transform: scale(1.2);
+			font-size:18px;
 			color: SteelBlue; 
 			font-weight: 600;
 		}
@@ -5316,14 +5316,18 @@ function move_again_AF() {
         else {
             document.getElementById('AF_Sugform').style.display = ''
 			
-			let topiclist = document.getElementsByName('topicofsuggest')
+			let topiclisttgcls = document.getElementsByName('topicofsuggest')
 			
-			for (let i=0; i<topiclist.length;i++) {
-				if (topiclist[i].checked && topiclist[i].value !='Другое')
-					document.getElementById('otheroptionchecked').classList.toggle('otherfieldoff') 
-				else if (topiclist[i].checked && topiclist[i].value =='Другое') {
-				document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
-			}
+			for (let i=0; i<topiclisttgcls.length;i++) {
+				if (topiclisttgcls[i].checked && topiclisttgcls[i].value !='Другое') {
+					topiclisttgcls[i].onclick = () => {
+						document.getElementById('otheroptionchecked').classList.toggle('otherfieldoff') 
+					}
+				} else {
+					topiclisttgcls[i].onclick = () => {
+					document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
+				}
+				}
 			}
 
             document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
@@ -5344,6 +5348,7 @@ function move_again_AF() {
 				
 			let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
 			let chatlink = document.getElementById('linktochatsuggest').value
+			let topiclist = document.getElementsByName('topicofsuggest')
 			let checkedtopic;
 			let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
 
