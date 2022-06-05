@@ -475,8 +475,8 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
-					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.67</button>
-			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.62</button>
+					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
+			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"></button>
 			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
 				</div>		
 			</span>
@@ -5292,8 +5292,12 @@ function move_again_AF() {
     document.getElementById('links').onclick = function () {
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
-        else
+        else {
             document.getElementById('AF_Links').style.display = ''
+		
+			document.getElementById('curVeriOS').innerText = "iOS: "  + table[190][4]
+			document.getElementById('curVerAndroid').innerText = "Android: "  + table[189][4]
+		}
     }
 
     document.getElementById('addsrc').onclick = function () {
@@ -5520,7 +5524,6 @@ function move_again_AF() {
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
-            //    document.getElementById('AF_Jira').style.display = 'none'
         }
         else
             document.getElementById('AF_Links').style.display = ''
