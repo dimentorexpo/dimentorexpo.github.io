@@ -133,6 +133,13 @@ function mystyles() {
 	.radio {
 		width:15px;
 		height:15px;
+		transition: all 0.5s ease;
+	}
+	
+	.radio:hover {
+		transform: scale(1.5);
+		color: SteelBlue; 
+		font-weight: 600;
 	}
 	
 	.switch-btn {
