@@ -6954,7 +6954,7 @@ document.getElementById('servDsk').onclick = function () {
 
             document.getElementById('create_23').onclick = function () {
                 let idstdserv = encodeURIComponent(document.getElementById('customfield_114').value);
-                let lnk = encodeURIComponent((document.getElementById('customfield_115').value);
+                let lnk = encodeURIComponent(document.getElementById('customfield_115').value);
                 let commentos = encodeURIComponent(document.getElementById('customfield_117').value);
 				let radiosel  = document.getElementsByName('customfield_116');
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('askfordelacc').textContent) {
