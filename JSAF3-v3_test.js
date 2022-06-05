@@ -32,6 +32,11 @@ function mystyles() {
 	.activebtnsd {
 		background-color: #ff6347;
 	}
+
+    .usinfoops{
+    margin-left: 5px; 
+    width: 25.23px;
+    }
 	
 		.checkbox-audio {
 			display: inline-block;    
@@ -724,25 +729,25 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 								
 						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field">
 						<input id="idstudent" placeholder="ID У/П" title="Введите ID ученика для получения информации по услугам" oninput="onlyNumber(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
-						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
+				       	<button title="запускает поиск по услугам" id="getidstudent" class="usinfoops">🚀</button>
+						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" class="usinfoops">📋</button>
 						<button title="TRM 2.0 для информации по П" id="newtrm" style="margin-left: 5px; display: none; width: 25.23px;">🗿</button>
 						<button title="Личная страница П, как видят ученики" id="personalteacherpage" style="margin-left: 5px; display: none; width: 25.23px;">🎭</button>
-						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
-						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" style="margin-left: 5px; width: 25.23px;">💰</button>
-						<button title="Просмотр прошедших и предстоящих уроков" id="getpastandfuturelessons" style="margin-left: 5px; width: 25.23px;">📆</button>
-				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
+						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" class="usinfoops">🌍</button>
+						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" class="usinfoops">💰</button>
+						<button title="Просмотр прошедших и предстоящих уроков" id="getpastandfuturelessons" class="usinfoops">📆</button>
+				       	<button title="очищает все поля" id="clearservinfo" class="usinfoops">🧹</button>
 				       	</div>
 						
 						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field2">
 						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
-						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
-						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
-						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" style="margin-left: 5px; width: 25.23px;">✏</button>
-						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
-						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
-						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
-						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" style="margin-left: 5px; width: 25.23px;">💻</button>
+						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" class="usinfoops">📱</button>
+						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" class="usinfoops">👩‍👧‍👦</button>
+						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" class="usinfoops">✏</button>
+						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" class="usinfoops">🗄</button>
+						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" class="usinfoops">💸</button>
+						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" class="usinfoops">🎓</button>
+						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" class="usinfoops">💻</button>
 						</div>
 					
 						               
