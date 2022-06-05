@@ -144,6 +144,10 @@ function mystyles() {
 			font-weight: 600;
 		}
 		
+		#idmymenu {
+			transition: all 0.5s ease;
+		}
+		
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
