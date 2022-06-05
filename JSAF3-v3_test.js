@@ -135,6 +135,10 @@ function mystyles() {
 		height:15px;
 	}
 	
+		.radio checked {
+		background: red;
+	}
+	
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
