@@ -6421,11 +6421,12 @@ function msgFromTable(btnName) {
                 newTag(table[l][8])
             }
 
-            if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
+			setTimeout( () => {if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
                 console.log("Не значения тематики")
             } else {
                 newTags(table[l][9])
-            }
+            }}, 1000)
+
 
             if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {

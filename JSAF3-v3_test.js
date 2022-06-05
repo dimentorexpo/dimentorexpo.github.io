@@ -6425,7 +6425,7 @@ function msgFromTable(btnName) {
                 console.log("Не значения тематики")
             } else {
                 newTags(table[l][9])
-            }}, 2000)
+            }}, 1000)
 
 
             if (document.getElementById('languageAF').innerHTML == "Русский") {
