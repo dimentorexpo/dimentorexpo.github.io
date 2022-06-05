@@ -1911,7 +1911,7 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_4').onclick = function () {
-                let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value;
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
                 let dscr = encodeURIComponent(document.getElementById('customfield_17').value);
                 let str = encodeURIComponent(document.getElementById('customfield_18').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_19').value);
