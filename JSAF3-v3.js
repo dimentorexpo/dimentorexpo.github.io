@@ -32,6 +32,24 @@ function mystyles() {
 	.activebtnsd {
 		background-color: #ff6347;
 	}
+
+    .usinfoops{
+        margin-left: 5px; 
+        width: 25.23px;
+    }
+
+    .uplinksbar {
+        width:50px;
+    }
+
+    .sdcustfieldformlines {
+        margin-top:5px; 
+        width: 420px;
+    }
+
+    .sdexpecactual {
+        width: 420px;
+    }
 	
 		.checkbox-audio {
 			display: inline-block;    
@@ -403,15 +421,15 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="links_1str">
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button title="Отображает актуальные креды к BrowserStack" id="creds" style="width:50px;">ℹ</button>
-					<button title="Открывает раздел для генерирования одноразового пароля для мобильного приложения" id="passappgen" style="width:50px;">📲</button>
-					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" style="width:50px;">📚</button>
-					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" style="width:50px;">📆</button>
-					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" style="width: 50px;">📋</button>
-					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" style="width: 50px;">💼</button>
-					<button title="Открывает инструкцию по пробникам" id="probnikinstr" style="width: 50px;">🗃</button>
-					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" style="width: 50px;">👩‍👧‍👧</button>
-                    <button title="Открывает известные баги на платформе" id="confbugs" style="width:50px; float: right; margin-right: 5px">🐞</button>
+					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar">ℹ</button>
+					<button title="Открывает раздел для генерирования одноразового пароля для мобильного приложения" id="passappgen" class="uplinksbar">📲</button>
+					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" class="uplinksbar">📚</button>
+					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" class="uplinksbar">📆</button>
+					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar">📋</button>
+					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" class="uplinksbar">💼</button>
+					<button title="Открывает инструкцию по пробникам" id="probnikinstr" class="uplinksbar">🗃</button>
+					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" class="uplinksbar">👩‍👧‍👧</button>
+                    <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px">🐞</button>
 				</div>				
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
@@ -724,25 +742,25 @@ var win_serviceinfo =  // описание элементов окна ссыл�
 								
 						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field">
 						<input id="idstudent" placeholder="ID У/П" title="Введите ID ученика для получения информации по услугам" oninput="onlyNumber(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				       	<button title="запускает поиск по услугам" id="getidstudent" style="margin-left: 5px; width: 25.23px;">🚀</button>
-						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" style="margin-left: 5px; width: 25.23px;">📋</button>
+				       	<button title="запускает поиск по услугам" id="getidstudent" class="usinfoops">🚀</button>
+						<button title="Открывает список со всеми задачами пользователя" id="crmactivetasks" class="usinfoops">📋</button>
 						<button title="TRM 2.0 для информации по П" id="newtrm" style="margin-left: 5px; display: none; width: 25.23px;">🗿</button>
 						<button title="Личная страница П, как видят ученики" id="personalteacherpage" style="margin-left: 5px; display: none; width: 25.23px;">🎭</button>
-						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" style="margin-left: 5px; width: 25.23px;">🌍</button>
-						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" style="margin-left: 5px; width: 25.23px;">💰</button>
-						<button title="Просмотр прошедших и предстоящих уроков" id="getpastandfuturelessons" style="margin-left: 5px; width: 25.23px;">📆</button>
-				       	<button title="очищает все поля" id="clearservinfo" style="margin-left: 5px; width: 25.23px;">🧹</button>
+						<button title="Изменяет Язык обслуживания для профиля на Русский" id="changelocalelng" class="usinfoops">🌍</button>
+						<button title="Открывает начислятор для проверки реального баланса ученика" id="checkbalance" class="usinfoops">💰</button>
+						<button title="Просмотр прошедших и предстоящих уроков" id="getpastandfuturelessons" class="usinfoops">📆</button>
+				       	<button title="очищает все поля" id="clearservinfo" class="usinfoops">🧹</button>
 				       	</div>
 						
 						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field2">
 						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
-						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" style="margin-left: 5px; width: 25.23px;">📱</button>
-						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" style="margin-left: 5px; width: 25.23px;">👩‍👧‍👦</button>
-						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" style="margin-left: 5px; width: 25.23px;">✏</button>
-						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" style="margin-left: 5px; width: 25.23px;">🗄</button>
-						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" style="margin-left: 5px; width: 25.23px;">💸</button>
-						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" style="margin-left: 5px; width: 25.23px;">🎓</button>
-						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" style="margin-left: 5px; width: 25.23px;">💻</button>
+						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" class="usinfoops">📱</button>
+						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" class="usinfoops">👩‍👧‍👦</button>
+						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" class="usinfoops">✏</button>
+						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" class="usinfoops">🗄</button>
+						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" class="usinfoops">💸</button>
+						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" class="usinfoops">🎓</button>
+						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" class="usinfoops">💻</button>
 						</div>
 					
 						               
@@ -1093,245 +1111,245 @@ var win_servicedesk =
 	        </span>
 						
 				<div id="kidsform" style="display: none; margin-left:20px;">
-					<input id="customfield_1" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_1" placeholder="ID Пользователей (Id П, Id У)" class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_2" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_2" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_3" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_3" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_4" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_4" placeholder="Ожидаемое поведение" class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_5" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_5" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="teachersform" style="display: none; margin-left:20px;">
-					<input id="customfield_6" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_6" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_7" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_7" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_9" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_9" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_10" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_10" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="onboardingform" style="display: none; margin-left:20px;">
-					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_12" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_12" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_13" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_13" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_14" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_14" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_15" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_15" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="billqaform" style="display: none; margin-left:20px;">
-					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_17" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_17" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_19" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_19" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_20" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_20" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="scheduleform" style="display: none; margin-left:20px;">
-					<input id="customfield_21" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_21" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_22" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_22" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_23" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_23" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_24" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_24" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_25" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_25" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="authform" style="display: none; margin-left:20px;">
-					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_27" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_27" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_28" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_28" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_29" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_29" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_30" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_30" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="billingform" style="display: none; margin-left:20px;">
-					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines"></input>
 					<br>
-					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_35" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_35" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>
-					<textarea id="customfield_36" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_36" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_6" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="telephonyform" style="display: none; margin-left:20px;">
-					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_38" placeholder="Ожидаемое поведение"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_38" placeholder="Ожидаемое поведение"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_39" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_39" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 								
 				<div id="crm2form" style="display: none; margin-left:20px;">
-					<input id="customfield_40" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_40" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_41" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_41" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_42" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_42" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_43" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_43" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_44" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_44" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="mrktform" style="display: none; margin-left:20px;">
-					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
-					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines"></input>
+					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
 					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="vimbugsform" style="display: none; margin-left:20px;">
-					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_52" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_52" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_53" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_53" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_54" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_54" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_55" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_55" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_11" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="vimvideocallform" style="display: none; margin-left:20px;">
-					<input id="customfield_56" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_56" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_57" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_57" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_58" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_58" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_59" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_59" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_60" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_60" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_12" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 
 				<div id="studcabform" style="display: none; margin-left:20px;">
-					<input id="customfield_61" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_61" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_62" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_62" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_63" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_63" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_64" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_64" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_65" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_65" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_13" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
 				<div id="chatform" style="display: none; margin-left:20px;">
-					<input id="customfield_66" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_66" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_67" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_67" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_68" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_68" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_69" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_69" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_70" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_70" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_14" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 												
 				<div id="tripwireform" style="display: none; margin-left:20px;">
-					<input id="customfield_71" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_71" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_72" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_72" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_73" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_73" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_74" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_74" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_75" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_75" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_15" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				 
 				<div id="analystform" style="display: none; margin-left:20px;">
-					<input id="customfield_76" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_76" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_77" placeholder="Описание проблемы" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_77" placeholder="Описание проблемы" class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_78" placeholder="Как воспроизвести ошибку?" style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_78" placeholder="Как воспроизвести ошибку?" class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_79" placeholder="Ожидаемое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_79" placeholder="Ожидаемое поведение" class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_80" placeholder="Фактическое поведение" style="width: 420px;"></textarea>
+					<textarea id="customfield_80" placeholder="Фактическое поведение" class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_16" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="corpform" style="display: none; margin-left:20px;">
-					<input id="customfield_81" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_81" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_82" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_82" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_83" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_83" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_84" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_84" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_85" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_85" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_17" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
 				<div id="marketingform" style="display: none; margin-left:20px;">
-					<input id="customfield_86" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_86" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_87" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_87" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_88" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_88" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_89" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_89" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_90" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_90" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_18" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
@@ -1349,79 +1367,79 @@ var win_servicedesk =
 					   </select>
 					   
 					   <br>
-					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-                    <textarea id="customfield_911" placeholder="Приложение / Версия / Платформа"  style="margin-top:5px; width: 420px;"></textarea>
+                    <textarea id="customfield_911" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines"></textarea>
 					<br>
-                    <textarea id="customfield_912" placeholder="Девайс / ОС"  style="margin-top:5px; width: 420px;"></textarea>
+                    <textarea id="customfield_912" placeholder="Девайс / ОС"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_92" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_92" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_94" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_94" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_95" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_95" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_96" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_96" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_19" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="edumodelform" style="display: none; margin-left:20px;">
-					<input id="customfield_97" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_97" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_98" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_98" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_99" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_99" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_100" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_100" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_101" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_101" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_20" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="stcabmbbugsform" style="display: none; margin-left:20px;">
-					<input id="customfield_102" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_102" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-                    <textarea id="customfield_103" placeholder="Приложение / Версия / Платформа"  style="margin-top:5px; width: 420px;"></textarea>
+                    <textarea id="customfield_103" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines"></textarea>
 					<br>
-                    <textarea id="customfield_104" placeholder="Девайс / ОС"  style="margin-top:5px; width: 420px;"></textarea>
+                    <textarea id="customfield_104" placeholder="Девайс / ОС"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_105" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_105" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_106" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_106" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_107" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_107" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_108" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_108" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_21" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="marketprojbugsform" style="display: none; margin-left:20px;">
-					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_110" placeholder="Описание проблемы"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_110" placeholder="Описание проблемы"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_111" placeholder="Как воспроизвести ошибку?"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_111" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines"></textarea>
 					<br>
-					<textarea id="customfield_112" placeholder="Ожидаемое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_112" placeholder="Ожидаемое поведение"  class="sdexpecactual"></textarea>
 					<br>					
-					<textarea id="customfield_113" placeholder="Фактическое поведение"  style="width: 420px;"></textarea>
+					<textarea id="customfield_113" placeholder="Фактическое поведение"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				
 				<div id="infraform" style="display: none; margin-left:20px;">
-					<input id="customfield_114" placeholder="ID в системе Auth"  style="margin-top:5px; width: 420px;"></input>
+					<input id="customfield_114" placeholder="ID в системе Auth"  class="sdcustfieldformlines"></input>
 					<br>
-					<textarea id="customfield_115" placeholder="Ссылка на запрос (об удалении данных)"  style="margin-top:5px; width: 420px;"></textarea>
+					<textarea id="customfield_115" placeholder="Ссылка на запрос (об удалении данных)"  class="sdcustfieldformlines"></textarea>
 					<br>
 					<legend style="color:bisque" id="customfield_116-label">Нужен ли официальный ответ на запрос?</legend>
 					<input class="radio" type="radio" name="customfield_116" value="15820" resolved=""><label style="color:bisque; font-size: 16px;">Да</label>
 					<input class="radio" type="radio" name="customfield_116" value="15821" resolved=""><label style="color:bisque; font-size: 16px;">Нет</label>
 					<br>					
-					<textarea id="customfield_117" placeholder="Комментарий"  style="width: 420px;"></textarea>
+					<textarea id="customfield_117" placeholder="Комментарий"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_23" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
