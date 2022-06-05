@@ -135,7 +135,7 @@ function mystyles() {
 		height:15px;
 	}
 	
-		.radio checked {
+		.radio:checked {
 		background: red;
 	}
 	
