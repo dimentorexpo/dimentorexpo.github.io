@@ -143,11 +143,7 @@ function mystyles() {
 			color: SteelBlue; 
 			font-weight: 600;
 		}
-		
-		#idmymenu {
-			transition: all 0.5s ease;
-		}
-		
+			
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
@@ -1940,7 +1936,7 @@ butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
 
 let menubar = document.createElement('div')
-menubar.style = 'background: white; position:absolute; left: 68%; top: 80%; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)'
+menubar.style = 'background: white; position:absolute; left: 68%; top: 80%; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09); transition: all 0.8s ease;'
 menubar.id = 'idmymenu'
 
 butmenu.onclick = () => {
