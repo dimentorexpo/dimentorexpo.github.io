@@ -475,8 +475,8 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px" id="links_butd">	
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
-					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;">iOS: 9.67</button>
-			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;">Аndroid: 9.62</button>
+					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
+			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"></button>
 			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
 				</div>		
 			</span>
@@ -5292,8 +5292,12 @@ function move_again_AF() {
     document.getElementById('links').onclick = function () {
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
-        else
+        else {
             document.getElementById('AF_Links').style.display = ''
+
+            document.getElementById('curVeriOS').innerText = "iOS: " + table[190][4]
+            document.getElementById('curVerAndroid').innerText = "Android: " + table[189][4]
+        }
     }
 
     document.getElementById('addsrc').onclick = function () {
@@ -5315,107 +5319,107 @@ function move_again_AF() {
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
-			
-			let topiclisttgcls = document.getElementsByName('topicofsuggest')
-			
-				for (let i=0; i<topiclisttgcls.length;i++) {
-								topiclisttgcls[i].onclick = () => {
-									if(topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое' ){
-										
-									document.getElementById('otheroptionchecked').classList.remove('otherfieldoff') 
-									document.getElementById('otheroptionchecked').classList.add('otherfieldon') 
-									document.getElementById('otheroptionchecked').removeAttribute('disabled')
-									
-									} else {
-									document.getElementById('otheroptionchecked').classList.add('otherfieldoff') 
-									document.getElementById('otheroptionchecked').classList.remove('otherfieldon') 
-									document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
-									}
-								}
-				}
-				
+
+            let topiclisttgcls = document.getElementsByName('topicofsuggest')
+
+            for (let i = 0; i < topiclisttgcls.length; i++) {
+                topiclisttgcls[i].onclick = () => {
+                    if (topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое') {
+
+                        document.getElementById('otheroptionchecked').classList.remove('otherfieldoff')
+                        document.getElementById('otheroptionchecked').classList.add('otherfieldon')
+                        document.getElementById('otheroptionchecked').removeAttribute('disabled')
+
+                    } else {
+                        document.getElementById('otheroptionchecked').classList.add('otherfieldoff')
+                        document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
+                        document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
+                    }
+                }
+            }
+
 
             document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
 
-            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] !=undefined)
+            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                 document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
 
             document.getElementById('refreshchathash').onclick = () => {
-               if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] !=undefined)
+                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                     document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
             }
-			
-			document.getElementById('getdocsuggestions').onclick = () =>  {
-			window.open("https://docs.google.com/spreadsheets/d/1bTR1BBwo57H1IOblb4Xkg9irf6jw0QNGzQOgrm_wr-c/edit#gid=706470682")
-			}
-			
-			document.getElementById('sendtosuggestdoc').onclick = () => {
-				
-			let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
-			let chatlink = document.getElementById('linktochatsuggest').value
-			let topiclist = document.getElementsByName('topicofsuggest')
-			let checkedtopic;
-			let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
 
-			for (let i=0; i<topiclist.length;i++) {
-					if (topiclist[i].checked && topiclist[i].value !='Другое') {
-					checkedtopic = encodeURIComponent(topiclist[i].value);
-					let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest 
-					
-					let options1 = {
-					  "headers": {
-						"content-type": "application/x-www-form-urlencoded",
-					  },
-					  "body": body1,
-					  "method": "POST",
-					}
-					
-						document.getElementById('responseTextarea1').value = JSON.stringify(options1)
-						document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
-						if(document.getElementById('responseTextarea3') != null)
-							document.getElementById('responseTextarea3').value = ''
-						document.getElementById('sendResponse').click()
-		
-						console.log('Выбрана тема из предложенных')
-						sendComment('https://skr.sh/sEHecwURANZ')
-						document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
-						setTimeout( ()=> {
-							document.getElementById('sendtosuggestdoc').innerText = "Отправить"
-						}, 3000)
-					} else if (topiclist[i].checked && topiclist[i].value =='Другое') {
-					checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)		
-					
-					let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' +  '&entry.1869164503=' + opnamevar  + '&entry.2046808006=' + textsuggest 
-					
-						let options2 = {
-						  "headers": {
-							"content-type": "application/x-www-form-urlencoded",
-						  },
-						  "body": body2,
-						  "method": "POST",
-						}
-			
-						document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-						document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
-						if(document.getElementById('responseTextarea3') != null)
-							document.getElementById('responseTextarea3').value = ''
-						document.getElementById('sendResponse').click()
-						
-						console.log('Выбрана опция Другое')
-						sendComment('https://skr.sh/sEHecwURANZ')
-						document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
-						setTimeout( ()=> {
-							document.getElementById('sendtosuggestdoc').innerText = "Отправить"
-						}, 3000)
-					}
-					
-				}
-				
-				document.getElementById('linktochatsuggest').value =''
-				document.getElementById('otheroptionchecked').value =''
-				document.getElementById('textsuggest').value =''
-				
-			}
+            document.getElementById('getdocsuggestions').onclick = () => {
+                window.open("https://docs.google.com/spreadsheets/d/1bTR1BBwo57H1IOblb4Xkg9irf6jw0QNGzQOgrm_wr-c/edit#gid=706470682")
+            }
+
+            document.getElementById('sendtosuggestdoc').onclick = () => {
+
+                let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
+                let chatlink = document.getElementById('linktochatsuggest').value
+                let topiclist = document.getElementsByName('topicofsuggest')
+                let checkedtopic;
+                let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
+
+                for (let i = 0; i < topiclist.length; i++) {
+                    if (topiclist[i].checked && topiclist[i].value != 'Другое') {
+                        checkedtopic = encodeURIComponent(topiclist[i].value);
+                        let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest
+
+                        let options1 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body1,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options1)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        console.log('Выбрана тема из предложенных')
+                        sendComment('https://skr.sh/sEHecwURANZ')
+                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+                        setTimeout(() => {
+                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+                        }, 3000)
+                    } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
+                        checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
+
+                        let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' + '&entry.1869164503=' + opnamevar + '&entry.2046808006=' + textsuggest
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        console.log('Выбрана опция Другое')
+                        sendComment('https://skr.sh/sEHecwURANZ')
+                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+                        setTimeout(() => {
+                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+                        }, 3000)
+                    }
+
+                }
+
+                document.getElementById('linktochatsuggest').value = ''
+                document.getElementById('otheroptionchecked').value = ''
+                document.getElementById('textsuggest').value = ''
+
+            }
         }
     }
 
@@ -5520,7 +5524,6 @@ function move_again_AF() {
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
-            //    document.getElementById('AF_Jira').style.display = 'none'
         }
         else
             document.getElementById('AF_Links').style.display = ''
@@ -6480,11 +6483,13 @@ function msgFromTable(btnName) {
                 newTag(table[l][8])
             }
 
-			setTimeout( () => {if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
-                console.log("Не значения тематики")
-            } else {
-                newTags(table[l][9])
-            }}, 1000)
+            setTimeout(() => {
+                if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
+                    console.log("Не значения тематики")
+                } else {
+                    newTags(table[l][9])
+                }
+            }, 1000)
 
 
             if (document.getElementById('languageAF').innerHTML == "Русский") {
@@ -6764,7 +6769,7 @@ function refreshTimer() {
                 var curT2 = Number(cT);
                 var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
                 if (curT3 < 0)
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA"
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA" // цвет окрашивания автозакрытия  сейчас сиреневый
             }
         }
         j++
