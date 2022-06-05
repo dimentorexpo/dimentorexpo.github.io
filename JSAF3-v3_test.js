@@ -6011,12 +6011,12 @@ function pageClick(pageId) {
     for (i = 0; i < b.childElementCount; i++) {
         try {
             b.children[1].children[i].style.backgroundColor = '#768d87'
+            b.children[1].children[i].style.borderTop = "0px";
             document.getElementById(i + "page").style.display = 'none'
         } catch (e) { }
     }
     document.getElementById(pageId).style.backgroundColor = 'green'
-    document.getElementById(pageId).style.borderTop = "4px solid";
-    document.getElementById(pageId).style.borderTopColor = "orange";
+    document.getElementById(pageId).style.borderTop = "4px solid orange";
     document.getElementById(pageId[0] + "page").style.display = ''
 }
 
