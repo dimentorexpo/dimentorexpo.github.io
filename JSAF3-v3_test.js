@@ -5318,17 +5318,22 @@ function move_again_AF() {
 			
 			let topiclisttgcls = document.getElementsByName('topicofsuggest')
 			
-			for (let i=0; i<topiclisttgcls.length;i++) {
-				if (topiclisttgcls[i].checked && topiclisttgcls[i].value !='Другое') {
-					topiclisttgcls[i].onclick = () => {
-						document.getElementById('otheroptionchecked').classList.toggle('otherfieldoff') 
-					}
-				} else {
-					topiclisttgcls[i].onclick = () => {
-					document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
+				for (let i=0; i<topiclisttgcls.length;i++) {
+								topiclisttgcls[i].onclick = () => {
+									if(topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое' ){
+										
+									document.getElementById('otheroptionchecked').classList.remove('otherfieldoff') 
+									document.getElementById('otheroptionchecked').classList.add('otherfieldon') 
+									document.getElementById('otheroptionchecked').removeAttribute('disabled')
+									
+									} else {
+									document.getElementById('otheroptionchecked').classList.add('otherfieldoff') 
+									document.getElementById('otheroptionchecked').classList.remove('otherfieldon') 
+									document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
+									}
+								}
 				}
-				}
-			}
+				
 
             document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
 
