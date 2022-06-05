@@ -139,8 +139,27 @@ function mystyles() {
 		}
 		
 		.sugops:hover {
+			transform: scale(1.10);
 			color: SteelBlue; 
 			font-weight: 600;
+		}
+		
+		.otherfieldoff {
+			text-align: center;
+			width: 400px;
+			color: black;
+			margin-top: 5px; 
+			background:lightgrey;
+			cursor:wait;
+		}
+		
+		.otherfieldon{
+			text-align: center;
+			width: 400px;
+			color: black;
+			margin-top: 5px; 
+			background:white;
+			cursor:text;
 		}
 		
 	.radio {
@@ -361,7 +380,7 @@ var win_suggest =  // описание элементов окна доступ�
 							<br>
 							<label class="sugops"><input class="radio" type="radio" name="topicofsuggest" value="Другое" resolved=""> Другое</label>
 							<br>
-							<input id="otheroptionchecked" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<input id="otheroptionchecked" class="otherfieldoff otherfieldon" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
 							<br>
 						</div>
 		</span>	
@@ -5321,6 +5340,7 @@ function move_again_AF() {
 
 			for (let i=0; i<topiclist.length;i++) {
 					if (topiclist[i].checked && topiclist[i].value !='Другое') {
+					document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
 					checkedtopic = encodeURIComponent(topiclist[i].value);
 					let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest 
 					
@@ -5345,6 +5365,7 @@ function move_again_AF() {
 							document.getElementById('sendtosuggestdoc').innerText = "Отправить"
 						}, 3000)
 					} else if (topiclist[i].checked && topiclist[i].value =='Другое') {
+					document.getElementById('otheroptionchecked').classList.remove('otherfieldoff')
 					checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)		
 					
 					let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' +  '&entry.1869164503=' + opnamevar  + '&entry.2046808006=' + textsuggest 
