@@ -6011,6 +6011,8 @@ function pageClick(pageId) {
     for (i = 0; i < b.childElementCount; i++) {
         try {
             b.children[1].children[i].style.backgroundColor = '#768d87'
+			b.children[1].children[i].style.borderTop = 4px solid;
+            b.children[1].children[i].style.borderTopColo = orange;
             document.getElementById(i + "page").style.display = 'none'
         } catch (e) { }
     }
