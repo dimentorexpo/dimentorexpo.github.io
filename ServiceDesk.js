@@ -1015,16 +1015,13 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_2').onclick = function () {
-                let idstdserv = document.getElementById('customfield_6').value;
-                let dscr = document.getElementById('customfield_7').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_8').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_9').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_10').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstatistic').textContent) {
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_7').value);
+                let str = encodeURIComponent(document.getElementById('customfield_8').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_9').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_10').value);
+
+				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstatistic').textContent) {
                     console.log("Статистика: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -1538,15 +1535,12 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('billingsrvdskoptions').style.display = 'none';
 
             document.getElementById('create_1').onclick = function () {
-                let idstdserv = document.getElementById('customfield_1').value;
-                let dscr = document.getElementById('customfield_2').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_3').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_4').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_5').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_1').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_2').value);
+                let str = encodeURIComponent(document.getElementById('customfield_3').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_4').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_5').value);
+				
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
                     console.log("Страница ДЗ и тестов: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1698,15 +1692,12 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('billingsrvdskoptions').style.display = 'none';
 
             document.getElementById('create_20').onclick = function () {
-                let idstdserv = document.getElementById('customfield_97').value;
-                let dscr = document.getElementById('customfield_98').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_99').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_100').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_101').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_98').value);
+                let str = encodeURIComponent(document.getElementById('customfield_99').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_100').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_101').value);
+                
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('edumgoal').textContent) {
                     console.log("Анкета целей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1920,15 +1911,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_4').onclick = function () {
-                let idstdserv = document.getElementById('customfield_16').value;
-                let dscr = document.getElementById('customfield_17').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_18').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_19').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_20').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_17').value);
+                let str = encodeURIComponent(document.getElementById('customfield_18').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_19').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_20').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
                     console.log("Вопросы по рассрочке: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -2052,15 +2040,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_12').onclick = function () {
-                let idstdserv = document.getElementById('customfield_56').value;
-                let dscr = document.getElementById('customfield_57').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_58').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_59').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_60').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_56').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_57').value);
+                let str = encodeURIComponent(document.getElementById('customfield_58').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_59').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_60').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimvidqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -2151,15 +2136,12 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('billingsrvdskoptions').style.display = 'none';
 
             document.getElementById('create_3').onclick = function () {
-                let idstdserv = document.getElementById('customfield_11').value;
-                let dscr = document.getElementById('customfield_12').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_13').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_14').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_15').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_11').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_12').value);
+                let str = encodeURIComponent(document.getElementById('customfield_13').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_14').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_15').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('c1verstka').textContent) {
                     console.log("Проблемы с версткой: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -2344,15 +2326,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_5').onclick = function () {
-                let idstdserv = document.getElementById('customfield_21').value;
-                let dscr = document.getElementById('customfield_22').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_23').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_24').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_25').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_21').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_22').value);
+                let str = encodeURIComponent(document.getElementById('customfield_23').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_24').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_25').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('ttenableAP').textContent) {
                     console.log("Подключение АП: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -2644,11 +2623,10 @@ document.getElementById('servDsk').onclick = function () {
             }
 
             document.getElementById('create_7').onclick = function () {
-                let ids = document.getElementById('customfield_37').value;
-                let erx = document.getElementById('customfield_38').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_39').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let ids = encodeURIComponent(document.getElementById('customfield_37').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_38').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_39').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telnoaccess').textContent) {
                     console.log("Отсутствие доступа к странице телефонии: " + " ID operator " + ids + " Description " + erx);
 
@@ -2936,15 +2914,12 @@ document.getElementById('servDsk').onclick = function () {
 
 
             document.getElementById('create_8').onclick = function () {
-                let idstdserv = document.getElementById('customfield_26').value;
-                let dscr = document.getElementById('customfield_27').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_28').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_29').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_30').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_26').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_27').value);
+                let str = encodeURIComponent(document.getElementById('customfield_28').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_29').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_30').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('authdevq').textContent) {
                     console.log("Вопросы к разработке: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -3248,15 +3223,12 @@ document.getElementById('servDsk').onclick = function () {
 
 
             document.getElementById('create_9').onclick = function () {
-                let idstdserv = document.getElementById('customfield_40').value;
-                let dscr = document.getElementById('customfield_41').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_42').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_43').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_44').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_40').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_41').value);
+                let str = encodeURIComponent(document.getElementById('customfield_42').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_43').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_44').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('crm2taskssoprovod').textContent) {
                     console.log("Вопросы по задачам Сопровождения: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -3814,12 +3786,10 @@ document.getElementById('servDsk').onclick = function () {
 
 
             document.getElementById('create_10').onclick = function () {
-                let idstd = document.getElementById('customfield_47').value;
-                idstd = idstd.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let servid = document.getElementById('customfield_48').value;
-                servid = servid.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let dscr = document.getElementById('customfield_49').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstd = encodeURIComponent(document.getElementById('customfield_47').value);
+                let servid = encodeURIComponent(document.getElementById('customfield_48').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_49').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktsubscribptions').textContent) {
                     console.log("Подписки: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
 
@@ -4368,14 +4338,12 @@ document.getElementById('servDsk').onclick = function () {
             }
 
             document.getElementById('create_6').onclick = function () {
-                let idstd = document.getElementById('customfield_32').value;
-                let servid = document.getElementById('customfield_33').value;
-                let str = document.getElementById('customfield_34').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_35').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_36').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstd = encodeURIComponent(document.getElementById('customfield_32').value);
+                let servid = encodeURIComponent(document.getElementById('customfield_33').value);
+                let str = encodeURIComponent(document.getElementById('customfield_34').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_35').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_36').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billcheques').textContent) {
                     console.log("Чеки/инвойсы: " + "  Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -5187,15 +5155,12 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('mrktsrvdskoptions').style.display = 'none';
 
             document.getElementById('create_11').onclick = function () {
-                let idstdserv = document.getElementById('customfield_50').value;
-                let dscr = document.getElementById('customfield_52').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_53').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_54').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_55').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_50').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_52').value);
+                let str = encodeURIComponent(document.getElementById('customfield_53').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_54').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_55').value);
+
 
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('lessonbutwidg').textContent) {
                     console.log("Виджет входа у взрослых У и П: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
@@ -5503,15 +5468,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_13').onclick = function () {
-                let idstdserv = document.getElementById('customfield_61').value;
-                let dscr = document.getElementById('customfield_62').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_63').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_64').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_65').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_61').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_62').value);
+                let str = encodeURIComponent(document.getElementById('customfield_63').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_64').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_65').value);
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('studadultcab').textContent) {
                     console.log("Взрослый ЛКУ Главная страница: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -5935,15 +5897,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_14').onclick = function () {
-                let idstdserv = document.getElementById('customfield_66').value;
-                let dscr = document.getElementById('customfield_67').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_68').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_69').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_70').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_66').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_67').value);
+                let str = encodeURIComponent(document.getElementById('customfield_68').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_69').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_70').value);
+                
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('chatqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -6037,15 +5996,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_15').onclick = function () {
-                let idstdserv = document.getElementById('customfield_71').value;
-                let dscr = document.getElementById('customfield_72').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_73').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_74').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_75').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_71').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_72').value);
+                let str = encodeURIComponent(document.getElementById('customfield_73').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_74').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_75').value);
+                
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -6139,7 +6095,7 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_16').onclick = function () {
-                let idstdserv = document.getElementById('customfield_76').value;
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_76').value);
                 let dscr = encodeURIComponent(document.getElementById('customfield_77').value);
                 let str = encodeURIComponent(document.getElementById('customfield_78').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_79').value);
@@ -6237,15 +6193,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_17').onclick = function () {
-                let idstdserv = document.getElementById('customfield_81').value;
-                let dscr = document.getElementById('customfield_82').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_83').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_84').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_85').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_81').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_82').value);
+                let str = encodeURIComponent(document.getElementById('customfield_83').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_84').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_85').value);
+                
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('corpqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -6339,15 +6292,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_18').onclick = function () {
-                let idstdserv = document.getElementById('customfield_86').value;
-                let dscr = document.getElementById('customfield_87').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_88').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_89').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_90').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_86').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_87').value);
+                let str = encodeURIComponent(document.getElementById('customfield_88').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_89').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_90').value);
+                
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('marketingqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -6441,15 +6391,12 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_22').onclick = function () {
-                let idstdserv = document.getElementById('customfield_109').value;
-                let dscr = document.getElementById('customfield_110').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_111').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_112').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_113').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_109').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_110').value);
+                let str = encodeURIComponent(document.getElementById('customfield_111').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_112').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_113').value);
+                
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('marketingqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -6543,19 +6490,14 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_19').onclick = function () {
-                let idstdserv = document.getElementById('customfield_91').value;
-                let dscr = document.getElementById('customfield_92').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let issuename = document.getElementById('customfield_911').value;
-                issuename = issuename.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let device = document.getElementById('customfield_912').value;
-                device = device.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_94').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_95').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_96').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_91').value);
+                let dscr = encodeURIComponent(ocument.getElementById('customfield_92').value);
+                let issuename = encodeURIComponent(document.getElementById('customfield_911').value);
+                let device = encodeURIComponent(document.getElementById('customfield_912').value);
+                let str = encodeURIComponent(document.getElementById('customfield_94').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_95').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_96').value);
+                
                 let priorvalue = document.getElementById('prioritymbugs').value;
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mobbugsqa').textContent) {
                     console.log("Обращение к QA: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
@@ -6652,19 +6594,14 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_21').onclick = function () {
-                let idstdserv = document.getElementById('customfield_102').value;
-                let dscr = document.getElementById('customfield_105').value;
-                dscr = dscr.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let issuename = document.getElementById('customfield_103').value;
-                issuename = issuename.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let device = document.getElementById('customfield_104').value;
-                device = device.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let str = document.getElementById('customfield_106').value;
-                str = str.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let erx = document.getElementById('customfield_107').value;
-                erx = erx.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let ary = document.getElementById('customfield_108').value;
-                ary = ary.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_102').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_105').value);
+                let issuename = encodeURIComponent(document.getElementById('customfield_103').value);
+                let device = encodeURIComponent(document.getElementById('customfield_104').value);
+                let str = encodeURIComponent(document.getElementById('customfield_106').value);
+                let erx = encodeURIComponent(document.getElementById('customfield_107').value);
+                let ary = encodeURIComponent(document.getElementById('customfield_108').value);
+                
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mpskyengmainsrv').textContent) {
                     console.log("МП Skyeng: главные страницы продуктов (кроме лайф и толкс) и страница подключения услуг: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -7016,11 +6953,9 @@ document.getElementById('servDsk').onclick = function () {
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_23').onclick = function () {
-                let idstdserv = document.getElementById('customfield_114').value;
-                let lnk = document.getElementById('customfield_115').value;
-                lnk = lnk.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
-                let commentos = document.getElementById('customfield_117').value;
-                commentos = commentos.replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+                let idstdserv = encodeURIComponent(document.getElementById('customfield_114').value);
+                let lnk = encodeURIComponent(document.getElementById('customfield_115').value);
+                let commentos = encodeURIComponent(document.getElementById('customfield_117').value);
 				let radiosel  = document.getElementsByName('customfield_116');
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('askfordelacc').textContent) {
                     console.log("Запрос на удаление перс.данных: " + "  Id student and teacher: " + idstdserv + " Link: " + lnk + " Комментарий " + commentos);
