@@ -5322,6 +5322,7 @@ function move_again_AF() {
 				else if (topiclist[i].checked && topiclist[i].value =='Другое') {
 				document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
 			}
+			}
 
             document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
 
