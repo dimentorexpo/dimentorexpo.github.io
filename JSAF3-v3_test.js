@@ -39,12 +39,6 @@ function mystyles() {
 		opacity:0;
 		background-color: #464451;
 	}
-	.setbar .active{
-		opacity:1;
-		display:block;
-		transition:all 0.8s ease;
-	}
-	
 
     .usinfoops{
         margin-left: 5px; 
@@ -5210,10 +5204,10 @@ function move_again_AF() {
     } else localStorage.setItem('audiovol', 1);
 
     document.getElementById('setting').onclick = function () {
-        if (document.getElementById('set_bar').style.display == 'none')
-            document.getElementById('set_bar').classList.toggle('active');
+        if (document.getElementById('set_bar').style.display == '')
+            document.getElementById('set_bar').style.display = 'none'
         else {
-            document.getElementById('set_bar').classList.toggle('active');
+            document.getElementById('set_bar').style.display = ''
             document.getElementById('addTmp').style.display = 'none'
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
