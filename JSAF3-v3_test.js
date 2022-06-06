@@ -35,14 +35,16 @@ function mystyles() {
 	
 	.setbar{
 		border: 2px double black;
+		display:none;
 		opacity:0;
 		background-color: #464451;
 	}
 	.setbar .active{
 		border: 2px double black;
 		opacity:1;
-		transition:opacity 0.8s ease;
+		display:block;
 		background-color: #464451;
+		transition:all 0.8s ease;
 	}
 	
 
