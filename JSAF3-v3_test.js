@@ -5210,7 +5210,7 @@ function move_again_AF() {
     } else localStorage.setItem('audiovol', 1);
 
     document.getElementById('setting').onclick = function () {
-        if (document.getElementById('set_bar').style.opacity == 0)
+        if (document.getElementById('set_bar').style.display == 'none')
             document.getElementById('set_bar').classList.toggle('active');
         else {
             document.getElementById('set_bar').classList.toggle('active');
