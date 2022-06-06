@@ -5210,10 +5210,10 @@ function move_again_AF() {
     } else localStorage.setItem('audiovol', 1);
 
     document.getElementById('setting').onclick = function () {
-        if (document.getElementById('set_bar').style.display == '')
-            document.getElementById('set_bar').classList.toggle('.active');
+        if (document.getElementById('set_bar').style.opacity == 0)
+            document.getElementById('set_bar').classList.toggle('active');
         else {
-            document.getElementById('set_bar').classList.toggle('.active');
+            document.getElementById('set_bar').classList.toggle('active');
             document.getElementById('addTmp').style.display = 'none'
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
