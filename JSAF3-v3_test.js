@@ -32,6 +32,19 @@ function mystyles() {
 	.activebtnsd {
 		background-color: #ff6347;
 	}
+	
+	.setbar{
+		border: 2px double black;
+		opacity:0;
+		background-color: #464451;
+	}
+	.setbar .active{
+		border: 2px double black;
+		opacity:1;
+		transition:opacity 0.8s ease;
+		background-color: #464451;
+	}
+	
 
     .usinfoops{
         margin-left: 5px; 
@@ -260,7 +273,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px; width: 350px">
 			</div>
 		</div>
-	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
+	<div id="set_bar" class="setbar">
 		<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button> 
@@ -5198,9 +5211,9 @@ function move_again_AF() {
 
     document.getElementById('setting').onclick = function () {
         if (document.getElementById('set_bar').style.display == '')
-            document.getElementById('set_bar').style.display = 'none'
+            document.getElementById('set_bar').classList.toggle('.active');
         else {
-            document.getElementById('set_bar').style.display = ''
+            document.getElementById('set_bar').classList.toggle('.active');
             document.getElementById('addTmp').style.display = 'none'
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
