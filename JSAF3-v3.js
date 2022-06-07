@@ -7352,7 +7352,7 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl() {
-	if (document.URL.split('/').length > 4 && document.URL.split('/')[2] != 'skyeng.autofaq.ai') {
+	if (document.URL.split('/').length > 4 && document.URL.split('/')[3] != 'portfolio' && document.URL.split('/')[2] != 'skyeng.autofaq.ai') {
     if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=') {
         let remove = document.createElement('span')
         remove.id = "removebtn"
@@ -7388,7 +7388,7 @@ async function remandressl() {
 			document.getElementsByClassName('-type-primary')[4].appendChild(reset)
 			document.getElementsByClassName('-type-primary')[4].appendChild(lessoninfo)
 			
-			if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
+						if (document.URL.split('/')[6].match(/materials/)[0]  == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=' || document.URL.split('/')[6] !='materials?tool=homework')
 				            document.getElementsByClassName('-type-primary')[4].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
         } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
@@ -7396,7 +7396,7 @@ async function remandressl() {
 		    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
 		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 			
-						if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
+						if (document.URL.split('/')[6].match(/materials/)[0]  == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=' || document.URL.split('/')[6] !='materials?tool=homework')
 				            document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
 							
@@ -7405,7 +7405,7 @@ async function remandressl() {
 		    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
 		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 			
-						if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
+						if (document.URL.split('/')[6].match(/materials/)[0]  == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=' || document.URL.split('/')[6] !='materials?tool=homework')
 				            document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
 							
@@ -7414,7 +7414,7 @@ async function remandressl() {
 		    document.getElementsByClassName('-type-primary')[2].appendChild(reset)
 		    document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
 			
-						if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
+						if (document.URL.split('/')[6].match(/materials/)[0]  == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=' || document.URL.split('/')[6] !='materials?tool=homework')
 				            document.getElementsByClassName('-type-primary')[2].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
 	    }
@@ -7493,7 +7493,7 @@ async function remandressl() {
                     "authorization": "Bearer" + d[1],
 					"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                 },
-				"body": `studentId=${document.URL.split('/')[6].match(/\d+/)}&projectName=vimbox`,
+				"body": `studentId=${joinresult.students[0].id}&projectName=vimbox`,
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
@@ -7510,7 +7510,7 @@ async function remandressl() {
                     "authorization": "Bearer" + d[1],
 					"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                 },
-				"body": `studentId=${document.URL.split('/')[6].match(/\d+/)}&projectName=vimbox&sourceId=0`,
+				"body": `studentId=${joinresult.students[0].id}&projectName=vimbox&sourceId=0`,
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
