@@ -51,55 +51,11 @@ function mystyles() {
         width: 420px;
     }
 	
-	.ramka-5 {
-    position: relative;
-    z-index: 0;
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 30px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.ramka-5::before {
-    content: '';
-    position: absolute;
-    z-index: -2;
-    left: -50%;
-    top: -50%;
-    width: 200%;
-    height: 200%;
-    background-color: #BFE2FF;
-    background-repeat: no-repeat;
-    background-size: 50% 50%, 50% 50%;
-    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#BFE2FF, #BFE2FF), linear-gradient(#337AB7, #337AB7), linear-gradient(#BFE2FF, #BFE2FF), linear-gradient(#337AB7, #337AB7);
-    animation: anim-ramka-5 4s linear infinite;
-}
-
-.ramka-5::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    left: 6px;
-    top: 6px;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
-    background: white;
-    border-radius: 5px;
-}
-
-@keyframes anim-ramka-5 {
-    100% {
-        transform: rotate(1turn);
-    }
-}
-	
+	.selchatact {
+		transform:scale(1.05);
+		border-top: 4px solid orange;
+	}
+		
 		.checkbox-audio {
 			display: inline-block;    
 			height: 28px;    
@@ -2469,6 +2425,14 @@ function move_again_AF() {
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
+
+
+function setactivechatstyle() {
+	if (document.URL.length > 41)
+		document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
+}
+
+setInterval(setactivechatstyle, 2000)
 
     function clock_on_javascript_1() {
         var data = new Date();
