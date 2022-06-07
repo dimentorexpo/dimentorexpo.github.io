@@ -52,7 +52,7 @@ function mystyles() {
     }
 	
 	.selchatact {
-		border-left: 5px solid orange;
+		border-left: 6px solid;
 	}
 		
 		.checkbox-audio {
