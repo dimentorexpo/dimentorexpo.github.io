@@ -7459,7 +7459,6 @@ async function remandressl() {
 				}).then(r=>r.json()).then(r=>result=r)
 				if(result.record != undefined)
 				alert("Record отправлен методисту ID: " + result.record.methodistId)		
-			}
 		}
 
         // аналогично для сброса прогресса слайдов
