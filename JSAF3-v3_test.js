@@ -7389,7 +7389,7 @@ async function remandressl() {
 			document.getElementsByClassName('-type-primary')[4].appendChild(lessoninfo)
 			
 			if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
-				            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+				            document.getElementsByClassName('-type-primary')[4].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
         } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[3].appendChild(remove)
@@ -7397,7 +7397,7 @@ async function remandressl() {
 		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 			
 						if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
-				            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+				            document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
 							
         } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
@@ -7406,7 +7406,7 @@ async function remandressl() {
 		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 			
 						if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
-				            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+				            document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
 							
 	    } else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar") {
@@ -7415,7 +7415,7 @@ async function remandressl() {
 		    document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
 			
 						if (document.URL.split('/')[6].match(/materials\?studentId=/)[0]  == 'materials?studentId=')
-				            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+				            document.getElementsByClassName('-type-primary')[2].appendChild(methodist)
 							document.getElementById('methodid').style.left = '615px';
 	    }
 		}
