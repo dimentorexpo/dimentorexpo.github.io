@@ -7478,10 +7478,12 @@ async function remandressl() {
             document.getElementsByClassName('-type-primary')[3].appendChild(reset)
         else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar")
             document.getElementsByClassName('-type-primary')[2].appendChild(reset)
+		else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[1].innerText.match(/Progress test/)[0] == "Progress test") 
+            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
         else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[1].appendChild(reset)
             document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
-        }
+        } 
 
         async function resetslide() {
 
