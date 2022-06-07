@@ -5315,10 +5315,8 @@ function move_again_AF() {
 
 		for (let i=0; i <table.length;i++) {
 			if (table[i][3] == "iOS Version")
-            document.getElementById('curVeriOS').innerText = "iOS: " + table[190][4]
-				}
-				
-		for (let i=0; i <table.length;i++) {
+            document.getElementById('curVeriOS').innerText = "iOS: " + table[190][4];
+		
 			if (table[i][3] == "Android Version")
             document.getElementById('curVerAndroid').innerText = "Android: " + table[189][4]
 				}
