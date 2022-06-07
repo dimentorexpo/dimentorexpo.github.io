@@ -7472,6 +7472,7 @@ async function remandressl() {
                     "accept-language": "ru",
                     "authorization": "Bearer" + d[1],
                 },
+				"body": `studentId=${joinresult.ownerId}&projectName=vimbox`,
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
@@ -7487,6 +7488,7 @@ async function remandressl() {
                     "accept-language": "ru",
                     "authorization": "Bearer" + d[1],
                 },
+				"body": `studentId=${joinresult.ownerId}&projectName=vimbox&sourceId=0`,
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
