@@ -7352,7 +7352,7 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl() {
-    if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook") {
+    if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=') {
         let remove = document.createElement('span')
         remove.id = "removebtn"
         remove.title = "По нажатию удалит все заданные упражнения на дом из категорий Lesson и Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
