@@ -7433,9 +7433,6 @@ async function remandressl() {
 			  "mode": "cors",
 			  "credentials": "include"
 			}).then(r=>r.json()).then(r=>joinresult=r)
-
-
-
 				await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}"/ensure/0`, {
 				  "headers": {
 					"accept": "application/json, text/plain, */*",
@@ -7449,7 +7446,6 @@ async function remandressl() {
 				
 				if(result.record == undefined)
 				alert("Эссе отправлено методисту ID: " + result.methodistId)
-			
 							
 				await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
 				  "headers": {
