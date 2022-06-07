@@ -7352,6 +7352,7 @@ function addbuttonsintegration() {
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl() {
+	if (document.URL.split('/').length > 4) {
     if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=') {
         let remove = document.createElement('span')
         remove.id = "removebtn"
@@ -7380,7 +7381,8 @@ async function remandressl() {
         reset.title = "По нажатию сбросит прогресс выполнениях все слайдов из категории Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
         reset.style = 'cursor:pointer; position:absolute; top: 12px; left: 660px;'
         reset.onclick = resetslide;
-					
+		
+		if (document.getElementById('lessoninfo') ==  null && document.getElementById('removebtn') ==  null && document.getElementById('resetbtn') ==  null) {
         if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework") {
             document.getElementsByClassName('-type-primary')[4].appendChild(remove)
 			document.getElementsByClassName('-type-primary')[4].appendChild(reset)
@@ -7398,12 +7400,14 @@ async function remandressl() {
 		    document.getElementsByClassName('-type-primary')[2].appendChild(reset)
 		    document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
 	    }
-		
+		}
+		if (document.getElementById('lessoninfo') ==  null && document.getElementById('methodid') ==  null && document.getElementById('resetbtn') ==  null) {
 		 if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[1].appendChild(reset)
             document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
 			document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
         } 
+		}
 
         async function removeslide() {
             let d = document.cookie;
@@ -7462,7 +7466,7 @@ async function remandressl() {
                 "mode": "cors",
                 "credentials": "include"
             }).then(r => r.json()).then(r => joinresult = r)
-            await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}"/ensure/0`, {
+            await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
                 "headers": {
                     "accept": "application/json, text/plain, */*",
                     "accept-language": "ru",
@@ -7550,6 +7554,7 @@ async function remandressl() {
 			}
 		}
     }
+}
 
     // Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
     let achatb = document.createElement('span')

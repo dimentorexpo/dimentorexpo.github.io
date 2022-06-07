@@ -7466,7 +7466,7 @@ async function remandressl() {
                 "mode": "cors",
                 "credentials": "include"
             }).then(r => r.json()).then(r => joinresult = r)
-            await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}"/ensure/0`, {
+            await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
                 "headers": {
                     "accept": "application/json, text/plain, */*",
                     "accept-language": "ru",
