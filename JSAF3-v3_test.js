@@ -7418,6 +7418,7 @@ async function remandressl() {
 		methodist.innerText = "🆔"
 		methodist.title ="По нажатию получите информацию о тому, какому методисту была отправлена работа эссе или рекординг"
         methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
+		methodist.onclick = getmethodistid;
 		
 		async function getmethodistid() {
 			let d = document.cookie;
