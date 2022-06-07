@@ -7381,11 +7381,11 @@ async function remandressl() {
                 "method": "PATCH",
                 "mode": "cors",
                 "credentials": "include"
-            }).then(r => r.json()).then(data => testo = data)
+            }).then(r => r.json()).then(data => joinresult = data)
 
-            for (let i = 0; i < testo.lessonPlan.Homework.length; i++) {
+            for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
 
-                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + testo.workbooks[0].id + "/step/" + testo.lessonPlan.Homework[i].stepUUID, {
+                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + joinresult.workbooks[0].id + "/step/" + joinresult.lessonPlan.Homework[i].stepUUID, {
                     "headers": {
                         "authorization": "Bearer" + d[1],
                     },
@@ -7395,9 +7395,9 @@ async function remandressl() {
                 });
             }
 
-            for (let i = 0; i < testo.lessonPlan.Lesson.length; i++) {
+            for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
 
-                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + testo.workbooks[0].id + "/step/" + testo.lessonPlan.Lesson[i].stepUUID, {
+                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + joinresult.workbooks[0].id + "/step/" + joinresult.lessonPlan.Lesson[i].stepUUID, {
                     "headers": {
                         "authorization": "Bearer" + d[1],
                     },
@@ -7418,9 +7418,52 @@ async function remandressl() {
 		methodist.innerText = "🆔"
 		methodist.title ="По нажатию получите информацию о тому, какому методисту была отправлена работа эссе или рекординг"
         methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
-
-
 		
+		async function getmethodistid() {
+			let d = document.cookie;
+			d = d.match(/token_global=(.*)/);
+
+			await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/"+ document.URL.split('/')[4] +"/join", {
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"authorization": "Bearer" + d[1],
+			  },
+			  "method": "PATCH",
+			  "mode": "cors",
+			  "credentials": "include"
+			}).then(r=>r.json()).then(r=>joinresult=r)
+
+			if (joinresult.record == undefined) {
+
+				await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}"/ensure/0`, {
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"accept-language": "ru",
+					"authorization": "Bearer" + d[1],
+				  },
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				}).then(r=>r.json()).then(r=>result=r)
+
+				alert("Эссе отправлено методисту ID: " + result.methodistId)
+
+			} else {
+				
+				await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"accept-language": "ru",
+					"authorization": "Bearer" + d[1],
+				  },
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				}).then(r=>r.json()).then(r=>result=r)
+				
+				alert("Record отправлен методисту ID: " + result.record.methodistId)		
+			}
+		}
 
         // аналогично для сброса прогресса слайдов
 
@@ -7456,16 +7499,16 @@ async function remandressl() {
                 "method": "PATCH",
                 "mode": "cors",
                 "credentials": "include"
-            }).then(r => r.json()).then(data => testo = data)
+            }).then(r => r.json()).then(data => joinresult = data)
 
-            for (let i = 0; i < testo.lessonPlan.Homework.length; i++) {
-                await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/" + testo.lessonPlan.Homework[i].id + "/reset", {
+            for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
+                await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/" + joinresult.lessonPlan.Homework[i].id + "/reset", {
                     "headers": {
                         "accept": "application/json, text/plain, */*",
                         "authorization": "Bearer" + d[1],
                         "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                     },
-                    "body": "workbookIds[]=" + testo.workbooks[0].id,
+                    "body": "workbookIds[]=" + joinresult.workbooks[0].id,
                     "method": "DELETE",
                     "mode": "cors",
                     "credentials": "include"
