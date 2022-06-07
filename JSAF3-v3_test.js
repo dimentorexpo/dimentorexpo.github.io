@@ -7357,7 +7357,7 @@ async function remandressl() {
         remove.id = "removebtn"
         remove.title = "По нажатию удалит все заданные упражнения на дом из категорий Lesson и Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
         remove.textContent = "❌"
-        remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 630px;'
+        remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
         remove.onclick = removeslide;
 		
 		let lessoninfo = document.createElement('span')
@@ -7371,7 +7371,7 @@ async function remandressl() {
         methodist.id = 'methodid';
         methodist.innerText = "🆔"
         methodist.title = "По нажатию получите информацию о том, какому методисту была отправлена работа эссе или рекординг"
-        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 685px;'
+        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
         methodist.onclick = getmethodistid;
 		
 		let reset = document.createElement('span')
@@ -7402,6 +7402,7 @@ async function remandressl() {
 		 if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[1].appendChild(reset)
             document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+			document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
         } 
 
         async function removeslide() {
@@ -7542,9 +7543,9 @@ async function remandressl() {
 			
 			for (let i=0;i<joinresult.lessonPlan.Homework.length;i++) {
 				if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
-					console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + '' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-					copyToClipboard1('Курс: ' +	joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + '' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-					alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + '' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+					console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' ' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+					copyToClipboard1('Курс: ' +	joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' ' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+					alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' ' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
 					}
 			}
 		}
