@@ -2427,7 +2427,7 @@ function move_again_AF() {
 
 
 function setactivechatstyle() {
-	if (document.URL.length > 41 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+	if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
 		document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
 }
 
