@@ -7423,7 +7423,7 @@ async function remandressl() {
 		 if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[1].appendChild(reset)
             document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
-			document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
+			document.getElementsByClassName('-type-primary')[1].appendChild(lessoninfo)
         } 
 		}
 
