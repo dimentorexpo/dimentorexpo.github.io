@@ -5313,8 +5313,15 @@ function move_again_AF() {
         else {
             document.getElementById('AF_Links').style.display = ''
 
+		for (let i=0; i <table.length;i++) {
+			if (table[i][3] == "iOS Version")
             document.getElementById('curVeriOS').innerText = "iOS: " + table[190][4]
+				}
+				
+		for (let i=0; i <table.length;i++) {
+			if (table[i][3] == "Android Version")
             document.getElementById('curVerAndroid').innerText = "Android: " + table[189][4]
+				}
         }
     }
 
