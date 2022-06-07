@@ -7475,6 +7475,8 @@ async function remandressl() {
             let d = document.cookie;
             d = d.match(/token_global=(.*)/);
 
+
+			if(document.URL.split('/')[6] !='materials?tool=homework'){ 
             await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
                 "headers": {
                     "accept": "application/json, text/plain, */*",
@@ -7517,6 +7519,49 @@ async function remandressl() {
             if (result.record != undefined)
                 alert("Record отправлен методисту ID: " + result.record.methodistId)
 			}
+		} else {
+			
+			            await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "PATCH",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(r => joinresult = r)
+            await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "accept-language": "ru",
+                    "authorization": "Bearer" + d[1],
+					"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                },
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(r => result = r)
+
+            if (result.record == undefined && result.text != null) {
+                alert("Эссе отправлено методисту ID: " + result.methodistId)
+			
+			} else {
+				await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "accept-language": "ru",
+                    "authorization": "Bearer" + d[1],
+					"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                },
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(r => result = r)
+
+            if (result.record != undefined)
+                alert("Record отправлен методисту ID: " + result.record.methodistId)
+			}
+		}
         }
 
         // аналогично для сброса прогресса слайдов
