@@ -2431,7 +2431,7 @@ function setactivechatstyle() {
 		document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
 }
 
-setInterval(setactivechatstyle, 2000)
+setInterval(setactivechatstyle, 1000)
 
     function clock_on_javascript_1() {
         var data = new Date();
