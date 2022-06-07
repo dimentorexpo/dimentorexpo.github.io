@@ -7444,10 +7444,11 @@ async function remandressl() {
                 "credentials": "include"
             }).then(r => r.json()).then(r => result = r)
 
-            if (result.record == undefined && result.text != null)
+            if (result.record == undefined && result.text != null) {
                 alert("Эссе отправлено методисту ID: " + result.methodistId)
-
-            await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
+			
+			} else {
+				await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
                 "headers": {
                     "accept": "application/json, text/plain, */*",
                     "accept-language": "ru",
@@ -7460,6 +7461,7 @@ async function remandressl() {
 
             if (result.record != undefined)
                 alert("Record отправлен методисту ID: " + result.record.methodistId)
+			}
         }
 
         // аналогично для сброса прогресса слайдов
