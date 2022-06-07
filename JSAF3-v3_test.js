@@ -52,7 +52,7 @@ function mystyles() {
     }
 	
 	.selchatact {
-		border-left: 6px solid;
+		border-left: 6px solid DeepSkyBlue;
 	}
 		
 		.checkbox-audio {
