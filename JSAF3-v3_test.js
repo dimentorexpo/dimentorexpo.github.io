@@ -7444,7 +7444,7 @@ async function remandressl() {
 				  "credentials": "include"
 				}).then(r=>r.json()).then(r=>result=r)
 				
-				if(result.record == undefined)
+				if(result.record == undefined && result.text != null)
 				alert("Эссе отправлено методисту ID: " + result.methodistId)
 							
 				await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
