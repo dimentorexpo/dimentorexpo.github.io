@@ -7411,6 +7411,17 @@ async function remandressl() {
             window.location.reload();
         }
 
+		// Кнопка для получения информации об методисте, которому ушло эссе/рекординг
+		
+		let methodist = document.createElement('span')
+		methodist.id = 'methodid';
+		methodist.innerText = "🆔"
+		methodist.title ="По нажатию получите информацию о тому, какому методисту была отправлена работа эссе или рекординг"
+        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
+
+
+		
+
         // аналогично для сброса прогресса слайдов
 
         let reset = document.createElement('span')
@@ -7427,8 +7438,10 @@ async function remandressl() {
             document.getElementsByClassName('-type-primary')[3].appendChild(reset)
         else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar")
             document.getElementsByClassName('-type-primary')[2].appendChild(reset)
-        else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
-            document.getElementsByClassName('-type-primary')[1].appendChild(reset)
+        else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework"){
+				document.getElementsByClassName('-type-primary')[1].appendChild(reset)
+				document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+		}
 
         async function resetslide() {
 
