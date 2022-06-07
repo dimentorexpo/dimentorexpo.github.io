@@ -7370,7 +7370,7 @@ async function remandressl() {
 		let methodist = document.createElement('span')
         methodist.id = 'methodid';
         methodist.innerText = "🆔"
-        methodist.title = "По нажатию получите информацию о тому, какому методисту была отправлена работа эссе или рекординг"
+        methodist.title = "По нажатию получите информацию о том, какому методисту была отправлена работа эссе или рекординг"
         methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 685px;'
         methodist.onclick = getmethodistid;
 		
@@ -7384,15 +7384,19 @@ async function remandressl() {
         if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework") {
             document.getElementsByClassName('-type-primary')[4].appendChild(remove)
 			document.getElementsByClassName('-type-primary')[4].appendChild(reset)
+			document.getElementsByClassName('-type-primary')[4].appendChild(lessoninfo)
         } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[3].appendChild(remove)
 		    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
         } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[3].appendChild(remove)
 		    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 	    } else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar") {
             document.getElementsByClassName('-type-primary')[2].appendChild(remove)
 		    document.getElementsByClassName('-type-primary')[2].appendChild(reset)
+		    document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
 	    }
 		
 		 if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
