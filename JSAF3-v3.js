@@ -7357,17 +7357,53 @@ async function remandressl() {
         remove.id = "removebtn"
         remove.title = "По нажатию удалит все заданные упражнения на дом из категорий Lesson и Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
         remove.textContent = "❌"
-        remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 630px;'
+        remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
         remove.onclick = removeslide;
-        if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework")
+		
+		let lessoninfo = document.createElement('span')
+        lessoninfo.id = "lessoninfo"
+        lessoninfo.title = "По нажатию копирует в буфер информацию об уроке"
+        lessoninfo.textContent = "❓"
+        lessoninfo.style = 'cursor:pointer; position:absolute; top: 12px; left: 685px;'
+        lessoninfo.onclick = getlessoninfo;
+		
+		let methodist = document.createElement('span')
+        methodist.id = 'methodid';
+        methodist.innerText = "🆔"
+        methodist.title = "По нажатию получите информацию о том, какому методисту была отправлена работа эссе или рекординг"
+        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
+        methodist.onclick = getmethodistid;
+		
+		let reset = document.createElement('span')
+        reset.id = "resetbtn"
+        reset.textContent = "🔄"
+        reset.title = "По нажатию сбросит прогресс выполнениях все слайдов из категории Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
+        reset.style = 'cursor:pointer; position:absolute; top: 12px; left: 660px;'
+        reset.onclick = resetslide;
+					
+        if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework") {
             document.getElementsByClassName('-type-primary')[4].appendChild(remove)
-        else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+			document.getElementsByClassName('-type-primary')[4].appendChild(reset)
+			document.getElementsByClassName('-type-primary')[4].appendChild(lessoninfo)
+        } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[3].appendChild(remove)
-        else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
+		    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
+        } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
             document.getElementsByClassName('-type-primary')[3].appendChild(remove)
-        else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar")
+		    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+		    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
+	    } else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar") {
             document.getElementsByClassName('-type-primary')[2].appendChild(remove)
-
+		    document.getElementsByClassName('-type-primary')[2].appendChild(reset)
+		    document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
+	    }
+		
+		 if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
+            document.getElementsByClassName('-type-primary')[1].appendChild(reset)
+            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+			document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
+        } 
 
         async function removeslide() {
             let d = document.cookie;
@@ -7412,13 +7448,6 @@ async function remandressl() {
         }
 
         // Кнопка для получения информации об методисте, которому ушло эссе/рекординг
-
-        let methodist = document.createElement('span')
-        methodist.id = 'methodid';
-        methodist.innerText = "🆔"
-        methodist.title = "По нажатию получите информацию о тому, какому методисту была отправлена работа эссе или рекординг"
-        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 685px;'
-        methodist.onclick = getmethodistid;
 
         async function getmethodistid() {
             let d = document.cookie;
@@ -7466,25 +7495,6 @@ async function remandressl() {
 
         // аналогично для сброса прогресса слайдов
 
-        let reset = document.createElement('span')
-        reset.id = "resetbtn"
-        reset.textContent = "🔄"
-        reset.title = "По нажатию сбросит прогресс выполнениях все слайдов из категории Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
-        reset.style = 'cursor:pointer; position:absolute; top: 12px; left: 660px;'
-        reset.onclick = resetslide;
-        if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework")
-            document.getElementsByClassName('-type-primary')[4].appendChild(reset)
-        else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
-            document.getElementsByClassName('-type-primary')[3].appendChild(reset)
-        else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework")
-            document.getElementsByClassName('-type-primary')[3].appendChild(reset)
-        else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar")
-            document.getElementsByClassName('-type-primary')[2].appendChild(reset)
-        else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
-            document.getElementsByClassName('-type-primary')[1].appendChild(reset)
-            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
-        } 
-
         async function resetslide() {
 
             let d = document.cookie;
@@ -7515,8 +7525,30 @@ async function remandressl() {
             }
             alert("Слайды из категории Homework сброшены успешно! Страница будет обновлена.")
             window.location.reload();
-
         }
+		
+		async function getlessoninfo() {
+			let d = document.cookie;
+            d = d.match(/token_global=(.*)/);
+
+            await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "PATCH",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(data => joinresult = data)
+			
+			for (let i=0;i<joinresult.lessonPlan.Homework.length;i++) {
+				if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
+					console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' ' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+					copyToClipboard1('Курс: ' +	joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' ' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+					alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' ' + joinresult.lessonInfo.info.sortOrder + '.' + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+					}
+			}
+		}
     }
 
     // Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
