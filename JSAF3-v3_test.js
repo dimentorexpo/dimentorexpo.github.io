@@ -7363,7 +7363,7 @@ async function remandressl() {
 		let lessoninfo = document.createElement('span')
         lessoninfo.id = "lessoninfo"
         lessoninfo.title = "По нажатию копирует в буфер информацию об уроке"
-        lessoninfo.textContent = "⚛"
+        lessoninfo.textContent = "❓"
         lessoninfo.style = 'cursor:pointer; position:absolute; top: 12px; left: 685px;'
         lessoninfo.onclick = getlessoninfo;
 		
@@ -7544,7 +7544,7 @@ async function remandressl() {
 				if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
 					console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
 					copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-					alert('Информация скопирована уже в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+					alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: '  + joinresult.lessonInfo.info.title + ' Слайд: '  + joinresult.lessonPlan.Homework[i].title +'\n' + 'CMS общая ссылка: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
 					}
 			}
 		}
