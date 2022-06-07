@@ -52,8 +52,7 @@ function mystyles() {
     }
 	
 	.selchatact {
-		transform:scale(1.05);
-		border-top: 4px solid orange;
+		border-left: 5px solid orange;
 	}
 		
 		.checkbox-audio {
