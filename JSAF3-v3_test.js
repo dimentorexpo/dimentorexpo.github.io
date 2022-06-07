@@ -2426,12 +2426,12 @@ function move_again_AF() {
     setInterval(clock_on_javascript_2, 1000);
 
 
-function setactivechatstyle() {
-	if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
-		document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
-}
+    function setactivechatstyle() {
+        if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+            document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
+    }
 
-setInterval(setactivechatstyle, 1000)
+    setInterval(setactivechatstyle, 1000)
 
     function clock_on_javascript_1() {
         var data = new Date();
@@ -5325,13 +5325,13 @@ setInterval(setactivechatstyle, 1000)
         else {
             document.getElementById('AF_Links').style.display = ''
 
-		for (let i=0; i <table.length;i++) {
-			if (table[i][3] == "iOS Version")
-            document.getElementById('curVeriOS').innerText = "iOS: " + table[i][4];
-		
-			if (table[i][3] == "Android Version")
-            document.getElementById('curVerAndroid').innerText = "Android: " + table[i][4]
-				}
+            for (let i = 0; i < table.length; i++) {
+                if (table[i][3] == "iOS Version")
+                    document.getElementById('curVeriOS').innerText = "iOS: " + table[i][4];
+
+                if (table[i][3] == "Android Version")
+                    document.getElementById('curVerAndroid').innerText = "Android: " + table[i][4]
+            }
         }
     }
 
@@ -7411,55 +7411,56 @@ async function remandressl() {
             window.location.reload();
         }
 
-		// Кнопка для получения информации об методисте, которому ушло эссе/рекординг
-		
-		let methodist = document.createElement('span')
-		methodist.id = 'methodid';
-		methodist.innerText = "🆔"
-		methodist.title ="По нажатию получите информацию о тому, какому методисту была отправлена работа эссе или рекординг"
-        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
-		methodist.onclick = getmethodistid;
-		
-		async function getmethodistid() {
-			let d = document.cookie;
-			d = d.match(/token_global=(.*)/);
+        // Кнопка для получения информации об методисте, которому ушло эссе/рекординг
 
-			await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/"+ document.URL.split('/')[4] +"/join", {
-			  "headers": {
-				"accept": "application/json, text/plain, */*",
-				"authorization": "Bearer" + d[1],
-			  },
-			  "method": "PATCH",
-			  "mode": "cors",
-			  "credentials": "include"
-			}).then(r=>r.json()).then(r=>joinresult=r)
-				await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}"/ensure/0`, {
-				  "headers": {
-					"accept": "application/json, text/plain, */*",
-					"accept-language": "ru",
-					"authorization": "Bearer" + d[1],
-				  },
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				}).then(r=>r.json()).then(r=>result=r)
-				
-				if(result.record == undefined && result.text != null)
-				alert("Эссе отправлено методисту ID: " + result.methodistId)
-							
-				await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
-				  "headers": {
-					"accept": "application/json, text/plain, */*",
-					"accept-language": "ru",
-					"authorization": "Bearer" + d[1],
-				  },
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				}).then(r=>r.json()).then(r=>result=r)
-				if(result.record != undefined)
-				alert("Record отправлен методисту ID: " + result.record.methodistId)		
-		}
+        let methodist = document.createElement('span')
+        methodist.id = 'methodid';
+        methodist.innerText = "🆔"
+        methodist.title = "По нажатию получите информацию о тому, какому методисту была отправлена работа эссе или рекординг"
+        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
+        methodist.onclick = getmethodistid;
+
+        async function getmethodistid() {
+            let d = document.cookie;
+            d = d.match(/token_global=(.*)/);
+
+            await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "PATCH",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(r => joinresult = r)
+            await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}"/ensure/0`, {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "accept-language": "ru",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(r => result = r)
+
+            if (result.record == undefined && result.text != null)
+                alert("Эссе отправлено методисту ID: " + result.methodistId)
+
+            await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "accept-language": "ru",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(r => result = r)
+
+            if (result.record != undefined)
+                alert("Record отправлен методисту ID: " + result.record.methodistId)
+        }
 
         // аналогично для сброса прогресса слайдов
 
@@ -7477,10 +7478,10 @@ async function remandressl() {
             document.getElementsByClassName('-type-primary')[3].appendChild(reset)
         else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar")
             document.getElementsByClassName('-type-primary')[2].appendChild(reset)
-        else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework"){
-				document.getElementsByClassName('-type-primary')[1].appendChild(reset)
-				document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
-		}
+        else if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
+            document.getElementsByClassName('-type-primary')[1].appendChild(reset)
+            document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+        }
 
         async function resetslide() {
 
