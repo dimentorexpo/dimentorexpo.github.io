@@ -7493,7 +7493,7 @@ async function remandressl() {
                     "authorization": "Bearer" + d[1],
 					"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                 },
-				"body": `studentId=${document.URL.split('/')[6].match(/\d+/)}&projectName=vimbox`,
+				"body": `studentId=${joinresult.students[0].id}&projectName=vimbox`,
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
@@ -7510,7 +7510,7 @@ async function remandressl() {
                     "authorization": "Bearer" + d[1],
 					"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                 },
-				"body": `studentId=${document.URL.split('/')[6].match(/\d+/)}&projectName=vimbox&sourceId=0`,
+				"body": `studentId=${joinresult.students[0].id}&projectName=vimbox&sourceId=0`,
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
