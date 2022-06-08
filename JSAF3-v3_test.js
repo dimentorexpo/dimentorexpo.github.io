@@ -300,14 +300,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>	
 			</div>
-				
-			<div style="margin: 5px; width: 350px">
-				<p style="color:white; margin:0 0 5px 0;"> Отдел: 
-				<button title="Переключает на другой документ с шаблонами без иконок возле имен кнопок. После нажатия обновите страницу для применения изменений" id="type_TP">ТП</button>
-				<button title="Переключает на другой документ с шаблонами с иконками возле имен кнопок. После нажатия обновите страницу для применения изменений" id="type_TP_new">ТП*</button>
-				</p>
-			</div>
-			
+					
 		</div>
 		
 	</span>
@@ -2374,8 +2367,8 @@ wintAF.innerHTML = win_AFhelper;
 var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
-var TP_addr = 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec'
-var TP_addr2 = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
+var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
+//var TP_addr2 = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 var flagLangBut = 0
 function move_again_AF() {
 
@@ -4528,15 +4521,16 @@ function move_again_AF() {
             localStorage.setItem('msg', 'Чат')
         }
     }
-
+/*
     document.getElementById('type_TP').onclick = function () {
         localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec')
         prepTp()
     }
 
     document.getElementById('type_TP_new').onclick = weWillNotBeSlaves;
+*/
 
-    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addr2) {
+    if (localStorage.getItem('scriptAdr') != TP_addr) {
         document.getElementById('msg1').style.display = 'none'
         document.getElementById('snd').style.marginLeft = '120px'
         document.getElementById('msg1').innerHTML = 'Доработать'
@@ -6921,7 +6915,7 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
                 nextClassstudentId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         }
-        if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) { // поиск группы, с которой  сейчас идет занятие
+        if (localStorage.getItem('scriptAdr') == TP_addr) { // поиск группы, с которой  сейчас идет занятие
             if (nextClassMode == 'group') {
                 nextClassstudentId = nextClassstudentId.split(',')[0]
                 document.getElementsByClassName('expert-user_details-list')[1].childNodes[nextClassModeId].childNodes[1].textContent = 'group '
@@ -7053,7 +7047,7 @@ function startTimer() {
         }
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) {
+    if (localStorage.getItem('scriptAdr') == TP_addr) {
         if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
             if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
@@ -7168,7 +7162,7 @@ function startTimer() {
     }
 
 
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addr2) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -11027,8 +11021,9 @@ function textToUTF8String(string) {
     }
     return string2
 }
-
+/*
 function weWillNotBeSlaves() {
     localStorage.setItem('scriptAdr', TP_addr2)
     prepTp()
 }
+*/
