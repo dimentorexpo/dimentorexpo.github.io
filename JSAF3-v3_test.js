@@ -8561,7 +8561,7 @@ setInterval(checJiraF, 1000);
 
 async function checkthemestatus() {
     try {
-        if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/')[2] != "assigned")
+        if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/').length >4)
             var errrrrrrrrrrrrrrrrrrrrrr = "no active chats";
         else {
             let temparr = document.location.pathname.split('/')[3];
