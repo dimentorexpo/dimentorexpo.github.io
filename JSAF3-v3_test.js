@@ -8571,24 +8571,6 @@ async function checkthemestatus() {
             if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
                 drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
 
-			if (document.URL.split('/').length> 4) { 
-				let leftfield = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0].childNodes[0]
-				let atentsign = document.createElement('div')
-				atentsign.id ="znakvnimanie"
-				atentsign.innerText = "~25м💥"
-				atentsign.style.display = 'none'
-				let fristansw = pldata.messages[0].ts
-				fristansw = new Date(fristansw)
-				let now = new Date()
-				let diftime = (now-fristansw)/1000/60
-				if (document.getElementById('znakvnimanie') == null) {
-					if (diftime>1) {
-					leftfield.append(atentsign)
-					atentsign.style.display = ''
-
-					} else { atentsign.style.display = 'none' }
-				}
-			}
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
