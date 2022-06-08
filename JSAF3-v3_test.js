@@ -1439,9 +1439,8 @@ var win_servicedesk =
 					<textarea id="customfield_117" placeholder="Комментарий"  class="sdexpecactual"></textarea>
 					<br>
 					<button id="create_23" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				
-</span>
+				</div>	
+		</span>
 </div>`;
 
 
@@ -1460,7 +1459,6 @@ function onlyNumber(object) { // функция для разрешения вв
 function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
     object.value = object.value.replace(/["'\\]/gi, '');
 }
-
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
@@ -1901,7 +1899,6 @@ button3.onclick = function () {
     }
     btn1_student.click()
 }
-
 
 button4.onclick = function () {
     if (document.getElementById('btn_hide').style.display != 'none')
@@ -2357,8 +2354,6 @@ document.getElementById('databox').ondblclick = function () { // скрытие 
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
-
-
 let wintAF = document.createElement('div');
 document.body.append(wintAF);
 wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -2368,7 +2363,7 @@ var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
-//var TP_addr2 = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
+
 var flagLangBut = 0
 function move_again_AF() {
 
@@ -2552,9 +2547,7 @@ function move_again_AF() {
         };
         rpayid.value = "";
     }
-
-
-
+	
     document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
         if (FeedbackStatus.value == "") {
             console.log('Введите id в поле')
@@ -2704,9 +2697,6 @@ function move_again_AF() {
         reportmvu.value = "";
     }
 
-
-
-
     var abortTimeOut = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
@@ -2847,7 +2837,6 @@ function move_again_AF() {
             setTimeout(getPassInfo1, 1000);
         };
         setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
-
     }
 
     let commonidentity;
@@ -2901,7 +2890,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 
         }, 550)
-
     }
 
     let unhidephone;
@@ -2939,7 +2927,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 
         }, 600)
-
     }
 
     let unhidenemail;
@@ -2975,7 +2962,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('emailishere')
 
         }, 600)
-
     }
 
     let servicearray = "";
@@ -3011,7 +2997,6 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
         }, 1000)
-
     }
 
     document.getElementById('getlessonpast').onclick = function () {
@@ -3096,8 +3081,6 @@ function move_again_AF() {
                         pastlessoninfo.data[i].status = "Не отмечен учителем вовремя"
                     }
 
-
-
                     if (pastlessoninfo.data[i].lessonType == "regular") {
                         pastlessoninfo.data[i].lessonType = "Регулярный";
                     } else if (pastlessoninfo.data[i].lessonType == "single") {
@@ -3127,15 +3110,12 @@ function move_again_AF() {
                             + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
                             + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
                     }
-
                 }
 
                 document.getElementById('timetabledata').innerHTML = pastlessondata;
                 pastlessondata = "";
             }
         }, 1000)
-
-
     }
 
     document.getElementById('getlessonfuture').onclick = function () {
@@ -3229,8 +3209,6 @@ function move_again_AF() {
                     }
 
                 }
-
-
                 document.getElementById('timetabledata').innerHTML = futurelessondata;
                 futurelessondata = "";
             }
@@ -3524,8 +3502,6 @@ function move_again_AF() {
             } else {
                 countryofuser = null;
             }
-
-
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 
         }, 600)
@@ -3701,36 +3677,6 @@ function move_again_AF() {
 
     let werechats = false;
     let chatisopen = "";
-
-    // async function chatstatus() { // проверка наличия чатов в истории и активного чата
-    // let tempvariable = document.getElementById('idstudent').value;
-    // tempvariable = tempvariable.trim();
-    // document.getElementById('ChatStatus').style.display = "none";
-    // document.getElementById('getcurrentstatus').style.display = "none";
-    // await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-    // "headers": {
-    // "content-type": "application/json",
-    // "sec-fetch-dest": "empty",
-    // "sec-fetch-mode": "cors",
-    // "sec-fetch-site": "same-origin"
-    // },
-    // "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-    // "referrerPolicy": "strict-origin-when-cross-origin",
-    // "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-01-01T19:00:00.000Z\",\"tsTo\":\"2022-03-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
-    // "method": "POST",
-    // "mode": "cors",
-    // "credentials": "include"
-    // }).then(r => r.json()).then(data => infres = data)
-    // if (infres.total > 0) {
-    // werechats = true;
-    // convid = infres.items[0].conversationId;
-    // if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-    // chatisopen = true;
-    // else
-    // chatisopen = false;
-    // } else if (infres.total == 0)
-    // werechats = false;
-    // }
 
     async function chatstatus() {
         let tempvariable = document.getElementById('idstudent').value;
@@ -4521,14 +4467,6 @@ function move_again_AF() {
             localStorage.setItem('msg', 'Чат')
         }
     }
-/*
-    document.getElementById('type_TP').onclick = function () {
-        localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbydMLmE-OOY2MMshHopMe0prA5lS0CkaR7-rQ4p/exec')
-        prepTp()
-    }
-
-    document.getElementById('type_TP_new').onclick = weWillNotBeSlaves;
-*/
 
     if (localStorage.getItem('scriptAdr') != TP_addr) {
         document.getElementById('msg1').style.display = 'none'
@@ -6190,8 +6128,6 @@ function getText() {
 
             } catch (e) { console.log(e) }
         }
-
-
     }
     xhr.send()
 }
@@ -6331,8 +6267,6 @@ function refreshTemplates() {
                         document.getElementById('9page_1str').children[0].value = "";
                     }
                 }
-
-
                 if (pageType == "Темы") { // дорисовка инпута для ссылки на Jira
                     var newDivIn = document.createElement('span')
                     newDivIn.id = "10page_1str";
@@ -6380,8 +6314,6 @@ function refreshTemplates() {
                         document.getElementById('10page_1str').children[0].value = "";
                     }
                 }
-
-
 
                 var newStr = document.createElement('div')
                 newStr.style.margin = "5px"
@@ -7022,12 +6954,6 @@ function startTimer() {
                 btn.appendChild(buttonserv)
             }
 
-
-            //    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            //       btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-            //        btn.appendChild(buttonloc)
-            //    }
-
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonnextstudentid)
@@ -7043,7 +6969,6 @@ function startTimer() {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonnextteacherid)
             }
-
         }
     }
 
@@ -8854,9 +8779,6 @@ async function whoAmI() {
 
 // Тут будет функция запуска получения информации о статистики
 
-
-
-
 document.getElementById('getstatfromperiod').onclick = async function () {
     let datefrom = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
@@ -9176,7 +9098,6 @@ document.getElementById('parsechat').onclick = async function () {
     }
 }
 
-
 //Функция проверки статусов урока
 let arregetted;
 document.getElementById('startlookstatus').onclick = function () {
@@ -9215,8 +9136,6 @@ document.getElementById('startlookstatus').onclick = function () {
         document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
-
-
 
         setTimeout(function () {
             document.getElementById('responseTextarea1').value = `{}`
@@ -9689,8 +9608,6 @@ function customTemplates(language = '') {
         tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
 
     tmpA.children[2].style.marginLeft = '40px'
-    //	tmpA.children[3].style = 'float:right'
-
 
     function refreshHotTmps() {
         while (document.getElementById('6str').children[0] != undefined)
@@ -10654,17 +10571,13 @@ function prepTp() {
         }
     }
     document.getElementById('app-header').append(buttonGetStat)
-    // var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    // btnAdd.insertBefore(buttonGetStat, btnAdd.children[0])
 
-    //setInterval(checkTicketCountsCrm, 300)
     setInterval(timerHideButtons, 300)
 
     setTimeout(function () {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        // include("https://dimentorexpo.github.io/viewSlack.js") // подключаем модуль Баг-репорта валентина
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
 
@@ -10744,7 +10657,7 @@ if (localStorage.getItem('hesoyam') == 1) {
 
 let lginfo;
 let tokenlog;
-//getlogginer()
+
 let btnpm = document.createElement('button')
 btnpm.innerText = "ПМ";
 btnpm.id = "mathteachercode";
@@ -10809,11 +10722,10 @@ btnpm.onclick = async function () {
         document.getElementById('sendResponse').click()
 
         lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata');
-        //lginfo = await lginfo;
 
         lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
         lginfo = lginfo[lginfo.length - 1].split("\"");
-        //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
+
         copyToClipboard1(lginfo[1])
         document.getElementById('responseTextarea1').removeAttribute('senddata')
 
@@ -10872,7 +10784,6 @@ btnsid.onclick = async function () {
 
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
-            //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
             copyToClipboard1(lginfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
 
@@ -10989,9 +10900,6 @@ function toUTF8Array(str) {
         // surrogate pair
         else {
             i++;
-            // UTF-16 encodes 0x10000-0x10FFFF by
-            // subtracting 0x10000 and splitting the
-            // 20 bits of 0x0-0xFFFFF into two halves
             charcode = 0x10000 + (((charcode & 0x3ff) << 10)
                 | (str.charCodeAt(i) & 0x3ff))
             utf8.push(0xf0 | (charcode >> 18),
@@ -11002,8 +10910,6 @@ function toUTF8Array(str) {
     }
     return utf8;
 }
-
-
 
 function decToHex(dec) {
     var hexStr = '0123456789ABCDEF';
@@ -11021,9 +10927,3 @@ function textToUTF8String(string) {
     }
     return string2
 }
-/*
-function weWillNotBeSlaves() {
-    localStorage.setItem('scriptAdr', TP_addr2)
-    prepTp()
-}
-*/
