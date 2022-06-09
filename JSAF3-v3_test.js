@@ -7612,7 +7612,46 @@ async function remandressl() {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsBiology;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == ''teacher/multi-classroom'' && document.getElementById('achatbtn') == null) {
+        document.querySelector('.navigation').appendChild(achatb)
+        achatb.onclick = addMulticlassrom;
+        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули"
     }
+	
+	async function addMulticlassrom () {
+		
+		        let d = document.cookie;
+        d = d.match(/token_global=(.*)/);
+        let sidarr = [];
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "authorization": "Bearer" + d[1]
+            },
+            "credentials": "include",
+            "method": "POST",
+        }).then(r => r.json()).then(r => artid = r)
+		
+		
+		fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer" + d[1],
+  },
+  "method": "POST",
+  "credentials": "include"
+}).then(r => r.json()).then(data => studarr = data)
+        if (studarr.math != '') {
+            for (let i = 0; i < studarr.math.length; i++) {
+                if (studarr.math[i].status != "sleep")
+                    sidarr += studarr.math[i].id + ","
+            }
+            sidarr = sidarr.split(',');
+            for (let j = 0; j < sidarr.length - 1; j++) {
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+            }
+            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
+        } else alert("Выбран не верный предмет или нет учеников в разделе")}
 
 
     async function addChatseng() {
