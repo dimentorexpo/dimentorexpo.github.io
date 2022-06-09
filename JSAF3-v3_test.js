@@ -7620,6 +7620,10 @@ async function remandressl() {
 		document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addMulticlassromEnglish;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Английский"
+	} else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'computer-science/teacher/multi-classroom' && document.getElementById('achatbtn') == null){
+		document.querySelector('.navigation').appendChild(achatb)
+        achatb.onclick = addMulticlassromComputer;
+        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Компьютерные курсы"
 	}
 	
 	async function addMulticlassromMath () {
@@ -7657,7 +7661,7 @@ async function remandressl() {
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Математика")}
 		
-			async function addMulticlassromEnglish () {
+		async function addMulticlassromEnglish () {
 		
 		        let d = document.cookie;
         d = d.match(/token_global=(.*)/);
@@ -7690,7 +7694,44 @@ async function remandressl() {
                 fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Английский ящык")}
+        } else alert("Выбран не верный предмет или нет учеников в разделе Английский ящык")
+		}
+		
+				async function addMulticlassromComputer () {
+		
+		        let d = document.cookie;
+        d = d.match(/token_global=(.*)/);
+        let sidarr = [];
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "authorization": "Bearer" + d[1]
+            },
+            "credentials": "include",
+            "method": "POST",
+        }).then(r => r.json()).then(r => artid = r)
+		
+		
+		await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"authorization": "Bearer" + d[1],
+		  },
+		  "method": "POST",
+		  "credentials": "include"
+		}).then(r => r.json()).then(data => studarr = data)
+        if (studarr.computer-science != '') {
+            for (let i = 0; i < studarr.computer-science.length; i++) {
+                if (studarr.computer-science[i].status != "sleep")
+                    sidarr += studarr.computer-science[i].id + ","
+            }
+            sidarr = sidarr.split(',');
+            for (let j = 0; j < sidarr.length - 1; j++) {
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+            }
+            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
+        } else alert("Выбран не верный предмет или нет учеников в разделе Английский ящык")
+		}
 
 
     async function addChatseng() {
