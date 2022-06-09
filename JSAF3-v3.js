@@ -7560,59 +7560,98 @@ async function remandressl() {
     achatb.style = 'cursor:pointer;'
 
 
-    if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/english/teacher' && document.getElementById('achatbtn') == null) {
+    if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' &&  document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/english/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatseng;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Английскому языку"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/computer-science/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/computer-science/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsCompCours;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Компьютерным курсам"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chess/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chess/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsChess;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Шахматам"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/math/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/math/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsMath;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Математике"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/russian/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/russian/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsRuslng;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Русскому языку"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/preschool/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/preschool/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsPreschool;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Дошколке"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/physics/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/physics/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsPhysics;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Физике"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/social-science/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/social-science/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsSocial;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Обществознанию"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/literature/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/literature/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsLiterature;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Литературе"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/history/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/history/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsHistory;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Истории"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/geography/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/geography/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsGeography;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Географии"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chemistry/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chemistry/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsChemistry;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Химии"
-    } else if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/biology/teacher' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/biology/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsBiology;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
+        document.querySelector('.navigation').appendChild(achatb)
+        achatb.onclick = addMulticlassrom;
+        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули"
     }
+	
+	async function addMulticlassrom () {
+		
+		        let d = document.cookie;
+        d = d.match(/token_global=(.*)/);
+        let sidarr = [];
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "authorization": "Bearer" + d[1]
+            },
+            "credentials": "include",
+            "method": "POST",
+        }).then(r => r.json()).then(r => artid = r)
+		
+		
+		await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"authorization": "Bearer" + d[1],
+		  },
+		  "method": "POST",
+		  "credentials": "include"
+		}).then(r => r.json()).then(data => studarr = data)
+        if (studarr.math != '') {
+            for (let i = 0; i < studarr.math.length; i++) {
+                if (studarr.math[i].status != "sleep")
+                    sidarr += studarr.math[i].id + ","
+            }
+            sidarr = sidarr.split(',');
+            for (let j = 0; j < sidarr.length - 1; j++) {
+                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+            }
+            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
+        } else alert("Выбран не верный предмет или нет учеников в разделе")}
 
 
     async function addChatseng() {

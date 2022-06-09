@@ -7560,7 +7560,7 @@ async function remandressl() {
     achatb.style = 'cursor:pointer;'
 
 
-    if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/english/teacher' && document.getElementById('achatbtn') == null) {
+    if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' &&  document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/english/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatseng;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Английскому языку"
@@ -7633,14 +7633,14 @@ async function remandressl() {
         }).then(r => r.json()).then(r => artid = r)
 		
 		
-		fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-  "headers": {
-    "accept": "application/json, text/plain, */*",
-    "authorization": "Bearer" + d[1],
-  },
-  "method": "POST",
-  "credentials": "include"
-}).then(r => r.json()).then(data => studarr = data)
+		await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"authorization": "Bearer" + d[1],
+		  },
+		  "method": "POST",
+		  "credentials": "include"
+		}).then(r => r.json()).then(data => studarr = data)
         if (studarr.math != '') {
             for (let i = 0; i < studarr.math.length; i++) {
                 if (studarr.math[i].status != "sleep")
