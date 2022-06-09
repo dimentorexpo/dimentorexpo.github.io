@@ -7720,7 +7720,7 @@ async function remandressl() {
 		  "method": "POST",
 		  "credentials": "include"
 		}).then(r => r.json()).then(data => studarr = data)
-        if (studarrtesto['computer-science'] != '') {
+        if (studarr['computer-science'] != '') {
             for (let i = 0; i < studarr['computer-science'].length; i++) {
                 if (studarr['computer-science'][i].status != "sleep")
                     sidarr += studarr['computer-science'][i].id + ","
