@@ -7612,7 +7612,7 @@ async function remandressl() {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addChatsBiology;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
-    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == ''teacher/multi-classroom'' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addMulticlassrom;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули"
