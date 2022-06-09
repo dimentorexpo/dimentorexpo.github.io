@@ -7697,7 +7697,7 @@ async function remandressl() {
         } else alert("Выбран не верный предмет или нет учеников в разделе Английский ящык")
 		}
 		
-				async function addMulticlassromComputer () {
+		async function addMulticlassromComputer () {
 		
 		        let d = document.cookie;
         d = d.match(/token_global=(.*)/);
@@ -7720,10 +7720,10 @@ async function remandressl() {
 		  "method": "POST",
 		  "credentials": "include"
 		}).then(r => r.json()).then(data => studarr = data)
-        if (studarr.computer-science != '') {
-            for (let i = 0; i < studarr.computer-science.length; i++) {
-                if (studarr.computer-science[i].status != "sleep")
-                    sidarr += studarr.computer-science[i].id + ","
+        if (studarrtesto['computer-science'] != '') {
+            for (let i = 0; i < studarr['computer-science'].length; i++) {
+                if (studarr['computer-science'][i].status != "sleep")
+                    sidarr += studarr['computer-science'][i].id + ","
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
