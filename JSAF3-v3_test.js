@@ -2663,9 +2663,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
             document.getElementById('responseTextarea3').value = 'responseupdate'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
-            commonidentity = await document.getElementById('responseTextarea1').getAttribute('responseupdate');
+            commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
 
             if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
                 emailidentity = "📧✖";
@@ -2710,9 +2710,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
             document.getElementById('responseTextarea3').value = 'phoneishere'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
-            unhidephone = await document.getElementById('responseTextarea1').getAttribute('phoneishere');
+            unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
             unhidephone = JSON.parse(unhidephone);
             unhidephone = unhidephone.data.value;
             document.getElementById('responseTextarea1').removeAttribute('phoneishere')
@@ -2743,10 +2743,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
             document.getElementById('responseTextarea3').value = 'emailishere'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
             unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-            unhidenemail = await unhidenemail;
             unhidenemail = JSON.parse(unhidenemail);
             unhidenemail = unhidenemail.data.value;
             document.getElementById('responseTextarea1').removeAttribute('emailishere')
@@ -2778,9 +2777,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
             document.getElementById('responseTextarea3').value = 'arrayofservices'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
-            servicearray = await document.getElementById('responseTextarea1').getAttribute('arrayofservices');
+            servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
             servicearray = JSON.parse(servicearray);
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
@@ -2812,10 +2811,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
             document.getElementById('responseTextarea3').value = 'getusernageinfo'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
             getageofuser = document.getElementById('responseTextarea1').getAttribute('getusernageinfo');
-            getageofuser = await getageofuser;
             getageofuser = JSON.parse(getageofuser);
             document.getElementById('responseTextarea1').removeAttribute('getusernageinfo');
             let goddata = new Date()
@@ -2863,10 +2861,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
             document.getElementById('responseTextarea3').value = 'getusernameinfo'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
             studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-            studentname = await studentname;
             studentname = JSON.parse(studentname);
             nameofuser = "";
             teachername = "";
@@ -2991,9 +2988,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
             document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
-            getcrmstatusinfo = await document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+            getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
             getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
             let flagtpout = 0;
             let flagtp = 0;
@@ -5416,9 +5413,9 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
             document.getElementById('responseTextarea3').value = 'heredata'
-            document.getElementById('sendResponse').click()
-            grdata = await document.getElementById('responseTextarea1').getAttribute('heredata');
-            //grdata = await grdata;
+            await document.getElementById('sendResponse').click()
+
+            grdata = document.getElementById('responseTextarea1').getAttribute('heredata');
             grdata = JSON.parse(grdata);
             document.getElementById('responseTextarea1').removeAttribute('heredata');
 
@@ -5474,9 +5471,9 @@ function move_again_AF() {
                                             }`
                         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
                         document.getElementById('responseTextarea3').value = 'dataname'
-                        document.getElementById('sendResponse').click()
+                        await document.getElementById('sendResponse').click()
+
                         namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
-                        namedata = await namedata;
                         namedata = JSON.parse(namedata);
                         arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
                         namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
@@ -10983,11 +10980,9 @@ btnsid.onclick = async function () {
 			}`
             document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
             document.getElementById('responseTextarea3').value = 'senddata1'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
             lginfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-            lginfo = await lginfo;
-
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
             copyToClipboard1(lginfo[1])
@@ -11043,11 +11038,9 @@ btntid.onclick = async function () {
 			}`
             document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
             document.getElementById('responseTextarea3').value = 'senddata2'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
             lginfo = document.getElementById('responseTextarea1').getAttribute('senddata2');
-            lginfo = await lginfo;
-
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
             //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
