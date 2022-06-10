@@ -2957,9 +2957,9 @@ function move_again_AF() {
             }`
             document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
             document.getElementById('responseTextarea3').value = 'postdata'
-            document.getElementById('sendResponse').click()
+            await document.getElementById('sendResponse').click()
 
-            logginerinfo = await document.getElementById('responseTextarea1').getAttribute('postdata');
+            logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
             copyToClipboard1(logginerinfo[1])
