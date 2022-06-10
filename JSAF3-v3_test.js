@@ -3826,9 +3826,11 @@ function move_again_AF() {
                         copyToClipboard1(unhidephone);
                     };
 
-                    document.getElementById('getshowcase1').onclick = () => {
-                        copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
-                    };
+                    if (document.getElementById('getshowcase1') != null) {
+                        document.getElementById('getshowcase1').onclick = () => {
+                            copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                        };
+                    }
 
                     document.getElementById('getloginer1').addEventListener('click', function () {
                         postuderdatatologin();
@@ -3857,10 +3859,11 @@ function move_again_AF() {
                     postuderdatatologin();
                 })
 
-                document.getElementById('getshowcase').onclick = () => {
-                    copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
-                };
-
+                if (document.getElementById('getshowcase') != null) {
+                    document.getElementById('getshowcase').onclick = () => {
+                        copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                    };
+                }
 
                 if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
                     let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
