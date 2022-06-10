@@ -1839,7 +1839,7 @@ servDsk.style = "margin-right:15px; cursor:pointer";
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform..style = "margin-right:15px; cursor:pointer";
+butopensugestform.style = "margin-right:15px; cursor:pointer";
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
