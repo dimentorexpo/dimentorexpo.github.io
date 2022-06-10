@@ -1618,14 +1618,11 @@ marksstata.onclick = async function () {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('useridsearch').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
-        let tempval = document.getElementById('useridsearch').value;
         findmarksstat.click();
 		findMarks();
 
     } else {
         document.getElementById('findmarksstat').onclick = async function () {
-            let tempval = document.getElementById('useridsearch').value.trim();
-
 			findMarks();
         }
     }
@@ -1637,7 +1634,7 @@ marksstata.onclick = async function () {
 
 async function findMarks() {
 	
-	 var date = new Date()
+				var date = new Date()
 
                 day = month = ""
                 if (date.getMonth() < 9)
@@ -1663,6 +1660,8 @@ async function findMarks() {
 
                 secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 				
+				
+    let tempval = document.getElementById('useridsearch').value.trim();
 	document.getElementById('markstable').innerText = "Загрузка..."
 	await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
@@ -5301,8 +5300,6 @@ function move_again_AF() {
         else {
             document.getElementById('AF_Marks').style.display = ''
             document.getElementById('findmarksstat').onclick = async function () {
-                let tempval = document.getElementById('useridsearch').value.trim();
-				
 				findMarks()
             }
 
