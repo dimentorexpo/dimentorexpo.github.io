@@ -3091,7 +3091,7 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('changelocalelng').onclick = () => { // по клику функция меняет язык обслуживания на русский в СРМке
+    document.getElementById('changelocalelng').onclick = () => { // по клику функция меняет язык обслуживания на русский в СРМке в меню User info в виде вензеля
 
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
@@ -3115,8 +3115,7 @@ function move_again_AF() {
         setTimeout(() => { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
     }
 
-
-    document.getElementById('setservicelocaleru').onclick = () => {
+    document.getElementById('setservicelocaleru').onclick = () => { // по клику функция меняет язык обслуживания на русский в СРМке в меню Links
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
@@ -3140,16 +3139,16 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('setservicelocaleru').innerHTML = "🚀" }, 2000);
     }
 
-
-    document.getElementById('catchathistory').onclick = () => {
+    document.getElementById('catchathistory').onclick = () => { // поиск по истории чатов по пользователю в "коте"
 
         if (document.querySelector('#hide_or_display').textContent != "свернуть") {
             hide_or_display.click()
             document.getElementById('user_id').value = document.getElementById('idstudent').value;
             search.click()
-        } else if (document.querySelector('#hide_or_display').textContent == "свернуть")
+        } else {
             document.getElementById('user_id').value = document.getElementById('idstudent').value;
-        search.click()
+            search.click()
+        }
     }
 
     document.getElementById('sguid').onclick = () => {                      //переход в инфо-кабинет по ученику из группового урока
