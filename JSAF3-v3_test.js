@@ -1824,26 +1824,22 @@ hashBut.style.marginRight = "15px";
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
-butServ.style.marginRight = "15px";
-butServ.style.cursor = "pointer";
+butServ.style = "margin-right:15px; cursor:pointer";
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "📊Оценки"
-butMarks.style.marginRight = "15px";
-butMarks.style.cursor = "pointer";
+butMarks.style.style = "margin-right:15px; cursor:pointer";
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style.marginRight = "15px";
-servDsk.style.cursor = "pointer";
+servDsk.style = "margin-right:15px; cursor:pointer";
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style.marginRight = "15px";
-butopensugestform.style.cursor = "pointer";
+butopensugestform..style = "margin-right:15px; cursor:pointer";
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
