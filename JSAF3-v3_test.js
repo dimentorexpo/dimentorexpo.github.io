@@ -2,6 +2,13 @@
 let pldata;
 let drevo;
 let afopername;
+let commonidentity;
+let emailidentity;
+let phoneidentity;
+let unhidephone;
+let unhidenemail;
+let servicearray = "";
+
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -1592,7 +1599,7 @@ let template_text = ""
 let flagggg = 0
 
 
-buttonhistory.onclick = function () { //функция поиска пр истории чатов в коте
+buttonhistory.onclick = () => { //функция поиска пр истории чатов в коте
     if (document.querySelector('#hide_or_display').textContent != "свернуть") {
         hide_or_display.click()
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -1627,7 +1634,7 @@ marksstata.onclick = async function () { // функция поиска оцен
         }
     }
 
-    document.getElementById('clearmarksstat').onclick = function () {
+    document.getElementById('clearmarksstat').onclick = () => {
         document.getElementById('markstable').innerHTML = "";
     }
 }
@@ -1714,7 +1721,7 @@ async function findMarks() { //функция поиска оценок от п�
     document.getElementById('useridsearch').value = "";
 }
 
-buttonnextstudentid.onclick = function () { //поиск истории по ученику если П обратился
+buttonnextstudentid.onclick = () => { //поиск истории по ученику если П обратился
     if (document.querySelector('#hide_or_display').textContent != "свернуть") {
         hide_or_display.click()
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -1731,7 +1738,7 @@ buttonnextstudentid.onclick = function () { //поиск истории по у�
     }
 }
 
-buttonnextteacherid.onclick = function () { //поиск истории по учителю если У обратился
+buttonnextteacherid.onclick = () => { //поиск истории по учителю если У обратился
     if (document.querySelector('#hide_or_display').textContent != "свернуть") {
         hide_or_display.click()
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -1748,7 +1755,7 @@ buttonnextteacherid.onclick = function () { //поиск истории по у�
     }
 }
 
-button2.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+button2.onclick = () => { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -1758,7 +1765,7 @@ button2.onclick = function () { //функция Info по нажатию на �
     btn1_student.click()
 }
 
-buttonserv.onclick = function () { // переносит айдишник У в поле user info в виде вензеля виджета и запускает кнопку ракету для получения информации о пользователе
+buttonserv.onclick = () => { // переносит айдишник У в поле user info в виде вензеля виджета и запускает кнопку ракету для получения информации о пользователе
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -1770,7 +1777,7 @@ buttonserv.onclick = function () { // переносит айдишник У в 
     }
 }
 
-buttonservteach.onclick = function () { // переносит айдишник П в поле user info  в виде вензеля виджета и запускает кнопку ракету для получения информации о пользователе
+buttonservteach.onclick = () => { // переносит айдишник П в поле user info  в виде вензеля виджета и запускает кнопку ракету для получения информации о пользователе
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -1782,7 +1789,7 @@ buttonservteach.onclick = function () { // переносит айдишник �
     }
 }
 
-buttonservstud.onclick = function () { // переносит айдишник обратившегося в поле user info в виде вензеля виджета и запускает кнопку ракету для получения информации о пользователе
+buttonservstud.onclick = () => { // переносит айдишник обратившегося в поле user info в виде вензеля виджета и запускает кнопку ракету для получения информации о пользователе
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -1794,7 +1801,7 @@ buttonservstud.onclick = function () { // переносит айдишник о
     }
 }
 
-button3.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+button3.onclick = () => { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -1804,7 +1811,7 @@ button3.onclick = function () { //функция Info по нажатию на �
     btn1_student.click()
 }
 
-button4.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+button4.onclick = () => { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementById('btn_hide').style.display != 'none')
         btn_hide.click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -1873,7 +1880,7 @@ maskBack.id = "maskBack"
 maskBack.innerHTML = "Вернуть"
 maskBack.style = "margin-right: 15px; display: none";
 
-maskBack.onclick = function () { // кнопка с функцией для Возвращения свернутого окна при нажатии кнопки "Скрыть"
+maskBack.onclick = () => { // кнопка с функцией для Возвращения свернутого окна при нажатии кнопки "Скрыть"
     name = document.getElementById('maskBack').getAttribute('name')
     email = document.getElementById('maskBack').getAttribute('email')
     phone = document.getElementById('maskBack').getAttribute('phone')
@@ -1898,7 +1905,7 @@ maskBackHide.innerHTML = "Скрыть"
 maskBackHide.style = "margin-right: 15px; margin-left: 15px;";
 maskBackHide.style.display = "";
 
-maskBackHide.onclick = function () { // функция для сворачивания открытого окна и потом соответственно вернуть в том где было открыто
+maskBackHide.onclick = () => { // функция для сворачивания открытого окна и потом соответственно вернуть в том где было открыто
     if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.innerText == "Добавить комментарий к диалогу") {
         document.getElementsByClassName('ant-modal-wrap')[0].style.display = 'none'
         document.getElementsByClassName('ant-modal-mask')[0].style.display = 'none'
@@ -1929,7 +1936,7 @@ maskBackHide.onclick = function () { // функция для сворачива
         }
 }
 
-hashBut.onclick = function () { // кнопка с функцией копирования хеша активного чата с добавлением hdi.skyeng.ru....
+hashBut.onclick = () => { // кнопка с функцией копирования хеша активного чата с добавлением hdi.skyeng.ru....
     adr = document.location.href
     adr1 = document.location.pathname
     adr1 = adr1.split('/')
@@ -2050,7 +2057,7 @@ wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = fu
     window.myY4 = a.layerY;
     document.addEventListener('mousemove', listener4);
 }
-wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listener4); }
+wintLinks.onmouseup = () => { document.removeEventListener('mousemove', listener4); }
 
 
 var listener5 = function (e, a) { // сохранение позиции окна ссылок
@@ -2065,7 +2072,7 @@ wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = fun
     window.myY5 = a.layerY;
     document.addEventListener('mousemove', listener5);
 }
-wintJira.onmouseup = function () { document.removeEventListener('mousemove', listener5); }
+wintJira.onmouseup = () => { document.removeEventListener('mousemove', listener5); }
 
 var listener6 = function (e, a) { // сохранение позиции окна ссылок
     wintStat.style.left = Number(e.clientX - myX6) + "px";
@@ -2079,7 +2086,7 @@ wintStat.firstElementChild.firstElementChild.firstElementChild.onmousedown = fun
     window.myY6 = a.layerY;
     document.addEventListener('mousemove', listener6);
 }
-wintStat.onmouseup = function () { document.removeEventListener('mousemove', listener6); }
+wintStat.onmouseup = () => { document.removeEventListener('mousemove', listener6); }
 
 var listener7 = function (e, a) { // сохранение позиции окна ссылок
     wintServices.style.left = Number(e.clientX - myX7) + "px";
@@ -2093,7 +2100,7 @@ wintServices.firstElementChild.firstElementChild.firstElementChild.onmousedown =
     window.myY7 = a.layerY;
     document.addEventListener('mousemove', listener7);
 }
-wintServices.onmouseup = function () { document.removeEventListener('mousemove', listener7); }
+wintServices.onmouseup = () => { document.removeEventListener('mousemove', listener7); }
 
 var listener8 = function (e, a) { // сохранение позиции окна ссылок
     wintLessonStatus.style.left = Number(e.clientX - myX8) + "px";
@@ -2107,7 +2114,7 @@ wintLessonStatus.firstElementChild.firstElementChild.firstElementChild.onmousedo
     window.myY8 = a.layerY;
     document.addEventListener('mousemove', listener8);
 }
-wintLessonStatus.onmouseup = function () { document.removeEventListener('mousemove', listener8); }
+wintLessonStatus.onmouseup = () => { document.removeEventListener('mousemove', listener8); }
 
 var listener9 = function (e, a) { // сохранение позиции окна доступов
     wintLinksd.style.left = Number(e.clientX - myX9) + "px";
@@ -2121,7 +2128,7 @@ wintLinksd.firstElementChild.firstElementChild.firstElementChild.onmousedown = f
     window.myY9 = a.layerY;
     document.addEventListener('mousemove', listener9);
 }
-wintLinksd.onmouseup = function () { document.removeEventListener('mousemove', listener9); }
+wintLinksd.onmouseup = () => { document.removeEventListener('mousemove', listener9); }
 
 var listener10 = function (e, a) { // сохранение позиции окна доступов
     wintTimetable.style.left = Number(e.clientX - myX10) + "px";
@@ -2135,7 +2142,7 @@ wintTimetable.firstElementChild.firstElementChild.firstElementChild.onmousedown 
     window.myY10 = a.layerY;
     document.addEventListener('mousemove', listener10);
 }
-wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listener10); }
+wintTimetable.onmouseup = () => { document.removeEventListener('mousemove', listener10); }
 
 var listener11 = function (e, a) { // сохранение позиции окна доступов
     wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
@@ -2149,7 +2156,7 @@ wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedow
     window.myY11 = a.layerY;
     document.addEventListener('mousemove', listener11);
 }
-wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listener11); }
+wintTechSummary.onmouseup = () => { document.removeEventListener('mousemove', listener11); }
 
 var listener12 = function (e, a) { // сохранение позиции окна доступов
     wintServDsk.style.left = Number(e.clientX - myX12) + "px";
@@ -2163,7 +2170,7 @@ wintServDsk.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
     window.myY12 = a.layerY;
     document.addEventListener('mousemove', listener12);
 }
-wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listener12); }
+wintServDsk.onmouseup = () => { document.removeEventListener('mousemove', listener12); }
 
 var listener13 = function (e, a) { // сохранение позиции окна доступов
     wintGrList.style.left = Number(e.clientX - myX13) + "px";
@@ -2177,7 +2184,7 @@ wintGrList.firstElementChild.firstElementChild.firstElementChild.onmousedown = f
     window.myY13 = a.layerY;
     document.addEventListener('mousemove', listener13);
 }
-wintGrList.onmouseup = function () { document.removeEventListener('mousemove', listener13); }
+wintGrList.onmouseup = () => { document.removeEventListener('mousemove', listener13); }
 
 var listener14 = function (e, a) { // сохранение позиции окна доступов
     wintMarks.style.left = Number(e.clientX - myX14) + "px";
@@ -2191,7 +2198,7 @@ wintMarks.firstElementChild.firstElementChild.firstElementChild.onmousedown = fu
     window.myY14 = a.layerY;
     document.addEventListener('mousemove', listener14);
 }
-wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listener14); }
+wintMarks.onmouseup = () => { document.removeEventListener('mousemove', listener14); }
 
 var listener15 = function (e, a) { // сохранение позиции окна доступов
     wintSugform.style.left = Number(e.clientX - myX15) + "px";
@@ -2205,50 +2212,50 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
     window.myY15 = a.layerY;
     document.addEventListener('mousemove', listener15);
 }
-wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
+wintSugform.onmouseup = () => { document.removeEventListener('mousemove', listener15); }
 
-document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('links_1str').ondblclick = () => { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
-document.getElementById('links_but').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('links_but').ondblclick = () => { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
-document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('links_butd').ondblclick = () => { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
-document.getElementById('linksd_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('linksd_1str').ondblclick = () => { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Linksd').style.display = 'none';
 }
-document.getElementById('linksd_kib_box').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('linksd_kib_box').ondblclick = () => { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Linksd').style.display = 'none';
 }
-document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('jira_1str').ondblclick = () => { // скрытие окна Jira найденных задач по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
-document.getElementById('grlistdata').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('grlistdata').ondblclick = () => { // скрытие окна списка учеников по двойному клику
     document.getElementById('AF_GrList').style.display = 'none';
 }
-document.getElementById('HeadTimetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('HeadTimetable').ondblclick = () => { // скрытие окна расписания уроков по двойному клику
     document.getElementById('AF_Timetable').style.display = 'none';
     document.getElementById('timetabledata').innerHTML = "";
 }
-document.getElementById('HeadTechSummary').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('HeadTechSummary').ondblclick = () => { // скрытие окна информации об устройстве пользователя по двойному клику
     document.getElementById('AF_TechSummary').style.display = 'none';
     document.getElementById('techsumdata').innerHTML = "";
 }
-document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('issuetable').ondblclick = () => { // скрытие окна Jira найденных задач по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
-document.getElementById('statdata').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('statdata').ondblclick = () => { // скрытие окна статистики по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
 }
-document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('chatcoutnsinfo').ondblclick = () => { // скрытие окна статистики по двойному клику
     document.getElementById('AF_Stat').style.display = 'none';
 }
-document.getElementById('lessomstatdata').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('lessomstatdata').ondblclick = () => { // скрытие окна татуса уроков  по двойному клику
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
-document.getElementById('databox').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('databox').ondblclick = () => { // скрытие окна статуса уроков по двойному клику
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
@@ -2291,18 +2298,18 @@ function move_again_AF() {
         window.myY2 = a.layerY;
         document.addEventListener('mousemove', listener2);
     }
-    wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
+    wintAF.onmouseup = () => { document.removeEventListener('mousemove', listener2); }
 
-    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
+    document.getElementById('sound_test').onclick = () => { // кнопка тест звука
         audio.play()
     }
 
-    document.getElementById('setteststd').onclick = function () {
+    document.getElementById('setteststd').onclick = () => {
         if (document.getElementById('test_std').value != '') {
             localStorage.setItem('test_stud', document.getElementById('test_std').value);
         } else console.log("Ведите ID тестового ученика")
     }
-    document.getElementById('settestteach').onclick = function () {
+    document.getElementById('settestteach').onclick = () => {
         if (document.getElementById('test_teach').value != '') {
             localStorage.setItem('test_teach', document.getElementById('test_teach').value);
         } else console.log("Ведите ID тестового преподавателя")
@@ -2319,7 +2326,7 @@ function move_again_AF() {
 
     setInterval(setactivechatstyle, 1000)
 
-    function clock_on_javascript_1() {
+    function clock_on_javascript_1() { //  функция отсчета таймера текущего времени
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -2331,7 +2338,7 @@ function move_again_AF() {
         document.getElementById("clock_js").innerHTML = time;
     }
 
-    function clock_on_javascript_2() {
+    function clock_on_javascript_2() { // функция отсчета таймера до срабатывания будильника
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -2365,7 +2372,7 @@ function move_again_AF() {
     }
 
     // обработка нажатий на странице доступов
-    document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
+    document.getElementById('kibsvidbut').onclick = () => { // kibana Tech Summary - ID
         if (kibsvid.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -2374,7 +2381,7 @@ function move_again_AF() {
         kibsvid.value = "";
     }
 
-    document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
+    document.getElementById('kibsvheshbut').onclick = () => { // kibana Tech Summary - хэш
         if (kibsvhesh.value == "") {
             console.log('Введите ХЭШ в поле')
         } else {
@@ -2383,7 +2390,7 @@ function move_again_AF() {
         kibsvhesh.value = "";
     }
 
-    document.getElementById('kibservheshbut').onclick = function () { // kibana найти по хешу комнаты сервер
+    document.getElementById('kibservheshbut').onclick = () => { // kibana найти по хешу комнаты сервер
         if (kibservhesh.value == "") {
             console.log('Введите ХЭШ в поле')
         } else {
@@ -2392,7 +2399,7 @@ function move_again_AF() {
         kibservhesh.value = "";
     }
 
-    document.getElementById('kibslowbut').onclick = function () { // kibana Слоулинки, дисконнекты, отвалы
+    document.getElementById('kibslowbut').onclick = () => { // kibana Слоулинки, дисконнекты, отвалы
         if (kibslow.value == "") {
             console.log('Введите ХЭШ в поле')
         } else {
@@ -2401,7 +2408,7 @@ function move_again_AF() {
         kibslow.value = "";
     }
 
-    document.getElementById('kibheshvidbut').onclick = function () { // kibana видео-аудио не передавалось
+    document.getElementById('kibheshvidbut').onclick = () => { // kibana видео-аудио не передавалось
         if (kibheshvid.value == "") {
             console.log('Введите ХЭШ в поле')
         } else {
@@ -2410,7 +2417,7 @@ function move_again_AF() {
         kibheshvid.value = "";
     }
 
-    document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
+    document.getElementById('kibstiheshbut').onclick = () => { // kibana Стрим локально и до платформы
         if (kibstihesh.value == "") {
             console.log('Введите ХЭШ в поле')
         } else {
@@ -2419,7 +2426,7 @@ function move_again_AF() {
         kibstihesh.value = "";
     }
 
-    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК	
+    document.getElementById('kiblkbut').onclick = () => { // kibana вход в ЛК	
         if (kiblk.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -2428,7 +2435,7 @@ function move_again_AF() {
         kiblk.value = "";
     }
     // действия конопок редаш в окне доступов
-    document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
+    document.getElementById('mobappidbut').onclick = () => { // Редаш логи действий мобилки
         if (mobappid.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -2437,7 +2444,7 @@ function move_again_AF() {
         mobappid.value = "";
     }
 
-    document.getElementById('rpayidbut').onclick = function () { // Редаш логи платежей
+    document.getElementById('rpayidbut').onclick = () => { // Редаш логи платежей
         if (rpayid.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -2446,7 +2453,7 @@ function move_again_AF() {
         rpayid.value = "";
     }
 
-    document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
+    document.getElementById('GetFeedbackStatus').onclick = () => { // Редаш логи платежей
         if (FeedbackStatus.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -2455,7 +2462,7 @@ function move_again_AF() {
         FeedbackStatus.value = "";
     }
 
-    document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
+    document.getElementById('GetTeacherReport').onclick = () => { // Редаш логи платежей
         if (TeacherReport.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -2464,7 +2471,7 @@ function move_again_AF() {
         TeacherReport.value = "";
     }
 
-    document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
+    document.getElementById('GetUserActions').onclick = () => { // Редаш логи платежей
         if (UserActions.value == "") {
             console.log('Введите id в поле')
         } else {
@@ -2482,11 +2489,9 @@ function move_again_AF() {
     document.getElementById('faqext').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971")    // открываем инструкцию по расширению
     })
-
     document.getElementById('curVeriOS').addEventListener('click', function () {
         window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")    // открываем инструкцию по расширению
     })
-
     document.getElementById('curVerAndroid').addEventListener('click', function () {
         window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")    // открываем инструкцию по расширению
     })
@@ -2502,11 +2507,9 @@ function move_again_AF() {
     document.getElementById('useradm').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
     })
-
-    document.getElementById('GotoCRM').onclick = function () {
+    document.getElementById('GotoCRM').onclick = () => {
         window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
     }
-
     document.getElementById('suggestions').addEventListener('click', function () {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
     })
@@ -2525,17 +2528,14 @@ function move_again_AF() {
     document.getElementById('groupfeatures').addEventListener('click', function () {
         window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
     })
-
     document.getElementById('confbugs').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
     })
-
     document.getElementById('restartlesson').addEventListener('click', function () {
         copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
         document.getElementById('restartlesson').innerHTML = "Copied!";
         setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
     })
-
     document.getElementById('enableNS').addEventListener('click', function () {
         copyToClipboard("https://vimbox.skyeng.ru/start?enableNewStudent")   // копируем ссылку в буфер для перезапуска урока математики
         document.getElementById('enableNS').innerHTML = "Copied!";
@@ -2550,31 +2550,25 @@ function move_again_AF() {
     document.getElementById('testroom').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")    // открываем ссылку в админку тестовых комнат
     })
-
     document.getElementById('certificates').addEventListener('click', function () {
         window.open("https://billing-marketing.skyeng.ru/certificate/certSearch")    // открываем ссылку в новой вкладке на Подарочные сертификаты
     })
-
     document.getElementById('promocodes').addEventListener('click', function () {
         window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
     })
-
     document.getElementById('cmswordssearch').addEventListener('click', function () {
         window.open("https://dictionary.skyeng.ru/cms/word/333")    // открываем ссылку для просмотра CMSки слова мининг переводы и тп
     })
-
     document.getElementById('TCQnew').addEventListener('click', function () {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSfZbw1GkZzerHWQGGbYslV6AsGTGxEKhNZFC1LV-TySHca9Fw/viewform")    // открываем ссылку в новой вкладке на форму для внесения вопросов от П TC
     })
-
     document.getElementById('TCQtable').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
     })
-
     document.getElementById('userfeatures').addEventListener('click', function () {
         window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
     })
-    document.getElementById('benchmark').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
+    document.getElementById('benchmark').onclick = () => {                  //поиск по имени процессора на сайте cpubenchmark
         let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
         if (cpuname.value == "")
             console.log('Введите CPU в поле')
@@ -2584,7 +2578,7 @@ function move_again_AF() {
         cpuname.value = "";
     }
 
-    document.getElementById('getmvureport').onclick = function () {                  //копирует в буфер ссылку на отчет МВУ
+    document.getElementById('getmvureport').onclick = () => {                  //копирует в буфер ссылку на отчет МВУ
         if (reportmvu.value == "")
             console.log('Введите ID в поле')
         else {
@@ -2595,12 +2589,12 @@ function move_again_AF() {
         reportmvu.value = "";
     }
 
-    var abortTimeOut = ''								// перменная для отмены будильника
+    var abortTimeOut = ''								// переменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
     }
 
-    document.getElementById('setreminder').onclick = function () {  // выставляем будильник
+    document.getElementById('setreminder').onclick = () => {  // выставляем будильник
         document.getElementById('reminderstatus').textContent = "🔔";
         localStorage.setItem('setchas', setchas.value);
         if (setminuta.value == "00") {
@@ -2631,7 +2625,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника
+    document.getElementById('clock_remin').ondblclick = () => {		// Удаление будильника
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             clearTimeout(abortTimeOut)
             localStorage.removeItem('chronostamp')
@@ -2663,7 +2657,7 @@ function move_again_AF() {
         setminuta.value = "";
     }
 
-    document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
+    document.getElementById('cmsid').onclick = () => {                     // переход на степID в CMSке
         let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
         if (cmsstepid.value == "")
             console.log('Введите STEPUUID в поле')
@@ -2673,25 +2667,25 @@ function move_again_AF() {
         cmsstepid.value = "";
     }
 
-    document.getElementById('checkbalance').onclick = function () { // открывает начислятор
+    document.getElementById('checkbalance').onclick = () => { // открывает начислятор
         window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
     }
 
-    document.getElementById('getkglinfokid').onclick = function () { //открывает дашборд для ГУ для  ученика
+    document.getElementById('getkglinfokid').onclick = () => { //открывает дашборд для ГУ для  ученика
         window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('partialpaymentinfo').onclick = function () { //открывает рассрочку
+    document.getElementById('partialpaymentinfo').onclick = () => { //открывает рассрочку
         window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('editadmbtn').onclick = function () { // редактирование пользователя
+    document.getElementById('editadmbtn').onclick = () => { // редактирование пользователя
         let stuid = document.getElementById('idstudent').value;
         stuid = stuid.trim();
         window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
     }
 
-    document.getElementById('getonetimepass').onclick = function () {
+    document.getElementById('getonetimepass').onclick = () => { // генерирует разовый пароль для мобилки
         if (document.getElementById('idstudent').value == "")
             console.log('Введите id в поле')
         else {
@@ -2731,15 +2725,10 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
     }
 
-    let commonidentity;
-    let emailidentity;
-    let phoneidentity;
-    async function checkemailandphoneidentity() {
+    async function checkemailandphoneidentity() { // функция проверки подключения почты и телефона как айдентити
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"cache-control": "max-age=0",
 				"sec-fetch-dest": "document",
 				"sec-fetch-mode": "navigate",
 				"sec-fetch-site": "none",
@@ -2762,8 +2751,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'responseupdate'
             document.getElementById('sendResponse').click()
 
-            commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-            commonidentity = await commonidentity;
+            commonidentity = await document.getElementById('responseTextarea1').getAttribute('responseupdate');
 
             if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
                 emailidentity = "📧✖";
@@ -2784,9 +2772,7 @@ function move_again_AF() {
         }, 550)
     }
 
-    let unhidephone;
-
-    async function getunhidephone() {
+    async function getunhidephone() { //функция получения номера телефона не зашифрованного доп набором цифр
 
         document.getElementById('responseTextarea1').value = `{
 		  "headers": {
@@ -2812,8 +2798,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'phoneishere'
             document.getElementById('sendResponse').click()
 
-            unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
-            unhidephone = await unhidephone;
+            unhidephone = await document.getElementById('responseTextarea1').getAttribute('phoneishere');
             unhidephone = JSON.parse(unhidephone);
             unhidephone = unhidephone.data.value;
             document.getElementById('responseTextarea1').removeAttribute('phoneishere')
@@ -2821,8 +2806,7 @@ function move_again_AF() {
         }, 600)
     }
 
-    let unhidenemail;
-    async function getunhideemail() {
+    async function getunhideemail() { //функция получения почты не зашифрованного доп набором ***
         document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -2856,8 +2840,8 @@ function move_again_AF() {
         }, 600)
     }
 
-    let servicearray = "";
-    async function getservicearr() {
+
+    async function getservicearr() { // функция получения списка услуг пользователя
 
         document.getElementById('responseTextarea1').value = `{
             "headers": {
@@ -2883,15 +2867,14 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'arrayofservices'
             document.getElementById('sendResponse').click()
 
-            servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
-            servicearray = await servicearray;
+            servicearray = await document.getElementById('responseTextarea1').getAttribute('arrayofservices');
             servicearray = JSON.parse(servicearray);
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
         }, 1000)
     }
 
-    document.getElementById('getlessonpast').onclick = function () {
+    document.getElementById('getlessonpast').onclick = () => { // по клику выполняется функция по получению информации о прошедших уроках и их статусах
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
@@ -3010,7 +2993,7 @@ function move_again_AF() {
         }, 1000)
     }
 
-    document.getElementById('getlessonfuture').onclick = function () {
+    document.getElementById('getlessonfuture').onclick = () => { // по клику выполняется функция по получению информации о предстоящих уроках и их статусах
 
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
@@ -3108,7 +3091,7 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('changelocalelng').onclick = function () {
+    document.getElementById('changelocalelng').onclick = () => { // по клику функция меняет язык обслуживания на русский в СРМке
 
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
@@ -3129,11 +3112,11 @@ function move_again_AF() {
         document.getElementById('responseTextarea3').value = ''
         document.getElementById('sendResponse').click()
         document.getElementById('changelocalelng').innerHTML = "✅"
-        setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
+        setTimeout(() => { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
     }
 
 
-    document.getElementById('setservicelocaleru').onclick = function () {
+    document.getElementById('setservicelocaleru').onclick = () => {
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
@@ -3158,7 +3141,7 @@ function move_again_AF() {
     }
 
 
-    document.getElementById('catchathistory').onclick = function () {
+    document.getElementById('catchathistory').onclick = () => {
 
         if (document.querySelector('#hide_or_display').textContent != "свернуть") {
             hide_or_display.click()
@@ -3169,7 +3152,7 @@ function move_again_AF() {
         search.click()
     }
 
-    document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
+    document.getElementById('sguid').onclick = () => {                      //переход в инфо-кабинет по ученику из группового урока
         let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
         if (studguid.value == "")
             console.log('Введите id  ученика в поле')
@@ -3179,7 +3162,7 @@ function move_again_AF() {
         studguid.value = "";
     }
 
-    document.getElementById('credits').onclick = function () {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
+    document.getElementById('credits').onclick = () => {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
         let lnkscredits = 'https://accounting.skyeng.ru/credit/list?studentId=';
         if (creditstatus.value == "")
             console.log('Введите id  ученика в поле')
@@ -3189,7 +3172,7 @@ function move_again_AF() {
         creditstatus.value = "";
     }
 
-    document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
+    document.getElementById('showcaseHW').onclick = () => {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
         let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
         if (HWstudID.value == "")
             console.log('Введите id  ученика в поле')
@@ -3201,7 +3184,7 @@ function move_again_AF() {
         HWstudID.value = "";
     }
 
-    document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
+    document.getElementById('gethash').onclick = () => {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
         let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
         if (lookhash.value == "")
             console.log('Введите hash комнаты в поле')
@@ -3213,7 +3196,7 @@ function move_again_AF() {
         lookhash.value = "";
     }
 
-    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
+    document.getElementById('setchatsadults').onclick = () => {                  // добавляем чаты с учениками adults
         let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
         if (idteacheradult.value == "")
             console.log('Введите hash комнаты в поле')
@@ -3225,7 +3208,7 @@ function move_again_AF() {
         idteacheradult.value = "";
     }
 
-    document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
+    document.getElementById('getenablerAP').onclick = () => {               // сохранение в буфере ссылки для активации АП
         let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
         if (enablerAP.value == "")
             console.log('Введите hash комнаты в поле')
@@ -3237,7 +3220,7 @@ function move_again_AF() {
         enablerAP.value = "";
     }
 
-    document.getElementById('getskipAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
+    document.getElementById('getskipAP').onclick = () => {               // сохранение в буфере ссылки для активации АП
         let skipAPlnk = 'https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId=';
         if (skipAP.value == "")
             console.log('Введите hash комнаты в поле')
@@ -3250,7 +3233,7 @@ function move_again_AF() {
     }
 
 
-    document.getElementById('doskiponboard').onclick = function () {               // сохранение в буфере ссылки для активации АП
+    document.getElementById('doskiponboard').onclick = () => {               // сохранение в буфере ссылки для активации АП
         let skiponblnk = 'https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId=';
         if (skiponboarding.value == "")
             console.log('Введите ID услуги в поле')
@@ -3646,7 +3629,7 @@ function move_again_AF() {
 
 
     let convid;
-    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
+    document.getElementById('getidstudent').onclick = () => { // нажатие на ракету
         convid = "";
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
@@ -3851,15 +3834,15 @@ function move_again_AF() {
                     }
                     document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  style="cursor:pointer; font-weight:700;"> Имя: </span>' + nameofuser + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span style="font-weight:700;cursor:pointer;" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
 
-                    document.getElementById('getusremail1').onclick = function () {
+                    document.getElementById('getusremail1').onclick = () => {
                         copyToClipboard1(unhidenemail);
                     };
 
-                    document.getElementById('getusrphone1').onclick = function () {
+                    document.getElementById('getusrphone1').onclick = () => {
                         copyToClipboard1(unhidephone);
                     };
 
-                    document.getElementById('getshowcase1').onclick = function () {
+                    document.getElementById('getshowcase1').onclick = () => {
                         copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
                     };
 
@@ -3873,16 +3856,16 @@ function move_again_AF() {
                 }
                 let tmparr = document.querySelectorAll('.copyserviceid');
                 for (let j = 0; j < tmparr.length; j++) {
-                    tmparr[j].onclick = function () {
+                    tmparr[j].onclick = () => {
                         copyToClipboard1(arrservice[j])
                     }
                 }
 
-                document.getElementById('getusremail').onclick = function () {
+                document.getElementById('getusremail').onclick = () => {
                     copyToClipboard1(unhidenemail);
                 };
 
-                document.getElementById('getusrphone').onclick = function () {
+                document.getElementById('getusrphone').onclick = () => {
                     copyToClipboard1(unhidephone);
                 };
 
@@ -3890,7 +3873,7 @@ function move_again_AF() {
                     postuderdatatologin();
                 })
 
-                document.getElementById('getshowcase').onclick = function () {
+                document.getElementById('getshowcase').onclick = () => {
                     copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
                 };
 
@@ -3926,7 +3909,7 @@ function move_again_AF() {
         }, 720)
     }
 
-    document.getElementById('ChatStatus').onclick = function () {
+    document.getElementById('ChatStatus').onclick = () => {
         if (document.getElementById('ChatStatus').textContent == "📧") {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
@@ -3941,7 +3924,7 @@ function move_again_AF() {
         } else { console.log("No chat with user!!!") }
     }
 
-    document.getElementById('CrmStatus').onclick = function () {
+    document.getElementById('CrmStatus').onclick = () => {
 
         let tempvarcrm = document.getElementById('idstudent').value;
         let getcrmstatusinfo;
@@ -4047,19 +4030,19 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('crmactivetasks').onclick = function () {
+    document.getElementById('crmactivetasks').onclick = () => {
         window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
     }
 
-    document.getElementById('newtrm').onclick = function () {
+    document.getElementById('newtrm').onclick = () => {
         window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('personalteacherpage').onclick = function () {
+    document.getElementById('personalteacherpage').onclick = () => {
         window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('clearservinfo').onclick = function () {
+    document.getElementById('clearservinfo').onclick = () => {
         document.getElementById('idstudent').value = "";
         document.getElementById('servicetable').innerHTML = "";
         document.getElementById('ChatStatus').style.display = "none";
@@ -4078,12 +4061,12 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('useravatar').onmouseover = function () {
+    document.getElementById('useravatar').onmouseover = () => {
         document.getElementById('useravatar').style.width = "200px";
         document.getElementById('useravatar').style.height = "230px";
     }
 
-    document.getElementById('useravatar').onmouseout = function () {
+    document.getElementById('useravatar').onmouseout = () => {
         document.getElementById('useravatar').style.width = "55px";
         document.getElementById('useravatar').style.height = "60px";
     }
@@ -4091,7 +4074,7 @@ function move_again_AF() {
 
 
     // Просмотр таски по джира по ее коду и номеру 
-    document.getElementById('getJiraTasks').ondblclick = function () {
+    document.getElementById('getJiraTasks').ondblclick = () => {
         if (document.getElementById('AF_Jira').style.display = 'none') {
             document.getElementById('AF_Jira').style.display = ''
         }
@@ -4133,7 +4116,7 @@ function move_again_AF() {
                 document.getElementById('issuetable').innerHTML = issues;
 
                 let barray = document.querySelector('.jiraissues');
-                barray.onclick = function () {
+                barray.onclick = () => {
                     sendComment(rezissuetable[0].items[0].url)
                     let b = document.URL.split('/')
                     fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
@@ -4158,7 +4141,7 @@ function move_again_AF() {
         setTimeout(getJiraTask1, 1000)
     }
 
-    document.getElementById('getJiraTasks').onclick = function () {
+    document.getElementById('getJiraTasks').onclick = () => {
 
         if (document.getElementById('AF_Jira').style.display = 'none') {
             document.getElementById('AF_Jira').style.display = ''
@@ -4216,7 +4199,7 @@ function move_again_AF() {
 
                 let barray = document.querySelectorAll('.jiraissues');
                 for (let j = 0; j < barray.length; j++) {
-                    barray[j].onclick = function () {
+                    barray[j].onclick = () => {
                         sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
                         let b = document.URL.split('/')
                         fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
@@ -4237,7 +4220,7 @@ function move_again_AF() {
 
                 let refreshissuesarr = document.querySelectorAll('.refreshissues');
                 for (let f = 0; f < refreshissuesarr.length; f++) {
-                    refreshissuesarr[f].onclick = function () {
+                    refreshissuesarr[f].onclick = () => {
 
                         document.getElementById('responseTextarea1').value = '{}'
                         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
@@ -4312,7 +4295,7 @@ function move_again_AF() {
             document.querySelector('#parsechat').click()
         }
     })
-    document.getElementById('getpastandfuturelessons').onclick = function () {
+    document.getElementById('getpastandfuturelessons').onclick = () => {
         if (document.getElementById('AF_Timetable').style.display == '')
             document.getElementById('AF_Timetable').style.display = 'none'
         else
@@ -4320,7 +4303,7 @@ function move_again_AF() {
         getlessonfuture.click();
     }
 
-    document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
+    document.getElementById('gotolookip').onclick = () => {                  // проверка информации по айпишнику ученика/препода/ хостинга
         let iplink = 'https://check-host.net/ip-info?host=';
         if (iplookup.value == "")
             console.log('Введите ip в поле')
@@ -4330,7 +4313,7 @@ function move_again_AF() {
         iplookup.value = "";
     }
 
-    document.getElementById('startjirasearch').onclick = function () {                  // поиск по Jira
+    document.getElementById('startjirasearch').onclick = () => {                  // поиск по Jira
         let jiralink = 'https://jira.skyeng.tech/issues/?filter=21266&jql=project%20in%20(VIM%2C%20MP%2C%20MV%2C%20KIDS%2C%20TS%2C%20ADULT%2C%20AUTH%2C%20BILL%2C%20COMM%2C%20KG%2C%20KIDSMOB%2C%20MATH%2C%20MOB%2C%20MOBACK%2C%20MOBT%2C%20SS%2C%20ST%2C%20SMMOB%2C%20STUDCAB%2C%20ESM)%20AND%20issuetype%20in%20(Bug%2C%20Task)%20AND%20status%20!%3D%20closed%20AND%20Reports%20%3E0%20AND%20resolution%20in%20(Unresolved%2C%20Incomplete%2C%20%22Cannot%20Reproduce%22)%20AND%20text%20~%20%22';
         if (jirasearch.value == "")
             console.log('Введите текст в поле')
@@ -4340,7 +4323,7 @@ function move_again_AF() {
         jirasearch.value = "";
     }
 
-    document.getElementById('getlgsinfo').onclick = function () {                  // открытие админки LGS по ID группы
+    document.getElementById('getlgsinfo').onclick = () => {                  // открытие админки LGS по ID группы
         let lgslink = 'https://learning-groups-storage.skyeng.ru/group/';
         if (lgssearch.value == "")
             console.log('Введите текст в поле')
@@ -4350,7 +4333,7 @@ function move_again_AF() {
         lgssearch.value = "";
     }
 
-    document.getElementById('msg').onclick = function () {
+    document.getElementById('msg').onclick = () => {
         if (this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
             localStorage.setItem('msg', 'Заметки')
@@ -4377,7 +4360,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('hideMenu').onclick = function () {
+    document.getElementById('hideMenu').onclick = () => {
         document.getElementById('AF_helper').style.display = 'none'
         document.getElementById('scriptBut').style.display = ''
         if (document.getElementById('cstmTmplates').style.display == '')
@@ -4394,7 +4377,7 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = 'none'
     }
 
-    document.getElementById('hideMeSrvDsk').onclick = function () {
+    document.getElementById('hideMeSrvDsk').onclick = () => {
         if (document.getElementById('AF_ServDsk').style.display == '') {
             $('.sdbtn').click(function () {
                 $('.sdbtn').not(this).removeClass('activebtnsd');
@@ -5032,7 +5015,7 @@ function move_again_AF() {
         audio.volume = localStorage.getItem('audiovol');
     } else localStorage.setItem('audiovol', 1);
 
-    document.getElementById('setting').onclick = function () {
+    document.getElementById('setting').onclick = () => {
         if (document.getElementById('set_bar').style.display == '')
             document.getElementById('set_bar').style.display = 'none'
         else {
@@ -5057,7 +5040,7 @@ function move_again_AF() {
 
             //для таймера autoclose
 
-            document.getElementById('setautoclosetime').onclick = function () {
+            document.getElementById('setautoclosetime').onclick = () => {
                 if (document.getElementById('autoclosetime').value != '') {
                     localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
                 } else console.log("Базовое значение равно 12 минут")
@@ -5069,7 +5052,7 @@ function move_again_AF() {
             range.value = localStorage.getItem('audiovol');
 
 
-            range.onchange = function () {
+            range.onchange = () => {
                 if (localStorage.getItem('audiovol') != null) {
                     audio.volume = this.value;
                     localStorage.setItem('audiovol', audio.volume);
@@ -5078,7 +5061,7 @@ function move_again_AF() {
 
             let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
             var cboxstatus = document.getElementById('removeinfowindow');
-            cboxstatus.onclick = function () {
+            cboxstatus.onclick = () => {
 
                 if (!cboxstatus.checked) {
                     document.getElementById('main_easy_win').style.display = "";
@@ -5101,7 +5084,7 @@ function move_again_AF() {
             //Скрыть окно Л П МВУ
             let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
             var lpmboxstatus = document.getElementById('hidelpmwindow');
-            lpmboxstatus.onclick = function () {
+            lpmboxstatus.onclick = () => {
 
                 if (!lpmboxstatus.checked) {
                     document.getElementById('testUsers').style.display = "";
@@ -5126,7 +5109,7 @@ function move_again_AF() {
             else
                 document.getElementById('audioswitcher').checked = true;
 
-            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = () => {  // функция переключатели звука ВКЛ и ВЫКЛ
 
                 if (localStorage.getItem('audio') != null) {
                     if (localStorage.getItem('audio') == '0') {
@@ -5143,7 +5126,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('links').onclick = function () {
+    document.getElementById('links').onclick = () => {
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
         else {
@@ -5159,14 +5142,14 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('addsrc').onclick = function () {
+    document.getElementById('addsrc').onclick = () => {
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
         else
             document.getElementById('AF_Linksd').style.display = ''
     }
 
-    document.getElementById('butServ').onclick = function () {
+    document.getElementById('butServ').onclick = () => {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
@@ -5282,7 +5265,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('butMarks').onclick = function () {
+    document.getElementById('butMarks').onclick = () => {
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
         else {
@@ -5291,13 +5274,13 @@ function move_again_AF() {
                 findMarks()
             }
 
-            document.getElementById('clearmarksstat').onclick = function () {
+            document.getElementById('clearmarksstat').onclick = () => {
                 document.getElementById('markstable').innerHTML = "";
             }
         }
     }
 
-    document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMe').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '') {
             document.getElementById('AF_Links').style.display = 'none'
         }
@@ -5305,7 +5288,7 @@ function move_again_AF() {
             document.getElementById('AF_Links').style.display = ''
     }
 
-    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeLinksd').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Linksd').style.display == '') {
             document.getElementById('AF_Linksd').style.display = 'none'
         }
@@ -5313,21 +5296,21 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = ''
     }
 
-    document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMej').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
         else
             document.getElementById('AF_Jira').style.display = ''
     }
 
-    document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeMarks').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
         else
             document.getElementById('AF_Marks').style.display = ''
     }
 
-    document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeTT').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Timetable').style.display == '')
             document.getElementById('AF_Timetable').style.display = 'none'
         else
@@ -5335,7 +5318,7 @@ function move_again_AF() {
         document.getElementById('timetabledata').innerHTML = "";
     }
 
-    document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeTechSum').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
         else
@@ -5343,14 +5326,14 @@ function move_again_AF() {
         document.getElementById('techsumdata').innerHTML = "";
     }
 
-    document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeservice').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
     }
 
-    document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeLessonStatus').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_LessonStatus').style.display == '') {
             document.getElementById('AF_LessonStatus').style.display = 'none'
             document.getElementById('statustable').innerText = "";
@@ -5358,14 +5341,14 @@ function move_again_AF() {
             document.getElementById('AF_LessonStatus').style.display = ''
     }
 
-    document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeStat').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
         else
             document.getElementById('AF_Stat').style.display = ''
     }
 
-    document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeGrList').onclick = () => { // скрытие окна с доп ссылками
         if (document.getElementById('AF_GrList').style.display == '') {
             document.getElementById('AF_GrList').style.display = 'none';
             document.getElementById('grlistinfo').innerText = "";
@@ -5374,15 +5357,15 @@ function move_again_AF() {
             document.getElementById('AF_GrList').style.display = '';
     }
 
-    document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
+    document.getElementById('creds').onclick = () => { // разная полезная актуальная информация
         alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
     }
 
-    document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
+    document.getElementById('knoweledgebase').onclick = () => { // открытие Confluence БЗ 2.0
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
     }
 
-    document.getElementById('datsyurl').onclick = function () { // открытие Календаря
+    document.getElementById('datsyurl').onclick = () => { // открытие Календаря
         window.open("https://datsy.ru/")
     }
 
@@ -5416,7 +5399,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('getlessonstatus').onclick = function () {
+    document.getElementById('getlessonstatus').onclick = () => {
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
@@ -5480,7 +5463,7 @@ function move_again_AF() {
             let arstname = document.querySelectorAll('.stname');
             let getstnamearr = document.querySelectorAll('.getstname');
             for (let f = 0; f < getstnamearr.length; f++) {
-                getstnamearr[f].onclick = function () {
+                getstnamearr[f].onclick = () => {
 
                     document.getElementById('responseTextarea1').value = `{
                                                "headers": {
@@ -5531,7 +5514,7 @@ function move_again_AF() {
         setTimeout(() => {
             let grstdcrmarr = document.querySelectorAll('.grstdcrm');
             for (let f = 0; f < grstdcrmarr.length; f++) {
-                grstdcrmarr[f].onclick = function () {
+                grstdcrmarr[f].onclick = () => {
                     window.open("https://crm2.skyeng.ru/persons/" + grdata.data.students[f].userId)
                 }
             }
@@ -5543,7 +5526,7 @@ function move_again_AF() {
 
 
 
-    document.getElementById('getStats').onclick = function () { // открытие Статистики
+    document.getElementById('getStats').onclick = () => { // открытие Статистики
         let getcurdate = new Date()
         let getyear = getcurdate.getFullYear();
         let getcurmonth = (getcurdate.getMonth() + 1)
@@ -5591,7 +5574,7 @@ function move_again_AF() {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
     })
 
-    document.getElementById('sound_save').onclick = function () {
+    document.getElementById('sound_save').onclick = () => {
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
         if (document.getElementById('sound_adr').value == "")
             audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
@@ -5606,7 +5589,7 @@ function move_again_AF() {
     }
 
     if (flagLangBut == 0) {
-        document.getElementById('languageAF').onclick = function () {
+        document.getElementById('languageAF').onclick = () => {
             if (this.innerHTML == "Русский") {
                 this.innerHTML = "Английский";
                 document.getElementById('AF_helper').style.background = "#EBC7DF"
@@ -5617,7 +5600,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('msg1').onclick = function () {
+    document.getElementById('msg1').onclick = () => {
         if (this.innerHTML == "Отправить") {
             this.innerHTML = "Доработать";
             localStorage.setItem('msg1', 'Доработать')
@@ -5652,7 +5635,7 @@ function move_again_AF() {
     }
 
 
-    document.getElementById('snd').onclick = function () {
+    document.getElementById('snd').onclick = () => {
         document.getElementById('snd').setAttribute('disabled', 'disabled')
         setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
         if (document.getElementById('msg').innerHTML == "Чат") {
@@ -5694,7 +5677,7 @@ function move_again_AF() {
     button1.innerHTML = "Скрипт";
     button1.style.marginRight = "15px";
     button1.style.display = 'none'
-    button1.onclick = function () {
+    button1.onclick = () => {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
         //скрывает окна при выбранно опции скрытия КОД
@@ -5717,7 +5700,7 @@ function move_again_AF() {
                     var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
-                    img.onclick = function () {
+                    img.onclick = () => {
                         if (this.style.width == '500px')
                             this.style.width = '100px'
                         else
@@ -5737,7 +5720,7 @@ function move_again_AF() {
                     var div = document.getElementsByClassName('chat-messages')[0].children[i]
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
-                    img.onclick = function () {
+                    img.onclick = () => {
                         if (this.style.width == '500px')
                             this.style.width = '100px'
                         else
@@ -5758,7 +5741,7 @@ function move_again_AF() {
     loginer.appendChild(addInfoUser)
 
 
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
+    loginer.onmouseup = () => { document.removeEventListener('mousemove', listener3); }
     var listener3 = function (e, a) {
         loginer.style.left = Number(e.clientX - myX3) + "px";
         loginer.style.top = Number(e.clientY - myY3) + "px";
@@ -5770,7 +5753,7 @@ function move_again_AF() {
         window.myY3 = a.layerY;
         document.addEventListener('mousemove', listener3);
     }
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
+    loginer.onmouseup = () => { document.removeEventListener('mousemove', listener3); }
 
     user = "student"
 
@@ -5923,7 +5906,7 @@ function getText() {
     var app = localStorage.getItem('scriptAdr'),
         xhr = new XMLHttpRequest();
     xhr.open('GET', app);
-    xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = () => {
         if (xhr.readyState !== 4) return;
 
         if (xhr.status == 200) {
@@ -6055,7 +6038,7 @@ function refreshTemplates() {
 
                     b.lastElementChild.appendChild(newSpanBtnMob)
 
-                    document.getElementById('sendjiramob').onclick = function () {
+                    document.getElementById('sendjiramob').onclick = () => {
                         let getval1 = document.getElementById('9page_1str').children[0].value
                         sendComment(getval1);
                         let splitter1 = document.URL.split('/')
@@ -6102,7 +6085,7 @@ function refreshTemplates() {
 
                     b.lastElementChild.appendChild(newSpanBtn)
 
-                    document.getElementById('sendjira').onclick = function () {
+                    document.getElementById('sendjira').onclick = () => {
                         let getval = document.getElementById('10page_1str').children[0].value
                         sendComment(getval);
                         let splitter = document.URL.split('/')
@@ -6205,7 +6188,7 @@ function refreshTemplates() {
                 }
                 break
         }
-    } document.getElementById('0page').ondblclick = function () {
+    } document.getElementById('0page').ondblclick = () => {
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
             document.getElementById('set_bar').style.display = 'none'
@@ -6612,7 +6595,7 @@ function startTimer() {
 
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
         if (document.getElementsByClassName('ant-btn ant-btn-primary')[0] !== undefined)
-            document.getElementsByClassName('ant-btn ant-btn-primary')[0].onclick = function () {
+            document.getElementsByClassName('ant-btn ant-btn-primary')[0].onclick = () => {
                 refCurTimer(localStorage.getItem('aclstime') + ":00")
             }
         refreshTimer()
@@ -6814,7 +6797,7 @@ function startTimer() {
                         document.getElementsByClassName('expert-user_details-list')[1].children[0].children[0].replaceWith(button)
                         document.getElementsByClassName('expert-user_details-list')[1].children[0].children[1].remove()
                     }
-                    a.onclick = function () {
+                    a.onclick = () => {
                         this.textContent = ''
                         this.parentElement.children[1].textContent = ''
                         for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
@@ -6849,7 +6832,7 @@ function startTimer() {
                     copyCrmFromName.textContent = ' 💾'
                     copyCrmFromName.style.cursor = "pointer"
                     document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
-                    copyCrmFromName.onclick = function () {
+                    copyCrmFromName.onclick = () => {
                         for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
                             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
                                 let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
@@ -8694,28 +8677,28 @@ buttonservid.addEventListener('click', function () {
 function checJiraF() {
     try {
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
-            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = () => {
                 if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
                     sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
                     console.log("DONE!")
                 }
             }
 
-            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = () => {
                 if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
                     sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
                     console.log("DONE!")
                 }
             }
         } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
-            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = () => {
                 if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
                     sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
                     console.log("DONE!")
                 }
             }
 
-            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = () => {
                 if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
                     sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
                     console.log("DONE!")
@@ -9125,7 +9108,7 @@ document.getElementById('getstatfromperiod').onclick = async function () {
     }
 }
 
-document.getElementById('changetheme').onclick = function () {
+document.getElementById('changetheme').onclick = () => {
     let curval = document.getElementById('thematics').value;
     let chatId = document.getElementById('commenttosearch').value;
     if (chatId != "" && chatId != null && chatId != undefined)
@@ -9226,7 +9209,7 @@ document.getElementById('gofindit').onclick = async function () {
     let csatcontainer = document.querySelectorAll('.seechat');
     let csatchattids = document.querySelectorAll('.csatchatids');
     for (let j = 0; j < csatcontainer.length; j++) {
-        csatcontainer[j].onclick = function () {
+        csatcontainer[j].onclick = () => {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
                 hide_or_display.click()
@@ -9244,7 +9227,7 @@ document.getElementById('gofindit').onclick = async function () {
 }
 
 //Функция очищения выведенной информации после поиска 
-document.getElementById('clearall').onclick = function () {
+document.getElementById('clearall').onclick = () => {
     document.querySelector('#sumchatcounttouched').innerText = ""
     document.querySelector('#sumchatcountclosed').innerText = ""
     document.querySelector('#chatsinfoout').innerText = ""
@@ -9258,7 +9241,7 @@ document.getElementById('clearall').onclick = function () {
 
 
 
-document.getElementById('clearlessonstatus').onclick = function () {
+document.getElementById('clearlessonstatus').onclick = () => {
     if (confirm("Вы уверены, что хотите очистить?")) {
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
@@ -9322,7 +9305,7 @@ document.getElementById('parsechat').onclick = async function () {
             let chatscontainer = document.querySelectorAll('.chatswithcomments');
             let chatids = document.querySelectorAll('.chatids');
             for (let j = 0; j < chatscontainer.length; j++) {
-                chatscontainer[j].onclick = function () {
+                chatscontainer[j].onclick = () => {
 
                     if (document.querySelector('#hide_or_display').textContent != "свернуть") {
                         hide_or_display.click()
@@ -9349,7 +9332,7 @@ document.getElementById('parsechat').onclick = async function () {
 
 //Функция проверки статусов урока
 let arregetted;
-document.getElementById('startlookstatus').onclick = function () {
+document.getElementById('startlookstatus').onclick = () => {
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
         document.querySelector('#statustable').innerText = "";
@@ -9514,7 +9497,7 @@ document.getElementById('getlowcsat').onclick = async function () {
             let csatcontainer = document.querySelectorAll('.lowcsatschats');
             let csatchattids = document.querySelectorAll('.csatchatids');
             for (let j = 0; j < csatcontainer.length; j++) {
-                csatcontainer[j].onclick = function () {
+                csatcontainer[j].onclick = () => {
 
                     if (document.querySelector('#hide_or_display').textContent != "свернуть") {
                         hide_or_display.click()
@@ -9542,7 +9525,7 @@ document.getElementById('getlowcsat').onclick = async function () {
     }
 }
 
-document.getElementById('getfile').onclick = function () {
+document.getElementById('getfile').onclick = () => {
     if (stringChatsWithComment != null || stringChatsWithComment != undefined) {
         var blob = new Blob([stringChatsWithComment], { type: "text/plain" });
         var link = document.createElement("a");
@@ -9844,7 +9827,7 @@ function customTemplates(language = '') {
     buttonOpenTmpWindow.innerHTML = 'tmps'
     buttonOpenTmpWindow.title = 'Открывает окно для добавления своих шаблонов либо информации в ячейки в этом поле'
     buttonOpenTmpWindow.style.marginLeft = '7px'
-    buttonOpenTmpWindow.onclick = function () {
+    buttonOpenTmpWindow.onclick = () => {
         var a = document.getElementById('cstmTmplates')
         if (a.style.display == '')
             a.style.display = 'none'
@@ -9874,7 +9857,7 @@ function customTemplates(language = '') {
                 newBut.style.marginTop = '5px'
                 newBut.innerHTML = localStorage.getItem('tmp_name_' + language + i)
                 a.appendChild(newBut)
-                newBut.onclick = function () {
+                newBut.onclick = () => {
                     var text = localStorage.getItem(this.getAttribute('template')).split('\\n').join('\n')
                     sendAnswer(text)
                 }
@@ -9906,7 +9889,7 @@ function customTemplates(language = '') {
         var newButton = document.createElement('button')
         newButton.style.marginRight = '5px'
         newButton.textContent = 'save'
-        newButton.onclick = function () {
+        newButton.onclick = () => {
             localStorage.setItem(this.parentElement.getAttribute('tmp'), document.getElementById(this.parentElement.getAttribute('inp')).value)
             localStorage.setItem('tmp_name_' + language + index, this.parentElement.children[1].value)
             refreshHotTmps()
@@ -9914,7 +9897,7 @@ function customTemplates(language = '') {
         var newButton2 = document.createElement('button')
         newButton2.style.marginRight = '5px'
         newButton2.textContent = 'send'
-        newButton2.onclick = function () {
+        newButton2.onclick = () => {
             document.getElementById('inp').value = document.getElementById(this.parentElement.getAttribute('inp')).value.split('\\n').join('\n')
             this.parentElement.parentElement.style.display = 'none'
         }
@@ -9922,7 +9905,7 @@ function customTemplates(language = '') {
         var newButton3 = document.createElement('button')
         newButton3.style.marginRight = '5px'
         newButton3.textContent = 'delete'
-        newButton3.onclick = function () {
+        newButton3.onclick = () => {
             for (var i = this.parentElement.getAttribute('index'); i < countOfTemplates; i++) {
                 var n = Number(i) + 1
                 localStorage.setItem('template_' + language + i, localStorage.getItem('template_' + language + n))
@@ -9942,7 +9925,7 @@ function customTemplates(language = '') {
 
         var buttonSortUp = document.createElement('button')
         buttonSortUp.innerHTML = '↑'
-        buttonSortUp.onclick = function () {
+        buttonSortUp.onclick = () => {
             var index = this.parentElement.getAttribute('index')
             if (index == 1)
                 return
@@ -9968,7 +9951,7 @@ function customTemplates(language = '') {
         var buttonSortDown = document.createElement('button')
         buttonSortDown.innerHTML = '↓'
         buttonSortDown.style.marginRight = '5px'
-        buttonSortDown.onclick = function () {
+        buttonSortDown.onclick = () => {
             var index = this.parentElement.getAttribute('index')
             if (index == countOfTemplates)
                 return
@@ -9995,7 +9978,7 @@ function customTemplates(language = '') {
         newcheckbox.type = 'checkbox'
         newcheckbox.style.marginRight = '5px'
         newcheckbox.checked = localStorage.getItem('checkbox_' + language + index) == 'true' ? 1 : 0
-        newcheckbox.onclick = function () {
+        newcheckbox.onclick = () => {
             localStorage.setItem('checkbox_' + language + index, this.checked)
         }
 
@@ -10017,7 +10000,7 @@ function customTemplates(language = '') {
     var addTmpl = document.createElement('button')
     addTmpl.textContent = 'Добавить шаблон'
     addTmpl.style.marginRight = '5px'
-    addTmpl.onclick = function () {
+    addTmpl.onclick = () => {
         countOfTemplates++
         localStorage.setItem('cntTmplts' + language, countOfTemplates)
         localStorage.setItem('template_' + language + countOfTemplates, "")
@@ -10028,7 +10011,7 @@ function customTemplates(language = '') {
     var saveAllTmp = document.createElement('button')
     saveAllTmp.textContent = 'Сохранить всё'
     saveAllTmp.style.marginRight = '5px'
-    saveAllTmp.onclick = function () {
+    saveAllTmp.onclick = () => {
         for (var i = 1; i <= countOfTemplates; i++) {
             localStorage.setItem('template_' + language + i, document.getElementById('cstmTmpInp' + language + i).value)
             localStorage.setItem('checkbox_' + language + i, document.getElementById('cstmTmpInp' + language + i).parentElement.children[0].checked)
@@ -10039,7 +10022,7 @@ function customTemplates(language = '') {
 
     var but = document.createElement('button')
     but.innerHTML = 'hide'
-    but.onclick = function () {
+    but.onclick = () => {
         this.parentElement.parentElement.style.display = 'none'
     }
     but.style.float = 'right'
@@ -10066,9 +10049,9 @@ function customTemplates(language = '') {
         window.myY3 = a.layerY;
         document.addEventListener('mousemove', listener3);
     }
-    cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
+    cstmTmp.onmouseup = () => { document.removeEventListener('mousemove', listener3); }
 
-    document.getElementById('languageAF').onclick = function () {
+    document.getElementById('languageAF').onclick = () => {
         if (this.innerHTML == "Русский") {
             this.innerHTML = "Английский";
             document.getElementById('AF_helper').style.background = "#EBC7DF"
@@ -10738,7 +10721,7 @@ async function checkCSAT() {             // функция проверки CSAT
     let slaclchatcontainer = document.querySelectorAll('.lookchat');
     let slaclchattids = document.querySelectorAll('.slaclchatids');
     for (let j = 0; j < slaclchatcontainer.length; j++) {
-        slaclchatcontainer[j].onclick = function () {
+        slaclchatcontainer[j].onclick = () => {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
                 hide_or_display.click()
@@ -10754,7 +10737,7 @@ async function checkCSAT() {             // функция проверки CSAT
     let artchatcontainer = document.querySelectorAll('.lookchatart');
     let artchattids = document.querySelectorAll('.artchatids');
     for (let j = 0; j < artchatcontainer.length; j++) {
-        artchatcontainer[j].onclick = function () {
+        artchatcontainer[j].onclick = () => {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
                 hide_or_display.click()
@@ -10787,7 +10770,7 @@ function prepTp() {
     buttonGetStat.id = 'buttonGetStat';
     buttonGetStat.innerHTML = "Статистика";
     buttonGetStat.style.marginLeft = "15px";
-    buttonGetStat.onclick = function () {
+    buttonGetStat.onclick = () => {
         if (this.textContent == 'Скрыть стату') {
             if (this.getAttribute('disabled') != null)
                 return
@@ -10890,7 +10873,7 @@ if (localStorage.getItem('hesoyam') == 1) {
     let button = document.createElement('button')
     button.textContent = 'Закрыть чат'
     button.id = 'easyCloseChat'
-    button.onclick = function () {
+    button.onclick = () => {
         var chatId = document.location.pathname.split('/')[3]
         fetch("https://skyeng.autofaq.ai/api/conversation/status", {
             "headers": {
@@ -11116,7 +11099,7 @@ function hesoyam() {
     let button = document.createElement('button')
     button.textContent = 'Закрыть чат'
     button.id = 'easyCloseChat'
-    button.onclick = function () {
+    button.onclick = () => {
         chatId = document.location.pathname.split('/')[3]
         fetch("https://skyeng.autofaq.ai/api/conversation/status", {
             "headers": {
