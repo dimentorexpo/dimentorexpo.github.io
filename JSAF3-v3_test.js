@@ -8927,7 +8927,7 @@ function backbtn() {
             }
         }
 
-    } else console.log("Уже добавлено")
+    } //else console.log("Notes adde successfully")
 
     let sesid;
     async function notetoclchat() {
