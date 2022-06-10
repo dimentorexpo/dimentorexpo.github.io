@@ -3993,6 +3993,7 @@ function move_again_AF() {
 
                 if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
                     let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
+					if (testids !=null) {
                     let infoiduslugi = document.getElementsByClassName('iduslugitxt');
                     for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
                         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
@@ -4014,6 +4015,7 @@ function move_again_AF() {
                             } // for let i
                         } // if type == teacher
                     }
+				}
                 } // for let j
             }
 
