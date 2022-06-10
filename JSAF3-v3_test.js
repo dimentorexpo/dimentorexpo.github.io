@@ -1929,7 +1929,7 @@ maskBackHide.onclick = function () { // функция для сворачива
         }
 }
 
-hashBut.onclick = function () {
+hashBut.onclick = function () { // кнопка с функцией копирования хеша активного чата с добавлением hdi.skyeng.ru....
     adr = document.location.href
     adr1 = document.location.pathname
     adr1 = adr1.split('/')
@@ -1968,70 +1968,70 @@ wintLinksd.style.display = 'none';
 wintLinksd.setAttribute('id', 'AF_Linksd');
 wintLinksd.innerHTML = win_linksd;
 
-let wintJira = document.createElement('div'); // создание окна ссылок
+let wintJira = document.createElement('div'); // создание окна с поиском по Jira
 document.body.append(wintJira);
 wintJira.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopJira') + 'px; left: ' + localStorage.getItem('winLeftJira') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintJira.style.display = 'none';
 wintJira.setAttribute('id', 'AF_Jira');
 wintJira.innerHTML = win_Jira;
 
-let wintStat = document.createElement('div'); // создание окна ссылок
+let wintStat = document.createElement('div'); // создание окна статистики
 document.body.append(wintStat);
 wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStat.style.display = 'none';
 wintStat.setAttribute('id', 'AF_Stat');
 wintStat.innerHTML = win_Stat;
 
-let wintServices = document.createElement('div'); // создание окна ссылок
+let wintServices = document.createElement('div'); // создание окна расширеной информации о пользхователе
 document.body.append(wintServices);
 wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
 
-let wintLessonStatus = document.createElement('div'); // создание окна ссылок
+let wintLessonStatus = document.createElement('div'); // создание окна статуса уроков перенесен отмеен успешный и тп
 document.body.append(wintLessonStatus);
 wintLessonStatus.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLessonStatus') + 'px; left: ' + localStorage.getItem('winLeftLessonStatus') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLessonStatus.style.display = 'none';
 wintLessonStatus.setAttribute('id', 'AF_LessonStatus');
 wintLessonStatus.innerHTML = win_LessonStatus;
 
-let wintTimetable = document.createElement('div'); // создание окна ссылок
+let wintTimetable = document.createElement('div'); // создание окна статуса уроков прошедшие и предстоящие
 document.body.append(wintTimetable);
 wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintTimetable.style.display = 'none';
 wintTimetable.setAttribute('id', 'AF_Timetable');
 wintTimetable.innerHTML = win_Timetable;
 
-let wintTechSummary = document.createElement('div'); // создание окна ссылок
+let wintTechSummary = document.createElement('div'); // создание окна описания устройства пользователя которого вписать в айдишник
 document.body.append(wintTechSummary);
 wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTechSum') + 'px; left: ' + localStorage.getItem('winLeftTechSum') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintTechSummary.style.display = 'none';
 wintTechSummary.setAttribute('id', 'AF_TechSummary');
 wintTechSummary.innerHTML = win_Techsummary;
 
-let wintServDsk = document.createElement('div'); // создание окна ссылок
+let wintServDsk = document.createElement('div'); // создание окна сервис деска
 document.body.append(wintServDsk);
 wintServDsk.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
-let wintGrList = document.createElement('div'); // создание окна ссылок
+let wintGrList = document.createElement('div'); // создание окна списка студентов в группе 
 document.body.append(wintGrList);
 wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrList') + 'px; left: ' + localStorage.getItem('winLeftGrList') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintGrList.style.display = 'none';
 wintGrList.setAttribute('id', 'AF_GrList');
 wintGrList.innerHTML = win_GrList;
 
-let wintMarks = document.createElement('div'); // создание окна ссылок
+let wintMarks = document.createElement('div'); // создание окна с оценками пользователя
 document.body.append(wintMarks);
 wintMarks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMarks') + 'px; left: ' + localStorage.getItem('winLeftMarks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintMarks.style.display = 'none';
 wintMarks.setAttribute('id', 'AF_Marks');
 wintMarks.innerHTML = win_Marks;
 
-let wintSugform = document.createElement('div'); // создание окна ссылок
+let wintSugform = document.createElement('div'); // создание окна с предложениями и пожеланиями
 document.body.append(wintSugform);
 wintSugform.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSugest') + 'px; left: ' + localStorage.getItem('winLeftSugest') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintSugform.style.display = 'none';
@@ -2474,10 +2474,10 @@ function move_again_AF() {
     }
 
     document.getElementById('grafanalnk').addEventListener('click', function () {
-        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
+        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем ссылку на Grafana
     })
     document.getElementById('timetable').addEventListener('click', function () {
-        window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
+        window.open("https://timetable.skyeng.ru/")    // открываем в новом окне ссылку на Timetable
     })
     document.getElementById('faqext').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971")    // открываем инструкцию по расширению
@@ -2584,7 +2584,7 @@ function move_again_AF() {
         cpuname.value = "";
     }
 
-    document.getElementById('getmvureport').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
+    document.getElementById('getmvureport').onclick = function () {                  //копирует в буфер ссылку на отчет МВУ
         if (reportmvu.value == "")
             console.log('Введите ID в поле')
         else {
@@ -2615,7 +2615,8 @@ function move_again_AF() {
         alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
         abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
     }
-    function refreshTimerReminder() {
+
+    function refreshTimerReminder() { //обновление информаци о таймере будильника если перезагружали страницу
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             document.getElementById('reminderstatus').textContent = "🔔";
             setchas.value = localStorage.getItem('setchas');
@@ -2644,19 +2645,12 @@ function move_again_AF() {
 
     refreshTimerReminder();
 
-    function setRemindAf() {
+    function setRemindAf() {  //объявление функции установления будильника
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
                 "accept": "*/*",
-                "cache-control": "max-age=0",
                 "content-type": "application/json",
-                "sec-ch-ua-mobile": "?0",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
             },
-            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-            "referrerPolicy": "strict-origin-when-cross-origin",
             "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
             "method": "POST",
             "mode": "cors",
@@ -2679,22 +2673,22 @@ function move_again_AF() {
         cmsstepid.value = "";
     }
 
-    document.getElementById('checkbalance').onclick = function () {
+    document.getElementById('checkbalance').onclick = function () { // открывает начислятор
         window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
     }
 
-    document.getElementById('getkglinfokid').onclick = function () {
+    document.getElementById('getkglinfokid').onclick = function () { //открывает дашборд для ГУ для  ученика
         window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('partialpaymentinfo').onclick = function () {
+    document.getElementById('partialpaymentinfo').onclick = function () { //открывает рассрочку
         window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('editadmbtn').onclick = function () {
+    document.getElementById('editadmbtn').onclick = function () { // редактирование пользователя
         let stuid = document.getElementById('idstudent').value;
         stuid = stuid.trim();
-        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update")
+        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
     }
 
     document.getElementById('getonetimepass').onclick = function () {
