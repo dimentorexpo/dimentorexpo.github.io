@@ -9263,6 +9263,7 @@ const copyToClipboard1 = str => {
     document.body.removeChild(el);
 };
 var operatorId = ""
+var operatorsarray=[];
 async function whoAmI() {
     a = await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "headers": {
@@ -9281,6 +9282,7 @@ async function whoAmI() {
         "credentials": "include"
     }).then(a => b = a.json()).then(b => {
         let me = document.querySelector('.user_menu-dropdown-user_name');
+		operatorsarray = b.rows;
         b.rows.forEach(s => {
             if (me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
