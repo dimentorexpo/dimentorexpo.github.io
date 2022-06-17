@@ -1835,18 +1835,11 @@ infouserbut.onclick = function () { //функция Info по нажатию н
         document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
 	else if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'найти') {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		  if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id"){
-					let infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-				}   
-			}
-	
-    chrome.runtime.sendMessage({
-        name: "chm-message", question: 'send-event', messageValue: {
-            message: 'open-user-info',
-            userId: 'infosuserid',
-        }
-    })
-}
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+    }
+    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
+	}
 }
 
 buttonserv.onclick = function () {
