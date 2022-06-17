@@ -1518,9 +1518,9 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
 
-let button2 = document.createElement('p');
-button2.id = 'userIdScript';
-button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+let infouserbut = document.createElement('p');
+infouserbut.id = 'userIdScript';
+infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
@@ -1828,14 +1828,18 @@ buttonnextteacherid.onclick = function () {
     }
 }
 
-button2.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
-    if (document.getElementById('btn_hide').style.display != 'none')
-        btn_hide.click()
+
+
+infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+    if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
+        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
+	else if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'найти') {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
     }
-    btn1_student.click()
+    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
+	}
 }
 
 buttonserv.onclick = function () {
@@ -1875,23 +1879,23 @@ buttonservstud.onclick = function () {
 }
 
 button3.onclick = function () {
-    if (document.getElementById('btn_hide').style.display != 'none')
-        btn_hide.click()
+    if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
+        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
-    btn1_student.click()
+    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
 }
 
 button4.onclick = function () {
-    if (document.getElementById('btn_hide').style.display != 'none')
-        btn_hide.click()
+    if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
+        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
-    btn1_student.click()
+    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
 }
 
 let addInfoUser = document.createElement('div')
@@ -6918,7 +6922,7 @@ function startTimer() {
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(button2)
+                btn.appendChild(infouserbut)
                 btn.appendChild(buttonservstud)
 
             }
@@ -9063,51 +9067,35 @@ function paintstatus() {
 
 }
 
-
 setInterval(paintstatus, 5000);
 
 function backbtn() {
-    if (document.getElementById('search') != null)
-        document.getElementById('back_btn').style.display = "";
+    if (document.getElementsByClassName('show').length >= 2){
 
     let barea = document.createElement('textarea')
     barea.id = "notes_field"
-    barea.style.background = "lightgrey";
+    barea.style = 'background: lightgrey; top: 90vh; position: absolute; width: 300px;'
 
     let btnsndnotes = document.createElement('button')
     btnsndnotes.innerText = "Notes"
+	btnsndnotes.style = 'position: absolute; top: 90vh; left: 32vh;'
     btnsndnotes.id = "SendNotesToChat"
     btnsndnotes.onclick = notetoclchat;
 
-
     if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
-        if (document.getElementById('send_btns') != null) {
 
-            document.getElementById('send_text').style.display = 'none'
-            document.getElementById('send_btn').style.display = 'none'
-
-            document.getElementById('send_btns').append(barea)
-            document.getElementById('send_btns').append(btnsndnotes)
-
-
-            let zambtnhide = document.getElementsByTagName('a')
-            for (let i = 0; i < zambtnhide.length; i++) {
-                if (zambtnhide[i].innerText == 'заметка')
-                    zambtnhide[i].style.display = 'none'
-            }
-        }
+        document.getElementsByClassName('rounded vh-100')[0].append(barea)
+        document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
 
     } else console.log("Уже добавлено")
 
     let sesid;
     async function notetoclchat() {
-        let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
-
+		let chathashfromdiv = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
 
         await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
             .then(r => r.json()).then(r => rdata = r)
         sesid = rdata.sessionId;
-
 
         let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
 
@@ -9127,6 +9115,11 @@ function backbtn() {
 
         document.getElementById('notes_field').value = ''
     }
+} else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementsByClassName('show').length < 2)  {
+	    document.getElementById('notes_field').remove()
+        document.getElementById('SendNotesToChat').remove()
+}
+	
 }
 
 setInterval(backbtn, 5000);
@@ -11005,6 +10998,7 @@ function prepTp() {
     setInterval(timerHideButtons, 300)
 
     setTimeout(function () {
+		document.getElementById('move-window').style.cursor ='pointer';
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery

@@ -9067,7 +9067,6 @@ function paintstatus() {
 
 }
 
-
 setInterval(paintstatus, 5000);
 
 function backbtn() {
@@ -9082,11 +9081,18 @@ function backbtn() {
 	btnsndnotes.style = 'position: absolute; top: 90vh; left: 32vh;'
     btnsndnotes.id = "SendNotesToChat"
     btnsndnotes.onclick = notetoclchat;
+	
+	let btntakechat = document.createElement('button')
+    btntakechat.innerText = "Забрать"
+	btntakechat.style = 'position: absolute; top: 93vh; left: 32vh;'
+    btntakechat.id = "TakeChat"
+    btntakechat.onclick = get_used_chat;
 
     if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
 
         document.getElementsByClassName('rounded vh-100')[0].append(barea)
         document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
+		document.getElementsByClassName('rounded vh-100')[0].append(btntakechat)
 
     } else console.log("Уже добавлено")
 
@@ -9097,7 +9103,6 @@ function backbtn() {
         await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
             .then(r => r.json()).then(r => rdata = r)
         sesid = rdata.sessionId;
-
 
         let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
 
@@ -9118,7 +9123,24 @@ function backbtn() {
         document.getElementById('notes_field').value = ''
     }
 	
+	function get_used_chat(chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1]; , operator_id = operatorId) {
+		
+    fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+        "headers": {
+            "content-type": "application/json"
+        },
+        "credentials": "include",
+        "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
+        "method": "POST"
+    });
 }
+
+} else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementById('TakeChat') != null && document.getElementsByClassName('show').length < 2)  {
+	    document.getElementById('notes_field').remove()
+        document.getElementById('SendNotesToChat').remove()
+        document.getElementById('TakeChat').remove()
+}
+	
 }
 
 setInterval(backbtn, 5000);
