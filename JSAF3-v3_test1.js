@@ -1829,10 +1829,10 @@ buttonnextteacherid.onclick = function () {
 }
 
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+    let infosuserid = 0;
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id"){
-            let infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-        }   
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]  
     }
     chrome.runtime.sendMessage({
         name: "chm-message", question: 'send-event', messageValue: {
@@ -1879,10 +1879,10 @@ buttonservstud.onclick = function () {
 }
 
 infonextstbut.onclick = function () {
+    let infosuserid = 0;
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId"){
-            let infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-        }
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     chrome.runtime.sendMessage({
         name: "chm-message", question: 'send-event', messageValue: {
@@ -1894,10 +1894,10 @@ infonextstbut.onclick = function () {
 
 
 infonexttechbut.onclick = function () {
+    let infosuserid = 0;
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId"){
-            let infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-        }
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+            infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     chrome.runtime.sendMessage({
         name: "chm-message", question: 'send-event', messageValue: {
