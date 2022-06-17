@@ -1518,9 +1518,9 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
 
-let button2 = document.createElement('p');
-button2.id = 'userIdScript';
-button2.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+let infouserbut = document.createElement('p');
+infouserbut.id = 'userIdScript';
+infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 let button3 = document.createElement('p');
 button3.id = 'nextStudentIdScript';
 button3.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
@@ -1828,16 +1828,25 @@ buttonnextteacherid.onclick = function () {
     }
 }
 
-button2.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+
+
+infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
         document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-	else {
+	else if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'найти') {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-    }
-    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-	}
+		  if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id"){
+					let infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+				}   
+			}
+	
+    chrome.runtime.sendMessage({
+        name: "chm-message", question: 'send-event', messageValue: {
+            message: 'open-user-info',
+            userId: 'infosuserid',
+        }
+    })
+}
 }
 
 buttonserv.onclick = function () {
@@ -6920,7 +6929,7 @@ function startTimer() {
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(button2)
+                btn.appendChild(infouserbut)
                 btn.appendChild(buttonservstud)
 
             }
@@ -11007,6 +11016,7 @@ function prepTp() {
     setInterval(timerHideButtons, 300)
 
     setTimeout(function () {
+		document.getElementById('move-window').style.cursor ='pointer';
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
