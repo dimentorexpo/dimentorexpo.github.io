@@ -1834,12 +1834,15 @@ infouserbut.onclick = function () { //функция Info по нажатию н
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]  
     }
-    chrome.runtime.sendMessage({
-        name: "chm-message", question: 'send-event', messageValue: {
-            message: 'open-user-info',
-            userId: 'infosuserid',
-        }
-    })
+    const editorExtensionId = "glidnhkpcnacbnadodjdgmjipabknmoc";
+        chrome.runtime.sendMessage(
+            editorExtensionId,
+            {
+            name: "chm_message", question: 'send_event', messageValue: {
+                message: 'search-user-chat',
+                userId: '1234',
+            }
+        })
 }
 
 buttonserv.onclick = function () {
