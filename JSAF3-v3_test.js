@@ -9083,18 +9083,16 @@ function backbtn() {
     btnsndnotes.id = "SendNotesToChat"
     btnsndnotes.onclick = notetoclchat;
 
-
     if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
 
-            document.getElementsByClassName('rounded vh-100')[0].append(barea)
-            document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
+        document.getElementsByClassName('rounded vh-100')[0].append(barea)
+        document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
 
     } else console.log("Уже добавлено")
 
     let sesid;
     async function notetoclchat() {
-        let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
-
+		let chathashfromdiv = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
 
         await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
             .then(r => r.json()).then(r => rdata = r)
