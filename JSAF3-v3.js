@@ -9081,11 +9081,18 @@ function backbtn() {
 	btnsndnotes.style = 'position: absolute; top: 90vh; left: 32vh;'
     btnsndnotes.id = "SendNotesToChat"
     btnsndnotes.onclick = notetoclchat;
+	
+	let btntakechat = document.createElement('button')
+    btntakechat.innerText = "Забрать"
+	btntakechat.style = 'position: absolute; top: 93vh; left: 32vh;'
+    btntakechat.id = "TakeChat"
+    btntakechat.onclick = get_used_chat;
 
     if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
 
         document.getElementsByClassName('rounded vh-100')[0].append(barea)
         document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
+		document.getElementsByClassName('rounded vh-100')[0].append(btntakechat)
 
     } else console.log("Уже добавлено")
 
@@ -9115,9 +9122,28 @@ function backbtn() {
 
         document.getElementById('notes_field').value = ''
     }
-} else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementsByClassName('show').length < 2)  {
+	
+	function get_used_chat() {
+	var result = confirm("Вы действительно желаете забрать чат?");
+	if (result) {
+	let chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
+	let operator_id = operatorId;
+		
+    fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+        "headers": {
+            "content-type": "application/json"
+        },
+        "credentials": "include",
+        "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
+        "method": "POST"
+    });
+	}
+}
+
+} else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementById('TakeChat') != null && document.getElementsByClassName('show').length < 2)  {
 	    document.getElementById('notes_field').remove()
         document.getElementById('SendNotesToChat').remove()
+        document.getElementById('TakeChat').remove()
 }
 	
 }
