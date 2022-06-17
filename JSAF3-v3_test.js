@@ -1831,11 +1831,13 @@ buttonnextteacherid.onclick = function () {
 button2.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
         document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
+	else {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
             document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
     }
     document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
+	}
 }
 
 buttonserv.onclick = function () {
