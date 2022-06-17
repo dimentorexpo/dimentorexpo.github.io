@@ -9150,6 +9150,71 @@ function backbtn() {
 
 setInterval(backbtn, 5000);
 
+function backbtnold() {
+    if (document.getElementById('search') != null)
+        document.getElementById('back_btn').style.display = "";
+
+    let bareaold = document.createElement('textarea')
+    bareaold.id = "notes_field_old"
+    bareaold.style.background = "lightgrey";
+
+    let btnsndnotes = document.createElement('button')
+    btnsndnotes.innerText = "Notes"
+    btnsndnotes.id = "SendNotesToChatOld"
+    btnsndnotes.onclick = notetoclchat;
+
+
+    if (document.getElementById('notes_field_old') == null && document.getElementById('SendNotesToChatOld') == null) {
+        if (document.getElementById('send_btns') != null) {
+
+            document.getElementById('send_text').style.display = 'none'
+            document.getElementById('send_btn').style.display = 'none'
+
+            document.getElementById('send_btns').append(bareaold)
+            document.getElementById('send_btns').append(btnsndnotes)
+
+
+            let zambtnhide = document.getElementsByTagName('a')
+            for (let i = 0; i < zambtnhide.length; i++) {
+                if (zambtnhide[i].innerText == 'заметка')
+                    zambtnhide[i].style.display = 'none'
+            }
+        }
+
+    } else console.log("Уже добавлено")
+
+    let sesid;
+    async function notetoclchat() {
+        let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
+
+
+        await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+            .then(r => r.json()).then(r => rdata = r)
+        sesid = rdata.sessionId;
+
+
+        let notemsg = '<p>' + document.getElementById('notes_field_old').value + '</p>';
+
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+
+        document.getElementById('notes_field_old').value = ''
+    }
+}
+
+setInterval(backbtnold, 5000);
+
 function timerHideButtons() {
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
