@@ -9124,6 +9124,8 @@ function backbtn() {
     }
 	
 	function get_used_chat() {
+	var result = confirm("Вы действительно желаете забрать чат?");
+	if (result) {
 	let chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
 	let operator_id = operatorId;
 		
@@ -9135,6 +9137,7 @@ function backbtn() {
         "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
         "method": "POST"
     });
+	}
 }
 
 } else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementById('TakeChat') != null && document.getElementsByClassName('show').length < 2)  {
