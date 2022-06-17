@@ -1885,9 +1885,9 @@ infonextstbut.onclick = function () {
             infosuserid = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
     }
     chrome.runtime.sendMessage({
-        name: "chm-message", question: 'send-event', messageValue: {
-            message: 'open-user-info',
-            userId: 'infosuserid',
+        name: "chm_message", question: 'send_event', messageValue: {
+            message: 'search-user-chat',
+            userId: '1234',
         }
     })
 }
