@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.name === 'chm-message') {
-        if (request.question == 'send-event') {
-            const laserExtensionId = 'kggpdmfnfmmkneemhknlojemcjmdlpjb';
+    const laserExtensionId = "kggpdmfnfmmkneemhknlojemcjmdlpjb";
+    if (request.name === 'chm_message') {
+        if (request.question == 'send_event') {
             chrome.runtime.sendMessage(laserExtensionId,
                 request.messageValue,
                 function (response) {
