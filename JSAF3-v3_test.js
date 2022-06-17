@@ -9094,7 +9094,7 @@ function backbtn() {
         document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
 		document.getElementsByClassName('rounded vh-100')[0].append(btntakechat)
 
-    } else console.log("Уже добавлено")
+    } 
 
     let sesid;
     async function notetoclchat() {
