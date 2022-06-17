@@ -9123,7 +9123,7 @@ function backbtn() {
         document.getElementById('notes_field').value = ''
     }
 	
-	function get_used_chat(chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1]; , operator_id = operatorId) {
+	function get_used_chat(chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1] , operator_id = operatorId) {
 		
     fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
         "headers": {
