@@ -9074,17 +9074,17 @@ function backbtn() {
 
     let barea = document.createElement('textarea')
     barea.id = "notes_field"
-    barea.style = 'background: lightgrey; top: 90vh; position: absolute; width: 300px;'
+    barea.style = 'background: lightgrey; top: 90vh; position: fixed; width: 300px;'
 
     let btnsndnotes = document.createElement('button')
     btnsndnotes.innerText = "Notes"
-	btnsndnotes.style = 'position: absolute; top: 90vh; left: 32vh;'
+	btnsndnotes.style = 'position: fixed; top: 90vh; left: 32vh;'
     btnsndnotes.id = "SendNotesToChat"
     btnsndnotes.onclick = notetoclchat;
 	
 	let btntakechat = document.createElement('button')
     btntakechat.innerText = "Забрать"
-	btntakechat.style = 'position: absolute; top: 93vh; left: 32vh;'
+	btntakechat.style = 'position: fixed; top: 93vh; left: 32vh;'
     btntakechat.id = "TakeChat"
     btntakechat.onclick = get_used_chat;
 
