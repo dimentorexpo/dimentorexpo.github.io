@@ -9071,35 +9071,23 @@ function paintstatus() {
 setInterval(paintstatus, 5000);
 
 function backbtn() {
-    if (document.getElementById('search') != null)
-        document.getElementById('back_btn').style.display = "";
+    if (document.getElementsByClassName('show').length >= 2){
 
     let barea = document.createElement('textarea')
     barea.id = "notes_field"
-    barea.style.background = "lightgrey";
+    barea.style = 'background: lightgrey; top: 90vh; position: absolute; width: 300px;'
 
     let btnsndnotes = document.createElement('button')
     btnsndnotes.innerText = "Notes"
+	btnsndnotes.style = 'position: absolute; top: 90vh; left: 32vh;'
     btnsndnotes.id = "SendNotesToChat"
     btnsndnotes.onclick = notetoclchat;
 
 
     if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
-        if (document.getElementById('send_btns') != null) {
 
-            document.getElementById('send_text').style.display = 'none'
-            document.getElementById('send_btn').style.display = 'none'
-
-            document.getElementById('send_btns').append(barea)
-            document.getElementById('send_btns').append(btnsndnotes)
-
-
-            let zambtnhide = document.getElementsByTagName('a')
-            for (let i = 0; i < zambtnhide.length; i++) {
-                if (zambtnhide[i].innerText == 'заметка')
-                    zambtnhide[i].style.display = 'none'
-            }
-        }
+            document.getElementsByClassName('rounded vh-100')[0].append(barea)
+            document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
 
     } else console.log("Уже добавлено")
 
@@ -9131,6 +9119,8 @@ function backbtn() {
 
         document.getElementById('notes_field').value = ''
     }
+	
+}
 }
 
 setInterval(backbtn, 5000);
