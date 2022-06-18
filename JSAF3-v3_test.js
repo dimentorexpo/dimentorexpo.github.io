@@ -5400,7 +5400,6 @@ function move_again_AF() {
                 let to = document.getElementById('dateToChHis').value
                 document.getElementById('chatuserhis').value = ''
 
-
                 if (foundarr != '')
                     foundarr = ''
 
@@ -5425,7 +5424,9 @@ function move_again_AF() {
                     "credentials": "include"
                 }).then(r => r.json()).then(r => data = r)
                 console.log(data)
-
+				
+				if (data.total == 0)
+					alert("В выбранном диапазоне чатов от пользователя не найдено. Попробуйте, пожалуйста, выбрать другой, либо пользователь не обращался вовсе.")
 
                 for (let i = 0; i < data.items.length; i++) {
 
