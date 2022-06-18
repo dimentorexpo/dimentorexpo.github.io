@@ -638,7 +638,7 @@ var win_Chathis =  // описание элементов окна ссылок
 			
 			<div id="bottommenuchhis" style="width: 550px">
 				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top:5px; width: 320px; height: 29px; background: white;"></textarea>
-				<button id="sendmsgtochatornotes" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px;">Отправить</button>
+				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px;">Отправить</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
 			</div>
