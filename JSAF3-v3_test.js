@@ -5810,7 +5810,31 @@ function move_again_AF() {
 
 
             } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
-				console.log('Text was sent to chat')
+				
+										let chathashfromdiv = document.getElementById('placechatid').innerText
+						let sesid;
+
+						await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+							.then(r => r.json()).then(r => rdata = r)
+						sesid = rdata.sessionId;
+
+						let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
+
+						fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+							"headers": {
+								"accept": "*/*",
+								"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+								"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+								"sec-fetch-mode": "cors",
+								"sec-fetch-site": "same-origin"
+							},
+							"body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+							"method": "POST",
+							"mode": "cors",
+							"credentials": "include"
+						});
+				
+				document.getElementById('msgftochatornotes').value = ''
             }
 		}
     }
