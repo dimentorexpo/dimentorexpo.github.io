@@ -497,17 +497,18 @@ var win_Chathis =  // описание элементов окна ссылок
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
 					<input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
-					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"></div>
+					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
 					<button id="takechat">Забрать</button>
-                </div>
+				</div>
+
 			</span>
 			
 			<div id="infofield" style="color:bisque; width:550px; max-height: 800px; overflow:auto;">
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 550px">
-			<textarea id="msgftochatornotes" style="width:300px;"></textarea>
-			<button id="sendmsgtochatornotes">Отправить</button>
+				<textarea id="msgftochatornotes" style="width:300px; height:25px;"></textarea>
+				<button id="sendmsgtochatornotes">Отправить</button>
 			</div>
 	</span>
 </div>`;
