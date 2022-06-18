@@ -500,6 +500,11 @@ var win_Chathis =  // описание элементов окна ссылок
 					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
 					<button id="takechat">Забрать</button>
 				</div>
+				
+				<div style="width: 550px; display:flex; justify-content:center;cursor:text;" id="somechatinfo">
+					<span style="color:bisque; margin-left:10px;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px;"></span>
+					<span style="color:bisque; margin-left:10px;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px;"></span>
+				</div>
 
 			</span>
 			
@@ -507,8 +512,10 @@ var win_Chathis =  // описание элементов окна ссылок
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 550px">
-				<textarea id="msgftochatornotes" style="width:300px; height:25px;"></textarea>
-				<button id="sendmsgtochatornotes">Отправить</button>
+				<textarea id="msgftochatornotes" style="margin-left: 10px;width: 320px; height: 29px;"></textarea>
+				<button id="sendmsgtochatornotes" style="margin-left: 5px; position:absolute; top 5px;">Отправить</button>
+				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;">Заметки</label>
+				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:5px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-right:5px;">Чат</label>
 			</div>
 	</span>
 </div>`;
@@ -5346,6 +5353,18 @@ function move_again_AF() {
             document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS-1) + "-" + (todayLS - 1);
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
+		
+			let radiobtnsarray = document.getElementsByName('chatornotes')
+
+			for (let i=0; i<radiobtnsarray.length;i++) {
+				radiobtnsarray[i].onclick = () => {
+					if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+						document.getElementById('msgftochatornotes').style.background = 'LightGrey';   
+					} else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+						document.getElementById('msgftochatornotes').style.background = 'white';   
+					}
+				}
+			}
 		
 	}
 
