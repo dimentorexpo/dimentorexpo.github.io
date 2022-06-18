@@ -4536,8 +4536,8 @@ function move_again_AF() {
 		document.getElementById('infofield').innerText = ''
 		document.getElementById('placeusid').innerText = ''
 		document.getElementById('placechatid').innerText = ''
-		document.getElementById('chatuserhis').innerText = ''
-		document.getElementById('hashchathis').innerText = ''
+		document.getElementById('chatuserhis').value = ''
+		document.getElementById('hashchathis').value = ''
 		}
     }
 
