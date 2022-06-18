@@ -5311,7 +5311,7 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = ''
     }
 	
-	document.getElementById('butChatHistory').onclick = () = {
+	document.getElementById('butChatHistory').onclick = () => {
 		
 	    if (document.getElementById('AF_ChatHis').style.display == '')
             document.getElementById('AF_ChatHis').style.display = 'none'
