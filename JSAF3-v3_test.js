@@ -5382,7 +5382,7 @@ function move_again_AF() {
         let foundarr = [];
 
         document.getElementById('btn_search_history').onclick = async () => {
-
+					
             let timedataarr = [];
 
             if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') {
@@ -5390,6 +5390,19 @@ function move_again_AF() {
                 let from = document.getElementById('dateFromChHis').value
                 let to = document.getElementById('dateToChHis').value
 				document.getElementById('chatuserhis').value =''
+
+
+             if (foundarr != '')
+                 foundarr =''
+			 
+			 if (document.getElementById('placeusid').value != '')
+				 document.getElementById('placeusid').value = ''
+
+			 if (document.getElementById('placechatid').value != '')
+				 document.getElementById('placechatid').value = ''
+                
+			if (document.getElementById('infofield').innerHTML != '')
+			document.getElementById('infofield').innerHTML = ''
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
