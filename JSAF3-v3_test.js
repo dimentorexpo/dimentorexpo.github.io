@@ -169,6 +169,7 @@ function mystyles() {
 		
 		.answer-bot-container {
 			background:#52C41A26;
+			min-width: 300px;
 			max-width:400px;
 			float:right;
 			margin-bottom:
