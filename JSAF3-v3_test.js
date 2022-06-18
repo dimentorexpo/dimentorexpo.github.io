@@ -484,6 +484,7 @@ var win_Chathis =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
+					<button title="Очистка всех полей" id="clearallinfo" style="width:50px;">🧹</button>
 				</div>				
 				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:105px">Найти</button>
@@ -4540,6 +4541,14 @@ function move_again_AF() {
             document.getElementById('hashchathis').value = ''
         }
     }
+	
+	document.getElementById('clearallinfo').onclick = () => {
+		    document.getElementById('infofield').innerText = ''
+            document.getElementById('placeusid').innerText = ''
+            document.getElementById('placechatid').innerText = ''
+            document.getElementById('chatuserhis').value = ''
+            document.getElementById('hashchathis').value = ''
+	}
 
     document.getElementById('hideMenu').onclick = function () {
         document.getElementById('AF_helper').style.display = 'none'
