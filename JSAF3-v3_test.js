@@ -487,14 +487,14 @@ var win_Chathis =  // описание элементов окна ссылок
 				</div>				
 				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:105px">Найти</button>
-					 <input id="chatuserhis" placeholder="ID пользователя" title="" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					 <input id="chatuserhis" placeholder="ID пользователя" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
+					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
 					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:105px">Вернуться</button>	
 				</div>	
 				
-				<div style="margin: 5px; width: 550px" id="databoxchathis">
+				<div style="margin: 5px; width: 550px;display:flex; justify-content:center;" id="databoxchathis">
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis"></span>
-					<span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">До <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"</span>
+					<span style="color:bisque; margin-top:5px; float:right; margin-right:10px; height:28px;">До <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"</span>
                 </div>
 			</span>
 			
@@ -5317,6 +5317,26 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = 'none'
         else 
             document.getElementById('AF_ChatHis').style.display = ''
+		
+		let getdateset = new Date()
+        let getyearLS = getdateset.getFullYear();
+        let getcurmonthLS = (getdateset.getMonth() + 1)
+        let todayLS = getdateset.getDate();
+        if (getcurmonthLS < 10) {
+            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        } else {
+            getcurmonthLS = (getdateset.getMonth() + 1);
+        }
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS-1) + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS-1) + "-" + (todayLS - 1);
+            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
+		
 	}
 
     document.getElementById('suggestform').onclick = () => {
@@ -5664,7 +5684,6 @@ function move_again_AF() {
             document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
             document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
-
 
         if (document.getElementById('AF_LessonStatus').style.display == '')
             document.getElementById('AF_LessonStatus').style.display = 'none'
