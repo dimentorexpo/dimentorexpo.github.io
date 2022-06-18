@@ -5357,6 +5357,12 @@ function move_again_AF() {
 			let radiobtnsarray = document.getElementsByName('chatornotes')
 
 			for (let i=0; i<radiobtnsarray.length;i++) {
+				if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+						document.getElementById('msgftochatornotes').style.background = 'LightGrey';   
+					} else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+						document.getElementById('msgftochatornotes').style.background = 'white';   
+					}
+					
 				radiobtnsarray[i].onclick = () => {
 					if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
 						document.getElementById('msgftochatornotes').style.background = 'LightGrey';   
