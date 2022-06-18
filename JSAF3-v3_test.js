@@ -5572,6 +5572,8 @@ function move_again_AF() {
                     let year = tmestmp.getFullYear();
                     if ((tmestmp.getUTCHours() + 3) < 10)
                         tshrs = "0" + (tmestmp.getUTCHours() + 3);
+                    else if((tmestmp.getUTCHours() + 3) >= 24)
+                        tshrs = '0' + (24 - (tmestmp.getUTCHours() + 3))
                     else tshrs = (tmestmp.getUTCHours() + 3);
 
                     if (tmestmp.getMinutes() < 10)
