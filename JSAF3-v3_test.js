@@ -5278,8 +5278,6 @@ function move_again_AF() {
                     }
                 }
             }
-
-
         }
     }
 
@@ -5317,9 +5315,8 @@ function move_again_AF() {
 		
 	    if (document.getElementById('AF_ChatHis').style.display == '')
             document.getElementById('AF_ChatHis').style.display = 'none'
-        else {
+        else 
             document.getElementById('AF_ChatHis').style.display = ''
-		
 	}
 
     document.getElementById('suggestform').onclick = () => {
