@@ -5434,6 +5434,8 @@ function move_again_AF() {
                     let tsmin
                     let day;
                     let month;
+					
+					let marksarr;
                     if (tmestmp.getMonth() < 9)
                         month = "0" + (tmestmp.getMonth() + 1)
                     else
@@ -5450,8 +5452,13 @@ function move_again_AF() {
                     if (tmestmp.getMinutes() < 10)
                         tsmin = "0" + tmestmp.getMinutes();
                     else tsmin = tmestmp.getMinutes();
+					
+					if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
+						marksarr = 'Нет оценки'
+					else 
+						marksarr = data.items[i].stats.rate.rate
 
-                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
+                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + ' Оценка: ' + marksarr + '</span>' + '<br>'
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -9408,7 +9415,7 @@ setInterval(checJiraF, 1000);
 
 async function checkthemestatus() {
     try {
-        if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/').length < 4)
+        if (document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/').length <= 4)
             var errrrrrrrrrrrrrrrrrrrrrr = "no active chats";
         else {
             let temparr = document.location.pathname.split('/')[3];
