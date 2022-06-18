@@ -5576,10 +5576,12 @@ function move_again_AF() {
 			} // конец функции клика найти
 			
 			document.getElementById('back_to_chat_his').onclick = () => {
+
 				document.getElementById('infofield').innerHTML = '';
-				document.getElementById('placeusid').innerHTML = '';
-				document.getElementById('placechatid').innerHTML = '';
+				document.getElementById('placeusid').value = '';
+				document.getElementById('placechatid').value = '';
 				
+				if (foundarr != '' && foundarr !=null && foundarr != undefined) {
 				document.getElementById('infofield').innerHTML = foundarr;
 				
 									for(let i=0; i <document.getElementsByClassName('chatlist').length;i++) {
@@ -5653,6 +5655,8 @@ function move_again_AF() {
 							}
 						} // конец функции клика по списку в найденном чате
 				}
+			}
+			
 			}
 	}
 
