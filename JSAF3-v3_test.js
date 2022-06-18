@@ -5670,6 +5670,77 @@ function move_again_AF() {
                 }
             }
         }
+		
+		document.getElementById('refreshchat').onclick = async () => {
+			if (document.getElementById('placechatid').innerText != '') {
+				document.getElementById('infofield').innerHTML = '';
+				
+				                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                console.log(convdata)
+
+                document.getElementById('infofield').innerHTML = ''
+
+                let timearr = [];
+                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                document.getElementById('placechatid').innerText = convdata.id;
+                for (let i = 0; i < convdata.messages.length; i++) {
+                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                    switch (convdata.messages[i].tpe) {
+                        case "Question":
+                            if (convdata.messages[i].click == undefined) {
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            } else {
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                            }
+                            break;
+
+                        case "Event":
+                            if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                                let operid = convdata.messages[i].payload.oid;
+                                let opername;
+                                opername = operatorsarray.filter(i => (i.operator.id == operid))
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + 'Чат вернули в очередь' + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + ' Автоматически закрылся чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                let operidcls = convdata.messages[i].payload.sender;
+                                let opernamecls;
+                                opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            }
+                            break;
+
+                        case "AnswerOperatorWithBot":
+                            document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#52C41A26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:#9ACD32; float:left; font-size:12px; font-weight:700; margin-right:5px;">' + 'AutoFAQ bot' + '</span>' + '<span style="font-size:12px; color:#C0C0C0; float:right; max-width:400px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            break;
+
+                        case "AnswerOperator":
+                            let operidansw = convdata.messages[i].operatorId
+                            let opernameansw;
+                            opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                            document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#FADA5E26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:bisque; float:left; font-size:12px;">' + opernameansw[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            break;
+
+                        case "OperatorComment":
+                            if (convdata.messages[i].operatorId != 'autoFAQ') {
+                                let operidanswcom = convdata.messages[i].operatorId
+                                let opernameanswcom;
+                                opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#C0C0C0; float:left; font-size:12px;">' + opernameanswcom[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            } else {
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#66CDAA; float:left; font-size:12px;">' + convdata.messages[i].operatorId + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            }
+                            break;
+                    }
+                }
+			}
+		}
     }
 
     document.getElementById('suggestform').onclick = () => {
