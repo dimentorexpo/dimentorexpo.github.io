@@ -106,20 +106,10 @@ function mystyles() {
 			transform:translateX(28px);
 		}
 			
-			
-		#servDsk {
-			height:50px;
-		}	
 		#buttonOpenForm {
 			height:50px;
 		}		
-		#butServ {
-			height:50px;
-		}		
-		#butMarks {
-			height:50px;
-		}
-			
+		
 		#servDsk:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -1908,26 +1898,23 @@ hashBut.style.marginRight = "15px";
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
-butServ.style.marginRight = "15px";
-butServ.style.cursor = "pointer";
+butServ.style= 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "📊Оценки"
-butMarks.style.marginRight = "15px";
-butMarks.style.cursor = "pointer";
+butMarks.style= 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.style.marginRight = "15px";
-butChatHistory.style.cursor = "pointer";
+butChatHistory.style= 'margin-right:15px; height:50px; cursor:pointer;';
+
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style.marginRight = "15px";
-servDsk.style.cursor = "pointer";
+servDsk.style.style= 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
