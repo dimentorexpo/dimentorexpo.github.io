@@ -4530,8 +4530,13 @@ function move_again_AF() {
     }  
 
 	document.getElementById('hideMeChHis').onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == '')
+        if (document.getElementById('AF_ChatHis').style.display == '') {
             document.getElementById('AF_ChatHis').style.display = 'none'
+		
+		document.getElementById('infofield').innerText = ''
+		document.getElementById('placeusid').innerText = ''
+		document.getElementById('placechatid').innerText = ''
+		}
     }
 
     document.getElementById('hideMenu').onclick = function () {
