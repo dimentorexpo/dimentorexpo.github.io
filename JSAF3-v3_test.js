@@ -485,7 +485,7 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
 				</div>				
-				<div style="margin: 5px; width: 550px;" id="chathismenu">
+				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:105px">Найти</button>
 					 <input id="chatuserhis" placeholder="ID пользователя" title="" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -498,7 +498,7 @@ var win_Chathis =  // описание элементов окна ссылок
                 </div>
 			</span>
 			
-			<div>
+			<div id="infofield" style="color:bisque">
 			</div>
 	</span>
 </div>`;
@@ -2326,7 +2326,7 @@ var listener16 = function (e, a) { // сохранение позиции окн
     localStorage.setItem('winLeftChatHis', String(Number(e.clientX - myX16)));
 };
 
-wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+wintChatHis.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
     window.myX16 = a.layerX;
     window.myY16 = a.layerY;
     document.addEventListener('mousemove', listener16);
@@ -4512,7 +4512,7 @@ function move_again_AF() {
             document.getElementById('AF_Sugform').style.display = 'none'
     }  
 
-	document.getElementById('hideMeSugForm').onclick = () => {
+	document.getElementById('hideMeChHis').onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == '')
             document.getElementById('AF_ChatHis').style.display = 'none'
     }
