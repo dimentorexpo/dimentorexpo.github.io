@@ -1864,13 +1864,13 @@ buttonnextteacherid.onclick = function () {
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
         document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-	else if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'найти') {
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+    else if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'найти') {
+        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+        }
+        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
     }
-    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-	}
 }
 
 buttonserv.onclick = function () {
@@ -1939,27 +1939,27 @@ hashBut.style.marginRight = "15px";
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
-butServ.style= 'margin-right:15px; height:50px; cursor:pointer;';
+butServ.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "📊Оценки"
-butMarks.style= 'margin-right:15px; height:50px; cursor:pointer;';
+butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.style= 'margin-right:15px; height:50px; cursor:pointer;';
+butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style= 'margin-right:15px; height:50px; cursor:pointer;';
+servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style= 'margin-right:15px; height:50px; cursor:pointer;';
+butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -4007,12 +4007,12 @@ function move_again_AF() {
                     document.getElementById('getusrphone1').onclick = function () {
                         copyToClipboard1(unhidephone);
                     };
-					
-					if (document.getElementById('getshowcase1') !=null) {
-                    document.getElementById('getshowcase1').onclick = function () {
-                        copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
-                    };
-					}
+
+                    if (document.getElementById('getshowcase1') != null) {
+                        document.getElementById('getshowcase1').onclick = function () {
+                            copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                        };
+                    }
 
                     document.getElementById('getloginer1').addEventListener('click', function () {
                         postuderdatatologin();
@@ -4041,38 +4041,38 @@ function move_again_AF() {
                     postuderdatatologin();
                 })
 
-				if (document.getElementById('getshowcase') !=null) {
-                document.getElementById('getshowcase').onclick = function () {
-                    copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
-                };
-				}
+                if (document.getElementById('getshowcase') != null) {
+                    document.getElementById('getshowcase').onclick = function () {
+                        copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                    };
+                }
 
 
                 if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
                     let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
-					if (testids !=null) {
-                    let infoiduslugi = document.getElementsByClassName('iduslugitxt');
-                    for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
-                            for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-                                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-                                    let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-                                    if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
-                                        // for (let d = 0; d < infoiduslugi.length; d++) {
-                                        for (let v = 0; v < testids.length; v++) {
-                                            if (testids[v] == getidusr + ",")
-                                                infoiduslugi[v].innerText = "ID Услуги 🔥";
-                                            else
-                                                console.log("Not found") //если услуги не совпали с П обратившимся
-                                        } // for v
-                                        //    } // for d
-                                    } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
-                                } else
-                                    console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
-                            } // for let i
-                        } // if type == teacher
+                    if (testids != null) {
+                        let infoiduslugi = document.getElementsByClassName('iduslugitxt');
+                        for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
+                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+                                for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                                        let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                                        if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
+                                            // for (let d = 0; d < infoiduslugi.length; d++) {
+                                            for (let v = 0; v < testids.length; v++) {
+                                                if (testids[v] == getidusr + ",")
+                                                    infoiduslugi[v].innerText = "ID Услуги 🔥";
+                                                else
+                                                    console.log("Not found") //если услуги не совпали с П обратившимся
+                                            } // for v
+                                            //    } // for d
+                                        } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
+                                    } else
+                                        console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
+                                } // for let i
+                            } // if type == teacher
+                        }
                     }
-				}
                 } // for let j
             }
 
@@ -4527,18 +4527,18 @@ function move_again_AF() {
     document.getElementById('hideMeSugForm').onclick = () => {
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
-    }  
+    }
 
-	document.getElementById('hideMeChHis').onclick = () => {
+    document.getElementById('hideMeChHis').onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == '') {
             document.getElementById('AF_ChatHis').style.display = 'none'
-		
-		document.getElementById('infofield').innerText = ''
-		document.getElementById('placeusid').innerText = ''
-		document.getElementById('placechatid').innerText = ''
-		document.getElementById('chatuserhis').value = ''
-		document.getElementById('hashchathis').value = ''
-		}
+
+            document.getElementById('infofield').innerText = ''
+            document.getElementById('placeusid').innerText = ''
+            document.getElementById('placechatid').innerText = ''
+            document.getElementById('chatuserhis').value = ''
+            document.getElementById('hashchathis').value = ''
+        }
     }
 
     document.getElementById('hideMenu').onclick = function () {
@@ -5334,15 +5334,15 @@ function move_again_AF() {
         else
             document.getElementById('AF_Service').style.display = ''
     }
-	
-	document.getElementById('butChatHistory').onclick = () => {
-		
-	    if (document.getElementById('AF_ChatHis').style.display == '')
+
+    document.getElementById('butChatHistory').onclick = () => {
+
+        if (document.getElementById('AF_ChatHis').style.display == '')
             document.getElementById('AF_ChatHis').style.display = 'none'
-        else 
+        else
             document.getElementById('AF_ChatHis').style.display = ''
-		
-		let getdateset = new Date()
+
+        let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
@@ -5353,312 +5353,311 @@ function move_again_AF() {
         }
         if (getdateset.getDate() < 10) {
             todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS-1) + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + "0" + (Number(todayLS) - 1);
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         } else {
             todayLS = getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS-1) + "-" + (todayLS - 1);
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
-		
-			let radiobtnsarray = document.getElementsByName('chatornotes')
 
-			for (let i=0; i<radiobtnsarray.length;i++) {
-				if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
-						document.getElementById('msgftochatornotes').style.background = 'LightGrey';   
-					} else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
-						document.getElementById('msgftochatornotes').style.background = 'white';   
-					}
-					
-				radiobtnsarray[i].onclick = () => {
-					if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
-						document.getElementById('msgftochatornotes').style.background = 'LightGrey';   
-					} else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
-						document.getElementById('msgftochatornotes').style.background = 'white';   
-					}
-				}
-			}
-			
-			let foundarr=[];
-							
-			document.getElementById('btn_search_history').onclick = async () => {
+        let radiobtnsarray = document.getElementsByName('chatornotes')
 
-                let timedataarr=[];
-    
-				if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == ''){
-			let lusid = document.getElementById('chatuserhis').value;
-			let from = document.getElementById('dateFromChHis').value
-			let to = document.getElementById('dateToChHis').value
+        for (let i = 0; i < radiobtnsarray.length; i++) {
+            if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+                document.getElementById('msgftochatornotes').style.background = 'LightGrey';
+            } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+                document.getElementById('msgftochatornotes').style.background = 'white';
+            }
 
-			await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-			  "headers": {
-				"content-type": "application/json",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			  },
-			  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"${lusid}\",\"tsFrom\":\"${from}T00:00:00.000Z\",\"tsTo\":\"${to}T23:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}).then(r=>r.json()).then(r=>data=r)
-                    console.log(data)
+            radiobtnsarray[i].onclick = () => {
+                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+                    document.getElementById('msgftochatornotes').style.background = 'LightGrey';
+                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+                    document.getElementById('msgftochatornotes').style.background = 'white';
+                }
+            }
+        }
+
+        let foundarr = [];
+
+        document.getElementById('btn_search_history').onclick = async () => {
+
+            let timedataarr = [];
+
+            if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') {
+                let lusid = document.getElementById('chatuserhis').value;
+                let from = document.getElementById('dateFromChHis').value
+                let to = document.getElementById('dateToChHis').value
+
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                    "headers": {
+                        "content-type": "application/json",
+                        "sec-fetch-mode": "cors",
+                        "sec-fetch-site": "same-origin"
+                    },
+                    "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"${lusid}\",\"tsFrom\":\"${from}T00:00:00.000Z\",\"tsTo\":\"${to}T23:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}`,
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => data = r)
+                console.log(data)
 
 
-                    for (let i=0; i<data.items.length; i++) {
+                for (let i = 0; i < data.items.length; i++) {
 
-            let tmestmp = new Date((data.items[i].ts.split('[GMT]'))[0])
-                            let tshrs;
-                            let tsmin
-                            let day;
-                            let month;
-                        if (tmestmp.getMonth() < 9)
-                            month = "0" + (tmestmp.getMonth() + 1)
-                        else
-                            month = (tmestmp.getMonth() + 1)
-                        if (tmestmp.getDate() < 10)
-                            day = "0" + tmestmp.getDate()
-                        else
-                            day = tmestmp.getDate()
-                            let year = tmestmp.getFullYear();
-                            if ((tmestmp.getUTCHours() + 3) < 10)
-                                tshrs = "0" + (tmestmp.getUTCHours() + 3);
-                            else tshrs = (tmestmp.getUTCHours() + 3);
+                    let tmestmp = new Date((data.items[i].ts.split('[GMT]'))[0])
+                    let tshrs;
+                    let tsmin
+                    let day;
+                    let month;
+                    if (tmestmp.getMonth() < 9)
+                        month = "0" + (tmestmp.getMonth() + 1)
+                    else
+                        month = (tmestmp.getMonth() + 1)
+                    if (tmestmp.getDate() < 10)
+                        day = "0" + tmestmp.getDate()
+                    else
+                        day = tmestmp.getDate()
+                    let year = tmestmp.getFullYear();
+                    if ((tmestmp.getUTCHours() + 3) < 10)
+                        tshrs = "0" + (tmestmp.getUTCHours() + 3);
+                    else tshrs = (tmestmp.getUTCHours() + 3);
 
-                            if (tmestmp.getMinutes() < 10)
-                                tsmin = "0" + tmestmp.getMinutes();
-                            else tsmin = tmestmp.getMinutes();
-                        
-                        foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' +tsmin +' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
+                    if (tmestmp.getMinutes() < 10)
+                        tsmin = "0" + tmestmp.getMinutes();
+                    else tsmin = tmestmp.getMinutes();
+
+                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
+                }
+
+                document.getElementById('infofield').innerHTML = foundarr;
+
+                for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
+                    document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+
+                    document.getElementsByClassName('chatlist')[i].onclick = async () => {
+
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                        console.log(convdata)
+
+                        document.getElementById('infofield').innerHTML = ''
+
+                        let timearr = [];
+                        let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                        // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                        document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                        document.getElementById('placechatid').innerText = convdata.id;
+                        for (let i = 0; i < convdata.messages.length; i++) {
+                            timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                            switch (convdata.messages[i].tpe) {
+                                case "Question":
+                                    if (convdata.messages[i].click == undefined) {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    } else {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                                    }
+                                    break;
+
+                                case "Event":
+                                    if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                                        let operid = convdata.messages[i].payload.oid;
+                                        let opername;
+                                        opername = operatorsarray.filter(i => (i.operator.id == operid))
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + 'Чат вернули в очередь' + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + ' Автоматически закрылся чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                        let operidcls = convdata.messages[i].payload.sender;
+                                        let opernamecls;
+                                        opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    }
+                                    break;
+
+                                case "AnswerOperatorWithBot":
+                                    document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#52C41A26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:#9ACD32; float:left; font-size:12px; font-weight:700; margin-right:5px;">' + 'AutoFAQ bot' + '</span>' + '<span style="font-size:12px; color:#C0C0C0; float:right; max-width:400px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    break;
+
+                                case "AnswerOperator":
+                                    let operidansw = convdata.messages[i].operatorId
+                                    let opernameansw;
+                                    opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                                    document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#FADA5E26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:bisque; float:left; font-size:12px;">' + opernameansw[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    break;
+
+                                case "OperatorComment":
+                                    if (convdata.messages[i].operatorId != 'autoFAQ') {
+                                        let operidanswcom = convdata.messages[i].operatorId
+                                        let opernameanswcom;
+                                        opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#C0C0C0; float:left; font-size:12px;">' + opernameanswcom[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    } else {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#66CDAA; float:left; font-size:12px;">' + convdata.messages[i].operatorId + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    }
+                                    break;
+                            }
+                        }
+                    } // конец функции клика по списку в найденном чате
+
+                }
+
+            } else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != '') {
+
+                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value).then(r => r.json()).then(r => convdata = r)
+                console.log(convdata)
+
+                document.getElementById('infofield').innerHTML = ''
+
+                let timearr = [];
+                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                document.getElementById('placechatid').innerText = convdata.id;
+                for (let i = 0; i < convdata.messages.length; i++) {
+                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                    switch (convdata.messages[i].tpe) {
+                        case "Question":
+                            if (convdata.messages[i].click == undefined) {
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            } else {
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                            }
+                            break;
+
+                        case "Event":
+                            if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                                let operid = convdata.messages[i].payload.oid;
+                                let opername;
+                                opername = operatorsarray.filter(i => (i.operator.id == operid))
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + 'Чат вернули в очередь' + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + ' Автоматически закрылся чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                let operidcls = convdata.messages[i].payload.sender;
+                                let opernamecls;
+                                opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                            }
+                            break;
+
+                        case "AnswerOperatorWithBot":
+                            document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#52C41A26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:#9ACD32; float:left; font-size:12px; font-weight:700; margin-right:5px;">' + 'AutoFAQ bot' + '</span>' + '<span style="font-size:12px; color:#C0C0C0; float:right; max-width:400px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            break;
+
+                        case "AnswerOperator":
+                            let operidansw = convdata.messages[i].operatorId
+                            let opernameansw;
+                            opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                            document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#FADA5E26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:bisque; float:left; font-size:12px;">' + opernameansw[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            break;
+
+                        case "OperatorComment":
+                            if (convdata.messages[i].operatorId != 'autoFAQ') {
+                                let operidanswcom = convdata.messages[i].operatorId
+                                let opernameanswcom;
+                                opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#C0C0C0; float:left; font-size:12px;">' + opernameanswcom[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            } else {
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#66CDAA; float:left; font-size:12px;">' + convdata.messages[i].operatorId + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                            }
+                            break;
                     }
+                }
+            } else alert("Введено и ID пользователя и хеш чата, выберите, что-то одно и повторите попытку.")
+        } // конец функции клика найти
 
-										document.getElementById('infofield').innerHTML = foundarr;
-										
-					for(let i=0; i <document.getElementsByClassName('chatlist').length;i++) {
-										document.getElementsByClassName('chatlist')[i].title=data.items[i].conversationId
-										
-						document.getElementsByClassName('chatlist')[i].onclick = async () => {
+        document.getElementById('back_to_chat_his').onclick = () => {
 
-							await fetch("https://skyeng.autofaq.ai/api/conversations/"+document.getElementsByClassName('chatlist')[i].title).then(r=>r.json()).then(r=>convdata=r)
-							console.log(convdata)
-							
-							document.getElementById('infofield').innerHTML = ''
-							
-							let timearr = [];
-							let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-							// след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-							document.getElementById('placeusid').innerText = convdata.channelUser.id;
-							document.getElementById('placechatid').innerText = convdata.id;
-							for (let i = 0; i < convdata.messages.length; i++) {
-								timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-								switch (convdata.messages[i].tpe) {
-									case "Question":
-										if (convdata.messages[i].click == undefined) {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										} else {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
-										}
-										break;
+            document.getElementById('infofield').innerHTML = '';
+            document.getElementById('placeusid').value = '';
+            document.getElementById('placechatid').value = '';
 
-									case "Event":
-										if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
-											let operid = convdata.messages[i].payload.oid;
-											let opername;
-											opername = operatorsarray.filter(i => (i.operator.id == operid))
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + 'Чат вернули в очередь' + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + ' Автоматически закрылся чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
-											let operidcls = convdata.messages[i].payload.sender;
-											let opernamecls;
-											opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										}
-										break;
+            if (foundarr != '' && foundarr != null && foundarr != undefined) {
+                document.getElementById('infofield').innerHTML = foundarr;
 
-									case "AnswerOperatorWithBot":
-										document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#52C41A26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:#9ACD32; float:left; font-size:12px; font-weight:700; margin-right:5px;">' + 'AutoFAQ bot' + '</span>' + '<span style="font-size:12px; color:#C0C0C0; float:right; max-width:400px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										break;
+                for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
+                    document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
 
-									case "AnswerOperator":
-										let operidansw = convdata.messages[i].operatorId
-										let opernameansw;
-										opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
-										document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#FADA5E26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:bisque; float:left; font-size:12px;">' + opernameansw[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										break;
+                    document.getElementsByClassName('chatlist')[i].onclick = async () => {
 
-									case "OperatorComment":
-										if (convdata.messages[i].operatorId != 'autoFAQ') {
-											let operidanswcom = convdata.messages[i].operatorId
-											let opernameanswcom;
-											opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#C0C0C0; float:left; font-size:12px;">' + opernameanswcom[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										} else {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#66CDAA; float:left; font-size:12px;">' + convdata.messages[i].operatorId + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										}
-										break;
-								}
-							}
-						} // конец функции клика по списку в найденном чате
-						
-					}
-					
-				} else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != ''){
-					
-							await fetch("https://skyeng.autofaq.ai/api/conversations/"+document.getElementById('hashchathis').value).then(r=>r.json()).then(r=>convdata=r)
-							console.log(convdata)
-							
-							document.getElementById('infofield').innerHTML = ''
-							
-							let timearr = [];
-							let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-							// след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-							document.getElementById('placeusid').innerText = convdata.channelUser.id;
-							document.getElementById('placechatid').innerText = convdata.id;
-							for (let i = 0; i < convdata.messages.length; i++) {
-								timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-								switch (convdata.messages[i].tpe) {
-									case "Question":
-										if (convdata.messages[i].click == undefined) {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										} else {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
-										}
-										break;
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                        console.log(convdata)
 
-									case "Event":
-										if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
-											let operid = convdata.messages[i].payload.oid;
-											let opername;
-											opername = operatorsarray.filter(i => (i.operator.id == operid))
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + 'Чат вернули в очередь' + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + ' Автоматически закрылся чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
-											let operidcls = convdata.messages[i].payload.sender;
-											let opernamecls;
-											opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										}
-										break;
+                        document.getElementById('infofield').innerHTML = ''
 
-									case "AnswerOperatorWithBot":
-										document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#52C41A26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:#9ACD32; float:left; font-size:12px; font-weight:700; margin-right:5px;">' + 'AutoFAQ bot' + '</span>' + '<span style="font-size:12px; color:#C0C0C0; float:right; max-width:400px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										break;
+                        let timearr = [];
+                        let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                        // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                        document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                        document.getElementById('placechatid').innerText = convdata.id;
+                        for (let i = 0; i < convdata.messages.length; i++) {
+                            timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                            switch (convdata.messages[i].tpe) {
+                                case "Question":
+                                    if (convdata.messages[i].click == undefined) {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    } else {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                                    }
+                                    break;
 
-									case "AnswerOperator":
-										let operidansw = convdata.messages[i].operatorId
-										let opernameansw;
-										opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
-										document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#FADA5E26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:bisque; float:left; font-size:12px;">' + opernameansw[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										break;
+                                case "Event":
+                                    if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                                        let operid = convdata.messages[i].payload.oid;
+                                        let opername;
+                                        opername = operatorsarray.filter(i => (i.operator.id == operid))
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + 'Чат вернули в очередь' + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + ' Автоматически закрылся чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                        let operidcls = convdata.messages[i].payload.sender;
+                                        let opernamecls;
+                                        opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                        document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                    }
+                                    break;
 
-									case "OperatorComment":
-										if (convdata.messages[i].operatorId != 'autoFAQ') {
-											let operidanswcom = convdata.messages[i].operatorId
-											let opernameanswcom;
-											opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#C0C0C0; float:left; font-size:12px;">' + opernameanswcom[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										} else {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#66CDAA; float:left; font-size:12px;">' + convdata.messages[i].operatorId + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										}
-										break;
-								}
-							}
-				} else alert("Введено и ID пользователя и хеш чата, выберите, что-то одно и повторите попытку.")
-			} // конец функции клика найти
-			
-			document.getElementById('back_to_chat_his').onclick = () => {
+                                case "AnswerOperatorWithBot":
+                                    document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#52C41A26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:#9ACD32; float:left; font-size:12px; font-weight:700; margin-right:5px;">' + 'AutoFAQ bot' + '</span>' + '<span style="font-size:12px; color:#C0C0C0; float:right; max-width:400px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    break;
 
-				document.getElementById('infofield').innerHTML = '';
-				document.getElementById('placeusid').value = '';
-				document.getElementById('placechatid').value = '';
-				
-				if (foundarr != '' && foundarr !=null && foundarr != undefined) {
-				document.getElementById('infofield').innerHTML = foundarr;
-				
-									for(let i=0; i <document.getElementsByClassName('chatlist').length;i++) {
-										document.getElementsByClassName('chatlist')[i].title=data.items[i].conversationId
-										
-						document.getElementsByClassName('chatlist')[i].onclick = async () => {
+                                case "AnswerOperator":
+                                    let operidansw = convdata.messages[i].operatorId
+                                    let opernameansw;
+                                    opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                                    document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#FADA5E26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:bisque; float:left; font-size:12px;">' + opernameansw[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    break;
 
-							await fetch("https://skyeng.autofaq.ai/api/conversations/"+document.getElementsByClassName('chatlist')[i].title).then(r=>r.json()).then(r=>convdata=r)
-							console.log(convdata)
-							
-							document.getElementById('infofield').innerHTML = ''
-							
-							let timearr = [];
-							let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-							// след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-							document.getElementById('placeusid').innerText = convdata.channelUser.id;
-							document.getElementById('placechatid').innerText = convdata.id;
-							for (let i = 0; i < convdata.messages.length; i++) {
-								timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-								switch (convdata.messages[i].tpe) {
-									case "Question":
-										if (convdata.messages[i].click == undefined) {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										} else {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#1890FF26; max-width:400px; margin-left: 10px; margin-bottom: 5px; padding: 5px 5px; float:left;">' + '<span style="color:#00BFFF; font-weight:700; font-size:12px; float:left; margin-right:5px;">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
-										}
-										break;
-
-									case "Event":
-										if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
-											let operid = convdata.messages[i].payload.oid;
-											let opername;
-											opername = operatorsarray.filter(i => (i.operator.id == operid))
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + 'Чат вернули в очередь' + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' &&  convdata.messages[i].payload.sender == 'userAnswerTimer') {
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + ' Автоматически закрылся чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										} else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
-											let operidcls = convdata.messages[i].payload.sender;
-											let opernamecls;
-											opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
-											document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center;  width:100%; font-size:12px;">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой отдела:  ' + convdata.messages[i].payload.afsName + '<span style="float:right; margin-right:15px; font-size:12px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-										}
-										break;
-
-									case "AnswerOperatorWithBot":
-										document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#52C41A26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:#9ACD32; float:left; font-size:12px; font-weight:700; margin-right:5px;">' + 'AutoFAQ bot' + '</span>' + '<span style="font-size:12px; color:#C0C0C0; float:right; max-width:400px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										break;
-
-									case "AnswerOperator":
-										let operidansw = convdata.messages[i].operatorId
-										let opernameansw;
-										opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
-										document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#FADA5E26; max-width:400px; float:right; margin-bottom: 5px; margin-right:15px; padding: 5px 5px;">' + '<span style="color:bisque; float:left; font-size:12px;">' + opernameansw[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div  style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										break;
-
-									case "OperatorComment":
-										if (convdata.messages[i].operatorId != 'autoFAQ') {
-											let operidanswcom = convdata.messages[i].operatorId
-											let opernameanswcom;
-											opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#C0C0C0; float:left; font-size:12px;">' + opernameanswcom[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										} else {
-											document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#66CDAA; float:left; font-size:12px;">' + convdata.messages[i].operatorId + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-										}
-										break;
-								}
-							}
-						} // конец функции клика по списку в найденном чате
-				}
-			}
-			
-			}
-	}
+                                case "OperatorComment":
+                                    if (convdata.messages[i].operatorId != 'autoFAQ') {
+                                        let operidanswcom = convdata.messages[i].operatorId
+                                        let opernameanswcom;
+                                        opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#C0C0C0; float:left; font-size:12px;">' + opernameanswcom[0].operator.fullName + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    } else {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div style="background:#80808054; width:500px; float:left; margin-bottom: 5px; margin-left: 10px; padding: 5px 5px;">' + '<span style="color:#66CDAA; float:left; font-size:12px;">' + convdata.messages[i].operatorId + '</span>' + '<span style="color:#C0C0C0; float:right; max-width:400px; font-size:12px;">' + timearr[i] + '</span>' + '<div style="color:white; word-wrap: break-word;">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    }
+                                    break;
+                            }
+                        }
+                    } // конец функции клика по списку в найденном чате
+                }
+            }
+        }
+    }
 
     document.getElementById('suggestform').onclick = () => {
         if (document.getElementById('AF_Sugform').style.display == '')
@@ -9454,82 +9453,82 @@ function paintstatus() {
 setInterval(paintstatus, 5000);
 
 function backbtn() {
-    if (document.getElementsByClassName('show').length >= 2){
+    if (document.getElementsByClassName('show').length >= 2) {
 
-    let barea = document.createElement('textarea')
-    barea.id = "notes_field"
-    barea.style = 'background: lightgrey; top: 90vh; position: fixed; width: 300px;'
+        let barea = document.createElement('textarea')
+        barea.id = "notes_field"
+        barea.style = 'background: lightgrey; top: 90vh; position: fixed; width: 300px;'
 
-    let btnsndnotes = document.createElement('button')
-    btnsndnotes.innerText = "Notes"
-	btnsndnotes.style = 'position: fixed; top: 90vh; left: 32vh;'
-    btnsndnotes.id = "SendNotesToChat"
-    btnsndnotes.onclick = notetoclchat;
-	
-	let btntakechat = document.createElement('button')
-    btntakechat.innerText = "Забрать"
-	btntakechat.style = 'position: fixed; top: 93vh; left: 32vh;'
-    btntakechat.id = "TakeChat"
-    btntakechat.onclick = get_used_chat;
+        let btnsndnotes = document.createElement('button')
+        btnsndnotes.innerText = "Notes"
+        btnsndnotes.style = 'position: fixed; top: 90vh; left: 32vh;'
+        btnsndnotes.id = "SendNotesToChat"
+        btnsndnotes.onclick = notetoclchat;
 
-    if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
+        let btntakechat = document.createElement('button')
+        btntakechat.innerText = "Забрать"
+        btntakechat.style = 'position: fixed; top: 93vh; left: 32vh;'
+        btntakechat.id = "TakeChat"
+        btntakechat.onclick = get_used_chat;
 
-        document.getElementsByClassName('rounded vh-100')[0].append(barea)
-        document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
-		document.getElementsByClassName('rounded vh-100')[0].append(btntakechat)
+        if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
 
-    } 
+            document.getElementsByClassName('rounded vh-100')[0].append(barea)
+            document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
+            document.getElementsByClassName('rounded vh-100')[0].append(btntakechat)
 
-    let sesid;
-    async function notetoclchat() {
-		let chathashfromdiv = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
+        }
 
-        await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-            .then(r => r.json()).then(r => rdata = r)
-        sesid = rdata.sessionId;
+        let sesid;
+        async function notetoclchat() {
+            let chathashfromdiv = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
 
-        let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
+            await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                .then(r => r.json()).then(r => rdata = r)
+            sesid = rdata.sessionId;
 
-        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-            "headers": {
-                "accept": "*/*",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        });
+            let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
 
-        document.getElementById('notes_field').value = ''
-    }
-	
-	function get_used_chat() {
-	var result = confirm("Вы действительно желаете забрать чат?");
-	if (result) {
-	let chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
-	let operator_id = operatorId;
-		
-    fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
-        "headers": {
-            "content-type": "application/json"
-        },
-        "credentials": "include",
-        "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
-        "method": "POST"
-    });
-	}
-}
+            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                "headers": {
+                    "accept": "*/*",
+                    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                },
+                "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            });
 
-} else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementById('TakeChat') != null && document.getElementsByClassName('show').length < 2)  {
-	    document.getElementById('notes_field').remove()
+            document.getElementById('notes_field').value = ''
+        }
+
+        function get_used_chat() {
+            var result = confirm("Вы действительно желаете забрать чат?");
+            if (result) {
+                let chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
+                let operator_id = operatorId;
+
+                fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+                    "headers": {
+                        "content-type": "application/json"
+                    },
+                    "credentials": "include",
+                    "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
+                    "method": "POST"
+                });
+            }
+        }
+
+    } else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementById('TakeChat') != null && document.getElementsByClassName('show').length < 2) {
+        document.getElementById('notes_field').remove()
         document.getElementById('SendNotesToChat').remove()
         document.getElementById('TakeChat').remove()
-}
-	
+    }
+
 }
 
 setInterval(backbtn, 5000);
@@ -9564,7 +9563,7 @@ function backbtnold() {
                     zambtnhide[i].style.display = 'none'
             }
         }
-    } 
+    }
 
     let sesid;
     async function notetoclchat() {
@@ -9646,7 +9645,7 @@ const copyToClipboard1 = str => {
     document.body.removeChild(el);
 };
 var operatorId = ""
-var operatorsarray=[];
+var operatorsarray = [];
 async function whoAmI() {
     a = await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "headers": {
@@ -9665,7 +9664,7 @@ async function whoAmI() {
         "credentials": "include"
     }).then(a => b = a.json()).then(b => {
         let me = document.querySelector('.user_menu-dropdown-user_name');
-		operatorsarray = b.rows;
+        operatorsarray = b.rows;
         b.rows.forEach(s => {
             if (me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
