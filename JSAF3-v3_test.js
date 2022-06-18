@@ -493,8 +493,8 @@ var win_Chathis =  // описание элементов окна ссылок
 				</div>	
 				
 				<div style="margin: 5px; width: 550px;display:flex; justify-content:center;" id="databoxchathis">
-					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis"></span>
-					<span style="color:bisque; margin-top:5px; float:right; margin-right:10px; height:28px;">До <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"</span>
+					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span> <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
+					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span><input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"></div>
                 </div>
 			</span>
 			
