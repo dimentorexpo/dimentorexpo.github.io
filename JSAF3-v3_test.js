@@ -1917,6 +1917,12 @@ butMarks.innerHTML = "📊Оценки"
 butMarks.style.marginRight = "15px";
 butMarks.style.cursor = "pointer";
 
+let butChatHistory = document.createElement('div')
+butChatHistory.id = "butChatHistory"
+butChatHistory.innerHTML = "💬Chat History"
+butChatHistory.style.marginRight = "15px";
+butChatHistory.style.cursor = "pointer";
+
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
@@ -11127,6 +11133,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
 
