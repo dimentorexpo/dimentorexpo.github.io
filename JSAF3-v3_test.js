@@ -248,7 +248,14 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
+		
 		#suggestform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}	
+		
+		#butChatHistory:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
