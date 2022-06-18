@@ -1910,17 +1910,15 @@ butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
 butChatHistory.style= 'margin-right:15px; height:50px; cursor:pointer;';
 
-
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style.style= 'margin-right:15px; height:50px; cursor:pointer;';
+servDsk.style= 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style.marginRight = "15px";
-butopensugestform.style.cursor = "pointer";
+butopensugestform.style= 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
