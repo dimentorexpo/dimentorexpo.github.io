@@ -5386,9 +5386,10 @@ function move_again_AF() {
             let timedataarr = [];
 
             if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') {
-                let lusid = document.getElementById('chatuserhis').value;
+                let lusid = document.getElementById('chatuserhis').value.trim();
                 let from = document.getElementById('dateFromChHis').value
                 let to = document.getElementById('dateToChHis').value
+				document.getElementById('chatuserhis').value =''
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
