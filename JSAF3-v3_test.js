@@ -392,10 +392,6 @@ var win_suggest =  // описание элементов окна доступ�
         </span>	
 </div>`;
 
-
-
-
-
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -479,6 +475,31 @@ var win_Links =  // описание элементов окна ссылок
 			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
 				</div>		
 			</span>
+	</span>
+</div>`;
+
+var win_Chathis =  // описание элементов окна ссылок
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
+			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px; width: 550;" id="chathisheader">
+					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
+				</div>				
+				<div style="margin: 5px; width: 550px;" id="chathismenu">
+					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:105px">Найти</button>
+					 <input id="chatuserhis" placeholder="ID пользователя" title="" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:105px">Вернуться</button>	
+				</div>	
+				
+				<div style="margin: 5px; width: 550px" id="databoxchathis">
+					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis"></span>
+					<span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">До <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"</span>
+                </div>
+			</span>
+			
+			<div>
+			</div>
 	</span>
 </div>`;
 
@@ -1499,6 +1520,11 @@ if (localStorage.getItem('winTopSugest') == null) {
     localStorage.setItem('winLeftSugest', '295');
 }
 
+if (localStorage.getItem('winTopChatHis') == null) {
+    localStorage.setItem('winTopChatHis', '120');
+    localStorage.setItem('winLeftChatHis', '295');
+}
+
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
     localStorage.setItem('aclstime', 12);
@@ -1818,8 +1844,6 @@ buttonnextteacherid.onclick = function () {
     }
 }
 
-
-
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
         document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
@@ -2119,6 +2143,13 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
+let wintChatHis = document.createElement('div'); // создание окна ссылок
+document.body.append(wintChatHis);
+wintChatHis.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopChatHis') + 'px; left: ' + localStorage.getItem('winLeftChatHis') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintChatHis.style.display = 'none';
+wintChatHis.setAttribute('id', 'AF_ChatHis');
+wintChatHis.innerHTML = win_Chathis;
+
 var listener4 = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
@@ -2287,6 +2318,20 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
     document.addEventListener('mousemove', listener15);
 }
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
+
+var listener16 = function (e, a) { // сохранение позиции окна доступов
+    wintChatHis.style.left = Number(e.clientX - myX16) + "px";
+    wintChatHis.style.top = Number(e.clientY - myY16) + "px";
+    localStorage.setItem('winTopChatHis', String(Number(e.clientY - myY16)));
+    localStorage.setItem('winLeftChatHis', String(Number(e.clientX - myX16)));
+};
+
+wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX16 = a.layerX;
+    window.myY16 = a.layerY;
+    document.addEventListener('mousemove', listener16);
+}
+wintChatHis.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -4465,9 +4510,11 @@ function move_again_AF() {
     document.getElementById('hideMeSugForm').onclick = () => {
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
-        else {
-            document.getElementById('AF_Sugform').style.display = ''
-        }
+    }  
+
+	document.getElementById('hideMeSugForm').onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == '')
+            document.getElementById('AF_ChatHis').style.display = 'none'
     }
 
     document.getElementById('hideMenu').onclick = function () {
@@ -5265,6 +5312,15 @@ function move_again_AF() {
         else
             document.getElementById('AF_Service').style.display = ''
     }
+	
+	document.getElementById('butChatHistory').onclick = () = {
+		
+	    if (document.getElementById('AF_ChatHis').style.display == '')
+            document.getElementById('AF_ChatHis').style.display = 'none'
+        else {
+            document.getElementById('AF_ChatHis').style.display = ''
+		
+	}
 
     document.getElementById('suggestform').onclick = () => {
         if (document.getElementById('AF_Sugform').style.display == '')
