@@ -5335,7 +5335,7 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = ''
     }
 
-    document.getElementById('butChatHistory').onclick = () => {
+    document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
 
         if (document.getElementById('AF_ChatHis').style.display == '')
             document.getElementById('AF_ChatHis').style.display = 'none'
