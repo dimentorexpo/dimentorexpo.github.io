@@ -5458,7 +5458,7 @@ function move_again_AF() {
 					else 
 						marksarr = data.items[i].stats.rate.rate
 
-                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + marksarr + '</span>' + '</span>' + '<br>'
+                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' +  '</span>' + marksarr + '</span>' + '<br>'
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5758,7 +5758,7 @@ function move_again_AF() {
 			}
 		} // конец обработчика кнопки "Обновить"
 		
-		document.getElementById('takechat').onclick = function () {
+		document.getElementById('takechat').onclick = function () { //обработчик функции взятия чата
 			var result = confirm("Вы действительно желаете забрать чат?");
 			if (result) {
 			let chat_id = document.getElementById('placechatid').innerText;
@@ -5775,7 +5775,47 @@ function move_again_AF() {
 			}
 		} // конец обработчика нажатия кнопки "Забрать"	
 		
+		
+		document.getElementById('sendmsgtochatornotes').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
+			
+	    let radiobtnsarray = document.getElementsByName('chatornotes')
+
+        for (let i = 0; i < radiobtnsarray.length; i++) {
+            if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+
+						let chathashfromdiv = document.getElementById('placechatid').innerText
+						let sesid;
+
+						await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+							.then(r => r.json()).then(r => rdata = r)
+						sesid = rdata.sessionId;
+
+						let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
+
+						fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+							"headers": {
+								"accept": "*/*",
+								"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+								"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+								"sec-fetch-mode": "cors",
+								"sec-fetch-site": "same-origin"
+							},
+							"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+							"method": "POST",
+							"mode": "cors",
+							"credentials": "include"
+						});
+
+						document.getElementById('msgftochatornotes').value = ''
+
+
+            } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+				console.log('Text was sent to chat')
+            }
+		}
     }
+}
+	
 
     document.getElementById('suggestform').onclick = () => {
         if (document.getElementById('AF_Sugform').style.display == '')
