@@ -501,12 +501,12 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button id="takechat">Забрать</button>
 				</div>
 				
-				<div style="width: 550px; display:flex; justify-content:center;cursor:text;" id="somechatinfo">
+			</span>
+				
+				<div style="width: 550px; display:flex; justify-content:center;" id="somechatinfo">
 					<span style="color:bisque; margin-left:10px;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px;"></span>
 					<span style="color:bisque; margin-left:10px;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px;"></span>
 				</div>
-
-			</span>
 			
 			<div id="infofield" style="color:bisque; width:550px; max-height: 800px; overflow:auto;">
 			</div>
