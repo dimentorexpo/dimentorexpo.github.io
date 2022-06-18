@@ -5381,7 +5381,7 @@ function move_again_AF() {
 
         let foundarr = [];
 
-        document.getElementById('btn_search_history').onclick = async () => {
+        document.getElementById('btn_search_history').onclick = async () => { //функця обработки нажатия "Найти"
 
             let timedataarr = [];
 
@@ -5589,7 +5589,7 @@ function move_again_AF() {
             } else alert("Введено и ID пользователя и хеш чата, выберите, что-то одно и повторите попытку.")
         } // конец функции клика найти
 
-        document.getElementById('back_to_chat_his').onclick = () => {
+        document.getElementById('back_to_chat_his').onclick = () => { // функция обработки нажатия кнопки "Вернуться"
             document.getElementById('infofield').innerHTML = '';
             document.getElementById('placeusid').innerText = '';
             document.getElementById('placechatid').innerText = '';
@@ -5666,12 +5666,12 @@ function move_again_AF() {
                                     break;
                             }
                         }
-                    } // конец функции клика по списку в найденном чате
+                    } 
                 }
             }
-        }
+        } // конец обработки функции нажатия "Вернуться"
 		
-		document.getElementById('refreshchat').onclick = async () => {
+		document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
 			if (document.getElementById('placechatid').innerText != '') {
 				document.getElementById('infofield').innerHTML = '';
 				
@@ -5740,7 +5740,25 @@ function move_again_AF() {
                     }
                 }
 			}
-		}
+		} // конец обработчика кнопки "Обновить"
+		
+		document.getElementById('takechat').onclick = function () {
+			var result = confirm("Вы действительно желаете забрать чат?");
+			if (result) {
+			let chat_id = document.getElementById('placechatid').innerText;
+			let operator_id = operatorId;
+				
+			fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+				"headers": {
+					"content-type": "application/json"
+				},
+				"credentials": "include",
+				"body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
+				"method": "POST"
+			});
+			}
+		} // конец обработчика нажатия кнопки "Забрать"	
+		
     }
 
     document.getElementById('suggestform').onclick = () => {
