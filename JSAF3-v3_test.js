@@ -5492,7 +5492,7 @@ function move_again_AF() {
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
                                         document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                                    } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                         let operid = convdata.messages[i].payload.oid;
                                         let opername;
                                         opername = operatorsarray.filter(i => (i.operator.id == operid))
@@ -5562,7 +5562,7 @@ function move_again_AF() {
                         case "Event":
                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
                                 document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator.id == operid))
@@ -5642,7 +5642,7 @@ function move_again_AF() {
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
                                         document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                                    } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                         let operid = convdata.messages[i].payload.oid;
                                         let opername;
                                         opername = operatorsarray.filter(i => (i.operator.id == operid))
@@ -5715,7 +5715,7 @@ function move_again_AF() {
                         case "Event":
                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
                                 document.getElementById('infofield').innerHTML += '<div style="float:left; color:white; text-align:center; width:100%; font-size:12px;">' + convdata.messages[i].eventTpe + '<span style="float:right; margin-right:15px;">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator') {
+                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator.id == operid))
