@@ -11089,7 +11089,6 @@ function prepTp() {
     setInterval(timerHideButtons, 300)
 
     setTimeout(function () {
-		document.getElementById('move-window').style.cursor ='pointer';
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
