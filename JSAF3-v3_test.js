@@ -5522,7 +5522,7 @@ function move_again_AF() {
 
             } else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != '') {
 
-                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value).then(r => r.json()).then(r => convdata = r)
+                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
                 document.getElementById('infofield').innerHTML = ''
