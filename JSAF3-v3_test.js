@@ -5458,7 +5458,7 @@ function move_again_AF() {
 					else 
 						marksarr = data.items[i].stats.rate.rate
 
-                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + ' Оценка: ' + marksarr + '</span>' + '<br>'
+                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + marksarr + '</span>' + '</span>' + '<br>'
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
