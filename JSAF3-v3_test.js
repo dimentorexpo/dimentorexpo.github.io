@@ -493,12 +493,21 @@ var win_Chathis =  // описание элементов окна ссылок
 				</div>	
 				
 				<div style="margin: 5px; width: 550px;display:flex; justify-content:center;" id="databoxchathis">
-					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span> <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
-					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span><input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"></div>
+					<button id="refreshchat">Обновить</button>
+					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
+					<input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
+					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
+					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis"></div>
+					<button id="takechat">Забрать</button>
                 </div>
 			</span>
 			
-			<div id="infofield" style="color:bisque">
+			<div id="infofield" style="color:bisque; width:550px; max-height: 800px; overflow:auto;">
+			</div>
+			
+			<div id="bottommenuchhis" style="width: 550px">
+			<textarea id="msgftochatornotes" style="width:300px;"></textarea>
+			<button id="sendmsgtochatornotes">Отправить</button>
 			</div>
 	</span>
 </div>`;
@@ -9243,8 +9252,7 @@ function backbtnold() {
                     zambtnhide[i].style.display = 'none'
             }
         }
-
-    } else console.log("Уже добавлено")
+    } 
 
     let sesid;
     async function notetoclchat() {
