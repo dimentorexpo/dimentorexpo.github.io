@@ -5395,11 +5395,11 @@ function move_again_AF() {
              if (foundarr != '')
                  foundarr =''
 			 
-			 if (document.getElementById('placeusid').value != '')
-				 document.getElementById('placeusid').value = ''
+			 if (document.getElementById('placeusid').innerText != '')
+				 document.getElementById('placeusid').innerText = ''
 
-			 if (document.getElementById('placechatid').value != '')
-				 document.getElementById('placechatid').value = ''
+			 if (document.getElementById('placechatid').innerText != '')
+				 document.getElementById('placechatid').innerText = ''
                 
 			if (document.getElementById('infofield').innerHTML != '')
 			document.getElementById('infofield').innerHTML = ''
@@ -5590,11 +5590,10 @@ function move_again_AF() {
         } // конец функции клика найти
 
         document.getElementById('back_to_chat_his').onclick = () => {
-
-            document.getElementById('infofield').innerHTML = '';
-            document.getElementById('placeusid').value = '';
-            document.getElementById('placechatid').value = '';
-
+				 document.getElementById('infofield').innerHTML = '';
+				 document.getElementById('placeusid').innerText = '';
+				 document.getElementById('placechatid').innerText = '';
+				 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
 
