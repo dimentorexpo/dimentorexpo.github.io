@@ -5382,27 +5382,27 @@ function move_again_AF() {
         let foundarr = [];
 
         document.getElementById('btn_search_history').onclick = async () => {
-					
+
             let timedataarr = [];
 
             if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') {
                 let lusid = document.getElementById('chatuserhis').value.trim();
                 let from = document.getElementById('dateFromChHis').value
                 let to = document.getElementById('dateToChHis').value
-				document.getElementById('chatuserhis').value =''
+                document.getElementById('chatuserhis').value = ''
 
 
-             if (foundarr != '')
-                 foundarr =''
-			 
-			 if (document.getElementById('placeusid').innerText != '')
-				 document.getElementById('placeusid').innerText = ''
+                if (foundarr != '')
+                    foundarr = ''
 
-			 if (document.getElementById('placechatid').innerText != '')
-				 document.getElementById('placechatid').innerText = ''
-                
-			if (document.getElementById('infofield').innerHTML != '')
-			document.getElementById('infofield').innerHTML = ''
+                if (document.getElementById('placeusid').innerText != '')
+                    document.getElementById('placeusid').innerText = ''
+
+                if (document.getElementById('placechatid').innerText != '')
+                    document.getElementById('placechatid').innerText = ''
+
+                if (document.getElementById('infofield').innerHTML != '')
+                    document.getElementById('infofield').innerHTML = ''
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
@@ -5590,10 +5590,10 @@ function move_again_AF() {
         } // конец функции клика найти
 
         document.getElementById('back_to_chat_his').onclick = () => {
-				 document.getElementById('infofield').innerHTML = '';
-				 document.getElementById('placeusid').innerText = '';
-				 document.getElementById('placechatid').innerText = '';
-				 
+            document.getElementById('infofield').innerHTML = '';
+            document.getElementById('placeusid').innerText = '';
+            document.getElementById('placechatid').innerText = '';
+
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
 
