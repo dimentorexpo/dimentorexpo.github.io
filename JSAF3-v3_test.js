@@ -5666,6 +5666,12 @@ function move_again_AF() {
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+				
+				let picture = document.createElement('img')
+				let temp = [];
+				let testarray=[];
+				
+								
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                 document.getElementById('placechatid').innerText = convdata.id;
@@ -5673,6 +5679,9 @@ function move_again_AF() {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
                     switch (convdata.messages[i].tpe) {
                         case "Question":
+						
+						onsole.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						
                             if (convdata.messages[i].click == undefined) {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             } else {
@@ -5812,16 +5821,13 @@ function move_again_AF() {
 			if (document.getElementById('placechatid').innerText != '') {
 				document.getElementById('infofield').innerHTML = '';
 				
-				                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+				await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
                 document.getElementById('infofield').innerHTML = ''
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-				let picture = document.createElement('img')
-				let temp = [];
-				let testarray=[];
 				
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
@@ -5830,9 +5836,7 @@ function move_again_AF() {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
                     switch (convdata.messages[i].tpe) {
                         case "Question":						
-                            if (convdata.messages[i].click == undefined) {
-								console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
-								console.log(convdata.messages[i].txt)								
+                            if (convdata.messages[i].click == undefined) {							
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
