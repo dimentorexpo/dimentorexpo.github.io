@@ -3453,7 +3453,7 @@ function move_again_AF() {
     document.getElementById('catchathistory').onclick = function () {
 		
 		if (document.getElementById('AF_ChatHis').style.display == 'none') {
-			document.getElementById('AF_ChatHis').style.display = '';
+			document.getElementById('butChatHistory').click();
 			document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
 			btn_search_history.click()
 		} else {
