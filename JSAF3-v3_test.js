@@ -5831,6 +5831,7 @@ function move_again_AF() {
                         case "Question":
 								let testarray=[];
 								testarray.push(convdata.messages[i].match(/<p>(.*?)<\/p>/gm))
+								console.log(testarray)
                             if (convdata.messages[i].click == undefined) {
 								else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
