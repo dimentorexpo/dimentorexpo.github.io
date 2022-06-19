@@ -5672,8 +5672,6 @@ function move_again_AF() {
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
 				
-				let picture = document.createElement('img')
-				picture.classList.add('img-chat-history');
 				let temppics = [];
 				let testarray=[];
 				
@@ -5685,6 +5683,25 @@ function move_again_AF() {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
                     switch (convdata.messages[i].tpe) {
                         case "Question":
+						// testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+						// console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						
+						// if (testarray !=null) {
+							// temppics = [];
+						// for (let i=0; i< testarray.length; i++) {
+							// if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
+							   // temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+							// else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
+								// temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+							// else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
+								// temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
+						// }
+						
+						// console.log(temppics)
+						// }
+						
+                            if (convdata.messages[i].click == undefined) {
+								
 						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
 						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
 						
@@ -5692,17 +5709,16 @@ function move_again_AF() {
 							temppics = [];
 						for (let i=0; i< testarray.length; i++) {
 							if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-							   temppics.push(picture.src = testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+							   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-								temppics.push(picture.src = testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-								temppics.push(picture.src = testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
+								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
 						}
 						
 						console.log(temppics)
 						}
-						
-                            if (convdata.messages[i].click == undefined) {
+								
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
