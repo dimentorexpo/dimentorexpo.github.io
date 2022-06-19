@@ -5461,6 +5461,22 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
+		
+		let activetechopers=[];
+		async function currstate() {
+			await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+				"credentials": "include"
+			}).then(r => r.json()).then(result => {
+
+				for (let i = 0; i < result.rows.length; i++) {
+					if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
+						activetechopers.push(result.rows[i].operator)
+					} // end of if state
+				} // end of for
+			})
+		}
+		currstate();
+		console.log(activetechopers);
 
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
