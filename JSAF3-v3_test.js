@@ -3594,6 +3594,8 @@ function move_again_AF() {
     let servlocalestatus;
     let avatarofuser;
     let countryofuser;
+	  let getageofuser; 
+      let ageofuser;
     async function getusernamecrm() {
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
@@ -3620,7 +3622,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
-
+		
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
@@ -3632,6 +3634,8 @@ function move_again_AF() {
             studentname = JSON.parse(studentname);
             nameofuser = "";
             teachername = "";
+			
+			
             if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
                 nameofuser = studentname.data.name + " " + studentname.data.surname;
             } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
@@ -3670,6 +3674,18 @@ function move_again_AF() {
             } else {
                 countryofuser = null;
             }
+			
+			 let goddata = new Date()
+             goddata = goddata.getFullYear();
+             if (studname.data.birthday != null) {
+                 studname = studname.data.birthday.split('-')
+                 if (goddata - studname[0] < 18)
+                     ageofuser = "🔞"
+                 else if (goddata - studname[0] >= 18 && goddata - studname[0] < 99)
+                     ageofuser = "🅰";
+             } else if (studname.data.birthday == null)
+                 ageofuser = "❓";
+			
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 
         }, 600)
