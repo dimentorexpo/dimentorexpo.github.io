@@ -11934,9 +11934,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
 
-        if (localStorage.getItem('disableomelchenkowindow') == 1)
-            document.getElementById('main_easy_win').style.display = "none";
-
         setTimeout(move_again_AF, 3500)
 
         setTimeout(function () {
