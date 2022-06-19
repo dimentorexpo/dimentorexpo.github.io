@@ -5717,9 +5717,10 @@ function move_again_AF() {
 						}
 						
 						console.log(temppics)
+						} else {
+						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
 						}
 								
-                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
                             }
