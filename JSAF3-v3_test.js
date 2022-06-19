@@ -5601,7 +5601,7 @@ function move_again_AF() {
 
                         // let timearr = [];
                         // let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-                        след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                        //след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                         // document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         // document.getElementById('placechatid').innerText = convdata.id;
                         // for (let i = 0; i < convdata.messages.length; i++) {
