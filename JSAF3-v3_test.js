@@ -4126,7 +4126,7 @@ function move_again_AF() {
                     })
                 }
 
-                if (arrservice != null || arrservice != undefined) {
+                if (arrservice.length != 0 || arrservice != null || arrservice != undefined) {
                     arrservice = arrservice.split(', ')
                 }
                 let tmparr = document.querySelectorAll('.copyserviceid');
