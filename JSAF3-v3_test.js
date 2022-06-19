@@ -5599,21 +5599,77 @@ function move_again_AF() {
 
                         document.getElementById('infofield').innerHTML = ''
 
-                        let timearr = [];
-                        let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-                        // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-                        document.getElementById('placeusid').innerText = convdata.channelUser.id;
-                        document.getElementById('placechatid').innerText = convdata.id;
-                        for (let i = 0; i < convdata.messages.length; i++) {
-                            timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-                            switch (convdata.messages[i].tpe) {
-                                case "Question":
-                                    if (convdata.messages[i].click == undefined) {
-                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                    } else {
-                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
-                                    }
-                                    break;
+                        // let timearr = [];
+                        // let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                        след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                        // document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                        // document.getElementById('placechatid').innerText = convdata.id;
+                        // for (let i = 0; i < convdata.messages.length; i++) {
+                            // timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                            // switch (convdata.messages[i].tpe) {
+                                // case "Question":
+                                    // if (convdata.messages[i].click == undefined) {
+                                        // document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                    // } else {
+                                        // document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                                    // }
+                                    // break;
+									
+					//новая логика 				
+				let temppics = [];
+				let testarray=[];
+				let restul;
+				
+								
+                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                document.getElementById('placechatid').innerText = convdata.id;
+                for (let i = 0; i < convdata.messages.length; i++) {
+                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                    switch (convdata.messages[i].tpe) {
+                        case "Question":				
+                            if (convdata.messages[i].click == undefined) {
+								
+						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						
+						if (testarray !=null) {
+							temppics = [];
+							for (let i=0; i< testarray.length; i++) {
+								if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
+								   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+								else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
+									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+								else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
+									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
+							}
+						
+						if (temppics.length == 1 )
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history "></img>`)+ '</div>' + '</div>'
+						
+						else if (temppics.length>1) {
+							
+							restul = convdata.messages[i].txt;
+							for(let j=0; j <temppics.length;j++) {
+								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
+								console.log(j + ' ' + restul)
+							}
+							
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+							}
+						} else {
+						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+						}
+								
+                            } else {
+                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                            }
+                            break;
+
+
+					
+									
+									
 
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
