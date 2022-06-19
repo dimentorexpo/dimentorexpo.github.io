@@ -3466,15 +3466,15 @@ function move_again_AF() {
 
 
     document.getElementById('catchathistory').onclick = function () {
-		
-		if (document.getElementById('AF_ChatHis').style.display == 'none') {
-			document.getElementById('butChatHistory').click();
-			document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-			btn_search_history.click()
-		} else {
-			document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-			btn_search_history.click()
-		}
+
+        if (document.getElementById('AF_ChatHis').style.display == 'none') {
+            document.getElementById('butChatHistory').click();
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        } else {
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        }
     }
 
     document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
@@ -3578,7 +3578,7 @@ function move_again_AF() {
     let servlocalestatus;
     let avatarofuser;
     let countryofuser;
-      let ageofuser;
+    let ageofuser;
     async function getusernamecrm() {
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
@@ -3605,7 +3605,7 @@ function move_again_AF() {
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
-		
+
         setTimeout(async function () {
             document.getElementById('responseTextarea1').value = '{}'
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
@@ -3617,8 +3617,8 @@ function move_again_AF() {
             studentname = JSON.parse(studentname);
             nameofuser = "";
             teachername = "";
-			
-			
+
+
             if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
                 nameofuser = studentname.data.name + " " + studentname.data.surname;
             } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
@@ -3657,18 +3657,18 @@ function move_again_AF() {
             } else {
                 countryofuser = null;
             }
-			
-			 let goddata = new Date()
-             goddata = goddata.getFullYear();
-             if (studentname.data.birthday != null) {
-                 studentname = studentname.data.birthday.split('-')
-                 if (goddata - studentname[0] < 18)
-                     ageofuser = "🔞"
-                 else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
-                     ageofuser = "🅰";
-             } else if (studentname.data.birthday == null)
-                 ageofuser = "❓";
-			
+
+            let goddata = new Date()
+            goddata = goddata.getFullYear();
+            if (studentname.data.birthday != null) {
+                studentname = studentname.data.birthday.split('-')
+                if (goddata - studentname[0] < 18)
+                    ageofuser = "🔞"
+                else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
+                    ageofuser = "🅰";
+            } else if (studentname.data.birthday == null)
+                ageofuser = "❓";
+
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 
         }, 600)
@@ -4122,29 +4122,29 @@ function move_again_AF() {
                     }
                     document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
 
-				if (document.getElementById('getusremail1') != null) {
-                    document.getElementById('getusremail1').onclick = function () {
-                        copyToClipboard1(unhidenemail);
-                    };
-				}
+                    if (document.getElementById('getusremail1') != null) {
+                        document.getElementById('getusremail1').onclick = function () {
+                            copyToClipboard1(unhidenemail);
+                        };
+                    }
 
-				if (document.getElementById('getusrphone1') != null) {
-                    document.getElementById('getusrphone1').onclick = function () {
-                        copyToClipboard1(unhidephone);
-                    };
-				}
-					
+                    if (document.getElementById('getusrphone1') != null) {
+                        document.getElementById('getusrphone1').onclick = function () {
+                            copyToClipboard1(unhidephone);
+                        };
+                    }
+
                     if (document.getElementById('getshowcase1') != null) {
                         document.getElementById('getshowcase1').onclick = function () {
                             copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
                         };
                     }
 
-					if (document.getElementById('getloginer1') != null) {
-                    document.getElementById('getloginer1').onclick = function () {
-                        postuderdatatologin();
+                    if (document.getElementById('getloginer1') != null) {
+                        document.getElementById('getloginer1').onclick = function () {
+                            postuderdatatologin();
+                        }
                     }
-					}
                 }
 
                 if (arrservice.length != 0 && arrservice != null && arrservice != undefined) {
@@ -4156,24 +4156,24 @@ function move_again_AF() {
                         copyToClipboard1(arrservice[j])
                     }
                 }
-				
-				if (document.getElementById('getusremail') != null) {
-                document.getElementById('getusremail').onclick = function () {
-                    copyToClipboard1(unhidenemail);
-                };
-				}
 
-				if (document.getElementById('getusrphone') != null) {
-                document.getElementById('getusrphone').onclick = function () {
-                    copyToClipboard1(unhidephone);
-                };
-				}
-
-				if (document.getElementById('getloginer') != null) {
-                document.getElementById('getloginer').onclick = function () {
-                    postuderdatatologin();
+                if (document.getElementById('getusremail') != null) {
+                    document.getElementById('getusremail').onclick = function () {
+                        copyToClipboard1(unhidenemail);
+                    };
                 }
-				}
+
+                if (document.getElementById('getusrphone') != null) {
+                    document.getElementById('getusrphone').onclick = function () {
+                        copyToClipboard1(unhidephone);
+                    };
+                }
+
+                if (document.getElementById('getloginer') != null) {
+                    document.getElementById('getloginer').onclick = function () {
+                        postuderdatatologin();
+                    }
+                }
 
                 if (document.getElementById('getshowcase') != null) {
                     document.getElementById('getshowcase').onclick = function () {
@@ -4674,14 +4674,14 @@ function move_again_AF() {
             document.getElementById('hashchathis').value = ''
         }
     }
-	
-	document.getElementById('clearallinfo').onclick = () => {
-		    document.getElementById('infofield').innerText = ''
-            document.getElementById('placeusid').innerText = ''
-            document.getElementById('placechatid').innerText = ''
-            document.getElementById('chatuserhis').value = ''
-            document.getElementById('hashchathis').value = ''
-	}
+
+    document.getElementById('clearallinfo').onclick = () => {
+        document.getElementById('infofield').innerText = ''
+        document.getElementById('placeusid').innerText = ''
+        document.getElementById('placechatid').innerText = ''
+        document.getElementById('chatuserhis').value = ''
+        document.getElementById('hashchathis').value = ''
+    }
 
     document.getElementById('hideMenu').onclick = function () {
         document.getElementById('AF_helper').style.display = 'none'
@@ -5535,9 +5535,9 @@ function move_again_AF() {
                     "credentials": "include"
                 }).then(r => r.json()).then(r => data = r)
                 console.log(data)
-				
-				if (data.total == 0)
-					alert("В выбранном диапазоне чатов от пользователя не найдено. Попробуйте, пожалуйста, выбрать другой, либо пользователь не обращался вовсе.")
+
+                if (data.total == 0)
+                    alert("В выбранном диапазоне чатов от пользователя не найдено. Попробуйте, пожалуйста, выбрать другой, либо пользователь не обращался вовсе.")
 
                 for (let i = 0; i < data.items.length; i++) {
 
@@ -5546,8 +5546,8 @@ function move_again_AF() {
                     let tsmin
                     let day;
                     let month;
-					
-					let marksarr;
+
+                    let marksarr;
                     if (tmestmp.getMonth() < 9)
                         month = "0" + (tmestmp.getMonth() + 1)
                     else
@@ -5559,20 +5559,20 @@ function move_again_AF() {
                     let year = tmestmp.getFullYear();
                     if ((tmestmp.getUTCHours() + 3) < 10)
                         tshrs = "0" + (tmestmp.getUTCHours() + 3);
-                    else if((tmestmp.getUTCHours() + 3) >= 24)
+                    else if ((tmestmp.getUTCHours() + 3) >= 24)
                         tshrs = '0' + ((tmestmp.getUTCHours() + 3 - 24))
                     else tshrs = (tmestmp.getUTCHours() + 3);
 
                     if (tmestmp.getMinutes() < 10)
                         tsmin = "0" + tmestmp.getMinutes();
                     else tsmin = tmestmp.getMinutes();
-					
-					if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
-						marksarr = 'Нет оценки'
-					else 
-						marksarr = data.items[i].stats.rate.rate
 
-                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' +  '</span>' + marksarr + '</span>' + '<br>'
+                    if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
+                        marksarr = 'Нет оценки'
+                    else
+                        marksarr = data.items[i].stats.rate.rate
+
+                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + '</span>' + '<br>'
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5587,56 +5587,56 @@ function move_again_AF() {
 
                         document.getElementById('infofield').innerHTML = ''
 
-                let timearr = [];
-                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };					
-				let temppics = [];
-				let testarray=[];
-				let restul;
-								
-                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-                document.getElementById('placeusid').innerText = convdata.channelUser.id;
-                document.getElementById('placechatid').innerText = convdata.id;
-                for (let i = 0; i < convdata.messages.length; i++) {
-                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-                    switch (convdata.messages[i].tpe) {
-                        case "Question":				
-                            if (convdata.messages[i].click == undefined) {
-								
-						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-						
-						
-						if (testarray !=null) {
-							temppics = [];
-							for (let i=0; i< testarray.length; i++) {
-								if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-								   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
-							}
-						
-						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
-						
-						else if (temppics.length>1) {
-							
-							restul = convdata.messages[i].txt;
-							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
-								
-							}
-							
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-							}
-						} else {
-						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-						}
-								
-                            } else {
-                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
-                            }
-                            break;
+                        let timearr = [];
+                        let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                        let temppics = [];
+                        let testarray = [];
+                        let restul;
+
+                        // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                        document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                        document.getElementById('placechatid').innerText = convdata.id;
+                        for (let i = 0; i < convdata.messages.length; i++) {
+                            timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                            switch (convdata.messages[i].tpe) {
+                                case "Question":
+                                    if (convdata.messages[i].click == undefined) {
+
+                                        testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+
+
+                                        if (testarray != null) {
+                                            temppics = [];
+                                            for (let i = 0; i < testarray.length; i++) {
+                                                if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
+                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+                                                else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+                                                else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
+                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
+                                            }
+
+                                            if (temppics.length == 1)
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                            else if (temppics.length > 1) {
+
+                                                restul = convdata.messages[i].txt;
+                                                for (let j = 0; j < temppics.length; j++) {
+                                                    restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
+
+                                                }
+
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+                                            }
+                                        } else {
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                        }
+
+                                    } else {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                                    }
+                                    break;
 
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
@@ -5694,52 +5694,52 @@ function move_again_AF() {
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-				
-				let temppics = [];
-				let testarray=[];
-				let restul;
-				
-								
+
+                let temppics = [];
+                let testarray = [];
+                let restul;
+
+
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                 document.getElementById('placechatid').innerText = convdata.id;
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
                     switch (convdata.messages[i].tpe) {
-                        case "Question":				
+                        case "Question":
                             if (convdata.messages[i].click == undefined) {
-								
-						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-						
-						
-						if (testarray !=null) {
-							temppics = [];
-							for (let i=0; i< testarray.length; i++) {
-								if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-								   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
-							}
-						
-						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
-						
-						else if (temppics.length>1) {
-							
-							restul = convdata.messages[i].txt;
-							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
-								
-							}
-							
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-							}
-						} else {
-						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-						}
-								
+
+                                testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+
+
+                                if (testarray != null) {
+                                    temppics = [];
+                                    for (let i = 0; i < testarray.length; i++) {
+                                        if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
+                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
+                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
+                                    }
+
+                                    if (temppics.length == 1)
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                    else if (temppics.length > 1) {
+
+                                        restul = convdata.messages[i].txt;
+                                        for (let j = 0; j < temppics.length; j++) {
+                                            restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
+
+                                        }
+
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+                                    }
+                                } else {
+                                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                }
+
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
                             }
@@ -5809,56 +5809,56 @@ function move_again_AF() {
 
                         document.getElementById('infofield').innerHTML = ''
 
-                let timearr = [];
-                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };					
-				let temppics = [];
-				let testarray=[];
-				let restul;
-								
-                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-                document.getElementById('placeusid').innerText = convdata.channelUser.id;
-                document.getElementById('placechatid').innerText = convdata.id;
-                for (let i = 0; i < convdata.messages.length; i++) {
-                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-                    switch (convdata.messages[i].tpe) {
-                        case "Question":				
-                            if (convdata.messages[i].click == undefined) {
-								
-						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-						
-						
-						if (testarray !=null) {
-							temppics = [];
-							for (let i=0; i< testarray.length; i++) {
-								if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-								   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
-							}
-						
-						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
-						
-						else if (temppics.length>1) {
-							
-							restul = convdata.messages[i].txt;
-							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
-								
-							}
-							
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-							}
-						} else {
-						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-						}
-								
-                            } else {
-                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
-                            }
-                            break;
+                        let timearr = [];
+                        let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                        let temppics = [];
+                        let testarray = [];
+                        let restul;
+
+                        // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                        document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                        document.getElementById('placechatid').innerText = convdata.id;
+                        for (let i = 0; i < convdata.messages.length; i++) {
+                            timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                            switch (convdata.messages[i].tpe) {
+                                case "Question":
+                                    if (convdata.messages[i].click == undefined) {
+
+                                        testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+
+
+                                        if (testarray != null) {
+                                            temppics = [];
+                                            for (let i = 0; i < testarray.length; i++) {
+                                                if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
+                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+                                                else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+                                                else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
+                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
+                                            }
+
+                                            if (temppics.length == 1)
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                            else if (temppics.length > 1) {
+
+                                                restul = convdata.messages[i].txt;
+                                                for (let j = 0; j < temppics.length; j++) {
+                                                    restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
+
+                                                }
+
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+                                            }
+                                        } else {
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                        }
+
+                                    } else {
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                                    }
+                                    break;
 
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
@@ -5903,65 +5903,65 @@ function move_again_AF() {
                                     break;
                             }
                         }
-                    } 
+                    }
                 }
             }
         } // конец обработки функции нажатия "Вернуться"
-		
-		document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
-			if (document.getElementById('placechatid').innerText != '') {
-				document.getElementById('infofield').innerHTML = '';
-				
-				await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+
+        document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
+            if (document.getElementById('placechatid').innerText != '') {
+                document.getElementById('infofield').innerHTML = '';
+
+                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
                 document.getElementById('infofield').innerHTML = ''
 
-				let timearr = [];
-                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };					
-				let temppics = [];
-				let testarray=[];
-				let restul;
-								
+                let timearr = [];
+                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                let temppics = [];
+                let testarray = [];
+                let restul;
+
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                 document.getElementById('placechatid').innerText = convdata.id;
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
                     switch (convdata.messages[i].tpe) {
-                        case "Question":				
+                        case "Question":
                             if (convdata.messages[i].click == undefined) {
-								
-						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);	
-						
-						if (testarray !=null) {
-							temppics = [];
-							for (let i=0; i< testarray.length; i++) {
-								if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-								   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
-								else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
-							}
-						
-						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
-						
-						else if (temppics.length>1) {
-							
-							restul = convdata.messages[i].txt;
-							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
-								
-							}
-							
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-							}
-						} else {
-						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-						}
-								
+
+                                testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+
+                                if (testarray != null) {
+                                    temppics = [];
+                                    for (let i = 0; i < testarray.length; i++) {
+                                        if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
+                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
+                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
+                                    }
+
+                                    if (temppics.length == 1)
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                    else if (temppics.length > 1) {
+
+                                        restul = convdata.messages[i].txt;
+                                        for (let j = 0; j < temppics.length; j++) {
+                                            restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
+
+                                        }
+
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+                                    }
+                                } else {
+                                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                }
+
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
                             }
@@ -6010,91 +6010,91 @@ function move_again_AF() {
                             break;
                     }
                 }
-			}
-		} // конец обработчика кнопки "Обновить"
-		
-		document.getElementById('takechat').onclick = function () { //обработчик функции взятия чата
-			var result = confirm("Вы действительно желаете забрать чат?");
-			if (result) {
-			let chat_id = document.getElementById('placechatid').innerText;
-			let operator_id = operatorId;
-				
-			fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
-				"headers": {
-					"content-type": "application/json"
-				},
-				"credentials": "include",
-				"body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
-				"method": "POST"
-			});
-			}
-		} // конец обработчика нажатия кнопки "Забрать"	
-		
-		
-		document.getElementById('sendmsgtochatornotes').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
-			
-	    let radiobtnsarray = document.getElementsByName('chatornotes')
-
-        for (let i = 0; i < radiobtnsarray.length; i++) {
-            if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
-
-						let chathashfromdiv = document.getElementById('placechatid').innerText
-						let sesid;
-
-						await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-							.then(r => r.json()).then(r => rdata = r)
-						sesid = rdata.sessionId;
-
-						let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
-
-						fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-							"headers": {
-								"accept": "*/*",
-								"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-								"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-								"sec-fetch-mode": "cors",
-								"sec-fetch-site": "same-origin"
-							},
-							"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-							"method": "POST",
-							"mode": "cors",
-							"credentials": "include"
-						});
-
-						document.getElementById('msgftochatornotes').value = ''
-
-
-            } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
-				
-										let chathashfromdiv = document.getElementById('placechatid').innerText
-						let sesid;
-
-						await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-							.then(r => r.json()).then(r => rdata = r)
-						sesid = rdata.sessionId;
-
-						let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
-
-						fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-							"headers": {
-								"accept": "*/*",
-								"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-								"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
-								"sec-fetch-mode": "cors",
-								"sec-fetch-site": "same-origin"
-							},
-							"body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
-							"method": "POST",
-							"mode": "cors",
-							"credentials": "include"
-						});
-				
-				document.getElementById('msgftochatornotes').value = ''
             }
-		}
+        } // конец обработчика кнопки "Обновить"
+
+        document.getElementById('takechat').onclick = function () { //обработчик функции взятия чата
+            var result = confirm("Вы действительно желаете забрать чат?");
+            if (result) {
+                let chat_id = document.getElementById('placechatid').innerText;
+                let operator_id = operatorId;
+
+                fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+                    "headers": {
+                        "content-type": "application/json"
+                    },
+                    "credentials": "include",
+                    "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
+                    "method": "POST"
+                });
+            }
+        } // конец обработчика нажатия кнопки "Забрать"	
+
+
+        document.getElementById('sendmsgtochatornotes').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
+
+            let radiobtnsarray = document.getElementsByName('chatornotes')
+
+            for (let i = 0; i < radiobtnsarray.length; i++) {
+                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes').value = ''
+
+
+                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes').value = ''
+                }
+            }
+        }
     }
-}
-	
+
 
     document.getElementById('suggestform').onclick = () => {
         if (document.getElementById('AF_Sugform').style.display == '')
