@@ -5829,13 +5829,14 @@ function move_again_AF() {
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
                     switch (convdata.messages[i].tpe) {
-                        case "Question":
+                        case "Question":						
+                            if (convdata.messages[i].click == undefined) {
+								
 							if(convdata.messages[i].txt !=undefined && convdata.messages[i].txt !='' && convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm).length < 10) {
 								testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)
 								console.log(testarray)
 							}
-						
-                            if (convdata.messages[i].click == undefined) {
+								
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
