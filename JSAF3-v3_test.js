@@ -4157,7 +4157,7 @@ function move_again_AF() {
 				if (document.getElementById('getloginer') != null) {
                 document.getElementById('getloginer').onclick = function () {
                     postuderdatatologin();
-                })
+                }
 				}
 
                 if (document.getElementById('getshowcase') != null) {
