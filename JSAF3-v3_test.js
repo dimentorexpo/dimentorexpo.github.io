@@ -240,6 +240,11 @@ function mystyles() {
 			background-color: #fff;
 		}
 		
+		.img-chat-history {
+			width:300px;
+			height:300px;
+		}
+		
 		.cursor-userinfobtns {
 			cursor:pointer;
 			font-weight:700;
