@@ -241,15 +241,14 @@ function mystyles() {
 		}
 		
 		.img-chat-history {
-			width:300px;
-			height:300px;
-			transition: all 1s ease-out;
+			width:200px;
+			transition: all 0.5s ease-out;
 		}
 		
 		.img-chat-history:hover {
-			transform:scale(1.5);
-			width:420px;
-			height:400px;
+			transform:scale(1.67);
+			width:300px;
+			margin-left: 90px;
 			z-index:9999;
 		}
 		
