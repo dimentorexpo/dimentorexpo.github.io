@@ -5682,6 +5682,7 @@ function move_again_AF() {
 						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
 						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
 						
+						if (testarray !=null) {
 						for (let i=0; i< testarray.length; i++) {
 							if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
 							   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
@@ -5692,6 +5693,7 @@ function move_again_AF() {
 						}
 						
 						console.log(temppics)
+						}
 						
                             if (convdata.messages[i].click == undefined) {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
