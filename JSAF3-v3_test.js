@@ -3584,7 +3584,7 @@ function move_again_AF() {
 
         // }, 600)
 
-    }
+    //}
 
     let nameofuser;
     let teachername;
