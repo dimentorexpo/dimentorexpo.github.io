@@ -245,6 +245,11 @@ function mystyles() {
 			height:300px;
 		}
 		
+		.img-chat-history:hover {
+			width:550px;
+			height:600px;
+		}
+		
 		.cursor-userinfobtns {
 			cursor:pointer;
 			font-weight:700;
@@ -5629,13 +5634,13 @@ function move_again_AF() {
 							}
 						
 						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history "></img>`)+ '</div>' + '</div>'
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
 						
 						else if (temppics.length>1) {
 							
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
+								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
 								
 							}
 							
@@ -5736,13 +5741,13 @@ function move_again_AF() {
 							}
 						
 						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history "></img>`)+ '</div>' + '</div>'
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
 						
 						else if (temppics.length>1) {
 							
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
+								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
 								
 							}
 							
@@ -5851,13 +5856,13 @@ function move_again_AF() {
 							}
 						
 						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history "></img>`)+ '</div>' + '</div>'
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
 						
 						else if (temppics.length>1) {
 							
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
+								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
 								
 							}
 							
@@ -5958,13 +5963,13 @@ function move_again_AF() {
 							}
 						
 						if (temppics.length == 1 )
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history "></img>`)+ '</div>' + '</div>'
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`)+ '</div>' + '</div>'
 						
 						else if (temppics.length>1) {
 							
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
+								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
 								
 							}
 							
