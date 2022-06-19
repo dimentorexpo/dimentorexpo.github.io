@@ -208,6 +208,7 @@ function mystyles() {
 			color:bisque;
 			float:left;
 			font-size:12px;
+			padding-left:5px;
 		}
 		
 		.oper-comment-container {
