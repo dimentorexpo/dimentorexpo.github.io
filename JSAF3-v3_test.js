@@ -243,6 +243,7 @@ function mystyles() {
 		.img-chat-history {
 			width:300px;
 			height:300px;
+			transition: all 1s ease-out;
 		}
 		
 		.img-chat-history:hover {
