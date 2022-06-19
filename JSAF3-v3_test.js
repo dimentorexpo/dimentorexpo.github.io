@@ -5723,9 +5723,9 @@ function move_again_AF() {
 						else if (temppics.length>1) {
 							
 							restul = convdata.messages[i].txt;
-							for(let i=0; i <temppics.length;i++) {
-								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[i], `<img src="${temppics[i]}" class="img-chat-history "></img>`)
-								console.log(i + ' ' + restul)
+							for(let j=0; j <temppics.length;j++) {
+								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
+								console.log(j + ' ' + restul)
 							}
 							
 							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
