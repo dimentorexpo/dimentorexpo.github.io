@@ -138,7 +138,6 @@ function mystyles() {
 		.question-event-text {
 			color:white;
 			word-wrap: break-word;
-			overflow:hidden;
 		}
 		
 		.event-container  {
