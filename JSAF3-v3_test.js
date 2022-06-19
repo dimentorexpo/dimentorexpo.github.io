@@ -5708,19 +5708,19 @@ function move_again_AF() {
 						
 						if (testarray !=null) {
 							temppics = [];
-						for (let i=0; i< testarray.length; i++) {
-							if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-							   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
-							else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
-							else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
-						}
+							for (let i=0; i< testarray.length; i++) {
+								if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
+								   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+								else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
+									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+								else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
+									temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
+							}
 						
 						if (temppics.length == 1 )
 							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history "></img>`)+ '</div>' + '</div>'
 						
-						else if (temppics.length>1)
+						else if (temppics.length>1) {
 							
 							restul = convdata.messages[i].txt;
 							for(let i=0; i <temppics.length;i++) {
@@ -5729,7 +5729,7 @@ function move_again_AF() {
 							}
 							
 							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-						
+							}
 						} else {
 						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
 						}
