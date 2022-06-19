@@ -249,6 +249,7 @@ function mystyles() {
 		.img-chat-history:hover {
 			width:550px;
 			height:600px;
+			z-index:9999;
 		}
 		
 		.cursor-userinfobtns {
