@@ -2996,7 +2996,7 @@ function move_again_AF() {
     document.getElementById('editadmbtn').onclick = function () {
         let stuid = document.getElementById('idstudent').value;
         stuid = stuid.trim();
-        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update")
+        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
     }
 
     document.getElementById('getonetimepass').onclick = function () {
