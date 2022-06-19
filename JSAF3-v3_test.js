@@ -3594,7 +3594,6 @@ function move_again_AF() {
     let servlocalestatus;
     let avatarofuser;
     let countryofuser;
-	  let getageofuser; 
       let ageofuser;
     async function getusernamecrm() {
         let curdate = new Date();
@@ -3677,13 +3676,13 @@ function move_again_AF() {
 			
 			 let goddata = new Date()
              goddata = goddata.getFullYear();
-             if (studname.data.birthday != null) {
-                 studname = studname.data.birthday.split('-')
-                 if (goddata - studname[0] < 18)
+             if (studentname.data.birthday != null) {
+                 studentname = studentname.data.birthday.split('-')
+                 if (goddata - studentname[0] < 18)
                      ageofuser = "🔞"
-                 else if (goddata - studname[0] >= 18 && goddata - studname[0] < 99)
+                 else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
                      ageofuser = "🅰";
-             } else if (studname.data.birthday == null)
+             } else if (studentname.data.birthday == null)
                  ageofuser = "❓";
 			
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
