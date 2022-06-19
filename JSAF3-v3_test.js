@@ -5680,7 +5680,7 @@ function move_again_AF() {
                     switch (convdata.messages[i].tpe) {
                         case "Question":
 						
-						onsole.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
 						
                             if (convdata.messages[i].click == undefined) {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
