@@ -5683,13 +5683,14 @@ function move_again_AF() {
 						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
 						
 						if (testarray !=null) {
+							temppics = [];
 						for (let i=0; i< testarray.length; i++) {
 							if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-							   temppics = testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0]
+							   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-								temppics = testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0]
+								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-								temppics=(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
+								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
 						}
 						
 						console.log(temppics)
