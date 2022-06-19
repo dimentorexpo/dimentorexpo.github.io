@@ -417,8 +417,6 @@ var win_AFhelper =  // описание элементов главного ок
 						<span class="checkbox-audio-switch"></span>
 				</label>
 				
-				<label style="color:bisque"><input type="checkbox" id="removeinfowindow">Скрыть Info</label>
-					<br>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
 				
@@ -5381,28 +5379,6 @@ function move_again_AF() {
                     audio.volume = this.value;
                     localStorage.setItem('audiovol', audio.volume);
                 } else localStorage.setItem('audiovol', this.value);
-            }
-
-            let flagcheckbox = 0;   // функция чекбокса вкл и откл  информационного окна
-            var cboxstatus = document.getElementById('removeinfowindow');
-            cboxstatus.onclick = function () {
-
-                if (!cboxstatus.checked) {
-                    document.getElementById('main_easy_win').style.display = "";
-                    flagcheckbox = 0;
-                    localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-                } else {   // поставить checked, если он не установлен 
-                    document.getElementById('main_easy_win').style.display = "none";
-                    flagcheckbox = 1;
-                    localStorage.setItem('disableomelchenkowindow', flagcheckbox)
-                }
-            }
-
-            if (localStorage.getItem('disableomelchenkowindow') == 1) {
-                document.getElementById('main_easy_win').style.display = "none";
-                cboxstatus.checked = true;
-            } else {
-                cboxstatus.checked = false;
             }
 
             //Скрыть окно Л П МВУ
