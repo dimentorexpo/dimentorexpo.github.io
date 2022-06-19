@@ -248,7 +248,8 @@ function mystyles() {
 		
 		.img-chat-history:hover {
 			transform:scale(1.5);
-			width:540px;
+			width:420px;
+			height:400px;
 			z-index:9999;
 		}
 		
