@@ -5716,7 +5716,14 @@ function move_again_AF() {
 								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
 						}
 						
-						console.log(temppics)
+						if (temppics.length == 1 )
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[9].txt.match(/<[p]>(.*?)<[\/p]>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history "></img>`)+ '</div>' + '</div>'
+						
+						else if (temppics.length>1)
+							
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+						
+						console.log("Длина темппикс больше 1" + temppics)
 						} else {
 						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
 						}
