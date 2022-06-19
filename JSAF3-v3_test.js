@@ -246,9 +246,9 @@ function mystyles() {
 		}
 		
 		.img-chat-history:hover {
-			transform:scale(1.67);
+			transform:scale(1.7);
 			width:300px;
-			margin-left: 90px;
+			margin-left: 100px;
 			z-index:9999;
 		}
 		
