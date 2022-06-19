@@ -126,6 +126,7 @@ function mystyles() {
 			font-size:12px;
 			float:left;
 			margin-right:5px;
+			padding-left:5px;
 		}
 		
 		.question-event-date {
@@ -138,6 +139,7 @@ function mystyles() {
 		.question-event-text {
 			color:white;
 			word-wrap: break-word;
+			padding-left:5px;
 		}
 		
 		.event-container  {
@@ -183,6 +185,7 @@ function mystyles() {
 			font-size:12px;
 			font-weight:700;
 			margin-right:5px;
+			padding-left:5px;
 		}
 		
 		.answer-bot-date {
