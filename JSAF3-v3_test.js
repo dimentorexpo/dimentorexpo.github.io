@@ -3451,14 +3451,15 @@ function move_again_AF() {
 
 
     document.getElementById('catchathistory').onclick = function () {
-
-        if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-            hide_or_display.click()
-            document.getElementById('user_id').value = document.getElementById('idstudent').value;
-            search.click()
-        } else if (document.querySelector('#hide_or_display').textContent == "свернуть")
-            document.getElementById('user_id').value = document.getElementById('idstudent').value;
-        search.click()
+		
+		if (document.getElementById('AF_ChatHis').style.display == 'none') {
+			document.getElementById('AF_ChatHis').style.display = '';
+			document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+			btn_search_history.click()
+		} else {
+			document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+			btn_search_history.click()
+		}
     }
 
     document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
