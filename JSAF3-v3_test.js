@@ -5685,11 +5685,11 @@ function move_again_AF() {
 						if (testarray !=null) {
 						for (let i=0; i< testarray.length; i++) {
 							if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-							   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+							   temppics = testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0]
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+								temppics = testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0]
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
+								temppics=(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
 						}
 						
 						console.log(temppics)
