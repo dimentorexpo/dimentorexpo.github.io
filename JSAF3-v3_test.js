@@ -138,6 +138,7 @@ function mystyles() {
 		.question-event-text {
 			color:white;
 			word-wrap: break-word;
+			overflow:hidden;
 		}
 		
 		.event-container  {
@@ -247,7 +248,8 @@ function mystyles() {
 		}
 		
 		.img-chat-history:hover {
-			transform:scale(1.5)
+			transform:scale(1.5);
+			width:540px;
 			z-index:9999;
 		}
 		
