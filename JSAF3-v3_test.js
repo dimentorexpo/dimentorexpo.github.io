@@ -3537,51 +3537,52 @@ function move_again_AF() {
         skiponboarding.value = "";
     }
 
-    let getageofuser;
-    let ageofuser;
-    async function getuseragecrm() {
-        let filteredid = document.getElementById('idstudent').value;
-        filteredid = filteredid.trim();
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "application/json, text/plain, */*",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
-			  },
-			  "referrer": "https://crm2.skyeng.ru/",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	}`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
-        document.getElementById('responseTextarea3').value = 'getusernageinfo'
-        document.getElementById('sendResponse').click()
+	// Пока комментирую чтобы снизить нагрузку на получение инфы для пользователя ибо оч много одновременно запросов отправляется и ожидается ответ, без своевременного получения оно ломается
+    // let getageofuser; 
+    // let ageofuser;
+    // async function getuseragecrm() {
+        // let filteredid = document.getElementById('idstudent').value;
+        // filteredid = filteredid.trim();
+        // document.getElementById('responseTextarea1').value = `{
+			  // "headers": {
+				// "accept": "application/json, text/plain, */*",
+				// "sec-fetch-dest": "empty",
+				// "sec-fetch-mode": "cors",
+				// "sec-fetch-site": "same-site"
+			  // },
+			  // "referrer": "https://crm2.skyeng.ru/",
+			  // "referrerPolicy": "strict-origin-when-cross-origin",
+			  // "body": null,
+			  // "method": "GET",
+			  // "mode": "cors",
+			  // "credentials": "include"
+	// }`
+        // document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
+        // document.getElementById('responseTextarea3').value = 'getusernageinfo'
+        // document.getElementById('sendResponse').click()
 
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
-            document.getElementById('responseTextarea3').value = 'getusernageinfo'
-            document.getElementById('sendResponse').click()
+        // setTimeout(async function () {
+            // document.getElementById('responseTextarea1').value = '{}'
+            // document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
+            // document.getElementById('responseTextarea3').value = 'getusernageinfo'
+            // document.getElementById('sendResponse').click()
 
-            getageofuser = document.getElementById('responseTextarea1').getAttribute('getusernageinfo');
-            getageofuser = await getageofuser;
-            getageofuser = JSON.parse(getageofuser);
-            document.getElementById('responseTextarea1').removeAttribute('getusernageinfo');
-            let goddata = new Date()
-            goddata = goddata.getFullYear();
-            if (getageofuser.data.birthday != null) {
-                getageofuser = getageofuser.data.birthday.split('-')
-                if (goddata - getageofuser[0] < 18)
-                    ageofuser = "🔞"
-                else if (goddata - getageofuser[0] >= 18 && goddata - getageofuser[0] < 99)
-                    ageofuser = "🅰";
-            } else if (getageofuser.data.birthday == null)
-                ageofuser = "❓";
+            // getageofuser = document.getElementById('responseTextarea1').getAttribute('getusernageinfo');
+            // getageofuser = await getageofuser;
+            // getageofuser = JSON.parse(getageofuser);
+            // document.getElementById('responseTextarea1').removeAttribute('getusernageinfo');
+            // let goddata = new Date()
+            // goddata = goddata.getFullYear();
+            // if (getageofuser.data.birthday != null) {
+                // getageofuser = getageofuser.data.birthday.split('-')
+                // if (goddata - getageofuser[0] < 18)
+                    // ageofuser = "🔞"
+                // else if (goddata - getageofuser[0] >= 18 && goddata - getageofuser[0] < 99)
+                    // ageofuser = "🅰";
+            // } else if (getageofuser.data.birthday == null)
+                // ageofuser = "❓";
 
-        }, 600)
+        // }, 600)
 
     }
 
@@ -3937,7 +3938,7 @@ function move_again_AF() {
         setTimeout(getunhideemail, 600);
         setTimeout(getunhidephone, 620);
         setTimeout(getusernamecrm, 640);
-        setTimeout(getuseragecrm, 650);
+        //setTimeout(getuseragecrm, 650);
         setTimeout(checkemailandphoneidentity, 660);
         setTimeout(crmstatus, 680);
 
