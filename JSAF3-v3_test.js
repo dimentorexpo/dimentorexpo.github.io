@@ -5721,9 +5721,14 @@ function move_again_AF() {
 						
 						else if (temppics.length>1)
 							
-							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+							let restul = convdata.messages[i].txt;
+							for(let i=0; i <temppics.length;i++) {
+								restul = restul.replace(convdata.messages[9].txt.match(/<p>(.*?)<\/p>/gm)[i], `<img src="${temppics[i]}" class="img-chat-history "></img>`)
+								console.log(i + ' ' + restul)
+							}
+							
+							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
 						
-						console.log("Длина темппикс больше 1" + temppics)
 						} else {
 						  document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
 						}
