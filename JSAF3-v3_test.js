@@ -4125,9 +4125,11 @@ function move_again_AF() {
                         };
                     }
 
-                    document.getElementById('getloginer1').addEventListener('click', function () {
+					if (document.getElementById('getloginer1') != null) {
+                    document.getElementById('getloginer1').onclick = function () {
                         postuderdatatologin();
-                    })
+                    }
+					}
                 }
 
                 if (arrservice.length != 0 && arrservice != null && arrservice != undefined) {
@@ -4152,9 +4154,11 @@ function move_again_AF() {
                 };
 				}
 
-                document.getElementById('getloginer').addEventListener('click', function () {
+				if (document.getElementById('getloginer') != null) {
+                document.getElementById('getloginer').onclick = function () {
                     postuderdatatologin();
                 })
+				}
 
                 if (document.getElementById('getshowcase') != null) {
                     document.getElementById('getshowcase').onclick = function () {
