@@ -5673,6 +5673,7 @@ function move_again_AF() {
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
 				
 				let picture = document.createElement('img')
+				picture.classList.add('img-chat-history');
 				let temppics = [];
 				let testarray=[];
 				
@@ -5691,11 +5692,11 @@ function move_again_AF() {
 							temppics = [];
 						for (let i=0; i< testarray.length; i++) {
 							if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) !=null)
-							   temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+							   temppics.push(picture.src = testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) !=null)
-								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+								temppics.push(picture.src = testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
 							else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) !=null)         
-								temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
+								temppics.push(picture.src = testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0]) 
 						}
 						
 						console.log(temppics)
