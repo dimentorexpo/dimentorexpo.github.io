@@ -417,6 +417,7 @@ var win_AFhelper =  // описание элементов главного ок
 						<span class="checkbox-audio-switch"></span>
 				</label>
 				
+				<br>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
 				
