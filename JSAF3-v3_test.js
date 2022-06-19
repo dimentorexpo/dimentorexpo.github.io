@@ -5672,7 +5672,7 @@ function move_again_AF() {
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
-                                        opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                        opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
                                     }
                                     break;
@@ -5779,7 +5779,7 @@ function move_again_AF() {
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                 let operidcls = convdata.messages[i].payload.sender;
                                 let opernamecls;
-                                opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
                                 document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
                             }
                             break;
@@ -5894,7 +5894,7 @@ function move_again_AF() {
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
-                                        opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                        opernamecls = operatorsarray.filter(i => (i.operator != null i.operator.id == operidcls))
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
                                     }
                                     break;
