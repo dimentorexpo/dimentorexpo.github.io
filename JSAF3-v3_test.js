@@ -5674,6 +5674,7 @@ function move_again_AF() {
 				
 				let temppics = [];
 				let testarray=[];
+				let restul;
 				
 								
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
@@ -5721,9 +5722,9 @@ function move_again_AF() {
 						
 						else if (temppics.length>1)
 							
-							let restul = convdata.messages[i].txt;
+							restul = convdata.messages[i].txt;
 							for(let i=0; i <temppics.length;i++) {
-								restul = restul.replace(convdata.messages[9].txt.match(/<p>(.*?)<\/p>/gm)[i], `<img src="${temppics[i]}" class="img-chat-history "></img>`)
+								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[i], `<img src="${temppics[i]}" class="img-chat-history "></img>`)
 								console.log(i + ' ' + restul)
 							}
 							
