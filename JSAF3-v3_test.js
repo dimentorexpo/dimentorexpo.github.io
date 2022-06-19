@@ -4107,13 +4107,13 @@ function move_again_AF() {
                     }
                     document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
 
-				if (document.getElementById('getusremail1') ! = null) {
+				if (document.getElementById('getusremail1') != null) {
                     document.getElementById('getusremail1').onclick = function () {
                         copyToClipboard1(unhidenemail);
                     };
 				}
 
-				if (document.getElementById('getusrphone1') ! = null) {
+				if (document.getElementById('getusrphone1') != null) {
                     document.getElementById('getusrphone1').onclick = function () {
                         copyToClipboard1(unhidephone);
                     };
@@ -4140,13 +4140,13 @@ function move_again_AF() {
                     }
                 }
 				
-				if (document.getElementById('getusremail') ! = null) {
+				if (document.getElementById('getusremail') != null) {
                 document.getElementById('getusremail').onclick = function () {
                     copyToClipboard1(unhidenemail);
                 };
 				}
 
-				if (document.getElementById('getusrphone') ! = null) {
+				if (document.getElementById('getusrphone') != null) {
                 document.getElementById('getusrphone').onclick = function () {
                     copyToClipboard1(unhidephone);
                 };
