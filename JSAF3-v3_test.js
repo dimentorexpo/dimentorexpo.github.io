@@ -3963,10 +3963,10 @@ function move_again_AF() {
             async function getServInfo() {
                 document.getElementById('responseTextarea1').value = '{}'
                 document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
-                await document.getElementById('responseTextarea3').value = 'getserviceinfo'
+                document.getElementById('responseTextarea3').value = 'getserviceinfo'
                 document.getElementById('sendResponse').click()
 
-                servicearr = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+                servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
                 servicearr = JSON.parse(servicearr);
                 //console.log(servicearr);
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
