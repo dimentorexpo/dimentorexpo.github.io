@@ -5615,7 +5615,7 @@ function move_again_AF() {
                             if (convdata.messages[i].click == undefined) {
 								
 						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						
 						
 						if (testarray !=null) {
 							temppics = [];
@@ -5636,7 +5636,7 @@ function move_again_AF() {
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
 								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
-								console.log(j + ' ' + restul)
+								
 							}
 							
 							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
@@ -5722,7 +5722,7 @@ function move_again_AF() {
                             if (convdata.messages[i].click == undefined) {
 								
 						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						
 						
 						if (testarray !=null) {
 							temppics = [];
@@ -5743,7 +5743,7 @@ function move_again_AF() {
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
 								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
-								console.log(j + ' ' + restul)
+								
 							}
 							
 							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
@@ -5837,7 +5837,7 @@ function move_again_AF() {
                             if (convdata.messages[i].click == undefined) {
 								
 						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						
 						
 						if (testarray !=null) {
 							temppics = [];
@@ -5858,7 +5858,7 @@ function move_again_AF() {
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
 								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
-								console.log(j + ' ' + restul)
+								
 							}
 							
 							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
@@ -5944,8 +5944,7 @@ function move_again_AF() {
                         case "Question":				
                             if (convdata.messages[i].click == undefined) {
 								
-						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-						console.log(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm))
+						testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);	
 						
 						if (testarray !=null) {
 							temppics = [];
@@ -5966,7 +5965,7 @@ function move_again_AF() {
 							restul = convdata.messages[i].txt;
 							for(let j=0; j <temppics.length;j++) {
 								restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history "></img>`)
-								console.log(j + ' ' + restul)
+								
 							}
 							
 							document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.questions[0].inMessage.contact.name + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
