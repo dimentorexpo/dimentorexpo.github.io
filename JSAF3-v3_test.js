@@ -5684,7 +5684,7 @@ function move_again_AF() {
                                 case "AnswerOperator":
                                     let operidansw = convdata.messages[i].operatorId
                                     let opernameansw;
-                                    opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                                    opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
                                     document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                                     break;
 
@@ -5692,7 +5692,7 @@ function move_again_AF() {
                                     if (convdata.messages[i].operatorId != 'autoFAQ') {
                                         let operidanswcom = convdata.messages[i].operatorId
                                         let opernameanswcom;
-                                        opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                        opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
                                         document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                                     } else {
                                         document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
@@ -5791,7 +5791,7 @@ function move_again_AF() {
                         case "AnswerOperator":
                             let operidansw = convdata.messages[i].operatorId
                             let opernameansw;
-                            opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                            opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
                             document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             break;
 
@@ -5799,7 +5799,7 @@ function move_again_AF() {
                             if (convdata.messages[i].operatorId != 'autoFAQ') {
                                 let operidanswcom = convdata.messages[i].operatorId
                                 let opernameanswcom;
-                                opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
@@ -5906,7 +5906,7 @@ function move_again_AF() {
                                 case "AnswerOperator":
                                     let operidansw = convdata.messages[i].operatorId
                                     let opernameansw;
-                                    opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                                    opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
                                     document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                                     break;
 
@@ -5914,7 +5914,7 @@ function move_again_AF() {
                                     if (convdata.messages[i].operatorId != 'autoFAQ') {
                                         let operidanswcom = convdata.messages[i].operatorId
                                         let opernameanswcom;
-                                        opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                        opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
                                         document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                                     } else {
                                         document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
@@ -6001,7 +6001,7 @@ function move_again_AF() {
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                 let operidcls = convdata.messages[i].payload.sender;
                                 let opernamecls;
-                                opernamecls = operatorsarray.filter(i => (i.operator.id == operidcls))
+                                opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
                                 document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
                             }
                             break;
@@ -6013,7 +6013,7 @@ function move_again_AF() {
                         case "AnswerOperator":
                             let operidansw = convdata.messages[i].operatorId
                             let opernameansw;
-                            opernameansw = operatorsarray.filter(i => (i.operator.id == operidansw))
+                            opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
                             document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             break;
 
@@ -6021,7 +6021,7 @@ function move_again_AF() {
                             if (convdata.messages[i].operatorId != 'autoFAQ') {
                                 let operidanswcom = convdata.messages[i].operatorId
                                 let opernameanswcom;
-                                opernameanswcom = operatorsarray.filter(i => (i.operator.id == operidanswcom))
+                                opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
