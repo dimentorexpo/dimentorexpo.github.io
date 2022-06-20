@@ -681,10 +681,7 @@ var win_Chathis =  // описание элементов окна ссылок
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
 			</div>
-			
-			<div id="userchatdata" style="display:none; position:absoulte; top:0px; right 550px; max-height:400px max-width:300px; overflow:auto">
-			</div>
-			
+				
 			<div id="userchatdata" style="display: none; position:absolute; top:0px; left: 560px; background: #464451; color:bisque; width:300px; height: 400px; max-height:400px; max-width:300px; overflow:auto; border:1px solid; padding: 10px;">
 			</div>
 			
