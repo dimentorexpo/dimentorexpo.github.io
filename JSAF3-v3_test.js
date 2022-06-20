@@ -687,7 +687,7 @@ var win_Chathis =  // описание элементов окна ссылок
 				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
 				</div>
 				
-					<div ="datafield">
+					<div ="datafield" style="margin-top:5px;text-align:center;">
 					</div>
 					
 			</div>
@@ -5548,8 +5548,12 @@ function move_again_AF() {
 		document.getElementById('getdatafrchat').onclick = () => {
 			if (document.getElementById('userchatdata').style.display == '')
 			document.getElementById('userchatdata').style.display = 'none'
-			else 
-			document.getElementById('userchatdata').style.display = ''
+			else if (typeof(convdata) !== undefined){
+			
+			document.getElementById('userchatdata').style.display = '';
+			document.getElementById('datafield').innerHTML = Object.entries(convdata.channelUser.payload);
+			}
+		
 		}
 
         document.getElementById('FindChatsOnOperator').onclick = async () => { // ищет активные чаты на выбранном операторе 
