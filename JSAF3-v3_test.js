@@ -5512,7 +5512,7 @@ function move_again_AF() {
 		
 		document.getElementById('FindChatsOnOperator').onclick = async () => {
 			if (objSel.length >1) {
-				for (let i=0; i<objSel.length;i++) {
+				for (let i=1; i<objSel.length;i++) {
 					if (objSel[i].selected)
 						await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 						  "headers": {
