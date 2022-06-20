@@ -5481,6 +5481,7 @@ function move_again_AF() {
 		
 		let activetechopers=[];
 		async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
+			activetechopers=[]
 			objSel.length = 1
 			await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 				"credentials": "include"
