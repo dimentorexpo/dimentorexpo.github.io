@@ -5553,6 +5553,19 @@ function move_again_AF() {
 
         document.getElementById('FindChatsOnOperator').onclick = async () => {
             flagsearch = 'searchbyoperator'
+			
+			                        if (foundarr != '')
+                            foundarr = '';
+
+                        if (document.getElementById('placeusid').innerText != '')
+                            document.getElementById('placeusid').innerText = ''
+
+                        if (document.getElementById('placechatid').innerText != '')
+                            document.getElementById('placechatid').innerText = ''
+
+                        if (document.getElementById('infofield').innerHTML != '')
+                            document.getElementById('infofield').innerHTML = ''
+						
             if (objSel.length > 1) {
                 for (let i = 1; i < objSel.length; i++) {
                     if (objSel[i].selected == true) {
@@ -5573,17 +5586,7 @@ function move_again_AF() {
                         if (operchatsdata.total == 0)
                             alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
 
-                        if (foundarr != '')
-                            foundarr = '';
 
-                        if (document.getElementById('placeusid').innerText != '')
-                            document.getElementById('placeusid').innerText = ''
-
-                        if (document.getElementById('placechatid').innerText != '')
-                            document.getElementById('placechatid').innerText = ''
-
-                        if (document.getElementById('infofield').innerHTML != '')
-                            document.getElementById('infofield').innerHTML = ''
 
                         for (let i = 0; i < operchatsdata.items.length; i++) {
 
