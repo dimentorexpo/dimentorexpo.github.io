@@ -6051,9 +6051,9 @@ function move_again_AF() {
                 document.getElementById('infofield').innerHTML = foundarr;
 
                 for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
-                    if (flagsearch == 'searchbyuser' || flagsearch == 'searchbyhash')
+                    if ((flagsearch == 'searchbyuser' || flagsearch == 'searchbyhash') && data.items[i] != undefined)
                         document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-                    else if (flagsearch == 'searchbyoperator' || flagsearch == 'searchbyhash')
+                    else if ((flagsearch == 'searchbyoperator' || flagsearch == 'searchbyhash') && operchatsdata.items[i] != undefined)
                         document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
 
                     document.getElementsByClassName('chatlist')[i].onclick = async () => {
