@@ -5671,6 +5671,22 @@ function move_again_AF() {
                                             if (convdata.messages[i].click == undefined) {
 
                                                 testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+												if (testarray == null) {
+													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+												}
 
 
                                                 if (testarray != null) {
@@ -5883,6 +5899,23 @@ function move_again_AF() {
                                     if (convdata.messages[i].click == undefined) {
 
                                         testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+										
+																						if (testarray == null) {
+													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+												}
 
 
                                         if (testarray != null) {
@@ -5987,6 +6020,23 @@ function move_again_AF() {
                             if (convdata.messages[i].click == undefined) {
 
                                 testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+								
+								if (testarray == null) {
+													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+								}
 
 
                                 if (testarray != null) {
@@ -6113,6 +6163,23 @@ function move_again_AF() {
                                     if (convdata.messages[i].click == undefined) {
 
                                         testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+										
+											if (testarray == null) {
+													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+											}
 
 
                                         if (testarray != null) {
@@ -6221,6 +6288,23 @@ function move_again_AF() {
                             if (convdata.messages[i].click == undefined) {
 
                                 testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+								
+											if (testarray == null) {
+													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+											}
 
                                 if (testarray != null) {
                                     temppics = [];
