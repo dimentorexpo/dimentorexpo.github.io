@@ -5502,6 +5502,7 @@ function move_again_AF() {
 						addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)	
 					} else if(activetechopers[i].operator.status == "Pause") {
 						addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)	
+					}
 				}
 			}
 		}
