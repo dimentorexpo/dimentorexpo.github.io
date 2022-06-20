@@ -6056,9 +6056,11 @@ function move_again_AF() {
                     else if (flagsearch == 'searchbyoperator')
                         document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
                     else if (flagsearch == 'searchbyhash') {
-                        if (typeof (operchatsdata) !== undefined)
+                        if (typeof (operchatsdata) !== undefined && typeof (data) === undefined)
                             document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
-                        else if (typeof (data) !== undefined)
+                        else if (typeof (data) !== undefined && typeof (operchatsdata) === undefined)
+                            document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+                        else if (typeof (data) !== undefined && typeof (operchatsdata) !== undefined)
                             document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
                     }
 
