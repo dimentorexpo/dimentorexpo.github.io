@@ -5548,7 +5548,7 @@ function move_again_AF() {
 		document.getElementById('getdatafrchat').onclick = () => {
 			if (document.getElementById('userchatdata').style.display == '')
 			document.getElementById('userchatdata').style.display = 'none'
-			else if (typeof(convdata) !== undefined){
+			else if (typeof(convdata) !== 'undefined'){
 			
 			document.getElementById('userchatdata').style.display = '';
 			document.getElementById('datafield').innerHTML = Object.entries(convdata.channelUser.payload);
@@ -6082,11 +6082,11 @@ function move_again_AF() {
                     else if (flagsearch == 'searchbyoperator')
                         document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
                     else if (flagsearch == 'searchbyhash') {
-                        if (typeof (operchatsdata) !== undefined && typeof (data) === undefined)
+                        if (typeof (operchatsdata) !== 'undefined' && typeof (data) === 'undefined')
                             document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
-                        else if (typeof (data) !== undefined && typeof (operchatsdata) === undefined)
+                        else if (typeof (data) !== 'undefined' && typeof (operchatsdata) === 'undefined')
                             document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-                        else if (typeof (data) !== undefined && typeof (operchatsdata) !== undefined)
+                        else if (typeof (data) !== 'undefined' && typeof (operchatsdata) !== 'undefined')
                             document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
                     }
 
