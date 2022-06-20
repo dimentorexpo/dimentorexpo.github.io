@@ -5551,7 +5551,7 @@ function move_again_AF() {
 			else if (typeof(convdata) !== 'undefined'){
 			
 			document.getElementById('userchatdata').style.display = '';
-			document.getElementById('datafield').innerHTML = convdata.channelUser.payload.userFullName  + '<br>' + '(' + convdata.channelUser.payload.userType + ')' + 'ID: ' + convdata.channelUser.payload.id + '<br>' + '📧: ' + convdata.channelUser.payload.email + '<br>' + "📞:" + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
+			document.getElementById('datafield').innerHTML = convdata.channelUser.payload.userFullName  + '<br>' + '<span style="color:#00BFFF">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '📧: ' + convdata.channelUser.payload.email + '<br>' + "📞:" + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
 			} else alert("Не выбран активный чат")
 		
 		}
