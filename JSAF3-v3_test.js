@@ -5552,7 +5552,7 @@ function move_again_AF() {
 			
 			document.getElementById('userchatdata').style.display = '';
 			document.getElementById('datafield').innerHTML = Object.entries(convdata.channelUser.payload);
-			}
+			} else alert("Не выбран активный чат")
 		
 		}
 
