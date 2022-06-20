@@ -5553,19 +5553,19 @@ function move_again_AF() {
 
         document.getElementById('FindChatsOnOperator').onclick = async () => {
             flagsearch = 'searchbyoperator'
-			
-			                        if (foundarr != '')
-                            foundarr = '';
 
-                        if (document.getElementById('placeusid').innerText != '')
-                            document.getElementById('placeusid').innerText = ''
+            if (foundarr != '')
+                foundarr = '';
 
-                        if (document.getElementById('placechatid').innerText != '')
-                            document.getElementById('placechatid').innerText = ''
+            if (document.getElementById('placeusid').innerText != '')
+                document.getElementById('placeusid').innerText = ''
 
-                        if (document.getElementById('infofield').innerHTML != '')
-                            document.getElementById('infofield').innerHTML = ''
-						
+            if (document.getElementById('placechatid').innerText != '')
+                document.getElementById('placechatid').innerText = ''
+
+            if (document.getElementById('infofield').innerHTML != '')
+                document.getElementById('infofield').innerHTML = ''
+
             if (objSel.length > 1) {
                 for (let i = 1; i < objSel.length; i++) {
                     if (objSel[i].selected == true) {
