@@ -5467,6 +5467,9 @@ function move_again_AF() {
         else
             document.getElementById('AF_ChatHis').style.display = ''
 		
+		document.getElementById('RefrehOperators').onclick = currstate;
+		let objSel = document.getElementById("operatorstp");
+				
 		function addOption (oListbox, text, value)  //функция добавления опции в список
 		{
 		  var oOption = document.createElement("option");
@@ -5488,20 +5491,17 @@ function move_again_AF() {
 					} // end of if state
 				} // end of for
 			})
-		}
-		currstate();
-		console.log(activetechopers);
-		
-		document.getElementById('RefrehOperators').onclick = currstate;
-		
-		let objSel = document.getElementById("operatorstp");
-		
-		if (activetechopers.length !=0) {
+			
+					if (activetechopers.length !=0) {
 		for (let i=0; i <activetechopers.length; i++)  {
 			addOption(objSel, `${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
 		}
 		}
-
+		
+		}
+		currstate();
+		console.log(activetechopers);
+		
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
