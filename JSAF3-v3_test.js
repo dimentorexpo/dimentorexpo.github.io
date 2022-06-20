@@ -5539,9 +5539,10 @@ function move_again_AF() {
         }
 		
 		document.getElementById('getdatafrchat').onclick = () => {
-			if (document.getElementById('userchatdata').style.display = '')
+			if (document.getElementById('userchatdata').style.display == '')
 			document.getElementById('userchatdata').style.display = 'none'
-			else if (document.getElementById('userchatdata').style.display = 'none') document.getElementById('userchatdata').style.display = ''
+			else 
+			document.getElementById('userchatdata').style.display = ''
 		}
 
         document.getElementById('FindChatsOnOperator').onclick = async () => { // ищет активные чаты на выбранном операторе 
