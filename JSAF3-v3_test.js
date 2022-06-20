@@ -5542,7 +5542,7 @@ function move_again_AF() {
 							"sec-fetch-mode": "cors",
 							"sec-fetch-site": "same-origin"
 						  },
-						  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"2022-06-18T09:50:22.871Z\",\"tsTo\":\"2022-06-20T20:50:22.871Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
+						  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T23:59:59.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}00:00:00.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
 						  "method": "POST",
 						  "mode": "cors",
 						  "credentials": "include"
