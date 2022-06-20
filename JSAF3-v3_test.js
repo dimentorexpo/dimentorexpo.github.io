@@ -5491,6 +5491,16 @@ function move_again_AF() {
 		}
 		currstate();
 		console.log(activetechopers);
+		
+		document.getElementById('RefrehOperators').onclick = currstate;
+		
+		let objSel = document.getElementById("operatorstp");
+		
+		if (activetechopers.length !=0) {
+		for (let i=0; i <activetechopers.length; i++)  {
+			addOption(objSel, `${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`
+		}
+		}
 
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
