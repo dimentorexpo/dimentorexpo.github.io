@@ -5887,6 +5887,7 @@ function move_again_AF() {
                         let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
                         let temppics = [];
                         let testarray = [];
+						let brarray=[];
                         let restul;
 
                         // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
@@ -5901,7 +5902,7 @@ function move_again_AF() {
                                         testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
 										
 												if (testarray == null) {
-													testarray=[];
+													brarray=[];
 													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
 														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
 													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
@@ -5916,7 +5917,7 @@ function move_again_AF() {
 														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
 													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
 														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else testarray=null;
+													else brarray=null;
 												}
 
 
@@ -5944,9 +5945,14 @@ function move_again_AF() {
 
                                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
                                             }
-                                        } else {
-                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                        }
+                                        } else if (brarray !=null) {
+											
+											if (brarray.length == 1)
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt, `<img src="${brarray[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+										
+										}  else {
+												document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+											}
 
                                     } else {
                                         document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
