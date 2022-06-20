@@ -5544,39 +5544,39 @@ function move_again_AF() {
                 }
             }
         }
-				
-		document.getElementById('getdatafrchat').onclick = () => {
-			if (document.getElementById('userchatdata').style.display == '')
-			document.getElementById('userchatdata').style.display = 'none'
-			else if (typeof(convdata) !== 'undefined'){
-			
-			document.getElementById('userchatdata').style.display = '';
-			document.getElementById('datafield').innerHTML = convdata.channelUser.payload.userFullName  + '<br>' + '<span style="color:#00BFFF">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '📧: ' + convdata.channelUser.payload.email + '<br>' + "📞:" + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
-			} else alert("Не выбран активный чат")
-		
-		}
+
+        document.getElementById('getdatafrchat').onclick = () => {
+            if (document.getElementById('userchatdata').style.display == '')
+                document.getElementById('userchatdata').style.display = 'none'
+            else if (typeof (convdata) !== 'undefined') {
+
+                document.getElementById('userchatdata').style.display = '';
+                document.getElementById('datafield').innerHTML = convdata.channelUser.payload.userFullName + '<br>' + '<span style="color:#00BFFF">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '📧: ' + convdata.channelUser.payload.email + '<br>' + "📞:" + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
+            } else alert("Не выбран активный чат")
+
+        }
 
         document.getElementById('FindChatsOnOperator').onclick = async () => { // ищет активные чаты на выбранном операторе 
-		
-		let getdateset = new Date()
-		let hrs;
-        let mins;
-        let secs;
-        if (getdateset.getUTCHours() < 10)
-            hrs = "0" + (getdateset.getUTCHours());
-        else if (getdateset.getUTCHours() >= 24)
-            hrs = '0' + ((getdateset.getUTCHours() - 24))
-        else
-            hrs = (getdateset.getUTCHours());
 
-        if (getdateset.getMinutes() < 10)
-            mins = "0" + getdateset.getMinutes();
-        else mins = getdateset.getMinutes();
+            let getdateset = new Date()
+            let hrs;
+            let mins;
+            let secs;
+            if (getdateset.getUTCHours() < 10)
+                hrs = "0" + (getdateset.getUTCHours());
+            else if (getdateset.getUTCHours() >= 24)
+                hrs = '0' + ((getdateset.getUTCHours() - 24))
+            else
+                hrs = (getdateset.getUTCHours());
 
-        if (getdateset.getUTCSeconds() < 10)
-            secs = "0" + getdateset.getUTCSeconds();
-        else secs = getdateset.getUTCSeconds()
-			
+            if (getdateset.getMinutes() < 10)
+                mins = "0" + getdateset.getMinutes();
+            else mins = getdateset.getMinutes();
+
+            if (getdateset.getUTCSeconds() < 10)
+                secs = "0" + getdateset.getUTCSeconds();
+            else secs = getdateset.getUTCSeconds()
+
             flagsearch = 'searchbyoperator'
 
             if (foundarr != '')
@@ -5648,132 +5648,132 @@ function move_again_AF() {
                         for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
                             document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
 
-                    document.getElementsByClassName('chatlist')[i].onclick = async () => {
+                            document.getElementsByClassName('chatlist')[i].onclick = async () => {
 
-                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
-                        console.log(convdata)
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
 
-                        document.getElementById('infofield').innerHTML = ''
+                                document.getElementById('infofield').innerHTML = ''
 
-                        let timearr = [];
-                        let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-                        let temppics = [];
-                        let testarray = [];
-						let brarray=[];
-                        let restul;
+                                let timearr = [];
+                                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                                let temppics = [];
+                                let testarray = [];
+                                let brarray = [];
+                                let restul;
 
-                        // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-                        document.getElementById('placeusid').innerText = convdata.channelUser.id;
-                        document.getElementById('placechatid').innerText = convdata.id;
-                        for (let i = 0; i < convdata.messages.length; i++) {
-                            timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-                            switch (convdata.messages[i].tpe) {
-                                case "Question":
-                                    if (convdata.messages[i].click == undefined) {
+                                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                                document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                                document.getElementById('placechatid').innerText = convdata.id;
+                                for (let i = 0; i < convdata.messages.length; i++) {
+                                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+                                    switch (convdata.messages[i].tpe) {
+                                        case "Question":
+                                            if (convdata.messages[i].click == undefined) {
 
-                                        testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-										
-												if (testarray == null) {
-													brarray=[];
-													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else brarray=null;
-												}
+                                                testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
 
-                                        if (testarray != null) {
-                                            temppics = [];
-                                            for (let i = 0; i < testarray.length; i++) {
-                                                if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
-                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
-                                                else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
-                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
-                                                else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
-                                                    temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
-                                            }
-
-                                            if (temppics.length == 1)
-                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
-
-                                            else if (temppics.length > 1) {
-
-                                                restul = convdata.messages[i].txt;
-                                                for (let j = 0; j < temppics.length; j++) {
-                                                    restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
-
+                                                if (testarray == null) {
+                                                    brarray = [];
+                                                    if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else brarray = null;
                                                 }
 
-                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+                                                if (testarray != null) {
+                                                    temppics = [];
+                                                    for (let i = 0; i < testarray.length; i++) {
+                                                        if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
+                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+                                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+                                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
+                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
+                                                    }
+
+                                                    if (temppics.length == 1)
+                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                                    else if (temppics.length > 1) {
+
+                                                        restul = convdata.messages[i].txt;
+                                                        for (let j = 0; j < temppics.length; j++) {
+                                                            restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
+
+                                                        }
+
+                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+                                                    }
+                                                } else if (brarray != null) {
+
+                                                    if (brarray.length == 1)
+                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt, `<img src="${brarray[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                                } else {
+                                                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                                }
+
+                                            } else {
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
                                             }
-                                        } else if (brarray !=null) {
-											
-											if (brarray.length == 1)
-                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt, `<img src="${brarray[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
-										
-										}  else {
-												document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-											}
+                                            break;
 
-                                    } else {
-                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                                        case "Event":
+                                            if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
+                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
+                                                let operid = convdata.messages[i].payload.oid;
+                                                let opername;
+                                                opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
+                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                                let operidcls = convdata.messages[i].payload.sender;
+                                                let opernamecls;
+                                                opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                            }
+                                            break;
+
+                                        case "AnswerOperatorWithBot":
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-bot-container">' + '<span class="answer-bot-name">' + 'AutoFAQ bot' + '</span>' + '<span class="answer-bot-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            break;
+
+                                        case "AnswerOperator":
+                                            let operidansw = convdata.messages[i].operatorId
+                                            let opernameansw;
+                                            opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            break;
+
+                                        case "OperatorComment":
+                                            if (convdata.messages[i].operatorId != 'autoFAQ') {
+                                                let operidanswcom = convdata.messages[i].operatorId
+                                                let opernameanswcom;
+                                                opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            } else {
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            }
+                                            break;
                                     }
-                                    break;
-
-                                case "Event":
-                                    if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
-                                        let operid = convdata.messages[i].payload.oid;
-                                        let opername;
-                                        opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
-                                        let operidcls = convdata.messages[i].payload.sender;
-                                        let opernamecls;
-                                        opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                    }
-                                    break;
-
-                                case "AnswerOperatorWithBot":
-                                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-bot-container">' + '<span class="answer-bot-name">' + 'AutoFAQ bot' + '</span>' + '<span class="answer-bot-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                    break;
-
-                                case "AnswerOperator":
-                                    let operidansw = convdata.messages[i].operatorId
-                                    let opernameansw;
-                                    opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
-                                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                    break;
-
-                                case "OperatorComment":
-                                    if (convdata.messages[i].operatorId != 'autoFAQ') {
-                                        let operidanswcom = convdata.messages[i].operatorId
-                                        let opernameanswcom;
-                                        opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
-                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                    } else {
-                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                    }
-                                    break;
-                            }
-                        }
-                    } // конец функции клика по списку в найденном чате
+                                }
+                            } // конец функции клика по списку в найденном чате
                         }
                     }
                 }
@@ -5846,7 +5846,7 @@ function move_again_AF() {
                     let tsmin
                     let day;
                     let month;
-					let actstatus='';
+                    let actstatus = '';
                     let marksarr;
                     if (tmestmp.getMonth() < 9)
                         month = "0" + (tmestmp.getMonth() + 1)
@@ -5871,12 +5871,12 @@ function move_again_AF() {
                         marksarr = 'Нет оценки'
                     else
                         marksarr = data.items[i].stats.rate.rate
-					
-					if (data.items[i].stats.usedStatuses == "AssignedToOperator")
-					actstatus = "🛠"
-					else actstatus = '';
-					
-                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>'  + '<br>'
+
+                    if (data.items[i].stats.usedStatuses == "AssignedToOperator")
+                        actstatus = "🛠"
+                    else actstatus = '';
+
+                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5895,7 +5895,7 @@ function move_again_AF() {
                         let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
                         let temppics = [];
                         let testarray = [];
-						let brarray=[];
+                        let brarray = [];
                         let restul;
 
                         // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
@@ -5908,25 +5908,25 @@ function move_again_AF() {
                                     if (convdata.messages[i].click == undefined) {
 
                                         testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-										
-												if (testarray == null) {
-													brarray=[];
-													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else brarray=null;
-												}
+
+                                        if (testarray == null) {
+                                            brarray = [];
+                                            if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else brarray = null;
+                                        }
 
                                         if (testarray != null) {
                                             temppics = [];
@@ -5952,14 +5952,14 @@ function move_again_AF() {
 
                                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
                                             }
-                                        } else if (brarray !=null) {
-											
-											if (brarray.length == 1)
+                                        } else if (brarray != null) {
+
+                                            if (brarray.length == 1)
                                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt, `<img src="${brarray[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
-										
-										}  else {
-												document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-											}
+
+                                        } else {
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                        }
 
                                     } else {
                                         document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
@@ -6035,23 +6035,23 @@ function move_again_AF() {
                             if (convdata.messages[i].click == undefined) {
 
                                 testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-								
-								if (testarray == null) {
-													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-								}
+
+                                if (testarray == null) {
+                                    if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                }
 
 
                                 if (testarray != null) {
@@ -6166,7 +6166,7 @@ function move_again_AF() {
                         let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
                         let temppics = [];
                         let testarray = [];
-						let brarray=[];
+                        let brarray = [];
                         let restul;
 
                         // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
@@ -6179,25 +6179,25 @@ function move_again_AF() {
                                     if (convdata.messages[i].click == undefined) {
 
                                         testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-										
-												if (testarray == null) {
-													brarray=[];
-													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else brarray=null;
-												}
+
+                                        if (testarray == null) {
+                                            brarray = [];
+                                            if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                            else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                            else brarray = null;
+                                        }
 
                                         if (testarray != null) {
                                             temppics = [];
@@ -6223,14 +6223,14 @@ function move_again_AF() {
 
                                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
                                             }
-                                        } else if (brarray !=null) {
-											
-											if (brarray.length == 1)
+                                        } else if (brarray != null) {
+
+                                            if (brarray.length == 1)
                                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt, `<img src="${brarray[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
-										
-										}  else {
-												document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-											}
+
+                                        } else {
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                        }
 
                                     } else {
                                         document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
@@ -6310,23 +6310,23 @@ function move_again_AF() {
                             if (convdata.messages[i].click == undefined) {
 
                                 testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-								
-											if (testarray == null) {
-													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) ==null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-														testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-											}
+
+                                if (testarray == null) {
+                                    if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                        testarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                }
 
                                 if (testarray != null) {
                                     temppics = [];
@@ -6698,12 +6698,12 @@ function move_again_AF() {
     }
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Links').style.display == '') 
+        if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
     }
 
     document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Linksd').style.display == '') 
+        if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
 
@@ -6735,17 +6735,17 @@ function move_again_AF() {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
     }
-	
-	document.getElementById('hideuserdatainfo').onclick = () => {
-			if (document.getElementById('userchatdata').style.display == '')
-			document.getElementById('userchatdata').style.display = 'none'
-	}
+
+    document.getElementById('hideuserdatainfo').onclick = () => {
+        if (document.getElementById('userchatdata').style.display == '')
+            document.getElementById('userchatdata').style.display = 'none'
+    }
 
     document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_LessonStatus').style.display == '') {
             document.getElementById('AF_LessonStatus').style.display = 'none'
             document.getElementById('statustable').innerText = "";
-        } 
+        }
     }
 
     document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
@@ -6759,7 +6759,7 @@ function move_again_AF() {
             document.getElementById('AF_GrList').style.display = 'none';
             document.getElementById('grlistinfo').innerText = "";
             document.getElementById('idgrouptolist').value = "";
-        } 
+        }
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
