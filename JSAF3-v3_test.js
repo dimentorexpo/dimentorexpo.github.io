@@ -686,6 +686,10 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div id="datainfoheader">
 				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
 				</div>
+				
+					<div ="datafield">
+					</div>
+					
 			</div>
 			
 	</span>
