@@ -647,6 +647,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					</select>
 					<button title="Ищет по выбранному оператору активные чаты, чтобы можно было их просмотреть" id="FindChatsOnOperator" style="width:50px;">🚀</button>
 					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:50px;">♻</button>
+					<button title="Показывает инеформацию по пользователю из чата, его айди, почту, телефон, характеристики устройства и тп" id="getdatafrchat" style="width:50px;">ℹ</button>
 				</div>				
 				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:105px">Найти</button>
@@ -680,6 +681,13 @@ var win_Chathis =  // описание элементов окна ссылок
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
 			</div>
+			
+			<div id="userchatdata" style="display:none; position:absoulte; top:0px; right 550px; max-height:400px max-width:300px; overflow:auto">
+			</div>
+			
+			<div style=" display: none; position:absolute; top:0px; left: 560px; background: #464451;color:bisque; ; width:300px; height: 400px; max-height:400px max-width:300px; overflow:auto; border:1px solid; padding: 10px;" id="userchatdata">
+			</div>
+			
 	</span>
 </div>`;
 
@@ -5532,8 +5540,15 @@ function move_again_AF() {
                 }
             }
         }
+		
+		
+		document.getElementById('Testoss').onclick = () => {
+			if (document.getElementById('userchatdata').style.display = '')
+			document.getElementById('userchatdata').style.display = 'none'
+			else if (document.getElementById('userchatdata').style.display = 'none') document.getElementById('userchatdata').style.display = ''
+		}
 
-        document.getElementById('FindChatsOnOperator').onclick = async () => {
+        document.getElementById('FindChatsOnOperator').onclick = async () => { // ищет активные чаты на выбранном операторе 
 		
 		let getdateset = new Date()
 		let hrs;
@@ -5829,7 +5844,7 @@ function move_again_AF() {
 					actstatus = "🛠"
 					else actstatus = '';
 					
-                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + '</span>' + actstatus + '<br>'
+                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus '</span>'  + '<br>'
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
