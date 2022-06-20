@@ -642,6 +642,11 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
 					<button title="Очистка всех полей" id="clearallinfo" style="width:50px;">🧹</button>
+					<select style="height:28px;" id="operatorstp">
+							<option selected="" disabled="">Операторы на линии</option>
+					</select>
+					<button title="Ищет по выбранному оператору активные чаты, чтобы можно было их просмотреть" id="FindChatsOnOperator" style="width:50px;;">🚀</button>
+					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:50px;">♻</button>
 				</div>				
 				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:105px">Найти</button>
@@ -5462,15 +5467,24 @@ function move_again_AF() {
         else
             document.getElementById('AF_ChatHis').style.display = ''
 		
+		function addOption (oListbox, text, value)  //функция добавления опции в список
+		{
+		  var oOption = document.createElement("option");
+		  oOption.appendChild(document.createTextNode(text));
+		  oOption.setAttribute("value", value);
+
+		  oListbox.appendChild(oOption);
+		}
+		
 		let activetechopers=[];
-		async function currstate() {
+		async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
 			await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 				"credentials": "include"
 			}).then(r => r.json()).then(result => {
 
 				for (let i = 0; i < result.rows.length; i++) {
 					if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
-						activetechopers.push(result.rows[i].operator)
+						activetechopers.push(result.rows[i])
 					} // end of if state
 				} // end of for
 			})
