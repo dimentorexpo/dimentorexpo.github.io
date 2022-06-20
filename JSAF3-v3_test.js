@@ -5466,8 +5466,8 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-		
-		let getdateset = new Date()
+
+        let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
@@ -5487,78 +5487,78 @@ function move_again_AF() {
         }
 
         let radiobtnsarray = document.getElementsByName('chatornotes')
-		let activetechopers=[];
-		document.getElementById('RefrehOperators').onclick = currstate;
-		let objSel = document.getElementById("operatorstp");
-				
-		function addOption (oListbox, text, value)  //функция добавления опции в список
-		{
-		  var oOption = document.createElement("option");
-		  oOption.appendChild(document.createTextNode(text));
-		  oOption.setAttribute("value", value);
+        let activetechopers = [];
+        document.getElementById('RefrehOperators').onclick = currstate;
+        let objSel = document.getElementById("operatorstp");
 
-		  oListbox.appendChild(oOption);
-		}
+        function addOption(oListbox, text, value)  //функция добавления опции в список
+        {
+            var oOption = document.createElement("option");
+            oOption.appendChild(document.createTextNode(text));
+            oOption.setAttribute("value", value);
 
-		async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
-			activetechopers=[]
-			objSel.length = 1
-			objSel[0].selected =true;
-			await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-				"credentials": "include"
-			}).then(r => r.json()).then(result => {
+            oListbox.appendChild(oOption);
+        }
 
-				for (let i = 0; i < result.rows.length; i++) {
-					if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
-						activetechopers.push(result.rows[i])
-					} // end of if state
-				} // end of for
-			})
-			
-			if (activetechopers.length !=0) {
-				for (let i=0; i <activetechopers.length; i++)  {
-					if (activetechopers[i].aCnt == null)
-						activetechopers[i].aCnt = 0;
-					
-					if(activetechopers[i].operator.status == "Online") {
-					addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-					} else if(activetechopers[i].operator.status == "Busy") {
-						addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)	
-					} else if(activetechopers[i].operator.status == "Pause") {
-						addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)	
-					}
-				}
-			}
-		}
-		
-		document.getElementById('FindChatsOnOperator').onclick = async () => {
-			if (objSel.length >1) {
-				for (let i=1; i<objSel.length;i++) {
-					if (objSel[i].selected == true) {
-						await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-						  "headers": {
-							"content-type": "application/json",
-							"sec-fetch-dest": "empty",
-							"sec-fetch-mode": "cors",
-							"sec-fetch-site": "same-origin"
-						  },
-						  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T23:59:59.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}00:00:00.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
-						  "method": "POST",
-						  "mode": "cors",
-						  "credentials": "include"
-						}).then(r=>r.json()).then(r=>operchatsdata=r)
-						console.log(operchatsdata)		
-						
-						if (operchatsdata.total ==0)
-							alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
-					}						
-				}
-			}
-		}
-		
-		currstate();
-		console.log(activetechopers);
-		
+        async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
+            activetechopers = []
+            objSel.length = 1
+            objSel[0].selected = true;
+            await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+                "credentials": "include"
+            }).then(r => r.json()).then(result => {
+
+                for (let i = 0; i < result.rows.length; i++) {
+                    if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
+                        activetechopers.push(result.rows[i])
+                    } // end of if state
+                } // end of for
+            })
+
+            if (activetechopers.length != 0) {
+                for (let i = 0; i < activetechopers.length; i++) {
+                    if (activetechopers[i].aCnt == null)
+                        activetechopers[i].aCnt = 0;
+
+                    if (activetechopers[i].operator.status == "Online") {
+                        addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    } else if (activetechopers[i].operator.status == "Busy") {
+                        addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    } else if (activetechopers[i].operator.status == "Pause") {
+                        addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    }
+                }
+            }
+        }
+
+        document.getElementById('FindChatsOnOperator').onclick = async () => {
+            if (objSel.length > 1) {
+                for (let i = 1; i < objSel.length; i++) {
+                    if (objSel[i].selected == true) {
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                            "headers": {
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T23:59:59.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}T00:00:00.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        }).then(r => r.json()).then(r => operchatsdata = r)
+                        console.log(operchatsdata)
+
+                        if (operchatsdata.total == 0)
+                            alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
+                    }
+                }
+            }
+        }
+
+        currstate();
+        console.log(activetechopers);
+
 
         for (let i = 0; i < radiobtnsarray.length; i++) {
             if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
