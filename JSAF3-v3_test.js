@@ -5486,6 +5486,24 @@ function move_again_AF() {
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
 
+        let hrs;
+        let mins;
+        let secs;
+        if (getdateset.getUTCHours() < 10)
+            hrs = "0" + (getdateset.getUTCHours());
+        else if (getdateset.getUTCHours() >= 24)
+            hrs = '0' + ((getdateset.getUTCHours() - 24))
+        else
+            hrs = (getdateset.getUTCHours());
+
+        if (getdateset.getMinutes() < 10)
+            mins = "0" + getdateset.getMinutes();
+        else mins = getdateset.getMinutes();
+
+        if (getdateset.getUTCSeconds() < 10)
+            secs = "0" + getdateset.getUTCSeconds();
+        else secs = getdateset.getUTCSeconds()
+
         let radiobtnsarray = document.getElementsByName('chatornotes')
         let activetechopers = [];
         document.getElementById('RefrehOperators').onclick = currstate;
@@ -5542,7 +5560,7 @@ function move_again_AF() {
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T23:59:59.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}T00:00:00.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
+                            "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T${hrs - 1}:${mins}:${secs}.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}T${hrs}:${mins}:${secs}.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
