@@ -5468,7 +5468,7 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = ''
 
         let foundarr = [];
-
+        let flagsearch = ''
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
@@ -5552,6 +5552,7 @@ function move_again_AF() {
         }
 
         document.getElementById('FindChatsOnOperator').onclick = async () => {
+            flagsearch = 'searchbyoperator'
             if (objSel.length > 1) {
                 for (let i = 1; i < objSel.length; i++) {
                     if (objSel[i].selected == true) {
@@ -5755,9 +5756,10 @@ function move_again_AF() {
 
         document.getElementById('btn_search_history').onclick = async () => { //функця обработки нажатия "Найти"
 
-            let timedataarr = [];
 
-            if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') {
+
+            if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') { // если айди пользователя введен, а хеш чата не введен
+                flagsearch = 'searchbyuser'
                 let lusid = document.getElementById('chatuserhis').value.trim();
                 let from = document.getElementById('dateFromChHis').value
                 let to = document.getElementById('dateToChHis').value
@@ -5934,11 +5936,10 @@ function move_again_AF() {
                             }
                         }
                     } // конец функции клика по списку в найденном чате
-
                 }
 
-            } else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != '') {
-
+            } else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != '') { //если пользователь не введен, но введн хеш чата
+                flagsearch = 'searchbyhash'
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
@@ -5946,11 +5947,9 @@ function move_again_AF() {
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-
                 let temppics = [];
                 let testarray = [];
                 let restul;
-
 
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
@@ -6052,7 +6051,10 @@ function move_again_AF() {
                 document.getElementById('infofield').innerHTML = foundarr;
 
                 for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
-                    document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+                    if (flagsearch == 'searchbyuser')
+                        document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+                    else if (flagsearch == 'searchbyoperator')
+                        document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
 
                     document.getElementsByClassName('chatlist')[i].onclick = async () => {
 
