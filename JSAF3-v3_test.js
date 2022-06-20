@@ -5548,6 +5548,9 @@ function move_again_AF() {
 						  "credentials": "include"
 						}).then(r=>r.json()).then(r=>operchatsdata=r)
 						console.log(operchatsdata)		
+						
+						if (operchatsdata.total ==0)
+							alert("У выбранного пользователя нет активных чатов")
 					}						
 				}
 			}
@@ -5556,7 +5559,6 @@ function move_again_AF() {
 		currstate();
 		console.log(activetechopers);
 		
-
 
         for (let i = 0; i < radiobtnsarray.length; i++) {
             if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
