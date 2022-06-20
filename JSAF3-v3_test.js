@@ -5826,7 +5826,7 @@ function move_again_AF() {
                         marksarr = data.items[i].stats.rate.rate
 					
 					if (data.items[i].stats.usedStatuses == "AssignedToOperator")
-					let actstatus = "🛠"
+					actstatus = "🛠"
 					else actstatus = '';
 					
                     foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + '</span>' + actstatus + '<br>'
