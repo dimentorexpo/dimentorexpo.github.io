@@ -5481,6 +5481,7 @@ function move_again_AF() {
 		
 		let activetechopers=[];
 		async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
+			objSel.length = 1
 			await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 				"credentials": "include"
 			}).then(r => r.json()).then(result => {
@@ -5492,12 +5493,11 @@ function move_again_AF() {
 				} // end of for
 			})
 			
-					if (activetechopers.length !=0) {
-		for (let i=0; i <activetechopers.length; i++)  {
-			addOption(objSel, `${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-		}
-		}
-		
+			if (activetechopers.length !=0) {
+				for (let i=0; i <activetechopers.length; i++)  {
+					addOption(objSel, `${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+				}
+			}
 		}
 		currstate();
 		console.log(activetechopers);
