@@ -5488,24 +5488,6 @@ function move_again_AF() {
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
 
-        let hrs;
-        let mins;
-        let secs;
-        if (getdateset.getUTCHours() < 10)
-            hrs = "0" + (getdateset.getUTCHours());
-        else if (getdateset.getUTCHours() >= 24)
-            hrs = '0' + ((getdateset.getUTCHours() - 24))
-        else
-            hrs = (getdateset.getUTCHours());
-
-        if (getdateset.getMinutes() < 10)
-            mins = "0" + getdateset.getMinutes();
-        else mins = getdateset.getMinutes();
-
-        if (getdateset.getUTCSeconds() < 10)
-            secs = "0" + getdateset.getUTCSeconds();
-        else secs = getdateset.getUTCSeconds()
-
         let radiobtnsarray = document.getElementsByName('chatornotes')
         let activetechopers = [];
         document.getElementById('RefrehOperators').onclick = currstate;
@@ -5520,7 +5502,28 @@ function move_again_AF() {
             oListbox.appendChild(oOption);
         }
 
-        async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
+        async function currstate() {
+			
+			let getdateset = new Date()
+			let hrs;
+			let mins;
+			let secs;
+			if (getdateset.getUTCHours() < 10)
+				hrs = "0" + (getdateset.getUTCHours());
+			else if (getdateset.getUTCHours() >= 24)
+				hrs = '0' + ((getdateset.getUTCHours() - 24))
+			else
+				hrs = (getdateset.getUTCHours());
+
+			if (getdateset.getMinutes() < 10)
+				mins = "0" + getdateset.getMinutes();
+			else mins = getdateset.getMinutes();
+
+			if (getdateset.getUTCSeconds() < 10)
+				secs = "0" + getdateset.getUTCSeconds();
+			else secs = getdateset.getUTCSeconds()
+		
+			// функция получает массив операторов ТП, которые не в офлайне
             activetechopers = []
             objSel.length = 1
             objSel[0].selected = true;
