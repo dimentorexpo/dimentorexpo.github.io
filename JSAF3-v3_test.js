@@ -5902,7 +5902,6 @@ function move_again_AF() {
                                         testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
 										
 												if (testarray == null) {
-													brarray=[];
 													if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) !=null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
 														brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
 													else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
