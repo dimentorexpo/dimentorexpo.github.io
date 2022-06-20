@@ -5551,7 +5551,7 @@ function move_again_AF() {
 			else if (typeof(convdata) !== 'undefined'){
 			
 			document.getElementById('userchatdata').style.display = '';
-			document.getElementById('datafield').innerHTML = Object.entries(convdata.channelUser.payload);
+			document.getElementById('datafield').innerHTML = convdata.channelUser.payload.userFullName  + '<br>' + 'ID:' + convdata.channelUser.payload.id + '<br>';
 			} else alert("Не выбран активный чат")
 		
 		}
