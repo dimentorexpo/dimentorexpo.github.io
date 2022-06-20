@@ -683,6 +683,9 @@ var win_Chathis =  // описание элементов окна ссылок
 			</div>
 				
 			<div id="userchatdata" style="display: none; position:absolute; top:0px; left: 560px; background: #464451; color:bisque; width:300px; height: 400px; max-height:400px; max-width:300px; overflow:auto; border:1px solid; padding: 10px;">
+				<div id="datainfoheader">
+				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
+				</div>
 			</div>
 			
 	</span>
@@ -5537,7 +5540,7 @@ function move_again_AF() {
                 }
             }
         }
-		
+				
 		document.getElementById('getdatafrchat').onclick = () => {
 			if (document.getElementById('userchatdata').style.display == '')
 			document.getElementById('userchatdata').style.display = 'none'
@@ -6581,71 +6584,60 @@ function move_again_AF() {
     }
 
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Links').style.display == '') {
+        if (document.getElementById('AF_Links').style.display == '') 
             document.getElementById('AF_Links').style.display = 'none'
-        }
-        else
-            document.getElementById('AF_Links').style.display = ''
     }
 
     document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Linksd').style.display == '') {
+        if (document.getElementById('AF_Linksd').style.display == '') 
             document.getElementById('AF_Linksd').style.display = 'none'
-        }
-        else
-            document.getElementById('AF_Linksd').style.display = ''
     }
 
     document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
-        else
-            document.getElementById('AF_Jira').style.display = ''
     }
 
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
-        else
-            document.getElementById('AF_Marks').style.display = ''
     }
 
     document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Timetable').style.display == '')
             document.getElementById('AF_Timetable').style.display = 'none'
-        else
-            document.getElementById('AF_Timetable').style.display = ''
+
         document.getElementById('timetabledata').innerHTML = "";
     }
 
     document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
-        else
-            document.getElementById('AF_TechSummary').style.display = ''
+
         document.getElementById('techsumdata').innerHTML = "";
     }
 
     document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
-        else
-            document.getElementById('AF_Service').style.display = ''
     }
+	
+	document.getElementById('hideuserdatainfo').onclick = () => {
+			if (document.getElementById('userchatdata').style.display == '')
+			document.getElementById('userchatdata').style.display = 'none'
+	}
 
     document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_LessonStatus').style.display == '') {
             document.getElementById('AF_LessonStatus').style.display = 'none'
             document.getElementById('statustable').innerText = "";
-        } else
-            document.getElementById('AF_LessonStatus').style.display = ''
+        } 
     }
 
     document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
-        else
-            document.getElementById('AF_Stat').style.display = ''
+
     }
 
     document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
@@ -6653,8 +6645,7 @@ function move_again_AF() {
             document.getElementById('AF_GrList').style.display = 'none';
             document.getElementById('grlistinfo').innerText = "";
             document.getElementById('idgrouptolist').value = "";
-        } else
-            document.getElementById('AF_GrList').style.display = '';
+        } 
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
