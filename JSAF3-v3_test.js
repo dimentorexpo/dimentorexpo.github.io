@@ -6053,7 +6053,7 @@ function move_again_AF() {
                 for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
                     if (flagsearch == 'searchbyuser')
                         document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-                    else if ((flagsearch == 'searchbyoperator') !== undefined)
+                    else if (flagsearch == 'searchbyoperator)
                         document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
                     else if (flagsearch == 'searchbyhash') {
                         if (typeof (operchatsdata) !== undefined)
