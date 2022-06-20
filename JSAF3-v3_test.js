@@ -5596,7 +5596,6 @@ function move_again_AF() {
                             let day;
                             let month;
 
-                            let marksarr;
                             if (tmestmp.getMonth() < 9)
                                 month = "0" + (tmestmp.getMonth() + 1)
                             else
@@ -5616,12 +5615,7 @@ function move_again_AF() {
                                 tsmin = "0" + tmestmp.getMinutes();
                             else tsmin = tmestmp.getMinutes();
 
-                            if (operchatsdata.items[i].stats.rate == undefined || operchatsdata.items[i].stats.rate.rate == undefined)
-                                marksarr = 'Нет оценки'
-                            else
-                                marksarr = operchatsdata.items[i].stats.rate.rate
-
-                            foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + '</span>' + '<br>'
+                            foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
                         }
 
                         document.getElementById('infofield').innerHTML = foundarr;
