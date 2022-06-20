@@ -5498,7 +5498,7 @@ function move_again_AF() {
 		
 		if (activetechopers.length !=0) {
 		for (let i=0; i <activetechopers.length; i++)  {
-			addOption(objSel, `${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`
+			addOption(objSel, `${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
 		}
 		}
 
