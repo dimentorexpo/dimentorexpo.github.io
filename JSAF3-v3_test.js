@@ -5496,10 +5496,16 @@ function move_again_AF() {
 			
 			if (activetechopers.length !=0) {
 				for (let i=0; i <activetechopers.length; i++)  {
-					addOption(objSel, `${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+					if(activetechopers[i].operator.status == "Online") {
+					addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+					} else if(activetechopers[i].operator.status == "Busy") {
+						addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)	
+					} else if(activetechopers[i].operator.status == "Pause") {
+						addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)	
 				}
 			}
 		}
+		
 		currstate();
 		console.log(activetechopers);
 		
