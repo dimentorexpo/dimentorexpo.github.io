@@ -6051,14 +6051,10 @@ function move_again_AF() {
                 document.getElementById('infofield').innerHTML = foundarr;
 
                 for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
-                    if ((flagsearch == 'searchbyuser' || flagsearch == 'searchbyhash'))
-                        if (typeof (data) !== undefined)
-                            document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-                        else return;
-                    else if ((flagsearch == 'searchbyoperator' || flagsearch == 'searchbyhash'))
-                        if (typeof (operchatsdata) !== undefined)
-                            document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
-                        else return;
+                    if (typeof (data) !== undefined)
+                        document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+                    else if (typeof (operchatsdata) !== undefined)
+                        document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
 
                     document.getElementsByClassName('chatlist')[i].onclick = async () => {
 
