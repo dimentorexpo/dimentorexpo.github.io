@@ -5541,8 +5541,7 @@ function move_again_AF() {
             }
         }
 		
-		
-		document.getElementById('Testoss').onclick = () => {
+		document.getElementById('getdatafrchat').onclick = () => {
 			if (document.getElementById('userchatdata').style.display = '')
 			document.getElementById('userchatdata').style.display = 'none'
 			else if (document.getElementById('userchatdata').style.display = 'none') document.getElementById('userchatdata').style.display = ''
