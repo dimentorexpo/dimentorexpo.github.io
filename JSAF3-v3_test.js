@@ -5564,7 +5564,7 @@ function move_again_AF() {
                 document.getElementById('placechatid').innerText = ''
 
             if (document.getElementById('infofield').innerHTML != '')
-                document.getElementById('infofield').innerHTML = ''
+                document.getElementById('infofield').innerHTML = 'Загрузка'
 
             if (objSel.length > 1) {
                 for (let i = 1; i < objSel.length; i++) {
