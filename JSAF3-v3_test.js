@@ -5496,6 +5496,9 @@ function move_again_AF() {
 			
 			if (activetechopers.length !=0) {
 				for (let i=0; i <activetechopers.length; i++)  {
+					if (activetechopers[i].aCnt == null)
+						activetechopers[i].aCnt = 0;
+					
 					if(activetechopers[i].operator.status == "Online") {
 					addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
 					} else if(activetechopers[i].operator.status == "Busy") {
