@@ -5550,7 +5550,7 @@ function move_again_AF() {
 						console.log(operchatsdata)		
 						
 						if (operchatsdata.total ==0)
-							alert("У выбранного пользователя нет активных чатов")
+							alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
 					}						
 				}
 			}
