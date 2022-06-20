@@ -5545,7 +5545,7 @@ function move_again_AF() {
             }
         }
 
-        document.getElementById('getdatafrchat').onclick = () => {
+        document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
             if (document.getElementById('userchatdata').style.display == '')
                 document.getElementById('userchatdata').style.display = 'none'
             else if (typeof (convdata) !== 'undefined') {
@@ -5821,7 +5821,7 @@ function move_again_AF() {
                     document.getElementById('placechatid').innerText = ''
 
                 if (document.getElementById('infofield').innerHTML != '')
-                    document.getElementById('infofield').innerHTML = ''
+                    document.getElementById('infofield').innerHTML = 'Загрузка'
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
