@@ -645,7 +645,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<select style="height:28px;" id="operatorstp">
 							<option selected="" disabled="">Операторы на линии</option>
 					</select>
-					<button title="Ищет по выбранному оператору активные чаты, чтобы можно было их просмотреть" id="FindChatsOnOperator" style="width:50px;;">🚀</button>
+					<button title="Ищет по выбранному оператору активные чаты, чтобы можно было их просмотреть" id="FindChatsOnOperator" style="width:50px;">🚀</button>
 					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:50px;">♻</button>
 				</div>				
 				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
