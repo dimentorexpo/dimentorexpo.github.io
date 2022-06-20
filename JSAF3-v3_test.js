@@ -5467,6 +5467,27 @@ function move_again_AF() {
         else
             document.getElementById('AF_ChatHis').style.display = ''
 		
+		let getdateset = new Date()
+        let getyearLS = getdateset.getFullYear();
+        let getcurmonthLS = (getdateset.getMonth() + 1)
+        let todayLS = getdateset.getDate();
+        if (getcurmonthLS < 10) {
+            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        } else {
+            getcurmonthLS = (getdateset.getMonth() + 1);
+        }
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
+            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
+
+        let radiobtnsarray = document.getElementsByName('chatornotes')
+		let activetechopers=[];
 		document.getElementById('RefrehOperators').onclick = currstate;
 		let objSel = document.getElementById("operatorstp");
 				
@@ -5478,8 +5499,7 @@ function move_again_AF() {
 
 		  oListbox.appendChild(oOption);
 		}
-		
-		let activetechopers=[];
+
 		async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
 			activetechopers=[]
 			objSel.length = 1
@@ -5534,26 +5554,7 @@ function move_again_AF() {
 		currstate();
 		console.log(activetechopers);
 		
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + "0" + (Number(todayLS) - 1);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
 
-        let radiobtnsarray = document.getElementsByName('chatornotes')
 
         for (let i = 0; i < radiobtnsarray.length; i++) {
             if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
