@@ -5509,7 +5509,7 @@ function move_again_AF() {
 			}).then(r => r.json()).then(result => {
 
 				for (let i = 0; i < result.rows.length; i++) {
-					if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
+					if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
 						activetechopers.push(result.rows[i])
 					} // end of if state
 				} // end of for
@@ -11504,7 +11504,7 @@ async function checktppower() {
     }).then(r => r.json()).then(result => {
         setTimeout(function () {
             for (let i = 0; i < result.rows.length; i++) {
-                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП/)) {
+                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
                     cntc++;
                     if (result.rows[i].operator.status == "Busy")
                         busycnt++;
