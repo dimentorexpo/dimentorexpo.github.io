@@ -8326,6 +8326,8 @@ function startTimer() {
                                     document.getElementsByTagName('p')[i].style.background = "#00AEFA";
                                 else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
                                     document.getElementsByTagName('p')[i].style.background = "#2E8B57";
+								else if (document.getElementsByTagName('p')[i].innerText == 'идёт урок')
+									document.getElementsByTagName('p')[i].style.background = "#FF0000";
                             }
                         }
 
