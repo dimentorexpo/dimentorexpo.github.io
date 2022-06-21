@@ -12214,11 +12214,11 @@ for (let j = 0; j < slaclchatcontainer.length; j++) {
     if (document.getElementById('AF_ChatHis').style.display == 'none') {
         document.getElementById('butChatHistory').click();
 
-        document.getElementById('chatuserhis').value = slaclchattids[j].innerText;
+        document.getElementById('hashchathis').value = slaclchattids[j].innerText;
         btn_search_history.click()
 
     } else {
-        document.getElementById('chatuserhis').value = slaclchattids[j].innerText;
+        document.getElementById('hashchathis').value = slaclchattids[j].innerText;
         btn_search_history.click()
     }
 }

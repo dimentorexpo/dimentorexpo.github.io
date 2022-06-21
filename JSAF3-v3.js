@@ -12206,21 +12206,23 @@ async function checkCSAT() {             // функция проверки CSAT
         str.textContent = 'Что-то пошло не так. Сделайте скрин консоли и отправьте в канал chm-dev, пожалуйста'
     }
 
-    let slaclchatcontainer = document.querySelectorAll('.lookchat');
-    let slaclchattids = document.querySelectorAll('.slaclchatids');
-    for (let j = 0; j < slaclchatcontainer.length; j++) {
-        slaclchatcontainer[j].onclick = function () {
+let slaclchatcontainer = document.querySelectorAll('.lookchat');
+let slaclchattids = document.querySelectorAll('.slaclchatids');
+for (let j = 0; j < slaclchatcontainer.length; j++) {
+    slaclchatcontainer[j].onclick = function () {
 
-            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                hide_or_display.click()
-                document.getElementById('chat_id').value = slaclchattids[j].innerText;
-                search.click()
-            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                document.getElementById('chat_id').value = slaclchattids[j].innerText;
-                search.click()
-            }
-        }
+    if (document.getElementById('AF_ChatHis').style.display == 'none') {
+        document.getElementById('butChatHistory').click();
+
+        document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+        btn_search_history.click()
+
+    } else {
+        document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+        btn_search_history.click()
     }
+}
+}
 
     let artchatcontainer = document.querySelectorAll('.lookchatart');
     let artchattids = document.querySelectorAll('.artchatids');
