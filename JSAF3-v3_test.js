@@ -4,6 +4,7 @@ let drevo;
 let afopername;
 let foundarr;
 let flagsearch;
+let operchatsdata;
 
 function mystyles() {
     let mstl = document.createElement('style');
