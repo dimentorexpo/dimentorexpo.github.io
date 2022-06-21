@@ -663,6 +663,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
 					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
 					<button id="takechat" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<button id="reassign" style="width:45px; margin-left:5px;">🔀</button>
 				</div>
 				
 			</span>
