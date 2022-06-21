@@ -639,10 +639,10 @@ var win_Links =  // описание элементов окна ссылок
 </div>`;
 
 var win_Chathis =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 550px;">
-        <span style="width: 550px">
+    `<div style="display: flex; width: 410px;">
+        <span style="width: 410px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 550;" id="chathisheader">
+				<div style="margin: 5px; width: 410px;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
 					<button title="Очистка всех полей" id="clearallinfo" style="width:50px;">🧹</button>
 					<select style="height:28px; width:270px; text-align:center" id="operatorstp" onchange="findchatsoper()">
@@ -651,14 +651,14 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:50px;">♻</button>
 					<button title="Показывает инеформацию по пользователю из чата, его айди, почту, телефон, характеристики устройства и тп" id="getdatafrchat" style="width:50px;">ℹ</button>
 				</div>				
-				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
+				<div style="margin: 5px; width: 410px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:20px;">🚀</button>
 					 <input id="chatuserhis" placeholder="ID пользователя" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
 					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
 					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:50px; font-size:20px;">🔙</button>	
 				</div>
 				
-				<div style="margin: 5px; width: 550px;display:flex; justify-content:center;" id="databoxchathis">
+				<div style="margin: 5px; width: 410px;display:flex; justify-content:center;" id="databoxchathis">
 					<button id="refreshchat" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">Обновить</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
 					<input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
@@ -670,16 +670,16 @@ var win_Chathis =  // описание элементов окна ссылок
 				
 			</span>
 				
-				<div style="width: 550px; display:flex; justify-content:center;" id="somechatinfo">
-					<span style="color:bisque; margin-left:10px;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px;"></span>
-					<span style="color:bisque; margin-left:10px;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px;"></span>
-					<button id="takechat" style="display:none" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+				<div style="width: 410px; display:flex; justify-content:center;" id="somechatinfo">
+					<span style="color:bisque; margin-left:10px; margin-top:5px;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
+					<span style="color:bisque; margin-left:10px; margin-top:5px;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
+					<button id="takechat" style="display:none; margin-left:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 				</div>
 			
 			<div id="infofield" style="color:bisque; margin-left:10px; width:550px; max-height: 800px; overflow:auto;">
 			</div>
 			
-			<div id="bottommenuchhis" style="width: 550px">
+			<div id="bottommenuchhis" style="width: 410px">
 				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top:5px; width: 320px; height: 29px; background: white;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px;">Отправить</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
