@@ -162,7 +162,6 @@ function mystyles() {
 		
 		.event-date {
 			float:right;
-			margin-right:15px;
 		}
 		
 		.event-other-date {
@@ -643,12 +642,12 @@ var win_Chathis =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 410px;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
-					<button title="Очистка всех полей" id="clearallinfo" style="width:50px;">🧹</button>
+					<button title="Очистка всех полей" id="clearallinfo" style="width:25px;">🧹</button>
 					<select style="height:28px; width:260px; text-align:center" id="operatorstp" onchange="findchatsoper()">
 							<option selected="" disabled="">Операторы на линии</option>
 					</select>
-					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:50px;">♻</button>
-					<button title="Показывает инеформацию по пользователю из чата, его айди, почту, телефон, характеристики устройства и тп" id="getdatafrchat" style="width:50px;">ℹ</button>
+					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:25px;">♻</button>
+					<button title="Показывает инеформацию по пользователю из чата, его айди, почту, телефон, характеристики устройства и тп" id="getdatafrchat" style="width:25px;">ℹ</button>
 				</div>				
 				<div style="margin: 5px; width: 410px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:20px;">🚀</button>
@@ -660,11 +659,9 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;" id="databoxchathis">
 					<button id="refreshchat" style="width:30px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-					<input type="date" style="color:black; margin-left:5px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
+					<input type="date" style="color:black; margin-left:5px;  width:125px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
-					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
-
-					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:30px; margin-left:5px; font-size:16px;">🔀</button>
+					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:125px; text-align:center; " name="EndDataChHis" id="dateToChHis">
 				</div>
 				
 			</span>
@@ -674,7 +671,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button id="takechat" style="display:none; margin-left:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 					<br>
 					<span style="color:bisque; margin-left:10px; margin-top:5px; user-select:none;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px;">🔀</button>
+					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;">🔀</button>
 				</div>
 				
 				<div>
@@ -4704,6 +4701,7 @@ function move_again_AF() {
             document.getElementById('placeusid').innerText = ''
             document.getElementById('placechatid').innerText = ''
 			document.getElementById('takechat').style.display ='none';
+			document.getElementById('reassign').style.display ='none';
             document.getElementById('chatuserhis').value = ''
             document.getElementById('hashchathis').value = ''
         }
@@ -4714,6 +4712,7 @@ function move_again_AF() {
         document.getElementById('placeusid').innerText = ''
         document.getElementById('placechatid').innerText = ''
 		document.getElementById('takechat').style.display ='none';
+		document.getElementById('reassign').style.display ='none';
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
@@ -5617,6 +5616,9 @@ function move_again_AF() {
 				if (document.getElementById('takechat').style.display =='')
 					document.getElementById('takechat').style.display ='none';
 
+				if (document.getElementById('reassign').style.display =='')
+					document.getElementById('reassign').style.display ='none';
+
                     document.getElementById('infofield').innerHTML = 'Загрузка'
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -5664,7 +5666,7 @@ function move_again_AF() {
                     else tsmin = tmestmp.getMinutes();
 
                     if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
-                        marksarr = 'Нет оценки'
+                        marksarr = '⭕'
                     else
                         marksarr = data.items[i].stats.rate.rate
 
@@ -5700,6 +5702,7 @@ function move_again_AF() {
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
 						document.getElementById('takechat').style.display ='';
+						document.getElementById('reassign').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -5832,6 +5835,7 @@ function move_again_AF() {
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                 document.getElementById('placechatid').innerText = convdata.id;
 				document.getElementById('takechat').style.display ='';
+				document.getElementById('reassign').style.display ='';
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 					timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -5951,6 +5955,7 @@ function move_again_AF() {
             document.getElementById('placeusid').innerText = '';
             document.getElementById('placechatid').innerText = '';
 			document.getElementById('takechat').style.display ='none';
+			document.getElementById('reassign').style.display ='none';
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5989,6 +5994,7 @@ function move_again_AF() {
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
 						document.getElementById('takechat').style.display ='';
+						document.getElementById('reassign').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -8332,7 +8338,10 @@ function newTags(tagName) {
                 document.getElementById('placechatid').innerText = ''
 			
 			if (document.getElementById('takechat').style.display =='')
-				document.getElementById('takechat').style.display ='none';
+				document.getElementById('takechat').style.display ='none';	
+
+			if (document.getElementById('reassign').style.display =='')
+				document.getElementById('reassign').style.display ='none';
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -8413,6 +8422,7 @@ function newTags(tagName) {
                                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                                 document.getElementById('placechatid').innerText = convdata.id;
 								document.getElementById('takechat').style.display ='';
+								document.getElementById('reassign').style.display ='';
                                 for (let i = 0; i < convdata.messages.length; i++) {
                                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 									timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
