@@ -1803,24 +1803,23 @@ let flagggg = 0
 
 
 buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
-		if (document.getElementById('AF_ChatHis').style.display == 'none') {
-            document.getElementById('butChatHistory').click();
-			
-			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-					document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-							btn_search_history.click()
-				}
-			}
+    if (document.getElementById('AF_ChatHis').style.display == 'none') {
+        document.getElementById('butChatHistory').click();
 
-				} else {
-					for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-						btn_search_history.click()
-			}
-			}
-			}
+                btn_search_history.click()
+            }
+        }
+    } else {
+        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+                btn_search_history.click()
+            }
+        }
+    }
 }
 
 marksstata.onclick = async function () {
