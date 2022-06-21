@@ -2,6 +2,8 @@
 let pldata;
 let drevo;
 let afopername;
+let foundarr;
+let flagsearch;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -5488,7 +5490,7 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = ''
 
         let foundarr = [];
-        let flagsearch = ''
+        flagsearch = ''
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
