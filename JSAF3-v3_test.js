@@ -5490,7 +5490,6 @@ function move_again_AF() {
         else
             document.getElementById('AF_ChatHis').style.display = ''
 
-        let foundarr = [];
         flagsearch = ''
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
