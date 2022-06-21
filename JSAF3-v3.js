@@ -6462,7 +6462,8 @@ function move_again_AF() {
     let arops = document.getElementById('operatorstp')
 	let hashid = document.getElementById('placechatid').innerText;
 	if (arops.children[0].selected != true && hashid != '') {
-    for (let i = 0; i < arops.children.length; i++) {
+    for (let i = 1; i < arops.children.length; i++) {
+		if (arops.children[i].selected == true)
            fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
                 "headers": {
                     "content-type": "application/json",
