@@ -2037,15 +2037,13 @@ buttonnextteacherid.onclick = function () {
 }
 
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
-    if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
-        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-    else if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'найти') {
-        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-        }
-        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-    }
+	if(document.getElementById('btn_hide').style.display != 'none')
+		btn_hide.click()
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+	}
+	btn1_student.click()
 }
 
 buttonserv.onclick = function () {
@@ -2085,23 +2083,23 @@ buttonservstud.onclick = function () {
 }
 
 button3.onclick = function () {
-    if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
-        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
+	if(document.getElementById('btn_hide').style.display != 'none')
+		btn_hide.click()
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+	}
+	btn1_student.click()
 }
 
 button4.onclick = function () {
-    if (document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].innerText == 'свернуть')
-        document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            document.getElementsByClassName('form-control rounded-cust-0_15 h-30px w-100 padding-btn-0 text-center text-light  bg-b-border border border-b-dark')[0].value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-    document.getElementsByClassName('btn btn-secondary padding-btn-0 fs-6 text-light')[1].click()
+	if(document.getElementById('btn_hide').style.display != 'none')
+		btn_hide.click()
+	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
+			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+	}
+	btn1_student.click()
 }
 
 let addInfoUser = document.createElement('div')
