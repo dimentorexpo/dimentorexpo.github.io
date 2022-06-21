@@ -2,6 +2,9 @@
 let pldata;
 let drevo;
 let afopername;
+let foundarr;
+let flagsearch;
+let operchatsdata;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -112,8 +115,8 @@ function mystyles() {
 
 		.question-event {
 			background:#1890FF26;
-			min-width:300px;
-			max-width:400px;
+			min-width:280px;
+			max-width:300px;
 			margin-left: 10px;
 			margin-bottom: 5px;
 			padding: 5px 5px;
@@ -130,10 +133,10 @@ function mystyles() {
 		}
 		
 		.question-event-date {
-			color:#C0C0C0;
-			float:right;
-			max-width:400px;
-			font-size:12px;
+			color: #C0C0C0;
+			float: right;
+			max-width: 333px;
+			font-size: 12px;
 		}
 		
 		.question-event-text {
@@ -143,11 +146,11 @@ function mystyles() {
 		}
 		
 		.event-container  {
-			float:left;
-			color:white;
-			text-align:center;
-			width:100%;
-			font-size:12px;
+			float: left;
+			color: white;
+			text-align: center;
+			width: 390px;
+			font-size: 12px;
 		}
 		
 		.event-name {
@@ -170,12 +173,12 @@ function mystyles() {
 		}
 		
 		.answer-bot-container {
-			background:#52C41A26;
-			min-width: 300px;
-			max-width:400px;
-			float:right;
-			margin-bottom:
-			5px; margin-right:15px;
+			background: #52C41A26;
+			min-width: 280px;
+			max-width: 300px;
+			float: right;
+			margin-bottom: 5px;
+			margin-right: 15px;
 			padding: 5px 5px;
 		}
 		
@@ -196,11 +199,12 @@ function mystyles() {
 		}
 		
 		.answer-oper-container {
-			background:#FADA5E26;
-			max-width:400px;
-			float:right;
+			background: #FADA5E26;
+			min-width: 280px;
+			max-width: 320px;
+			float: right;
 			margin-bottom: 5px;
-			margin-right:15px;
+			margin-right: 15px;
 			padding: 5px 5px;
 		}
 		
@@ -213,7 +217,7 @@ function mystyles() {
 		
 		.oper-comment-container {
 			background:#80808054;
-			width:500px;
+			width:370px;
 			float:left;
 			margin-bottom:5px;
 			margin-left: 10px;
@@ -245,7 +249,7 @@ function mystyles() {
 		}
 		
 		.img-chat-history {
-			width:200px;
+			width:160px;
 			transition: all 0.5s ease-out;
 		}
 		
@@ -636,54 +640,54 @@ var win_Links =  // описание элементов окна ссылок
 </div>`;
 
 var win_Chathis =  // описание элементов окна ссылок
-    `<div style="display: flex; width: 550px;">
-        <span style="width: 550px">
+    `<div style="display: flex; width: 410px;">
+        <span style="width: 410px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 550;" id="chathisheader">
+				<div style="margin: 5px; width: 410px;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
-					<button title="Очистка всех полей" id="clearallinfo" style="width:50px;">🧹</button>
-					<select style="height:28px; width:270px; text-align:center" id="operatorstp">
+					<button title="Очистка всех полей" id="clearallinfo" style="width:25px;">🧹</button>
+					<select style="height:28px; width:260px; text-align:center" id="operatorstp" onchange="findchatsoper()">
 							<option selected="" disabled="">Операторы на линии</option>
 					</select>
-					<button title="Ищет по выбранному оператору активные чаты, чтобы можно было их просмотреть" id="FindChatsOnOperator" style="width:50px;">🚀</button>
-					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:50px;">♻</button>
-					<button title="Показывает инеформацию по пользователю из чата, его айди, почту, телефон, характеристики устройства и тп" id="getdatafrchat" style="width:50px;">ℹ</button>
+					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:25px;">♻</button>
+					<button title="Показывает инеформацию по пользователю из чата, его айди, почту, телефон, характеристики устройства и тп" id="getdatafrchat" style="width:25px;">ℹ</button>
 				</div>				
-				<div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="chathismenu">
-					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:105px">Найти</button>
+				<div style="margin: 5px; width: 410px; display:flex; justify-content:space-evenly;" id="chathismenu">
+					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:20px;">🚀</button>
 					 <input id="chatuserhis" placeholder="ID пользователя" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
 					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
-					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:105px">Вернуться</button>	
-				</div>	
-				
-				<div style="margin: 5px; width: 550px;display:flex; justify-content:center;" id="databoxchathis">
-					<button id="refreshchat" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">Обновить</button>
-					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-					<input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
-					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
-					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
-					<button id="takechat" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
-					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px;">🔀</button>
+					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:50px; font-size:20px;">🔙</button>	
 				</div>
 				
+				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
+					<button id="refreshchat" style="width:50px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
+					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
+					<input type="date" style="color:black; margin-left:5px;  width:125px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
+					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
+					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:125px; text-align:center; " name="EndDataChHis" id="dateToChHis">
+				</div>
 			</span>
 				
-				<div style="width: 550px; display:flex; justify-content:center;" id="somechatinfo">
-					<span style="color:bisque; margin-left:10px;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px;"></span>
-					<span style="color:bisque; margin-left:10px;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px;"></span>
+				<div style="width: 410px;display:none" id="somechatinfo">
+					<span id="usidchat" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
+					<button id="takechat" style="margin-left: 200px;margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<br>
+					<span id="chid" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
+					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;">🔀</button>
 				</div>
-			
-			<div id="infofield" style="color:bisque; margin-left:10px; width:550px; max-height: 800px; overflow:auto;">
+							
+			<div id="infofield" style="color:bisque; margin-left:10px; width:410px; max-height: 800px; overflow:auto;">
 			</div>
 			
-			<div id="bottommenuchhis" style="width: 550px">
-				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top:5px; width: 320px; height: 29px; background: white;"></textarea>
-				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px;">Отправить</button>
-				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
+			<div id="bottommenuchhis" style="width: 410px">
+				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 265px; height: 29px; background: lightgrey;"></textarea>
+				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px;">Send</button>
+				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
+				<br>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
 			</div>
 				
-			<div id="userchatdata" style="display:none; position: absolute; top: 0px; left: 560px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;">
+			<div id="userchatdata" style="display:none; position: absolute; top: 0px; left: -370px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;">
 				<div id="datainfoheader">
 				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
 				</div>
@@ -2798,6 +2802,14 @@ function move_again_AF() {
         };
         UserActions.value = "";
     }
+	
+	document.getElementById('chid').onclick = () => {
+		copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
+	}
+	
+	document.getElementById('usidchat').onclick = () => {
+		copyToClipboard1(document.getElementById('placeusid').innerText)
+	}
 
     document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
@@ -4695,6 +4707,7 @@ function move_again_AF() {
             document.getElementById('infofield').innerText = ''
             document.getElementById('placeusid').innerText = ''
             document.getElementById('placechatid').innerText = ''
+			document.getElementById('somechatinfo').style.display ='none';
             document.getElementById('chatuserhis').value = ''
             document.getElementById('hashchathis').value = ''
         }
@@ -4704,6 +4717,7 @@ function move_again_AF() {
         document.getElementById('infofield').innerText = ''
         document.getElementById('placeusid').innerText = ''
         document.getElementById('placechatid').innerText = ''
+		document.getElementById('somechatinfo').style.display ='none';
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
@@ -5487,8 +5501,7 @@ function move_again_AF() {
         else
             document.getElementById('AF_ChatHis').style.display = ''
 
-        let foundarr = [];
-        let flagsearch = ''
+        flagsearch = ''
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
@@ -5564,234 +5577,6 @@ function move_again_AF() {
 
         }
 
-        document.getElementById('FindChatsOnOperator').onclick = async () => { // ищет активные чаты на выбранном операторе 
-
-            let getdateset = new Date()
-            let hrs;
-            let mins;
-            let secs;
-			let difhrs;
-            if (getdateset.getUTCHours() < 10)
-                hrs = "0" + (getdateset.getUTCHours());
-            else if (getdateset.getUTCHours() >= 24)
-                hrs = '0' + ((getdateset.getUTCHours() - 24))
-            else
-                hrs = (getdateset.getUTCHours());
-			
-			
-			if (hrs-1 < 10)
-			difhrs = '0'  + (hrs - 1)
-			else difhrs=hrs;
-
-            if (getdateset.getMinutes() < 10)
-                mins = "0" + getdateset.getMinutes();
-            else mins = getdateset.getMinutes();
-
-            if (getdateset.getUTCSeconds() < 10)
-                secs = "0" + getdateset.getUTCSeconds();
-            else secs = getdateset.getUTCSeconds()
-
-            flagsearch = 'searchbyoperator'
-
-            if (foundarr != '')
-                foundarr = '';
-
-            if (document.getElementById('placeusid').innerText != '')
-                document.getElementById('placeusid').innerText = ''
-
-            if (document.getElementById('placechatid').innerText != '')
-                document.getElementById('placechatid').innerText = ''
-
-                document.getElementById('infofield').innerHTML = 'Загрузка'
-
-            if (objSel.length > 1) {
-                for (let i = 1; i < objSel.length; i++) {
-                    if (objSel[i].selected == true) {
-                        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-                            "headers": {
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T${difhrs}:${mins}:${secs}.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}T${hrs}:${mins}:${secs}.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        }).then(r => r.json()).then(r => operchatsdata = r)
-                        console.log(operchatsdata)
-
-                        if (operchatsdata.total == 0)
-                            alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
-
-
-
-                        for (let i = 0; i < operchatsdata.items.length; i++) {
-
-                            let tmestmp = new Date((operchatsdata.items[i].ts.split('[GMT]'))[0])
-                            let tshrs;
-                            let tsmin
-                            let day;
-                            let month;
-
-                            if (tmestmp.getMonth() < 9)
-                                month = "0" + (tmestmp.getMonth() + 1)
-                            else
-                                month = (tmestmp.getMonth() + 1)
-                            if (tmestmp.getDate() < 10)
-                                day = "0" + tmestmp.getDate()
-                            else
-                                day = tmestmp.getDate()
-                            let year = tmestmp.getFullYear();
-                            if ((tmestmp.getUTCHours() + 3) < 10)
-                                tshrs = "0" + (tmestmp.getUTCHours() + 3);
-                            else if ((tmestmp.getUTCHours() + 3) >= 24)
-                                tshrs = '0' + ((tmestmp.getUTCHours() + 3 - 24))
-                            else tshrs = (tmestmp.getUTCHours() + 3);
-
-                            if (tmestmp.getMinutes() < 10)
-                                tsmin = "0" + tmestmp.getMinutes();
-                            else tsmin = tmestmp.getMinutes();
-
-                            foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
-                        }
-
-                        document.getElementById('infofield').innerHTML = foundarr;
-
-                        for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
-                            document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
-
-                            document.getElementsByClassName('chatlist')[i].onclick = async () => {
-
-                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
-                                console.log(convdata)
-
-                                document.getElementById('infofield').innerHTML = ''
-
-                                let timearr = [];
-                                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-                                let temppics = [];
-                                let testarray = [];
-                                let brarray = [];
-                                let restul;
-
-                                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
-                                document.getElementById('placeusid').innerText = convdata.channelUser.id;
-                                document.getElementById('placechatid').innerText = convdata.id;
-                                for (let i = 0; i < convdata.messages.length; i++) {
-                                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
-                                    switch (convdata.messages[i].tpe) {
-                                        case "Question":
-                                            if (convdata.messages[i].click == undefined) {
-
-                                                testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
-
-                                                if (testarray == null) {
-                                                    brarray = [];
-                                                    if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
-                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
-                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
-                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
-                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
-                                                    else brarray = null;
-                                                }
-
-                                                if (testarray != null) {
-                                                    temppics = [];
-                                                    for (let i = 0; i < testarray.length; i++) {
-                                                        if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
-                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
-                                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
-                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
-                                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
-                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
-                                                    }
-
-                                                    if (temppics.length == 1)
-                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
-
-                                                    else if (temppics.length > 1) {
-
-                                                        restul = convdata.messages[i].txt;
-                                                        for (let j = 0; j < temppics.length; j++) {
-                                                            restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
-
-                                                        }
-
-                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-                                                    }
-                                                } else if (brarray != null) {
-
-                                                    if (brarray.length == 1)
-                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt, `<img src="${brarray[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
-
-                                                } else {
-                                                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                                }
-
-                                            } else {
-                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
-                                            }
-                                            break;
-
-                                        case "Event":
-                                            if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
-                                                let operid = convdata.messages[i].payload.oid;
-                                                let opername;
-                                                opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
-                                                let operidcls = convdata.messages[i].payload.sender;
-                                                let opernamecls;
-                                                opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
-                                            }
-                                            break;
-
-                                        case "AnswerOperatorWithBot":
-                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-bot-container">' + '<span class="answer-bot-name">' + 'AutoFAQ bot' + '</span>' + '<span class="answer-bot-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                            break;
-
-                                        case "AnswerOperator":
-                                            let operidansw = convdata.messages[i].operatorId
-                                            let opernameansw;
-                                            opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
-                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                            break;
-
-                                        case "OperatorComment":
-                                            if (convdata.messages[i].operatorId != 'autoFAQ') {
-                                                let operidanswcom = convdata.messages[i].operatorId
-                                                let opernameanswcom;
-                                                opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
-                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                            } else {
-                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                                            }
-                                            break;
-                                    }
-                                }
-                            } // конец функции клика по списку в найденном чате
-                        }
-                    }
-                }
-            }
-        }
 
         currstate();
         console.log(activetechopers);
@@ -5832,6 +5617,10 @@ function move_again_AF() {
 
                 if (document.getElementById('placechatid').innerText != '')
                     document.getElementById('placechatid').innerText = ''
+				
+				if (document.getElementById('somechatinfo').style.display =='')
+					document.getElementById('somechatinfo').style.display ='none';
+
 
                     document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -5880,7 +5669,7 @@ function move_again_AF() {
                     else tsmin = tmestmp.getMinutes();
 
                     if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
-                        marksarr = 'Нет оценки'
+                        marksarr = '⭕'
                     else
                         marksarr = data.items[i].stats.rate.rate
 
@@ -5905,6 +5694,8 @@ function move_again_AF() {
 
                         let timearr = [];
                         let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+						let timearr2 = [];
+						let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                         let temppics = [];
                         let testarray = [];
                         let brarray = [];
@@ -5913,8 +5704,10 @@ function move_again_AF() {
                         // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
+						document.getElementById('somechatinfo').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                             switch (convdata.messages[i].tpe) {
                                 case "Question":
                                     if (convdata.messages[i].click == undefined) {
@@ -5980,21 +5773,21 @@ function move_again_AF() {
 
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                         let operid = convdata.messages[i].payload.oid;
                                         let opername;
                                         opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     }
                                     break;
 
@@ -6033,6 +5826,8 @@ function move_again_AF() {
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+				let timearr2 = [];
+				let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                 let temppics = [];
                 let testarray = [];
                 let brarray = [];
@@ -6041,8 +5836,10 @@ function move_again_AF() {
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                 document.getElementById('placechatid').innerText = convdata.id;
+				document.getElementById('somechatinfo').style.display ='';
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+					timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                     switch (convdata.messages[i].tpe) {
                         case "Question":
                             if (convdata.messages[i].click == undefined) {
@@ -6108,23 +5905,23 @@ function move_again_AF() {
 
                         case "Event":
                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !='' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
 									}
                                     break;
 
@@ -6158,6 +5955,7 @@ function move_again_AF() {
             document.getElementById('infofield').innerHTML = '';
             document.getElementById('placeusid').innerText = '';
             document.getElementById('placechatid').innerText = '';
+			document.getElementById('somechatinfo').style.display ='none';
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -6185,6 +5983,8 @@ function move_again_AF() {
 
                         let timearr = [];
                         let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+						let timearr2 = [];
+						let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                         let temppics = [];
                         let testarray = [];
                         let brarray = [];
@@ -6193,8 +5993,10 @@ function move_again_AF() {
                         // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
+						document.getElementById('somechatinfo').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                             switch (convdata.messages[i].tpe) {
                                 case "Question":
                                     if (convdata.messages[i].click == undefined) {
@@ -6260,23 +6062,23 @@ function move_again_AF() {
 
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                         let operid = convdata.messages[i].payload.oid;
                                         let opername;
                                         opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !='' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
 									}
                                     break;
 
@@ -6319,6 +6121,8 @@ function move_again_AF() {
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+				let timearr2 = [];
+				let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                 let temppics = [];
                 let testarray = [];
                 let brarray = [];
@@ -6329,6 +6133,7 @@ function move_again_AF() {
                 document.getElementById('placechatid').innerText = convdata.id;
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+					timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                     switch (convdata.messages[i].tpe) {
                         case "Question":
                             if (convdata.messages[i].click == undefined) {
@@ -6394,21 +6199,21 @@ function move_again_AF() {
 
                         case "Event":
                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                 let operidcls = convdata.messages[i].payload.sender;
                                 let opernamecls;
                                 opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             }
                             break;
 
@@ -8492,6 +8297,243 @@ function newTags(tagName) {
             "credentials": "include"
         });
 }
+
+         async function findchatsoper() { // ищет активные чаты на выбранном операторе 
+			let objSel = document.getElementById("operatorstp");
+            let getdateset = new Date()
+            let hrs;
+            let mins;
+            let secs;
+			let difhrs;
+            if (getdateset.getUTCHours() < 10)
+                hrs = "0" + (getdateset.getUTCHours());
+            else if (getdateset.getUTCHours() >= 24)
+                hrs = '0' + ((getdateset.getUTCHours() - 24))
+            else
+                hrs = (getdateset.getUTCHours());
+			
+			
+			if (hrs-1 < 10)
+			difhrs = '0'  + (hrs - 1)
+			else difhrs=hrs;
+
+            if (getdateset.getMinutes() < 10)
+                mins = "0" + getdateset.getMinutes();
+            else mins = getdateset.getMinutes();
+
+            if (getdateset.getUTCSeconds() < 10)
+                secs = "0" + getdateset.getUTCSeconds();
+            else secs = getdateset.getUTCSeconds()
+
+            flagsearch = 'searchbyoperator'
+
+            if (foundarr != '')
+                foundarr = '';
+
+            if (document.getElementById('placeusid').innerText != '')
+                document.getElementById('placeusid').innerText = ''
+
+            if (document.getElementById('placechatid').innerText != '')
+                document.getElementById('placechatid').innerText = ''
+			
+			if (document.getElementById('somechatinfo').style.display =='')
+				document.getElementById('somechatinfo').style.display ='none';	
+
+
+                document.getElementById('infofield').innerHTML = 'Загрузка'
+
+            if (objSel.length > 1) {
+                for (let i = 1; i < objSel.length; i++) {
+                    if (objSel[i].selected == true) {
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                            "headers": {
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T${difhrs}:${mins}:${secs}.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}T${hrs}:${mins}:${secs}.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        }).then(r => r.json()).then(r => operchatsdata = r)
+                        console.log(operchatsdata)
+
+                        if (operchatsdata.total == 0)
+                            alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
+
+
+
+                        for (let i = 0; i < operchatsdata.items.length; i++) {
+
+                            let tmestmp = new Date((operchatsdata.items[i].ts.split('[GMT]'))[0])
+                            let tshrs;
+                            let tsmin
+                            let day;
+                            let month;
+
+                            if (tmestmp.getMonth() < 9)
+                                month = "0" + (tmestmp.getMonth() + 1)
+                            else
+                                month = (tmestmp.getMonth() + 1)
+                            if (tmestmp.getDate() < 10)
+                                day = "0" + tmestmp.getDate()
+                            else
+                                day = tmestmp.getDate()
+                            let year = tmestmp.getFullYear();
+                            if ((tmestmp.getUTCHours() + 3) < 10)
+                                tshrs = "0" + (tmestmp.getUTCHours() + 3);
+                            else if ((tmestmp.getUTCHours() + 3) >= 24)
+                                tshrs = '0' + ((tmestmp.getUTCHours() + 3 - 24))
+                            else tshrs = (tmestmp.getUTCHours() + 3);
+
+                            if (tmestmp.getMinutes() < 10)
+                                tsmin = "0" + tmestmp.getMinutes();
+                            else tsmin = tmestmp.getMinutes();
+
+                            foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
+                        }
+
+                        document.getElementById('infofield').innerHTML = foundarr;
+
+                        for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
+                            document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
+
+                            document.getElementsByClassName('chatlist')[i].onclick = async () => {
+
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
+
+                                document.getElementById('infofield').innerHTML = ''
+
+                                let timearr = [];
+                                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+								let timearr2 = [];
+								let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
+                                let temppics = [];
+                                let testarray = [];
+                                let brarray = [];
+                                let restul;
+
+                                // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+                                document.getElementById('placeusid').innerText = convdata.channelUser.id;
+                                document.getElementById('placechatid').innerText = convdata.id;
+								document.getElementById('somechatinfo').style.display ='';
+                                for (let i = 0; i < convdata.messages.length; i++) {
+                                    timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+									timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
+                                    switch (convdata.messages[i].tpe) {
+                                        case "Question":
+                                            if (convdata.messages[i].click == undefined) {
+
+                                                testarray = convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm);
+
+                                                if (testarray == null) {
+                                                    brarray = [];
+                                                    if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) == null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) == null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm))
+                                                    else if (convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm) != null && convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                        brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
+                                                    else brarray = null;
+                                                }
+
+                                                if (testarray != null) {
+                                                    temppics = [];
+                                                    for (let i = 0; i < testarray.length; i++) {
+                                                        if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
+                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
+                                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*png/gm) != null)
+                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*png/gm)[0])
+                                                        else if (testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm) != null)
+                                                            temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
+                                                    }
+
+                                                    if (temppics.length == 1)
+                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                                    else if (temppics.length > 1) {
+
+                                                        restul = convdata.messages[i].txt;
+                                                        for (let j = 0; j < temppics.length; j++) {
+                                                            restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
+
+                                                        }
+
+                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+                                                    }
+                                                } else if (brarray != null) {
+
+                                                    if (brarray.length == 1)
+                                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt, `<img src="${brarray[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+
+                                                } else {
+                                                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                                }
+
+                                            } else {
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].click.clickLabel + '</div>' + '</div>'
+                                            }
+                                            break;
+
+                                        case "Event":
+                                            if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
+                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
+                                                let operid = convdata.messages[i].payload.oid;
+                                                let opername;
+                                                opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
+                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                                let operidcls = convdata.messages[i].payload.sender;
+                                                let opernamecls;
+                                                opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                            }
+                                            break;
+
+                                        case "AnswerOperatorWithBot":
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-bot-container">' + '<span class="answer-bot-name">' + 'AutoFAQ bot' + '</span>' + '<span class="answer-bot-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            break;
+
+                                        case "AnswerOperator":
+                                            let operidansw = convdata.messages[i].operatorId
+                                            let opernameansw;
+                                            opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
+                                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            break;
+
+                                        case "OperatorComment":
+                                            if (convdata.messages[i].operatorId != 'autoFAQ') {
+                                                let operidanswcom = convdata.messages[i].operatorId
+                                                let opernameanswcom;
+                                                opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            } else {
+                                                document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                                            }
+                                            break;
+                                    }
+                                }
+                            } // конец функции клика по списку в найденном чате
+                        }
+                    }
+                }
+            }
+        }
 
 
 function addbuttonsintegration() {
