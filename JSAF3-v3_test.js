@@ -6460,11 +6460,9 @@ function move_again_AF() {
 	document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
 
     let arops = document.getElementById('operatorstp')
-
+if (arops.children[i].selected == true && arops.children[i].value != "Операторы на линии" && document.getElementById('placechatid').innerText != '') {
     for (let i = 0; i < arops.children.length; i++) {
-        if (arops.children[i].selected == true && arops.children[i].value != "Операторы на линии" && document.getElementById('placechatid').innerText != '') {
-
-            fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+           fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
                 "headers": {
                     "content-type": "application/json",
                     "sec-fetch-dest": "empty",
@@ -6476,8 +6474,8 @@ function move_again_AF() {
                 "mode": "cors",
                 "credentials": "include"
             })
-        } else alert("Условия передачи чата не выполнены: не выбран оператор, не открыт чат, который требуется переводить")
-    }
+        } 
+    } else alert("Условия передачи чата не выполнены: не выбран оператор, не открыт чат, который требуется переводить")
 	}
 		
 
