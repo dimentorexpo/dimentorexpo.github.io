@@ -2083,13 +2083,22 @@ buttonservstud.onclick = function () {
 }
 
 button3.onclick = function () {
-	if(document.getElementById('btn_hide').style.display != 'none')
-		btn_hide.click()
-	for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-			document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-	}
-	btn1_student.click()
+	        if (document.getElementById('AF_ChatHis').style.display == 'none') {
+            document.getElementById('butChatHistory').click();
+			
+		for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+			if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+				document.getElementById('chatuserhis').value= document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.trim();
+			btn_search_history.click()
+		}
+            
+        } else {
+			for(i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+				if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+					document.getElementById('chatuserhis').value= document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.trim();
+			btn_search_history.click()
+			}
+        }
 }
 
 button4.onclick = function () {
