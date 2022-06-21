@@ -115,7 +115,8 @@ function mystyles() {
 
 		.question-event {
 			background:#1890FF26;
-			max-width:333px;
+			min-width:280px;
+			max-width:300px;
 			margin-left: 10px;
 			margin-bottom: 5px;
 			padding: 5px 5px;
@@ -162,6 +163,7 @@ function mystyles() {
 		
 		.event-date {
 			float:right;
+			margin-right:15px;
 		}
 		
 		.event-other-date {
@@ -171,12 +173,12 @@ function mystyles() {
 		}
 		
 		.answer-bot-container {
-			background:#52C41A26;
-			min-width: 300px;
-			max-width:400px;
-			float:right;
-			margin-bottom:
-			5px; margin-right:15px;
+			background: #52C41A26;
+			min-width: 280px;
+			max-width: 300px;
+			float: right;
+			margin-bottom: 5px;
+			margin-right: 15px;
 			padding: 5px 5px;
 		}
 		
@@ -197,11 +199,12 @@ function mystyles() {
 		}
 		
 		.answer-oper-container {
-			background:#FADA5E26;
-			max-width:400px;
-			float:right;
+			background: #FADA5E26;
+			min-width: 280px;
+			max-width: 320px;
+			float: right;
 			margin-bottom: 5px;
-			margin-right:15px;
+			margin-right: 15px;
 			padding: 5px 5px;
 		}
 		
@@ -246,7 +249,7 @@ function mystyles() {
 		}
 		
 		.img-chat-history {
-			width:200px;
+			width:160px;
 			transition: all 0.5s ease-out;
 		}
 		
@@ -663,15 +666,14 @@ var win_Chathis =  // описание элементов окна ссылок
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
 					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:125px; text-align:center; " name="EndDataChHis" id="dateToChHis">
 				</div>
-				
 			</span>
 				
 				<div style="width: 410px;" id="somechatinfo">
 					<span style="color:bisque; margin-left:10px; margin-top:5px; user-select:none;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<button id="takechat" style="display:none; margin-left:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<button id="takechat" style="display:none; margin-left: 200px;margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 					<br>
 					<span style="color:bisque; margin-left:10px; margin-top:5px; user-select:none;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;">🔀</button>
+					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="display:none; width:45px; margin-left:5px; font-size:16px; margin-top:2px;">🔀</button>
 				</div>
 				
 				<div>
