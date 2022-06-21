@@ -132,10 +132,10 @@ function mystyles() {
 		}
 		
 		.question-event-date {
-			color:#C0C0C0;
-			float:right;
-			max-width:400px;
-			font-size:12px;
+			color: #C0C0C0;
+			float: right;
+			max-width: 333px;
+			font-size: 12px;
 		}
 		
 		.question-event-text {
@@ -148,7 +148,7 @@ function mystyles() {
 			float: left;
 			color: white;
 			text-align: center;
-			width: 410px;
+			width: 390px;
 			font-size: 12px;
 		}
 		
@@ -215,7 +215,7 @@ function mystyles() {
 		
 		.oper-comment-container {
 			background:#80808054;
-			width:500px;
+			width:370px;
 			float:left;
 			margin-bottom:5px;
 			margin-left: 10px;
