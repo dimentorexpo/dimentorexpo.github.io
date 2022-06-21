@@ -5602,7 +5602,6 @@ function move_again_AF() {
             if (document.getElementById('placechatid').innerText != '')
                 document.getElementById('placechatid').innerText = ''
 
-            if (document.getElementById('infofield').innerHTML != '')
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
             if (objSel.length > 1) {
@@ -5834,7 +5833,6 @@ function move_again_AF() {
                 if (document.getElementById('placechatid').innerText != '')
                     document.getElementById('placechatid').innerText = ''
 
-                if (document.getElementById('infofield').innerHTML != '')
                     document.getElementById('infofield').innerHTML = 'Загрузка'
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
