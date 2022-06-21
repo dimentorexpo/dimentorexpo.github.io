@@ -6460,7 +6460,8 @@ function move_again_AF() {
 	document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
 
     let arops = document.getElementById('operatorstp')
-if (arops.children[i].selected == true && arops.children[i].value != "Операторы на линии" && document.getElementById('placechatid').innerText != '') {
+	let hashid = document.getElementById('placechatid').innerText;
+	if (arops.children[0].selected != true && hashid != '') {
     for (let i = 0; i < arops.children.length; i++) {
            fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
                 "headers": {
@@ -6469,7 +6470,7 @@ if (arops.children[i].selected == true && arops.children[i].value != "Опера
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-origin"
                 },
-                "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${document.getElementById('placechatid').innerText}\",\"assignToOperatorId\":\"${arops.children[i].value}\"}`,
+                "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${hashid}\",\"assignToOperatorId\":\"${arops.children[i].value}\"}`,
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
