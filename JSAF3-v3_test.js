@@ -642,7 +642,7 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
 					<button title="Очистка всех полей" id="clearallinfo" style="width:50px;">🧹</button>
-					<select style="height:28px; width:270px; text-align:center" id="operatorstp">
+					<select style="height:28px; width:270px; text-align:center" id="operatorstp" onchange=`findchatsoper${this}`>
 							<option selected="" disabled="">Операторы на линии</option>
 					</select>
 					<button title="Ищет по выбранному оператору активные чаты, чтобы можно было их просмотреть" id="FindChatsOnOperator" style="width:50px;">🚀</button>
@@ -5564,7 +5564,7 @@ function move_again_AF() {
 
         }
 
-        document.getElementById('FindChatsOnOperator').onclick = async () => { // ищет активные чаты на выбранном операторе 
+         async function findchatsoper () => { // ищет активные чаты на выбранном операторе 
 
             let getdateset = new Date()
             let hrs;
