@@ -660,7 +660,7 @@ var win_Chathis =  // описание элементов окна ссылок
 				</div>
 				
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
-					<button id="refreshchat" style="width:30px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
+					<button id="refreshchat" style="width:50px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
 					<input type="date" style="color:black; margin-left:5px;  width:125px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
@@ -687,7 +687,7 @@ var win_Chathis =  // описание элементов окна ссылок
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
 			</div>
 				
-			<div id="userchatdata" style="display:none; position: absolute; top: 0px; left: 560px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;">
+			<div id="userchatdata" style="display:none; position: absolute; top: 0px; left: -370px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;">
 				<div id="datainfoheader">
 				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
 				</div>
@@ -2808,7 +2808,7 @@ function move_again_AF() {
 	}
 	
 	document.getElementById('usidchat').onclick = () => {
-		copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placeusid').innerText)
+		copyToClipboard1(document.getElementById('placeusid').innerText)
 	}
 
     document.getElementById('grafanalnk').addEventListener('click', function () {
