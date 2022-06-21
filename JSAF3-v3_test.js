@@ -659,7 +659,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:50px; font-size:20px;">🔙</button>	
 				</div>
 				
-				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;" id="databoxchathis">
+				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
 					<button id="refreshchat" style="width:30px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
 					<input type="date" style="color:black; margin-left:5px;  width:125px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
@@ -668,12 +668,12 @@ var win_Chathis =  // описание элементов окна ссылок
 				</div>
 			</span>
 				
-				<div style="width: 410px;" id="somechatinfo">
+				<div style="width: 410px;display:none" id="somechatinfo">
 					<span style="color:bisque; margin-left:10px; margin-top:5px; user-select:none;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<button id="takechat" style="display:none; margin-left: 200px;margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<button id="takechat" style="margin-left: 200px;margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 					<br>
 					<span style="color:bisque; margin-left:10px; margin-top:5px; user-select:none;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="display:none; width:45px; margin-left:5px; font-size:16px; margin-top:2px;">🔀</button>
+					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;">🔀</button>
 				</div>
 				
 				<div>
@@ -4702,8 +4702,7 @@ function move_again_AF() {
             document.getElementById('infofield').innerText = ''
             document.getElementById('placeusid').innerText = ''
             document.getElementById('placechatid').innerText = ''
-			document.getElementById('takechat').style.display ='none';
-			document.getElementById('reassign').style.display ='none';
+			document.getElementById('somechatinfo').style.display ='none';
             document.getElementById('chatuserhis').value = ''
             document.getElementById('hashchathis').value = ''
         }
@@ -4713,8 +4712,7 @@ function move_again_AF() {
         document.getElementById('infofield').innerText = ''
         document.getElementById('placeusid').innerText = ''
         document.getElementById('placechatid').innerText = ''
-		document.getElementById('takechat').style.display ='none';
-		document.getElementById('reassign').style.display ='none';
+		document.getElementById('somechatinfo').style.display ='none';
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
@@ -5615,11 +5613,9 @@ function move_again_AF() {
                 if (document.getElementById('placechatid').innerText != '')
                     document.getElementById('placechatid').innerText = ''
 				
-				if (document.getElementById('takechat').style.display =='')
-					document.getElementById('takechat').style.display ='none';
+				if (document.getElementById('somechatinfo').style.display =='')
+					document.getElementById('somechatinfo').style.display ='none';
 
-				if (document.getElementById('reassign').style.display =='')
-					document.getElementById('reassign').style.display ='none';
 
                     document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -5703,8 +5699,7 @@ function move_again_AF() {
                         // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
-						document.getElementById('takechat').style.display ='';
-						document.getElementById('reassign').style.display ='';
+						document.getElementById('somechatinfo').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -5836,8 +5831,7 @@ function move_again_AF() {
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                 document.getElementById('placechatid').innerText = convdata.id;
-				document.getElementById('takechat').style.display ='';
-				document.getElementById('reassign').style.display ='';
+				document.getElementById('somechatinfo').style.display ='';
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 					timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -5956,8 +5950,7 @@ function move_again_AF() {
             document.getElementById('infofield').innerHTML = '';
             document.getElementById('placeusid').innerText = '';
             document.getElementById('placechatid').innerText = '';
-			document.getElementById('takechat').style.display ='none';
-			document.getElementById('reassign').style.display ='none';
+			document.getElementById('somechatinfo').style.display ='none';
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5995,8 +5988,7 @@ function move_again_AF() {
                         // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
-						document.getElementById('takechat').style.display ='';
-						document.getElementById('reassign').style.display ='';
+						document.getElementById('somechatinfo').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -8339,11 +8331,9 @@ function newTags(tagName) {
             if (document.getElementById('placechatid').innerText != '')
                 document.getElementById('placechatid').innerText = ''
 			
-			if (document.getElementById('takechat').style.display =='')
-				document.getElementById('takechat').style.display ='none';	
+			if (document.getElementById('somechatinfo').style.display =='')
+				document.getElementById('somechatinfo').style.display ='none';	
 
-			if (document.getElementById('reassign').style.display =='')
-				document.getElementById('reassign').style.display ='none';
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -8423,8 +8413,7 @@ function newTags(tagName) {
                                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
                                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                                 document.getElementById('placechatid').innerText = convdata.id;
-								document.getElementById('takechat').style.display ='';
-								document.getElementById('reassign').style.display ='';
+								document.getElementById('somechatinfo').style.display ='';
                                 for (let i = 0; i < convdata.messages.length; i++) {
                                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 									timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
