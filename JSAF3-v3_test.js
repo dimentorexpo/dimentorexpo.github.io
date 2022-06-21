@@ -115,8 +115,7 @@ function mystyles() {
 
 		.question-event {
 			background:#1890FF26;
-			min-width:300px;
-			max-width:400px;
+			max-width:333px;
 			margin-left: 10px;
 			margin-bottom: 5px;
 			padding: 5px 5px;
@@ -146,11 +145,11 @@ function mystyles() {
 		}
 		
 		.event-container  {
-			float:left;
-			color:white;
-			text-align:center;
-			width:100%;
-			font-size:12px;
+			float: left;
+			color: white;
+			text-align: center;
+			width: 410px;
+			font-size: 12px;
 		}
 		
 		.event-name {
@@ -645,7 +644,7 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 410px;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
 					<button title="Очистка всех полей" id="clearallinfo" style="width:50px;">🧹</button>
-					<select style="height:28px; width:270px; text-align:center" id="operatorstp" onchange="findchatsoper()">
+					<select style="height:28px; width:260px; text-align:center" id="operatorstp" onchange="findchatsoper()">
 							<option selected="" disabled="">Операторы на линии</option>
 					</select>
 					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:50px;">♻</button>
@@ -658,25 +657,31 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:50px; font-size:20px;">🔙</button>	
 				</div>
 				
-				<div style="margin: 5px; width: 410px;display:flex; justify-content:center;" id="databoxchathis">
-					<button id="refreshchat" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">Обновить</button>
+				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;" id="databoxchathis">
+					<button id="refreshchat" style="width:30px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-					<input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
+					<input type="date" style="color:black; margin-left:5px;  width:125px;" name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
-					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
+					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
 
-					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px;">🔀</button>
+					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:30px; margin-left:5px; font-size:16px;">🔀</button>
 				</div>
 				
 			</span>
 				
-				<div style="width: 410px; display:flex; justify-content:center;" id="somechatinfo">
-					<span style="color:bisque; margin-left:10px; margin-top:5px;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<span style="color:bisque; margin-left:10px; margin-top:5px;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
+				<div style="width: 410px;" id="somechatinfo">
+					<span style="color:bisque; margin-left:10px; margin-top:5px; user-select:none;">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="takechat" style="display:none; margin-left:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<br>
+					<span style="color:bisque; margin-left:10px; margin-top:5px; user-select:none;">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
+					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px;">🔀</button>
+				</div>
+				
+				<div>
+					
 				</div>
 			
-			<div id="infofield" style="color:bisque; margin-left:10px; width:550px; max-height: 800px; overflow:auto;">
+			<div id="infofield" style="color:bisque; margin-left:10px; width:410px; max-height: 800px; overflow:auto;">
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px">
@@ -5684,6 +5689,8 @@ function move_again_AF() {
 
                         let timearr = [];
                         let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+						let timearr2 = [];
+						let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                         let temppics = [];
                         let testarray = [];
                         let brarray = [];
@@ -5695,6 +5702,7 @@ function move_again_AF() {
 						document.getElementById('takechat').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                             switch (convdata.messages[i].tpe) {
                                 case "Question":
                                     if (convdata.messages[i].click == undefined) {
@@ -5760,21 +5768,21 @@ function move_again_AF() {
 
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                         let operid = convdata.messages[i].payload.oid;
                                         let opername;
                                         opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     }
                                     break;
 
@@ -5813,6 +5821,8 @@ function move_again_AF() {
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+				let timearr2 = [];
+				let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                 let temppics = [];
                 let testarray = [];
                 let brarray = [];
@@ -5824,6 +5834,7 @@ function move_again_AF() {
 				document.getElementById('takechat').style.display ='';
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+					timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                     switch (convdata.messages[i].tpe) {
                         case "Question":
                             if (convdata.messages[i].click == undefined) {
@@ -5889,23 +5900,23 @@ function move_again_AF() {
 
                         case "Event":
                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !='' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
 									}
                                     break;
 
@@ -5967,6 +5978,8 @@ function move_again_AF() {
 
                         let timearr = [];
                         let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+						let timearr2 = [];
+						let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                         let temppics = [];
                         let testarray = [];
                         let brarray = [];
@@ -5978,6 +5991,7 @@ function move_again_AF() {
 						document.getElementById('takechat').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                             switch (convdata.messages[i].tpe) {
                                 case "Question":
                                     if (convdata.messages[i].click == undefined) {
@@ -6043,23 +6057,23 @@ function move_again_AF() {
 
                                 case "Event":
                                     if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                         let operid = convdata.messages[i].payload.oid;
                                         let opername;
                                         opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !='' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
 									}
                                     break;
 
@@ -6102,6 +6116,8 @@ function move_again_AF() {
 
                 let timearr = [];
                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+				let timearr2 = [];
+				let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                 let temppics = [];
                 let testarray = [];
                 let brarray = [];
@@ -6112,6 +6128,7 @@ function move_again_AF() {
                 document.getElementById('placechatid').innerText = convdata.id;
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+					timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                     switch (convdata.messages[i].tpe) {
                         case "Question":
                             if (convdata.messages[i].click == undefined) {
@@ -6177,21 +6194,21 @@ function move_again_AF() {
 
                         case "Event":
                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                 let operidcls = convdata.messages[i].payload.sender;
                                 let opernamecls;
                                 opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             }
                             break;
 
@@ -8385,6 +8402,8 @@ function newTags(tagName) {
 
                                 let timearr = [];
                                 let options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+								let timearr2 = [];
+								let options2 = { hour: '2-digit', minute: '2-digit', second: '2-digit' };	
                                 let temppics = [];
                                 let testarray = [];
                                 let brarray = [];
@@ -8396,6 +8415,7 @@ function newTags(tagName) {
 								document.getElementById('takechat').style.display ='';
                                 for (let i = 0; i < convdata.messages.length; i++) {
                                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
+									timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
                                     switch (convdata.messages[i].tpe) {
                                         case "Question":
                                             if (convdata.messages[i].click == undefined) {
@@ -8461,21 +8481,21 @@ function newTags(tagName) {
 
                                         case "Event":
                                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + convdata.messages[i].eventTpe + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.oid != undefined) {
                                                 let operid = convdata.messages[i].payload.oid;
                                                 let opername;
                                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue') {
-                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                                 let operidcls = convdata.messages[i].payload.sender;
                                                 let opernamecls;
                                                 opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr[i] + '</span>' + '</div>'
+                                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                             }
                                             break;
 
