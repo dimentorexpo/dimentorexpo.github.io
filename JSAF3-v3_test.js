@@ -12211,17 +12211,6 @@ let slaclchattids = document.querySelectorAll('.slaclchatids');
 for (let j = 0; j < slaclchatcontainer.length; j++) {
     slaclchatcontainer[j].onclick = function () {
 
-        if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-            hide_or_display.click()
-            document.getElementById('chat_id').value =
-                search.click()
-        } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-            document.getElementById('chat_id').value = slaclchattids[j].innerText;
-            search.click()
-        }
-    }
-
-
     if (document.getElementById('AF_ChatHis').style.display == 'none') {
         document.getElementById('butChatHistory').click();
 
