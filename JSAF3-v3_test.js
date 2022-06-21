@@ -8268,7 +8268,7 @@ function newTags(tagName) {
 }
 
          async function findchatsoper() { // ищет активные чаты на выбранном операторе 
-
+			let objSel = document.getElementById("operatorstp");
             let getdateset = new Date()
             let hrs;
             let mins;
