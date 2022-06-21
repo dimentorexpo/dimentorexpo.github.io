@@ -663,6 +663,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
 					<input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataChHis" id="dateToChHis">
 					<button id="takechat" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<button id="reassign" style="width:45px; margin-left:5px;">🔀</button>
 				</div>
 				
 			</span>
@@ -6455,6 +6456,29 @@ function move_again_AF() {
                 });
             }
         } // конец обработчика нажатия кнопки "Забрать"	
+		
+	document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
+
+    let arops = document.getElementById('operatorstp')
+	let hashid = document.getElementById('placechatid').innerText;
+	if (arops.children[0].selected != true && hashid != '') {
+    for (let i = 0; i < arops.children.length; i++) {
+           fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+                "headers": {
+                    "content-type": "application/json",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                },
+                "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${hashid}\",\"assignToOperatorId\":\"${arops.children[i].value}\"}`,
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            })
+        } 
+    } else alert("Условия передачи чата не выполнены: не выбран оператор, не открыт чат, который требуется переводить")
+	}
+		
 
 
         document.getElementById('sendmsgtochatornotes').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
