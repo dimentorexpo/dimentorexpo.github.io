@@ -6456,6 +6456,30 @@ function move_again_AF() {
                 });
             }
         } // конец обработчика нажатия кнопки "Забрать"	
+		
+	document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
+
+    let arops = document.getElementById('operatorstp')
+
+    for (let i = 0; i < arops.children.length; i++) {
+        if (arops.children[i].selected == true && arops.children[i].value != "Операторы на линии" && document.getElementById('placechatid').innerText != '') {
+
+            fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+                "headers": {
+                    "content-type": "application/json",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                },
+                "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${document.getElementById('placechatid').innerText}\",\"assignToOperatorId\":\"${arops.children[i].value}\"}`,
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            })
+        } else alert("Условия передачи чата не выполнены: не выбран оператор, не открыт чат, который требуется переводить")
+    }
+	}
+		
 
 
         document.getElementById('sendmsgtochatornotes').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
