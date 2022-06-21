@@ -12222,6 +12222,7 @@ for (let j = 0; j < slaclchatcontainer.length; j++) {
         btn_search_history.click()
     }
 }
+}
 
     let artchatcontainer = document.querySelectorAll('.lookchatart');
     let artchattids = document.querySelectorAll('.artchatids');
