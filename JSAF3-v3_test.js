@@ -5564,7 +5564,7 @@ function move_again_AF() {
 
         }
 
-         async function findchatsoper () => { // ищет активные чаты на выбранном операторе 
+         async function findchatsoper() { // ищет активные чаты на выбранном операторе 
 
             let getdateset = new Date()
             let hrs;
