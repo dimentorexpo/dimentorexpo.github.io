@@ -5562,12 +5562,18 @@ function move_again_AF() {
             let hrs;
             let mins;
             let secs;
+			let difhrs;
             if (getdateset.getUTCHours() < 10)
                 hrs = "0" + (getdateset.getUTCHours());
             else if (getdateset.getUTCHours() >= 24)
                 hrs = '0' + ((getdateset.getUTCHours() - 24))
             else
                 hrs = (getdateset.getUTCHours());
+			
+			
+			if (hrs-1 < 10)
+			difhrs = '0'  + (hrs - 1)
+			else difhrs=hrs;
 
             if (getdateset.getMinutes() < 10)
                 mins = "0" + getdateset.getMinutes();
@@ -5601,7 +5607,7 @@ function move_again_AF() {
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T${hrs - 1}:${mins}:${secs}.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}T${hrs}:${mins}:${secs}.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
+                            "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${objSel[i].value}\"],\"tsFrom\":\"${document.getElementById('dateFromChHis').value}T${difhrs}:${mins}:${secs}.000Z\",\"tsTo\":\"${document.getElementById('dateToChHis').value}T${hrs}:${mins}:${secs}.000Z\",\"usedStatuses\":[\"OnOperator\",\"AssignedToOperator\",\"Active\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}`,
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
