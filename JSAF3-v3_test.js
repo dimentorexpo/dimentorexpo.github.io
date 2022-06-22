@@ -5482,7 +5482,7 @@ function move_again_AF() {
         else
             document.getElementById('AF_ChatHis').style.display = ''
 		
-		//changeviewtheme()
+		changeviewtheme()
 
         flagsearch = ''
         let getdateset = new Date()
@@ -7808,7 +7808,7 @@ function newTags(tagName) {
 function changeviewtheme() {
 
     if (localStorage.getItem('theme') == 'dark') {
-        localStorage.setItem('theme', 'light')
+       // localStorage.setItem('theme', 'light')
         document.getElementById('chagetheme').innerHTML = '☀'
         document.getElementById('infofield').style.background = "#fff";
 
@@ -7845,7 +7845,7 @@ function changeviewtheme() {
             document.getElementsByClassName('answer-bot-name')[i].style.color = "#388C11";
         }
     } else if (localStorage.getItem('theme') == 'light') {
-        localStorage.setItem('theme', 'dark')
+        //localStorage.setItem('theme', 'dark')
         document.getElementById('chagetheme').innerHTML = '🌛'
         document.getElementById('infofield').style.background = "#464451";
 
@@ -7875,7 +7875,7 @@ function changeviewtheme() {
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
-            document.getElementsByClassName('answer-oper-name')[i].style.color = "#b8860b";
+            document.getElementsByClassName('answer-oper-name')[i].style.color = "bisque";
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
@@ -7884,7 +7884,14 @@ function changeviewtheme() {
     }
 }
 
-document.getElementById('chagetheme').onclick = changeviewtheme;
+document.getElementById('chagetheme').onclick = () => {
+	if (localStorage.getItem('theme') =='light')       
+	localStorage.setItem('theme', 'dark')
+	else localStorage.setItem('theme', 'light')
+	
+	changeviewtheme();
+	
+};
 
 		function fillchatbox() {
 			
