@@ -163,11 +163,13 @@ function mystyles() {
 		
 		.event-date {
 			float:right;
+			margin-right:5px;
 		}
 		
 		.event-other-date {
 			float:right;
 			font-size:12px;
+			margin-right:5px;
 		}
 		
 		.answer-bot-container {
@@ -5930,18 +5932,22 @@ function move_again_AF() {
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
 									}
-                                    break;
+                         break;
 
                         case "AnswerOperatorWithBot":
                             document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-bot-container">' + '<span class="answer-bot-name">' + 'AutoFAQ bot' + '</span>' + '<span class="answer-bot-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                            break;
+                        break;
+							
+						case "AnswerBot":
+                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-bot-container">' + '<span class="answer-bot-name">' + 'AutoFAQ bot' + '</span>' + '<span class="answer-bot-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                        break;
 
                         case "AnswerOperator":
                             let operidansw = convdata.messages[i].operatorId
                             let opernameansw;
                             opernameansw = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidansw))
                             document.getElementById('infofield').innerHTML += '<br>' + '<div class="answer-oper-container">' + '<span class="answer-oper-name">' + opernameansw[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
-                            break;
+                        break;
 
                         case "OperatorComment":
                             if (convdata.messages[i].operatorId != 'autoFAQ') {
@@ -5952,7 +5958,7 @@ function move_again_AF() {
                             } else {
                                 document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                             }
-                            break;
+                         break;
                     }
                 }
             } else alert("Введено и ID пользователя и хеш чата, или оба поля пустые. Пожалуйста, выберите что-то одно и повторите попытку.")
