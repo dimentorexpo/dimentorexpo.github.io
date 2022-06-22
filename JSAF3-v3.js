@@ -640,7 +640,7 @@ var win_Links =  // описание элементов окна ссылок
 var win_Chathis =  // описание элементов окна ссылок
     `<div style="display: flex; width: 410px;">
         <span style="width: 410px">
-			<span style="cursor: -webkit-grab;">
+			<span style="cursor: default;">
 				<div style="margin: 5px; width: 410px;" id="chathisheader">
 					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
 					<button title="Очистка всех полей" id="clearallinfo" style="width:25px;">🧹</button>
