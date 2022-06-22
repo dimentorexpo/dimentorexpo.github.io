@@ -7807,7 +7807,7 @@ function newTags(tagName) {
 
 function changeviewtheme() {
 
-    if (localStorage.getItem('theme') == 'dark') {
+    if (localStorage.getItem('theme') == 'light') {
        // localStorage.setItem('theme', 'light')
         document.getElementById('chagetheme').innerHTML = '☀'
         document.getElementById('infofield').style.background = "#fff";
@@ -7844,7 +7844,7 @@ function changeviewtheme() {
         for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
             document.getElementsByClassName('answer-bot-name')[i].style.color = "#388C11";
         }
-    } else if (localStorage.getItem('theme') == 'light') {
+    } else if (localStorage.getItem('theme') == 'dark') {
         //localStorage.setItem('theme', 'dark')
         document.getElementById('chagetheme').innerHTML = '🌛'
         document.getElementById('infofield').style.background = "#464451";
