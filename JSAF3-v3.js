@@ -5768,7 +5768,7 @@ function move_again_AF() {
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !='' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
@@ -6197,7 +6197,7 @@ function move_again_AF() {
                                 document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
                                 document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
-                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !='' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                 let operidcls = convdata.messages[i].payload.sender;
                                 let opernamecls;
                                 opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
@@ -8498,7 +8498,7 @@ function newTags(tagName) {
                                                 document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Чат вернули в очередь' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
                                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
                                                 document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Автоматически закрылся чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
-                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
+                                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !=''  && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                                 let operidcls = convdata.messages[i].payload.sender;
                                                 let opernamecls;
                                                 opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
