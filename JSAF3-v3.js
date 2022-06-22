@@ -677,9 +677,9 @@ var win_Chathis =  // описание элементов окна ссылок
 			<div id="infofield" style="color:bisque; margin-left:10px; width:410px; height:77vh; overflow:auto;">
 			</div>
 			
-			<div id="bottommenuchhis" style="width: 410px">
-				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;"></textarea>
-				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px;">Send</button>
+			<div id="bottommenuchhis" style="width: 410px;display:none;">
+				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 18px;"></textarea>
+				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
 			</div>
@@ -4678,6 +4678,7 @@ function move_again_AF() {
             document.getElementById('placeusid').innerText = ''
             document.getElementById('placechatid').innerText = ''
 			document.getElementById('somechatinfo').style.display ='none';
+			document.getElementById('bottommenuchhis').style.display ='none';
             document.getElementById('chatuserhis').value = ''
             document.getElementById('hashchathis').value = ''
         }
@@ -4688,6 +4689,7 @@ function move_again_AF() {
         document.getElementById('placeusid').innerText = ''
         document.getElementById('placechatid').innerText = ''
 		document.getElementById('somechatinfo').style.display ='none';
+		document.getElementById('bottommenuchhis').style.display ='none';
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
@@ -5537,8 +5539,8 @@ function move_again_AF() {
         }
 
         document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
-            if (document.getElementById('userchatdata').style.display == '')
-                document.getElementById('userchatdata').style.display = 'none'
+            if (document.getElementById('userchatdata').style.display == 'none')
+                document.getElementById('userchatdata').style.display = ''
             else if (typeof (convdata) !== 'undefined') {
 
                 document.getElementById('userchatdata').style.display = '';
@@ -5589,7 +5591,10 @@ function move_again_AF() {
                     document.getElementById('placechatid').innerText = ''
 				
 				if (document.getElementById('somechatinfo').style.display =='')
-					document.getElementById('somechatinfo').style.display ='none';
+					document.getElementById('somechatinfo').style.display ='none';				
+				
+				if (document.getElementById('bottommenuchhis').style.display =='')
+					document.getElementById('bottommenuchhis').style.display ='none';
 
 
                     document.getElementById('infofield').innerHTML = 'Загрузка'
@@ -5681,6 +5686,7 @@ function move_again_AF() {
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
 						document.getElementById('somechatinfo').style.display ='';
+						document.getElementById('bottommenuchhis').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -5813,6 +5819,7 @@ function move_again_AF() {
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                 document.getElementById('placechatid').innerText = convdata.id;
 				document.getElementById('somechatinfo').style.display ='';
+				document.getElementById('bottommenuchhis').style.display ='';
                 for (let i = 0; i < convdata.messages.length; i++) {
                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 					timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -5932,6 +5939,7 @@ function move_again_AF() {
             document.getElementById('placeusid').innerText = '';
             document.getElementById('placechatid').innerText = '';
 			document.getElementById('somechatinfo').style.display ='none';
+			document.getElementById('bottommenuchhis').style.display ='none';
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5970,6 +5978,7 @@ function move_again_AF() {
                         document.getElementById('placeusid').innerText = convdata.channelUser.id;
                         document.getElementById('placechatid').innerText = convdata.id;
 						document.getElementById('somechatinfo').style.display ='';
+						document.getElementById('bottommenuchhis').style.display ='';
                         for (let i = 0; i < convdata.messages.length; i++) {
                             timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 							timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
@@ -8315,6 +8324,9 @@ function newTags(tagName) {
 			if (document.getElementById('somechatinfo').style.display =='')
 				document.getElementById('somechatinfo').style.display ='none';	
 
+			if (document.getElementById('bottommenuchhis').style.display  =='')
+				document.getElementById('bottommenuchhis').style.display ='none';
+
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -8398,6 +8410,7 @@ function newTags(tagName) {
                                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
                                 document.getElementById('placechatid').innerText = convdata.id;
 								document.getElementById('somechatinfo').style.display ='';
+								document.getElementById('bottommenuchhis').style.display ='';
                                 for (let i = 0; i < convdata.messages.length; i++) {
                                     timearr.push(new Date(convdata.messages[i].ts).toLocaleDateString('ru-RU', options))
 									timearr2.push(new Date(convdata.messages[i].ts).toLocaleTimeString('ru-RU', options2))
