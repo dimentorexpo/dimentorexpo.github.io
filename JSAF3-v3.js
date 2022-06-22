@@ -11835,7 +11835,6 @@ async function getStats() {           // функция получения ст�
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
-
 async function checkkcpower() {
     let cntc = 0;
     let busycnt = 0;
@@ -12288,6 +12287,19 @@ function prepTp() {
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
     else document.getElementById('testUsers').style.display = ''
+	
+	let openchhis = document.createElement('button')
+		openchhis.innerHTML = '☢'
+		openchhis.style='position:fixed;top:45px;right:7px;'
+		openchhis.id='opennewcat'
+		document.getElementsByTagName('section')[1].append(openchhis)
+
+
+		openchhis.onclick = () => {
+			if(document.getElementById('AF_ChatHis').style.display =='none')
+			document.getElementById('butChatHistory').click()
+		}
+
 
     flagLangBut = 1
     customTemplates()
