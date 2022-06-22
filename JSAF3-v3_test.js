@@ -154,21 +154,19 @@ function mystyles() {
 		}
 		
 		.event-name {
-			float:left;
-			color:white; 
-			text-align:center;
-			width:100%;
-			font-size:12px;
+			float: left;
+			color: white;
+			text-align: center;
+			width: 390px;
+			font-size: 12px;
 		}
 		
 		.event-date {
 			float:right;
-			margin-right:15px;
 		}
 		
 		.event-other-date {
 			float:right;
-			margin-right:15px;
 			font-size:12px;
 		}
 		
