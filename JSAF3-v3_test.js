@@ -7811,7 +7811,15 @@ function newTags(tagName) {
                 let restul;
 
                 // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
+				if(Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe =='Telegram')
+                document.getElementById('placeusid').innerText = "Telegram";
+				else if(Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe !='Telegram' && convdata.channelUser.channelTpe !='Widget' )
                 document.getElementById('placeusid').innerText = convdata.channelUser.id;
+				else if(Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe !='Telegram' && convdata.channelUser.channelTpe =='Widget' )
+                document.getElementById('placeusid').innerText = "Widget";
+				else if(Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe !='Telegram' && convdata.channelUser.channelTpe =='Widget' )
+                document.getElementById('placeusid').innerText = convdata.channelUser.payload.id;
+			
                 document.getElementById('placechatid').innerText = convdata.id;
 				document.getElementById('somechatinfo').style.display ='';
 				document.getElementById('bottommenuchhis').style.display ='';
