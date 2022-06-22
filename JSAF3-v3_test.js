@@ -264,7 +264,7 @@ function mystyles() {
 			cursor:pointer;
 			font-weight:700;
 		}
-		
+				
 		#servDsk:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -662,10 +662,12 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
 					<button id="refreshchat" style="width:50px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-					<input type="date" style="color:black; margin-left:5px;  width:125px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
+					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
-					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:125px; text-align:center; " name="EndDataChHis" id="dateToChHis">
+					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:115px; text-align:center; " name="EndDataChHis" id="dateToChHis">
+					<button style="width:30px;" id="chagetheme">🌛</button>
 				</div>
+				
 			</span>
 				
 				<div style="width: 410px;display:none" id="somechatinfo">
@@ -676,11 +678,11 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
 							
-			<div id="infofield" style="color:bisque; margin-left:10px; width:410px; height:77vh; overflow:auto;">
+			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow:auto;">
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px;display:none;">
-				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 18px;"></textarea>
+				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
@@ -1720,6 +1722,10 @@ if (localStorage.getItem('winTopSugest') == null) {
 if (localStorage.getItem('winTopChatHis') == null) {
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
+}
+
+if (localStorage.getItem('theme') == null) { //заносим переменную для переключения окна
+    localStorage.setItem('theme', 'dark');
 }
 
 //Для таймера автозакрытия
@@ -5475,6 +5481,8 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
+		
+		changeviewtheme()
 
         flagsearch = ''
         let getdateset = new Date()
@@ -7796,6 +7804,87 @@ function newTags(tagName) {
             "credentials": "include"
         });
 }
+
+function changeviewtheme() {
+
+    if (localstorage.getItem('theme') == 'dark') {
+        localstorage.setItem('theme', 'light')
+        document.getElementById('chagetheme').innerHTML = '☀'
+        document.getElementById('infofield').style.background = "#fff";
+
+        for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+            document.getElementsByClassName('event-name')[i].style.color = "#999999";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
+            document.getElementsByClassName('question-event-text')[i].style.color = "#000"
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
+            document.getElementsByClassName('question-event-name')[i].style.color = "#23609E";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
+            document.getElementsByClassName('event-container')[i].style.color = "#999999";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
+            document.getElementsByClassName('oper-comment-name')[i].style.color = "#808080";
+            document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808026";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
+            document.getElementsByClassName('question-event-date')[i].style.color = "#999999";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
+            document.getElementsByClassName('answer-oper-name')[i].style.color = "#b8860b";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
+            document.getElementsByClassName('answer-bot-name')[i].style.color = "#388C11";
+        }
+    } else if (localstorage.getItem('theme') == 'light') {
+        localstorage.setItem('theme', 'dark')
+        document.getElementById('chagetheme').innerHTML = '🌛'
+        document.getElementById('infofield').style.background = "#464451";
+
+        for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+            document.getElementsByClassName('event-name')[i].style.color = "#fff";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
+            document.getElementsByClassName('question-event-text')[i].style.color = "#fff";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
+            document.getElementsByClassName('question-event-name')[i].style.color = "#00BFFF";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
+            document.getElementsByClassName('event-container')[i].style.color = "#fff";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
+            document.getElementsByClassName('oper-comment-name')[i].style.color = "#C0C0C0";
+            document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808054";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
+            document.getElementsByClassName('question-event-date')[i].style.color = "#fff";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
+            document.getElementsByClassName('answer-oper-name')[i].style.color = "#b8860b";
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
+            document.getElementsByClassName('answer-bot-name')[i].style.color = "#39ACD32";
+        }
+    }
+}
+
+document.getElementById('chagetheme').onclick = changeviewtheme;
 
 		function fillchatbox() {
 			
