@@ -5538,15 +5538,14 @@ function move_again_AF() {
             }
         }
 
-        document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
-            if (document.getElementById('userchatdata').style.display == 'none')
+		document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
+		            if (document.getElementById('userchatdata').style.display == 'none')
                 document.getElementById('userchatdata').style.display = ''
-            else if (typeof (convdata) !== 'undefined') {
-
-                document.getElementById('userchatdata').style.display = '';
+					else document.getElementById('userchatdata').style.display = 'none'
+		
+		    if (typeof (convdata) !== 'undefined') {
                 document.getElementById('datafield').innerHTML = '<span style="color:#00BFFF; font-weight:700;">' + convdata.channelUser.payload.userFullName + '</span>' + '<br>' + '<span style="color: #00FA9A;">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '<span style="user-select: none;">' + '📧: ' + '</span>' + convdata.channelUser.payload.email + '<br>' + '<span style="user-select: none;">' + '📞:' + '</span>' + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
             } else alert("Не выбран активный чат")
-
         }
 
 
