@@ -1797,18 +1797,6 @@ let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 
-let openchhis = document.createElement('button')
-openchhis.innerHTML = '☢'
-openchhis.style='position:fixed;top:45px;right:7px;'
-openchhis.id='opennewcat'
-document.getElementsByTagName('section')[1].append(openchhis)
-
-
-openchhis.onclick = () => {
-    if(document.getElementById('AF_ChatHis').style.display =='none')
-	document.getElementById('butChatHistory').click()
-}
-
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -11845,6 +11833,18 @@ async function getStats() {           // функция получения ст�
 
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
+}
+
+let openchhis = document.createElement('button')
+openchhis.innerHTML = '☢'
+openchhis.style='position:fixed;top:45px;right:7px;'
+openchhis.id='opennewcat'
+document.getElementsByTagName('section')[1].append(openchhis)
+
+
+openchhis.onclick = () => {
+    if(document.getElementById('AF_ChatHis').style.display =='none')
+	document.getElementById('butChatHistory').click()
 }
 
 
