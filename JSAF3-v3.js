@@ -252,10 +252,10 @@ function mystyles() {
 		}
 		
 		.img-chat-history:hover {
-			transform:scale(1.7);
-			width:300px;
-			margin-left: 100px;
-			z-index:9999;
+			transform: scale(1.5);
+			width: 300px;
+			margin-left: 50px;
+			z-index: 9999;
 		}
 		
 		.cursor-userinfobtns {
@@ -671,10 +671,10 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button id="takechat" style="margin-left: 185px;margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 					<br>
 					<span id="chid" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;">🔀</button>
+					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
 							
-			<div id="infofield" style="color:bisque; margin-left:10px; width:410px; max-height: 700px; overflow:auto;">
+			<div id="infofield" style="color:bisque; margin-left:10px; width:410px; height:77vh; overflow:auto;">
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px">
@@ -1715,8 +1715,8 @@ if (localStorage.getItem('winTopSugest') == null) {
 }
 
 if (localStorage.getItem('winTopChatHis') == null) {
-    localStorage.setItem('winTopChatHis', '120');
-    localStorage.setItem('winLeftChatHis', '295');
+    localStorage.setItem('winTopChatHis', '0');
+    localStorage.setItem('winLeftChatHis', '80.6');
 }
 
 //Для таймера автозакрытия
@@ -2346,7 +2346,7 @@ wintSugform.innerHTML = win_suggest;
 
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
-wintChatHis.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopChatHis') + 'px; left: ' + localStorage.getItem('winLeftChatHis') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; left: 80.6%; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
@@ -2520,19 +2520,19 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
 }
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
 
-var listener16 = function (e, a) { // сохранение позиции окна доступов
-    wintChatHis.style.left = Number(e.clientX - myX16) + "px";
-    wintChatHis.style.top = Number(e.clientY - myY16) + "px";
-    localStorage.setItem('winTopChatHis', String(Number(e.clientY - myY16)));
-    localStorage.setItem('winLeftChatHis', String(Number(e.clientX - myX16)));
-};
+// var listener16 = function (e, a) { // сохранение позиции окна доступов
+    // wintChatHis.style.left = Number(e.clientX - myX16) + "px";
+    // wintChatHis.style.top = Number(e.clientY - myY16) + "px";
+    // localStorage.setItem('winTopChatHis', String(Number(e.clientY - myY16)));
+    // localStorage.setItem('winLeftChatHis', String(Number(e.clientX - myX16)));
+// };
 
-wintChatHis.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX16 = a.layerX;
-    window.myY16 = a.layerY;
-    document.addEventListener('mousemove', listener16);
-}
-wintChatHis.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
+// wintChatHis.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    // window.myX16 = a.layerX;
+    // window.myY16 = a.layerY;
+    // document.addEventListener('mousemove', listener16);
+// }
+// wintChatHis.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
