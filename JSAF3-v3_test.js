@@ -8388,6 +8388,9 @@ function newTags(tagName) {
                                 tsmin = "0" + tmestmp.getMinutes();
                             else tsmin = tmestmp.getMinutes();
 
+							if (operchatsdata.items[i].channelUser.payload.userFullName == undefined)
+								operchatsdata.items[i].channelUser.payload.userFullName = operchatsdata.items[i].channelUser.userFullName
+
                             foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
                         }
 
