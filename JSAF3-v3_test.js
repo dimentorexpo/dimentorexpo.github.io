@@ -5673,8 +5673,14 @@ function move_again_AF() {
                     if (data.items[i].stats.usedStatuses == "AssignedToOperator")
                         actstatus = "🛠"
                     else actstatus = '';
+					
+					
+						if (operchatsdata.items[i].channelUser.payload.userFullName == undefined)							
+							foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser..userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'								                           
+						else
+								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
 
-                    foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
+
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
