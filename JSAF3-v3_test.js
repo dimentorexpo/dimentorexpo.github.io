@@ -1715,8 +1715,8 @@ if (localStorage.getItem('winTopSugest') == null) {
 }
 
 if (localStorage.getItem('winTopChatHis') == null) {
-    localStorage.setItem('winTopChatHis', '120');
-    localStorage.setItem('winLeftChatHis', '295');
+    localStorage.setItem('winTopChatHis', '0');
+    localStorage.setItem('winLeftChatHis', '80.6');
 }
 
 //Для таймера автозакрытия
@@ -2346,7 +2346,7 @@ wintSugform.innerHTML = win_suggest;
 
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
-wintChatHis.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopChatHis') + 'px; left: ' + localStorage.getItem('winLeftChatHis') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintChatHis.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopChatHis') + 'px; left: ' + localStorage.getItem('winLeftChatHis') + '%; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
@@ -2520,19 +2520,19 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
 }
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
 
-var listener16 = function (e, a) { // сохранение позиции окна доступов
-    wintChatHis.style.left = Number(e.clientX - myX16) + "px";
-    wintChatHis.style.top = Number(e.clientY - myY16) + "px";
-    localStorage.setItem('winTopChatHis', String(Number(e.clientY - myY16)));
-    localStorage.setItem('winLeftChatHis', String(Number(e.clientX - myX16)));
-};
+// var listener16 = function (e, a) { // сохранение позиции окна доступов
+    // wintChatHis.style.left = Number(e.clientX - myX16) + "px";
+    // wintChatHis.style.top = Number(e.clientY - myY16) + "px";
+    // localStorage.setItem('winTopChatHis', String(Number(e.clientY - myY16)));
+    // localStorage.setItem('winLeftChatHis', String(Number(e.clientX - myX16)));
+// };
 
-wintChatHis.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX16 = a.layerX;
-    window.myY16 = a.layerY;
-    document.addEventListener('mousemove', listener16);
-}
-wintChatHis.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
+// wintChatHis.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    // window.myX16 = a.layerX;
+    // window.myY16 = a.layerY;
+    // document.addEventListener('mousemove', listener16);
+// }
+// wintChatHis.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
