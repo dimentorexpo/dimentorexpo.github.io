@@ -5482,7 +5482,7 @@ function move_again_AF() {
         else
             document.getElementById('AF_ChatHis').style.display = ''
 		
-		changeviewtheme()
+		//changeviewtheme()
 
         flagsearch = ''
         let getdateset = new Date()
