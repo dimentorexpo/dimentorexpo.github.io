@@ -678,7 +678,7 @@ var win_Chathis =  // описание элементов окна ссылок
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px">
-				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;"></textarea>
+				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 18px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
@@ -5537,8 +5537,8 @@ function move_again_AF() {
         }
 
         document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
-            if (document.getElementById('userchatdata').style.display == '')
-                document.getElementById('userchatdata').style.display = 'none'
+            if (document.getElementById('userchatdata').style.display == 'none')
+                document.getElementById('userchatdata').style.display = ''
             else if (typeof (convdata) !== 'undefined') {
 
                 document.getElementById('userchatdata').style.display = '';
