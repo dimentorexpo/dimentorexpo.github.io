@@ -7907,12 +7907,12 @@ function newTags(tagName) {
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
                                 document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName +  ' взял(а) диалог в работу' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
-                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[11].payload.sender != undefined) {
+                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender != undefined) {
 								let operid = convdata.messages[i].payload.sender;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
                                 document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
-                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[11].payload.sender == undefined) {
+                            } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender == undefined) {
 								let operid = convdata.messages[i].payload.prevOid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
