@@ -2346,7 +2346,7 @@ wintSugform.innerHTML = win_suggest;
 
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
-wintChatHis.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopChatHis') + 'px; left: ' + localStorage.getItem('winLeftChatHis') + '%; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; left: 80.6%; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;"><div style="display: flex; width: 410px;';
 wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
