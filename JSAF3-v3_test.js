@@ -718,7 +718,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
 							
-			<div id="infofield" style="color:LightSeaGreen; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow:auto;">
+			<div id="infofield" style="color:mediumaquamarine; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow:auto;">
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px;display:none;">
