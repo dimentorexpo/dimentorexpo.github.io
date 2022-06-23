@@ -237,39 +237,39 @@ function mystyles() {
 		}
 		
 		.event-name .light {
-			color: #999999;
+			color: #999999 !important;
 		}
 		
 		.question-event-text .light {
-			color: #000;
+			color: #000 !important;
 		}		
 		
 		.question-event-name .light {
-			color: #23609E;
+			color: #23609E !important;
 		}
 		
 		.event-container .light {
-			color: #999999;
+			color: #999999 !important;
 		}
 		
 		.oper-comment-container .light {
-			background: #80808026;
+			background: #80808026 !important;
 		}	
 		
 		.oper-comment-name .light {
-			color: #808080;
+			color: #808080 !important;
 		}
 		
 		.question-event-date .light {
-			color: #999999;
+			color: #999999 !important;
 		}
 		
 		.answer-oper-name .light {
-			color: #b8860b;
+			color: #b8860b  !important;
 		}
 		
 		.answer-bot-name .light {
-			color: #388C11;
+			color: #388C11 !important;
 		}
 		
 		.copyserviceid {
