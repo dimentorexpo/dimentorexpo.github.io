@@ -7863,15 +7863,15 @@ function changeviewtheme() {
         document.getElementById('chagetheme').innerHTML = '🌛'
         document.getElementById('infofield').style.background = "#464451";
 		
-		    document.getElementsByClassName('event-name').classList.add('remove')
-            document.getElementsByClassName('question-event-text').classList.add('remove')
-            document.getElementsByClassName('question-event-name').classList.add('remove')
-            document.getElementsByClassName('event-container').classList.add('remove')
-            document.getElementsByClassName('oper-comment-name').classList.add('remove')
-            document.getElementsByClassName('oper-comment-container').classList.add('remove')
-            document.getElementsByClassName('question-event-date').classList.add('remove')
-            document.getElementsByClassName('answer-oper-name').classList.add('remove')
-            document.getElementsByClassName('answer-bot-name').classList.add('remove')
+		    document.getElementsByClassName('event-name').classList.remove('light')
+            document.getElementsByClassName('question-event-text').classList.remove('light')
+            document.getElementsByClassName('question-event-name').classList.remove('light')
+            document.getElementsByClassName('event-container').classList.remove('light')
+            document.getElementsByClassName('oper-comment-name').classList.remove('light')
+            document.getElementsByClassName('oper-comment-container').classList.remove('light')
+            document.getElementsByClassName('question-event-date').classList.remove('light')
+            document.getElementsByClassName('answer-oper-name').classList.remove('light')
+            document.getElementsByClassName('answer-bot-name').classList.remove('light')
 		
     }
 }
