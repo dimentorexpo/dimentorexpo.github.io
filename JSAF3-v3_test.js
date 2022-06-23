@@ -157,7 +157,7 @@ function mystyles() {
 			float: left;
 			color: white;
 			text-align: center;
-			width: 370px;
+			width: 380px;
 			font-size: 12px;
 		}
 		
