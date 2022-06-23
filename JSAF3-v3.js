@@ -236,6 +236,46 @@ function mystyles() {
 			font-size:12px;
 		}
 		
+		.event-name.light {
+			color: #999999 !important;
+		}
+		
+		.question-event-text.light {
+			color: #000 !important;
+		}		
+		
+		.question-event-name.light {
+			color: #23609E !important;
+		}
+		
+		.event-container.light {
+			color: #999999 !important;
+		}
+		
+		.oper-comment-container.light {
+			background: #80808026 !important;
+		}	
+		
+		.oper-comment-name.light {
+			color: #808080 !important;
+		}
+		
+		.question-event-date.light {
+			color: #999999 !important;
+		}
+		
+		.answer-oper-name.light {
+			color: #b8860b  !important;
+		}
+		
+		.answer-bot-name.light {
+			color: #388C11 !important;
+		}
+		
+		.chatlist.light {
+			color:#000 !important;
+		}
+		
 		.copyserviceid {
 			margin-left: 5px;
 			cursor: pointer;
@@ -264,7 +304,7 @@ function mystyles() {
 			cursor:pointer;
 			font-weight:700;
 		}
-		
+				
 		#servDsk:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -662,10 +702,12 @@ var win_Chathis =  // описание элементов окна ссылок
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
 					<button id="refreshchat" style="width:50px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-					<input type="date" style="color:black; margin-left:5px;  width:125px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
+					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
-					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:125px; text-align:center; " name="EndDataChHis" id="dateToChHis">
+					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:115px; text-align:center; " name="EndDataChHis" id="dateToChHis">
+					<button style="width:30px;" id="chagetheme">🌛</button>
 				</div>
+				
 			</span>
 				
 				<div style="width: 410px;display:none" id="somechatinfo">
@@ -676,11 +718,11 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
 							
-			<div id="infofield" style="color:bisque; margin-left:10px; width:410px; height:77vh; overflow:auto;">
+			<div id="infofield" style="color:mediumaquamarine; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow:auto;">
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px;display:none;">
-				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 18px;"></textarea>
+				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
@@ -1720,6 +1762,10 @@ if (localStorage.getItem('winTopSugest') == null) {
 if (localStorage.getItem('winTopChatHis') == null) {
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
+}
+
+if (localStorage.getItem('theme') == null) { //заносим переменную для переключения окна
+    localStorage.setItem('theme', 'dark');
 }
 
 //Для таймера автозакрытия
@@ -5475,6 +5521,8 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
+		
+		changeviewtheme()
 
         flagsearch = ''
         let getdateset = new Date()
@@ -5577,8 +5625,6 @@ function move_again_AF() {
 
         document.getElementById('btn_search_history').onclick = async () => { //функця обработки нажатия "Найти"
 
-
-
             if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') { // если айди пользователя введен, а хеш чата не введен
                 flagsearch = 'searchbyuser'
                 let lusid = document.getElementById('chatuserhis').value.trim();
@@ -5657,6 +5703,7 @@ function move_again_AF() {
                         actstatus = "🛠"
                     else actstatus = '';
 					
+					//сюда также допилить классы и  менять их в зависимости от темы
 					
 						if (data.items[i].channelUser.payload.userFullName == undefined)							
 							foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.fullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'								                           
@@ -5667,6 +5714,7 @@ function move_again_AF() {
                 }
 
                 document.getElementById('infofield').innerHTML = foundarr;
+				checkandchangestyle()
 
                 for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
                     document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
@@ -5677,6 +5725,7 @@ function move_again_AF() {
                         console.log(convdata)
 
 						fillchatbox();
+						checkandchangestyle();
                     } // конец функции клика по списку в найденном чате
                 }
 
@@ -5685,7 +5734,8 @@ function move_again_AF() {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
-				fillchatbox()
+				fillchatbox();
+				checkandchangestyle();
 				
             } else alert("Введено и ID пользователя и хеш чата, или оба поля пустые. Пожалуйста, выберите что-то одно и повторите попытку.")
         } // конец функции клика найти
@@ -5699,6 +5749,7 @@ function move_again_AF() {
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
+				checkandchangestyle();
 
                 for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
                     if (flagsearch == 'searchbyuser')
@@ -5720,6 +5771,7 @@ function move_again_AF() {
                         console.log(convdata)
 
 						fillchatbox();
+						checkandchangestyle();
                     } // конец функции клика по списку в найденном чате
                 }
             }
@@ -5733,6 +5785,7 @@ function move_again_AF() {
                 console.log(convdata)
 
 				fillchatbox();
+				checkandchangestyle();
             }
         } // конец обработчика кнопки "Обновить"
 
@@ -7797,6 +7850,124 @@ function newTags(tagName) {
         });
 }
 
+function changeviewtheme() {
+
+    if (localStorage.getItem('theme') == 'light') {
+        document.getElementById('chagetheme').innerHTML = '☀'
+        document.getElementById('infofield').style.background = "#f5f5f5";
+		        
+    } else if (localStorage.getItem('theme') == 'dark') {
+        document.getElementById('chagetheme').innerHTML = '🌛'
+        document.getElementById('infofield').style.background = "#464451";
+    }
+}
+
+function checkandchangestyle() {
+
+	if (localStorage.getItem('theme') == 'light') {
+		
+		for (let i= 0; i < document.getElementsByClassName('chatlist').length;i++) {
+			document.getElementsByClassName('chatlist')[i].classList.toggle('light')
+		}
+		
+		for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+            document.getElementsByClassName('event-name')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
+            document.getElementsByClassName('question-event-text')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
+            document.getElementsByClassName('question-event-name')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
+            document.getElementsByClassName('event-container')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
+            document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+            document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) { 
+            document.getElementsByClassName('question-event-date')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
+            document.getElementsByClassName('answer-oper-name')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
+            document.getElementsByClassName('answer-bot-name')[i].classList.toggle('light')
+        }
+			
+	} else if (localStorage.getItem('theme') == 'dark') {
+		
+		for (let i= 0; i < document.getElementsByClassName('chatlist').length;i++) {
+			if (document.getElementsByClassName('chatlist')[i].classList.contains('light'))
+			document.getElementsByClassName('chatlist')[i].classList.toggle('light')
+		}
+		
+		 for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+			 if (document.getElementsByClassName('event-name')[i].classList.contains('light'))
+            document.getElementsByClassName('event-name')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
+		 if (document.getElementsByClassName('question-event-text')[i].classList.contains('light'))
+            document.getElementsByClassName('question-event-text')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
+		 if (document.getElementsByClassName('question-event-name')[i].classList.contains('light'))
+            document.getElementsByClassName('question-event-name')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
+		 if (document.getElementsByClassName('event-container')[i].classList.contains('light'))
+            document.getElementsByClassName('event-container')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
+		 if (document.getElementsByClassName('oper-comment-name')[i].classList.contains('light') && document.getElementsByClassName('oper-comment-container')[i].classList.contains('light') )
+            document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+            document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
+		 if (document.getElementsByClassName('question-event-date')[i].classList.contains('light'))
+            document.getElementsByClassName('question-event-date')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
+		 if (document.getElementsByClassName('answer-oper-name')[i].classList.contains('light'))
+            document.getElementsByClassName('answer-oper-name')[i].classList.toggle('light')
+        }
+
+        for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
+		 if (document.getElementsByClassName('answer-bot-name')[i].classList.contains('light'))
+            document.getElementsByClassName('answer-bot-name')[i].classList.toggle('light')
+        }
+    }
+}
+
+document.getElementById('chagetheme').onclick = () => {
+	if (localStorage.getItem('theme') == 'light') {       
+	localStorage.setItem('theme', 'dark')
+        document.getElementById('chagetheme').innerHTML = '🌛'
+        document.getElementById('infofield').style.background = "#464451";
+		checkandchangestyle();
+	} else if (localStorage.getItem('theme') == 'dark')   {
+		localStorage.setItem('theme', 'light')
+		document.getElementById('chagetheme').innerHTML = '☀'
+        document.getElementById('infofield').style.background = "#f5f5f5";
+		checkandchangestyle();
+	}
+	
+};
+
 		function fillchatbox() {
 			
 			    document.getElementById('infofield').innerHTML = ''
@@ -8069,6 +8240,7 @@ function newTags(tagName) {
                         }
 
                         document.getElementById('infofield').innerHTML = foundarr;
+						checkandchangestyle()
 
                         for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
                             document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
@@ -8079,6 +8251,7 @@ function newTags(tagName) {
                                 console.log(convdata)
 
 								fillchatbox();
+								checkandchangestyle();
                             } // конец функции клика по списку в найденном чате
                         }
                     }
