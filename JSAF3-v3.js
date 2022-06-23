@@ -116,7 +116,7 @@ function mystyles() {
 		.question-event {
 			background:#1890FF26;
 			min-width:280px;
-			max-width:390px;
+			max-width:290px;
 			margin-left: 10px;
 			margin-bottom: 5px;
 			padding: 5px 5px;
