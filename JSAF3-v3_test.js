@@ -202,7 +202,7 @@ function mystyles() {
 		}
 		
 		.answer-oper-container {
-			background: #FADA5E26;
+			background: #FADA5E54;
 			min-width: 280px;
 			max-width: 320px;
 			float: right;
