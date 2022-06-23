@@ -7854,7 +7854,7 @@ function changeviewtheme() {
 
     if (localStorage.getItem('theme') == 'light') {
         document.getElementById('chagetheme').innerHTML = '☀'
-        document.getElementById('infofield').style.background = "#fff";
+        document.getElementById('infofield').style.background = "#f5f5f5";
 		        
     } else if (localStorage.getItem('theme') == 'dark') {
         document.getElementById('chagetheme').innerHTML = '🌛'
@@ -7962,7 +7962,7 @@ document.getElementById('chagetheme').onclick = () => {
 	} else if (localStorage.getItem('theme') == 'dark')   {
 		localStorage.setItem('theme', 'light')
 		document.getElementById('chagetheme').innerHTML = '☀'
-        document.getElementById('infofield').style.background = "#fff";
+        document.getElementById('infofield').style.background = "#f5f5f5";
 		checkandchangestyle();
 	}
 	
