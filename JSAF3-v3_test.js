@@ -264,6 +264,10 @@ function mystyles() {
 			color: #999999 !important;
 		}
 		
+		.answer-bot-date.light {
+			color: #999999 !important;
+		}
+		
 		.answer-oper-name.light {
 			color: #b8860b  !important;
 		}
@@ -7890,8 +7894,12 @@ function checkandchangestyle() {
 
 	if (localStorage.getItem('theme') == 'light') {
 		
-		for (let i= 0; i < document.getElementsByClassName('chatlist').length;i++) {
+		for (let i = 0; i < document.getElementsByClassName('chatlist').length;i++) {
 			document.getElementsByClassName('chatlist')[i].classList.toggle('light')
+		}	
+
+		for (let i = 0; i < document.getElementsByClassName('answer-bot-date').length;i++) {
+			document.getElementsByClassName('answer-bot-date')[i].classList.toggle('light')
 		}
 		
 		for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
@@ -7935,6 +7943,11 @@ function checkandchangestyle() {
 		for (let i= 0; i < document.getElementsByClassName('chatlist').length;i++) {
 			if (document.getElementsByClassName('chatlist')[i].classList.contains('light'))
 			document.getElementsByClassName('chatlist')[i].classList.toggle('light')
+		}
+		
+		for (let i = 0; i < document.getElementsByClassName('answer-bot-date').length;i++) {
+			if (document.getElementsByClassName('answer-bot-date')[i].classList.contains('light'))	
+			document.getElementsByClassName('answer-bot-date')[i].classList.toggle('light')
 		}
 		
 		 for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
