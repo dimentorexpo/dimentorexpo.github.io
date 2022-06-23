@@ -701,7 +701,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
 					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:115px; text-align:center; " name="EndDataChHis" id="dateToChHis">
-					<button style="width:30px;" id="chagetheme">🌛</button>
+					<button style="width:30px;" id="changetheme">🌛</button>
 				</div>
 				
 			</span>
@@ -5621,8 +5621,6 @@ function move_again_AF() {
 
         document.getElementById('btn_search_history').onclick = async () => { //функця обработки нажатия "Найти"
 
-
-
             if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') { // если айди пользователя введен, а хеш чата не введен
                 flagsearch = 'searchbyuser'
                 let lusid = document.getElementById('chatuserhis').value.trim();
@@ -5701,6 +5699,7 @@ function move_again_AF() {
                         actstatus = "🛠"
                     else actstatus = '';
 					
+					//сюда также допилить классы и  менять их в зависимости от темы
 					
 						if (data.items[i].channelUser.payload.userFullName == undefined)							
 							foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.fullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'								                           
@@ -5721,6 +5720,7 @@ function move_again_AF() {
                         console.log(convdata)
 
 						fillchatbox();
+						checkandchangestyle();
                     } // конец функции клика по списку в найденном чате
                 }
 
@@ -5764,6 +5764,7 @@ function move_again_AF() {
                         console.log(convdata)
 
 						fillchatbox();
+						checkandchangestyle();
                     } // конец функции клика по списку в найденном чате
                 }
             }
@@ -5777,6 +5778,7 @@ function move_again_AF() {
                 console.log(convdata)
 
 				fillchatbox();
+				checkandchangestyle();
             }
         } // конец обработчика кнопки "Обновить"
 
@@ -7844,11 +7846,21 @@ function newTags(tagName) {
 function changeviewtheme() {
 
     if (localStorage.getItem('theme') == 'light') {
-       // localStorage.setItem('theme', 'light')
-        document.getElementById('chagetheme').innerHTML = '☀'
+        document.getElementById('changetheme').innerHTML = '☀'
         document.getElementById('infofield').style.background = "#fff";
+		        
+    } else if (localStorage.getItem('theme') == 'dark') {
+        document.getElementById('changetheme').innerHTML = '🌛'
+        document.getElementById('infofield').style.background = "#464451";
 		
-            document.getElementsByClassName('event-name').classList.add('light')
+    }
+}
+
+function checkandchangestyle() 
+
+	if (localStorage.getItem('theme') == 'light') {
+		
+		    document.getElementsByClassName('event-name').classList.add('light')
             document.getElementsByClassName('question-event-text').classList.add('light')
             document.getElementsByClassName('question-event-name').classList.add('light')
             document.getElementsByClassName('event-container').classList.add('light')
@@ -7857,12 +7869,9 @@ function changeviewtheme() {
             document.getElementsByClassName('question-event-date').classList.add('light')
             document.getElementsByClassName('answer-oper-name').classList.add('light')
             document.getElementsByClassName('answer-bot-name').classList.add('light')
-        
-    } else if (localStorage.getItem('theme') == 'dark') {
-        //localStorage.setItem('theme', 'dark')
-        document.getElementById('chagetheme').innerHTML = '🌛'
-        document.getElementById('infofield').style.background = "#464451";
-		
+			
+	} else if (localStorage.getItem('theme') == 'dark') {
+
 		    document.getElementsByClassName('event-name').classList.remove('light')
             document.getElementsByClassName('question-event-text').classList.remove('light')
             document.getElementsByClassName('question-event-name').classList.remove('light')
@@ -7872,11 +7881,11 @@ function changeviewtheme() {
             document.getElementsByClassName('question-event-date').classList.remove('light')
             document.getElementsByClassName('answer-oper-name').classList.remove('light')
             document.getElementsByClassName('answer-bot-name').classList.remove('light')
-		
     }
+	
 }
 
-document.getElementById('chagetheme').onclick = () => {
+document.getElementById('changetheme').onclick = () => {
 	if (localStorage.getItem('theme') =='light')       
 	localStorage.setItem('theme', 'dark')
 	else localStorage.setItem('theme', 'light')
@@ -8167,6 +8176,7 @@ document.getElementById('chagetheme').onclick = () => {
                                 console.log(convdata)
 
 								fillchatbox();
+								checkandchangestyle();
                             } // конец функции клика по списку в найденном чате
                         }
                     }
