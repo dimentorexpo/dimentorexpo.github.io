@@ -5729,7 +5729,8 @@ function move_again_AF() {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
-				fillchatbox()
+				fillchatbox();
+				checkandchangestyle();
 				
             } else alert("Введено и ID пользователя и хеш чата, или оба поля пустые. Пожалуйста, выберите что-то одно и повторите попытку.")
         } // конец функции клика найти
