@@ -172,7 +172,7 @@ function mystyles() {
 		.event-other-date {
 			float:right;
 			font-size:12px;
-			margin-right:5px;
+			margin-right:15px;
 		}
 		
 		.answer-bot-container {
