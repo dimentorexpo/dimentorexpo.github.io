@@ -172,7 +172,7 @@ function mystyles() {
 		.event-other-date {
 			float:right;
 			font-size:12px;
-			margin-right:5px;
+			margin-right:15px;
 		}
 		
 		.answer-bot-container {
@@ -220,7 +220,7 @@ function mystyles() {
 		
 		.oper-comment-container {
 			background:#80808054;
-			width:360px;
+			width:380px;
 			float:left;
 			margin-bottom:5px;
 			margin-left: 10px;
@@ -8121,7 +8121,7 @@ document.getElementById('chagetheme').onclick = () => {
 							else if (convdata.messages[i].eventTpe == 'FinishIntegration')
 								eventmsg='Интеграция успешно отработала'
 			
-                            if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
+                            if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation' && convdata.messages[i].eventTpe != 'CreatedByOperator') {
                                 document.getElementById('infofield').innerHTML += '<div class="event-container">' + eventmsg + '<span class="event-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status =='OnOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
@@ -8150,9 +8150,14 @@ document.getElementById('chagetheme').onclick = () => {
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
+                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-									}
+							} else if (convdata.messages[i].eventTpe == 'CreatedByOperator') {
+								let operid = convdata.messages[i].payload.oid;
+                                let opername;
+                                opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+							}
                          break;
 
                         case "AnswerOperatorWithBot":
