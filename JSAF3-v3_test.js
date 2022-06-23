@@ -7967,36 +7967,45 @@ function checkandchangestyle() {
         }
 			
 	} else if (localStorage.getItem('theme') == 'dark') {
-		      for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+		
+		 for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+			 if (document.getElementsByClassName('event-name')[i].classList.contains('light'))
             document.getElementsByClassName('event-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
+		 if (document.getElementsByClassName('question-event-text')[i].classList.contains('light'))
             document.getElementsByClassName('question-event-text')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
+		 if (document.getElementsByClassName('question-event-name')[i].classList.contains('light'))
             document.getElementsByClassName('question-event-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
+		 if (document.getElementsByClassName('event-container')[i].classList.contains('light'))
             document.getElementsByClassName('event-container')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
+		 if (document.getElementsByClassName('oper-comment-name')[i].classList.contains('light') && document.getElementsByClassName('oper-comment-container')[i].classList.contains('light') )
             document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
             document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
+		 if (document.getElementsByClassName('question-event-date')[i].classList.contains('light'))
             document.getElementsByClassName('question-event-date')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
+		 if (document.getElementsByClassName('answer-oper-name')[i].classList.contains('light'))
             document.getElementsByClassName('answer-oper-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
+		 if (document.getElementsByClassName('answer-bot-name')[i].classList.contains('light'))
             document.getElementsByClassName('answer-bot-name')[i].classList.toggle('light')
         }
     }
