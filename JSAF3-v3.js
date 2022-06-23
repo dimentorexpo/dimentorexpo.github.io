@@ -116,7 +116,7 @@ function mystyles() {
 		.question-event {
 			background:#1890FF26;
 			min-width:280px;
-			max-width:300px;
+			max-width:290px;
 			margin-left: 10px;
 			margin-bottom: 5px;
 			padding: 5px 5px;
@@ -149,7 +149,7 @@ function mystyles() {
 			float: left;
 			color: white;
 			text-align: center;
-			width: 390px;
+			width: 380px;
 			font-size: 12px;
 		}
 		
@@ -162,6 +162,9 @@ function mystyles() {
 		}
 		
 		.event-date {
+			float:right;
+			margin-right:5px;
+		}		.event-date {
 			float:right;
 			margin-right:5px;
 		}
@@ -199,7 +202,7 @@ function mystyles() {
 		}
 		
 		.answer-oper-container {
-			background: #FADA5E26;
+			background: #FADA5E54;
 			min-width: 280px;
 			max-width: 320px;
 			float: right;
@@ -217,7 +220,7 @@ function mystyles() {
 		
 		.oper-comment-container {
 			background:#80808054;
-			width:370px;
+			width:360px;
 			float:left;
 			margin-bottom:5px;
 			margin-left: 10px;
@@ -261,6 +264,10 @@ function mystyles() {
 		}
 		
 		.question-event-date.light {
+			color: #999999 !important;
+		}
+		
+		.answer-bot-date.light {
 			color: #999999 !important;
 		}
 		
@@ -718,7 +725,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
 							
-			<div id="infofield" style="color:mediumaquamarine; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow:auto;">
+			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow-x:hidden;">
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px;display:none;">
@@ -5647,7 +5654,6 @@ function move_again_AF() {
 				if (document.getElementById('bottommenuchhis').style.display =='')
 					document.getElementById('bottommenuchhis').style.display ='none';
 
-
                     document.getElementById('infofield').innerHTML = 'Загрузка'
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -5706,9 +5712,9 @@ function move_again_AF() {
 					//сюда также допилить классы и  менять их в зависимости от темы
 					
 						if (data.items[i].channelUser.payload.userFullName == undefined)							
-							foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.fullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'								                           
+							foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700;">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.fullName + '<span style="color: MediumSeaGreen; font-weight:700;">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'								                           
 						else
-								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color:YellowGreen">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
+								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700;">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color: MediumSeaGreen; font-weight:700;">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
 
 
                 }
@@ -7891,8 +7897,12 @@ function checkandchangestyle() {
 
 	if (localStorage.getItem('theme') == 'light') {
 		
-		for (let i= 0; i < document.getElementsByClassName('chatlist').length;i++) {
+		for (let i = 0; i < document.getElementsByClassName('chatlist').length;i++) {
 			document.getElementsByClassName('chatlist')[i].classList.toggle('light')
+		}	
+
+		for (let i = 0; i < document.getElementsByClassName('answer-bot-date').length;i++) {
+			document.getElementsByClassName('answer-bot-date')[i].classList.toggle('light')
 		}
 		
 		for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
@@ -7913,6 +7923,9 @@ function checkandchangestyle() {
 
         for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
             document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+        }
+		
+		for (let i = 0; i < document.getElementsByClassName('oper-comment-container').length; i++) {
             document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
         }
 
@@ -7933,6 +7946,11 @@ function checkandchangestyle() {
 		for (let i= 0; i < document.getElementsByClassName('chatlist').length;i++) {
 			if (document.getElementsByClassName('chatlist')[i].classList.contains('light'))
 			document.getElementsByClassName('chatlist')[i].classList.toggle('light')
+		}
+		
+		for (let i = 0; i < document.getElementsByClassName('answer-bot-date').length;i++) {
+			if (document.getElementsByClassName('answer-bot-date')[i].classList.contains('light'))	
+			document.getElementsByClassName('answer-bot-date')[i].classList.toggle('light')
 		}
 		
 		 for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
@@ -7956,8 +7974,12 @@ function checkandchangestyle() {
         }
 
         for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
-		 if (document.getElementsByClassName('oper-comment-name')[i].classList.contains('light') && document.getElementsByClassName('oper-comment-container')[i].classList.contains('light') )
+		 if (document.getElementsByClassName('oper-comment-name')[i].classList.contains('light'))
             document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+        }
+		
+		for (let i = 0; i < document.getElementsByClassName('oper-comment-container').length; i++) {
+		 if (document.getElementsByClassName('oper-comment-container')[i].classList.contains('light') )
             document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
         }
 
@@ -8100,36 +8122,36 @@ document.getElementById('chagetheme').onclick = () => {
 								eventmsg='Интеграция успешно отработала'
 			
                             if (convdata.messages[i].eventTpe != 'AssignToOperator' && convdata.messages[i].eventTpe != 'ReturnToQueue' && convdata.messages[i].eventTpe != 'CloseConversation') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + eventmsg + '<span class="event-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + eventmsg + '<span class="event-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status =='OnOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status =='AssignedToOperator' && convdata.messages[i].payload.oid != undefined) {
                                 let operid = convdata.messages[i].payload.oid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName +  ' взял(а) диалог в работу' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName +  ' взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender != undefined) {
 								let operid = convdata.messages[i].payload.sender;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender == undefined) {
 								let operid = convdata.messages[i].payload.prevOid;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Диалог вернулся в общую очередь от ' + opername[0].operator.fullName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Диалог вернулся в общую очередь от ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Диалог автоматически закрыт по отсутствию активности пользователя' + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + ' Диалог автоматически закрыт по отсутствию активности пользователя' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) !='' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender != 'userAnswerTimer') {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                                     } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + ' • ' + timearr2[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
 									}
                          break;
 
