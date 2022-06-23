@@ -217,7 +217,7 @@ function mystyles() {
 		
 		.oper-comment-container {
 			background:#80808054;
-			width:380px;
+			width:355px;
 			float:left;
 			margin-bottom:5px;
 			margin-left: 10px;
