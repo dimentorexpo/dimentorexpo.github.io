@@ -7856,7 +7856,7 @@ function changeviewtheme() {
     }
 }
 
-function checkandchangestyle() 
+function checkandchangestyle() {
 
 	if (localStorage.getItem('theme') == 'light') {
 		
