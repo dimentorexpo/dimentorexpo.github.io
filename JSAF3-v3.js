@@ -5862,7 +5862,19 @@ function move_again_AF() {
                     });
 
                     document.getElementById('msgftochatornotes').value = ''
+					
+					setTimeout(
+					async function (){
+											if (document.getElementById('placechatid').innerText != '') {
+						document.getElementById('infofield').innerHTML = '';
 
+						await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+						console.log(convdata)
+
+						fillchatbox();
+						checkandchangestyle();
+					}
+					} , 500);
 
                 } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
 
@@ -5890,6 +5902,19 @@ function move_again_AF() {
                     });
 
                     document.getElementById('msgftochatornotes').value = ''
+					
+					setTimeout(
+					async function (){
+						if (document.getElementById('placechatid').innerText != '') {
+						document.getElementById('infofield').innerHTML = '';
+
+						await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+						console.log(convdata)
+
+						fillchatbox();
+						checkandchangestyle();
+					}
+					} , 500);
                 }
             }
         }
