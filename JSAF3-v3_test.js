@@ -5749,6 +5749,7 @@ function move_again_AF() {
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
+				checkandchangestyle();
 
                 for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
                     if (flagsearch == 'searchbyuser')
