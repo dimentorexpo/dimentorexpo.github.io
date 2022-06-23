@@ -236,6 +236,42 @@ function mystyles() {
 			font-size:12px;
 		}
 		
+		.event-name .light {
+			color: #999999;
+		}
+		
+		.question-event-text .light {
+			color: #000;
+		}		
+		
+		.question-event-name .light {
+			color: #23609E;
+		}
+		
+		.event-container .light {
+			color: #999999;
+		}
+		
+		.oper-comment-container .light {
+			background: #80808026;
+		}	
+		
+		.oper-comment-name .light {
+			color: #808080;
+		}
+		
+		.question-event-date .light {
+			color: #999999;
+		}
+		
+		.answer-oper-name .light {
+			color: #b8860b;
+		}
+		
+		.answer-bot-name .light {
+			color: #388C11;
+		}
+		
 		.copyserviceid {
 			margin-left: 5px;
 			cursor: pointer;
@@ -7811,76 +7847,32 @@ function changeviewtheme() {
        // localStorage.setItem('theme', 'light')
         document.getElementById('chagetheme').innerHTML = '☀'
         document.getElementById('infofield').style.background = "#fff";
-
-        for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
-            document.getElementsByClassName('event-name')[i].style.color = "#999999";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
-            document.getElementsByClassName('question-event-text')[i].style.color = "#000"
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
-            document.getElementsByClassName('question-event-name')[i].style.color = "#23609E";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
-            document.getElementsByClassName('event-container')[i].style.color = "#999999";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
-            document.getElementsByClassName('oper-comment-name')[i].style.color = "#808080";
-            document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808026";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
-            document.getElementsByClassName('question-event-date')[i].style.color = "#999999";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
-            document.getElementsByClassName('answer-oper-name')[i].style.color = "#b8860b";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
-            document.getElementsByClassName('answer-bot-name')[i].style.color = "#388C11";
-        }
+		
+            document.getElementsByClassName('event-name').classList.add('light')
+            document.getElementsByClassName('question-event-text').classList.add('light')
+            document.getElementsByClassName('question-event-name').classList.add('light')
+            document.getElementsByClassName('event-container').classList.add('light')
+            document.getElementsByClassName('oper-comment-name').classList.add('light')
+            document.getElementsByClassName('oper-comment-container').classList.add('light')
+            document.getElementsByClassName('question-event-date').classList.add('light')
+            document.getElementsByClassName('answer-oper-name').classList.add('light')
+            document.getElementsByClassName('answer-bot-name').classList.add('light')
+        
     } else if (localStorage.getItem('theme') == 'dark') {
         //localStorage.setItem('theme', 'dark')
         document.getElementById('chagetheme').innerHTML = '🌛'
         document.getElementById('infofield').style.background = "#464451";
-
-        for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
-            document.getElementsByClassName('event-name')[i].style.color = "#fff";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
-            document.getElementsByClassName('question-event-text')[i].style.color = "#fff";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
-            document.getElementsByClassName('question-event-name')[i].style.color = "#00BFFF";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
-            document.getElementsByClassName('event-container')[i].style.color = "#fff";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
-            document.getElementsByClassName('oper-comment-name')[i].style.color = "#C0C0C0";
-            document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808054";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
-            document.getElementsByClassName('question-event-date')[i].style.color = "#fff";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
-            document.getElementsByClassName('answer-oper-name')[i].style.color = "bisque";
-        }
-
-        for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
-            document.getElementsByClassName('answer-bot-name')[i].style.color = "#39ACD32";
-        }
+		
+		    document.getElementsByClassName('event-name').classList.add('remove')
+            document.getElementsByClassName('question-event-text').classList.add('remove')
+            document.getElementsByClassName('question-event-name').classList.add('remove')
+            document.getElementsByClassName('event-container').classList.add('remove')
+            document.getElementsByClassName('oper-comment-name').classList.add('remove')
+            document.getElementsByClassName('oper-comment-container').classList.add('remove')
+            document.getElementsByClassName('question-event-date').classList.add('remove')
+            document.getElementsByClassName('answer-oper-name').classList.add('remove')
+            document.getElementsByClassName('answer-bot-name').classList.add('remove')
+		
     }
 }
 
