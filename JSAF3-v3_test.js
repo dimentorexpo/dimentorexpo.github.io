@@ -701,7 +701,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
 					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:115px; text-align:center; " name="EndDataChHis" id="dateToChHis">
-					<button style="width:30px;" id="changetheme">🌛</button>
+					<button style="width:30px;" id="chagetheme">🌛</button>
 				</div>
 				
 			</span>
@@ -7846,11 +7846,11 @@ function newTags(tagName) {
 function changeviewtheme() {
 
     if (localStorage.getItem('theme') == 'light') {
-        document.getElementById('changetheme').innerHTML = '☀'
+        document.getElementById('chagetheme').innerHTML = '☀'
         document.getElementById('infofield').style.background = "#fff";
 		        
     } else if (localStorage.getItem('theme') == 'dark') {
-        document.getElementById('changetheme').innerHTML = '🌛'
+        document.getElementById('chagetheme').innerHTML = '🌛'
         document.getElementById('infofield').style.background = "#464451";
     }
 }
@@ -7926,15 +7926,18 @@ function checkandchangestyle() {
             document.getElementsByClassName('answer-bot-name')[i].style.color = "#39ACD32";
         }
     }
-	
 }
 
-document.getElementById('changetheme').onclick = () => {
-	if (localStorage.getItem('theme') =='light')       
+document.getElementById('chagetheme').onclick = () => {
+	if (localStorage.getItem('theme') == 'light') {       
 	localStorage.setItem('theme', 'dark')
-	else localStorage.setItem('theme', 'light')
-	
-	changeviewtheme();
+        document.getElementById('chagetheme').innerHTML = '🌛'
+        document.getElementById('infofield').style.background = "#464451";
+	} else if (localStorage.getItem('theme') == 'dark')   {
+		localStorage.setItem('theme', 'light')
+		document.getElementById('chagetheme').innerHTML = '☀'
+        document.getElementById('infofield').style.background = "#fff";
+	}
 	
 };
 
