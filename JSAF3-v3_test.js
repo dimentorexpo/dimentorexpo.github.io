@@ -7933,10 +7933,12 @@ document.getElementById('chagetheme').onclick = () => {
 	localStorage.setItem('theme', 'dark')
         document.getElementById('chagetheme').innerHTML = '🌛'
         document.getElementById('infofield').style.background = "#464451";
+		checkandchangestyle();
 	} else if (localStorage.getItem('theme') == 'dark')   {
 		localStorage.setItem('theme', 'light')
 		document.getElementById('chagetheme').innerHTML = '☀'
         document.getElementById('infofield').style.background = "#fff";
+		checkandchangestyle();
 	}
 	
 };
