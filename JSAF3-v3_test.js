@@ -7912,6 +7912,9 @@ function checkandchangestyle() {
 
         for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
             document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+        }
+		
+		for (let i = 0; i < document.getElementsByClassName('oper-comment-container').length; i++) {
             document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
         }
 
@@ -7955,8 +7958,12 @@ function checkandchangestyle() {
         }
 
         for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
-		 if (document.getElementsByClassName('oper-comment-name')[i].classList.contains('light') && document.getElementsByClassName('oper-comment-container')[i].classList.contains('light') )
+		 if (document.getElementsByClassName('oper-comment-name')[i].classList.contains('light'))
             document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+        }
+		
+		for (let i = 0; i < document.getElementsByClassName('oper-comment-container').length; i++) {
+		 if (document.getElementsByClassName('oper-comment-container')[i].classList.contains('light') )
             document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
         }
 
