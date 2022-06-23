@@ -7855,75 +7855,149 @@ function changeviewtheme() {
     }
 }
 
+// function checkandchangestyle() {
+
+	// if (localStorage.getItem('theme') == 'light') {
+		
+		// for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+            // document.getElementsByClassName('event-name')[i].style.color = "#999999";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
+            // document.getElementsByClassName('question-event-text')[i].style.color = "#000"
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
+            // document.getElementsByClassName('question-event-name')[i].style.color = "#23609E";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
+            // document.getElementsByClassName('event-container')[i].style.color = "#999999";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
+            // document.getElementsByClassName('oper-comment-name')[i].style.color = "#808080";
+            // document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808026";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) { 
+            // document.getElementsByClassName('question-event-date')[i].style.color = "#999999";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
+            // document.getElementsByClassName('answer-oper-name')[i].style.color = "#b8860b";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
+            // document.getElementsByClassName('answer-bot-name')[i].style.color = "#388C11";
+        // }
+			
+	// } else if (localStorage.getItem('theme') == 'dark') {
+		      // for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
+            // document.getElementsByClassName('event-name')[i].style.color = "#fff";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
+            // document.getElementsByClassName('question-event-text')[i].style.color = "#fff";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
+            // document.getElementsByClassName('question-event-name')[i].style.color = "#00BFFF";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
+            // document.getElementsByClassName('event-container')[i].style.color = "#fff";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
+            // document.getElementsByClassName('oper-comment-name')[i].style.color = "#C0C0C0";
+            // document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808054";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
+            // document.getElementsByClassName('question-event-date')[i].style.color = "#fff";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
+            // document.getElementsByClassName('answer-oper-name')[i].style.color = "bisque";
+        // }
+
+        // for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
+            // document.getElementsByClassName('answer-bot-name')[i].style.color = "#39ACD32";
+        // }
+    // }
+// }
+
+
 function checkandchangestyle() {
 
 	if (localStorage.getItem('theme') == 'light') {
 		
 		for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
-            document.getElementsByClassName('event-name')[i].style.color = "#999999";
+            document.getElementsByClassName('event-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
-            document.getElementsByClassName('question-event-text')[i].style.color = "#000"
+            document.getElementsByClassName('question-event-text')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
-            document.getElementsByClassName('question-event-name')[i].style.color = "#23609E";
+            document.getElementsByClassName('question-event-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
-            document.getElementsByClassName('event-container')[i].style.color = "#999999";
+            document.getElementsByClassName('event-container')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
-            document.getElementsByClassName('oper-comment-name')[i].style.color = "#808080";
-            document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808026";
+            document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+            document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) { 
-            document.getElementsByClassName('question-event-date')[i].style.color = "#999999";
+            document.getElementsByClassName('question-event-date')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
-            document.getElementsByClassName('answer-oper-name')[i].style.color = "#b8860b";
+            document.getElementsByClassName('answer-oper-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
-            document.getElementsByClassName('answer-bot-name')[i].style.color = "#388C11";
+            document.getElementsByClassName('answer-bot-name')[i].classList.toggle('light')
         }
 			
 	} else if (localStorage.getItem('theme') == 'dark') {
 		      for (let i = 0; i < document.getElementsByClassName('event-name').length; i++) {
-            document.getElementsByClassName('event-name')[i].style.color = "#fff";
+            document.getElementsByClassName('event-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-text').length; i++) {
-            document.getElementsByClassName('question-event-text')[i].style.color = "#fff";
+            document.getElementsByClassName('question-event-text')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-name').length; i++) {
-            document.getElementsByClassName('question-event-name')[i].style.color = "#00BFFF";
+            document.getElementsByClassName('question-event-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('event-container').length; i++) {
-            document.getElementsByClassName('event-container')[i].style.color = "#fff";
+            document.getElementsByClassName('event-container')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('oper-comment-name').length; i++) {
-            document.getElementsByClassName('oper-comment-name')[i].style.color = "#C0C0C0";
-            document.getElementsByClassName('oper-comment-container')[i].style.background = "#80808054";
+            document.getElementsByClassName('oper-comment-name')[i].classList.toggle('light')
+            document.getElementsByClassName('oper-comment-container')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('question-event-date').length; i++) {
-            document.getElementsByClassName('question-event-date')[i].style.color = "#fff";
+            document.getElementsByClassName('question-event-date')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-oper-name').length; i++) {
-            document.getElementsByClassName('answer-oper-name')[i].style.color = "bisque";
+            document.getElementsByClassName('answer-oper-name')[i].classList.toggle('light')
         }
 
         for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
-            document.getElementsByClassName('answer-bot-name')[i].style.color = "#39ACD32";
+            document.getElementsByClassName('answer-bot-name')[i].classList.toggle('light')
         }
     }
 }
