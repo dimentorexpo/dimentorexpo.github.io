@@ -234,43 +234,7 @@ function mystyles() {
 			float:left;
 			font-size:12px;
 		}
-		
-		.event-name .light {
-			color: #999999;
-		}
-		
-		.question-event-text .light {
-			color: #000;
-		}		
-		
-		.question-event-name .light {
-			color: #23609E;
-		}
-		
-		.event-container .light {
-			color: #999999;
-		}
-		
-		.oper-comment-container .light {
-			background: #80808026;
-		}	
-		
-		.oper-comment-name .light {
-			color: #808080;
-		}
-		
-		.question-event-date .light {
-			color: #999999;
-		}
-		
-		.answer-oper-name .light {
-			color: #b8860b;
-		}
-		
-		.answer-bot-name .light {
-			color: #388C11;
-		}
-		
+				
 		.copyserviceid {
 			margin-left: 5px;
 			cursor: pointer;
