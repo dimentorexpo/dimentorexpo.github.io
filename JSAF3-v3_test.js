@@ -8150,9 +8150,11 @@ document.getElementById('chagetheme').onclick = () => {
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-                                    } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
+                            } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-									}
+							} else if (convdata.messages[i].eventTpe == 'CreatedByOperator') {
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператором открыт исходящий диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+							
                          break;
 
                         case "AnswerOperatorWithBot":
