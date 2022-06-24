@@ -6564,12 +6564,14 @@ function move_again_AF() {
                     var img = document.createElement('img')
 					var alink = document.createElement('a')
 					alink.setAttribute('data-lightbox','imgs');
-                    img.src = div.querySelector('a').href
-					alink.href=img.src;
 					alink.append(img)
                     img.style.width = '100px'
-					if(div.querySelector('a').hasAttribute('data-lightbox') == false)
-					div.querySelector('a').replaceWith(alink)
+					for(let j=0; j<iv.querySelectorAll('a').length;j++)
+						if(div.querySelectorAll('a'[j]).hasAttribute('data-lightbox') == false){
+							img.src = div.querySelectorAll('a')[j].href	
+							alink.href=img.src;
+							div.querySelectorAll('a')[j].replaceWith(alink)
+					}
                 }
             }
     }
