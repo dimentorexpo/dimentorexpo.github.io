@@ -163,13 +163,11 @@ function mystyles() {
 		
 		.event-date {
 			float:right;
-			margin-right:15px;
 		}		
 		
 		.event-other-date {
 			float:right;
 			font-size:12px;
-			margin-right:15px;
 		}
 		
 		.answer-bot-container {
