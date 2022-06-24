@@ -12130,7 +12130,7 @@ function prepTp() {
 		include("https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.css") // подключаем модуль стилей для Lightbox
 		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.js") // подключаем библиотеку обработки изображений при клике на них
 		
-	}, 1000)
+	}, 5000)
 
 }
 function include(url) {
