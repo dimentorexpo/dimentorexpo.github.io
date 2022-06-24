@@ -6561,16 +6561,17 @@ function move_again_AF() {
             for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
                 if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
                     var div = document.getElementsByClassName('chat-messages')[0].children[i]
-                    var img = document.createElement('img')
-					var alink = document.createElement('a')
-					alink.setAttribute('data-lightbox','imgs');
-					alink.append(img)
-                    img.style.width = '100px'
-					for(let j=0; j<div.querySelectorAll('a').length;j++)
+					for(let j=0; j<div.querySelectorAll('a').length;j++)  {
 						if(div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false){
+                            var img = document.createElement('img')
+                            img.style.width = '100px'
+        					var alink = document.createElement('a')
+                            alink.setAttribute('data-lightbox','imgs');
+        					alink.append(img)
 							img.src = div.querySelectorAll('a')[j].href	
 							alink.href=img.src;
 							div.querySelectorAll('a')[j].replaceWith(alink)
+                        }
 					}
                 }
             }
