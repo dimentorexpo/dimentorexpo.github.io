@@ -8076,13 +8076,13 @@ document.getElementById('chagetheme').onclick = () => {
                                     }
 
                                     if (temppics.length == 1)
-                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<img src="${temppics[0]}" class="img-chat-history"></img>`) + '</div>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<a href="${temppics[0]}" data-lightbox="pictures"<img src="${temppics[0]}" class="img-chat-history" alt="Изображение"></img></a>`) + '</a>' + '</div>' + '</div>'
 
                                     else if (temppics.length > 1) {
 
                                         restul = convdata.messages[i].txt;
                                         for (let j = 0; j < temppics.length; j++) {
-                                            restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<img src="${temppics[j]}" class="img-chat-history"></img>`)
+                                            restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<a href="${temppics[j]}" data-lightbox="pictures"><img src="${temppics[j]}" class="img-chat-history" alt="Изображение"></img></a>`)
 
                                         }
 
@@ -12120,11 +12120,21 @@ function prepTp() {
     setInterval(timerHideButtons, 300)
 
     setTimeout(function () {
+		let lboxstyles = document.createElement('link')
+		lboxstyles.rel = 'stylesheet'
+		lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.css" // подключаем модуль стилей для Lightbox
+		document.querySelector('header').append(lboxstyles)
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
+	
+	setTimeout(function() {
+		
+		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.js") // подключаем библиотеку обработки изображений при клике на них
+		
+	}, 4000)
 
 }
 function include(url) {
