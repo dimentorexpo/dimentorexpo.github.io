@@ -12120,6 +12120,10 @@ function prepTp() {
     setInterval(timerHideButtons, 300)
 
     setTimeout(function () {
+		let lboxstyles = document.createElement('link')
+		lboxstyles.rel = 'stylesheet'
+		lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.css" // подключаем модуль стилей для Lightbox
+		document.querySelector('header').append(lboxstyles)
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
@@ -12127,10 +12131,10 @@ function prepTp() {
     }, 2000)
 	
 	setTimeout(function() {
-		include("https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.css") // подключаем модуль стилей для Lightbox
+		
 		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.js") // подключаем библиотеку обработки изображений при клике на них
 		
-	}, 5000)
+	}, 4000)
 
 }
 function include(url) {
