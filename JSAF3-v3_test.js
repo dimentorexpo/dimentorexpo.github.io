@@ -258,7 +258,7 @@ function mystyles() {
 			color: #808080 !important;
 		}
 		
-		.oper-comment-operator .light {
+		.oper-comment-operator.light {
 			color: #2a8ed9 !important;
 		}
 		
