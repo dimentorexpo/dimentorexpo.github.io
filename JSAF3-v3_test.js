@@ -6543,7 +6543,7 @@ function move_again_AF() {
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
                     img.style.width = '100px'
-                    div.querySelector('a').replaceWith(`<a href="${img.src}" data-lightbox="chatimages">img</a>`)
+                    div.querySelector('a').replaceWith(`<a href="${img.src}" data-lightbox="chatimages">`+img+`</a>`)
                 }
             }
     }
@@ -6557,7 +6557,7 @@ function move_again_AF() {
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
                     img.style.width = '100px'
-                    div.querySelector('a').replaceWith(`<a href="${img.src}" data-lightbox="chatimages">img</a>`)
+                    div.querySelector('a').replaceWith(`<a href="${img.src}" data-lightbox="chatimages">`+img+`</a>`)
                 }
             }
     }
