@@ -6569,7 +6569,7 @@ function move_again_AF() {
 					alink.append(img)
                     img.style.width = '100px'
 					if(div.querySelector('a').hasAttribute('data-lightbox') == false)
-					div.querySelectorAll('a').replaceWith(alink)
+					div.querySelector('a').replaceWith(alink)
                 }
             }
     }
