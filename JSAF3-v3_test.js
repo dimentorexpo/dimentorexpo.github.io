@@ -258,6 +258,10 @@ function mystyles() {
 			color: #808080 !important;
 		}
 		
+		.oper-comment-operator .light {
+			color: #2a8ed9 !important;
+		}
+		
 		.question-event-date.light {
 			color: #999999 !important;
 		}
@@ -7943,6 +7947,10 @@ function checkandchangestyle() {
         for (let i = 0; i < document.getElementsByClassName('answer-bot-name').length; i++) {
             document.getElementsByClassName('answer-bot-name')[i].classList.toggle('light')
         }
+		
+		for (let i = 0; i<document.getElementsByClassName('oper-comment-operator').length; i++) {
+			document.getElementsByClassName('oper-comment-operator')[i].classList.toggle('light')
+		}
 			
 	} else if (localStorage.getItem('theme') == 'dark') {
 		
@@ -8000,6 +8008,11 @@ function checkandchangestyle() {
 		 if (document.getElementsByClassName('answer-bot-name')[i].classList.contains('light'))
             document.getElementsByClassName('answer-bot-name')[i].classList.toggle('light')
         }
+		
+		for (let i = 0; i<document.getElementsByClassName('oper-comment-operator').length; i++) {
+		 if (document.getElementsByClassName('oper-comment-operator')[i].classList.contains('light'))
+			document.getElementsByClassName('oper-comment-operator')[i].classList.toggle('light')
+		}
     }
 }
 
