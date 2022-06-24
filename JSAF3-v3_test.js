@@ -12092,7 +12092,7 @@ function prepTp() {
 	
 	let openchhis = document.createElement('button')
 		openchhis.innerHTML = '☢'
-		openchhis.style='position:fixed;top:45px;right:7px;'
+		openchhis.style='position:fixed;top:45px;right:7px;z-index:5'
 		openchhis.id='opennewcat'
 		document.getElementsByTagName('section')[1].append(openchhis)
 
