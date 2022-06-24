@@ -6568,9 +6568,9 @@ function move_again_AF() {
 					alink.href=img.src;
 					alink.append(img)
                     img.style.width = '100px'
-					for (let j=0; j<document.getElementsByTagName('a').length;j++) {
-					if(document.getElementsByTagName('a')[j].hasAttribute('data-lightbox') != true)
-                    div.querySelector('a').replaceWith(alink)
+					for (let j=0; j<div.querySelectorAll('a').length;j++) {
+						if( div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false)
+							div.querySelectorAll('a')[j].replaceWith(alink)
 					}
                 }
             }
