@@ -6543,7 +6543,7 @@ function move_again_AF() {
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
                     img.style.width = '100px'
-                    div.replace(div.querySelector('a'), `<a href="${img.src}" data-lightbox="pictures"><img src="${img.src}" class="img-chat-history" alt="Изображение"></img></a>`)
+                    document.getElementsByClassName('expert-chat-display-inner')[0].children[i].replace(div.querySelector('a'), `<a href="${img.src}" data-lightbox="pictures"><img src="${img.src}" class="img-chat-history" alt="Изображение"></img></a>`)
                 }
             }
     }
@@ -6557,7 +6557,7 @@ function move_again_AF() {
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
                     img.style.width = '100px'
-                    div.replace(div.querySelector('a'), `<a href="${img.src}" data-lightbox="pictures"><img src="${img.src}" class="img-chat-history" alt="Изображение"></img></a>`)
+                    document.getElementsByClassName('expert-chat-display-inner')[0].children[i].replace(div.querySelector('a'), `<a href="${img.src}" data-lightbox="pictures"><img src="${img.src}" class="img-chat-history" alt="Изображение"></img></a>`)
                 }
             }
     }
