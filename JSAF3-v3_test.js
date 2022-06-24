@@ -6539,28 +6539,40 @@ function move_again_AF() {
         if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined)
             for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
+					var alink = document.createElement('a')
                     var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
+					img.alt = 'Изображение'
+					alink.href = div.querySelector('a').href
+					alink.setAttribute('data-lightbox', 'images')
                     img.style.width = '100px'
-                    document.getElementsByClassName('expert-chat-display-inner')[0].children[i].replace(div.querySelector('a'), `<a href="${img.src}" data-lightbox="pictures"><img src="${img.src}" class="img-chat-history" alt="Изображение"></img></a>`)
+                    div.querySelector('a').replaceWith(alink)
+					alink.append(img)
                 }
             }
     }
     screenshots()
     setInterval(screenshots, 5000)
+	
     function screenshots2() {
         if (document.getElementsByClassName('chat-messages')[0] != undefined)
             for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
                 if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
-                    var div = document.getElementsByClassName('chat-messages')[0].children[i]
+					var alink = document.createElement('a')
+                    var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
                     var img = document.createElement('img')
                     img.src = div.querySelector('a').href
+					img.alt = 'Изображение'
+					alink.href = div.querySelector('a').href
+					alink.setAttribute('data-lightbox', 'images')
                     img.style.width = '100px'
-                    document.getElementsByClassName('expert-chat-display-inner')[0].children[i].replace(div.querySelector('a'), `<a href="${img.src}" data-lightbox="pictures"><img src="${img.src}" class="img-chat-history" alt="Изображение"></img></a>`)
+                    div.querySelector('a').replaceWith(alink)
+					alink.append(img)
                 }
             }
     }
+	
     screenshots2()
     setInterval(screenshots2, 5000)
 
