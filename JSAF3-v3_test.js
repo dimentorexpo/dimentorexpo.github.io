@@ -12123,10 +12123,14 @@ function prepTp() {
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        include("https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.css") // подключаем модуль стилей для Lightbox
-		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.js") // подключаем библиотеку обработки изображений при клике на них
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
+	
+	setTimeout(function() {
+		include("https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.css") // подключаем модуль стилей для Lightbox
+		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.js") // подключаем библиотеку обработки изображений при клике на них
+		
+	}, 1000)
 
 }
 function include(url) {
