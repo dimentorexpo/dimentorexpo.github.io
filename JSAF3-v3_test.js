@@ -6541,15 +6541,13 @@ function move_again_AF() {
                 if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
                     var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
                     var img = document.createElement('img')
+					var alink = document.createElement('a')
+					alink.setAttribute('data-lightbox','imgs');
                     img.src = div.querySelector('a').href
-                    img.onclick = function () {
-                        if (this.style.width == '500px')
-                            this.style.width = '100px'
-                        else
-                            this.style.width = '500px'
-                    }
+					alink.href=img.src;
+					alink.append(img)
                     img.style.width = '100px'
-                    div.querySelector('a').replaceWith(img)
+                    div.querySelector('a').replaceWith(alink)
                 }
             }
     }
@@ -6561,15 +6559,13 @@ function move_again_AF() {
                 if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
                     var div = document.getElementsByClassName('chat-messages')[0].children[i]
                     var img = document.createElement('img')
+					var alink = document.createElement('a')
+					alink.setAttribute('data-lightbox','imgs');
                     img.src = div.querySelector('a').href
-                    img.onclick = function () {
-                        if (this.style.width == '500px')
-                            this.style.width = '100px'
-                        else
-                            this.style.width = '500px'
-                    }
+					alink.href=img.src;
+					alink.append(img)
                     img.style.width = '100px'
-                    div.querySelector('a').replaceWith(img)
+                    div.querySelector('a').replaceWith(alink)
                 }
             }
     }
