@@ -6566,7 +6566,7 @@ function move_again_AF() {
 					alink.setAttribute('data-lightbox','imgs');
 					alink.append(img)
                     img.style.width = '100px'
-					for(let j=0; j<iv.querySelectorAll('a').length;j++)
+					for(let j=0; j<div.querySelectorAll('a').length;j++)
 						if(div.querySelectorAll('a'[j]).hasAttribute('data-lightbox') == false){
 							img.src = div.querySelectorAll('a')[j].href	
 							alink.href=img.src;
