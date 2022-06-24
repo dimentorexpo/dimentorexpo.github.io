@@ -12122,7 +12122,7 @@ function prepTp() {
     setTimeout(function () {
 		let lboxstyles = document.createElement('link')
 		lboxstyles.rel = 'stylesheet'
-		lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.css" // подключаем модуль стилей для Lightbox
+		lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
 		document.querySelector('header').append(lboxstyles)
         include("https://dimentorexpo.github.io/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
         include("https://dimentorexpo.github.io/ServiceDesk.js")
@@ -12132,7 +12132,7 @@ function prepTp() {
 	
 	setTimeout(function() {
 		
-		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.js") // подключаем библиотеку обработки изображений при клике на них
+		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 		
 	}, 4000)
 
