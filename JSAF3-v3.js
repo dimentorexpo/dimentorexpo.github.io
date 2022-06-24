@@ -707,7 +707,7 @@ var win_Chathis =  // описание элементов окна ссылок
 					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
 					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:115px; text-align:center; " name="EndDataChHis" id="dateToChHis">
-					<button style="width:30px;" id="chagetheme">🌛</button>
+					<button style="width:30px;" id="chagetheme" title="Переключается светлую тему ☀ и темную🌛 вывода чата с пользователем">🌛</button>
 				</div>
 				
 			</span>
