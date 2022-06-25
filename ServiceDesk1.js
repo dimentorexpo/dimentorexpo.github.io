@@ -6491,7 +6491,7 @@ document.getElementById('servDsk').onclick = function () {
 
             document.getElementById('create_19').onclick = function () {
                 let idstdserv = encodeURIComponent(document.getElementById('customfield_91').value);
-                let dscr = encodeURIComponent(ocument.getElementById('customfield_92').value);
+                let dscr = encodeURIComponent(document.getElementById('customfield_92').value);
                 let issuename = encodeURIComponent(document.getElementById('customfield_911').value);
                 let device = encodeURIComponent(document.getElementById('customfield_912').value);
                 let str = encodeURIComponent(document.getElementById('customfield_94').value);
