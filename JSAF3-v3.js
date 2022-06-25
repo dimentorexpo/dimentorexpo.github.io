@@ -5884,7 +5884,7 @@ function move_again_AF() {
 						fillchatbox();
 						checkandchangestyle();
 					}
-					} , 500);
+					} , 1000);
 
                 } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
 
@@ -5924,7 +5924,7 @@ function move_again_AF() {
 						fillchatbox();
 						checkandchangestyle();
 					}
-					} , 500);
+					} , 1000);
                 }
             }
         }
