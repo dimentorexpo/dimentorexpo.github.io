@@ -2692,6 +2692,7 @@ function move_again_AF() {
 			bbc[i].ondblclick =() => {
 				 c = operatorsarray.filter(item=> (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
 				console.log(c)
+				if (document.getElementById('AF_ChatHis').style.display =='none') {
 				butChatHistory.click()
 				setTimeout(function(){
 				for (let j=0;j<document.getElementById('operatorstp').length;j++) {
@@ -2702,6 +2703,17 @@ function move_again_AF() {
 					}
 				}
 				}, 1000)
+				} else {
+				setTimeout(function(){
+				for (let j=0;j<document.getElementById('operatorstp').length;j++) {
+					if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+						document.getElementById('operatorstp')[j].selected = true;
+						findchatsoper()
+					
+					}
+				}
+				}, 1000)
+				}
 			}
 		}
     }
