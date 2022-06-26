@@ -2684,6 +2684,38 @@ function move_again_AF() {
         if (seconds < 10) { seconds = "0" + seconds; }
         time = hours + " : " + minutes + " : " + seconds;
         document.getElementById("clock_js").innerHTML = time;
+		
+		let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
+		let c = [...bbc].map(i => i.innerText)
+
+		for(let i=0; i<bbc.length; i++) {
+			bbc[i].ondblclick =() => {
+				 c = operatorsarray.filter(item=> (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
+				console.log(c)
+				if (document.getElementById('AF_ChatHis').style.display =='none') {
+				butChatHistory.click()
+				setTimeout(function(){
+				for (let j=0;j<document.getElementById('operatorstp').length;j++) {
+					if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+						document.getElementById('operatorstp')[j].selected = true;
+						findchatsoper()
+					
+					}
+				}
+				}, 1000)
+				} else {
+				setTimeout(function(){
+				for (let j=0;j<document.getElementById('operatorstp').length;j++) {
+					if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+						document.getElementById('operatorstp')[j].selected = true;
+						findchatsoper()
+					
+					}
+				}
+				}, 1000)
+				}
+			}
+		}
     }
 
     function clock_on_javascript_2() {
@@ -8158,7 +8190,7 @@ document.getElementById('chagetheme').onclick = () => {
 								let operid = convdata.messages[i].payload.sender;
                                 let opername;
                                 opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                                document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender == undefined) {
 								let operid = convdata.messages[i].payload.prevOid;
                                 let opername;
@@ -8172,7 +8204,7 @@ document.getElementById('chagetheme').onclick = () => {
                                         let operidcls = convdata.messages[i].payload.sender;
                                         let opernamecls;
                                         opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                             } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) =='') {
                                         document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe  + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
 							} else if (convdata.messages[i].eventTpe == 'CreatedByOperator') {
