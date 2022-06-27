@@ -8340,10 +8340,14 @@ document.getElementById('chagetheme').onclick = () => {
                                 tsmin = "0" + tmestmp.getMinutes();
                             else tsmin = tmestmp.getMinutes();
 
-							if (operchatsdata.items[i].channelUser.payload.userFullName == undefined)
+							if (operchatsdata.items[i].channelUser.channelTpe!='Telegram' && operchatsdata.items[i].channelUser.channelTpe!='Widget' && operchatsdata.items[i].channelUser.payload.userFullName == undefined)
 								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'                            
-							else
+							else if (operchatsdata.items[i].channelUser.channelTpe!='Telegram' && operchatsdata.items[i].channelUser.channelTpe!='Widget' && operchatsdata.items[i].channelUser.payload.userFullName == undefined)
 								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
+							else if (operchatsdata.items[i].channelUser.channelTpe=='Telegram'  && operchatsdata.items[i].channelUser.payload == undefined)
+								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
+							else if (operchatsdata.items[i].channelUser.channelTpe=='Widget' && operchatsdata.items[i].channelUser.payload == undefined)
+								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
                         }
 
                         document.getElementById('infofield').innerHTML = foundarr;
