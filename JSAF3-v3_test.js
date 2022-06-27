@@ -8340,7 +8340,7 @@ document.getElementById('chagetheme').onclick = () => {
                                 tsmin = "0" + tmestmp.getMinutes();
                             else tsmin = tmestmp.getMinutes();
 
-							if (operchatsdata.items[i].channelUser.payload.userFullName == undefined)
+							if (operchatsdata.items[i].channelUser.payload == undefined)
 								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'                            
 							else
 								foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
