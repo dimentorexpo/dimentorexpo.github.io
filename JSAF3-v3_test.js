@@ -700,7 +700,7 @@ var win_Chathis =  // описание элементов окна Истори�
 				</div>				
 				<div style="margin: 5px; width: 410px; display:flex; justify-content:space-evenly;" id="chathismenu">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:22px;padding:0;">🚀</button>
-					 <input id="chatuserhis" placeholder="ID пользователя" oninput="onlyNumber(this)" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
+					 <input id="chatuserhis" placeholder="ID пользователя" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
 					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
 					<button title="Возвращает на экран просмотра списка чатов" id="back_to_chat_his" style="width:50px; font-size:22px; padding:0;">🔙</button>	
 				</div>
@@ -1692,8 +1692,12 @@ function maxLengthCheck(object) // функция ограничения кол-
         object.value = object.value.slice(0, object.maxLength)
 }
 
-function onlyNumber(object) { // функция для разрешения ввода только цифр
+function onlyNumber(object) { // функция для разрешения ввода только цифр и знака -
     object.value = object.value.replace(/[^0-9-]/g, '');
+}
+
+function onlyNumbers(object) { // функция для разрешения ввода только цифр
+    object.value = object.value.replace(/[^0-9]/g, '');
 }
 
 function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
