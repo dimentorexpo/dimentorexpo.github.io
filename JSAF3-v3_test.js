@@ -12129,7 +12129,7 @@ function prepTp() {
 
     flagLangBut = 1
     customTemplates()
-    whoAmI()
+    setTimeout(whoAmI, 2000)
 
     let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
     buttonGetStat.id = 'buttonGetStat';
