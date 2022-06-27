@@ -128,8 +128,11 @@ function getprsup() { //функция для получения ссылки н
         if (lasttsk > prevtsk) {
             document.getElementById('newtask').innerText = lasttsk;
             sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
+			for(let i=0; i<document.getElementsByClassName('removefield').length;i++) {
+				document.getElementsByClassName('removefield')[i].value=''
+			}
         } else if (lasttsk <= prevtsk) {
-            alert("Новая задача не была создана, проверь консоль на ошибки и там же сможешь найти текст при заполнении полей!")
+            alert("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!")
         }
 
     }, 2000);
@@ -1042,12 +1045,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1072,15 +1069,9 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherbreak').textContent) {
                     console.log("Перерыв: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1102,15 +1093,9 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachermoney').textContent) {
                     console.log("Финансы: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1131,12 +1116,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/641";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -1162,12 +1141,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1192,14 +1165,8 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
+                    setTimeout(getslacklnk, 8000);			
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherperenos').textContent) {
                     console.log("Запросы на перенос занятия: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
@@ -1221,12 +1188,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/637";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -1252,12 +1213,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1281,12 +1236,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/635";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -1312,15 +1261,9 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgettimetableweek').textContent) {
                     console.log("Виджет расписания на неделю: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1342,15 +1285,9 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetKPI').textContent) {
                     console.log("Виджет KPI: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1372,15 +1309,9 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetmystudents').textContent) {
                     console.log("Виджет 'Мои ученики': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1402,15 +1333,9 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherTRMquestions').textContent) {
                     console.log("Вопросы по TRM': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1432,15 +1357,9 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherunderground').textContent) {
                     console.log("Подземный стук': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1462,15 +1381,8 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-
-                    document.getElementById('customfield_6').value = "";
-                    document.getElementById('customfield_7').value = "";
-                    document.getElementById('customfield_8').value = "";
-                    document.getElementById('customfield_9').value = "";
-                    document.getElementById('customfield_10').value = "";
-
                     setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
+                    setTimeout(getslacklnk, 8000);					
 
                 } else
                     console.log("Not found");
@@ -1562,12 +1474,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_1').value = "";
-                    document.getElementById('customfield_2').value = "";
-                    document.getElementById('customfield_3').value = "";
-                    document.getElementById('customfield_4').value = "";
-                    document.getElementById('customfield_5').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1592,15 +1498,10 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_1').value = "";
-                    document.getElementById('customfield_2').value = "";
-                    document.getElementById('customfield_3').value = "";
-                    document.getElementById('customfield_4').value = "";
-                    document.getElementById('customfield_5').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-
+					
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartonetoone').textContent) {
                     console.log("Уроки 1:1: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1621,12 +1522,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/815";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_1').value = "";
-                    document.getElementById('customfield_2').value = "";
-                    document.getElementById('customfield_3').value = "";
-                    document.getElementById('customfield_4').value = "";
-                    document.getElementById('customfield_5').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -1719,12 +1614,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_97').value = "";
-                    document.getElementById('customfield_98').value = "";
-                    document.getElementById('customfield_99').value = "";
-                    document.getElementById('customfield_100').value = "";
-                    document.getElementById('customfield_101').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1748,12 +1637,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/980";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_97').value = "";
-                    document.getElementById('customfield_98').value = "";
-                    document.getElementById('customfield_99').value = "";
-                    document.getElementById('customfield_100').value = "";
-                    document.getElementById('customfield_101').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -1779,12 +1662,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_97').value = "";
-                    document.getElementById('customfield_98').value = "";
-                    document.getElementById('customfield_99').value = "";
-                    document.getElementById('customfield_100').value = "";
-                    document.getElementById('customfield_101').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1809,12 +1686,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_97').value = "";
-                    document.getElementById('customfield_98').value = "";
-                    document.getElementById('customfield_99').value = "";
-                    document.getElementById('customfield_100').value = "";
-                    document.getElementById('customfield_101').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1838,12 +1709,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/982";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_97').value = "";
-                    document.getElementById('customfield_98').value = "";
-                    document.getElementById('customfield_99').value = "";
-                    document.getElementById('customfield_100').value = "";
-                    document.getElementById('customfield_101').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -1938,12 +1803,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_16').value = "";
-                    document.getElementById('customfield_17').value = "";
-                    document.getElementById('customfield_18').value = "";
-                    document.getElementById('customfield_19').value = "";
-                    document.getElementById('customfield_20').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -1967,12 +1826,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/570";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_16').value = "";
-                    document.getElementById('customfield_17').value = "";
-                    document.getElementById('customfield_18').value = "";
-                    document.getElementById('customfield_19').value = "";
-                    document.getElementById('customfield_20').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2067,12 +1920,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_56').value = "";
-                    document.getElementById('customfield_57').value = "";
-                    document.getElementById('customfield_58').value = "";
-                    document.getElementById('customfield_59').value = "";
-                    document.getElementById('customfield_60').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2163,12 +2010,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_11').value = "";
-                    document.getElementById('customfield_12').value = "";
-                    document.getElementById('customfield_13').value = "";
-                    document.getElementById('customfield_14').value = "";
-                    document.getElementById('customfield_15').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2192,12 +2033,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/596";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_11').value = "";
-                    document.getElementById('customfield_12').value = "";
-                    document.getElementById('customfield_13').value = "";
-                    document.getElementById('customfield_14').value = "";
-                    document.getElementById('customfield_15').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2223,12 +2058,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_11').value = "";
-                    document.getElementById('customfield_12').value = "";
-                    document.getElementById('customfield_13').value = "";
-                    document.getElementById('customfield_14').value = "";
-                    document.getElementById('customfield_15').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2252,12 +2081,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/598";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_11').value = "";
-                    document.getElementById('customfield_12').value = "";
-                    document.getElementById('customfield_13').value = "";
-                    document.getElementById('customfield_14').value = "";
-                    document.getElementById('customfield_15').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2353,13 +2176,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_21').value = "";
-                    document.getElementById('customfield_22').value = "";
-                    document.getElementById('customfield_23').value = "";
-                    document.getElementById('customfield_24').value = "";
-                    document.getElementById('customfield_25').value = "";
-
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2383,12 +2199,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/565";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_21').value = "";
-                    document.getElementById('customfield_22').value = "";
-                    document.getElementById('customfield_23').value = "";
-                    document.getElementById('customfield_24').value = "";
-                    document.getElementById('customfield_25').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2414,12 +2224,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_21').value = "";
-                    document.getElementById('customfield_22').value = "";
-                    document.getElementById('customfield_23').value = "";
-                    document.getElementById('customfield_24').value = "";
-                    document.getElementById('customfield_25').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2443,12 +2247,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/562";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_21').value = "";
-                    document.getElementById('customfield_22').value = "";
-                    document.getElementById('customfield_23').value = "";
-                    document.getElementById('customfield_24').value = "";
-                    document.getElementById('customfield_25').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2474,12 +2272,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/567";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_21').value = "";
-                    document.getElementById('customfield_22').value = "";
-                    document.getElementById('customfield_23').value = "";
-                    document.getElementById('customfield_24').value = "";
-                    document.getElementById('customfield_25').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2648,10 +2440,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2675,10 +2463,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/608";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2704,10 +2488,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2731,10 +2511,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/610";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2760,10 +2536,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2787,10 +2559,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/612";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2816,10 +2584,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2843,10 +2607,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/614";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_37').value = "";
-                    document.getElementById('customfield_38').value = "";
-                    document.getElementById('customfield_39').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -2941,12 +2701,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -2970,12 +2724,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/576";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3001,12 +2749,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3030,12 +2772,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/572";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3061,12 +2797,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3090,12 +2820,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/559";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3121,12 +2845,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3150,12 +2868,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/561";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_26').value = "";
-                    document.getElementById('customfield_27').value = "";
-                    document.getElementById('customfield_28').value = "";
-                    document.getElementById('customfield_29').value = "";
-                    document.getElementById('customfield_30').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3250,12 +2962,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3279,12 +2985,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/676";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3310,12 +3010,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3339,12 +3033,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/674";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3370,12 +3058,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3399,12 +3081,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/672";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3430,12 +3106,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3459,12 +3129,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/670";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3490,12 +3154,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3519,12 +3177,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/669";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3550,12 +3202,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3580,12 +3226,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3609,12 +3249,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/554";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_42').value = "";
-                    document.getElementById('customfield_43').value = "";
-                    document.getElementById('customfield_44').value = "";
-                    document.getElementById('customfield_45').value = "";
-                    document.getElementById('customfield_46').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3811,10 +3445,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3840,10 +3470,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3867,10 +3493,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/625";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3896,10 +3518,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3923,10 +3541,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/604";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -3952,10 +3566,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -3979,10 +3589,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/602";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4008,10 +3614,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4035,10 +3637,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/600";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4064,10 +3662,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4091,10 +3685,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/606";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_47').value = "";
-                    document.getElementById('customfield_48').value = "";
-                    document.getElementById('customfield_49').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4365,12 +3955,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4394,12 +3978,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/680";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4425,12 +4003,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4454,12 +4026,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/667";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4485,12 +4051,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4514,12 +4074,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/664";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4545,12 +4099,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4574,12 +4122,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/662";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4605,12 +4147,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4634,12 +4170,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/660";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4665,12 +4195,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4694,12 +4218,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/658";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4725,12 +4243,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4754,12 +4266,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/656";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4785,12 +4291,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4814,12 +4314,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/654";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4845,12 +4339,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4874,12 +4362,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/652";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4905,12 +4387,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4934,12 +4410,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/650";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -4965,12 +4435,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -4994,12 +4458,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/648";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5025,12 +4483,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5055,12 +4507,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5084,12 +4530,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/645";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_32').value = "";
-                    document.getElementById('customfield_33').value = "";
-                    document.getElementById('customfield_34').value = "";
-                    document.getElementById('customfield_35').value = "";
-                    document.getElementById('customfield_36').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5183,12 +4623,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5212,12 +4646,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/934";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5243,12 +4671,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5272,12 +4694,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/932";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5303,12 +4719,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5332,12 +4742,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/936";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5363,12 +4767,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5392,12 +4790,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/941";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_50').value = "";
-                    document.getElementById('customfield_52').value = "";
-                    document.getElementById('customfield_53').value = "";
-                    document.getElementById('customfield_54').value = "";
-                    document.getElementById('customfield_55').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5495,12 +4887,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5524,12 +4910,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/974";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5555,12 +4935,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5584,12 +4958,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/973";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5615,12 +4983,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5644,12 +5006,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/971";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5675,12 +5031,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5704,12 +5054,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/969";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5735,12 +5079,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5764,12 +5102,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/967";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5795,12 +5127,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -5824,12 +5150,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/946";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_61').value = "";
-                    document.getElementById('customfield_62').value = "";
-                    document.getElementById('customfield_63').value = "";
-                    document.getElementById('customfield_64').value = "";
-                    document.getElementById('customfield_65').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -5924,12 +5244,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_66').value = "";
-                    document.getElementById('customfield_67').value = "";
-                    document.getElementById('customfield_68').value = "";
-                    document.getElementById('customfield_69').value = "";
-                    document.getElementById('customfield_70').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6023,12 +5337,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_71').value = "";
-                    document.getElementById('customfield_72').value = "";
-                    document.getElementById('customfield_73').value = "";
-                    document.getElementById('customfield_74').value = "";
-                    document.getElementById('customfield_75').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6120,12 +5428,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/947";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_76').value = "";
-                    document.getElementById('customfield_77').value = "";
-                    document.getElementById('customfield_78').value = "";
-                    document.getElementById('customfield_79').value = "";
-                    document.getElementById('customfield_80').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -6220,12 +5522,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_81').value = "";
-                    document.getElementById('customfield_82').value = "";
-                    document.getElementById('customfield_83').value = "";
-                    document.getElementById('customfield_84').value = "";
-                    document.getElementById('customfield_85').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6319,12 +5615,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_86').value = "";
-                    document.getElementById('customfield_87').value = "";
-                    document.getElementById('customfield_88').value = "";
-                    document.getElementById('customfield_89').value = "";
-                    document.getElementById('customfield_90').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6417,12 +5707,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/952";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_109').value = "";
-                    document.getElementById('customfield_110').value = "";
-                    document.getElementById('customfield_111').value = "";
-                    document.getElementById('customfield_112').value = "";
-                    document.getElementById('customfield_113').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -6520,14 +5804,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_91').value = "";
-                    document.getElementById('customfield_92').value = "";
-                    document.getElementById('customfield_911').value = "";
-                    document.getElementById('customfield_912').value = "";
-                    document.getElementById('customfield_94').value = "";
-                    document.getElementById('customfield_95').value = "";
-                    document.getElementById('customfield_96').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6623,14 +5899,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6654,14 +5922,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/964";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -6687,14 +5947,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6718,14 +5970,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/963";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -6751,14 +5995,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6782,14 +6018,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/961";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
@@ -6815,14 +6043,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6847,14 +6067,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
-
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
@@ -6878,14 +6090,6 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/958";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
-
-                    document.getElementById('customfield_102').value = "";
-                    document.getElementById('customfield_103').value = "";
-                    document.getElementById('customfield_104').value = "";
-                    document.getElementById('customfield_105').value = "";
-                    document.getElementById('customfield_106').value = "";
-                    document.getElementById('customfield_107').value = "";
-                    document.getElementById('customfield_108').value = "";
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
