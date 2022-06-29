@@ -12144,10 +12144,10 @@ async function checkCSAT() {             // функция проверки CSAT
                 document.getElementById('hashchathis').value = slaclchattids[j].innerText;
                 btn_search_history.click()
             }
-    }
-
+		}
+	}
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
-}
+
 }
 
 function prepTp() {
