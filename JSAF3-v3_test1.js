@@ -435,7 +435,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
-					<div id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:16px; float: right; margin-right: 5px"></div>
+					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -456,6 +456,19 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px; width: 350px">
 			</div>
 		</div>
+		
+			<div style="border: 2px double black; display: none; background-color: #464451" id="reminder_bar">
+				<div style="margin: 5px; width: 350px">
+					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+					<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
+				<br>
+					<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px">01 : 23 : 40</button>
+					<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
+				</div>			
+			</div>
+		
+		
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
@@ -477,21 +490,11 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
 					<br>
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
-				
-					<br>
-				<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-				<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-				<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
-					<br>
-				<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px">01 : 23 : 40</button>
-				<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
 					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>	
-                <input id="extid" placeholder="ID расширения" autocomplete="off" title = "ID расширения ChMAF" type="text" style="text-align: center; width: 250px; color: black;">
-				<button id="saveextid" title="Добавить в localstorage ID расширения ChMAF" style="color: lightgreen; margin-top: 5px">💾</button>	
 			</div>
 					
 		</div>
@@ -731,9 +734,9 @@ var win_Chathis =  // описание элементов окна Истори�
 			
 			<div id="bottommenuchhis" style="width: 410px;display:none;">
 				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
-				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 5px; left:220px;">Send</button>
-				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:5px;">Заметки</label>
-				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:5px; margin-right:5px;">Чат</label>
+				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
+				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
+				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
 			</div>
 				
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
@@ -1794,9 +1797,13 @@ if (localStorage.getItem('scriptAdr') == null) {
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
 infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
-let button3 = document.createElement('p');
-button3.id = 'nextStudentIdScript';
-button3.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+let nextstuduserbut = document.createElement('p');
+nextstuduserbut.id = 'nextStudentIdScript';
+nextstuduserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+let nextteachuserbut = document.createElement('p');
+nextteachuserbut.id = 'nextTeacherIdScript';
+nextteachuserbut.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
+let buttonhistory = document.createElement('span');
 let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
 buttonserv.innerHTML = " ⚜ ";
@@ -1812,10 +1819,6 @@ buttonservteach.id = 'nextTeacherServiceInfo1';
 buttonservteach.innerHTML = " ⚜ ";
 buttonservteach.style.width = "20px";
 buttonservteach.style.cursor = "pointer";
-let button4 = document.createElement('p');
-button4.id = 'nextTeacherIdScript';
-button4.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
-let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
 buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
 let buttonnextstudentid = document.createElement('span');
@@ -2084,13 +2087,20 @@ buttonnextteacherid.onclick = function () {
 }
 
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
-    if (document.getElementById('btn_hide').style.display != 'none')
-        btn_hide.click()
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-    }
-    btn1_student.click()
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+		const editorExtensionId = localStorage.getItem('ext_id');
+			chrome.runtime.sendMessage(
+				editorExtensionId,
+				{
+					name: "chm_message", question: 'send_event', messageValue: {
+					message: 'open-user-info',
+					userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]}`,
+					}
+				}
+			)
+		}
+	}
 }
 
 buttonserv.onclick = function () {
@@ -2129,24 +2139,38 @@ buttonservstud.onclick = function () {
     }
 }
 
-button3.onclick = function () {
-    if (document.getElementById('btn_hide').style.display != 'none')
-        btn_hide.click()
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-    btn1_student.click()
+nextstuduserbut.onclick = function () {
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+		const editorExtensionId = localStorage.getItem('ext_id');
+			chrome.runtime.sendMessage(
+				editorExtensionId,
+				{
+					name: "chm_message", question: 'send_event', messageValue: {
+					message: 'open-user-info',
+					userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+					}
+				}
+			)
+		}
+	}
 }
 
-button4.onclick = function () {
-    if (document.getElementById('btn_hide').style.display != 'none')
-        btn_hide.click()
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            document.getElementById('id_type_for_chat').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-    }
-    btn1_student.click()
+nextteachuserbut.onclick = function () {
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+		const editorExtensionId = localStorage.getItem('ext_id');
+			chrome.runtime.sendMessage(
+				editorExtensionId,
+				{
+					name: "chm_message", question: 'send_event', messageValue: {
+					message: 'open-user-info',
+					userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+					}
+				}
+			)
+		}
+	}
 }
 
 let addInfoUser = document.createElement('div')
@@ -3766,6 +3790,7 @@ function move_again_AF() {
     let tokenlogginer;
     let logginerinfo;
     async function postuderdatatologin() {
+		logginerinfo='';
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
         document.getElementById('responseTextarea1').value = `{
@@ -3821,7 +3846,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('postdata')
 
 
-        }, 500)
+        }, 800)
     }
 
 
@@ -5435,6 +5460,7 @@ function move_again_AF() {
             document.getElementById('set_bar').style.display = 'none'
         else {
             document.getElementById('set_bar').style.display = ''
+			document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
@@ -5530,6 +5556,16 @@ function move_again_AF() {
                 if (table[i][3] == "Android Version")
                     document.getElementById('curVerAndroid').innerText = "Android: " + table[i][4]
             }
+        }
+    }   
+
+	document.getElementById('reminderstatus').onclick = function () {
+        if (document.getElementById('reminder_bar').style.display == '')
+            document.getElementById('reminder_bar').style.display = 'none'
+        else {
+            document.getElementById('reminder_bar').style.display = ''
+			document.getElementById('set_bar').style.display = 'none'
+			document.getElementById('addTmp').style.display = 'none'
         }
     }
 
@@ -7080,6 +7116,7 @@ function refreshTemplates() { // функция обновляет шаблон�
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
             document.getElementById('set_bar').style.display = 'none'
+			document.getElementById('reminder_bar').style.display = 'none'
         }
         else
             document.getElementById('addTmp').style.display = 'none';
@@ -7631,7 +7668,7 @@ function startTimer() {
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(button3)
+                btn.appendChild(nextstuduserbut)
                 btn.appendChild(buttonserv)
             }
 
@@ -7642,7 +7679,7 @@ function startTimer() {
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(button4)
+                btn.appendChild(nextteachuserbut)
                 btn.appendChild(buttonservteach)
             }
 
@@ -10400,7 +10437,7 @@ async function whoAmI() { // функция получения айди опер
         let me = document.querySelector('.user_menu-dropdown-user_name');
         operatorsarray = b.rows;
         b.rows.forEach(s => {
-            if (me && s.operator.fullName === me.innerText) {
+            if (s.operator !=null && me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
                 afopername = s.operator.fullName
                 console.log("Мой ID: " + operatorId)
