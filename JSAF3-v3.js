@@ -3769,6 +3769,7 @@ function move_again_AF() {
     let tokenlogginer;
     let logginerinfo;
     async function postuderdatatologin() {
+		logginerinfo='';
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
         document.getElementById('responseTextarea1').value = `{
@@ -3824,7 +3825,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea1').removeAttribute('postdata')
 
 
-        }, 500)
+        }, 800)
     }
 
 
