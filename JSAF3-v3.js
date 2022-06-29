@@ -12134,15 +12134,16 @@ async function checkCSAT() {             // функция проверки CSAT
     for (let j = 0; j < artchatcontainer.length; j++) {
         artchatcontainer[j].onclick = function () {
 
-            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                hide_or_display.click()
-                document.getElementById('chat_id').value = artchattids[j].innerText;
-                search.click()
-            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                document.getElementById('chat_id').value = artchattids[j].innerText;
-                search.click()
+            if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                document.getElementById('butChatHistory').click();
+
+                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+                btn_search_history.click()
+
+            } else {
+                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+                btn_search_history.click()
             }
-        }
     }
 
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
