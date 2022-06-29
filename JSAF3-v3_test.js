@@ -2090,7 +2090,8 @@ infouserbut.onclick = function () { //функция Info по нажатию н
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
 			
-		const editorExtensionId = localStorage.getItem('ext_id');
+		const editorExtensionId;
+		editorExtensionId = localStorage.getItem('ext_id');
 			chrome.runtime.sendMessage(
 				editorExtensionId,
 				{
