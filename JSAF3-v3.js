@@ -12137,11 +12137,11 @@ async function checkCSAT() {             // функция проверки CSAT
             if (document.getElementById('AF_ChatHis').style.display == 'none') {
                 document.getElementById('butChatHistory').click();
 
-                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+                document.getElementById('hashchathis').value = artchattids[j].innerText;
                 btn_search_history.click()
 
             } else {
-                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+                document.getElementById('hashchathis').value = artchattids[j].innerText;
                 btn_search_history.click()
             }
 		}
