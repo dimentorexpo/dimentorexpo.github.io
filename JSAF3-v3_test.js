@@ -2088,10 +2088,9 @@ buttonnextteacherid.onclick = function () {
 
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
 			
-		const editorExtensionId;
-		editorExtensionId = localStorage.getItem('ext_id');
+		const editorExtensionId = localStorage.getItem('ext_id');
 			chrome.runtime.sendMessage(
 				editorExtensionId,
 				{
@@ -2101,7 +2100,8 @@ infouserbut.onclick = function () { //функция Info по нажатию н
 					}
 				}
 			)
-    }
+		}
+	}
 }
 
 buttonserv.onclick = function () {
