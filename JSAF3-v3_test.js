@@ -5541,6 +5541,8 @@ function move_again_AF() {
             document.getElementById('reminder_bar').style.display = 'none'
         else {
             document.getElementById('reminder_bar').style.display = ''
+			document.getElementById('set_bar').style.display = 'none'
+			document.getElementById('addTmp').style.display = 'none'
         }
     }
 
