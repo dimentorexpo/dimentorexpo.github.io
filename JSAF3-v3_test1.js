@@ -490,6 +490,8 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>				
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>	
+                <input id="extid" placeholder="ID расширения" autocomplete="off" title = "ID расширения ChMAF" type="text" style="text-align: center; width: 250px; color: black;">
+				<button id="saveextid" title="Добавить в localstorage ID расширения ChMAF" style="color: lightgreen; margin-top: 5px">💾</button>	
 			</div>
 					
 		</div>
