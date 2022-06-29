@@ -12379,7 +12379,7 @@ btnpm.onclick = async function () {
         document.getElementById('responseTextarea1').removeAttribute('senddata')
 
 
-    }, 500)
+    }, 800)
 }
 
 btnsid.onclick = async function () {
@@ -12437,7 +12437,7 @@ btnsid.onclick = async function () {
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
 
 
-        }, 500)
+        }, 800)
 
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
@@ -12498,7 +12498,7 @@ btntid.onclick = async function () {
             document.getElementById('responseTextarea1').removeAttribute('senddata2')
 
 
-        }, 500)
+        }, 800)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
