@@ -5438,6 +5438,7 @@ function move_again_AF() {
             document.getElementById('set_bar').style.display = 'none'
         else {
             document.getElementById('set_bar').style.display = ''
+			document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
@@ -7093,6 +7094,7 @@ function refreshTemplates() { // функция обновляет шаблон�
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
             document.getElementById('set_bar').style.display = 'none'
+			document.getElementById('reminder_bar').style.display = 'none'
         }
         else
             document.getElementById('addTmp').style.display = 'none';
