@@ -12148,6 +12148,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 }
+}
 
 function prepTp() {
     document.getElementById('msg1').style.display = ''
