@@ -10437,7 +10437,7 @@ async function whoAmI() { // функция получения айди опер
         let me = document.querySelector('.user_menu-dropdown-user_name');
         operatorsarray = b.rows;
         b.rows.forEach(s => {
-            if (me && s.operator.fullName === me.innerText) {
+            if (s.operator !=null && me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
                 afopername = s.operator.fullName
                 console.log("Мой ID: " + operatorId)
