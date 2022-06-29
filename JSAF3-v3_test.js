@@ -5541,7 +5541,7 @@ function move_again_AF() {
         if (document.getElementById('reminder_bar').style.display == '')
             document.getElementById('reminder_bar').style.display = 'none'
         else {
-            document.getElementById('AF_Links').style.display = ''
+            document.getElementById('reminder_bar').style.display = ''
         }
     }
 
