@@ -5798,7 +5798,7 @@ function move_again_AF() {
 			document.getElementById('startchat').style.background = 'green';
             startnewchatfast(polzid)
 			setTimeout(() => {
-				document.getElementById('startchat').style.background = '#768D87';
+				document.getElementById('startchat').style.background = '';
 			}, 3000)
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
