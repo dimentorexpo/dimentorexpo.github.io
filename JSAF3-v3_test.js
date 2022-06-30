@@ -6216,7 +6216,7 @@ function move_again_AF() {
         }
         if (getdateset.getDate() < 10) {
             todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateFromLS').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
             document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         } else {
             todayLS = getdateset.getDate();
