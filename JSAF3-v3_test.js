@@ -8060,9 +8060,7 @@ async function startnewchat(polzid) {
         await whoAmI()
     }
 
-    if (document.getElementById('idstudent').value == "") {
-        alert('Не введен id пользователя');
-    } else {
+    if (polzid) {
         console.log(polzid);
         await chatstatus()
         if (!werechats) {
@@ -8089,7 +8087,7 @@ async function startnewchat(polzid) {
             chatisopen = '';
             werechats = false;
         }
-    }
+    } else alert('Не введен id пользователя');
 }
 
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
