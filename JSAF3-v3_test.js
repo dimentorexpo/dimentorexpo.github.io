@@ -8021,8 +8021,12 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 };
 
 async function chatstatus() {
-    let tempvariable = document.getElementById('idstudent').value;
-    tempvariable = tempvariable.trim();
+    let tempvariable;
+	if (document.getElementById('idstudent').value != '' && document.getElementById('placeusid').innerText == '') 
+	tempvariable = document.getElementById('idstudent').value.trim();
+	else if (document.getElementById('idstudent').value == '' && document.getElementById('placeusid').innerText != '')
+	tempvariable = document.getElementById('placeusid').innerText.trim()
+    else alert('Введно в двух полях и user info и истории чатов просматривается чат. Пожалуйста, закройте и очиститке одно из окно от ID ученика')
     document.getElementById('ChatStatus').style.display = "none";
     document.getElementById('getcurrentstatus').style.display = "none";
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
