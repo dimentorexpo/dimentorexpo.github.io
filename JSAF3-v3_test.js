@@ -725,7 +725,8 @@ var win_Chathis =  // описание элементов окна Истори�
 
 				<div style="width: 410px;display:none" id="somechatinfo">
 					<span id="usidchat" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует сам айдишник">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
-					<button id="takechat" style="margin-left: 185px;margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+                    <button id="startchat" style="margin-left:10px;" title="Начать новый чат с пользователем">💬</button>
+					<button id="takechat" style="margin-left: 147px;margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 					<br>
 					<span id="chid" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
@@ -2685,14 +2686,6 @@ function move_again_AF() {
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
-
-
-    function setactivechatstyle() {
-        if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
-            document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
-    }
-
-    setInterval(setactivechatstyle, 1000)
 
     function clock_on_javascript_1() {
         var data = new Date();
@@ -5800,6 +5793,11 @@ function move_again_AF() {
             }
         } // конец обработчика нажатия кнопки "Забрать"
 
+        document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
+            let polzid = document.getElementById('placeusid').value.trim();
+            startnewchat(polzid)
+        } // конец обработчика нажатия кнопки Начать чат с пользователем
+
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
 
             let arops = document.getElementById('operatorstp')
@@ -8090,6 +8088,13 @@ async function startnewchat(polzid) {
     }
 }
 
+function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
+    if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+        document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
+}
+
+setInterval(setactivechatstyle, 1000)
+
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
     document.getElementById('infofield').innerHTML = ''
@@ -10079,7 +10084,7 @@ setInterval(checJiraF, 1000);
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if (document.location.pathname.split('/').length > 3 && location.href.split('/')[2] == 'skyeng.autofaq.ai') {
+        if (document.location.pathname.split('/').length > 4 && location.href.split('/')[2] == 'skyeng.autofaq.ai') {
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
