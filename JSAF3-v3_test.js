@@ -10091,9 +10091,7 @@ setInterval(checJiraF, 1000);
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if ((document.location.pathname.split('/')[3] == '' || document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/').length < 4) && location.href.split('/')[2] == 'vimbox.skyeng.ru')
-            var errrrrrrrrrrrrrrrrrrrrrr = "no active chats";
-        else {
+        if (document.location.pathname.split('/').length > 3 && location.href.split('/')[2] =='skyeng.autofaq.ai') {
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
