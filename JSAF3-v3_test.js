@@ -8704,13 +8704,22 @@ async function remandressl() { // функция удаления и сброс�
                             alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
                         }
                     }
-                } else {
-                    for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
+                } else if (joinresult.lessonPlan.Test != undefined) {
+					for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
                         if (joinresult.currentStepRevId == joinresult.lessonPlan.Test[i].id) {
                             console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
                             copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
                             alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
                         }
+					}
+                    } else if (joinresult.lessonPlan.Lesson != undefined) {
+					for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
+                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Lesson[i].id) {
+                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                            copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                        }
+					}
                     }
                 }
             }
@@ -10082,7 +10091,7 @@ setInterval(checJiraF, 1000);
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if (document.location.pathname.split('/')[3] == '' || document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/').length < 4)
+        if ((document.location.pathname.split('/')[3] == '' || document.location.pathname.split('/')[3] == undefined || document.location.pathname.split('/').length < 4) && location.href.split('/')[2] != 'vimbox.skyeng.ru')
             var errrrrrrrrrrrrrrrrrrrrrr = "no active chats";
         else {
             let temparr = document.location.pathname.split('/')[3];
