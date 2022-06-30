@@ -5794,7 +5794,7 @@ function move_again_AF() {
         } // конец обработчика нажатия кнопки "Забрать"
 
         document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
-            let polzid = document.getElementById('placeusid').value.trim();
+            let polzid = document.getElementById('placeusid').innerText.trim();
             startnewchat(polzid)
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
