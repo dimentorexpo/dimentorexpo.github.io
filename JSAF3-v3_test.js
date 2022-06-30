@@ -5,6 +5,8 @@ let afopername;
 let foundarr;
 let flagsearch;
 let operchatsdata;
+let werechats = false;
+let chatisopen = "";
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -3259,8 +3261,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'emailishere'
             document.getElementById('sendResponse').click()
 
-            unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-            unhidenemail = await unhidenemail;
+            unhidenemail = await document.getElementById('responseTextarea1').getAttribute('emailishere');
             unhidenemail = JSON.parse(unhidenemail);
             unhidenemail = unhidenemail.data.value;
             document.getElementById('responseTextarea1').removeAttribute('emailishere')
@@ -3295,8 +3296,7 @@ function move_again_AF() {
             document.getElementById('responseTextarea3').value = 'arrayofservices'
             document.getElementById('sendResponse').click()
 
-            servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
-            servicearray = await servicearray;
+            servicearray = await document.getElementById('responseTextarea1').getAttribute('arrayofservices');
             servicearray = JSON.parse(servicearray);
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
@@ -3948,80 +3948,9 @@ function move_again_AF() {
         }, 800)
     }
 
-    let werechats = false;
-    let chatisopen = "";
-
-    async function chatstatus() {
-        let tempvariable = document.getElementById('idstudent').value;
-        tempvariable = tempvariable.trim();
-        document.getElementById('ChatStatus').style.display = "none";
-        document.getElementById('getcurrentstatus').style.display = "none";
-        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-            "headers": {
-                "content-type": "application/json",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-11-01T19:00:00.000Z\",\"tsTo\":\"2022-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => infres = data)
-        if (infres.total > 0) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "📧";
-            convid = infres.items[0].conversationId;
-            werechats = true;
-            if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-                chatisopen = true;
-            else
-                chatisopen = false;
-        } else if (infres.total == 0) {
-            document.getElementById('ChatStatus').style.display = "";
-            document.getElementById('ChatStatus').textContent = "🚫";
-            werechats = false;
-        }
-    }
-
-    document.getElementById('startnewchat').onclick = async () => { // нажатие на начать новый чат
-        if (operatorId == "") {
-            await whoAmI()
-        }
-        if (document.getElementById('idstudent').value == "") {
-            alert('Не введен id пользователя');
-        }
-        else {
-            polzid = document.getElementById('idstudent').value.trim();
-            console.log(polzid);
-            await chatstatus()
-            if (!werechats) {
-                alert('Начать чат с пользователем невозможно (пользователь не писал в чат)');
-            } else if (chatisopen)
-                alert('Уже есть активный чат');
-            else {
-                await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}`, {
-                    headers: {
-                    },
-                    referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
-                    referrerPolicy: "strict-origin-when-cross-origin",
-                    body: null,
-                    method: "POST",
-                    mode: "cors",
-                    credentials: "include"
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        chatId = data.conversationId
-                        console.log(data, chatId)
-                    })
-                alert(`Чат начат c пользователем ${polzid}`);
-                chatisopen = '';
-                werechats = false;
-            }
-        }
+    document.getElementById('startnewchat').onclick = () => { // нажатие на начать новый чат
+        let polzid = document.getElementById('idstudent').value.trim();
+        startnewchat(polzid)
     }
 
     let convid;
@@ -8089,6 +8018,78 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 
 };
 
+async function chatstatus() {
+    let tempvariable = document.getElementById('idstudent').value;
+    tempvariable = tempvariable.trim();
+    document.getElementById('ChatStatus').style.display = "none";
+    document.getElementById('getcurrentstatus').style.display = "none";
+    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+        "headers": {
+            "content-type": "application/json",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin"
+        },
+        "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-11-01T19:00:00.000Z\",\"tsTo\":\"2022-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    }).then(r => r.json()).then(data => infres = data)
+    if (infres.total > 0) {
+        document.getElementById('ChatStatus').style.display = "";
+        document.getElementById('ChatStatus').textContent = "📧";
+        convid = infres.items[0].conversationId;
+        werechats = true;
+        if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
+            chatisopen = true;
+        else
+            chatisopen = false;
+    } else if (infres.total == 0) {
+        document.getElementById('ChatStatus').style.display = "";
+        document.getElementById('ChatStatus').textContent = "🚫";
+        werechats = false;
+    }
+}
+
+async function startnewchat(polzid) {
+    if (operatorId == "") {
+        await whoAmI()
+    }
+
+    if (document.getElementById('idstudent').value == "") {
+        alert('Не введен id пользователя');
+    } else {
+        console.log(polzid);
+        await chatstatus()
+        if (!werechats) {
+            alert('Начать чат с пользователем невозможно (пользователь не писал в чат)');
+        } else if (chatisopen)
+            alert('Уже есть активный чат');
+        else {
+            await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}`, {
+                headers: {
+                },
+                referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
+                referrerPolicy: "strict-origin-when-cross-origin",
+                body: null,
+                method: "POST",
+                mode: "cors",
+                credentials: "include"
+            })
+                .then(response => response.json())
+                .then(data => {
+                    chatId = data.conversationId
+                    console.log(data, chatId)
+                })
+            alert(`Чат начат c пользователем ${polzid}`);
+            chatisopen = '';
+            werechats = false;
+        }
+    }
+}
+
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
     document.getElementById('infofield').innerHTML = ''
@@ -10333,7 +10334,6 @@ function backbtnold() { //функция возвращает в кота оме
 
             document.getElementById('send_btns').append(bareaold)
             document.getElementById('send_btns').append(btnsndnotes)
-
 
             let zambtnhide = document.getElementsByTagName('a')
             for (let i = 0; i < zambtnhide.length; i++) {
