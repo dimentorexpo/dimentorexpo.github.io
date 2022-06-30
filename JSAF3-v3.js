@@ -8435,8 +8435,8 @@ function addbuttonsintegration() { // добавляет подсветку пр
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl() { // функция удаления и сброса слайдов но с добавлением также функций просмотра ID методиста которому была отправлена работае, информации об уроке в контенте
-    if (document.URL.split('/').length > 4 && document.URL.split('/')[3] != 'portfolio' && document.URL.split('/')[2] != 'skyeng.autofaq.ai' && document.URL.split('/')[3] != 'circles' && document.URL.split('/')[3] != 'profile' && document.URL.split('/')[3] != 'adults' && document.URL.split('/')[3] != 'kids') {
-        if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=') {
+    if (document.URL.split('/').length > 4 && document.URL.split('/')[3] != 'portfolio' && document.URL.split('/')[2] != 'skyeng.autofaq.ai' && document.URL.split('/')[3] != 'circles' && document.URL.split('/')[3] != 'profile' && document.URL.split('/')[3] != 'adults' && document.URL.split('/')[3] != 'kids' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] !='vimbox.skyeng.ru/lesson') {
+if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=') {
             let remove = document.createElement('span')
             remove.id = "removebtn"
             remove.title = "По нажатию удалит все заданные упражнения на дом из категорий Lesson и Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
@@ -12388,15 +12388,11 @@ btnpm.onclick = async function () {
         document.getElementById('sendResponse').click()
 
         lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata');
-
         lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
         lginfo = lginfo[lginfo.length - 1].split("\"");
-
         copyToClipboard1(lginfo[1])
         document.getElementById('responseTextarea1').removeAttribute('senddata')
-
-
-    }, 800)
+    }, 1000)
 }
 
 btnsid.onclick = async function () {
@@ -12445,16 +12441,12 @@ btnsid.onclick = async function () {
             document.getElementById('responseTextarea3').value = 'senddata1'
             document.getElementById('sendResponse').click()
 
-            lginfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-            lginfo = await lginfo;
-
+            lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata1');
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
             copyToClipboard1(lginfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
-
-
-        }, 800)
+        }, 1000)
 
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
@@ -12505,21 +12497,15 @@ btntid.onclick = async function () {
             document.getElementById('responseTextarea3').value = 'senddata2'
             document.getElementById('sendResponse').click()
 
-            lginfo = document.getElementById('responseTextarea1').getAttribute('senddata2');
-            lginfo = await lginfo;
-
+            lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata2');
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
-            //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
             copyToClipboard1(lginfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata2')
-
-
-        }, 800)
+        }, 1000)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
-
 
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
