@@ -5796,7 +5796,7 @@ function move_again_AF() {
         document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
             let polzid = document.getElementById('placeusid').innerText.trim();
 			document.getElementById('startchat').style.background = 'green';
-            startnewchat(polzid)
+            startnewchatfast(polzid)
 			setTimeout(() => {
 				document.getElementById('startchat').style.background = '#768D87';
 			}, 3000)
@@ -8021,11 +8021,7 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 };
 
 async function chatstatus() {
-    let tempvariable;
-	if (document.getElementById('idstudent').value != '' && document.getElementById('placeusid').innerText == '')
-	tempvariable = document.getElementById('idstudent').value.trim();
-	else if (document.getElementById('idstudent').value == '' && document.getElementById('placeusid').innerText != '')
-	tempvariable = document.getElementById('placeusid').innerText.trim()
+    let tempvariable = document.getElementById('idstudent').value.trim();
     else alert('Введно в двух полях и user info и истории чатов просматривается чат. Пожалуйста, закройте и очиститке одно из окно от ID ученика')
     document.getElementById('ChatStatus').style.display = "none";
     document.getElementById('getcurrentstatus').style.display = "none";
@@ -8091,6 +8087,31 @@ async function startnewchat(polzid) {
             chatisopen = '';
             werechats = false;
         }
+    } else alert('Не введен id пользователя');
+}
+
+async function startnewchatfast(polzid) {
+    if (operatorId == "") {
+        await whoAmI()
+    }
+
+    if (polzid) {
+            await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}`, {
+                headers: {
+                },
+                referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
+                referrerPolicy: "strict-origin-when-cross-origin",
+                body: null,
+                method: "POST",
+                mode: "cors",
+                credentials: "include"
+            })
+                .then(response => response.json())
+                .then(data => {
+                    chatId = data.conversationId
+                    console.log(data, chatId)
+                })
+            alert(`Чат начат c пользователем ${polzid}`);
     } else alert('Не введен id пользователя');
 }
 
