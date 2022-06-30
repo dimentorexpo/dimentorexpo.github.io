@@ -2089,18 +2089,18 @@ buttonnextteacherid.onclick = function () {
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-		const editorExtensionId = localStorage.getItem('ext_id');
-			chrome.runtime.sendMessage(
-				editorExtensionId,
-				{
-					name: "chm_message", question: 'send_event', messageValue: {
-					message: 'open-user-info',
-					userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]}`,
-					}
-				}
-			)
-		}
-	}
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]}`,
+                    }
+                }
+            )
+        }
+    }
 }
 
 buttonserv.onclick = function () {
@@ -2140,37 +2140,37 @@ buttonservstud.onclick = function () {
 }
 
 nextstuduserbut.onclick = function () {
-	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-		const editorExtensionId = localStorage.getItem('ext_id');
-			chrome.runtime.sendMessage(
-				editorExtensionId,
-				{
-					name: "chm_message", question: 'send_event', messageValue: {
-					message: 'open-user-info',
-					userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
-					}
-				}
-			)
-		}
-	}
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                    }
+                }
+            )
+        }
+    }
 }
 
 nextteachuserbut.onclick = function () {
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-		const editorExtensionId = localStorage.getItem('ext_id');
-			chrome.runtime.sendMessage(
-				editorExtensionId,
-				{
-					name: "chm_message", question: 'send_event', messageValue: {
-					message: 'open-user-info',
-					userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
-					}
-				}
-			)
-		}
-	}
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                    }
+                }
+            )
+        }
+    }
 }
 
 let addInfoUser = document.createElement('div')
@@ -3790,7 +3790,7 @@ function move_again_AF() {
     let tokenlogginer;
     let logginerinfo;
     async function postuderdatatologin() {
-		logginerinfo='';
+        logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
         document.getElementById('responseTextarea1').value = `{
@@ -5460,7 +5460,7 @@ function move_again_AF() {
             document.getElementById('set_bar').style.display = 'none'
         else {
             document.getElementById('set_bar').style.display = ''
-			document.getElementById('reminder_bar').style.display = 'none'
+            document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
@@ -5557,15 +5557,15 @@ function move_again_AF() {
                     document.getElementById('curVerAndroid').innerText = "Android: " + table[i][4]
             }
         }
-    }   
+    }
 
-	document.getElementById('reminderstatus').onclick = function () {
+    document.getElementById('reminderstatus').onclick = function () {
         if (document.getElementById('reminder_bar').style.display == '')
             document.getElementById('reminder_bar').style.display = 'none'
         else {
             document.getElementById('reminder_bar').style.display = ''
-			document.getElementById('set_bar').style.display = 'none'
-			document.getElementById('addTmp').style.display = 'none'
+            document.getElementById('set_bar').style.display = 'none'
+            document.getElementById('addTmp').style.display = 'none'
         }
     }
 
@@ -7116,7 +7116,7 @@ function refreshTemplates() { // функция обновляет шаблон�
         if (document.getElementById('addTmp').style.display == 'none') {
             document.getElementById('addTmp').style.display = '';
             document.getElementById('set_bar').style.display = 'none'
-			document.getElementById('reminder_bar').style.display = 'none'
+            document.getElementById('reminder_bar').style.display = 'none'
         }
         else
             document.getElementById('addTmp').style.display = 'none';
@@ -8681,48 +8681,52 @@ async function remandressl() { // функция удаления и сброс�
                 window.location.reload();
             }
 
-async function getlessoninfo() {
-    let d = document.cookie;
-    d = d.match(/token_global=(.*)/);
+            async function getlessoninfo() {
+                let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
 
-    await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
-        "headers": {
-            "accept": "application/json, text/plain, */*",
-            "authorization": "Bearer" + d[1],
-        },
-        "method": "PATCH",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(r => r.json()).then(data => joinresult = data)
+                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                    "headers": {
+                        "accept": "application/json, text/plain, */*",
+                        "authorization": "Bearer" + d[1],
+                    },
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(data => joinresult = data)
 
-    if (joinresult.lessonPlan.Homework != undefined) {
+                if (joinresult.lessonPlan.Homework != undefined) {
 
-        for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
-            if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
-                console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-            }
-        }
+                    for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
+                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
+                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                            copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                        }
+                    }
 
-        for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
-            if (joinresult.currentStepRevId == joinresult.lessonPlan.Lesson[i].id) {
-                console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-            }
-        }
-    } else {
-        for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
-            if (joinresult.currentStepRevId == joinresult.lessonPlan.Test[i].id) {
-                console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                    for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
+                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Lesson[i].id) {
+                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                            copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                        }
+                    }
 
+                } else {
+                    for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
+                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Test[i].id) {
+                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                            copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+
+                        }
+                    }
+                }
             }
         }
     }
-}
+
 
     // Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
     let achatb = document.createElement('span')
@@ -10442,7 +10446,7 @@ async function whoAmI() { // функция получения айди опер
         let me = document.querySelector('.user_menu-dropdown-user_name');
         operatorsarray = b.rows;
         b.rows.forEach(s => {
-            if (s.operator !=null && me && s.operator.fullName === me.innerText) {
+            if (s.operator != null && me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
                 afopername = s.operator.fullName
                 console.log("Мой ID: " + operatorId)
@@ -12157,8 +12161,8 @@ async function checkCSAT() {             // функция проверки CSAT
                 document.getElementById('hashchathis').value = artchattids[j].innerText;
                 btn_search_history.click()
             }
-		}
-	}
+        }
+    }
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 
 }
