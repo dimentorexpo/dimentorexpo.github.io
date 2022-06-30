@@ -5795,7 +5795,11 @@ function move_again_AF() {
 
         document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
             let polzid = document.getElementById('placeusid').innerText.trim();
+			document.getElementById('startchat').style.background = 'green';
             startnewchat(polzid)
+			setTimeout(() => {
+				document.getElementById('startchat').style.background = '#768D87';
+			}, 3000)
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
