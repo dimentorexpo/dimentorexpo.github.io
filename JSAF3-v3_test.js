@@ -8022,7 +8022,7 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 
 async function chatstatus() {
     let tempvariable;
-	if (document.getElementById('idstudent').value != '' && document.getElementById('placeusid').innerText == '') 
+	if (document.getElementById('idstudent').value != '' && document.getElementById('placeusid').innerText == '')
 	tempvariable = document.getElementById('idstudent').value.trim();
 	else if (document.getElementById('idstudent').value == '' && document.getElementById('placeusid').innerText != '')
 	tempvariable = document.getElementById('placeusid').innerText.trim()
