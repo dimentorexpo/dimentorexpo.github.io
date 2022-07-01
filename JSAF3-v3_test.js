@@ -2689,99 +2689,6 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
-        let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
-        if (studguid.value == "")
-            console.log('Введите id  ученика в поле')
-        else {
-            window.open(lnksgu + studguid.value);
-        };
-        studguid.value = "";
-    }
-
-    document.getElementById('credits').onclick = function () {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
-        let lnkscredits = 'https://accounting.skyeng.ru/credit/list?studentId=';
-        if (creditstatus.value == "")
-            console.log('Введите id  ученика в поле')
-        else {
-            window.open(lnkscredits + creditstatus.value);
-        };
-        creditstatus.value = "";
-    }
-
-    document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
-        let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
-        if (HWstudID.value == "")
-            console.log('Введите id  ученика в поле')
-        else {
-            copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
-        };
-        document.getElementById('showcaseHW').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('showcaseHW').innerHTML = "💾" }, 2000);
-        HWstudID.value = "";
-    }
-
-    document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
-        let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
-        if (lookhash.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
-        };
-        document.getElementById('gethash').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
-        lookhash.value = "";
-    }
-
-    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
-        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
-        if (idteacheradult.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
-        };
-        document.getElementById('setchatsadults').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
-        idteacheradult.value = "";
-    }
-
-    document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
-        let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
-        if (enablerAP.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard(enableAPlnk + enablerAP.value);
-        };
-        document.getElementById('getenablerAP').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('getenablerAP').innerHTML = "💾" }, 2000);
-        enablerAP.value = "";
-    }
-
-    document.getElementById('getskipAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
-        let skipAPlnk = 'https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId=';
-        if (skipAP.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard(skipAPlnk + skipAP.value);
-        };
-        document.getElementById('getskipAP').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
-        skipAP.value = "";
-    }
-
-
-    document.getElementById('doskiponboard').onclick = function () {               // сохранение в буфере ссылки для активации АП
-        let skiponblnk = 'https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId=';
-        if (skiponboarding.value == "")
-            console.log('Введите ID услуги в поле')
-        else {
-            copyToClipboard(skiponblnk + skiponboarding.value);
-        };
-        document.getElementById('doskiponboard').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('doskiponboard').innerHTML = "💾" }, 2000);
-        skiponboarding.value = "";
-    }
-
     let nameofuser;
     let teachername;
     let studentname;
@@ -7193,6 +7100,99 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('AF_Links').style.display = 'none'
         else {
             document.getElementById('AF_Links').style.display = ''
+			
+	document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
+        let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
+        if (studguid.value == "")
+            console.log('Введите id  ученика в поле')
+        else {
+            window.open(lnksgu + studguid.value);
+        };
+        studguid.value = "";
+    }
+
+    document.getElementById('credits').onclick = function () {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
+        let lnkscredits = 'https://accounting.skyeng.ru/credit/list?studentId=';
+        if (creditstatus.value == "")
+            console.log('Введите id  ученика в поле')
+        else {
+            window.open(lnkscredits + creditstatus.value);
+        };
+        creditstatus.value = "";
+    }
+
+    document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
+        let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
+        if (HWstudID.value == "")
+            console.log('Введите id  ученика в поле')
+        else {
+            copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
+        };
+        document.getElementById('showcaseHW').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('showcaseHW').innerHTML = "💾" }, 2000);
+        HWstudID.value = "";
+    }
+
+    document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
+        let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
+        if (lookhash.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+        };
+        document.getElementById('gethash').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
+        lookhash.value = "";
+    }
+
+    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
+        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
+        if (idteacheradult.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
+        };
+        document.getElementById('setchatsadults').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
+        idteacheradult.value = "";
+    }
+
+    document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
+        let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
+        if (enablerAP.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard(enableAPlnk + enablerAP.value);
+        };
+        document.getElementById('getenablerAP').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('getenablerAP').innerHTML = "💾" }, 2000);
+        enablerAP.value = "";
+    }
+
+    document.getElementById('getskipAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
+        let skipAPlnk = 'https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId=';
+        if (skipAP.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard(skipAPlnk + skipAP.value);
+        };
+        document.getElementById('getskipAP').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
+        skipAP.value = "";
+    }
+
+
+    document.getElementById('doskiponboard').onclick = function () {               // сохранение в буфере ссылки для активации АП
+        let skiponblnk = 'https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId=';
+        if (skiponboarding.value == "")
+            console.log('Введите ID услуги в поле')
+        else {
+            copyToClipboard(skiponblnk + skiponboarding.value);
+        };
+        document.getElementById('doskiponboard').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('doskiponboard').innerHTML = "💾" }, 2000);
+        skiponboarding.value = "";
+    }
 			
 	 document.getElementById('setservicelocaleru').onclick = function () {
         document.getElementById('responseTextarea1').value = `{
