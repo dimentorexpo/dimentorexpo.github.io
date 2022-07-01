@@ -2728,553 +2728,6 @@ function move_again_AF() {
         audio.volume = localStorage.getItem('audiovol');
     } else localStorage.setItem('audiovol', 1);
 
-    document.getElementById('addsrc').onclick = function () {
-        if (document.getElementById('AF_Linksd').style.display == '')
-            document.getElementById('AF_Linksd').style.display = 'none'
-        else
-            document.getElementById('AF_Linksd').style.display = ''
-		
-		// обработка нажатий на странице доступов
-    document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
-        if (kibsvid.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:" + kibsvid.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kibsvid.value = "";
-    }
-
-    document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
-        if (kibsvhesh.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-2w,to:now))&_a=(columns:!(userId,event,roomId,appSessionId,detailsJson,details.summary.mediaStates.video.down.count,details.summary.publishedSuccessfully,details.summary.mediaStates.audio.down.count,details.summary.iceDisconnectedCount,details.summary.localStreamReady,details.summary.remoteStreamReady),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId " + kibsvhesh.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kibsvhesh.value = "";
-    }
-
-    document.getElementById('kibservheshbut').onclick = function () { // kibana найти по хешу комнаты сервер
-        if (kibservhesh.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20" + kibservhesh.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kibservhesh.value = "";
-    }
-
-    document.getElementById('kibslowbut').onclick = function () { // kibana Слоулинки, дисконнекты, отвалы
-        if (kibslow.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.publisher.toServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.count,details.summary.iceDisconnectedCount,details.summary.mediaStates.audio.down.count,details.summary.mediaStates.video.down.count),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibslow.value + " and (details.summary.slowLinkCount.subscriber.fromServer.count > 0 or details.summary.slowLinkCount.publisher.toServer.count > 0  or details.summary.slowLinkCount.publisher.toServer.lostSum > 0 or details.summary.slowLinkCount.subscriber.fromServer.lostSum > 0 or details.summary.iceDisconnectedCount > 0 or details.summary.mediaStates.audio.down.count > 0 or details.summary.mediaStates.video.down.count > 0)'),sort:!(!('@timestamp',asc)))");
-        };
-        kibslow.value = "";
-    }
-
-    document.getElementById('kibheshvidbut').onclick = function () { // kibana видео-аудио не передавалось
-        if (kibheshvid.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibheshvid.value + " and (description : \"mediaState video down\" or description : \"mediaState audio down\")\'),sort:!(!(\'@timestamp\',asc)))");
-        };
-        kibheshvid.value = "";
-    }
-
-    document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
-        if (kibstihesh.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.localStreamReady,details.summary.publishedSuccessfully),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibstihesh.value + " and (details.summary.publishedSuccessfully : false or  details.summary.localStreamReady: false)'),sort:!(!('@timestamp',asc)))");
-        };
-        kibstihesh.value = "";
-    }
-
-    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК
-        if (kiblk.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:" + kiblk.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kiblk.value = "";
-    }
-    // действия конопок редаш в окне доступов
-    document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
-        if (mobappid.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/13000?p_end_at=d_now&p_id=" + mobappid.value + "&p_start_at=d_yesterday");
-        };
-        mobappid.value = "";
-    }
-
-    document.getElementById('rpayidbut').onclick = function () { // Редаш логи платежей
-        if (rpayid.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
-        };
-        rpayid.value = "";
-    }
-
-    document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
-        if (FeedbackStatus.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/27681?p_Student_id=" + FeedbackStatus.value);
-        };
-        FeedbackStatus.value = "";
-    }
-
-    document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
-        if (TeacherReport.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
-        };
-        TeacherReport.value = "";
-    }
-
-    document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
-        if (UserActions.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "&p_start_at=d_yesterday");
-        };
-        UserActions.value = "";
-    }
-	
-	document.getElementById('grafanalnk').addEventListener('click', function () {
-        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем ссылку на Grafana
-    })
-	
-    }
-
-    document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
-
-        if (document.getElementById('AF_ChatHis').style.display == '')
-            document.getElementById('AF_ChatHis').style.display = 'none'
-        else
-            document.getElementById('AF_ChatHis').style.display = ''
-		
-		    document.getElementById('chid').onclick = () => {
-				copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
-			}
-
-			document.getElementById('usidchat').onclick = () => {
-				copyToClipboard1(document.getElementById('placeusid').innerText)
-			}
-
-        changeviewtheme()
-
-        flagsearch = ''
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
-
-        let radiobtnsarray = document.getElementsByName('chatornotes')
-        let activetechopers = [];
-        document.getElementById('RefrehOperators').onclick = currstate;
-        let objSel = document.getElementById("operatorstp");
-
-        function addOption(oListbox, text, value)  //функция добавления опции в список
-        {
-            var oOption = document.createElement("option");
-            oOption.appendChild(document.createTextNode(text));
-            oOption.setAttribute("value", value);
-
-            oListbox.appendChild(oOption);
-        }
-
-        async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
-            activetechopers = []
-            objSel.length = 1
-            objSel[0].selected = true;
-            await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-                "credentials": "include"
-            }).then(r => r.json()).then(result => {
-
-                for (let i = 0; i < result.rows.length; i++) {
-                    if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
-                        activetechopers.push(result.rows[i])
-                    } // end of if state
-                } // end of for
-            })
-
-            if (activetechopers.length != 0) {
-                for (let i = 0; i < activetechopers.length; i++) {
-                    if (activetechopers[i].aCnt == null)
-                        activetechopers[i].aCnt = 0;
-
-                    if (activetechopers[i].operator.status == "Online") {
-                        addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-                    } else if (activetechopers[i].operator.status == "Busy") {
-                        addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-                    } else if (activetechopers[i].operator.status == "Pause") {
-                        addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-                    }
-                }
-            }
-        }
-
-        document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
-
-
-            if (typeof (convdata) !== 'undefined') {
-
-                if (document.getElementById('userchatdata').style.display == 'none')
-                    document.getElementById('userchatdata').style.display = ''
-                else document.getElementById('userchatdata').style.display = 'none'
-
-                if (convdata.channelUser.payload.techScreeningData == undefined)
-                    convdata.channelUser.payload.techScreeningData = convdata.channelUser.payload["Тех.инфа об устройствах"]
-
-                if (convdata.channelUser.payload.userFullName != undefined)
-                    document.getElementById('datafield').innerHTML = '<span style="color:#00BFFF; font-weight:700;">' + convdata.channelUser.payload.userFullName + '</span>' + '<br>' + '<span style="color: #00FA9A;">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '<span style="user-select: none;">' + '📧: ' + '</span>' + convdata.channelUser.payload.email + '<br>' + '<span style="user-select: none;">' + '📞:' + '</span>' + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
-                else
-                    document.getElementById('datafield').innerHTML = '<span style="color:#00BFFF; font-weight:700;">' + convdata.channelUser.fullName + '</span>' + '<br>' + '<span style="color: #00FA9A;">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '<span style="user-select: none;">' + '📧: ' + '</span>' + convdata.channelUser.payload.email + '<br>' + '<span style="user-select: none;">' + '📞:' + '</span>' + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
-            } else alert("Не выбран активный чат")
-        }
-
-        currstate();
-        console.log(activetechopers);
-
-
-        for (let i = 0; i < radiobtnsarray.length; i++) {
-            if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
-                document.getElementById('msgftochatornotes').style.background = 'LightGrey';
-            } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
-                document.getElementById('msgftochatornotes').style.background = 'white';
-            }
-
-            radiobtnsarray[i].onclick = () => {
-                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
-                    document.getElementById('msgftochatornotes').style.background = 'LightGrey';
-                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
-                    document.getElementById('msgftochatornotes').style.background = 'white';
-                }
-            }
-        }
-
-        document.getElementById('btn_search_history').onclick = async () => { //функця обработки нажатия "Найти"
-
-            if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') { // если айди пользователя введен, а хеш чата не введен
-                flagsearch = 'searchbyuser'
-                let lusid = document.getElementById('chatuserhis').value.trim();
-                let from = document.getElementById('dateFromChHis').value
-                let to = document.getElementById('dateToChHis').value
-                document.getElementById('chatuserhis').value = ''
-
-                if (foundarr != '')
-                    foundarr = ''
-
-                if (document.getElementById('placeusid').innerText != '')
-                    document.getElementById('placeusid').innerText = ''
-
-                if (document.getElementById('placechatid').innerText != '')
-                    document.getElementById('placechatid').innerText = ''
-
-                if (document.getElementById('somechatinfo').style.display == '')
-                    document.getElementById('somechatinfo').style.display = 'none';
-
-                if (document.getElementById('bottommenuchhis').style.display == '')
-                    document.getElementById('bottommenuchhis').style.display = 'none';
-
-                document.getElementById('infofield').innerHTML = 'Загрузка'
-
-                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-                    "headers": {
-                        "content-type": "application/json",
-                        "sec-fetch-mode": "cors",
-                        "sec-fetch-site": "same-origin"
-                    },
-                    "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"${lusid}\",\"tsFrom\":\"${from}T00:00:00.000Z\",\"tsTo\":\"${to}T23:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}`,
-                    "method": "POST",
-                    "mode": "cors",
-                    "credentials": "include"
-                }).then(r => r.json()).then(r => data = r)
-                console.log(data)
-
-                if (data.total == 0)
-                    alert("В выбранном диапазоне чатов от пользователя не найдено. Попробуйте, пожалуйста, выбрать другой, либо пользователь не обращался вовсе.")
-
-                for (let i = 0; i < data.items.length; i++) {
-
-                    let tmestmp = new Date((data.items[i].ts.split('[GMT]'))[0])
-                    let tshrs;
-                    let tsmin
-                    let day;
-                    let month;
-                    let actstatus = '';
-                    let marksarr;
-                    if (tmestmp.getMonth() < 9)
-                        month = "0" + (tmestmp.getMonth() + 1)
-                    else
-                        month = (tmestmp.getMonth() + 1)
-                    if (tmestmp.getDate() < 10)
-                        day = "0" + tmestmp.getDate()
-                    else
-                        day = tmestmp.getDate()
-                    let year = tmestmp.getFullYear();
-                    if ((tmestmp.getUTCHours() + 3) < 10)
-                        tshrs = "0" + (tmestmp.getUTCHours() + 3);
-                    else if ((tmestmp.getUTCHours() + 3) >= 24)
-                        tshrs = '0' + ((tmestmp.getUTCHours() + 3 - 24))
-                    else tshrs = (tmestmp.getUTCHours() + 3);
-
-                    if (tmestmp.getMinutes() < 10)
-                        tsmin = "0" + tmestmp.getMinutes();
-                    else tsmin = tmestmp.getMinutes();
-
-                    if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
-                        marksarr = '⭕'
-                    else
-                        marksarr = data.items[i].stats.rate.rate
-
-                    if (data.items[i].stats.usedStatuses == "AssignedToOperator")
-                        actstatus = "🛠"
-                    else actstatus = '';
-
-                    //сюда также допилить классы и  менять их в зависимости от темы
-
-                    if (data.items[i].channelUser.payload.userFullName == undefined)
-                        foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700;">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.fullName + '<span style="color: MediumSeaGreen; font-weight:700;">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
-                    else
-                        foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700;">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color: MediumSeaGreen; font-weight:700;">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
-
-
-                }
-
-                document.getElementById('infofield').innerHTML = foundarr;
-                checkandchangestyle()
-
-                for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
-                    document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-
-                    document.getElementsByClassName('chatlist')[i].onclick = async () => {
-
-                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
-                        console.log(convdata)
-
-                        fillchatbox();
-                        checkandchangestyle();
-                    } // конец функции клика по списку в найденном чате
-                }
-
-            } else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != '') { //если пользователь не введен, но введн хеш чата
-                flagsearch = 'searchbyhash'
-                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
-                console.log(convdata)
-
-                fillchatbox();
-                checkandchangestyle();
-
-            } else alert("Введено и ID пользователя и хеш чата, или оба поля пустые. Пожалуйста, выберите что-то одно и повторите попытку.")
-        } // конец функции клика найти
-
-        document.getElementById('back_to_chat_his').onclick = () => { // функция обработки нажатия кнопки "Вернуться"
-            document.getElementById('infofield').innerHTML = '';
-            document.getElementById('placeusid').innerText = '';
-            document.getElementById('placechatid').innerText = '';
-            document.getElementById('somechatinfo').style.display = 'none';
-            document.getElementById('bottommenuchhis').style.display = 'none';
-
-            if (foundarr != '' && foundarr != null && foundarr != undefined) {
-                document.getElementById('infofield').innerHTML = foundarr;
-                checkandchangestyle();
-
-                for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
-                    if (flagsearch == 'searchbyuser')
-                        document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-                    else if (flagsearch == 'searchbyoperator')
-                        document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
-                    else if (flagsearch == 'searchbyhash') {
-                        if (typeof (operchatsdata) !== 'undefined' && typeof (data) === 'undefined')
-                            document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
-                        else if (typeof (data) !== 'undefined' && typeof (operchatsdata) === 'undefined')
-                            document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-                        else if (typeof (data) !== 'undefined' && typeof (operchatsdata) !== 'undefined')
-                            document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
-                    }
-
-                    document.getElementsByClassName('chatlist')[i].onclick = async () => {
-
-                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
-                        console.log(convdata)
-
-                        fillchatbox();
-                        checkandchangestyle();
-                    } // конец функции клика по списку в найденном чате
-                }
-            }
-        } // конец обработки функции нажатия "Вернуться"
-
-        document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
-            if (document.getElementById('placechatid').innerText != '') {
-                document.getElementById('infofield').innerHTML = '';
-
-                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
-                console.log(convdata)
-
-                fillchatbox();
-                checkandchangestyle();
-            }
-        } // конец обработчика кнопки "Обновить"
-
-        document.getElementById('takechat').onclick = function () { //обработчик функции взятия чата
-            var result = confirm("Вы действительно желаете забрать чат?");
-            if (result) {
-                let chat_id = document.getElementById('placechatid').innerText;
-                let operator_id = operatorId;
-
-                fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
-                    "headers": {
-                        "content-type": "application/json"
-                    },
-                    "credentials": "include",
-                    "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
-                    "method": "POST"
-                });
-            }
-        } // конец обработчика нажатия кнопки "Забрать"
-
-        document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
-            let polzid = document.getElementById('placeusid').innerText.trim();
-            document.getElementById('startchat').style.background = 'green';
-            startnewchatfast(polzid)
-            setTimeout(() => {
-                document.getElementById('startchat').style.background = '';
-            }, 3000)
-        } // конец обработчика нажатия кнопки Начать чат с пользователем
-
-        document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
-
-            let arops = document.getElementById('operatorstp')
-            let hashid = document.getElementById('placechatid').innerText;
-            if (arops.children[0].selected != true && hashid != '') {
-                for (let i = 1; i < arops.children.length; i++) {
-                    if (arops.children[i].selected == true)
-                        fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
-                            "headers": {
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${hashid}\",\"assignToOperatorId\":\"${arops.children[i].value}\"}`,
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                }
-            } else alert("Условия передачи чата не выполнены: не выбран оператор, не открыт чат, который требуется переводить")
-        }
-
-
-
-        document.getElementById('sendmsgtochatornotes').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
-
-            let radiobtnsarray = document.getElementsByName('chatornotes')
-
-            for (let i = 0; i < radiobtnsarray.length; i++) {
-                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
-
-                    let chathashfromdiv = document.getElementById('placechatid').innerText
-                    let sesid;
-
-                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-                        .then(r => r.json()).then(r => rdata = r)
-                    sesid = rdata.sessionId;
-
-                    let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
-
-                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                        "headers": {
-                            "accept": "*/*",
-                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-
-                    document.getElementById('msgftochatornotes').value = ''
-
-                    setTimeout(
-                        async function () {
-                            if (document.getElementById('placechatid').innerText != '') {
-                                document.getElementById('infofield').innerHTML = '';
-
-                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
-                                console.log(convdata)
-
-                                fillchatbox();
-                                checkandchangestyle();
-                            }
-                        }, 1000);
-
-                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
-
-                    let chathashfromdiv = document.getElementById('placechatid').innerText
-                    let sesid;
-
-                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-                        .then(r => r.json()).then(r => rdata = r)
-                    sesid = rdata.sessionId;
-
-                    let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
-
-                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                        "headers": {
-                            "accept": "*/*",
-                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-
-                    document.getElementById('msgftochatornotes').value = ''
-
-                    setTimeout(
-                        async function () {
-                            if (document.getElementById('placechatid').innerText != '') {
-                                document.getElementById('infofield').innerHTML = '';
-
-                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
-                                console.log(convdata)
-
-                                fillchatbox();
-                                checkandchangestyle();
-                            }
-                        }, 1000);
-                }
-            }
-        }
-    }
-
     document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
@@ -11652,7 +11105,7 @@ setTimeout(() => {
 	
     }
 	
-	document.getElementById('suggestform').onclick = () => { //открывает форму предложений и пожеланий
+	document.getElementById('suggestform').onclick = function () { //открывает форму предложений и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
@@ -11890,9 +11343,556 @@ setTimeout(() => {
         }
     }
 	
+	document.getElementById('addsrc').onclick = function () { // открывает окно с доп ссылкиами требующими доступ (*)
+        if (document.getElementById('AF_Linksd').style.display == '')
+            document.getElementById('AF_Linksd').style.display = 'none'
+        else
+            document.getElementById('AF_Linksd').style.display = ''
+		
+		// обработка нажатий на странице доступов
+    document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
+        if (kibsvid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:" + kibsvid.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibsvid.value = "";
+    }
+
+    document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
+        if (kibsvhesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-2w,to:now))&_a=(columns:!(userId,event,roomId,appSessionId,detailsJson,details.summary.mediaStates.video.down.count,details.summary.publishedSuccessfully,details.summary.mediaStates.audio.down.count,details.summary.iceDisconnectedCount,details.summary.localStreamReady,details.summary.remoteStreamReady),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId " + kibsvhesh.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibsvhesh.value = "";
+    }
+
+    document.getElementById('kibservheshbut').onclick = function () { // kibana найти по хешу комнаты сервер
+        if (kibservhesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20" + kibservhesh.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibservhesh.value = "";
+    }
+
+    document.getElementById('kibslowbut').onclick = function () { // kibana Слоулинки, дисконнекты, отвалы
+        if (kibslow.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.publisher.toServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.count,details.summary.iceDisconnectedCount,details.summary.mediaStates.audio.down.count,details.summary.mediaStates.video.down.count),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibslow.value + " and (details.summary.slowLinkCount.subscriber.fromServer.count > 0 or details.summary.slowLinkCount.publisher.toServer.count > 0  or details.summary.slowLinkCount.publisher.toServer.lostSum > 0 or details.summary.slowLinkCount.subscriber.fromServer.lostSum > 0 or details.summary.iceDisconnectedCount > 0 or details.summary.mediaStates.audio.down.count > 0 or details.summary.mediaStates.video.down.count > 0)'),sort:!(!('@timestamp',asc)))");
+        };
+        kibslow.value = "";
+    }
+
+    document.getElementById('kibheshvidbut').onclick = function () { // kibana видео-аудио не передавалось
+        if (kibheshvid.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibheshvid.value + " and (description : \"mediaState video down\" or description : \"mediaState audio down\")\'),sort:!(!(\'@timestamp\',asc)))");
+        };
+        kibheshvid.value = "";
+    }
+
+    document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
+        if (kibstihesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.localStreamReady,details.summary.publishedSuccessfully),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibstihesh.value + " and (details.summary.publishedSuccessfully : false or  details.summary.localStreamReady: false)'),sort:!(!('@timestamp',asc)))");
+        };
+        kibstihesh.value = "";
+    }
+
+    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК
+        if (kiblk.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:" + kiblk.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kiblk.value = "";
+    }
+    // действия конопок редаш в окне доступов
+    document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
+        if (mobappid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/13000?p_end_at=d_now&p_id=" + mobappid.value + "&p_start_at=d_yesterday");
+        };
+        mobappid.value = "";
+    }
+
+    document.getElementById('rpayidbut').onclick = function () { // Редаш логи платежей
+        if (rpayid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
+        };
+        rpayid.value = "";
+    }
+
+    document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
+        if (FeedbackStatus.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/27681?p_Student_id=" + FeedbackStatus.value);
+        };
+        FeedbackStatus.value = "";
+    }
+
+    document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
+        if (TeacherReport.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
+        };
+        TeacherReport.value = "";
+    }
+
+    document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
+        if (UserActions.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "&p_start_at=d_yesterday");
+        };
+        UserActions.value = "";
+    }
+	
+	document.getElementById('grafanalnk').addEventListener('click', function () {
+        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем ссылку на Grafana
+    })
+	
+    }
+	
+	document.getElementById('butChatHistory').onclick = function () { // открывает меню для работы с историей чата по типу кота Омельченко
+
+        if (document.getElementById('AF_ChatHis').style.display == '')
+            document.getElementById('AF_ChatHis').style.display = 'none'
+        else
+            document.getElementById('AF_ChatHis').style.display = ''
+		
+		    document.getElementById('chid').onclick = () => {
+				copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
+			}
+
+			document.getElementById('usidchat').onclick = () => {
+				copyToClipboard1(document.getElementById('placeusid').innerText)
+			}
+
+        changeviewtheme()
+
+        flagsearch = ''
+        let getdateset = new Date()
+        let getyearLS = getdateset.getFullYear();
+        let getcurmonthLS = (getdateset.getMonth() + 1)
+        let todayLS = getdateset.getDate();
+        if (getcurmonthLS < 10) {
+            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        } else {
+            getcurmonthLS = (getdateset.getMonth() + 1);
+        }
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
+            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
+
+        let radiobtnsarray = document.getElementsByName('chatornotes')
+        let activetechopers = [];
+        document.getElementById('RefrehOperators').onclick = currstate;
+        let objSel = document.getElementById("operatorstp");
+
+        function addOption(oListbox, text, value)  //функция добавления опции в список
+        {
+            var oOption = document.createElement("option");
+            oOption.appendChild(document.createTextNode(text));
+            oOption.setAttribute("value", value);
+
+            oListbox.appendChild(oOption);
+        }
+
+        async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
+            activetechopers = []
+            objSel.length = 1
+            objSel[0].selected = true;
+            await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+                "credentials": "include"
+            }).then(r => r.json()).then(result => {
+
+                for (let i = 0; i < result.rows.length; i++) {
+                    if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
+                        activetechopers.push(result.rows[i])
+                    } // end of if state
+                } // end of for
+            })
+
+            if (activetechopers.length != 0) {
+                for (let i = 0; i < activetechopers.length; i++) {
+                    if (activetechopers[i].aCnt == null)
+                        activetechopers[i].aCnt = 0;
+
+                    if (activetechopers[i].operator.status == "Online") {
+                        addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    } else if (activetechopers[i].operator.status == "Busy") {
+                        addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    } else if (activetechopers[i].operator.status == "Pause") {
+                        addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    }
+                }
+            }
+        }
+
+        document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
+
+
+            if (typeof (convdata) !== 'undefined') {
+
+                if (document.getElementById('userchatdata').style.display == 'none')
+                    document.getElementById('userchatdata').style.display = ''
+                else document.getElementById('userchatdata').style.display = 'none'
+
+                if (convdata.channelUser.payload.techScreeningData == undefined)
+                    convdata.channelUser.payload.techScreeningData = convdata.channelUser.payload["Тех.инфа об устройствах"]
+
+                if (convdata.channelUser.payload.userFullName != undefined)
+                    document.getElementById('datafield').innerHTML = '<span style="color:#00BFFF; font-weight:700;">' + convdata.channelUser.payload.userFullName + '</span>' + '<br>' + '<span style="color: #00FA9A;">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '<span style="user-select: none;">' + '📧: ' + '</span>' + convdata.channelUser.payload.email + '<br>' + '<span style="user-select: none;">' + '📞:' + '</span>' + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
+                else
+                    document.getElementById('datafield').innerHTML = '<span style="color:#00BFFF; font-weight:700;">' + convdata.channelUser.fullName + '</span>' + '<br>' + '<span style="color: #00FA9A;">' + '(' + convdata.channelUser.payload.userType + ')' + '</span>' + ' ID: ' + convdata.channelUser.payload.id + '<br>' + '<span style="user-select: none;">' + '📧: ' + '</span>' + convdata.channelUser.payload.email + '<br>' + '<span style="user-select: none;">' + '📞:' + '</span>' + convdata.channelUser.payload.phone + '<br>' + "Tech Screening Data: " + '<br>' + convdata.channelUser.payload.techScreeningData;
+            } else alert("Не выбран активный чат")
+        }
+
+        currstate();
+        console.log(activetechopers);
+
+
+        for (let i = 0; i < radiobtnsarray.length; i++) {
+            if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+                document.getElementById('msgftochatornotes').style.background = 'LightGrey';
+            } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+                document.getElementById('msgftochatornotes').style.background = 'white';
+            }
+
+            radiobtnsarray[i].onclick = () => {
+                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+                    document.getElementById('msgftochatornotes').style.background = 'LightGrey';
+                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+                    document.getElementById('msgftochatornotes').style.background = 'white';
+                }
+            }
+        }
+
+        document.getElementById('btn_search_history').onclick = async () => { //функця обработки нажатия "Найти"
+
+            if (document.getElementById('chatuserhis').value != '' && document.getElementById('hashchathis').value == '') { // если айди пользователя введен, а хеш чата не введен
+                flagsearch = 'searchbyuser'
+                let lusid = document.getElementById('chatuserhis').value.trim();
+                let from = document.getElementById('dateFromChHis').value
+                let to = document.getElementById('dateToChHis').value
+                document.getElementById('chatuserhis').value = ''
+
+                if (foundarr != '')
+                    foundarr = ''
+
+                if (document.getElementById('placeusid').innerText != '')
+                    document.getElementById('placeusid').innerText = ''
+
+                if (document.getElementById('placechatid').innerText != '')
+                    document.getElementById('placechatid').innerText = ''
+
+                if (document.getElementById('somechatinfo').style.display == '')
+                    document.getElementById('somechatinfo').style.display = 'none';
+
+                if (document.getElementById('bottommenuchhis').style.display == '')
+                    document.getElementById('bottommenuchhis').style.display = 'none';
+
+                document.getElementById('infofield').innerHTML = 'Загрузка'
+
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                    "headers": {
+                        "content-type": "application/json",
+                        "sec-fetch-mode": "cors",
+                        "sec-fetch-site": "same-origin"
+                    },
+                    "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"${lusid}\",\"tsFrom\":\"${from}T00:00:00.000Z\",\"tsTo\":\"${to}T23:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}`,
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => data = r)
+                console.log(data)
+
+                if (data.total == 0)
+                    alert("В выбранном диапазоне чатов от пользователя не найдено. Попробуйте, пожалуйста, выбрать другой, либо пользователь не обращался вовсе.")
+
+                for (let i = 0; i < data.items.length; i++) {
+
+                    let tmestmp = new Date((data.items[i].ts.split('[GMT]'))[0])
+                    let tshrs;
+                    let tsmin
+                    let day;
+                    let month;
+                    let actstatus = '';
+                    let marksarr;
+                    if (tmestmp.getMonth() < 9)
+                        month = "0" + (tmestmp.getMonth() + 1)
+                    else
+                        month = (tmestmp.getMonth() + 1)
+                    if (tmestmp.getDate() < 10)
+                        day = "0" + tmestmp.getDate()
+                    else
+                        day = tmestmp.getDate()
+                    let year = tmestmp.getFullYear();
+                    if ((tmestmp.getUTCHours() + 3) < 10)
+                        tshrs = "0" + (tmestmp.getUTCHours() + 3);
+                    else if ((tmestmp.getUTCHours() + 3) >= 24)
+                        tshrs = '0' + ((tmestmp.getUTCHours() + 3 - 24))
+                    else tshrs = (tmestmp.getUTCHours() + 3);
+
+                    if (tmestmp.getMinutes() < 10)
+                        tsmin = "0" + tmestmp.getMinutes();
+                    else tsmin = tmestmp.getMinutes();
+
+                    if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
+                        marksarr = '⭕'
+                    else
+                        marksarr = data.items[i].stats.rate.rate
+
+                    if (data.items[i].stats.usedStatuses == "AssignedToOperator")
+                        actstatus = "🛠"
+                    else actstatus = '';
+
+                    //сюда также допилить классы и  менять их в зависимости от темы
+
+                    if (data.items[i].channelUser.payload.userFullName == undefined)
+                        foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700;">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.fullName + '<span style="color: MediumSeaGreen; font-weight:700;">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
+                    else
+                        foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700;">' + data.items[i].channelUser.payload.userType + '</span>' + ' ' + data.items[i].channelUser.payload.userFullName + '<span style="color: MediumSeaGreen; font-weight:700;">' + ' Оценка: ' + '</span>' + marksarr + actstatus + '</span>' + '<br>'
+
+
+                }
+
+                document.getElementById('infofield').innerHTML = foundarr;
+                checkandchangestyle()
+
+                for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
+                    document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+
+                    document.getElementsByClassName('chatlist')[i].onclick = async () => {
+
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                        console.log(convdata)
+
+                        fillchatbox();
+                        checkandchangestyle();
+                    } // конец функции клика по списку в найденном чате
+                }
+
+            } else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != '') { //если пользователь не введен, но введн хеш чата
+                flagsearch = 'searchbyhash'
+                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
+                console.log(convdata)
+
+                fillchatbox();
+                checkandchangestyle();
+
+            } else alert("Введено и ID пользователя и хеш чата, или оба поля пустые. Пожалуйста, выберите что-то одно и повторите попытку.")
+        } // конец функции клика найти
+
+        document.getElementById('back_to_chat_his').onclick = () => { // функция обработки нажатия кнопки "Вернуться"
+            document.getElementById('infofield').innerHTML = '';
+            document.getElementById('placeusid').innerText = '';
+            document.getElementById('placechatid').innerText = '';
+            document.getElementById('somechatinfo').style.display = 'none';
+            document.getElementById('bottommenuchhis').style.display = 'none';
+
+            if (foundarr != '' && foundarr != null && foundarr != undefined) {
+                document.getElementById('infofield').innerHTML = foundarr;
+                checkandchangestyle();
+
+                for (let i = 0; i < document.getElementsByClassName('chatlist').length; i++) {
+                    if (flagsearch == 'searchbyuser')
+                        document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+                    else if (flagsearch == 'searchbyoperator')
+                        document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
+                    else if (flagsearch == 'searchbyhash') {
+                        if (typeof (operchatsdata) !== 'undefined' && typeof (data) === 'undefined')
+                            document.getElementsByClassName('chatlist')[i].title = operchatsdata.items[i].conversationId
+                        else if (typeof (data) !== 'undefined' && typeof (operchatsdata) === 'undefined')
+                            document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+                        else if (typeof (data) !== 'undefined' && typeof (operchatsdata) !== 'undefined')
+                            document.getElementsByClassName('chatlist')[i].title = data.items[i].conversationId
+                    }
+
+                    document.getElementsByClassName('chatlist')[i].onclick = async () => {
+
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                        console.log(convdata)
+
+                        fillchatbox();
+                        checkandchangestyle();
+                    } // конец функции клика по списку в найденном чате
+                }
+            }
+        } // конец обработки функции нажатия "Вернуться"
+
+        document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
+            if (document.getElementById('placechatid').innerText != '') {
+                document.getElementById('infofield').innerHTML = '';
+
+                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                console.log(convdata)
+
+                fillchatbox();
+                checkandchangestyle();
+            }
+        } // конец обработчика кнопки "Обновить"
+
+        document.getElementById('takechat').onclick = function () { //обработчик функции взятия чата
+            var result = confirm("Вы действительно желаете забрать чат?");
+            if (result) {
+                let chat_id = document.getElementById('placechatid').innerText;
+                let operator_id = operatorId;
+
+                fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+                    "headers": {
+                        "content-type": "application/json"
+                    },
+                    "credentials": "include",
+                    "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
+                    "method": "POST"
+                });
+            }
+        } // конец обработчика нажатия кнопки "Забрать"
+
+        document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
+            let polzid = document.getElementById('placeusid').innerText.trim();
+            document.getElementById('startchat').style.background = 'green';
+            startnewchatfast(polzid)
+            setTimeout(() => {
+                document.getElementById('startchat').style.background = '';
+            }, 3000)
+        } // конец обработчика нажатия кнопки Начать чат с пользователем
+
+        document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
+
+            let arops = document.getElementById('operatorstp')
+            let hashid = document.getElementById('placechatid').innerText;
+            if (arops.children[0].selected != true && hashid != '') {
+                for (let i = 1; i < arops.children.length; i++) {
+                    if (arops.children[i].selected == true)
+                        fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
+                            "headers": {
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${hashid}\",\"assignToOperatorId\":\"${arops.children[i].value}\"}`,
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                }
+            } else alert("Условия передачи чата не выполнены: не выбран оператор, не открыт чат, который требуется переводить")
+        }
+
+
+
+        document.getElementById('sendmsgtochatornotes').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
+
+            let radiobtnsarray = document.getElementsByName('chatornotes')
+
+            for (let i = 0; i < radiobtnsarray.length; i++) {
+                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes').value = ''
+
+                    setTimeout(
+                        async function () {
+                            if (document.getElementById('placechatid').innerText != '') {
+                                document.getElementById('infofield').innerHTML = '';
+
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
+
+                                fillchatbox();
+                                checkandchangestyle();
+                            }
+                        }, 1000);
+
+                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes').value = ''
+
+                    setTimeout(
+                        async function () {
+                            if (document.getElementById('placechatid').innerText != '') {
+                                document.getElementById('infofield').innerHTML = '';
+
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
+
+                                fillchatbox();
+                                checkandchangestyle();
+                            }
+                        }, 1000);
+                }
+            }
+        }
+    }
+	
 	//hidebuttons and clear
 	
-	document.getElementById('hideMeChHis').onclick = () => { //кнопка скрытия окна в истории чатов
+	document.getElementById('hideMeChHis').onclick = function () { //кнопка скрытия окна в истории чатов
         if (document.getElementById('AF_ChatHis').style.display == '') {
             document.getElementById('AF_ChatHis').style.display = 'none'
             document.getElementById('infofield').innerText = ''
@@ -11905,7 +11905,7 @@ setTimeout(() => {
         }
     }
 	
-	document.getElementById('clearallinfo').onclick = () => { // кнопка очистит поля в истории чатов
+	document.getElementById('clearallinfo').onclick = function () { // кнопка очистит поля в истории чатов
         document.getElementById('infofield').innerText = ''
         document.getElementById('placeusid').innerText = ''
         document.getElementById('placechatid').innerText = ''
