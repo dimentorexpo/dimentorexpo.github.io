@@ -16,6 +16,16 @@ let unhidephone;
 let commonidentity;
 let emailidentity;
 let phoneidentity;
+let nameofuser;
+let teachername;
+let studentname;
+let utczone;
+let localtime;
+let servlocalestatus;
+let avatarofuser;
+let countryofuser;
+let ageofuser;
+let getcrmstatusinfo;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -2677,228 +2687,6 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
 
-    document.getElementById('catchathistory').onclick = function () {
-
-        if (document.getElementById('AF_ChatHis').style.display == 'none') {
-            document.getElementById('butChatHistory').click();
-            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-            btn_search_history.click()
-        } else {
-            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-            btn_search_history.click()
-        }
-    }
-
-    let nameofuser;
-    let teachername;
-    let studentname;
-    let utczone;
-    let localtime;
-    let servlocalestatus;
-    let avatarofuser;
-    let countryofuser;
-    let ageofuser;
-    async function getusernamecrm() {
-        let curdate = new Date();
-        let curhours = (curdate.getUTCHours() + 3);
-        let curminutes = curdate.getMinutes();
-        if (curminutes < 10) {
-            curminutes = "0" + curminutes;
-        }
-        let filteredid = document.getElementById('idstudent').value;
-        filteredid = filteredid.trim();
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "application/json, text/plain, */*",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
-			  },
-			  "referrer": "https://crm2.skyeng.ru/",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	}`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
-        document.getElementById('responseTextarea3').value = 'getusernameinfo'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
-            document.getElementById('responseTextarea3').value = 'getusernameinfo'
-            document.getElementById('sendResponse').click()
-
-            studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-            studentname = await studentname;
-            studentname = JSON.parse(studentname);
-            nameofuser = "";
-            teachername = "";
-
-
-            if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
-                nameofuser = studentname.data.name + " " + studentname.data.surname;
-            } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
-                nameofuser = studentname.data.name;
-            } else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
-                teachername = studentname.data.name + " " + studentname.data.surname;
-            } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
-                teachername = studentname.data.name;
-            }
-
-            utczone = studentname.data.utcOffset;
-            if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
-                localtime = (curhours + (utczone - 3)) + ":" + curminutes;
-            } else if ((curhours + (utczone - 3)) >= 24) {
-                localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
-            } else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
-                localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
-            } else if ((curhours + (utczone - 3)) < 0) {
-                localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
-            }
-
-            if (studentname.data.serviceLocale == null) {
-                servlocalestatus = "⭕"
-            } else {
-                servlocalestatus = studentname.data.serviceLocale;
-            }
-
-            if (studentname.data.avatarUrl != null) {
-                avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
-            } else {
-                avatarofuser = null;
-            }
-
-            if (studentname.data.country != null) {
-                countryofuser = studentname.data.country;
-            } else {
-                countryofuser = null;
-            }
-
-            let goddata = new Date()
-            goddata = goddata.getFullYear();
-            if (studentname.data.birthday != null) {
-                studentname = studentname.data.birthday.split('-')
-                if (goddata - studentname[0] < 18)
-                    ageofuser = "🔞"
-                else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
-                    ageofuser = "🅰";
-            } else if (studentname.data.birthday == null)
-                ageofuser = "❓";
-
-            document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
-
-        }, 600)
-
-    }
-
-    let getcrmstatusinfo;
-    async function crmstatus() {
-        let tempvarcrm = document.getElementById('idstudent').value;
-        tempvarcrm = tempvarcrm.trim();
-
-        document.getElementById('CrmStatus').style.display = "none";
-
-        document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"accept": "application/json, text/plain, */*",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-	}`
-        document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
-        document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-        document.getElementById('sendResponse').click()
-
-
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = `{}`
-            document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
-            document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-            document.getElementById('sendResponse').click()
-
-            getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-            getcrmstatusinfo = await getcrmstatusinfo;
-            getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
-            let flagtpout = 0;
-            let flagtp = 0;
-            let flagnottp = 0;
-            let flagstatuswait;
-            let flagstatusprocessing;
-            let opername = "";
-            if (getcrmstatusinfo.data.length > 0) {
-                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
-                        flagtpout = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
-                        flagtp = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
-                        flagnottp = 1;
-                    }
-                }
-
-                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
-                        flagstatuswait = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
-                        flagstatusprocessing = 1;
-                        opername = getcrmstatusinfo.data[i].operator.name;
-                    }
-                }
-
-                if (flagstatuswait == 1) {
-                    document.getElementById('getcurrentstatus').style.display = "";
-                    document.getElementById('getcurrentstatus').innerText = "В ожидании";
-                    document.getElementById('getcurrentstatus').style.backgroundColor = "#1E90FF";
-                } else if (flagstatusprocessing == 1) {
-                    document.getElementById('getcurrentstatus').style.display = "";
-                    document.getElementById('getcurrentstatus').innerText = "Решается";
-                    document.getElementById('getcurrentstatus').title = opername;
-                    document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
-                }
-
-                if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи");
-                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "🛠";
-                    console.log("Входящий звонок или с др отдела на ТП была создана задача");
-                } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "📵";
-                    console.log("Нет активных задач по ТП линии");
-                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи на исход и на ТП 1 линии");
-                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
-                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "🛠";
-                    console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
-                }
-
-            } else {
-                document.getElementById('CrmStatus').style.display = "";
-                document.getElementById('CrmStatus').innerText = "📵";
-                console.log("No DATA");
-            }
-            document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
-
-        }, 800)
-    }
-
     document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
         let polzid = document.getElementById('idstudent').value.trim();
         startnewchat(polzid)
@@ -3321,19 +3109,7 @@ function move_again_AF() {
         }, 1200)
 
     }
-
-    document.getElementById('crmactivetasks').onclick = function () {
-        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
-    }
-
-    document.getElementById('newtrm').onclick = function () {
-        window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('personalteacherpage').onclick = function () {
-        window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
-    }
-
+	
     document.getElementById('clearservinfo').onclick = function () {
         document.getElementById('idstudent').value = "";
         document.getElementById('servicetable').innerHTML = "";
@@ -4469,74 +4245,9 @@ function move_again_AF() {
     }
 	
 	document.getElementById('grafanalnk').addEventListener('click', function () {
-        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
+        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем ссылку на Grafana
     })
 	
-    }
-
-    document.getElementById('butServ').onclick = function () {
-        if (document.getElementById('AF_Service').style.display == '')
-            document.getElementById('AF_Service').style.display = 'none'
-        else
-            document.getElementById('AF_Service').style.display = ''
-		
-	document.getElementById('checkbalance').onclick = function () {
-        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
-    }
-
-    document.getElementById('getkglinfokid').onclick = function () {
-        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('partialpaymentinfo').onclick = function () {
-        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('editadmbtn').onclick = function () {
-        let stuid = document.getElementById('idstudent').value;
-        stuid = stuid.trim();
-        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
-    }
-
-    document.getElementById('getonetimepass').onclick = function () {
-        if (document.getElementById('idstudent').value == "")
-            console.log('Введите id в поле')
-        else {
-            document.getElementById('getonetimepass').innerHTML = "✅";
-            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
-
-            document.getElementById('responseTextarea1').value = `{
-			"headers": {
-				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
-				"method": "POST",
-				"mode": "cors",
-				"credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
-            document.getElementById('sendResponse').click()
-
-            function getPassInfo1() {
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-                document.getElementById('responseTextarea3').value = ''
-
-                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
-                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
-                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-                onetimepassout.value = convertres11[1];
-            }
-            setTimeout(getPassInfo1, 1000);
-        };
-        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
-    }
     }
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
@@ -7648,7 +7359,6 @@ setInterval(setactivechatstyle, 1000)
     }
 	
     screenshots()
-	
     setInterval(screenshots, 5000)
 	
     function screenshots2() {
@@ -8125,6 +7835,293 @@ setInterval(setactivechatstyle, 1000)
         document.getElementById('sendResponse').click()
         document.getElementById('changelocalelng').innerHTML = "✅"
         setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
+    }
+	
+	    async function getusernamecrm() { //получить имя пользователя из СРМ
+        let curdate = new Date();
+        let curhours = (curdate.getUTCHours() + 3);
+        let curminutes = curdate.getMinutes();
+        if (curminutes < 10) {
+            curminutes = "0" + curminutes;
+        }
+        let filteredid = document.getElementById('idstudent').value;
+        filteredid = filteredid.trim();
+        document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "application/json, text/plain, */*",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
+			  },
+			  "referrer": "https://crm2.skyeng.ru/",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+	}`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
+        document.getElementById('responseTextarea3').value = 'getusernameinfo'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
+            document.getElementById('responseTextarea3').value = 'getusernameinfo'
+            document.getElementById('sendResponse').click()
+
+            studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+            studentname = await studentname;
+            studentname = JSON.parse(studentname);
+            nameofuser = "";
+            teachername = "";
+
+            if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
+                nameofuser = studentname.data.name + " " + studentname.data.surname;
+            } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
+                nameofuser = studentname.data.name;
+            } else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
+                teachername = studentname.data.name + " " + studentname.data.surname;
+            } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
+                teachername = studentname.data.name;
+            }
+
+            utczone = studentname.data.utcOffset;
+            if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
+                localtime = (curhours + (utczone - 3)) + ":" + curminutes;
+            } else if ((curhours + (utczone - 3)) >= 24) {
+                localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
+            } else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
+                localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
+            } else if ((curhours + (utczone - 3)) < 0) {
+                localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
+            }
+
+            if (studentname.data.serviceLocale == null) {
+                servlocalestatus = "⭕"
+            } else {
+                servlocalestatus = studentname.data.serviceLocale;
+            }
+
+            if (studentname.data.avatarUrl != null) {
+                avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+            } else {
+                avatarofuser = null;
+            }
+
+            if (studentname.data.country != null) {
+                countryofuser = studentname.data.country;
+            } else {
+                countryofuser = null;
+            }
+
+            let goddata = new Date()
+            goddata = goddata.getFullYear();
+            if (studentname.data.birthday != null) {
+                studentname = studentname.data.birthday.split('-')
+                if (goddata - studentname[0] < 18)
+                    ageofuser = "🔞"
+                else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
+                    ageofuser = "🅰";
+            } else if (studentname.data.birthday == null)
+                ageofuser = "❓";
+
+            document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+
+        }, 600)
+
+    }
+	
+    async function crmstatus() { // получить статус задача в СРМ в решении или в ожидании
+        let tempvarcrm = document.getElementById('idstudent').value;
+        tempvarcrm = tempvarcrm.trim();
+
+        document.getElementById('CrmStatus').style.display = "none";
+
+        document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+        document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
+        document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = `{}`
+            document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
+            document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+            document.getElementById('sendResponse').click()
+
+            getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+            getcrmstatusinfo = await getcrmstatusinfo;
+            getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+            let flagtpout = 0;
+            let flagtp = 0;
+            let flagnottp = 0;
+            let flagstatuswait;
+            let flagstatusprocessing;
+            let opername = "";
+            if (getcrmstatusinfo.data.length > 0) {
+                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
+                        flagtpout = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
+                        flagtp = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
+                        flagnottp = 1;
+                    }
+                }
+
+                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+                        flagstatuswait = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+                        flagstatusprocessing = 1;
+                        opername = getcrmstatusinfo.data[i].operator.name;
+                    }
+                }
+
+                if (flagstatuswait == 1) {
+                    document.getElementById('getcurrentstatus').style.display = "";
+                    document.getElementById('getcurrentstatus').innerText = "В ожидании";
+                    document.getElementById('getcurrentstatus').style.backgroundColor = "#1E90FF";
+                } else if (flagstatusprocessing == 1) {
+                    document.getElementById('getcurrentstatus').style.display = "";
+                    document.getElementById('getcurrentstatus').innerText = "Решается";
+                    document.getElementById('getcurrentstatus').title = opername;
+                    document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
+                }
+
+                if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи");
+                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "🛠";
+                    console.log("Входящий звонок или с др отдела на ТП была создана задача");
+                } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "📵";
+                    console.log("Нет активных задач по ТП линии");
+                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи на исход и на ТП 1 линии");
+                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "🛠";
+                    console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
+                }
+
+            } else {
+                document.getElementById('CrmStatus').style.display = "";
+                document.getElementById('CrmStatus').innerText = "📵";
+                console.log("No DATA");
+            }
+            document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+
+        }, 800)
+    }
+	
+	    document.getElementById('butServ').onclick = function () { //открывает userinfo в виде вензеля
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
+	
+		document.getElementById('catchathistory').onclick = function () {
+
+        if (document.getElementById('AF_ChatHis').style.display == 'none') {
+            document.getElementById('butChatHistory').click();
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        } else {
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        }
+    }
+
+    document.getElementById('crmactivetasks').onclick = function () {
+        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
+    }
+
+    document.getElementById('newtrm').onclick = function () {
+        window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('personalteacherpage').onclick = function () {
+        window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
+    }
+		
+	document.getElementById('checkbalance').onclick = function () {
+        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
+    }
+
+    document.getElementById('getkglinfokid').onclick = function () {
+        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('partialpaymentinfo').onclick = function () {
+        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('editadmbtn').onclick = function () {
+        let stuid = document.getElementById('idstudent').value;
+        stuid = stuid.trim();
+        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
+    }
+
+    document.getElementById('getonetimepass').onclick = function () {
+        if (document.getElementById('idstudent').value == "")
+            console.log('Введите id в поле')
+        else {
+            document.getElementById('getonetimepass').innerHTML = "✅";
+            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
+
+            document.getElementById('responseTextarea1').value = `{
+			"headers": {
+				"content-type": "application/x-www-form-urlencoded",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+			},
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
+            document.getElementById('sendResponse').click()
+
+            function getPassInfo1() { //функция генерации разового пароля
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+                document.getElementById('responseTextarea3').value = ''
+
+                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
+                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
+                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+                onetimepassout.value = convertres11[1];
+            }
+            setTimeout(getPassInfo1, 1000);
+        };
+        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
+    }
+	
     }
 	
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
