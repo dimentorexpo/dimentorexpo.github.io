@@ -4987,7 +4987,7 @@ setInterval(setactivechatstyle, 1000)
     document.getElementById('grouplist').addEventListener('click', function () {
         if (document.getElementById('AF_GrList').style.display == '')
             document.getElementById('AF_GrList').style.display = 'none'
-        else
+        else {
             document.getElementById('AF_GrList').style.display = ''
 
 		    let grdata = [];
@@ -5086,6 +5086,7 @@ setInterval(setactivechatstyle, 1000)
 			}, 1000);
 
 			} // end of func getidgrouptolist
+		}
     })
 
     document.getElementById('probnikinstr').addEventListener('click', function () {
