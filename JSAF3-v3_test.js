@@ -3252,11 +3252,6 @@ function move_again_AF() {
         prepTp()
     }
 
-    document.getElementById('hideMeSugForm').onclick = () => {
-        if (document.getElementById('AF_Sugform').style.display == '')
-            document.getElementById('AF_Sugform').style.display = 'none'
-    }
-
     document.getElementById('hideMeChHis').onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == '') {
             document.getElementById('AF_ChatHis').style.display = 'none'
@@ -4504,214 +4499,6 @@ function move_again_AF() {
                             }
                         }, 1000);
                 }
-            }
-        }
-    }
-
-
-    document.getElementById('suggestform').onclick = () => {
-        if (document.getElementById('AF_Sugform').style.display == '')
-            document.getElementById('AF_Sugform').style.display = 'none'
-        else {
-            document.getElementById('AF_Sugform').style.display = ''
-
-            let topiclisttgcls = document.getElementsByName('topicofsuggest')
-
-            for (let i = 0; i < topiclisttgcls.length; i++) {
-                topiclisttgcls[i].onclick = () => {
-                    if (topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое') {
-
-                        document.getElementById('otheroptionchecked').classList.remove('otherfieldoff')
-                        document.getElementById('otheroptionchecked').classList.add('otherfieldon')
-                        document.getElementById('otheroptionchecked').removeAttribute('disabled')
-
-                    } else {
-                        document.getElementById('otheroptionchecked').classList.add('otherfieldoff')
-                        document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
-                        document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
-                    }
-                }
-            }
-
-
-            document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
-
-            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
-
-            document.getElementById('refreshchathash').onclick = () => {
-                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
-            }
-
-            document.getElementById('getdocsuggestions').onclick = () => {
-                window.open("https://docs.google.com/spreadsheets/d/1bTR1BBwo57H1IOblb4Xkg9irf6jw0QNGzQOgrm_wr-c/edit#gid=706470682")
-            }
-
-            document.getElementById('sendtosuggestdoc').onclick = () => {
-
-                let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
-                let chatlink = document.getElementById('linktochatsuggest').value
-                let topiclist = document.getElementsByName('topicofsuggest')
-                let checkedtopic;
-                let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
-
-                for (let i = 0; i < topiclist.length; i++) {
-                    if (topiclist[i].checked && topiclist[i].value != 'Другое') {
-                        checkedtopic = encodeURIComponent(topiclist[i].value);
-                        let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest
-
-                        let options1 = {
-                            "headers": {
-                                "content-type": "application/x-www-form-urlencoded",
-                            },
-                            "body": body1,
-                            "method": "POST",
-                        }
-
-                        document.getElementById('responseTextarea1').value = JSON.stringify(options1)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
-                        if (document.getElementById('responseTextarea3') != null)
-                            document.getElementById('responseTextarea3').value = ''
-                        document.getElementById('sendResponse').click()
-
-                        console.log('Выбрана тема из предложенных')
-                        sendComment('https://skr.sh/sEHecwURANZ')
-                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
-                        setTimeout(() => {
-                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
-                        }, 3000)
-                    } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
-                        checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
-
-                        let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' + '&entry.1869164503=' + opnamevar + '&entry.2046808006=' + textsuggest
-
-                        let options2 = {
-                            "headers": {
-                                "content-type": "application/x-www-form-urlencoded",
-                            },
-                            "body": body2,
-                            "method": "POST",
-                        }
-
-                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
-                        if (document.getElementById('responseTextarea3') != null)
-                            document.getElementById('responseTextarea3').value = ''
-                        document.getElementById('sendResponse').click()
-
-                        console.log('Выбрана опция Другое')
-                        sendComment('https://skr.sh/sEHecwURANZ')
-                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
-                        setTimeout(() => {
-                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
-                        }, 3000)
-                    }
-
-                }
-
-                document.getElementById('linktochatsuggest').value = ''
-                document.getElementById('otheroptionchecked').value = ''
-                document.getElementById('textsuggest').value = ''
-
-            }
-        }
-    }
-
-    document.getElementById('butMarks').onclick = function () {
-        if (document.getElementById('AF_Marks').style.display == '')
-            document.getElementById('AF_Marks').style.display = 'none'
-        else {
-            document.getElementById('AF_Marks').style.display = ''
-            document.getElementById('findmarksstat').onclick = async function () {
-                let tempval = document.getElementById('useridsearch').value.trim();
-                document.getElementById('markstable').innerText = "Загрузка..."
-
-                var date = new Date()
-
-                day = month = ""
-                if (date.getMonth() < 9)
-                    month = "0" + (date.getMonth() + 1)
-                else
-                    month = (date.getMonth() + 1)
-                if (date.getDate() < 10)
-                    day = "0" + date.getDate()
-                else
-                    day = date.getDate()
-                if (date.getHours() < 10)
-                    hours = '0' + date.getHours()
-                else
-                    hours = date.getHours()
-                if (date.getMinutes() < 10)
-                    minutes = '0' + date.getMinutes()
-                else
-                    minutes = date.getMinutes()
-                if (date.getSeconds() < 10)
-                    seconds = '0' + date.getSeconds()
-                else
-                    seconds = date.getSeconds()
-
-                secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
-
-                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-                    "headers": {
-                        "accept": "*/*",
-                        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                        "content-type": "application/json",
-                        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
-                        "sec-ch-ua-mobile": "?0",
-                        "sec-ch-ua-platform": "\"Windows\"",
-                        "sec-fetch-dest": "empty",
-                        "sec-fetch-mode": "cors",
-                        "sec-fetch-site": "same-origin"
-                    },
-                    "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-                    "referrerPolicy": "strict-origin-when-cross-origin",
-                    "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\"2022-01-01T00:00:00.000Z\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
-                    "method": "POST",
-                    "mode": "cors",
-                    "credentials": "include"
-                }).then(r => r.json()).then(r => datamarks = r)
-
-                let count = {};
-                let clswoutmark = 0;
-                let markscount = 0;
-                let flagok = [];
-                for (let i = 0; i < datamarks.items.length; i++) {
-                    if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate == undefined)
-                        clswoutmark++;
-                    if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate != undefined)
-                        flagok.push(datamarks.items[i].stats.rate.rate)
-                }
-                flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-                console.log(count);
-                if (count[1] == undefined)
-                    count[1] = 0;
-                if (count[2] == undefined)
-                    count[2] = 0;
-                if (count[3] == undefined)
-                    count[3] = 0;
-                if (count[4] == undefined)
-                    count[4] = 0;
-                if (count[5] == undefined)
-                    count[5] = 0;
-                markscount = (count[1] + count[2] + count[3] + count[4] + count[5]);
-                document.getElementById('markstable').innerHTML = 'Пользователь 🕵️‍♀️: ' + tempval + '<br>' +
-                    'Name: ' + datamarks.items[0].channelUser.fullName + '<br>' +
-                    'Оценка 1 🤬: ' + count[1] + ' ................... ' + ((count[1] / markscount) * 100).toFixed(1) + '%' + '<br>' +
-                    'Оценка 2 🤢: ' + count[2] + ' ................... ' + ((count[2] / markscount) * 100).toFixed(1) + "%" + '<br>' +
-                    'Оценка 3 😐: ' + count[3] + ' ................... ' + ((count[3] / markscount) * 100).toFixed(1) + "%" + '<br>' +
-                    'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
-                    'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
-                    'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
-                    'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
-                    'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
-                    'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
-                document.getElementById('useridsearch').value = "";
-            }
-
-            document.getElementById('clearmarksstat').onclick = function () {
-                document.getElementById('markstable').innerHTML = "";
             }
         }
     }
@@ -8112,6 +7899,218 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 
         }, 800)
+    }
+	
+	    document.getElementById('suggestform').onclick = () => { //открывает форму предложений и пожеланий
+        if (document.getElementById('AF_Sugform').style.display == '')
+            document.getElementById('AF_Sugform').style.display = 'none'
+        else {
+            document.getElementById('AF_Sugform').style.display = ''
+			
+		document.getElementById('hideMeSugForm').onclick = () => {
+        if (document.getElementById('AF_Sugform').style.display == '')
+            document.getElementById('AF_Sugform').style.display = 'none'
+		}
+
+            let topiclisttgcls = document.getElementsByName('topicofsuggest')
+
+            for (let i = 0; i < topiclisttgcls.length; i++) {
+                topiclisttgcls[i].onclick = () => {
+                    if (topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое') {
+
+                        document.getElementById('otheroptionchecked').classList.remove('otherfieldoff')
+                        document.getElementById('otheroptionchecked').classList.add('otherfieldon')
+                        document.getElementById('otheroptionchecked').removeAttribute('disabled')
+
+                    } else {
+                        document.getElementById('otheroptionchecked').classList.add('otherfieldoff')
+                        document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
+                        document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
+                    }
+                }
+            }
+
+
+            document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
+
+            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+
+            document.getElementById('refreshchathash').onclick = () => {
+                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                    document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+            }
+
+            document.getElementById('getdocsuggestions').onclick = () => {
+                window.open("https://docs.google.com/spreadsheets/d/1bTR1BBwo57H1IOblb4Xkg9irf6jw0QNGzQOgrm_wr-c/edit#gid=706470682")
+            }
+
+            document.getElementById('sendtosuggestdoc').onclick = () => {
+
+                let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
+                let chatlink = document.getElementById('linktochatsuggest').value
+                let topiclist = document.getElementsByName('topicofsuggest')
+                let checkedtopic;
+                let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
+
+                for (let i = 0; i < topiclist.length; i++) {
+                    if (topiclist[i].checked && topiclist[i].value != 'Другое') {
+                        checkedtopic = encodeURIComponent(topiclist[i].value);
+                        let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest
+
+                        let options1 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body1,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options1)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        console.log('Выбрана тема из предложенных')
+                        sendComment('https://skr.sh/sEHecwURANZ')
+                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+                        setTimeout(() => {
+                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+                        }, 3000)
+                    } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
+                        checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
+
+                        let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' + '&entry.1869164503=' + opnamevar + '&entry.2046808006=' + textsuggest
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        console.log('Выбрана опция Другое')
+                        sendComment('https://skr.sh/sEHecwURANZ')
+                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+                        setTimeout(() => {
+                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+                        }, 3000)
+                    }
+
+                }
+
+                document.getElementById('linktochatsuggest').value = ''
+                document.getElementById('otheroptionchecked').value = ''
+                document.getElementById('textsuggest').value = ''
+
+            }
+        }
+    }
+
+    document.getElementById('butMarks').onclick = function () { // открывает форму оценко от пользователя
+        if (document.getElementById('AF_Marks').style.display == '')
+            document.getElementById('AF_Marks').style.display = 'none'
+        else {
+            document.getElementById('AF_Marks').style.display = ''
+            document.getElementById('findmarksstat').onclick = async function () {
+                let tempval = document.getElementById('useridsearch').value.trim();
+                document.getElementById('markstable').innerText = "Загрузка..."
+
+                var date = new Date()
+
+                day = month = ""
+                if (date.getMonth() < 9)
+                    month = "0" + (date.getMonth() + 1)
+                else
+                    month = (date.getMonth() + 1)
+                if (date.getDate() < 10)
+                    day = "0" + date.getDate()
+                else
+                    day = date.getDate()
+                if (date.getHours() < 10)
+                    hours = '0' + date.getHours()
+                else
+                    hours = date.getHours()
+                if (date.getMinutes() < 10)
+                    minutes = '0' + date.getMinutes()
+                else
+                    minutes = date.getMinutes()
+                if (date.getSeconds() < 10)
+                    seconds = '0' + date.getSeconds()
+                else
+                    seconds = date.getSeconds()
+
+                secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
+
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                    "headers": {
+                        "accept": "*/*",
+                        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                        "content-type": "application/json",
+                        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
+                        "sec-ch-ua-mobile": "?0",
+                        "sec-ch-ua-platform": "\"Windows\"",
+                        "sec-fetch-dest": "empty",
+                        "sec-fetch-mode": "cors",
+                        "sec-fetch-site": "same-origin"
+                    },
+                    "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+                    "referrerPolicy": "strict-origin-when-cross-origin",
+                    "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\"2022-01-01T00:00:00.000Z\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => datamarks = r)
+
+                let count = {};
+                let clswoutmark = 0;
+                let markscount = 0;
+                let flagok = [];
+                for (let i = 0; i < datamarks.items.length; i++) {
+                    if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate == undefined)
+                        clswoutmark++;
+                    if (datamarks.items[i].stats.rate != undefined && datamarks.items[i].stats.rate.rate != undefined)
+                        flagok.push(datamarks.items[i].stats.rate.rate)
+                }
+                flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+                console.log(count);
+                if (count[1] == undefined)
+                    count[1] = 0;
+                if (count[2] == undefined)
+                    count[2] = 0;
+                if (count[3] == undefined)
+                    count[3] = 0;
+                if (count[4] == undefined)
+                    count[4] = 0;
+                if (count[5] == undefined)
+                    count[5] = 0;
+                markscount = (count[1] + count[2] + count[3] + count[4] + count[5]);
+                document.getElementById('markstable').innerHTML = 'Пользователь 🕵️‍♀️: ' + tempval + '<br>' +
+                    'Name: ' + datamarks.items[0].channelUser.fullName + '<br>' +
+                    'Оценка 1 🤬: ' + count[1] + ' ................... ' + ((count[1] / markscount) * 100).toFixed(1) + '%' + '<br>' +
+                    'Оценка 2 🤢: ' + count[2] + ' ................... ' + ((count[2] / markscount) * 100).toFixed(1) + "%" + '<br>' +
+                    'Оценка 3 😐: ' + count[3] + ' ................... ' + ((count[3] / markscount) * 100).toFixed(1) + "%" + '<br>' +
+                    'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
+                    'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
+                    'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
+                    'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
+                    'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
+                    'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
+                document.getElementById('useridsearch').value = "";
+            }
+
+            document.getElementById('clearmarksstat').onclick = function () {
+                document.getElementById('markstable').innerHTML = "";
+            }
+        }
     }
 		
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
