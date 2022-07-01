@@ -2728,33 +2728,6 @@ function move_again_AF() {
         audio.volume = localStorage.getItem('audiovol');
     } else localStorage.setItem('audiovol', 1);
 
-    document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Links').style.display == '')
-            document.getElementById('AF_Links').style.display = 'none'
-    }
-
-    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Linksd').style.display == '')
-            document.getElementById('AF_Linksd').style.display = 'none'
-    }
-
-    document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Jira').style.display == '')
-            document.getElementById('AF_Jira').style.display = 'none'
-    }
-
-    document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Marks').style.display == '')
-            document.getElementById('AF_Marks').style.display = 'none'
-    }
-
-    document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
-        if (document.getElementById('AF_Timetable').style.display == '')
-            document.getElementById('AF_Timetable').style.display = 'none'
-
-        document.getElementById('timetabledata').innerHTML = "";
-    }
-
     document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
@@ -4642,6 +4615,16 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('AF_Links').style.display = 'none'
         else {
             document.getElementById('AF_Links').style.display = ''
+			
+	document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Links').style.display == '')
+            document.getElementById('AF_Links').style.display = 'none'
+    }
+	
+	document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Jira').style.display == '')
+            document.getElementById('AF_Jira').style.display = 'none'
+    }
 			
 	document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
         let iplink = 'https://check-host.net/ip-info?host=';
@@ -10566,6 +10549,13 @@ setTimeout(() => {
         else
             document.getElementById('AF_Service').style.display = ''
 		
+		document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Timetable').style.display == '')
+            document.getElementById('AF_Timetable').style.display = 'none'
+
+        document.getElementById('timetabledata').innerHTML = "";
+		}
+		
 		document.getElementById('getpastandfuturelessons').onclick = function () {
 			if (document.getElementById('AF_Timetable').style.display == '')
 				document.getElementById('AF_Timetable').style.display = 'none'
@@ -11224,6 +11214,12 @@ setTimeout(() => {
             document.getElementById('AF_Marks').style.display = 'none'
         else {
             document.getElementById('AF_Marks').style.display = ''
+			
+	document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Marks').style.display == '')
+            document.getElementById('AF_Marks').style.display = 'none'
+    }
+			
             document.getElementById('findmarksstat').onclick = async function () {
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
@@ -11348,6 +11344,11 @@ setTimeout(() => {
             document.getElementById('AF_Linksd').style.display = 'none'
         else
             document.getElementById('AF_Linksd').style.display = ''
+		
+	document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
+        if (document.getElementById('AF_Linksd').style.display == '')
+            document.getElementById('AF_Linksd').style.display = 'none'
+    }
 		
 		// обработка нажатий на странице доступов
     document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
