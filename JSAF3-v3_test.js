@@ -8,6 +8,8 @@ let operchatsdata;
 let werechats = false;
 let chatisopen = "";
 let abortTimeOut = '' // перменная для отмены будильника
+let tokenlogginer;
+let logginerinfo;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -8069,8 +8071,6 @@ setInterval(setactivechatstyle, 1000)
     screenshots2()
     setInterval(screenshots2, 5000)
 	
-	    let tokenlogginer;
-    let logginerinfo;
     async function postuderdatatologin() { // логгинер для У П ПМ 
         logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
