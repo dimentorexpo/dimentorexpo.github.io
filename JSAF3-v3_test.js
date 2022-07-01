@@ -2672,17 +2672,6 @@ function move_again_AF() {
         audio.play()
     }
 
-    document.getElementById('setteststd').onclick = function () {
-        if (document.getElementById('test_std').value != '') {
-            localStorage.setItem('test_stud', document.getElementById('test_std').value);
-        } else console.log("Ведите ID тестового ученика")
-    }
-    document.getElementById('settestteach').onclick = function () {
-        if (document.getElementById('test_teach').value != '') {
-            localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-        } else console.log("Ведите ID тестового преподавателя")
-    }
-
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
 
@@ -5378,94 +5367,6 @@ function move_again_AF() {
         audio.volume = localStorage.getItem('audiovol');
     } else localStorage.setItem('audiovol', 1);
 
-    document.getElementById('setting').onclick = function () {
-        if (document.getElementById('set_bar').style.display == '')
-            document.getElementById('set_bar').style.display = 'none'
-        else {
-            document.getElementById('set_bar').style.display = ''
-            document.getElementById('reminder_bar').style.display = 'none'
-            document.getElementById('addTmp').style.display = 'none'
-
-            if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
-                document.getElementById('test_std').value = localStorage.getItem('test_stud');
-            } else document.getElementById('test_std').value = "";
-
-            if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
-                document.getElementById('test_teach').value = localStorage.getItem('test_teach');
-            } else document.getElementById('test_teach').value = "";
-
-            //Для таймера автозакрытия
-            if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
-                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-            } else {
-                localStorage.setItem('aclstime', 12);
-                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-            }
-
-            //для таймера autoclose
-
-            document.getElementById('setautoclosetime').onclick = function () {
-                if (document.getElementById('autoclosetime').value != '') {
-                    localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
-                } else console.log("Базовое значение равно 12 минут")
-            }
-
-            //
-
-            let range = document.getElementById('range');
-            range.value = localStorage.getItem('audiovol');
-
-
-            range.onchange = function () {
-                if (localStorage.getItem('audiovol') != null) {
-                    audio.volume = this.value;
-                    localStorage.setItem('audiovol', audio.volume);
-                } else localStorage.setItem('audiovol', this.value);
-            }
-
-            //Скрыть окно Л П МВУ
-            let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
-            var lpmboxstatus = document.getElementById('hidelpmwindow');
-            lpmboxstatus.onclick = function () {
-
-                if (!lpmboxstatus.checked) {
-                    document.getElementById('testUsers').style.display = "";
-                    flaglpm = 0;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
-                } else {   // поставить checked, если он не установлен
-                    document.getElementById('testUsers').style.display = "none";
-                    flaglpm = 1;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
-                }
-            }
-
-            if (localStorage.getItem('disablelpmwindow') == 1) {
-                document.getElementById('testUsers').style.display = "none";
-                lpmboxstatus.checked = true;
-            } else {
-                lpmboxstatus.checked = false;
-            }
-
-            if (localStorage.getItem('audio') == '0')
-                document.getElementById('audioswitcher').checked = false;
-            else
-                document.getElementById('audioswitcher').checked = true;
-
-            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
-
-                if (localStorage.getItem('audio') != null) {
-                    if (localStorage.getItem('audio') == '0') {
-                        document.getElementById('audioswitcher').checked = false;
-                        localStorage.setItem('audio', '1');
-                    } else if (localStorage.getItem('audio') == '1') {
-                        document.getElementById('audioswitcher').checked = true;
-                        localStorage.setItem('audio', '0');
-                    }
-                }
-            }
-        }
-    }
-
     document.getElementById('links').onclick = function () {
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
@@ -8133,6 +8034,105 @@ function setactivechatstyle() { // функция добавляющая акт�
 }
 
 setInterval(setactivechatstyle, 1000)
+
+    document.getElementById('setting').onclick = function () { // открываеть панель настроек
+        if (document.getElementById('set_bar').style.display == '')
+            document.getElementById('set_bar').style.display = 'none'
+        else {
+            document.getElementById('set_bar').style.display = ''
+            document.getElementById('reminder_bar').style.display = 'none'
+            document.getElementById('addTmp').style.display = 'none'
+			
+			    document.getElementById('setteststd').onclick = function () {
+					if (document.getElementById('test_std').value != '') {
+						localStorage.setItem('test_stud', document.getElementById('test_std').value);
+					} else console.log("Ведите ID тестового ученика")
+				}
+				document.getElementById('settestteach').onclick = function () {
+					if (document.getElementById('test_teach').value != '') {
+						localStorage.setItem('test_teach', document.getElementById('test_teach').value);
+					} else console.log("Ведите ID тестового преподавателя")
+				}
+
+            if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
+                document.getElementById('test_std').value = localStorage.getItem('test_stud');
+            } else document.getElementById('test_std').value = "";
+
+            if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
+                document.getElementById('test_teach').value = localStorage.getItem('test_teach');
+            } else document.getElementById('test_teach').value = "";
+
+            //Для таймера автозакрытия
+            if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
+                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+            } else {
+                localStorage.setItem('aclstime', 12);
+                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+            }
+
+            //для таймера autoclose
+
+            document.getElementById('setautoclosetime').onclick = function () {
+                if (document.getElementById('autoclosetime').value != '') {
+                    localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
+                } else console.log("Базовое значение равно 12 минут")
+            }
+
+            //
+
+            let range = document.getElementById('range');
+            range.value = localStorage.getItem('audiovol');
+
+
+            range.onchange = function () {
+                if (localStorage.getItem('audiovol') != null) {
+                    audio.volume = this.value;
+                    localStorage.setItem('audiovol', audio.volume);
+                } else localStorage.setItem('audiovol', this.value);
+            }
+
+            //Скрыть окно Л П МВУ
+            let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
+            var lpmboxstatus = document.getElementById('hidelpmwindow');
+            lpmboxstatus.onclick = function () {
+
+                if (!lpmboxstatus.checked) {
+                    document.getElementById('testUsers').style.display = "";
+                    flaglpm = 0;
+                    localStorage.setItem('disablelpmwindow', flaglpm)
+                } else {   // поставить checked, если он не установлен
+                    document.getElementById('testUsers').style.display = "none";
+                    flaglpm = 1;
+                    localStorage.setItem('disablelpmwindow', flaglpm)
+                }
+            }
+
+            if (localStorage.getItem('disablelpmwindow') == 1) {
+                document.getElementById('testUsers').style.display = "none";
+                lpmboxstatus.checked = true;
+            } else {
+                lpmboxstatus.checked = false;
+            }
+
+            if (localStorage.getItem('audio') == '0')
+                document.getElementById('audioswitcher').checked = false;
+            else
+                document.getElementById('audioswitcher').checked = true;
+
+            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+
+                if (localStorage.getItem('audio') != null) {
+                    if (localStorage.getItem('audio') == '0') {
+                        document.getElementById('audioswitcher').checked = false;
+                        localStorage.setItem('audio', '1');
+                    } else if (localStorage.getItem('audio') == '1') {
+                        document.getElementById('audioswitcher').checked = true;
+                        localStorage.setItem('audio', '0');
+                    }
+                }
+            }
+        }
+    }
 
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
