@@ -2672,86 +2672,6 @@ function move_again_AF() {
         audio.play()
     }
 
-    setInterval(clock_on_javascript_1, 1000);
-    setInterval(clock_on_javascript_2, 1000);
-
-    function clock_on_javascript_1() {
-        var data = new Date();
-        hours = data.getHours();
-        if (hours < 10) { hours = "0" + hours; }
-        minutes = data.getMinutes();
-        if (minutes < 10) { minutes = "0" + minutes; }
-        seconds = data.getSeconds();
-        if (seconds < 10) { seconds = "0" + seconds; }
-        time = hours + " : " + minutes + " : " + seconds;
-        document.getElementById("clock_js").innerHTML = time;
-
-        let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
-        let c = [...bbc].map(i => i.innerText)
-
-        for (let i = 0; i < bbc.length; i++) {
-            bbc[i].ondblclick = () => {
-                c = operatorsarray.filter(item => (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
-                console.log(c)
-                if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                    butChatHistory.click()
-                    setTimeout(function () {
-                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                document.getElementById('operatorstp')[j].selected = true;
-                                findchatsoper()
-
-                            }
-                        }
-                    }, 1000)
-                } else {
-                    setTimeout(function () {
-                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                document.getElementById('operatorstp')[j].selected = true;
-                                findchatsoper()
-
-                            }
-                        }
-                    }, 1000)
-                }
-            }
-        }
-    }
-
-    function clock_on_javascript_2() {
-        var data = new Date();
-        hours = data.getHours();
-        if (hours < 10) { hours = "0" + hours; }
-        minutes = data.getMinutes();
-        if (minutes < 10) { minutes = "0" + minutes; }
-        seconds = data.getSeconds();
-        if (seconds < 10) { seconds = "0" + seconds; }
-        var summin = JSON.parse(localStorage.getItem('setminuta')) + 60;
-        if (localStorage.getItem('chronostamp') === null) {
-            time = "00" + " : " + "00" + " : " + "00";
-            document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) == 0) && ((localStorage.getItem('setminuta') > minutes))) {
-            time = "00" + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
-            document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) > 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
-            time = (localStorage.getItem('setchas') - hours) + " : " + "00" + " : " + (60 - seconds);
-            document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') < minutes) {
-            time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
-            document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) > 0) && localStorage.getItem('setminuta') > minutes) {
-            time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
-            document.getElementById("clock_remin").innerHTML = time;
-        } else if (((localStorage.getItem('setchas') - hours) == 1) && (localStorage.getItem('setminuta') - minutes) == 0) {
-            time = localStorage.getItem('setchas') - hours + " : " + "00" + " : " + (60 - seconds);
-            document.getElementById("clock_remin").innerHTML = time;
-        } else {
-            time = "00" + " : " + "00" + " : " + "00";
-            document.getElementById("clock_remin").innerHTML = time;
-        }
-    }
-
     // обработка нажатий на странице доступов
     document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
         if (kibsvid.value == "") {
@@ -8133,6 +8053,86 @@ setInterval(setactivechatstyle, 1000)
             }
         }
     }
+	
+    function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
+        var data = new Date();
+        hours = data.getHours();
+        if (hours < 10) { hours = "0" + hours; }
+        minutes = data.getMinutes();
+        if (minutes < 10) { minutes = "0" + minutes; }
+        seconds = data.getSeconds();
+        if (seconds < 10) { seconds = "0" + seconds; }
+        time = hours + " : " + minutes + " : " + seconds;
+        document.getElementById("clock_js").innerHTML = time;
+
+        let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
+        let c = [...bbc].map(i => i.innerText)
+
+        for (let i = 0; i < bbc.length; i++) {
+            bbc[i].ondblclick = () => {
+                c = operatorsarray.filter(item => (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
+                console.log(c)
+                if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                    butChatHistory.click()
+                    setTimeout(function () {
+                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
+                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+                                document.getElementById('operatorstp')[j].selected = true;
+                                findchatsoper()
+
+                            }
+                        }
+                    }, 1000)
+                } else {
+                    setTimeout(function () {
+                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
+                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+                                document.getElementById('operatorstp')[j].selected = true;
+                                findchatsoper()
+
+                            }
+                        }
+                    }, 1000)
+                }
+            }
+        }
+    }
+
+    function clock_on_javascript_2() {  //таймер отсчета до срабатывания будильника
+        var data = new Date();
+        hours = data.getHours();
+        if (hours < 10) { hours = "0" + hours; }
+        minutes = data.getMinutes();
+        if (minutes < 10) { minutes = "0" + minutes; }
+        seconds = data.getSeconds();
+        if (seconds < 10) { seconds = "0" + seconds; }
+        var summin = JSON.parse(localStorage.getItem('setminuta')) + 60;
+        if (localStorage.getItem('chronostamp') === null) {
+            time = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin").innerHTML = time;
+        } else if (((localStorage.getItem('setchas') - hours) == 0) && ((localStorage.getItem('setminuta') > minutes))) {
+            time = "00" + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
+            document.getElementById("clock_remin").innerHTML = time;
+        } else if (((localStorage.getItem('setchas') - hours) > 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
+            time = (localStorage.getItem('setchas') - hours) + " : " + "00" + " : " + (60 - seconds);
+            document.getElementById("clock_remin").innerHTML = time;
+        } else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') < minutes) {
+            time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
+            document.getElementById("clock_remin").innerHTML = time;
+        } else if (((localStorage.getItem('setchas') - hours) > 0) && localStorage.getItem('setminuta') > minutes) {
+            time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
+            document.getElementById("clock_remin").innerHTML = time;
+        } else if (((localStorage.getItem('setchas') - hours) == 1) && (localStorage.getItem('setminuta') - minutes) == 0) {
+            time = localStorage.getItem('setchas') - hours + " : " + "00" + " : " + (60 - seconds);
+            document.getElementById("clock_remin").innerHTML = time;
+        } else {
+            time = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin").innerHTML = time;
+        }
+    }
+	
+	setInterval(clock_on_javascript_1, 1000);
+    setInterval(clock_on_javascript_2, 1000);
 
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
