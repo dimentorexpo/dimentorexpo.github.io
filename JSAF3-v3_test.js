@@ -27,6 +27,7 @@ let countryofuser;
 let ageofuser;
 let getcrmstatusinfo;
 let convid;
+let grdata = [];
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -4989,8 +4990,6 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('AF_GrList').style.display = 'none'
         else {
             document.getElementById('AF_GrList').style.display = ''
-
-		    let grdata = [];
 
 		document.getElementById('getidgrouptolist').onclick = async function () {
 			let dataarr = [];
