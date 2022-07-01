@@ -4739,8 +4739,8 @@ function move_again_AF() {
             document.getElementById('cstmTmplates').style.display = 'none'
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
-        //if (document.getElementById('AF_Jira').style.display == '')
-        //    document.getElementById('AF_Jira').style.display = 'none'
+        if (document.getElementById('reminder_bar').style.display == '')
+            document.getElementById('reminder_bar').style.display = 'none'
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
         if (document.getElementById('AF_LessonStatus').style.display == '')
