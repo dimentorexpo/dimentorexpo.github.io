@@ -2687,7 +2687,7 @@ function move_again_AF() {
         document.addEventListener('mousemove', listener2);
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
-		
+
     document.getElementById('msg').onclick = function () {
         if (this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
@@ -2792,7 +2792,7 @@ function move_again_AF() {
     button1.innerHTML = "Скрипт";
     button1.style.marginRight = "15px";
     button1.style.display = 'none'
-	
+
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
@@ -2803,7 +2803,7 @@ function move_again_AF() {
         if (localStorage.getItem('disableomelchenkowindow') == 1)
             document.getElementById('main_easy_win').style.display = "none";
 	}
-	
+
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
@@ -4357,7 +4357,7 @@ setInterval(setactivechatstyle, 1000)
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
     }
-	
+
     function refreshTimerReminder() { // обновить будильник если обновляли страницу , перезагружали комп чтобы время подгрузилось оставшееся до срабатывания
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             document.getElementById('reminderstatus').textContent = "🔔";
@@ -4417,17 +4417,17 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('AF_Links').style.display = 'none'
         else {
             document.getElementById('AF_Links').style.display = ''
-			
+
 	document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
     }
-	
+
 	document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
     }
-	
+
 	document.getElementById('hideMeStat').onclick = function () { // скрытие окна статистики в links
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
@@ -4440,7 +4440,7 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('idgrouptolist').value = "";
         }
     }
-			
+
 	document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
         let iplink = 'https://check-host.net/ip-info?host=';
         if (iplookup.value == "")
@@ -4470,7 +4470,7 @@ setInterval(setactivechatstyle, 1000)
         };
         lgssearch.value = "";
     }
-			
+
     document.getElementById('getJiraTasks').ondblclick = function () {  // Просмотр таски по джира по ее коду и номеру
         if (document.getElementById('AF_Jira').style.display = 'none') {
             document.getElementById('AF_Jira').style.display = ''
@@ -4688,7 +4688,7 @@ setInterval(setactivechatstyle, 1000)
             document.querySelector('#parsechat').click()
         }
     })
-			
+
 	document.getElementById('sguid').onclick = function () {                      //переход в инфо-кабинет по ученику из группового урока
         let lnksgu = 'https://grouplessons-api.skyeng.ru/admin/student/view/';
         if (studguid.value == "")
@@ -4781,7 +4781,7 @@ setInterval(setactivechatstyle, 1000)
         setTimeout(function () { document.getElementById('doskiponboard').innerHTML = "💾" }, 2000);
         skiponboarding.value = "";
     }
-			
+
 	 document.getElementById('setservicelocaleru').onclick = function () {
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
@@ -4805,7 +4805,7 @@ setInterval(setactivechatstyle, 1000)
         idforservicelocaleru.value = "";
         setTimeout(function () { document.getElementById('setservicelocaleru').innerHTML = "🚀" }, 2000);
     }
-	
+
     document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
         let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
         if (cmsstepid.value == "")
@@ -4815,7 +4815,7 @@ setInterval(setactivechatstyle, 1000)
         };
         cmsstepid.value = "";
     }
-	
+
 	document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
         alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
     }
@@ -4827,7 +4827,7 @@ setInterval(setactivechatstyle, 1000)
     document.getElementById('datsyurl').onclick = function () { // открытие Календаря
         window.open("https://datsy.ru/")
     }
-	
+
 	document.getElementById('passappgen').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
     })
@@ -4954,7 +4954,7 @@ setInterval(setactivechatstyle, 1000)
         setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
         reportmvu.value = "";
     }
-	
+
 	    document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
         let getyear = getcurdate.getFullYear();
@@ -4989,9 +4989,9 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('AF_GrList').style.display = 'none'
         else
             document.getElementById('AF_GrList').style.display = ''
-		
+
 		    let grdata = [];
-			
+
 		document.getElementById('getidgrouptolist').onclick = async function () {
 			let dataarr = [];
 			document.getElementById('grlistinfo').innerHTML = "";
@@ -5091,7 +5091,7 @@ setInterval(setactivechatstyle, 1000)
     document.getElementById('probnikinstr').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
     })
-	
+
             for (let i = 0; i < table.length; i++) {
                 if (table[i][3] == "iOS Version")
                     document.getElementById('curVeriOS').innerText = "iOS: " + table[i][4];
@@ -5109,11 +5109,11 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('set_bar').style.display = ''
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
-			
+
 			    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
 					audio.play()
 				}
-				
+
 				document.getElementById('sound_save').onclick = function () {
 					localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
 					if (document.getElementById('sound_adr').value == "")
@@ -5127,7 +5127,7 @@ setInterval(setactivechatstyle, 1000)
 						}, 3000);
 					}
 				}
-			
+
 			    document.getElementById('setteststd').onclick = function () {
 					if (document.getElementById('test_std').value != '') {
 						localStorage.setItem('test_stud', document.getElementById('test_std').value);
@@ -5218,7 +5218,7 @@ setInterval(setactivechatstyle, 1000)
             }
         }
     }
-	
+
     function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
         var data = new Date();
         hours = data.getHours();
@@ -5295,7 +5295,7 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById("clock_remin").innerHTML = time;
         }
     }
-	
+
 	    document.getElementById('sndbot').onclick = async function () {
         let txt = document.getElementById('inp').value;
         var values = await getInfo(flag)
@@ -5319,10 +5319,10 @@ setInterval(setactivechatstyle, 1000)
         document.getElementById('inp').value = "";
         refCurTimer(time)
     }
-	
+
 	setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
-	
+
 	    function screenshots() {
         if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
@@ -5345,10 +5345,10 @@ setInterval(setactivechatstyle, 1000)
             }
         }
     }
-	
+
     screenshots()
     setInterval(screenshots, 5000)
-	
+
     function screenshots2() {
         if (document.getElementsByClassName('chat-messages')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
@@ -5371,11 +5371,11 @@ setInterval(setactivechatstyle, 1000)
             }
         }
     }
-	
+
     screenshots2()
     setInterval(screenshots2, 5000)
-	
-    async function postuderdatatologin() { // логгинер для У П ПМ 
+
+    async function postuderdatatologin() { // логгинер для У П ПМ
         logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
@@ -5432,7 +5432,7 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('responseTextarea1').removeAttribute('postdata')
         }, 800)
     }
-	
+
     async function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -5824,7 +5824,7 @@ setInterval(setactivechatstyle, 1000)
         document.getElementById('changelocalelng').innerHTML = "✅"
         setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
     }
-	
+
 	    async function getusernamecrm() { //получить имя пользователя из СРМ
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
@@ -5919,7 +5919,7 @@ setInterval(setactivechatstyle, 1000)
         }, 600)
 
     }
-	
+
     async function crmstatus() { // получить статус задача в СРМ в решении или в ожидании
         let tempvarcrm = document.getElementById('idstudent').value;
         tempvarcrm = tempvarcrm.trim();
@@ -6021,7 +6021,7 @@ setInterval(setactivechatstyle, 1000)
 
         }, 800)
     }
-			
+
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
     document.getElementById('infofield').innerHTML = ''
@@ -10454,20 +10454,20 @@ function hesoyam() {
 }
 
 setTimeout(() => {
-	
+
 	document.getElementById('butServ').onclick = function () { //открывает userinfo в виде вензеля
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
-		
+
 		document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Timetable').style.display == '')
             document.getElementById('AF_Timetable').style.display = 'none'
 
         document.getElementById('timetabledata').innerHTML = "";
 		}
-		
+
 		 document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
@@ -10479,14 +10479,14 @@ setTimeout(() => {
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
 		}
-		
+
 		document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
 			if (document.getElementById('AF_LessonStatus').style.display == '') {
 				document.getElementById('AF_LessonStatus').style.display = 'none'
 				document.getElementById('statustable').innerText = "";
 			}
 		}
-		
+
 		document.getElementById('getpastandfuturelessons').onclick = function () {
 			if (document.getElementById('AF_Timetable').style.display == '')
 				document.getElementById('AF_Timetable').style.display = 'none'
@@ -10494,7 +10494,7 @@ setTimeout(() => {
 				document.getElementById('AF_Timetable').style.display = ''
 			getlessonfuture.click();
 		}
-		
+
 		document.getElementById('gettechsummary').onclick = async function () { //получает инфо об устройстве пользователя
 			if (document.getElementById('AF_TechSummary').style.display == '')
 				document.getElementById('AF_TechSummary').style.display = 'none'
@@ -10550,7 +10550,7 @@ setTimeout(() => {
 			else
 				document.getElementById('AF_LessonStatus').style.display = ''
 		}
-	
+
 		document.getElementById('catchathistory').onclick = function () {
 
         if (document.getElementById('AF_ChatHis').style.display == 'none') {
@@ -10562,7 +10562,7 @@ setTimeout(() => {
             btn_search_history.click()
         }
     }
-	
+
 	document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
         let polzid = document.getElementById('idstudent').value.trim();
         startnewchat(polzid)
@@ -10579,7 +10579,7 @@ setTimeout(() => {
     document.getElementById('personalteacherpage').onclick = function () {
         window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
     }
-		
+
 	document.getElementById('checkbalance').onclick = function () {
         window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
     }
@@ -10637,7 +10637,7 @@ setTimeout(() => {
         };
         setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
     }
-	
+
 	    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
         convid = "";
         // document.getElementById('servicetable').innerHTML = "";
@@ -10933,7 +10933,7 @@ setTimeout(() => {
 
         }, 720)
     }
-	
+
 	    document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
         if (document.getElementById('ChatStatus').textContent == "📧") {
 
@@ -11051,7 +11051,7 @@ setTimeout(() => {
             document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
         }, 1200)
     }
-	
+
 	    document.getElementById('clearservinfo').onclick = function () {
 			document.getElementById('idstudent').value = "";
 			document.getElementById('servicetable').innerHTML = "";
@@ -11069,7 +11069,7 @@ setTimeout(() => {
 			werechats = false;
 			convid = "";
 		}
-	
+
 		document.getElementById('useravatar').onmouseover = function () {
 			document.getElementById('useravatar').style.width = "200px";
 			document.getElementById('useravatar').style.height = "230px";
@@ -11079,15 +11079,15 @@ setTimeout(() => {
 			document.getElementById('useravatar').style.width = "55px";
 			document.getElementById('useravatar').style.height = "60px";
 		}
-	
+
     }
-	
+
 	document.getElementById('suggestform').onclick = function () { //открывает форму предложений и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
-			
+
 		document.getElementById('hideMeSugForm').onclick = () => {
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
@@ -11201,12 +11201,12 @@ setTimeout(() => {
             document.getElementById('AF_Marks').style.display = 'none'
         else {
             document.getElementById('AF_Marks').style.display = ''
-			
+
 	document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
     }
-			
+
             document.getElementById('findmarksstat').onclick = async function () {
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
@@ -11298,8 +11298,8 @@ setTimeout(() => {
                 document.getElementById('markstable').innerHTML = "";
             }
         }
-	} 
-	
+	}
+
 	document.getElementById('reminderstatus').onclick = function () { // открывает форму выставления будильника
         if (document.getElementById('reminder_bar').style.display == '')
             document.getElementById('reminder_bar').style.display = 'none'
@@ -11307,7 +11307,7 @@ setTimeout(() => {
             document.getElementById('reminder_bar').style.display = ''
             document.getElementById('set_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
-			
+
 		document.getElementById('setreminder').onclick = function () {  // выставляем будильник
 			document.getElementById('reminderstatus').textContent = "🔔";
 			localStorage.setItem('setchas', setchas.value);
@@ -11325,18 +11325,18 @@ setTimeout(() => {
 		}
         }
     }
-	
+
 	document.getElementById('addsrc').onclick = function () { // открывает окно с доп ссылкиами требующими доступ (*)
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
         else
             document.getElementById('AF_Linksd').style.display = ''
-		
+
 	document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
-		
+
 		// обработка нажатий на странице доступов
     document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
         if (kibsvid.value == "") {
@@ -11445,20 +11445,20 @@ setTimeout(() => {
         };
         UserActions.value = "";
     }
-	
+
 	document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем ссылку на Grafana
     })
-	
+
     }
-	
+
 	document.getElementById('butChatHistory').onclick = function () { // открывает меню для работы с историей чата по типу кота Омельченко
 
         if (document.getElementById('AF_ChatHis').style.display == '')
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-		
+
 		    document.getElementById('chid').onclick = () => {
 				copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
 			}
@@ -11466,7 +11466,7 @@ setTimeout(() => {
 			document.getElementById('usidchat').onclick = () => {
 				copyToClipboard1(document.getElementById('placeusid').innerText)
 			}
-			
+
 			document.getElementById('gotocrm').onclick = () => {
 				let fdata = document.getElementById('datafield').innerHTML
 				fdata = fdata.match(/ID:.?\d+/)[0].split(' ')[1]
@@ -11883,9 +11883,9 @@ setTimeout(() => {
             }
         }
     }
-	
+
 	//hidebuttons and clear
-	
+
 	document.getElementById('hideMeChHis').onclick = function () { //кнопка скрытия окна в истории чатов
         if (document.getElementById('AF_ChatHis').style.display == '') {
             document.getElementById('AF_ChatHis').style.display = 'none'
@@ -11898,7 +11898,7 @@ setTimeout(() => {
             document.getElementById('hashchathis').value = ''
         }
     }
-	
+
 	document.getElementById('clearallinfo').onclick = function () { // кнопка очистит поля в истории чатов
         document.getElementById('infofield').innerText = ''
         document.getElementById('placeusid').innerText = ''
@@ -11908,7 +11908,7 @@ setTimeout(() => {
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
-	
+
 	document.getElementById('hideMeSrvDsk').onclick = function () { // кнопка скрытия ServiceDesk формы
         if (document.getElementById('AF_ServDsk').style.display == '') {
             $('.sdbtn').click(function () {
@@ -12542,12 +12542,12 @@ setTimeout(() => {
             document.getElementById('AF_ServDsk').style.display = 'none'
         }
     }
-	
+
 	document.getElementById('hideuserdatainfo').onclick = function () { //скрывет доп окно информации при работе с историей чатов
         if (document.getElementById('userchatdata').style.display == '')
             document.getElementById('userchatdata').style.display = 'none'
     }
-	
+
 } , 3000)
 
 function toUTF8Array(str) {
