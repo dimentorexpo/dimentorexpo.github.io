@@ -2669,74 +2669,6 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
 
-    document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
-        let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
-        if (cmsstepid.value == "")
-            console.log('Введите STEPUUID в поле')
-        else {
-            window.open(lnkstep + cmsstepid.value);
-        };
-        cmsstepid.value = "";
-    }
-
-    document.getElementById('checkbalance').onclick = function () {
-        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
-    }
-
-    document.getElementById('getkglinfokid').onclick = function () {
-        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('partialpaymentinfo').onclick = function () {
-        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('editadmbtn').onclick = function () {
-        let stuid = document.getElementById('idstudent').value;
-        stuid = stuid.trim();
-        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
-    }
-
-    document.getElementById('getonetimepass').onclick = function () {
-        if (document.getElementById('idstudent').value == "")
-            console.log('Введите id в поле')
-        else {
-            document.getElementById('getonetimepass').innerHTML = "✅";
-            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
-
-            document.getElementById('responseTextarea1').value = `{
-			"headers": {
-				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
-				"method": "POST",
-				"mode": "cors",
-				"credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
-            document.getElementById('sendResponse').click()
-
-            function getPassInfo1() {
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-                document.getElementById('responseTextarea3').value = ''
-
-                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
-                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
-                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-                onetimepassout.value = convertres11[1];
-            }
-            setTimeout(getPassInfo1, 1000);
-        };
-        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
-    }
-
     let commonidentity;
     let emailidentity;
     let phoneidentity;
@@ -5122,6 +5054,64 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
+		
+	document.getElementById('checkbalance').onclick = function () {
+        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
+    }
+
+    document.getElementById('getkglinfokid').onclick = function () {
+        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('partialpaymentinfo').onclick = function () {
+        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('editadmbtn').onclick = function () {
+        let stuid = document.getElementById('idstudent').value;
+        stuid = stuid.trim();
+        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
+    }
+
+    document.getElementById('getonetimepass').onclick = function () {
+        if (document.getElementById('idstudent').value == "")
+            console.log('Введите id в поле')
+        else {
+            document.getElementById('getonetimepass').innerHTML = "✅";
+            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
+
+            document.getElementById('responseTextarea1').value = `{
+			"headers": {
+				"content-type": "application/x-www-form-urlencoded",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+			},
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
+            document.getElementById('sendResponse').click()
+
+            function getPassInfo1() {
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+                document.getElementById('responseTextarea3').value = ''
+
+                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
+                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
+                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+                onetimepassout.value = convertres11[1];
+            }
+            setTimeout(getPassInfo1, 1000);
+        };
+        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
+    }
     }
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
@@ -6019,31 +6009,6 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('sndbot').onclick = async function () {
-        let txt = document.getElementById('inp').value;
-        var values = await getInfo(flag)
-        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-        var txt2 = txt.split('\n')
-        var txt3 = ""
-        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
-        txt3 = txt3.split("\"").join("\\\"")
-        txt3 = txt3.split('<p></p>').join("<p><br></p>")
-        txt3 = txt3.substr(0, txt3.length - 2)
-
-        if (document.getElementById('msg').innerHTML == "Чат")
-            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                "headers": {
-                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
-                },
-                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
-                "method": "POST",
-                "credentials": "include"
-            });
-        document.getElementById('inp').value = "";
-        refCurTimer(time)
-    }
-
-
     document.getElementById('snd').onclick = function () {
         document.getElementById('snd').setAttribute('disabled', 'disabled')
         setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
@@ -6100,8 +6065,6 @@ function move_again_AF() {
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
-
-
     function screenshots() {
         if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
@@ -6124,6 +6087,7 @@ function move_again_AF() {
             }
         }
     }
+	
     screenshots()
     setInterval(screenshots, 5000)
     function screenshots2() {
@@ -7761,7 +7725,17 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('AF_Links').style.display = 'none'
         else {
             document.getElementById('AF_Links').style.display = ''
-			
+	
+    document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
+        let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
+        if (cmsstepid.value == "")
+            console.log('Введите STEPUUID в поле')
+        else {
+            window.open(lnkstep + cmsstepid.value);
+        };
+        cmsstepid.value = "";
+    }
+	
 	document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
         alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
     }
@@ -8129,6 +8103,30 @@ setInterval(setactivechatstyle, 1000)
             time = "00" + " : " + "00" + " : " + "00";
             document.getElementById("clock_remin").innerHTML = time;
         }
+    }
+	
+	    document.getElementById('sndbot').onclick = async function () {
+        let txt = document.getElementById('inp').value;
+        var values = await getInfo(flag)
+        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+        var txt2 = txt.split('\n')
+        var txt3 = ""
+        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
+        txt3 = txt3.split("\"").join("\\\"")
+        txt3 = txt3.split('<p></p>').join("<p><br></p>")
+        txt3 = txt3.substr(0, txt3.length - 2)
+
+        if (document.getElementById('msg').innerHTML == "Чат")
+            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                "headers": {
+                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
+                },
+                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+                "method": "POST",
+                "credentials": "include"
+            });
+        document.getElementById('inp').value = "";
+        refCurTimer(time)
     }
 	
 	setInterval(clock_on_javascript_1, 1000);
