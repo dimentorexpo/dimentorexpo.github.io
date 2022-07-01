@@ -5886,18 +5886,6 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
-    }
-
-    document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
-    }
-
-    document.getElementById('datsyurl').onclick = function () { // открытие Календаря
-        window.open("https://datsy.ru/")
-    }
-
     document.getElementById('gettechsummary').onclick = async function () {
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
@@ -6051,56 +6039,6 @@ function move_again_AF() {
 
 
     } // end of func getidgrouptolist
-
-
-
-    document.getElementById('getStats').onclick = function () { // открытие Статистики
-        let getcurdate = new Date()
-        let getyear = getcurdate.getFullYear();
-        let getcurmonth = (getcurdate.getMonth() + 1)
-        let today = getcurdate.getDate();
-
-        if (getcurmonth < 10) {
-            getcurmonth = "0" + (getcurdate.getMonth() + 1);
-        } else {
-            getcurmonth = (getcurdate.getMonth() + 1);
-        }
-
-        if (getcurdate.getDate() < 10) {
-            today = "0" + getcurdate.getDate();
-            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
-            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-        } else {
-            today = getcurdate.getDate();
-            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
-            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-        }
-        document.querySelector('#chatcommentsdata').style.display = "none"
-        document.querySelector('#lowCSATcount').style.display = "none"
-        if (document.getElementById('AF_Stat').style.display == '')
-            document.getElementById('AF_Stat').style.display = 'none'
-        else
-            document.getElementById('AF_Stat').style.display = ''
-    }
-
-    document.getElementById('passappgen').addEventListener('click', function () {
-        window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
-    })
-
-    document.getElementById('probniki').addEventListener('click', function () {
-        window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
-    })
-
-    document.getElementById('grouplist').addEventListener('click', function () {
-        if (document.getElementById('AF_GrList').style.display == '')
-            document.getElementById('AF_GrList').style.display = 'none'
-        else
-            document.getElementById('AF_GrList').style.display = ''
-    })
-
-    document.getElementById('probnikinstr').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
-    })
 
     document.getElementById('sound_save').onclick = function () {
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
@@ -7823,7 +7761,26 @@ setInterval(setactivechatstyle, 1000)
         else {
             document.getElementById('AF_Links').style.display = ''
 			
-			
+	document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
+        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
+    }
+
+    document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
+        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
+    }
+
+    document.getElementById('datsyurl').onclick = function () { // открытие Календаря
+        window.open("https://datsy.ru/")
+    }
+	
+	document.getElementById('passappgen').addEventListener('click', function () {
+        window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
+    })
+
+    document.getElementById('probniki').addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
+    })
+
     document.getElementById('timetable').addEventListener('click', function () {
         window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
     })
@@ -7942,7 +7899,47 @@ setInterval(setactivechatstyle, 1000)
         setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
         reportmvu.value = "";
     }
+	
+	    document.getElementById('getStats').onclick = function () { // открытие Статистики
+        let getcurdate = new Date()
+        let getyear = getcurdate.getFullYear();
+        let getcurmonth = (getcurdate.getMonth() + 1)
+        let today = getcurdate.getDate();
 
+        if (getcurmonth < 10) {
+            getcurmonth = "0" + (getcurdate.getMonth() + 1);
+        } else {
+            getcurmonth = (getcurdate.getMonth() + 1);
+        }
+
+        if (getcurdate.getDate() < 10) {
+            today = "0" + getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        } else {
+            today = getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        }
+        document.querySelector('#chatcommentsdata').style.display = "none"
+        document.querySelector('#lowCSATcount').style.display = "none"
+        if (document.getElementById('AF_Stat').style.display == '')
+            document.getElementById('AF_Stat').style.display = 'none'
+        else
+            document.getElementById('AF_Stat').style.display = ''
+    }
+
+    document.getElementById('grouplist').addEventListener('click', function () {
+        if (document.getElementById('AF_GrList').style.display == '')
+            document.getElementById('AF_GrList').style.display = 'none'
+        else
+            document.getElementById('AF_GrList').style.display = ''
+    })
+
+    document.getElementById('probnikinstr').addEventListener('click', function () {
+        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
+    })
+	
             for (let i = 0; i < table.length; i++) {
                 if (table[i][3] == "iOS Version")
                     document.getElementById('curVeriOS').innerText = "iOS: " + table[i][4];
