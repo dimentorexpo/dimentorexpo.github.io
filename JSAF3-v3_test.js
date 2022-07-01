@@ -26,6 +26,7 @@ let avatarofuser;
 let countryofuser;
 let ageofuser;
 let getcrmstatusinfo;
+let convid;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -2686,14 +2687,101 @@ function move_again_AF() {
         document.addEventListener('mousemove', listener2);
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
+	
+	document.getElementById('butServ').onclick = function () { //открывает userinfo в виде вензеля
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
+	
+		document.getElementById('catchathistory').onclick = function () {
 
-    document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
+        if (document.getElementById('AF_ChatHis').style.display == 'none') {
+            document.getElementById('butChatHistory').click();
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        } else {
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        }
+    }
+	
+	document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
         let polzid = document.getElementById('idstudent').value.trim();
         startnewchat(polzid)
     }
 
-    let convid;
-    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
+    document.getElementById('crmactivetasks').onclick = function () {
+        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
+    }
+
+    document.getElementById('newtrm').onclick = function () {
+        window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('personalteacherpage').onclick = function () {
+        window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
+    }
+		
+	document.getElementById('checkbalance').onclick = function () {
+        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
+    }
+
+    document.getElementById('getkglinfokid').onclick = function () {
+        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('partialpaymentinfo').onclick = function () {
+        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('editadmbtn').onclick = function () {
+        let stuid = document.getElementById('idstudent').value;
+        stuid = stuid.trim();
+        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
+    }
+
+    document.getElementById('getonetimepass').onclick = function () {
+        if (document.getElementById('idstudent').value == "")
+            console.log('Введите id в поле')
+        else {
+            document.getElementById('getonetimepass').innerHTML = "✅";
+            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
+
+            document.getElementById('responseTextarea1').value = `{
+			"headers": {
+				"content-type": "application/x-www-form-urlencoded",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+			},
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
+            document.getElementById('sendResponse').click()
+
+            function getPassInfo1() { //функция генерации разового пароля
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+                document.getElementById('responseTextarea3').value = ''
+
+                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
+                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
+                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+                onetimepassout.value = convertres11[1];
+            }
+            setTimeout(getPassInfo1, 1000);
+        };
+        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
+    }
+	
+	    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
         convid = "";
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
@@ -2988,8 +3076,8 @@ function move_again_AF() {
 
         }, 720)
     }
-
-    document.getElementById('ChatStatus').onclick = function () {
+	
+	    document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
         if (document.getElementById('ChatStatus').textContent == "📧") {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
@@ -3004,7 +3092,7 @@ function move_again_AF() {
         } else { console.log("No chat with user!!!") }
     }
 
-    document.getElementById('CrmStatus').onclick = function () {
+    document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
 
         let tempvarcrm = document.getElementById('idstudent').value;
         let getcrmstatusinfo;
@@ -3109,6 +3197,13 @@ function move_again_AF() {
         }, 1200)
 
     }
+	
+    }
+
+    
+
+
+
 	
     document.getElementById('clearservinfo').onclick = function () {
         document.getElementById('idstudent').value = "";
@@ -8033,97 +8128,7 @@ setInterval(setactivechatstyle, 1000)
 
         }, 800)
     }
-	
-	    document.getElementById('butServ').onclick = function () { //открывает userinfo в виде вензеля
-        if (document.getElementById('AF_Service').style.display == '')
-            document.getElementById('AF_Service').style.display = 'none'
-        else
-            document.getElementById('AF_Service').style.display = ''
-	
-		document.getElementById('catchathistory').onclick = function () {
-
-        if (document.getElementById('AF_ChatHis').style.display == 'none') {
-            document.getElementById('butChatHistory').click();
-            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-            btn_search_history.click()
-        } else {
-            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-            btn_search_history.click()
-        }
-    }
-
-    document.getElementById('crmactivetasks').onclick = function () {
-        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
-    }
-
-    document.getElementById('newtrm').onclick = function () {
-        window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('personalteacherpage').onclick = function () {
-        window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
-    }
 		
-	document.getElementById('checkbalance').onclick = function () {
-        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
-    }
-
-    document.getElementById('getkglinfokid').onclick = function () {
-        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('partialpaymentinfo').onclick = function () {
-        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('editadmbtn').onclick = function () {
-        let stuid = document.getElementById('idstudent').value;
-        stuid = stuid.trim();
-        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
-    }
-
-    document.getElementById('getonetimepass').onclick = function () {
-        if (document.getElementById('idstudent').value == "")
-            console.log('Введите id в поле')
-        else {
-            document.getElementById('getonetimepass').innerHTML = "✅";
-            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
-
-            document.getElementById('responseTextarea1').value = `{
-			"headers": {
-				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
-				"method": "POST",
-				"mode": "cors",
-				"credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
-            document.getElementById('sendResponse').click()
-
-            function getPassInfo1() { //функция генерации разового пароля
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-                document.getElementById('responseTextarea3').value = ''
-
-                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
-                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
-                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-                onetimepassout.value = convertres11[1];
-            }
-            setTimeout(getPassInfo1, 1000);
-        };
-        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
-    }
-	
-    }
-	
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
     document.getElementById('infofield').innerHTML = ''
