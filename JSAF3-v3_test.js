@@ -12332,7 +12332,7 @@ function hesoyam() {
     document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
 }
 
-	    document.getElementById('suggestform').onclick = () => { //открывает форму предложений и пожеланий
+	    document.getElementById('suggestform').addEventListener('click', function() { //открывает форму предложений и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
@@ -12444,9 +12444,9 @@ function hesoyam() {
 
             }
         }
-    }
+    })
 
-    document.getElementById('butMarks').onclick = function () { // открывает форму оценко от пользователя
+    document.getElementById('butMarks').addEventListener('click', function () { // открывает форму оценко от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
         else {
@@ -12542,7 +12542,7 @@ function hesoyam() {
                 document.getElementById('markstable').innerHTML = "";
             }
         }
-    }
+    })
 
 function toUTF8Array(str) {
     var utf8 = [];
