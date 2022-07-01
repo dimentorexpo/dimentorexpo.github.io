@@ -2668,14 +2668,6 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
 
-    document.getElementById('chid').onclick = () => {
-        copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
-    }
-
-    document.getElementById('usidchat').onclick = () => {
-        copyToClipboard1(document.getElementById('placeusid').innerText)
-    }
-
     document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
     })
@@ -4498,7 +4490,6 @@ function move_again_AF() {
     document.getElementById('hideMeChHis').onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == '') {
             document.getElementById('AF_ChatHis').style.display = 'none'
-
             document.getElementById('infofield').innerText = ''
             document.getElementById('placeusid').innerText = ''
             document.getElementById('placechatid').innerText = ''
@@ -5329,6 +5320,14 @@ function move_again_AF() {
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
+		
+		    document.getElementById('chid').onclick = () => {
+				copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
+			}
+
+			document.getElementById('usidchat').onclick = () => {
+				copyToClipboard1(document.getElementById('placeusid').innerText)
+			}
 
         changeviewtheme()
 
