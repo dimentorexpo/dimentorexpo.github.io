@@ -4714,7 +4714,7 @@ setInterval(setactivechatstyle, 1000)
         if (HWstudID.value == "")
             console.log('Введите id  ученика в поле')
         else {
-            copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
+            copyToClipboard1(hwstidlnk + HWstudID.value + "/homework");
         };
         document.getElementById('showcaseHW').innerHTML = "✅";
         setTimeout(function () { document.getElementById('showcaseHW').innerHTML = "💾" }, 2000);
@@ -4726,7 +4726,7 @@ setInterval(setactivechatstyle, 1000)
         if (lookhash.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+            copyToClipboard1(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
         };
         document.getElementById('gethash').innerHTML = "✅";
         setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
@@ -4738,7 +4738,7 @@ setInterval(setactivechatstyle, 1000)
         if (idteacheradult.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
+            copyToClipboard1("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
         };
         document.getElementById('setchatsadults').innerHTML = "✅";
         setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
@@ -4750,7 +4750,7 @@ setInterval(setactivechatstyle, 1000)
         if (enablerAP.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard(enableAPlnk + enablerAP.value);
+            copyToClipboard1(enableAPlnk + enablerAP.value);
         };
         document.getElementById('getenablerAP').innerHTML = "✅";
         setTimeout(function () { document.getElementById('getenablerAP').innerHTML = "💾" }, 2000);
@@ -4762,7 +4762,7 @@ setInterval(setactivechatstyle, 1000)
         if (skipAP.value == "")
             console.log('Введите hash комнаты в поле')
         else {
-            copyToClipboard(skipAPlnk + skipAP.value);
+            copyToClipboard1(skipAPlnk + skipAP.value);
         };
         document.getElementById('getskipAP').innerHTML = "✅";
         setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
@@ -4775,7 +4775,7 @@ setInterval(setactivechatstyle, 1000)
         if (skiponboarding.value == "")
             console.log('Введите ID услуги в поле')
         else {
-            copyToClipboard(skiponblnk + skiponboarding.value);
+            copyToClipboard1(skiponblnk + skiponboarding.value);
         };
         document.getElementById('doskiponboard').innerHTML = "✅";
         setTimeout(function () { document.getElementById('doskiponboard').innerHTML = "💾" }, 2000);
@@ -4897,7 +4897,7 @@ setInterval(setactivechatstyle, 1000)
     })
 
     document.getElementById('enableNS').addEventListener('click', function () {
-        copyToClipboard("https://vimbox.skyeng.ru/start?enableNewStudent")   // копируем ссылку в буфер для перезапуска урока математики
+        copyToClipboard1("https://vimbox.skyeng.ru/start?enableNewStudent")   // копируем ссылку в буфер для перезапуска урока математики
         document.getElementById('enableNS').innerHTML = "Copied!";
         setTimeout(function () { document.getElementById('enableNS').innerHTML = "Enable NS💾" }, 2000);
     })
@@ -4948,7 +4948,7 @@ setInterval(setactivechatstyle, 1000)
         if (reportmvu.value == "")
             console.log('Введите ID в поле')
         else {
-            copyToClipboard('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
+            copyToClipboard1('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
         };
         document.getElementById('getmvureport').innerHTML = "✅";
         setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
