@@ -7,6 +7,7 @@ let flagsearch;
 let operchatsdata;
 let werechats = false;
 let chatisopen = "";
+let abortTimeOut = '' // перменная для отмены будильника
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -2668,80 +2669,6 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
 
-    var abortTimeOut = ''								// перменная для отмены будильника
-    if (localStorage.getItem('chronostamp') == null) {
-        document.getElementById('reminderstatus').textContent = "🔕";
-    }
-
-    document.getElementById('setreminder').onclick = function () {  // выставляем будильник
-        document.getElementById('reminderstatus').textContent = "🔔";
-        localStorage.setItem('setchas', setchas.value);
-        if (setminuta.value == "00") {
-            setminuta.value = 0;
-        }
-        localStorage.setItem('setminuta', setminuta.value);
-        var timearr = new Date()
-        var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
-        localStorage.setItem('chronostamp', chronostamp);
-        //		setchas.value = "";
-        //		setminuta.value = "";
-        alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
-        abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
-    }
-    function refreshTimerReminder() {
-        if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-            document.getElementById('reminderstatus').textContent = "🔔";
-            setchas.value = localStorage.getItem('setchas');
-            setminuta.value = localStorage.getItem('setminuta');
-            var timearr = new Date()
-            var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
-            localStorage.setItem('chronostamp2', chronostamp2);
-            abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
-        } else {
-            clearTimeout(abortTimeOut);
-            document.getElementById('reminderstatus').textContent = "🔕";
-        }
-    }
-
-    document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника
-        if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-            clearTimeout(abortTimeOut)
-            localStorage.removeItem('chronostamp')
-            localStorage.removeItem('chronostamp2')
-            setchas.value = ""
-            setminuta.value = ""
-            alert("Будильник удален")
-            document.getElementById('reminderstatus').textContent = "🔕";
-        }
-    }
-
-    refreshTimerReminder();
-
-    function setRemindAf() {
-        fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
-            "headers": {
-                "accept": "*/*",
-                "cache-control": "max-age=0",
-                "content-type": "application/json",
-                "sec-ch-ua-mobile": "?0",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        });
-        alert("Время ставить занят! :D");
-        document.getElementById('reminderstatus').textContent = "🔕";
-        localStorage.removeItem('chronostamp');
-        setchas.value = "";
-        setminuta.value = "";
-    }
-
     document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
         let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
         if (cmsstepid.value == "")
@@ -5050,6 +4977,22 @@ function move_again_AF() {
             document.getElementById('reminder_bar').style.display = ''
             document.getElementById('set_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
+			
+		document.getElementById('setreminder').onclick = function () {  // выставляем будильник
+			document.getElementById('reminderstatus').textContent = "🔔";
+			localStorage.setItem('setchas', setchas.value);
+			if (setminuta.value == "00") {
+				setminuta.value = 0;
+			}
+			localStorage.setItem('setminuta', setminuta.value);
+			var timearr = new Date()
+			var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+			localStorage.setItem('chronostamp', chronostamp);
+			//		setchas.value = "";
+			//		setminuta.value = "";
+			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
+			abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+		}
         }
     }
 
@@ -7755,7 +7698,65 @@ function setactivechatstyle() { // функция добавляющая акт�
 
 setInterval(setactivechatstyle, 1000)
 
-    document.getElementById('links').onclick = function () {
+    if (localStorage.getItem('chronostamp') == null) {
+        document.getElementById('reminderstatus').textContent = "🔕";
+    }
+	
+    function refreshTimerReminder() { // обновить будильник если обновляли страницу , перезагружали комп чтобы время подгрузилось оставшееся до срабатывания
+        if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+            document.getElementById('reminderstatus').textContent = "🔔";
+            setchas.value = localStorage.getItem('setchas');
+            setminuta.value = localStorage.getItem('setminuta');
+            var timearr = new Date()
+            var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+            localStorage.setItem('chronostamp2', chronostamp2);
+            abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
+        } else {
+            clearTimeout(abortTimeOut);
+            document.getElementById('reminderstatus').textContent = "🔕";
+        }
+    }
+
+    document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника
+        if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+            clearTimeout(abortTimeOut)
+            localStorage.removeItem('chronostamp')
+            localStorage.removeItem('chronostamp2')
+            setchas.value = ""
+            setminuta.value = ""
+            alert("Будильник удален")
+            document.getElementById('reminderstatus').textContent = "🔕";
+        }
+    }
+
+    refreshTimerReminder();
+
+    function setRemindAf() { // запустить будильник, который автоматически в назначенное время поставит статус занят
+        fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+            "headers": {
+                "accept": "*/*",
+                "cache-control": "max-age=0",
+                "content-type": "application/json",
+                "sec-ch-ua-mobile": "?0",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        alert("Время ставить занят! :D");
+        document.getElementById('reminderstatus').textContent = "🔕";
+        localStorage.removeItem('chronostamp');
+        setchas.value = "";
+        setminuta.value = "";
+    }
+
+    document.getElementById('links').onclick = function () { // открывает меню с ссылками L
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
         else {
@@ -8352,7 +8353,6 @@ async function findchatsoper() { // ищет активные чаты на вы
 
     if (document.getElementById('bottommenuchhis').style.display == '')
         document.getElementById('bottommenuchhis').style.display = 'none';
-
 
     document.getElementById('infofield').innerHTML = 'Загрузка'
 
