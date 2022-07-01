@@ -2687,552 +2687,7 @@ function move_again_AF() {
         document.addEventListener('mousemove', listener2);
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
-	
-	document.getElementById('butServ').onclick = function () { //открывает userinfo в виде вензеля
-        if (document.getElementById('AF_Service').style.display == '')
-            document.getElementById('AF_Service').style.display = 'none'
-        else
-            document.getElementById('AF_Service').style.display = ''
 		
-		document.getElementById('getpastandfuturelessons').onclick = function () {
-			if (document.getElementById('AF_Timetable').style.display == '')
-				document.getElementById('AF_Timetable').style.display = 'none'
-			else
-				document.getElementById('AF_Timetable').style.display = ''
-			getlessonfuture.click();
-		}
-	
-		document.getElementById('catchathistory').onclick = function () {
-
-        if (document.getElementById('AF_ChatHis').style.display == 'none') {
-            document.getElementById('butChatHistory').click();
-            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-            btn_search_history.click()
-        } else {
-            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
-            btn_search_history.click()
-        }
-    }
-	
-	document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
-        let polzid = document.getElementById('idstudent').value.trim();
-        startnewchat(polzid)
-    }
-
-    document.getElementById('crmactivetasks').onclick = function () {
-        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
-    }
-
-    document.getElementById('newtrm').onclick = function () {
-        window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('personalteacherpage').onclick = function () {
-        window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
-    }
-		
-	document.getElementById('checkbalance').onclick = function () {
-        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
-    }
-
-    document.getElementById('getkglinfokid').onclick = function () {
-        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('partialpaymentinfo').onclick = function () {
-        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
-    }
-
-    document.getElementById('editadmbtn').onclick = function () {
-        let stuid = document.getElementById('idstudent').value;
-        stuid = stuid.trim();
-        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
-    }
-
-    document.getElementById('getonetimepass').onclick = function () {
-        if (document.getElementById('idstudent').value == "")
-            console.log('Введите id в поле')
-        else {
-            document.getElementById('getonetimepass').innerHTML = "✅";
-            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
-
-            document.getElementById('responseTextarea1').value = `{
-			"headers": {
-				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
-				"method": "POST",
-				"mode": "cors",
-				"credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
-            document.getElementById('sendResponse').click()
-
-            function getPassInfo1() { //функция генерации разового пароля
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-                document.getElementById('responseTextarea3').value = ''
-
-                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
-                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
-                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-                onetimepassout.value = convertres11[1];
-            }
-            setTimeout(getPassInfo1, 1000);
-        };
-        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
-    }
-	
-	    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
-        convid = "";
-        // document.getElementById('servicetable').innerHTML = "";
-        document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
-        document.querySelector('#useravatar').src = "";
-        if (document.querySelector('#useravatar').style.display != "none")
-            document.querySelector('#useravatar').style.display = "none";
-        let servicearr = "";
-        document.getElementById('getcurrentstatus').title = "";
-        let stid = document.getElementById('idstudent').value;
-        stid = stid.trim();
-
-        getservicearr();
-        setTimeout(getunhideemail, 600);
-        setTimeout(getunhidephone, 620);
-        setTimeout(getusernamecrm, 640);
-        setTimeout(checkemailandphoneidentity, 660);
-        setTimeout(crmstatus, 680);
-
-        //  getservicearr();
-        setTimeout(chatstatus, 800)
-        setTimeout(function () {
-            if (werechats) {
-                document.getElementById('ChatStatus').style.display = "";
-                document.getElementById('ChatStatus').textContent = "📧";
-            } else if (!werechats) {
-                document.getElementById('ChatStatus').style.display = "";
-                document.getElementById('ChatStatus').textContent = "🚫";
-            }
-        }, 1000)
-
-        //   await getusernamecrm();
-        //   await getuseragecrm();
-        // await getunhideemail();
-        // await getunhidephone();
-        // await checkemailandphoneidentity();
-        // await getlogginer();
-        // await crmstatus();
-
-        setTimeout(function () {
-            document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"accept-language": "ru",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	}`
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
-            document.getElementById('responseTextarea3').value = 'getserviceinfo'
-            document.getElementById('sendResponse').click()
-
-            async function getServInfo() {
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
-                document.getElementById('responseTextarea3').value = 'getserviceinfo'
-                document.getElementById('sendResponse').click()
-
-                servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
-                servicearr = JSON.parse(servicearr);
-                //console.log(servicearr);
-                document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
-
-
-                let tinfo = ""; // инфо о постоянном П
-                let temtinfo = ""; // инфо о временном П
-                let servinfo = ""; //инфо об услуге
-                let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
-                let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
-                if (servicearr.data.length === 0 || servicearr.data[0].incorrectnessReason == "attempt_to_find_job") {
-                    noservinfo = 1;
-                    arrservice = null;
-                } else {
-                    for (let i = 0; i < servicearr.data.length; i++) {
-                        for (let d = 0; d < servicearray.data.length; d++) {
-                            if (servicearray.data[d].serviceTypeKey == servicearr.data[i].serviceTypeKey)
-                                servicearr.data[i].serviceTypeKey = servicearray.data[d].shortTitle;
-                        }
-
-                        if (servicearr.data[i].student.general.id == stid && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher == null) {
-
-                            tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
-
-                            temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].serviceTypeKey == "Групп англ дети РЯ" && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
-
-                            tinfo = "KGL student" + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
-                            tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
-                            temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && (servicearr.data[i].stage == "after_trial" || servicearr.data[i].stage == "before_call") && servicearr.data[i].incorrectnessReason == null) {
-                            tinfo += [i + 1] + ") " + '<span style="color:#FF7F50; font-weight:900;">Этап ВУ</span><br>';
-                            servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
-                            //	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
-                            console.log("Услуга потеряна");
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
-                            //	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
-                            console.log("Услуга некорректна");
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
-                            //	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
-                            console.log("Услуга потеряна и некорректна");
-                        }
-                    }
-                }
-
-                if (temtinfo == "" && tinfo != "") {
-                    if (avatarofuser != null) {
-                        document.querySelector('#useravatar').style.display = "";
-                        document.querySelector('#useravatar').src = avatarofuser;
-                    }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-                    if (servlocalestatus == "ru") {
-                        document.getElementById('changelocalelng').style.display = "none"
-                    } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
-                        document.getElementById('changelocalelng').style.display = ""
-                    }
-                    document.getElementById('checkbalance').style.display = "";
-                    document.getElementById('getkglinfokid').style.display = "";
-                    document.getElementById('partialpaymentinfo').style.display = "";
-                    document.getElementById('getpastandfuturelessons').style.display = "";
-                    document.getElementById('newtrm').style.display = "none";
-                    document.getElementById('personalteacherpage').style.display = "none";
-
-                } else if (temtinfo != "" && tinfo != "") {
-                    if (avatarofuser != null) {
-                        document.querySelector('#useravatar').style.display = "";
-                        document.querySelector('#useravatar').src = avatarofuser;
-                    }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-                    if (servlocalestatus == "ru") {
-                        document.getElementById('changelocalelng').style.display = "none"
-                    } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
-                        document.getElementById('changelocalelng').style.display = ""
-                    }
-                    document.getElementById('checkbalance').style.display = "";
-                    document.getElementById('getkglinfokid').style.display = "";
-                    document.getElementById('partialpaymentinfo').style.display = "";
-                    document.getElementById('getpastandfuturelessons').style.display = "";
-                    document.getElementById('newtrm').style.display = "none";
-                    document.getElementById('personalteacherpage').style.display = "none";
-
-                } else if (temtinfo != "" && tinfo == "") {
-                    if (avatarofuser != null) {
-                        document.querySelector('#useravatar').style.display = "";
-                        document.querySelector('#useravatar').src = avatarofuser;
-                    }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
-                    if (servlocalestatus == "ru") {
-                        document.getElementById('changelocalelng').style.display = "none"
-                    } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
-                        document.getElementById('changelocalelng').style.display = ""
-                    }
-                    document.getElementById('checkbalance').style.display = "";
-                    document.getElementById('getkglinfokid').style.display = "";
-                    document.getElementById('partialpaymentinfo').style.display = "";
-                    document.getElementById('getpastandfuturelessons').style.display = "";
-                    document.getElementById('newtrm').style.display = "none";
-                    document.getElementById('personalteacherpage').style.display = "none";
-
-                } else if (noservinfo == 1 && teachername != "") {
-                    if (avatarofuser != null) {
-                        document.querySelector('#useravatar').style.display = "";
-                        document.querySelector('#useravatar').src = avatarofuser;
-                    }
-                    document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + teachername + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "🌍: " + countryofuser + "<br>";
-                    document.getElementById('changelocalelng').style.display = "none";
-                    document.getElementById('checkbalance').style.display = "none";
-                    document.getElementById('getkglinfokid').style.display = "none";
-                    document.getElementById('partialpaymentinfo').style.display = "none";
-                    document.getElementById('getpastandfuturelessons').style.display = "none";
-                    document.getElementById('newtrm').style.display = "";
-                    document.getElementById('personalteacherpage').style.display = "";
-
-                } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
-                    document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
-                    document.getElementById('checkbalance').style.display = "none";
-                    document.getElementById('getkglinfokid').style.display = "none";
-                    document.getElementById('partialpaymentinfo').style.display = "none";
-                    document.getElementById('newtrm').style.display = "none";
-                    document.getElementById('personalteacherpage').style.display = "none";
-
-                } else {
-                    if (avatarofuser != null) {
-                        document.querySelector('#useravatar').style.display = "";
-                        document.querySelector('#useravatar').src = avatarofuser;
-                    }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
-
-                    if (document.getElementById('getusremail1') != null) {
-                        document.getElementById('getusremail1').onclick = function () {
-                            copyToClipboard1(unhidenemail);
-                        };
-                    }
-
-                    if (document.getElementById('getusrphone1') != null) {
-                        document.getElementById('getusrphone1').onclick = function () {
-                            copyToClipboard1(unhidephone);
-                        };
-                    }
-
-                    if (document.getElementById('getshowcase1') != null) {
-                        document.getElementById('getshowcase1').onclick = function () {
-                            copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
-                        };
-                    }
-
-                    if (document.getElementById('getloginer1') != null) {
-                        document.getElementById('getloginer1').onclick = function () {
-                            postuderdatatologin();
-                        }
-                    }
-                }
-
-                if (arrservice.length != 0 && arrservice != null && arrservice != undefined) {
-                    arrservice = arrservice.split(', ')
-                }
-                let tmparr = document.querySelectorAll('.copyserviceid');
-                for (let j = 0; j < tmparr.length; j++) {
-                    tmparr[j].onclick = function () {
-                        copyToClipboard1(arrservice[j])
-                    }
-                }
-
-                if (document.getElementById('getusremail') != null) {
-                    document.getElementById('getusremail').onclick = function () {
-                        copyToClipboard1(unhidenemail);
-                    };
-                }
-
-                if (document.getElementById('getusrphone') != null) {
-                    document.getElementById('getusrphone').onclick = function () {
-                        copyToClipboard1(unhidephone);
-                    };
-                }
-
-                if (document.getElementById('getloginer') != null) {
-                    document.getElementById('getloginer').onclick = function () {
-                        postuderdatatologin();
-                    }
-                }
-
-                if (document.getElementById('getshowcase') != null) {
-                    document.getElementById('getshowcase').onclick = function () {
-                        copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
-                    };
-                }
-
-
-                if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
-                    let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
-                    if (testids != null) {
-                        let infoiduslugi = document.getElementsByClassName('iduslugitxt');
-                        for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
-                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
-                                for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-                                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-                                        let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-                                        if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
-                                            // for (let d = 0; d < infoiduslugi.length; d++) {
-                                            for (let v = 0; v < testids.length; v++) {
-                                                if (testids[v] == getidusr + ",")
-                                                    infoiduslugi[v].innerText = "ID Услуги 🔥";
-                                                else
-                                                    console.log("Not found") //если услуги не совпали с П обратившимся
-                                            } // for v
-                                            //    } // for d
-                                        } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
-                                    } else
-                                        console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
-                                } // for let i
-                            } // if type == teacher
-                        }
-                    }
-                } // for let j
-            }
-
-            setTimeout(getServInfo, 1200)
-
-        }, 720)
-    }
-	
-	    document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
-        if (document.getElementById('ChatStatus').textContent == "📧") {
-
-            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                hide_or_display.click()
-                document.getElementById('chat_id').value = convid;
-
-                search.click()
-            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                document.getElementById('chat_id').value = convid;
-                search.click()
-            }
-        } else { console.log("No chat with user!!!") }
-    }
-
-    document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
-
-        let tempvarcrm = document.getElementById('idstudent').value;
-        let getcrmstatusinfo;
-        document.getElementById('CrmStatus').style.display = "none";
-        document.getElementById('getcurrentstatus').style.display = "none";
-        document.getElementById('getcurrentstatus').title = "";
-
-        document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"accept": "application/json, text/plain, */*",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-	}`
-        document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
-        document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-        document.getElementById('sendResponse').click()
-
-
-
-        setTimeout(function () {
-            document.getElementById('responseTextarea1').value = `{}`
-            document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
-            document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-            document.getElementById('sendResponse').click()
-
-            getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-            getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
-            let flagtpout = 0;
-            let flagtp = 0;
-            let flagnottp = 0;
-            let flagstatuswait;
-            let flagstatusprocessing;
-            let opername = "";
-            if (getcrmstatusinfo.data.length > 0) {
-                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
-                        flagtpout = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
-                        flagtp = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
-                        flagnottp = 1;
-                    }
-                }
-
-                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
-                        flagstatuswait = 1;
-                        document.getElementById('getcurrentstatus').title = "";
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
-                        flagstatusprocessing = 1;
-                        opername = getcrmstatusinfo.data[i].operator.name;
-                    }
-                }
-
-                if (flagstatuswait == 1) {
-                    document.getElementById('getcurrentstatus').style.display = "";
-                    document.getElementById('getcurrentstatus').innerText = "В ожидании";
-                } else if (flagstatusprocessing == 1) {
-                    document.getElementById('getcurrentstatus').style.display = "";
-                    document.getElementById('getcurrentstatus').innerText = "Решается";
-                    document.getElementById('getcurrentstatus').title = opername;
-                    document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
-                }
-
-                if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи");
-                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "🛠";
-                    console.log("Входящий звонок или с др отдела на ТП была создана задача");
-                } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "📵";
-                    console.log("Нет активных задач по ТП линии");
-                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи на исход и на ТП 1 линии");
-                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
-                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "🛠";
-                    console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
-                }
-            } else {
-                document.getElementById('CrmStatus').style.display = "";
-                document.getElementById('CrmStatus').innerText = "📵";
-                console.log("No DATA");
-            }
-            document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
-        }, 1200)
-    }
-	
-	    document.getElementById('clearservinfo').onclick = function () {
-			document.getElementById('idstudent').value = "";
-			document.getElementById('servicetable').innerHTML = "";
-			document.getElementById('ChatStatus').style.display = "none";
-			document.getElementById('CrmStatus').style.display = "none";
-			document.getElementById('getcurrentstatus').style.display = "none";
-			document.getElementById('changelocalelng').style.display = "";
-			document.getElementById('getpastandfuturelessons').style.display = "";
-			document.querySelector('#useravatar').src = "";
-			document.querySelector('#useravatar').style.display = "none";
-			document.getElementById('AF_TechSummary').style.display = "none";
-			document.getElementById('AF_Timetable').style.display = "none";
-			document.getElementById('techsumdata').innerText = "";
-			document.getElementById('timetabledata').innerText = "";
-			werechats = false;
-			convid = "";
-		}
-	
-		document.getElementById('useravatar').onmouseover = function () {
-			document.getElementById('useravatar').style.width = "200px";
-			document.getElementById('useravatar').style.height = "230px";
-		}
-
-		document.getElementById('useravatar').onmouseout = function () {
-			document.getElementById('useravatar').style.width = "55px";
-			document.getElementById('useravatar').style.height = "60px";
-		}
-	
-    }
-	
     document.getElementById('msg').onclick = function () {
         if (this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
@@ -3252,30 +2707,7 @@ function move_again_AF() {
         prepTp()
     }
 
-    document.getElementById('hideMeChHis').onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == '') {
-            document.getElementById('AF_ChatHis').style.display = 'none'
-            document.getElementById('infofield').innerText = ''
-            document.getElementById('placeusid').innerText = ''
-            document.getElementById('placechatid').innerText = ''
-            document.getElementById('somechatinfo').style.display = 'none';
-            document.getElementById('bottommenuchhis').style.display = 'none';
-            document.getElementById('chatuserhis').value = ''
-            document.getElementById('hashchathis').value = ''
-        }
-    }
-
-    document.getElementById('clearallinfo').onclick = () => {
-        document.getElementById('infofield').innerText = ''
-        document.getElementById('placeusid').innerText = ''
-        document.getElementById('placechatid').innerText = ''
-        document.getElementById('somechatinfo').style.display = 'none';
-        document.getElementById('bottommenuchhis').style.display = 'none';
-        document.getElementById('chatuserhis').value = ''
-        document.getElementById('hashchathis').value = ''
-    }
-
-    document.getElementById('hideMenu').onclick = function () {
+    document.getElementById('hideMenu').onclick = function () { // кнопка скрытия основного скрипта пусть уже тут лежит
         document.getElementById('AF_helper').style.display = 'none'
         document.getElementById('scriptBut').style.display = ''
         if (document.getElementById('cstmTmplates').style.display == '')
@@ -3292,669 +2724,9 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = 'none'
     }
 
-    document.getElementById('hideMeSrvDsk').onclick = function () {
-        if (document.getElementById('AF_ServDsk').style.display == '') {
-            $('.sdbtn').click(function () {
-                $('.sdbtn').not(this).removeClass('activebtnsd');
-                $(this).toggleClass('activebtnsd');
-            });
-
-            $('.teacbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.kidsbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.edumodbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.bilqabtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.c1sbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.schdbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.telepbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.authbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.crm2sbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.mrktbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.billbtn').click(function () {
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.vimbugsbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.vimvidsbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.studcabbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.chatqabtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.tripwbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.analystbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.corpbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.marketingbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.mobbugsbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.stcabmbsbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-            });
-
-            $('.marketprojbugsbtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-
-            });
-
-            $('.infrabtn').click(function () {  //поправить
-                $('.kidsbtn').not(this).removeClass('activebtn');
-                $('.edumodbtn').not(this).removeClass('activebtn');
-                $('.bilqabtn').not(this).removeClass('activebtn');
-                $('.teacbtn').not(this).removeClass('activebtn');
-                $('.c1sbtn').not(this).removeClass('activebtn');
-                $('.schdbtn').not(this).removeClass('activebtn');
-                $('.telepbtn').not(this).removeClass('activebtn');
-                $('.authbtn').not(this).removeClass('activebtn');
-                $('.crm2sbtn').not(this).removeClass('activebtn');
-                $('.mrktbtn').not(this).removeClass('activebtn');
-                $('.billbtn').not(this).removeClass('activebtn');
-                $('.vimbugsbtn').not(this).removeClass('activebtn');
-                $('.vimvidsbtn').not(this).removeClass('activebtn');
-                $('.studcabbtn').not(this).removeClass('activebtn');
-                $('.chatqabtn').not(this).removeClass('activebtn');
-                $('.tripwbtn').not(this).removeClass('activebtn');
-                $('.analystbtn').not(this).removeClass('activebtn');
-                $('.corpbtn').not(this).removeClass('activebtn');
-                $('.marketingbtn').not(this).removeClass('activebtn');
-                $('.mobbugsbtn').not(this).removeClass('activebtn');
-                $('.stcabmbsbtn').not(this).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-                $('.infrabtn').not(this).removeClass('activebtn');
-                $(this).toggleClass('activebtn');
-
-            });
-
-            document.getElementById('AF_ServDsk').style.display = 'none'
-        }
-    }
-
     if (localStorage.getItem('audiovol') != null) {
         audio.volume = localStorage.getItem('audiovol');
     } else localStorage.setItem('audiovol', 1);
-
-    document.getElementById('reminderstatus').onclick = function () {
-        if (document.getElementById('reminder_bar').style.display == '')
-            document.getElementById('reminder_bar').style.display = 'none'
-        else {
-            document.getElementById('reminder_bar').style.display = ''
-            document.getElementById('set_bar').style.display = 'none'
-            document.getElementById('addTmp').style.display = 'none'
-			
-		document.getElementById('setreminder').onclick = function () {  // выставляем будильник
-			document.getElementById('reminderstatus').textContent = "🔔";
-			localStorage.setItem('setchas', setchas.value);
-			if (setminuta.value == "00") {
-				setminuta.value = 0;
-			}
-			localStorage.setItem('setminuta', setminuta.value);
-			var timearr = new Date()
-			var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
-			localStorage.setItem('chronostamp', chronostamp);
-			//		setchas.value = "";
-			//		setminuta.value = "";
-			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
-			abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
-		}
-        }
-    }
 
     document.getElementById('addsrc').onclick = function () {
         if (document.getElementById('AF_Linksd').style.display == '')
@@ -4728,20 +3500,6 @@ function move_again_AF() {
 
     } // end of func getidgrouptolist
 
-    document.getElementById('sound_save').onclick = function () {
-        localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
-        if (document.getElementById('sound_adr').value == "")
-            audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
-        else {
-            audio = new Audio(document.getElementById('sound_adr').value);
-            document.getElementById('sound_save').innerText = "✅";
-            document.getElementById('sound_adr').value = "";
-            setTimeout(function () {
-                document.getElementById('sound_save').innerText = "💾";
-            }, 3000);
-        }
-    }
-
     if (flagLangBut == 0) {
         document.getElementById('languageAF').onclick = function () {
             if (this.innerHTML == "Русский") {
@@ -4806,6 +3564,7 @@ function move_again_AF() {
     button1.innerHTML = "Скрипт";
     button1.style.marginRight = "15px";
     button1.style.display = 'none'
+	
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
@@ -4815,8 +3574,8 @@ function move_again_AF() {
 
         if (localStorage.getItem('disableomelchenkowindow') == 1)
             document.getElementById('main_easy_win').style.display = "none";
-
-    }
+	}
+	
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
@@ -7005,6 +5764,20 @@ setInterval(setactivechatstyle, 1000)
 			
 			    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
 					audio.play()
+				}
+				
+				document.getElementById('sound_save').onclick = function () {
+					localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
+					if (document.getElementById('sound_adr').value == "")
+						audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
+					else {
+						audio = new Audio(document.getElementById('sound_adr').value);
+						document.getElementById('sound_save').innerText = "✅";
+						document.getElementById('sound_adr').value = "";
+						setTimeout(function () {
+							document.getElementById('sound_save').innerText = "💾";
+						}, 3000);
+					}
 				}
 			
 			    document.getElementById('setteststd').onclick = function () {
@@ -12333,7 +11106,553 @@ function hesoyam() {
 }
 
 setTimeout(() => {
-	    document.getElementById('suggestform').onclick = () => { //открывает форму предложений и пожеланий
+	
+	document.getElementById('butServ').onclick = function () { //открывает userinfo в виде вензеля
+        if (document.getElementById('AF_Service').style.display == '')
+            document.getElementById('AF_Service').style.display = 'none'
+        else
+            document.getElementById('AF_Service').style.display = ''
+		
+		document.getElementById('getpastandfuturelessons').onclick = function () {
+			if (document.getElementById('AF_Timetable').style.display == '')
+				document.getElementById('AF_Timetable').style.display = 'none'
+			else
+				document.getElementById('AF_Timetable').style.display = ''
+			getlessonfuture.click();
+		}
+	
+		document.getElementById('catchathistory').onclick = function () {
+
+        if (document.getElementById('AF_ChatHis').style.display == 'none') {
+            document.getElementById('butChatHistory').click();
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        } else {
+            document.getElementById('chatuserhis').value = document.getElementById('idstudent').value.trim();
+            btn_search_history.click()
+        }
+    }
+	
+	document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
+        let polzid = document.getElementById('idstudent').value.trim();
+        startnewchat(polzid)
+    }
+
+    document.getElementById('crmactivetasks').onclick = function () {
+        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
+    }
+
+    document.getElementById('newtrm').onclick = function () {
+        window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('personalteacherpage').onclick = function () {
+        window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
+    }
+		
+	document.getElementById('checkbalance').onclick = function () {
+        window.open("https://billing-api.skyeng.ru/operations/user/" + document.getElementById('idstudent').value + "/info")
+    }
+
+    document.getElementById('getkglinfokid').onclick = function () {
+        window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('partialpaymentinfo').onclick = function () {
+        window.open("https://accounting.skyeng.ru/credit/list?studentId=" + document.getElementById('idstudent').value)
+    }
+
+    document.getElementById('editadmbtn').onclick = function () {
+        let stuid = document.getElementById('idstudent').value;
+        stuid = stuid.trim();
+        window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
+    }
+
+    document.getElementById('getonetimepass').onclick = function () {
+        if (document.getElementById('idstudent').value == "")
+            console.log('Введите id в поле')
+        else {
+            document.getElementById('getonetimepass').innerHTML = "✅";
+            setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
+
+            document.getElementById('responseTextarea1').value = `{
+			"headers": {
+				"content-type": "application/x-www-form-urlencoded",
+					"sec-fetch-dest": "document",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-site": "same-origin",
+					"sec-fetch-user": "?1",
+					"upgrade-insecure-requests": "1"
+			},
+			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			}`
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+            document.getElementById('responseTextarea3').value = 'getmobpwdnew'
+            document.getElementById('sendResponse').click()
+
+            function getPassInfo1() { //функция генерации разового пароля
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+                document.getElementById('responseTextarea3').value = ''
+
+                var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
+                document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
+                var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+                onetimepassout.value = convertres11[1];
+            }
+            setTimeout(getPassInfo1, 1000);
+        };
+        setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
+    }
+	
+	    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
+        convid = "";
+        // document.getElementById('servicetable').innerHTML = "";
+        document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
+        document.querySelector('#useravatar').src = "";
+        if (document.querySelector('#useravatar').style.display != "none")
+            document.querySelector('#useravatar').style.display = "none";
+        let servicearr = "";
+        document.getElementById('getcurrentstatus').title = "";
+        let stid = document.getElementById('idstudent').value;
+        stid = stid.trim();
+
+        getservicearr();
+        setTimeout(getunhideemail, 600);
+        setTimeout(getunhidephone, 620);
+        setTimeout(getusernamecrm, 640);
+        setTimeout(checkemailandphoneidentity, 660);
+        setTimeout(crmstatus, 680);
+
+        //  getservicearr();
+        setTimeout(chatstatus, 800)
+        setTimeout(function () {
+            if (werechats) {
+                document.getElementById('ChatStatus').style.display = "";
+                document.getElementById('ChatStatus').textContent = "📧";
+            } else if (!werechats) {
+                document.getElementById('ChatStatus').style.display = "";
+                document.getElementById('ChatStatus').textContent = "🚫";
+            }
+        }, 1000)
+
+        //   await getusernamecrm();
+        //   await getuseragecrm();
+        // await getunhideemail();
+        // await getunhidephone();
+        // await checkemailandphoneidentity();
+        // await getlogginer();
+        // await crmstatus();
+
+        setTimeout(function () {
+            document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"accept-language": "ru",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+	}`
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
+            document.getElementById('responseTextarea3').value = 'getserviceinfo'
+            document.getElementById('sendResponse').click()
+
+            async function getServInfo() {
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
+                document.getElementById('responseTextarea3').value = 'getserviceinfo'
+                document.getElementById('sendResponse').click()
+
+                servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+                servicearr = JSON.parse(servicearr);
+                //console.log(servicearr);
+                document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
+
+
+                let tinfo = ""; // инфо о постоянном П
+                let temtinfo = ""; // инфо о временном П
+                let servinfo = ""; //инфо об услуге
+                let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
+                let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
+                if (servicearr.data.length === 0 || servicearr.data[0].incorrectnessReason == "attempt_to_find_job") {
+                    noservinfo = 1;
+                    arrservice = null;
+                } else {
+                    for (let i = 0; i < servicearr.data.length; i++) {
+                        for (let d = 0; d < servicearray.data.length; d++) {
+                            if (servicearray.data[d].serviceTypeKey == servicearr.data[i].serviceTypeKey)
+                                servicearr.data[i].serviceTypeKey = servicearray.data[d].shortTitle;
+                        }
+
+                        if (servicearr.data[i].student.general.id == stid && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher == null) {
+
+                            tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += servicearr.data[i].id + ", "
+                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+
+                            temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += servicearr.data[i].id + ", "
+                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].serviceTypeKey == "Групп англ дети РЯ" && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+
+                            tinfo = "KGL student" + "<br>";
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += servicearr.data[i].id + ", "
+                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+                            tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
+                            temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += servicearr.data[i].id + ", "
+                        } else if (servicearr.data[i].student.general.id == stid && (servicearr.data[i].stage == "after_trial" || servicearr.data[i].stage == "before_call") && servicearr.data[i].incorrectnessReason == null) {
+                            tinfo += [i + 1] + ") " + '<span style="color:#FF7F50; font-weight:900;">Этап ВУ</span><br>';
+                            servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += servicearr.data[i].id + ", "
+                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
+                            //	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
+                            console.log("Услуга потеряна");
+                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
+                            //	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
+                            console.log("Услуга некорректна");
+                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
+                            //	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
+                            console.log("Услуга потеряна и некорректна");
+                        }
+                    }
+                }
+
+                if (temtinfo == "" && tinfo != "") {
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    if (servlocalestatus == "ru") {
+                        document.getElementById('changelocalelng').style.display = "none"
+                    } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
+                        document.getElementById('changelocalelng').style.display = ""
+                    }
+                    document.getElementById('checkbalance').style.display = "";
+                    document.getElementById('getkglinfokid').style.display = "";
+                    document.getElementById('partialpaymentinfo').style.display = "";
+                    document.getElementById('getpastandfuturelessons').style.display = "";
+                    document.getElementById('newtrm').style.display = "none";
+                    document.getElementById('personalteacherpage').style.display = "none";
+
+                } else if (temtinfo != "" && tinfo != "") {
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    if (servlocalestatus == "ru") {
+                        document.getElementById('changelocalelng').style.display = "none"
+                    } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
+                        document.getElementById('changelocalelng').style.display = ""
+                    }
+                    document.getElementById('checkbalance').style.display = "";
+                    document.getElementById('getkglinfokid').style.display = "";
+                    document.getElementById('partialpaymentinfo').style.display = "";
+                    document.getElementById('getpastandfuturelessons').style.display = "";
+                    document.getElementById('newtrm').style.display = "none";
+                    document.getElementById('personalteacherpage').style.display = "none";
+
+                } else if (temtinfo != "" && tinfo == "") {
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    if (servlocalestatus == "ru") {
+                        document.getElementById('changelocalelng').style.display = "none"
+                    } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
+                        document.getElementById('changelocalelng').style.display = ""
+                    }
+                    document.getElementById('checkbalance').style.display = "";
+                    document.getElementById('getkglinfokid').style.display = "";
+                    document.getElementById('partialpaymentinfo').style.display = "";
+                    document.getElementById('getpastandfuturelessons').style.display = "";
+                    document.getElementById('newtrm').style.display = "none";
+                    document.getElementById('personalteacherpage').style.display = "none";
+
+                } else if (noservinfo == 1 && teachername != "") {
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
+                    document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + teachername + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "🌍: " + countryofuser + "<br>";
+                    document.getElementById('changelocalelng').style.display = "none";
+                    document.getElementById('checkbalance').style.display = "none";
+                    document.getElementById('getkglinfokid').style.display = "none";
+                    document.getElementById('partialpaymentinfo').style.display = "none";
+                    document.getElementById('getpastandfuturelessons').style.display = "none";
+                    document.getElementById('newtrm').style.display = "";
+                    document.getElementById('personalteacherpage').style.display = "";
+
+                } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
+                    document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
+                    document.getElementById('checkbalance').style.display = "none";
+                    document.getElementById('getkglinfokid').style.display = "none";
+                    document.getElementById('partialpaymentinfo').style.display = "none";
+                    document.getElementById('newtrm').style.display = "none";
+                    document.getElementById('personalteacherpage').style.display = "none";
+
+                } else {
+                    if (avatarofuser != null) {
+                        document.querySelector('#useravatar').style.display = "";
+                        document.querySelector('#useravatar').src = avatarofuser;
+                    }
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
+
+                    if (document.getElementById('getusremail1') != null) {
+                        document.getElementById('getusremail1').onclick = function () {
+                            copyToClipboard1(unhidenemail);
+                        };
+                    }
+
+                    if (document.getElementById('getusrphone1') != null) {
+                        document.getElementById('getusrphone1').onclick = function () {
+                            copyToClipboard1(unhidephone);
+                        };
+                    }
+
+                    if (document.getElementById('getshowcase1') != null) {
+                        document.getElementById('getshowcase1').onclick = function () {
+                            copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                        };
+                    }
+
+                    if (document.getElementById('getloginer1') != null) {
+                        document.getElementById('getloginer1').onclick = function () {
+                            postuderdatatologin();
+                        }
+                    }
+                }
+
+                if (arrservice.length != 0 && arrservice != null && arrservice != undefined) {
+                    arrservice = arrservice.split(', ')
+                }
+                let tmparr = document.querySelectorAll('.copyserviceid');
+                for (let j = 0; j < tmparr.length; j++) {
+                    tmparr[j].onclick = function () {
+                        copyToClipboard1(arrservice[j])
+                    }
+                }
+
+                if (document.getElementById('getusremail') != null) {
+                    document.getElementById('getusremail').onclick = function () {
+                        copyToClipboard1(unhidenemail);
+                    };
+                }
+
+                if (document.getElementById('getusrphone') != null) {
+                    document.getElementById('getusrphone').onclick = function () {
+                        copyToClipboard1(unhidephone);
+                    };
+                }
+
+                if (document.getElementById('getloginer') != null) {
+                    document.getElementById('getloginer').onclick = function () {
+                        postuderdatatologin();
+                    }
+                }
+
+                if (document.getElementById('getshowcase') != null) {
+                    document.getElementById('getshowcase').onclick = function () {
+                        copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                    };
+                }
+
+
+                if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
+                    let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
+                    if (testids != null) {
+                        let infoiduslugi = document.getElementsByClassName('iduslugitxt');
+                        for (let j = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[j] != undefined; j++) {
+                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText == "teacher") {
+                                for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                                        let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                                        if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
+                                            // for (let d = 0; d < infoiduslugi.length; d++) {
+                                            for (let v = 0; v < testids.length; v++) {
+                                                if (testids[v] == getidusr + ",")
+                                                    infoiduslugi[v].innerText = "ID Услуги 🔥";
+                                                else
+                                                    console.log("Not found") //если услуги не совпали с П обратившимся
+                                            } // for v
+                                            //    } // for d
+                                        } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
+                                    } else
+                                        console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
+                                } // for let i
+                            } // if type == teacher
+                        }
+                    }
+                } // for let j
+            }
+
+            setTimeout(getServInfo, 1200)
+
+        }, 720)
+    }
+	
+	    document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
+        if (document.getElementById('ChatStatus').textContent == "📧") {
+
+            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
+                hide_or_display.click()
+                document.getElementById('chat_id').value = convid;
+
+                search.click()
+            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
+                document.getElementById('chat_id').value = convid;
+                search.click()
+            }
+        } else { console.log("No chat with user!!!") }
+    }
+
+    document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
+
+        let tempvarcrm = document.getElementById('idstudent').value;
+        let getcrmstatusinfo;
+        document.getElementById('CrmStatus').style.display = "none";
+        document.getElementById('getcurrentstatus').style.display = "none";
+        document.getElementById('getcurrentstatus').title = "";
+
+        document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "application/json, text/plain, */*",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+	}`
+        document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
+        document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+        document.getElementById('sendResponse').click()
+
+
+
+        setTimeout(function () {
+            document.getElementById('responseTextarea1').value = `{}`
+            document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
+            document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+            document.getElementById('sendResponse').click()
+
+            getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+            getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
+            let flagtpout = 0;
+            let flagtp = 0;
+            let flagnottp = 0;
+            let flagstatuswait;
+            let flagstatusprocessing;
+            let opername = "";
+            if (getcrmstatusinfo.data.length > 0) {
+                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
+                        flagtpout = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
+                        flagtp = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
+                        flagnottp = 1;
+                    }
+                }
+
+                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+                        flagstatuswait = 1;
+                        document.getElementById('getcurrentstatus').title = "";
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+                        flagstatusprocessing = 1;
+                        opername = getcrmstatusinfo.data[i].operator.name;
+                    }
+                }
+
+                if (flagstatuswait == 1) {
+                    document.getElementById('getcurrentstatus').style.display = "";
+                    document.getElementById('getcurrentstatus').innerText = "В ожидании";
+                } else if (flagstatusprocessing == 1) {
+                    document.getElementById('getcurrentstatus').style.display = "";
+                    document.getElementById('getcurrentstatus').innerText = "Решается";
+                    document.getElementById('getcurrentstatus').title = opername;
+                    document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
+                }
+
+                if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи");
+                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "🛠";
+                    console.log("Входящий звонок или с др отдела на ТП была создана задача");
+                } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "📵";
+                    console.log("Нет активных задач по ТП линии");
+                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи на исход и на ТП 1 линии");
+                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "🛠";
+                    console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
+                }
+            } else {
+                document.getElementById('CrmStatus').style.display = "";
+                document.getElementById('CrmStatus').innerText = "📵";
+                console.log("No DATA");
+            }
+            document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+        }, 1200)
+    }
+	
+	    document.getElementById('clearservinfo').onclick = function () {
+			document.getElementById('idstudent').value = "";
+			document.getElementById('servicetable').innerHTML = "";
+			document.getElementById('ChatStatus').style.display = "none";
+			document.getElementById('CrmStatus').style.display = "none";
+			document.getElementById('getcurrentstatus').style.display = "none";
+			document.getElementById('changelocalelng').style.display = "";
+			document.getElementById('getpastandfuturelessons').style.display = "";
+			document.querySelector('#useravatar').src = "";
+			document.querySelector('#useravatar').style.display = "none";
+			document.getElementById('AF_TechSummary').style.display = "none";
+			document.getElementById('AF_Timetable').style.display = "none";
+			document.getElementById('techsumdata').innerText = "";
+			document.getElementById('timetabledata').innerText = "";
+			werechats = false;
+			convid = "";
+		}
+	
+		document.getElementById('useravatar').onmouseover = function () {
+			document.getElementById('useravatar').style.width = "200px";
+			document.getElementById('useravatar').style.height = "230px";
+		}
+
+		document.getElementById('useravatar').onmouseout = function () {
+			document.getElementById('useravatar').style.width = "55px";
+			document.getElementById('useravatar').style.height = "60px";
+		}
+	
+    }
+	
+	document.getElementById('suggestform').onclick = () => { //открывает форму предложений и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
@@ -12544,6 +11863,693 @@ setTimeout(() => {
             }
         }
 	} 
+	
+	document.getElementById('reminderstatus').onclick = function () { // открывает форму выставления будильника
+        if (document.getElementById('reminder_bar').style.display == '')
+            document.getElementById('reminder_bar').style.display = 'none'
+        else {
+            document.getElementById('reminder_bar').style.display = ''
+            document.getElementById('set_bar').style.display = 'none'
+            document.getElementById('addTmp').style.display = 'none'
+			
+		document.getElementById('setreminder').onclick = function () {  // выставляем будильник
+			document.getElementById('reminderstatus').textContent = "🔔";
+			localStorage.setItem('setchas', setchas.value);
+			if (setminuta.value == "00") {
+				setminuta.value = 0;
+			}
+			localStorage.setItem('setminuta', setminuta.value);
+			var timearr = new Date()
+			var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+			localStorage.setItem('chronostamp', chronostamp);
+			//		setchas.value = "";
+			//		setminuta.value = "";
+			alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
+			abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+		}
+        }
+    }
+	
+	//hidebuttons and clear
+	
+	document.getElementById('hideMeChHis').onclick = () => { //кнопка скрытия окна в истории чатов
+        if (document.getElementById('AF_ChatHis').style.display == '') {
+            document.getElementById('AF_ChatHis').style.display = 'none'
+            document.getElementById('infofield').innerText = ''
+            document.getElementById('placeusid').innerText = ''
+            document.getElementById('placechatid').innerText = ''
+            document.getElementById('somechatinfo').style.display = 'none';
+            document.getElementById('bottommenuchhis').style.display = 'none';
+            document.getElementById('chatuserhis').value = ''
+            document.getElementById('hashchathis').value = ''
+        }
+    }
+	
+	document.getElementById('clearallinfo').onclick = () => { // кнопка очистит поля в истории чатов
+        document.getElementById('infofield').innerText = ''
+        document.getElementById('placeusid').innerText = ''
+        document.getElementById('placechatid').innerText = ''
+        document.getElementById('somechatinfo').style.display = 'none';
+        document.getElementById('bottommenuchhis').style.display = 'none';
+        document.getElementById('chatuserhis').value = ''
+        document.getElementById('hashchathis').value = ''
+    }
+	
+	document.getElementById('hideMeSrvDsk').onclick = function () { // кнопка скрытия ServiceDesk формы
+        if (document.getElementById('AF_ServDsk').style.display == '') {
+            $('.sdbtn').click(function () {
+                $('.sdbtn').not(this).removeClass('activebtnsd');
+                $(this).toggleClass('activebtnsd');
+            });
+
+            $('.teacbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.kidsbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.edumodbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.bilqabtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.c1sbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.schdbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.telepbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.authbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.crm2sbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.mrktbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.billbtn').click(function () {
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.vimbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.vimvidsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.studcabbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.chatqabtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.tripwbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.analystbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.corpbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.marketingbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.mobbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.stcabmbsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            });
+
+            $('.marketprojbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+
+            });
+
+            $('.infrabtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+
+            });
+
+            document.getElementById('AF_ServDsk').style.display = 'none'
+        }
+    }
+	
+	
 } , 3000)
 
 function toUTF8Array(str) {
