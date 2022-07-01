@@ -27,7 +27,6 @@ let countryofuser;
 let ageofuser;
 let getcrmstatusinfo;
 let convid;
-let rezissuetable;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -6679,6 +6678,8 @@ setInterval(setactivechatstyle, 1000)
         if (document.getElementById('AF_Jira').style.display = 'none') {
             document.getElementById('AF_Jira').style.display = ''
         }
+		   let rezissuetable;
+
         document.getElementById('responseTextarea1').value = `{
 				  "headers": {
 					"accept": "*/*",
@@ -6743,6 +6744,9 @@ setInterval(setactivechatstyle, 1000)
         if (document.getElementById('AF_Jira').style.display = 'none') {
             document.getElementById('AF_Jira').style.display = ''
         }
+
+        let rezissuetable;
+
         document.getElementById('responseTextarea1').value = `{
                      "headers": {
                         "__amdmodulename": "jira/issue/utils/xsrf-token-header",
