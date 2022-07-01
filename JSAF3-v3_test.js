@@ -2668,128 +2668,6 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
 
-    document.getElementById('grafanalnk').addEventListener('click', function () {
-        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
-    })
-    document.getElementById('timetable').addEventListener('click', function () {
-        window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
-    })
-    document.getElementById('faqext').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971")    // открываем инструкцию по расширению
-    })
-
-    document.getElementById('curVeriOS').addEventListener('click', function () {
-        window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")    // открываем инструкцию по расширению
-    })
-
-    document.getElementById('curVerAndroid').addEventListener('click', function () {
-        window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")    // открываем инструкцию по расширению
-    })
-    document.getElementById('talksadm').addEventListener('click', function () {
-        window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
-    })
-    document.getElementById('billingadm').addEventListener('click', function () {
-        window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
-    })
-    document.getElementById('compens').addEventListener('click', function () {
-        window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
-    })
-    document.getElementById('useradm').addEventListener('click', function () {
-        window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
-    })
-
-    document.getElementById('GotoCRM').onclick = function () {
-        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
-    }
-
-    document.getElementById('suggestions').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
-    })
-    document.getElementById('transactions').addEventListener('click', function () {
-        window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // открываем ссылку в новой вкладке на  Поиск транзакций
-    })
-    document.getElementById('CMS').addEventListener('click', function () {
-        window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
-    })
-    document.getElementById('subscribebilling').addEventListener('click', function () {
-        window.open("https://billing-api.skyeng.ru/subscriptions")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
-    })
-    document.getElementById('apelation').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
-    })
-    document.getElementById('groupfeatures').addEventListener('click', function () {
-        window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
-    })
-
-    document.getElementById('confbugs').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
-    })
-
-    document.getElementById('restartlesson').addEventListener('click', function () {
-        copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
-        document.getElementById('restartlesson').innerHTML = "Copied!";
-        setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
-    })
-
-    document.getElementById('enableNS').addEventListener('click', function () {
-        copyToClipboard("https://vimbox.skyeng.ru/start?enableNewStudent")   // копируем ссылку в буфер для перезапуска урока математики
-        document.getElementById('enableNS').innerHTML = "Copied!";
-        setTimeout(function () { document.getElementById('enableNS').innerHTML = "Enable NS💾" }, 2000);
-    })
-    document.getElementById('browserstack').addEventListener('click', function () {
-        window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
-    })
-    document.getElementById('trshoothing').addEventListener('click', function () {
-        window.open("https://video-trouble-shooter.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
-    })
-    document.getElementById('testroom').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")    // открываем ссылку в админку тестовых комнат
-    })
-
-    document.getElementById('certificates').addEventListener('click', function () {
-        window.open("https://billing-marketing.skyeng.ru/certificate/certSearch")    // открываем ссылку в новой вкладке на Подарочные сертификаты
-    })
-
-    document.getElementById('promocodes').addEventListener('click', function () {
-        window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
-    })
-
-    document.getElementById('cmswordssearch').addEventListener('click', function () {
-        window.open("https://dictionary.skyeng.ru/cms/word/333")    // открываем ссылку для просмотра CMSки слова мининг переводы и тп
-    })
-
-    document.getElementById('TCQnew').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfZbw1GkZzerHWQGGbYslV6AsGTGxEKhNZFC1LV-TySHca9Fw/viewform")    // открываем ссылку в новой вкладке на форму для внесения вопросов от П TC
-    })
-
-    document.getElementById('TCQtable').addEventListener('click', function () {
-        window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
-    })
-
-    document.getElementById('userfeatures').addEventListener('click', function () {
-        window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
-    })
-    document.getElementById('benchmark').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
-        let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
-        if (cpuname.value == "")
-            console.log('Введите CPU в поле')
-        else {
-            window.open(lnkgr + cpuname.value);
-        };
-        cpuname.value = "";
-    }
-
-    document.getElementById('getmvureport').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
-        if (reportmvu.value == "")
-            console.log('Введите ID в поле')
-        else {
-            copyToClipboard('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
-        };
-        document.getElementById('getmvureport').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
-        reportmvu.value = "";
-    }
-
     var abortTimeOut = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
@@ -5165,22 +5043,6 @@ function move_again_AF() {
         audio.volume = localStorage.getItem('audiovol');
     } else localStorage.setItem('audiovol', 1);
 
-    document.getElementById('links').onclick = function () {
-        if (document.getElementById('AF_Links').style.display == '')
-            document.getElementById('AF_Links').style.display = 'none'
-        else {
-            document.getElementById('AF_Links').style.display = ''
-
-            for (let i = 0; i < table.length; i++) {
-                if (table[i][3] == "iOS Version")
-                    document.getElementById('curVeriOS').innerText = "iOS: " + table[i][4];
-
-                if (table[i][3] == "Android Version")
-                    document.getElementById('curVerAndroid').innerText = "Android: " + table[i][4]
-            }
-        }
-    }
-
     document.getElementById('reminderstatus').onclick = function () {
         if (document.getElementById('reminder_bar').style.display == '')
             document.getElementById('reminder_bar').style.display = 'none'
@@ -5305,6 +5167,11 @@ function move_again_AF() {
         };
         UserActions.value = "";
     }
+	
+	document.getElementById('grafanalnk').addEventListener('click', function () {
+        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
+    })
+	
     }
 
     document.getElementById('butServ').onclick = function () {
@@ -7949,6 +7816,142 @@ function setactivechatstyle() { // функция добавляющая акт�
 }
 
 setInterval(setactivechatstyle, 1000)
+
+    document.getElementById('links').onclick = function () {
+        if (document.getElementById('AF_Links').style.display == '')
+            document.getElementById('AF_Links').style.display = 'none'
+        else {
+            document.getElementById('AF_Links').style.display = ''
+			
+			
+    document.getElementById('timetable').addEventListener('click', function () {
+        window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
+    })
+    document.getElementById('faqext').addEventListener('click', function () {
+        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971")    // открываем инструкцию по расширению
+    })
+
+    document.getElementById('curVeriOS').addEventListener('click', function () {
+        window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")    // открываем инструкцию по расширению
+    })
+
+    document.getElementById('curVerAndroid').addEventListener('click', function () {
+        window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")    // открываем инструкцию по расширению
+    })
+    document.getElementById('talksadm').addEventListener('click', function () {
+        window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
+    })
+    document.getElementById('billingadm').addEventListener('click', function () {
+        window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
+    })
+    document.getElementById('compens').addEventListener('click', function () {
+        window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
+    })
+    document.getElementById('useradm').addEventListener('click', function () {
+        window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
+    })
+
+    document.getElementById('GotoCRM').onclick = function () {
+        window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
+    }
+
+    document.getElementById('suggestions').addEventListener('click', function () {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
+    })
+    document.getElementById('transactions').addEventListener('click', function () {
+        window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // открываем ссылку в новой вкладке на  Поиск транзакций
+    })
+    document.getElementById('CMS').addEventListener('click', function () {
+        window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
+    })
+    document.getElementById('subscribebilling').addEventListener('click', function () {
+        window.open("https://billing-api.skyeng.ru/subscriptions")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
+    })
+    document.getElementById('apelation').addEventListener('click', function () {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdgsb6pte1H1dz15Eb5NjDe0gj3kEnh0hTe6Cgy8d81mT7NUA/viewform")    // открываем ссылку в новой вкладке на Форма для апелляций чатов ТП АФ
+    })
+    document.getElementById('groupfeatures').addEventListener('click', function () {
+        window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
+    })
+
+    document.getElementById('confbugs').addEventListener('click', function () {
+        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
+    })
+
+    document.getElementById('restartlesson').addEventListener('click', function () {
+        copyToClipboard("setStatus('classwork')")   // копируем ссылку в буфер для перезапуска урока математики
+        document.getElementById('restartlesson').innerHTML = "Copied!";
+        setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
+    })
+
+    document.getElementById('enableNS').addEventListener('click', function () {
+        copyToClipboard("https://vimbox.skyeng.ru/start?enableNewStudent")   // копируем ссылку в буфер для перезапуска урока математики
+        document.getElementById('enableNS').innerHTML = "Copied!";
+        setTimeout(function () { document.getElementById('enableNS').innerHTML = "Enable NS💾" }, 2000);
+    })
+    document.getElementById('browserstack').addEventListener('click', function () {
+        window.open("https://www.browserstack.com/users/sign_in")    // открываем ссылку в новой вкладке на Browserstak
+    })
+    document.getElementById('trshoothing').addEventListener('click', function () {
+        window.open("https://video-trouble-shooter.skyeng.ru/")    // открываем ссылку в новой вкладке на TRM 2.0
+    })
+    document.getElementById('testroom').addEventListener('click', function () {
+        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")    // открываем ссылку в админку тестовых комнат
+    })
+
+    document.getElementById('certificates').addEventListener('click', function () {
+        window.open("https://billing-marketing.skyeng.ru/certificate/certSearch")    // открываем ссылку в новой вкладке на Подарочные сертификаты
+    })
+
+    document.getElementById('promocodes').addEventListener('click', function () {
+        window.open("https://billing-marketing.skyeng.ru/promocode/list")    // открываем ссылку в новой вкладке на Промокоды
+    })
+
+    document.getElementById('cmswordssearch').addEventListener('click', function () {
+        window.open("https://dictionary.skyeng.ru/cms/word/333")    // открываем ссылку для просмотра CMSки слова мининг переводы и тп
+    })
+
+    document.getElementById('TCQnew').addEventListener('click', function () {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfZbw1GkZzerHWQGGbYslV6AsGTGxEKhNZFC1LV-TySHca9Fw/viewform")    // открываем ссылку в новой вкладке на форму для внесения вопросов от П TC
+    })
+
+    document.getElementById('TCQtable').addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
+    })
+
+    document.getElementById('userfeatures').addEventListener('click', function () {
+        window.open("https://vimbox.skyeng.ru/circles/editor")    // открываем ссылку в новой вкладке на проверку фичей пользователя
+    })
+    document.getElementById('benchmark').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
+        let lnkgr = 'https://www.cpubenchmark.net/cpu_lookup.php?cpu=';
+        if (cpuname.value == "")
+            console.log('Введите CPU в поле')
+        else {
+            window.open(lnkgr + cpuname.value);
+        };
+        cpuname.value = "";
+    }
+
+    document.getElementById('getmvureport').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
+        if (reportmvu.value == "")
+            console.log('Введите ID в поле')
+        else {
+            copyToClipboard('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
+        };
+        document.getElementById('getmvureport').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
+        reportmvu.value = "";
+    }
+
+            for (let i = 0; i < table.length; i++) {
+                if (table[i][3] == "iOS Version")
+                    document.getElementById('curVeriOS').innerText = "iOS: " + table[i][4];
+
+                if (table[i][3] == "Android Version")
+                    document.getElementById('curVerAndroid').innerText = "Android: " + table[i][4]
+            }
+        }
+    }
 
     document.getElementById('setting').onclick = function () { // открываеть панель настроек
         if (document.getElementById('set_bar').style.display == '')
