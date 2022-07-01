@@ -10,6 +10,12 @@ let chatisopen = "";
 let abortTimeOut = '' // перменная для отмены будильника
 let tokenlogginer;
 let logginerinfo;
+let servicearray = "";
+let unhidenemail;
+let unhidephone;
+let commonidentity;
+let emailidentity;
+let phoneidentity;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -2670,433 +2676,6 @@ function move_again_AF() {
         document.addEventListener('mousemove', listener2);
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
-
-    let commonidentity;
-    let emailidentity;
-    let phoneidentity;
-    async function checkemailandphoneidentity() {
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"cache-control": "max-age=0",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "none",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	 }`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
-        document.getElementById('responseTextarea3').value = 'responseupdate'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
-            document.getElementById('responseTextarea3').value = 'responseupdate'
-            document.getElementById('sendResponse').click()
-
-            commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-            commonidentity = await commonidentity;
-
-            if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-                emailidentity = "📧✖";
-                phoneidentity = "☎✖";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                emailidentity = "📧✔";
-                phoneidentity = "☎✖";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-                emailidentity = "📧✖";
-                phoneidentity = "☎✔";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                emailidentity = "📧✔";
-                phoneidentity = "☎✔";
-            }
-
-            document.getElementById('responseTextarea1').removeAttribute('responseupdate')
-
-        }, 550)
-    }
-
-    let unhidephone;
-
-    async function getunhidephone() {
-
-        document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	 }`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
-        document.getElementById('responseTextarea3').value = 'phoneishere'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
-            document.getElementById('responseTextarea3').value = 'phoneishere'
-            document.getElementById('sendResponse').click()
-
-            unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
-            unhidephone = await unhidephone;
-            unhidephone = JSON.parse(unhidephone);
-            unhidephone = unhidephone.data.value;
-            document.getElementById('responseTextarea1').removeAttribute('phoneishere')
-
-        }, 600)
-    }
-
-    let unhidenemail;
-    async function getunhideemail() {
-        document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	 }`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
-        document.getElementById('responseTextarea3').value = 'emailishere'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
-            document.getElementById('responseTextarea3').value = 'emailishere'
-            document.getElementById('sendResponse').click()
-
-            unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-            unhidenemail = await unhidenemail;
-            unhidenemail = JSON.parse(unhidenemail);
-            unhidenemail = unhidenemail.data.value;
-            document.getElementById('responseTextarea1').removeAttribute('emailishere')
-
-        }, 600)
-    }
-
-    let servicearray = "";
-    async function getservicearr() {
-
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
-        document.getElementById('responseTextarea3').value = 'arrayofservices'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
-            document.getElementById('responseTextarea3').value = 'arrayofservices'
-            document.getElementById('sendResponse').click()
-
-            servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
-            servicearray = await servicearray;
-            servicearray = JSON.parse(servicearray);
-            document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
-
-        }, 1000)
-    }
-
-    document.getElementById('getlessonpast').onclick = function () {
-        document.getElementById('timetabledata').innerHTML = "";
-        let stid = document.getElementById('idstudent').value;
-        stid = stid.trim();
-        let pastlessondata = "";
-        let pastlessoninfo = "";
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-        document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-            document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
-            document.getElementById('sendResponse').click()
-
-            pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
-            pastlessoninfo = JSON.parse(pastlessoninfo);
-            document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
-            if (pastlessoninfo.data == "") {
-                document.getElementById('timetabledata').innerHTML = "Еще не было уроков";
-            } else {
-                for (let i = 0; i < pastlessoninfo.data.length; i++) {
-                    let d = new Date(pastlessoninfo.data[i].startedAt)
-                    let minutka;
-                    let denek;
-                    let mesacok;
-                    let chasok;
-                    if (d.getHours() < 10) {
-                        chasok = "0" + (d.getUTCHours() + 3);
-                    } else {
-                        chasok = (d.getUTCHours() + 3);
-                    }
-                    if (d.getMinutes() < 10) {
-                        minutka = "0" + d.getMinutes();
-                    } else {
-                        minutka = d.getMinutes();
-                    }
-                    if (d.getDate() < 10) {
-                        denek = "0" + d.getDate();
-                    } else {
-                        denek = d.getDate();
-                    }
-                    if (d.getMonth() + 1 < 10) {
-                        mesacok = "0" + (d.getMonth() + 1);
-                    } else {
-                        mesacok = d.getMonth() + 1;
-                    }
-                    if (pastlessoninfo.data[i].status == "missed_by_student") {
-                        pastlessoninfo.data[i].status = "Пропущен учеником";
-                    } else if (pastlessoninfo.data[i].status == "canceled_by_student") {
-                        pastlessoninfo.data[i].status = "Отменен учеником";
-                    } else if (pastlessoninfo.data[i].status == "success") {
-                        pastlessoninfo.data[i].status = "Прошел";
-                    } else if (pastlessoninfo.data[i].status == "moved_by_student") {
-                        pastlessoninfo.data[i].status = "Перенесен учеником";
-                    } else if (pastlessoninfo.data[i].status == "canceled_by_teacher") {
-                        pastlessoninfo.data[i].status = "Отменен учителем";
-                    } else if (pastlessoninfo.data[i].status == "student_refused_to_study") {
-                        pastlessoninfo.data[i].status = "Отказался от обучения"
-                    } else if (pastlessoninfo.data[i].status == "interrupted") {
-                        pastlessoninfo.data[i].status = "Прерван"
-                    } else if (pastlessoninfo.data[i].status == "did_not_get_through_student") {
-                        pastlessoninfo.data[i].status = "Не смогли связаться с У"
-                    } else if (pastlessoninfo.data[i].status == "canceled_not_marked") {
-                        pastlessoninfo.data[i].status = "Не отмечен учителем вовремя"
-                    }
-
-                    if (pastlessoninfo.data[i].lessonType == "regular") {
-                        pastlessoninfo.data[i].lessonType = "Регулярный";
-                    } else if (pastlessoninfo.data[i].lessonType == "single") {
-                        pastlessoninfo.data[i].lessonType = "Одиночный";
-                    } else if (pastlessoninfo.data[i].lessonType == "trial") {
-                        pastlessoninfo.data[i].lessonType = "Пробный";
-                    }
-
-                    for (let j = 0; j < servicearray.data.length; j++) {
-                        if (servicearray.data[j].serviceTypeKey == pastlessoninfo.data[i].educationService.serviceTypeKey)
-                            pastlessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
-                    }
-
-                    if (pastlessoninfo.data[i].educationService.serviceTypeKey == null) {
-                        pastlessoninfo.data[i].educationService.serviceTypeKey = "Услуга была в CRM1, см позднее обозначение!"
-                    }
-
-                    if (pastlessoninfo.data[i].teacher != null) {
-                        pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka +
-                            '<span style="color:#00FF7F; font-weight:900;"> Статус: </span>' + pastlessoninfo.data[i].status + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + pastlessoninfo.data[i].lessonType + '<br>'
-                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
-                            + '<span style="color:#32CD32; font-weight:900;">Преподаватель: </span>' + " " + pastlessoninfo.data[i].teacher.general.id + " " + pastlessoninfo.data[i].teacher.general.name + " " + pastlessoninfo.data[i].teacher.general.surname + '<br>'
-                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
-                    } else {
-                        pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka +
-                            '<span style="color:#00FF7F; font-weight:900;"> Статус: </span>' + pastlessoninfo.data[i].status + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + pastlessoninfo.data[i].lessonType + '<br>'
-                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
-                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
-                    }
-                }
-
-                document.getElementById('timetabledata').innerHTML = pastlessondata;
-                pastlessondata = "";
-            }
-        }, 1000)
-    }
-
-    document.getElementById('getlessonfuture').onclick = function () {
-
-        document.getElementById('timetabledata').innerHTML = "";
-        let stid = document.getElementById('idstudent').value;
-        stid = stid.trim();
-        let futurelessondata = "";
-        let futurelessoninfo = "";
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
-        document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
-            document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
-            document.getElementById('sendResponse').click()
-
-            futurelessoninfo = document.getElementById('responseTextarea1').getAttribute('futurelessoninfodata');
-            futurelessoninfo = JSON.parse(futurelessoninfo);
-            document.getElementById('responseTextarea1').removeAttribute('futurelessoninfodata')
-            if (futurelessoninfo.data == "") {
-                document.getElementById('timetabledata').innerHTML = "Уроки не запланированы";
-            } else {
-                for (let i = 0; i < futurelessoninfo.data.length; i++) {
-                    let d = new Date(futurelessoninfo.data[i].startedAt)
-                    let minutka;
-                    let denek;
-                    let mesacok;
-                    let chasok;
-                    if (d.getHours() < 10) {
-                        chasok = "0" + (d.getUTCHours() + 3);
-                    } else {
-                        chasok = (d.getUTCHours() + 3);
-                    }
-                    if (d.getMinutes() < 10) {
-                        minutka = "0" + d.getMinutes();
-                    } else {
-                        minutka = d.getMinutes();
-                    }
-                    if (d.getDate() < 10) {
-                        denek = "0" + d.getDate();
-                    } else {
-                        denek = d.getDate();
-                    }
-                    if (d.getMonth() + 1 < 10) {
-                        mesacok = "0" + (d.getMonth() + 1);
-                    } else {
-                        mesacok = d.getMonth() + 1;
-                    }
-
-                    if (futurelessoninfo.data[i].lessonType == "regular") {
-                        futurelessoninfo.data[i].lessonType = "Регулярный";
-                    } else if (futurelessoninfo.data[i].lessonType == "single") {
-                        futurelessoninfo.data[i].lessonType = "Одиночный";
-                    } else if (futurelessoninfo.data[i].lessonType == "trial") {
-                        futurelessoninfo.data[i].lessonType = "Пробный";
-                    }
-
-                    for (let j = 0; j < servicearray.data.length; j++) {
-                        if (servicearray.data[j].serviceTypeKey == futurelessoninfo.data[i].educationService.serviceTypeKey)
-                            futurelessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
-                    }
-
-                    if (futurelessoninfo.data[i].teacher != null) {
-                        futurelessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka
-                            + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
-                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
-                            + '<span style="color:#32CD32; font-weight:900;">Преподаватель: </span>' + " " + futurelessoninfo.data[i].teacher.general.id + " " + futurelessoninfo.data[i].teacher.general.name + " " + futurelessoninfo.data[i].teacher.general.surname + '<br>'
-                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
-                    } else {
-                        futurelessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka
-                            + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
-                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
-                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
-                    }
-
-                }
-                document.getElementById('timetabledata').innerHTML = futurelessondata;
-                futurelessondata = "";
-            }
-        }, 1000)
-
-    }
-
-    document.getElementById('changelocalelng').onclick = function () {
-
-        document.getElementById('responseTextarea1').value = `{
-		   "headers": {
-			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
-		  "method": "PUT",
-		  "mode": "cors",
-		  "credentials": "include"
-
-	 }`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + document.getElementById('idstudent').value
-        document.getElementById('responseTextarea3').value = ''
-        document.getElementById('sendResponse').click()
-        document.getElementById('changelocalelng').innerHTML = "✅"
-        setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
-    }
-
-
-    document.getElementById('setservicelocaleru').onclick = function () {
-        document.getElementById('responseTextarea1').value = `{
-		   "headers": {
-			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
-		  "method": "PUT",
-		  "mode": "cors",
-		  "credentials": "include"
-
-	 }`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + idforservicelocaleru.value
-        document.getElementById('responseTextarea3').value = ''
-        document.getElementById('sendResponse').click()
-        document.getElementById('setservicelocaleru').innerHTML = "✅"
-        idforservicelocaleru.value = "";
-        setTimeout(function () { document.getElementById('setservicelocaleru').innerHTML = "🚀" }, 2000);
-    }
-
 
     document.getElementById('catchathistory').onclick = function () {
 
@@ -7614,6 +7193,30 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('AF_Links').style.display = 'none'
         else {
             document.getElementById('AF_Links').style.display = ''
+			
+	 document.getElementById('setservicelocaleru').onclick = function () {
+        document.getElementById('responseTextarea1').value = `{
+		   "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+		  "method": "PUT",
+		  "mode": "cors",
+		  "credentials": "include"
+
+	 }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + idforservicelocaleru.value
+        document.getElementById('responseTextarea3').value = ''
+        document.getElementById('sendResponse').click()
+        document.getElementById('setservicelocaleru').innerHTML = "✅"
+        idforservicelocaleru.value = "";
+        setTimeout(function () { document.getElementById('setservicelocaleru').innerHTML = "🚀" }, 2000);
+    }
 	
     document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
         let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
@@ -8045,7 +7648,9 @@ setInterval(setactivechatstyle, 1000)
     }
 	
     screenshots()
+	
     setInterval(screenshots, 5000)
+	
     function screenshots2() {
         if (document.getElementsByClassName('chat-messages')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
@@ -8068,6 +7673,7 @@ setInterval(setactivechatstyle, 1000)
             }
         }
     }
+	
     screenshots2()
     setInterval(screenshots2, 5000)
 	
@@ -8126,9 +7732,399 @@ setInterval(setactivechatstyle, 1000)
             //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
             copyToClipboard1(logginerinfo[1])
             document.getElementById('responseTextarea1').removeAttribute('postdata')
-
-
         }, 800)
+    }
+	
+    async function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
+        document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+				"cache-control": "max-age=0",
+				"sec-fetch-dest": "document",
+				"sec-fetch-mode": "navigate",
+				"sec-fetch-site": "none",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1"
+			  },
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": null,
+			  "method": "GET",
+			  "mode": "cors",
+			  "credentials": "include"
+	 }`
+        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
+        document.getElementById('responseTextarea3').value = 'responseupdate'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
+            document.getElementById('responseTextarea3').value = 'responseupdate'
+            document.getElementById('sendResponse').click()
+
+            commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+            commonidentity = await commonidentity;
+
+            if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+                emailidentity = "📧✖";
+                phoneidentity = "☎✖";
+            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+                emailidentity = "📧✔";
+                phoneidentity = "☎✖";
+            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+                emailidentity = "📧✖";
+                phoneidentity = "☎✔";
+            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+                emailidentity = "📧✔";
+                phoneidentity = "☎✔";
+            }
+
+            document.getElementById('responseTextarea1').removeAttribute('responseupdate')
+
+        }, 550)
+    }
+
+    async function getunhidephone() { // открывает номер телефона
+
+        document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+	 }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
+        document.getElementById('responseTextarea3').value = 'phoneishere'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
+            document.getElementById('responseTextarea3').value = 'phoneishere'
+            document.getElementById('sendResponse').click()
+
+            unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
+            unhidephone = await unhidephone;
+            unhidephone = JSON.parse(unhidephone);
+            unhidephone = unhidephone.data.value;
+            document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+
+        }, 600)
+    }
+
+    async function getunhideemail() { //открывает почту пользователя
+        document.getElementById('responseTextarea1').value = `{
+		  "headers": {
+			"accept": "application/json, text/plain, */*",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+	 }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
+        document.getElementById('responseTextarea3').value = 'emailishere'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
+            document.getElementById('responseTextarea3').value = 'emailishere'
+            document.getElementById('sendResponse').click()
+
+            unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+            unhidenemail = await unhidenemail;
+            unhidenemail = JSON.parse(unhidenemail);
+            unhidenemail = unhidenemail.data.value;
+            document.getElementById('responseTextarea1').removeAttribute('emailishere')
+
+        }, 600)
+    }
+
+    async function getservicearr() { // получает массив услуг с СРМки
+
+        document.getElementById('responseTextarea1').value = `{
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
+              },
+              "referrer": "https://crm2.skyeng.ru/",
+              "referrerPolicy": "strict-origin-when-cross-origin",
+              "body": null,
+              "method": "GET",
+              "mode": "cors",
+              "credentials": "include"
+       }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
+        document.getElementById('responseTextarea3').value = 'arrayofservices'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(async function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
+            document.getElementById('responseTextarea3').value = 'arrayofservices'
+            document.getElementById('sendResponse').click()
+
+            servicearray = await document.getElementById('responseTextarea1').getAttribute('arrayofservices');
+            servicearray = JSON.parse(servicearray);
+            document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
+
+        }, 1000)
+    }
+
+    document.getElementById('getlessonpast').onclick = function () { // показывает прошедшие уроки
+        document.getElementById('timetabledata').innerHTML = "";
+        let stid = document.getElementById('idstudent').value;
+        stid = stid.trim();
+        let pastlessondata = "";
+        let pastlessoninfo = "";
+        document.getElementById('responseTextarea1').value = `{
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
+              },
+              "referrer": "https://crm2.skyeng.ru/",
+              "referrerPolicy": "strict-origin-when-cross-origin",
+              "body": null,
+              "method": "GET",
+              "mode": "cors",
+              "credentials": "include"
+       }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
+        document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
+            document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
+            document.getElementById('sendResponse').click()
+
+            pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
+            pastlessoninfo = JSON.parse(pastlessoninfo);
+            document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
+            if (pastlessoninfo.data == "") {
+                document.getElementById('timetabledata').innerHTML = "Еще не было уроков";
+            } else {
+                for (let i = 0; i < pastlessoninfo.data.length; i++) {
+                    let d = new Date(pastlessoninfo.data[i].startedAt)
+                    let minutka;
+                    let denek;
+                    let mesacok;
+                    let chasok;
+                    if (d.getHours() < 10) {
+                        chasok = "0" + (d.getUTCHours() + 3);
+                    } else {
+                        chasok = (d.getUTCHours() + 3);
+                    }
+                    if (d.getMinutes() < 10) {
+                        minutka = "0" + d.getMinutes();
+                    } else {
+                        minutka = d.getMinutes();
+                    }
+                    if (d.getDate() < 10) {
+                        denek = "0" + d.getDate();
+                    } else {
+                        denek = d.getDate();
+                    }
+                    if (d.getMonth() + 1 < 10) {
+                        mesacok = "0" + (d.getMonth() + 1);
+                    } else {
+                        mesacok = d.getMonth() + 1;
+                    }
+                    if (pastlessoninfo.data[i].status == "missed_by_student") {
+                        pastlessoninfo.data[i].status = "Пропущен учеником";
+                    } else if (pastlessoninfo.data[i].status == "canceled_by_student") {
+                        pastlessoninfo.data[i].status = "Отменен учеником";
+                    } else if (pastlessoninfo.data[i].status == "success") {
+                        pastlessoninfo.data[i].status = "Прошел";
+                    } else if (pastlessoninfo.data[i].status == "moved_by_student") {
+                        pastlessoninfo.data[i].status = "Перенесен учеником";
+                    } else if (pastlessoninfo.data[i].status == "canceled_by_teacher") {
+                        pastlessoninfo.data[i].status = "Отменен учителем";
+                    } else if (pastlessoninfo.data[i].status == "student_refused_to_study") {
+                        pastlessoninfo.data[i].status = "Отказался от обучения"
+                    } else if (pastlessoninfo.data[i].status == "interrupted") {
+                        pastlessoninfo.data[i].status = "Прерван"
+                    } else if (pastlessoninfo.data[i].status == "did_not_get_through_student") {
+                        pastlessoninfo.data[i].status = "Не смогли связаться с У"
+                    } else if (pastlessoninfo.data[i].status == "canceled_not_marked") {
+                        pastlessoninfo.data[i].status = "Не отмечен учителем вовремя"
+                    }
+
+                    if (pastlessoninfo.data[i].lessonType == "regular") {
+                        pastlessoninfo.data[i].lessonType = "Регулярный";
+                    } else if (pastlessoninfo.data[i].lessonType == "single") {
+                        pastlessoninfo.data[i].lessonType = "Одиночный";
+                    } else if (pastlessoninfo.data[i].lessonType == "trial") {
+                        pastlessoninfo.data[i].lessonType = "Пробный";
+                    }
+
+                    for (let j = 0; j < servicearray.data.length; j++) {
+                        if (servicearray.data[j].serviceTypeKey == pastlessoninfo.data[i].educationService.serviceTypeKey)
+                            pastlessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
+                    }
+
+                    if (pastlessoninfo.data[i].educationService.serviceTypeKey == null) {
+                        pastlessoninfo.data[i].educationService.serviceTypeKey = "Услуга была в CRM1, см позднее обозначение!"
+                    }
+
+                    if (pastlessoninfo.data[i].teacher != null) {
+                        pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka +
+                            '<span style="color:#00FF7F; font-weight:900;"> Статус: </span>' + pastlessoninfo.data[i].status + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + pastlessoninfo.data[i].lessonType + '<br>'
+                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
+                            + '<span style="color:#32CD32; font-weight:900;">Преподаватель: </span>' + " " + pastlessoninfo.data[i].teacher.general.id + " " + pastlessoninfo.data[i].teacher.general.name + " " + pastlessoninfo.data[i].teacher.general.surname + '<br>'
+                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
+                    } else {
+                        pastlessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka +
+                            '<span style="color:#00FF7F; font-weight:900;"> Статус: </span>' + pastlessoninfo.data[i].status + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + pastlessoninfo.data[i].lessonType + '<br>'
+                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + pastlessoninfo.data[i].educationService.id + " " + pastlessoninfo.data[i].educationService.serviceTypeKey + '<br>'
+                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
+                    }
+                }
+
+                document.getElementById('timetabledata').innerHTML = pastlessondata;
+                pastlessondata = "";
+            }
+        }, 1000)
+    }
+
+    document.getElementById('getlessonfuture').onclick = function () { // показывает предстоящие уроки
+
+        document.getElementById('timetabledata').innerHTML = "";
+        let stid = document.getElementById('idstudent').value;
+        stid = stid.trim();
+        let futurelessondata = "";
+        let futurelessoninfo = "";
+        document.getElementById('responseTextarea1').value = `{
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
+              },
+              "referrer": "https://crm2.skyeng.ru/",
+              "referrerPolicy": "strict-origin-when-cross-origin",
+              "body": null,
+              "method": "GET",
+              "mode": "cors",
+              "credentials": "include"
+       }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
+        document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
+        document.getElementById('sendResponse').click()
+
+        setTimeout(function () {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
+            document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
+            document.getElementById('sendResponse').click()
+
+            futurelessoninfo = document.getElementById('responseTextarea1').getAttribute('futurelessoninfodata');
+            futurelessoninfo = JSON.parse(futurelessoninfo);
+            document.getElementById('responseTextarea1').removeAttribute('futurelessoninfodata')
+            if (futurelessoninfo.data == "") {
+                document.getElementById('timetabledata').innerHTML = "Уроки не запланированы";
+            } else {
+                for (let i = 0; i < futurelessoninfo.data.length; i++) {
+                    let d = new Date(futurelessoninfo.data[i].startedAt)
+                    let minutka;
+                    let denek;
+                    let mesacok;
+                    let chasok;
+                    if (d.getHours() < 10) {
+                        chasok = "0" + (d.getUTCHours() + 3);
+                    } else {
+                        chasok = (d.getUTCHours() + 3);
+                    }
+                    if (d.getMinutes() < 10) {
+                        minutka = "0" + d.getMinutes();
+                    } else {
+                        minutka = d.getMinutes();
+                    }
+                    if (d.getDate() < 10) {
+                        denek = "0" + d.getDate();
+                    } else {
+                        denek = d.getDate();
+                    }
+                    if (d.getMonth() + 1 < 10) {
+                        mesacok = "0" + (d.getMonth() + 1);
+                    } else {
+                        mesacok = d.getMonth() + 1;
+                    }
+
+                    if (futurelessoninfo.data[i].lessonType == "regular") {
+                        futurelessoninfo.data[i].lessonType = "Регулярный";
+                    } else if (futurelessoninfo.data[i].lessonType == "single") {
+                        futurelessoninfo.data[i].lessonType = "Одиночный";
+                    } else if (futurelessoninfo.data[i].lessonType == "trial") {
+                        futurelessoninfo.data[i].lessonType = "Пробный";
+                    }
+
+                    for (let j = 0; j < servicearray.data.length; j++) {
+                        if (servicearray.data[j].serviceTypeKey == futurelessoninfo.data[i].educationService.serviceTypeKey)
+                            futurelessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
+                    }
+
+                    if (futurelessoninfo.data[i].teacher != null) {
+                        futurelessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka
+                            + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
+                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
+                            + '<span style="color:#32CD32; font-weight:900;">Преподаватель: </span>' + " " + futurelessoninfo.data[i].teacher.general.id + " " + futurelessoninfo.data[i].teacher.general.name + " " + futurelessoninfo.data[i].teacher.general.surname + '<br>'
+                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
+                    } else {
+                        futurelessondata += '<span style="color: #00FA9A">&#5129;</span>' + '<span style="color:#FF7F50; font-weight:900;">Дата: </span>' + denek + "-" + mesacok + "-" + d.getFullYear() + " " + chasok + ":" + minutka
+                            + '<span style="color:#FFD700; font-weight:900;"> Урок: </span>' + futurelessoninfo.data[i].lessonType + '<br>'
+                            + '<span style="color:#00BFFF; font-weight:900;">Услуга: </span>' + futurelessoninfo.data[i].educationService.id + " " + futurelessoninfo.data[i].educationService.serviceTypeKey + '<br>'
+                            + '<hr style="width:420px; border: 1px dotted #ff0000;  border-style: none none dotted; color: #fff; background-color: #fff;"></hr>';
+                    }
+
+                }
+                document.getElementById('timetabledata').innerHTML = futurelessondata;
+                futurelessondata = "";
+            }
+        }, 1000)
+    }
+
+    document.getElementById('changelocalelng').onclick = function () { // меняет язык обслуживания выбранного пользователя в вензеле на русский
+
+        document.getElementById('responseTextarea1').value = `{
+		   "headers": {
+			"content-type": "application/json",
+			"sec-fetch-dest": "empty",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://crm2.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\\"serviceLocale\\":\\"ru\\"}",
+		  "method": "PUT",
+		  "mode": "cors",
+		  "credentials": "include"
+
+	 }`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + document.getElementById('idstudent').value
+        document.getElementById('responseTextarea3').value = ''
+        document.getElementById('sendResponse').click()
+        document.getElementById('changelocalelng').innerHTML = "✅"
+        setTimeout(function () { document.getElementById('changelocalelng').innerHTML = "🌍" }, 2000);
     }
 	
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
