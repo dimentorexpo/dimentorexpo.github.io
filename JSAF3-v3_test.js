@@ -2654,7 +2654,6 @@ function move_again_AF() {
         document.getElementById('AF_helper').style.display = 'none';
     }
 
-
     var listener2 = function (e, a) {
         wintAF.style.left = Number(e.clientX - myX2) + "px";
         wintAF.style.top = Number(e.clientY - myY2) + "px";
@@ -2686,14 +2685,6 @@ function move_again_AF() {
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
-
-
-    function setactivechatstyle() {
-        if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
-            document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
-    }
-
-    setInterval(setactivechatstyle, 1000)
 
     function clock_on_javascript_1() {
         var data = new Date();
