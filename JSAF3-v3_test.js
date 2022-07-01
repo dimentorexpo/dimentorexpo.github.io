@@ -2668,119 +2668,6 @@ function move_again_AF() {
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
 
-    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
-        audio.play()
-    }
-
-    // обработка нажатий на странице доступов
-    document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
-        if (kibsvid.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:" + kibsvid.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kibsvid.value = "";
-    }
-
-    document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
-        if (kibsvhesh.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-2w,to:now))&_a=(columns:!(userId,event,roomId,appSessionId,detailsJson,details.summary.mediaStates.video.down.count,details.summary.publishedSuccessfully,details.summary.mediaStates.audio.down.count,details.summary.iceDisconnectedCount,details.summary.localStreamReady,details.summary.remoteStreamReady),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId " + kibsvhesh.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kibsvhesh.value = "";
-    }
-
-    document.getElementById('kibservheshbut').onclick = function () { // kibana найти по хешу комнаты сервер
-        if (kibservhesh.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20" + kibservhesh.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kibservhesh.value = "";
-    }
-
-    document.getElementById('kibslowbut').onclick = function () { // kibana Слоулинки, дисконнекты, отвалы
-        if (kibslow.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.publisher.toServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.count,details.summary.iceDisconnectedCount,details.summary.mediaStates.audio.down.count,details.summary.mediaStates.video.down.count),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibslow.value + " and (details.summary.slowLinkCount.subscriber.fromServer.count > 0 or details.summary.slowLinkCount.publisher.toServer.count > 0  or details.summary.slowLinkCount.publisher.toServer.lostSum > 0 or details.summary.slowLinkCount.subscriber.fromServer.lostSum > 0 or details.summary.iceDisconnectedCount > 0 or details.summary.mediaStates.audio.down.count > 0 or details.summary.mediaStates.video.down.count > 0)'),sort:!(!('@timestamp',asc)))");
-        };
-        kibslow.value = "";
-    }
-
-    document.getElementById('kibheshvidbut').onclick = function () { // kibana видео-аудио не передавалось
-        if (kibheshvid.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibheshvid.value + " and (description : \"mediaState video down\" or description : \"mediaState audio down\")\'),sort:!(!(\'@timestamp\',asc)))");
-        };
-        kibheshvid.value = "";
-    }
-
-    document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
-        if (kibstihesh.value == "") {
-            console.log('Введите ХЭШ в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.localStreamReady,details.summary.publishedSuccessfully),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibstihesh.value + " and (details.summary.publishedSuccessfully : false or  details.summary.localStreamReady: false)'),sort:!(!('@timestamp',asc)))");
-        };
-        kibstihesh.value = "";
-    }
-
-    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК
-        if (kiblk.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:" + kiblk.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kiblk.value = "";
-    }
-    // действия конопок редаш в окне доступов
-    document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
-        if (mobappid.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/13000?p_end_at=d_now&p_id=" + mobappid.value + "&p_start_at=d_yesterday");
-        };
-        mobappid.value = "";
-    }
-
-    document.getElementById('rpayidbut').onclick = function () { // Редаш логи платежей
-        if (rpayid.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
-        };
-        rpayid.value = "";
-    }
-
-    document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
-        if (FeedbackStatus.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/27681?p_Student_id=" + FeedbackStatus.value);
-        };
-        FeedbackStatus.value = "";
-    }
-
-    document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
-        if (TeacherReport.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
-        };
-        TeacherReport.value = "";
-    }
-
-    document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
-        if (UserActions.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "&p_start_at=d_yesterday");
-        };
-        UserActions.value = "";
-    }
-
     document.getElementById('chid').onclick = () => {
         copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
     }
@@ -5318,6 +5205,115 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = 'none'
         else
             document.getElementById('AF_Linksd').style.display = ''
+		
+		// обработка нажатий на странице доступов
+    document.getElementById('kibsvidbut').onclick = function () { // kibana Tech Summary - ID
+        if (kibsvid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(userId,event,appSessionId,details.summary.userAgent,details.summary.iceDisconnectedCount,details.summary.mediaStates.video.down.count,details.summary.mediaStates.audio.down.count,details.summary.publishedSuccessfully,details.summary.localStreamReady,details.summary.remoteStreamReady,details.summary.video.muteCount,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.subscriber.fromServer.count),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'userId:" + kibsvid.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibsvid.value = "";
+    }
+
+    document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
+        if (kibsvhesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-2w,to:now))&_a=(columns:!(userId,event,roomId,appSessionId,detailsJson,details.summary.mediaStates.video.down.count,details.summary.publishedSuccessfully,details.summary.mediaStates.audio.down.count,details.summary.iceDisconnectedCount,details.summary.localStreamReady,details.summary.remoteStreamReady),filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'6e2a3760-704b-11ea-9172-7db0f10793b8',key:event,negate:!f,params:(query:tech-summary),type:phrase,value:tech-summary),query:(match:(event:(query:tech-summary,type:phrase))))),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId " + kibsvhesh.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibsvhesh.value = "";
+    }
+
+    document.getElementById('kibservheshbut').onclick = function () { // kibana найти по хешу комнаты сервер
+        if (kibservhesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/2d464cf0-af5e-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(appSessionId,userId,event),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'webRTCStateUp%20and%20appSessionId%20" + kibservhesh.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kibservhesh.value = "";
+    }
+
+    document.getElementById('kibslowbut').onclick = function () { // kibana Слоулинки, дисконнекты, отвалы
+        if (kibslow.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.slowLinkCount.publisher.toServer.count,details.summary.slowLinkCount.publisher.toServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.lostSum,details.summary.slowLinkCount.subscriber.fromServer.count,details.summary.iceDisconnectedCount,details.summary.mediaStates.audio.down.count,details.summary.mediaStates.video.down.count),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibslow.value + " and (details.summary.slowLinkCount.subscriber.fromServer.count > 0 or details.summary.slowLinkCount.publisher.toServer.count > 0  or details.summary.slowLinkCount.publisher.toServer.lostSum > 0 or details.summary.slowLinkCount.subscriber.fromServer.lostSum > 0 or details.summary.iceDisconnectedCount > 0 or details.summary.mediaStates.audio.down.count > 0 or details.summary.mediaStates.video.down.count > 0)'),sort:!(!('@timestamp',asc)))");
+        };
+        kibslow.value = "";
+    }
+
+    document.getElementById('kibheshvidbut').onclick = function () { // kibana видео-аудио не передавалось
+        if (kibheshvid.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/243e0230-a0c0-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,event,details.source,description,details.pluginEvent.type,details.pluginEvent.name,contextId,janusClientId,details.pluginEvent.message),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibheshvid.value + " and (description : \"mediaState video down\" or description : \"mediaState audio down\")\'),sort:!(!(\'@timestamp\',asc)))");
+        };
+        kibheshvid.value = "";
+    }
+
+    document.getElementById('kibstiheshbut').onclick = function () { // kibana Стрим локально и до платформы
+        if (kibstihesh.value == "") {
+            console.log('Введите ХЭШ в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/da6a6090-731a-11ea-9172-7db0f10793b8?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))&_a=(columns:!(userId,appSessionId,details.summary.localStreamReady,details.summary.publishedSuccessfully),filters:!(),index:'6e2a3760-704b-11ea-9172-7db0f10793b8',interval:auto,query:(language:kuery,query:'appSessionId: " + kibstihesh.value + " and (details.summary.publishedSuccessfully : false or  details.summary.localStreamReady: false)'),sort:!(!('@timestamp',asc)))");
+        };
+        kibstihesh.value = "";
+    }
+
+    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК
+        if (kiblk.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:" + kiblk.value + "'),sort:!(!('@timestamp',desc)))");
+        };
+        kiblk.value = "";
+    }
+    // действия конопок редаш в окне доступов
+    document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
+        if (mobappid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/13000?p_end_at=d_now&p_id=" + mobappid.value + "&p_start_at=d_yesterday");
+        };
+        mobappid.value = "";
+    }
+
+    document.getElementById('rpayidbut').onclick = function () { // Редаш логи платежей
+        if (rpayid.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
+        };
+        rpayid.value = "";
+    }
+
+    document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
+        if (FeedbackStatus.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/27681?p_Student_id=" + FeedbackStatus.value);
+        };
+        FeedbackStatus.value = "";
+    }
+
+    document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
+        if (TeacherReport.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
+        };
+        TeacherReport.value = "";
+    }
+
+    document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
+        if (UserActions.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "&p_start_at=d_yesterday");
+        };
+        UserActions.value = "";
+    }
     }
 
     document.getElementById('butServ').onclick = function () {
@@ -7962,6 +7958,10 @@ setInterval(setactivechatstyle, 1000)
             document.getElementById('set_bar').style.display = ''
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
+			
+			    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
+					audio.play()
+				}
 			
 			    document.getElementById('setteststd').onclick = function () {
 					if (document.getElementById('test_std').value != '') {
