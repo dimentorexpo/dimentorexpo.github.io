@@ -8798,8 +8798,7 @@ document.getElementById('startlookstatus').onclick = function () {
 
             document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
 
-
-        }, 500)
+        }, 1000)
 
     } else {
         alert("Введите ID учителя в поле");
