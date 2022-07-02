@@ -3309,14 +3309,14 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
             if (table[l][8] == undefined || table[l][8] == null || table[l][8] == " " || table[l][8] == "") {
-                console.log("Не значения тематики")
+                console.log("Нет значения тематики")
             } else {
                 newTag(table[l][8])
             }
 
             setTimeout(() => {
                 if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
-                    console.log("Не значения тематики")
+                    console.log("Нет значения тега")
                 } else {
                     newTags(table[l][9])
                 }
