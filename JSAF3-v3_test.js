@@ -28,6 +28,7 @@ let ageofuser;
 let getcrmstatusinfo;
 let convid;
 let grdata = [];
+let isChatOnOperator=false;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -11688,6 +11689,10 @@ setTimeout(() => {
                 flagsearch = 'searchbyhash'
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
+				
+				if(convdata.status != null && convdata.status == 'AssignToOperator')
+					isChatOnOperator = true
+				else isChatOnOperator=false;
 
                 fillchatbox();
                 checkandchangestyle();
@@ -11724,6 +11729,10 @@ setTimeout(() => {
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
+						
+						if(convdata.status != null && convdata.status == 'AssignToOperator')
+							isChatOnOperator = true
+						else isChatOnOperator=false;
 
                         fillchatbox();
                         checkandchangestyle();
@@ -11738,7 +11747,11 @@ setTimeout(() => {
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
-
+				
+				if(convdata.status != null && convdata.status == 'AssignToOperator')
+					isChatOnOperator = true
+				else isChatOnOperator=false;
+				
                 fillchatbox();
                 checkandchangestyle();
             }
@@ -11834,6 +11847,10 @@ setTimeout(() => {
 
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
+								
+								if(convdata.status != null && convdata.status == 'AssignToOperator')
+									isChatOnOperator = true
+								else isChatOnOperator=false;
 
                                 fillchatbox();
                                 checkandchangestyle();
@@ -11874,6 +11891,10 @@ setTimeout(() => {
 
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
+								
+								if(convdata.status != null && convdata.status == 'AssignToOperator')
+									isChatOnOperator = true
+								else isChatOnOperator=false;
 
                                 fillchatbox();
                                 checkandchangestyle();
