@@ -11658,7 +11658,11 @@ setTimeout(() => {
 
                     if (data.items[i].stats.usedStatuses == "AssignedToOperator")
                         actstatus = "🛠"
-                    else actstatus = '';
+						isChatOnOperator=true;
+                    else {
+						actstatus = '';
+						isChatOnOperator=false;
+					}
 
                     //сюда также допилить классы и  менять их в зависимости от темы
 
