@@ -10947,6 +10947,7 @@ setTimeout(() => {
 					btn_search_history.click()
 				} 
         }
+		}
 
         document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
 
