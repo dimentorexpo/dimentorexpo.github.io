@@ -1888,38 +1888,22 @@ buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
 butteachid.innerHTML = "👽 (ID П) П обратился ";
-butteachid.style.width = "160px";
-butteachid.style.cursor = "pointer";
-butteachid.style.border = "1px solid black";
-butteachid.style.borderRadius = "10px";
+butteachid.style = "width:160px; cursor:pointer; border: 1px solid black; border-radius:10px;";
 
 let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
 butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
-butstdid.style.width = "150px";
-butstdid.style.cursor = "pointer";
-butstdid.style.marginLeft = "2px";
-butstdid.style.border = "1px solid black";
-butstdid.style.borderRadius = "10px";
+butstdid.style = "width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:10px;";
 
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
 butteachidfstd.innerHTML = "👽 (ID П) У обратился";
-butteachidfstd.style.width = "150px";
-butteachidfstd.style.cursor = "pointer";
-butteachidfstd.style.marginLeft = "2px";
-butteachidfstd.style.border = "1px solid black";
-butteachidfstd.style.borderRadius = "10px";
+butteachidfstd.style = "width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:10px;";
 
 let buttonservid = document.createElement('button');
 buttonservid.id = 'servidstudento';
 buttonservid.innerHTML = "ID услуги У (крит)";
-buttonservid.style.width = "150px";
-buttonservid.style.cursor = "pointer";
-buttonservid.style.marginLeft = "2px";
-buttonservid.style.border = "1px solid black";
-buttonservid.style.borderRadius = "10px";
-buttonservid.style.marginTop = "5px";
+buttonservid.style = "width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:10px; margin-top:5px;";
 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
