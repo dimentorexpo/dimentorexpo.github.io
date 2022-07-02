@@ -10935,17 +10935,17 @@ setTimeout(() => {
 
         document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
             if (document.getElementById('ChatStatus').textContent == "📧") {
+				
+				if (document.getElementById('AF_ChatHis').style.display == 'none') {
+					document.getElementById('butChatHistory').click();
 
-                if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                    hide_or_display.click()
-                    document.getElementById('chat_id').value = convid;
+					document.getElementById('hashchathis').value = convid;
+					btn_search_history.click()
 
-                    search.click()
-                } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                    document.getElementById('chat_id').value = convid;
-                    search.click()
-                }
-            } else { console.log("No chat with user!!!") }
+				} else {
+					document.getElementById('hashchathis').value = convid;
+					btn_search_history.click()
+				} 
         }
 
         document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
