@@ -4345,7 +4345,6 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                 chatId = data.conversationId
                 console.log(data, chatId)
             })
-        alert(`Чат начат c пользователем ${polzid}`);
     } else alert('Не введен id пользователя');
 }
 
@@ -6265,8 +6264,6 @@ async function findchatsoper() { // ищет активные чаты на вы
                 if (operchatsdata.total == 0)
                     alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
 
-
-
                 for (let i = 0; i < operchatsdata.items.length; i++) {
 
                     let tmestmp = new Date((operchatsdata.items[i].ts.split('[GMT]'))[0])
@@ -6314,6 +6311,10 @@ async function findchatsoper() { // ищет активные чаты на вы
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
+						
+						if(convdata.status != null && convdata.status == 'AssignedToOperator')
+							isChatOnOperator = true
+						else isChatOnOperator=false;
 
                         fillchatbox();
                         checkandchangestyle();
@@ -11679,6 +11680,10 @@ setTimeout(() => {
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
+						
+						if(convdata.status != null && convdata.status == 'AssignedToOperator')
+							isChatOnOperator = true
+						else isChatOnOperator=false;
 
                         fillchatbox();
                         checkandchangestyle();
@@ -11690,10 +11695,6 @@ setTimeout(() => {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 				
-				if(convdata.status != null && convdata.status == 'AssignedToOperator')
-					isChatOnOperator = true
-				else isChatOnOperator=false;
-
                 fillchatbox();
                 checkandchangestyle();
 
@@ -11852,10 +11853,6 @@ setTimeout(() => {
 
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
-								
-								if(convdata.status != null && convdata.status == 'AssignedToOperator')
-									isChatOnOperator = true
-								else isChatOnOperator=false;
 
                                 fillchatbox();
                                 checkandchangestyle();
@@ -11897,10 +11894,6 @@ setTimeout(() => {
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
 								
-								if(convdata.status != null && convdata.status == 'AssignedToOperator')
-									isChatOnOperator = true
-								else isChatOnOperator=false;
-
                                 fillchatbox();
                                 checkandchangestyle();
                             }
