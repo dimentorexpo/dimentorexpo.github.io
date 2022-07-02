@@ -840,7 +840,7 @@ var win_Stat =  // описание элементов окна Статисти
 							 <button title="очищает значения поля" id="clearall">Очистить</button>
 							 <button title="загружает полученные результаты как для Чаты с ксат <4 так и для чатов с комментариями в виде HTML файла" id="getfile">🔰</button>
 							 <br>
-							 	<select style="position:absolute; top:150px; height:28px;" id="thematics">
+							 	<select style="position:absolute; top:150px; left:225px; height:28px;" id="thematics">
 									<option style="background-color:DarkKhaki;" value="skmob">Skyeng👨‍🎓Mob</option>
 									<option value="1804">-Авторизация</option>
 									<option value="1805">-Домашка</option>
@@ -964,7 +964,7 @@ var win_Stat =  // описание элементов окна Статисти
                                     <option value="1978">-App Skysmart род</option>
                                     <option value="1980">-Прочее</option>
                                     </select>
-                               <button style="position:absolute; top: 150px; left:360px;" title="ищет чаты по тематике" id="gofindit">Find</button>
+                               <button style="position:absolute; top: 150px; left:390px;" title="ищет чаты по тематике" id="gofindit">Find</button>
                                <button style="position:absolute; top: 150px; left:430px;" title="меняет тематику в хеше чата указанном выше в поле ввода и выбранной тематикой из выпадающего списка" id="changetheme">Change</button>
 					    </div>
 						<div id="chatcoutnsinfo">
