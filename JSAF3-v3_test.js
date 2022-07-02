@@ -11776,7 +11776,7 @@ setTimeout(() => {
 
         document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
 		    let answer = confirm("Вы действительно желаете начать чат с пользователем?");
-			 if (result) {
+			 if (answer) {
 				if (isChatOnOperator==false) {
 					let polzid = document.getElementById('placeusid').innerText.trim();
 					document.getElementById('startchat').style.background = 'green';
