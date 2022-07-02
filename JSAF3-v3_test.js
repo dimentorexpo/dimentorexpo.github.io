@@ -767,7 +767,7 @@ var win_Chathis =  // описание элементов окна Истори�
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
 				<div id="datainfoheader">
 				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
-				<button id="gotocrm" style="width:50px;">CRM</button>
+				<button id="gotocrmchis" style="width:50px;">CRM</button>
 				</div>
 
 					<div id="datafield" style="margin-top:5px;text-align:center; font-size:16px;">
@@ -11469,7 +11469,7 @@ setTimeout(() => {
             copyToClipboard1(document.getElementById('placeusid').innerText)
         }
 
-        document.getElementById('gotocrm').onclick = () => {
+        document.getElementById('gotocrmchis').onclick = () => {
             let fdata = document.getElementById('datafield').innerHTML
             fdata = fdata.match(/ID:.?\d+/)[0].split(' ')[1]
             window.open(`https://crm2.skyeng.ru/persons/${fdata}`)
