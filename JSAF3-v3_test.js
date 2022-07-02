@@ -1909,6 +1909,61 @@ let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 
+let addInfoUser = document.createElement('div')
+
+let hashBut = document.createElement('div')
+hashBut.id = "hashBut"
+hashBut.innerHTML = "Хэш"
+hashBut.style.marginRight = "15px";
+
+let butServ = document.createElement('div')
+butServ.id = "butServ"
+butServ.innerHTML = "⚜UserInfo"
+butServ.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butMarks = document.createElement('div')
+butMarks.id = "butMarks"
+butMarks.innerHTML = "📊Оценки"
+butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butChatHistory = document.createElement('div')
+butChatHistory.id = "butChatHistory"
+butChatHistory.innerHTML = "💬Chat History"
+butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let servDsk = document.createElement('div')
+servDsk.id = "servDsk"
+servDsk.innerHTML = "🛠ServiceDesk"
+servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butopensugestform = document.createElement('div')
+butopensugestform.id = "suggestform"
+butopensugestform.innerHTML = "📝Предложения"
+butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butmenu = document.createElement('button')
+butmenu.innerText = 'Меню'
+butmenu.id = 'headmymenu'
+butmenu.style = 'height:32px;'
+butmenu.classList.add('ant-btn')
+
+let menubar = document.createElement('div')
+menubar.style = 'background: white; position:absolute; left: 68%; top: 80%; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)'
+menubar.id = 'idmymenu'
+
+let maskBack = document.createElement('div')
+maskBack.id = "maskBack"
+maskBack.innerHTML = "Вернуть"
+maskBack.style.marginRight = "15px";
+maskBack.style.display = "none";
+
+let maskBackHide = document.createElement('span')
+maskBackHide.id = "maskBackHide"
+maskBackHide.innerHTML = "Скрыть"
+maskBackHide.style.marginRight = "15px";
+maskBackHide.style.marginLeft = "15px";
+maskBackHide.style.display = "";
+
 buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
     document.getElementById('butChatHistory').click();
 
@@ -2212,48 +2267,6 @@ nextteachuserbut.onclick = function () { // открывает просмотр 
     }
 }
 
-let addInfoUser = document.createElement('div')
-
-let hashBut = document.createElement('div')
-hashBut.id = "hashBut"
-hashBut.innerHTML = "Хэш"
-hashBut.style.marginRight = "15px";
-
-let butServ = document.createElement('div')
-butServ.id = "butServ"
-butServ.innerHTML = "⚜UserInfo"
-butServ.style = 'margin-right:15px; height:50px; cursor:pointer;';
-
-let butMarks = document.createElement('div')
-butMarks.id = "butMarks"
-butMarks.innerHTML = "📊Оценки"
-butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
-
-let butChatHistory = document.createElement('div')
-butChatHistory.id = "butChatHistory"
-butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
-
-let servDsk = document.createElement('div')
-servDsk.id = "servDsk"
-servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;';
-
-let butopensugestform = document.createElement('div')
-butopensugestform.id = "suggestform"
-butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
-
-let butmenu = document.createElement('button')
-butmenu.innerText = 'Меню'
-butmenu.id = 'headmymenu'
-butmenu.style = 'height:32px;'
-butmenu.classList.add('ant-btn')
-
-let menubar = document.createElement('div')
-menubar.style = 'background: white; position:absolute; left: 68%; top: 80%; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)'
-menubar.id = 'idmymenu'
-
 butmenu.onclick = () => { // кнопка открытия Меню
     if (menubar.style.display == 'none') {
         menubar.style.display = ''
@@ -2270,12 +2283,6 @@ butmenu.onclick = () => { // кнопка открытия Меню
         }
     } else menubar.style.display = 'none'
 }
-
-let maskBack = document.createElement('div')
-maskBack.id = "maskBack"
-maskBack.innerHTML = "Вернуть"
-maskBack.style.marginRight = "15px";
-maskBack.style.display = "none";
 
 maskBack.onclick = function () { // кнопка свернуть
     name = document.getElementById('maskBack').getAttribute('name')
@@ -2295,13 +2302,6 @@ maskBack.onclick = function () { // кнопка свернуть
         setTimeout(function () { document.getElementById('maskBack').innerHTML = "Вернуть" }, 3000)
     }
 }
-
-let maskBackHide = document.createElement('span')
-maskBackHide.id = "maskBackHide"
-maskBackHide.innerHTML = "Скрыть"
-maskBackHide.style.marginRight = "15px";
-maskBackHide.style.marginLeft = "15px";
-maskBackHide.style.display = "";
 
 maskBackHide.onclick = function () { // кнопка скрыть
     if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.innerText == "Добавить комментарий к диалогу") {
@@ -10410,7 +10410,6 @@ btntid.onclick = async function () { //логгинер для тестовог�
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
-
 
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
