@@ -11656,10 +11656,10 @@ setTimeout(() => {
                     else
                         marksarr = data.items[i].stats.rate.rate
 
-                    if (data.items[i].stats.usedStatuses == "AssignedToOperator")
+                    if (data.items[i].stats.usedStatuses == "AssignedToOperator") {
                         actstatus = "🛠"
 						isChatOnOperator=true;
-                    else {
+                    } else {
 						actstatus = '';
 						isChatOnOperator=false;
 					}
