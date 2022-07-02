@@ -11690,7 +11690,7 @@ setTimeout(() => {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 				
-				if(convdata.status != null && convdata.status == 'AssignToOperator')
+				if(convdata.status != null && convdata.status == 'AssignedToOperator')
 					isChatOnOperator = true
 				else isChatOnOperator=false;
 
@@ -11730,7 +11730,7 @@ setTimeout(() => {
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
 						
-						if(convdata.status != null && convdata.status == 'AssignToOperator')
+						if(convdata.status != null && convdata.status == 'AssignedToOperator')
 							isChatOnOperator = true
 						else isChatOnOperator=false;
 
@@ -11748,7 +11748,7 @@ setTimeout(() => {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 				
-				if(convdata.status != null && convdata.status == 'AssignToOperator')
+				if(convdata.status != null && convdata.status == 'AssignedToOperator')
 					isChatOnOperator = true
 				else isChatOnOperator=false;
 				
@@ -11848,7 +11848,7 @@ setTimeout(() => {
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
 								
-								if(convdata.status != null && convdata.status == 'AssignToOperator')
+								if(convdata.status != null && convdata.status == 'AssignedToOperator')
 									isChatOnOperator = true
 								else isChatOnOperator=false;
 
@@ -11892,7 +11892,7 @@ setTimeout(() => {
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
 								
-								if(convdata.status != null && convdata.status == 'AssignToOperator')
+								if(convdata.status != null && convdata.status == 'AssignedToOperator')
 									isChatOnOperator = true
 								else isChatOnOperator=false;
 
