@@ -8026,7 +8026,6 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                 chatId = data.conversationId
                 console.log(data, chatId)
             })
-        alert(`Чат начат c пользователем ${polzid}`);
     } else alert('Не введен id пользователя');
 }
 
