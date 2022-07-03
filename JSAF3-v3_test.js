@@ -3835,7 +3835,6 @@ function startTimer() { //функция таймера
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-				if (typeof(buttonmobpas)  !=undefined)
                 btn.appendChild(buttonmobpas)
             }
 
