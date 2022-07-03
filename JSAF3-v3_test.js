@@ -4556,7 +4556,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         lgssearch.value = "";
     }
 
-    document.getElementById('msg').onclick = function () { //отправить сообщение в чат или заметки
+    document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
         if (this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
             localStorage.setItem('msg', 'Заметки')
@@ -5806,7 +5806,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
 
-    document.getElementById('suggestform').onclick = () => {
+    document.getElementById('suggestform').onclick = () => { // открыть форму для предложения и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
@@ -5915,7 +5915,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('butMarks').onclick = function () {
+    document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
         else {
@@ -6052,12 +6052,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Service').style.display = 'none'
     }
 
-    document.getElementById('hideuserdatainfo').onclick = () => {
+    document.getElementById('hideuserdatainfo').onclick = () => { // форма hide
         if (document.getElementById('userchatdata').style.display == '')
             document.getElementById('userchatdata').style.display = 'none'
     }
 
-    document.getElementById('gotocrmhis').onclick = () => {
+    document.getElementById('gotocrmhis').onclick = () => { //открывает СРМ пользователя паари в меню с историей чатов
         let fdata = document.getElementById('datafield').innerHTML
         fdata = fdata.match(/ID:.?\d+/)[0].split(' ')[1]
         window.open(`https://crm2.skyeng.ru/persons/${fdata}`)
@@ -6096,7 +6096,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         window.open("https://datsy.ru/")
     }
 
-    document.getElementById('gettechsummary').onclick = async function () {
+    document.getElementById('gettechsummary').onclick = async function () { //получает инфо об устройстве пользователя
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
         else
@@ -6126,7 +6126,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('getlessonstatus').onclick = function () {
+    document.getElementById('getlessonstatus').onclick = function () { // получение инфы о статусе урока кто удалил кем
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
@@ -6250,8 +6250,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     } // end of func getidgrouptolist
 
-
-
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
         let getyear = getcurdate.getFullYear();
@@ -6300,7 +6298,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
     })
 
-    document.getElementById('sound_save').onclick = function () {
+    document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
         if (document.getElementById('sound_adr').value == "")
             audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
@@ -6336,7 +6334,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('sndbot').onclick = async function () {
+    document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
         let txt = document.getElementById('inp').value;
         var values = await getInfo(flag)
         var adr = values[0]; var adr1 = values[1]; var uid = values[2]
@@ -6360,8 +6358,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         refCurTimer(time)
     }
 
-
-    document.getElementById('snd').onclick = function () {
+    document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
         document.getElementById('snd').setAttribute('disabled', 'disabled')
         setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
         if (document.getElementById('msg').innerHTML == "Чат") {
@@ -6414,12 +6411,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('main_easy_win').style.display = "none";
 
     }
+
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
-
-
-    function screenshots() {
+    function screenshots() { //просмотр и трансформация скриншотов в активном чате
         if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
@@ -6441,9 +6437,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }
     }
+
     screenshots()
     setInterval(screenshots, 5000)
-    function screenshots2() {
+
+    function screenshots2() { //просмотр и трансформация скриншотов в архиве
         if (document.getElementsByClassName('chat-messages')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
                 if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
@@ -6465,6 +6463,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }
     }
+
     screenshots2()
     setInterval(screenshots2, 5000)
 
@@ -6515,7 +6514,7 @@ function pageClick(pageId) { // по клику переключает стра�
     document.getElementById(pageId[0] + "page").style.display = ''
 }
 
-function bagPageButtons(butId) {
+function bagPageButtons(butId) {  //с шаблонами тоже фукнкция связана
     txt = document.getElementById(butId).parentElement.childNodes[0].textContent
     for (l = 0; l < table.length; l++)
         if (table[l][0] == txt) {
@@ -6525,7 +6524,7 @@ function bagPageButtons(butId) {
         }
 }
 
-function transfPageButtons(textFromTable) {
+function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
     //resetFlags()
     phone = ""
     textFromTable = textFromTable.split('(phone)')
@@ -6637,7 +6636,8 @@ function servFromDoc(butName) { // отправка комента и сообщ
 
 var bool = 0;
 var table
-function getText() {
+
+function getText() { //получить текст
     var app = localStorage.getItem('scriptAdr'),
         xhr = new XMLHttpRequest();
     xhr.open('GET', app);
@@ -7013,6 +7013,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 }
 
 var templatesAF = []
+
 async function loadTemplates(template, word) { //загрузка шаблонов с дока
     return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
         "headers": {
@@ -9923,7 +9924,8 @@ async function remandressl() { // функция удаления и сброс�
 setInterval(remandressl, 3000);
 
 let getidusrteachreq;
-butteachid.addEventListener('click', function () {
+
+butteachid.addEventListener('click', function () { // копирует в буфер что-то но надо понять ЧТО?
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -9937,7 +9939,8 @@ butteachid.addEventListener('click', function () {
 })
 
 let getidusrstud;
-butstdid.addEventListener('click', function () {
+
+butstdid.addEventListener('click', function () { //копирует в буфер nextClass-studentId
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -9946,7 +9949,8 @@ butstdid.addEventListener('click', function () {
 })
 
 let getidusrsteach;
-butteachidfstd.addEventListener('click', function () {
+
+butteachidfstd.addEventListener('click', function () { //копирует в буфер nextClass-teacherId
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -9955,7 +9959,8 @@ butteachidfstd.addEventListener('click', function () {
 })
 
 let getservidst;
-buttonservid.addEventListener('click', function () {
+
+buttonservid.addEventListener('click', function () { //копирует в буфер nextClass-educationServiceId
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId")
             getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -9965,7 +9970,7 @@ buttonservid.addEventListener('click', function () {
 
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
 
-function checJiraF() {
+function checJiraF() { //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
     try {
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
             document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
@@ -10367,7 +10372,7 @@ async function whoAmI() { // функция получения айди опер
 
 // Тут будет функция запуска получения информации о статистики
 
-document.getElementById('getstatfromperiod').onclick = async function () {
+document.getElementById('getstatfromperiod').onclick = async function () { // Тут будет функция запуска получения информации о статистики
     let datefrom = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
     let strnew = document.getElementById('chatsinfoout');
@@ -10464,7 +10469,7 @@ document.getElementById('getstatfromperiod').onclick = async function () {
     }
 }
 
-document.getElementById('changetheme').onclick = function () {
+document.getElementById('changetheme').onclick = function () { //функция изменения тематики чата
     let curval = document.getElementById('thematics').value;
     let chatId = document.getElementById('commenttosearch').value;
     if (chatId != "" && chatId != null && chatId != undefined)
@@ -10479,7 +10484,7 @@ document.getElementById('changetheme').onclick = function () {
     else alert("Введите хэш чата в длинное поле по центру");
 }
 
-document.getElementById('gofindit').onclick = async function () {
+document.getElementById('gofindit').onclick = async function () { //функция поиска чатов по вытсалвенной тематике с отображениеи и тегов
     let curval = document.getElementById('thematics').value;
     let strcsatnew = document.getElementById('themesdata');
     strcsatnew.textContent = "Загрузка"
@@ -10595,9 +10600,7 @@ document.getElementById('clearall').onclick = function () {
     document.querySelector('#themesdata').innerText = ""
 }
 
-
-
-document.getElementById('clearlessonstatus').onclick = function () {
+document.getElementById('clearlessonstatus').onclick = function () { // очистить поля проверки статуса урока
     if (confirm("Вы уверены, что хотите очистить?")) {
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
@@ -10623,7 +10626,8 @@ document.getElementById('clearlessonstatus').onclick = function () {
 
 //Функция парсинга чатов по заданному коменту
 let stringChatsWithComment;
-document.getElementById('parsechat').onclick = async function () {
+
+document.getElementById('parsechat').onclick = async function () { //Функция парсинга чатов по заданному коменту
     stringChatsWithComment = "";
     let datefrom2 = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
@@ -10688,7 +10692,8 @@ document.getElementById('parsechat').onclick = async function () {
 
 //Функция проверки статусов урока
 let arregetted;
-document.getElementById('startlookstatus').onclick = function () {
+
+document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
         document.querySelector('#statustable').innerText = "";
@@ -10800,10 +10805,10 @@ document.getElementById('startlookstatus').onclick = function () {
 
 }
 
-
 //Функция получения чатов с низким КСАТ
 let stringChatsWithLowCsat;
-document.getElementById('getlowcsat').onclick = async function () {
+
+document.getElementById('getlowcsat').onclick = async function () { // получить хеши чатов с оценками ниже 4
     let datefrom1 = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto1 = document.getElementById('dateTo').value + "T20:59:59.059Z";
     let strcsatnew = document.getElementById('lowCSATcount');
@@ -10881,7 +10886,7 @@ document.getElementById('getlowcsat').onclick = async function () {
     }
 }
 
-document.getElementById('getfile').onclick = function () {
+document.getElementById('getfile').onclick = function () { // функция загрузки файла в виде HTML  lowcsat или всех чатов по комменту
     if (stringChatsWithComment != null || stringChatsWithComment != undefined) {
         var blob = new Blob([stringChatsWithComment], { type: "text/plain" });
         var link = document.createElement("a");
@@ -10897,7 +10902,7 @@ document.getElementById('getfile').onclick = function () {
     }
 }
 
-async function sendAnswerTemplate2(word, flag = 0) {
+async function sendAnswerTemplate2(word, flag = 0) { //функция отправки шаблона 2
     var tmpTxt = ""
     var adr = `https://skyeng.autofaq.ai/tickets/assigned/`
     if (word.length < 50)
@@ -10967,11 +10972,12 @@ async function sendAnswerTemplate2(word, flag = 0) {
         flagggg = 0
     }
 }
-function resetFlags() {
+
+function resetFlags() { //функция обнуления флагов
     template_flag = 0
     template_flag2 = 0
 }
-async function checkHistory(id) {
+async function checkHistory(id) { //проверка истории по чату чтобы занести переменные и флаги , но тоже проверить  нужна или нет ибо раньше использовалась для проверки повторного обращения чтобы при нажатии привет др шаблон отрабатывался НУЖНА?
     var date = new Date()
     var date2 = new Date()
     date2.setTime(date - 8 * 60 * 60 * 1000)
@@ -11045,7 +11051,7 @@ async function checkHistory(id) {
     return count
 }
 
-async function getNotGoods(stringDate) {
+async function getNotGoods(stringDate) { // функция проверки нот гуд оценок, рядовыми ТП не используется да и не знаю нужна ли она еще тут! НУЖНА?
 
     async function goNotgood(list, list2, date1, date2) {
         var text = ""
@@ -11143,9 +11149,7 @@ async function getNotGoods(stringDate) {
     goNotgood(list, list2, firstDate, secondDate)
 }
 
-
-
-function customTemplates(language = '') {
+function customTemplates(language = '') { //собственные шаблоны и их добавление
     if (localStorage.getItem('winCstmTmpsTop') == null) {
         localStorage.setItem('winCstmTmpsTop', '120');
         localStorage.setItem('winCstmTmpsLeft', '295');
@@ -11623,7 +11627,7 @@ async function getStats() {           // функция получения ст�
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
-async function checkkcpower() {
+async function checkkcpower() { //проверить нагрузку на КЦ
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -11676,7 +11680,7 @@ async function checkkcpower() {
     })
 }
 
-async function checktppower() {
+async function checktppower() { //проверить нагрузку на ТП
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -11730,9 +11734,9 @@ async function checktppower() {
     })
 }
 
-
 let chatneraspcount;
 let chattpquecount;
+
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
@@ -12074,7 +12078,7 @@ async function checkCSAT() {             // функция проверки CSAT
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 }
 
-function prepTp() {
+function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '11px'
 
@@ -12089,12 +12093,10 @@ function prepTp() {
     openchhis.id = 'opennewcat'
     document.getElementsByTagName('section')[1].append(openchhis)
 
-
     openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
             document.getElementById('butChatHistory').click()
     }
-
 
     flagLangBut = 1
     customTemplates()
@@ -12252,7 +12254,7 @@ document.getElementById('testMath').replaceWith(btnpm);
 document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
 
-btnpm.onclick = async function () {
+btnpm.onclick = async function () { // копирует в буфер логиннер для ПМ
     document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -12305,7 +12307,7 @@ btnpm.onclick = async function () {
     }, 1000)
 }
 
-btnsid.onclick = async function () {
+btnsid.onclick = async function () { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         document.getElementById('responseTextarea1').value = `{
@@ -12362,7 +12364,7 @@ btnsid.onclick = async function () {
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
-btntid.onclick = async function () {
+btntid.onclick = async function () { // копирует в буфер логиннер для П
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         document.getElementById('responseTextarea1').value = `{
