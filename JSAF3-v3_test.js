@@ -8017,7 +8017,7 @@ setInterval(checJiraF, 1000);
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if (document.location.pathname.split('/').length > 4 && location.href.split('/')[2] == 'skyeng.autofaq.ai') {
+        if (document.location.pathname.split('/').length >= 4 && location.href.split('/')[2] == 'skyeng.autofaq.ai') {
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
