@@ -5614,6 +5614,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 flagsearch = 'searchbyhash'
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
+				
+					if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                       isChatOnOperator = true
+                    else isChatOnOperator = false;
 
                 fillchatbox();
                 checkandchangestyle();
