@@ -5692,12 +5692,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         } // конец обработчика нажатия кнопки "Забрать"
 
         document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
-            let polzid = document.getElementById('placeusid').innerText.trim();
-            document.getElementById('startchat').style.background = 'green';
-            startnewchatfast(polzid)
-            setTimeout(() => {
-                document.getElementById('startchat').style.background = '';
-            }, 3000)
+            let answer = confirm("Вы действительно желаете начать чат с пользователем?");
+            if (answer) {
+                if (isChatOnOperator == false) {
+                    let polzid = document.getElementById('placeusid').innerText.trim();
+                    document.getElementById('startchat').style.background = 'green';
+                    startnewchatfast(polzid)
+                    setTimeout(() => {
+                        document.getElementById('startchat').style.background = '';
+                    }, 3000)
+                } else alert('Чат не открыт, так как есть активный чат на операторе!')
+            }
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
