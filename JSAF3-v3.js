@@ -661,29 +661,44 @@ var win_Chathis =  // описание элементов окна Истори�
 					<button style="width:30px;" id="chagetheme" title="Переключается светлую тему ☀ и темную🌛 вывода чата с пользователем">🌛</button>
 				</div>
 			</span>
+			
 				<div style="width: 410px;display:none" id="somechatinfo">
 					<span id="usidchat" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует сам айдишник">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="startchat" style="margin-left:10px;" title="Начать новый чат с пользователем">💬</button>
-					<button id="takechat" style="margin-left: 147px; margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<button id="opencmtbar" style="margin-left:5px;" title="Открыть инструмент добавления комментария к чату (для тех у кого внизу в самом модуле не отображается это поле)">🚧</button>
+					<button id="takechat" style="margin-left: 117px; margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 					<br>
 					<span id="chid" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
+				
+			<div id="comentsbar" style="width: 410px; height:45px; position:fixed; top:50vh; right:40vh; background: rgb(70, 68, 81); display:none">
+						<textarea id="msgftochatornotes1" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
+						<button id="sendmsgtochatornotes1" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
+						<input class="radio" type="radio" name="chatornotes1" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
+						<input class="radio" type="radio" name="chatornotes1" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
+			</div>
+				
 			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow-x:hidden;">
 			</div>
-			<div id="bottommenuchhis" style="width: 410px;display:none;">
+			
+			<div id="bottommenuchhis" style="width: 410px; position:absolute; display:none;">
 				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
 			</div>
+			
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
-				<div id="datainfoheader">
-				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
-				<button id="gotocrmhis" style="width:50px;">CRM</button>
-				</div>
+			
+						<div id="datainfoheader">
+							<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
+							<button id="gotocrmhis" style="width:50px;">CRM</button>
+						</div>
+						
 					<div id="datafield" style="margin-top:5px;text-align:center; font-size:16px;">
 					</div>
+					
 			</div>
 	</span>
 </div>`;
@@ -4590,6 +4605,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('placechatid').innerText = ''
             document.getElementById('somechatinfo').style.display = 'none';
             document.getElementById('bottommenuchhis').style.display = 'none';
+            document.getElementById('comentsbar').style.display = 'none';
             document.getElementById('chatuserhis').value = ''
             document.getElementById('hashchathis').value = ''
         }
@@ -4601,6 +4617,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('placechatid').innerText = ''
         document.getElementById('somechatinfo').style.display = 'none';
         document.getElementById('bottommenuchhis').style.display = 'none';
+        document.getElementById('comentsbar').style.display = 'none';
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
@@ -5523,7 +5540,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('somechatinfo').style.display = 'none';
 
                 if (document.getElementById('bottommenuchhis').style.display == '')
-                    document.getElementById('bottommenuchhis').style.display = 'none';
+                    document.getElementById('bottommenuchhis').style.display = 'none'; 
+
+				if (document.getElementById('comentsbar').style.display == '')
+                    document.getElementById('comentsbar').style.display = 'none';
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -5631,6 +5651,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('placechatid').innerText = '';
             document.getElementById('somechatinfo').style.display = 'none';
             document.getElementById('bottommenuchhis').style.display = 'none';
+            document.getElementById('comentsbar').style.display = 'none';
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5711,6 +5732,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }, 3000)
                 } else alert('Чат не открыт, так как есть активный чат на операторе!')
             }
+        } // конец обработчика нажатия кнопки Начать чат с пользователем   
+
+		document.getElementById('opencmtbar').onclick = function() { //обработчик функции начала чата с пользователем
+			if (document.getElementById('comentsbar').style.display == '')
+				document.getElementById('comentsbar').style.display = 'none';
+			else 
+				document.getElementById('comentsbar').style.display = '';
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
@@ -5829,6 +5857,100 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }
             }
         }
+		
+		        document.getElementById('sendmsgtochatornotes1').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
+
+            let radiobtnsarray = document.getElementsByName('chatornotes1')
+
+            for (let i = 0; i < radiobtnsarray.length; i++) {
+                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes1').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes1').value = ''
+
+                    setTimeout(
+                        async function () {
+                            if (document.getElementById('placechatid').innerText != '') {
+                                document.getElementById('infofield').innerHTML = '';
+
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
+
+                                fillchatbox();
+                                checkandchangestyle();
+                            }
+                        }, 1000);
+
+                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes1').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes1').value = ''
+
+                    setTimeout(
+                        async function () {
+                            if (document.getElementById('placechatid').innerText != '') {
+                                document.getElementById('infofield').innerHTML = '';
+
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
+								
+								if (convdata.status != null && convdata.status == 'AssignedToOperator')
+									isChatOnOperator = true
+								else isChatOnOperator = false;
+
+                                fillchatbox();
+                                checkandchangestyle();
+                            }
+                        }, 1000);
+                }
+            }
+        }
+		
+		
     }
 
 
@@ -8259,6 +8381,9 @@ async function findchatsoper() { // ищет активные чаты на вы
 
     if (document.getElementById('bottommenuchhis').style.display == '')
         document.getElementById('bottommenuchhis').style.display = 'none';
+    
+	if (document.getElementById('comentsbar').style.display == '')
+        document.getElementById('comentsbar').style.display = 'none';
 
 
     document.getElementById('infofield').innerHTML = 'Загрузка'
