@@ -5737,7 +5737,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('opencmtbar').onclick = () => { //обработчик функции начала чата с пользователем
 			if (document.getElementById('comentsbar').style.display = 'none')
 				document.getElementById('comentsbar').style.display = ''
-			else if document.getElementById('comentsbar').style.display = '')
+			else if (document.getElementById('comentsbar').style.display = '')
 				document.getElementById('comentsbar').style.display = 'none'
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
