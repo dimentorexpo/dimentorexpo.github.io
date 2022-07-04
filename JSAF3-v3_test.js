@@ -661,6 +661,7 @@ var win_Chathis =  // описание элементов окна Истори�
 					<button style="width:30px;" id="chagetheme" title="Переключается светлую тему ☀ и темную🌛 вывода чата с пользователем">🌛</button>
 				</div>
 			</span>
+			
 				<div style="width: 410px;display:none" id="somechatinfo">
 					<span id="usidchat" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует сам айдишник">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="startchat" style="margin-left:10px;" title="Начать новый чат с пользователем">💬</button>
@@ -670,21 +671,34 @@ var win_Chathis =  // описание элементов окна Истори�
 					<span id="chid" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
+				
+			<div id="comentsbar" style="width: 410px; height:45px; position:fixed; top:50vh; right:40vh; background: rgb(70, 68, 81); color: bisque; display:none">
+						<textarea id="msgftochatornotes1" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
+						<button id="sendmsgtochatornotes1" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
+						<input class="radio" type="radio" name="chatornotes1" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
+						<input class="radio" type="radio" name="chatornotes1" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
+			</div>
+				
 			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow-x:hidden;">
 			</div>
+			
 			<div id="bottommenuchhis" style="width: 410px; position:absolute; display:none;">
 				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
 			</div>
+			
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
-				<div id="datainfoheader">
-				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
-				<button id="gotocrmhis" style="width:50px;">CRM</button>
-				</div>
+			
+						<div id="datainfoheader">
+							<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
+							<button id="gotocrmhis" style="width:50px;">CRM</button>
+						</div>
+						
 					<div id="datafield" style="margin-top:5px;text-align:center; font-size:16px;">
 					</div>
+					
 			</div>
 	</span>
 </div>`;
@@ -4591,6 +4605,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('placechatid').innerText = ''
             document.getElementById('somechatinfo').style.display = 'none';
             document.getElementById('bottommenuchhis').style.display = 'none';
+            document.getElementById('comentsbar').style.display = 'none';
             document.getElementById('chatuserhis').value = ''
             document.getElementById('hashchathis').value = ''
         }
@@ -4602,6 +4617,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('placechatid').innerText = ''
         document.getElementById('somechatinfo').style.display = 'none';
         document.getElementById('bottommenuchhis').style.display = 'none';
+        document.getElementById('comentsbar').style.display = 'none';
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
@@ -5524,7 +5540,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('somechatinfo').style.display = 'none';
 
                 if (document.getElementById('bottommenuchhis').style.display == '')
-                    document.getElementById('bottommenuchhis').style.display = 'none';
+                    document.getElementById('bottommenuchhis').style.display = 'none'; 
+
+				if (document.getElementById('comentsbar').style.display == '')
+                    document.getElementById('comentsbar').style.display = 'none';
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -5632,6 +5651,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('placechatid').innerText = '';
             document.getElementById('somechatinfo').style.display = 'none';
             document.getElementById('bottommenuchhis').style.display = 'none';
+            document.getElementById('comentsbar').style.display = 'none';
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5712,6 +5732,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }, 3000)
                 } else alert('Чат не открыт, так как есть активный чат на операторе!')
             }
+        } // конец обработчика нажатия кнопки Начать чат с пользователем   
+
+		document.getElementById('opencmtbar').onclick = () => { //обработчик функции начала чата с пользователем
+			if (document.getElementById('comentsbar').style.display = 'none')
+			document.getElementById('comentsbar').style.display = ''
+			else document.getElementById('comentsbar').style.display = 'none'
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
@@ -8260,6 +8286,9 @@ async function findchatsoper() { // ищет активные чаты на вы
 
     if (document.getElementById('bottommenuchhis').style.display == '')
         document.getElementById('bottommenuchhis').style.display = 'none';
+    
+	if (document.getElementById('comentsbar').style.display == '')
+        document.getElementById('comentsbar').style.display = 'none';
 
 
     document.getElementById('infofield').innerHTML = 'Загрузка'
