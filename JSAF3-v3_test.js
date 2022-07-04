@@ -5740,6 +5740,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('comentsbar').style.display = 'none';
 			else 
 				document.getElementById('comentsbar').style.display = '';
+			
+			document.getElementById('hidecmtfield').onclick = function() {
+				document.getElementById('comentsbar').style.display = 'none';
+			}
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
