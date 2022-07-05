@@ -6220,7 +6220,6 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('billingsrvdskoptions').style.display = 'none';
             document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
-
             //Начало окрашивания кнопок и добавление закрашивания при переключении
 
             document.getElementById('create_24').onclick = function () {
