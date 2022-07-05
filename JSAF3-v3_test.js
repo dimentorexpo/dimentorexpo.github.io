@@ -3080,17 +3080,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 	document.getElementById('setreminder1').onclick = function () {  // выставляем будильник
         document.getElementById('reminderstatus').textContent = "🔔";
-        localStorage.setItem('setchas1', setchas.value);
+        localStorage.setItem('setchas1', setchas1.value);
         if (setminuta1.value == "00") {
             setminuta1.value = 0;
         }
-        localStorage.setItem('setminuta1', setminuta.value);
+        localStorage.setItem('setminuta1', setminuta1.value);
         var timearr1 = new Date()
         var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
         localStorage.setItem('chronostamp1', chronostamp1);
         //		setchas.value = "";
         //		setminuta.value = "";
-        alert("Будильник установлен на" + setchas1.value + ":" + setminuta1.value + ":" + "00");
+        alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
         abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
     }
 	
