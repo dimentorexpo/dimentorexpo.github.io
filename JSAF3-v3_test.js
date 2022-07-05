@@ -1081,6 +1081,7 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
                     <button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
+                    <button class="sdbtn" id="optionAcademymobbugs" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
                     <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px;">🛠Infra</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
@@ -1284,7 +1285,20 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="mobbugsbtn" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
 					<button class="mobbugsbtn" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
 					<button class="mobbugsbtn" id="skyteachmob">Teachers МП</button>
+				</div>	
+				
+				<div id="academymobbugsoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#academic-mobile-bugs; Канал обработки обращений по МП Skyeng связанных с обучением.</p>
+					<button class="academymobbugsbtn" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
+					<button class="academymobbugsbtn" id="academmobsituations">МП Skyeng: Ситуации</button>
+					<button class="academymobbugsbtn" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
+					<button class="academymobbugsbtn" id="academmobselfstudy">МП Skyeng: Self Study</button>
+					<button class="academymobbugsbtn" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
+					<button class="academymobbugsbtn" id="academmobvocabular">МП Skyeng: Словарь</button>
+					<button class="academymobbugsbtn" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
+					<button class="academymobbugsbtn" id="academmobhomeworks">МП Skyeng: Домашки</button>
 				</div>
+				
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
                 <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
                 <button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница</button>
@@ -1596,6 +1610,35 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
+				
+				<div id="academymobileform" style="display: none; margin-left:20px;">
+						<select style="height:28px;" id="academyprioritymbugs">
+							<option selected disabled="">Приоритет</option>
+							<option value="1">Blocker</option>
+							<option value="2">Critical</option>
+							<option value="10100">High</option>
+							<option value="3">Major</option>
+							<option value="4">Minor</option>
+							<option value="5">Trivial</option>
+					   </select>
+					   <br>
+					<input id="customfield_118" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
+					<br>
+                    <textarea id="customfield_119" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+                    <textarea id="customfield_120" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_121" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_122" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_123" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
+					<br>
+					<textarea id="customfield_124" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
+					<br>
+					<button id="create_24" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
 				<div id="infraform" style="display: none; margin-left:20px;">
 					<input id="customfield_114" placeholder="ID в системе Auth"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -4742,6 +4785,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4769,6 +4813,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4796,6 +4841,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4823,6 +4869,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4850,6 +4897,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4877,6 +4925,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4904,6 +4953,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4931,6 +4981,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4958,6 +5009,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4985,6 +5037,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5012,6 +5065,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5039,6 +5093,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5066,6 +5121,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5093,6 +5149,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5120,6 +5177,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5147,6 +5205,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5174,6 +5233,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5201,6 +5261,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5228,6 +5289,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5255,6 +5317,35 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            }); 
+
+			$('.academymobbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5282,6 +5373,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');				
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5309,6 +5401,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');				
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5337,6 +5430,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
