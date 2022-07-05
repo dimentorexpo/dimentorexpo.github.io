@@ -553,6 +553,28 @@ var win_suggest =  // описание элементов окна предло�
         </span>
 </div>`;
 
+var win_refuse =  // описание элементов окна отказа от помощи
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 409px;" id="sug_form_main">
+                            <button title="скрывает меню" id="hideMeRefuseForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
+							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestionsrefuseform" style="width:24px;">🗑</button>
+                        </div>
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_box">
+                            <input id="linktochatrefuse" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<br>
+							<textarea id="textrefuseform" placeholder="C какой проблемой обратился клиент? (Пример: Не работает микрофон у ученика, не работает микрофон у преподавателя). Указывайте, что именно у кого не работает. Если конкретно не известно, можно указывать "не работает связь на уроке со стороны У" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
+							<br>
+							<textarea id="textrefuseformsolution" placeholder="Как решилось? ( Здесь указываем, уточняем, как решился запрос). Пример: перешли на альтернативную связь в Zoom/Skype, подключились на урок с телефона (были проблемы на пк), удалили антивирус и т.д" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
+							<br>
+						</div>
+		</span> 
+
+        </span>
+</div>`;
+
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -1664,6 +1686,11 @@ if (localStorage.getItem('winTopSugest') == null) { //начальное пол�
     localStorage.setItem('winLeftSugest', '295');
 }
 
+if (localStorage.getItem('winTopRefuse') == null) { //начальное положение окна Отказ от помощи
+    localStorage.setItem('winTopRefuse', '295');
+    localStorage.setItem('winLeftRefuse', '295');
+}
+
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
@@ -2312,6 +2339,13 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
+let wintRefuseForm = document.createElement('div'); // создание окна ссылок
+document.body.append(wintSugform);
+wintSugform.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuse') + 'px; left: ' + localStorage.getItem('winLeftRefuse') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseForm.style.display = 'none';
+wintRefuseForm.setAttribute('id', 'AF_Refuseform');
+wintRefuseForm.innerHTML = win_refuse;
+
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -2487,6 +2521,20 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
     document.addEventListener('mousemove', listener15);
 }
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
+
+var listener16 = function (e, a) { // сохранение позиции окна доступов
+    wintRefuseForm.style.left = Number(e.clientX - myX16) + "px";
+    wintRefuseForm.style.top = Number(e.clientY - myY16) + "px";
+    localStorage.setItem('winTopRefuse', String(Number(e.clientY - myY16)));
+    localStorage.setItem('winLeftRefuse', String(Number(e.clientX - myX16)));
+};
+
+wintRefuseForm.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX16 = a.layerX;
+    window.myY16 = a.layerY;
+    document.addEventListener('mousemove', listener16);
+}
+wintRefuseForm.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -4605,6 +4653,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
+    }   
+
+	document.getElementById('hideMeRefuseForm').onclick = () => { //форма hide
+        if (document.getElementById('AF_Refuseform').style.display == '')
+            document.getElementById('AF_Refuseform').style.display = 'none'
     }
 
     document.getElementById('hideMeChHis').onclick = () => { //форма hide
@@ -5991,6 +6044,115 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
+
+            let topiclisttgcls = document.getElementsByName('topicofsuggest')
+
+            for (let i = 0; i < topiclisttgcls.length; i++) {
+                topiclisttgcls[i].onclick = () => {
+                    if (topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое') {
+
+                        document.getElementById('otheroptionchecked').classList.remove('otherfieldoff')
+                        document.getElementById('otheroptionchecked').classList.add('otherfieldon')
+                        document.getElementById('otheroptionchecked').removeAttribute('disabled')
+
+                    } else {
+                        document.getElementById('otheroptionchecked').classList.add('otherfieldoff')
+                        document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
+                        document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
+                    }
+                }
+            }
+
+
+            document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
+
+            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+
+            document.getElementById('refreshchathash').onclick = () => {
+                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                    document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+            }
+
+            document.getElementById('getdocsuggestions').onclick = () => {
+                window.open("https://docs.google.com/spreadsheets/d/1bTR1BBwo57H1IOblb4Xkg9irf6jw0QNGzQOgrm_wr-c/edit#gid=706470682")
+            }
+
+            document.getElementById('sendtosuggestdoc').onclick = () => {
+
+                let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
+                let chatlink = document.getElementById('linktochatsuggest').value
+                let topiclist = document.getElementsByName('topicofsuggest')
+                let checkedtopic;
+                let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
+
+                for (let i = 0; i < topiclist.length; i++) {
+                    if (topiclist[i].checked && topiclist[i].value != 'Другое') {
+                        checkedtopic = encodeURIComponent(topiclist[i].value);
+                        let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest
+
+                        let options1 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body1,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options1)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        console.log('Выбрана тема из предложенных')
+                        sendComment('https://skr.sh/sEHecwURANZ')
+                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+                        setTimeout(() => {
+                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+                        }, 3000)
+                    } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
+                        checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
+
+                        let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' + '&entry.1869164503=' + opnamevar + '&entry.2046808006=' + textsuggest
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        console.log('Выбрана опция Другое')
+                        sendComment('https://skr.sh/sEHecwURANZ')
+                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+                        setTimeout(() => {
+                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+                        }, 3000)
+                    }
+
+                }
+
+                document.getElementById('linktochatsuggest').value = ''
+                document.getElementById('otheroptionchecked').value = ''
+                document.getElementById('textsuggest').value = ''
+
+            }
+        }
+    }   
+
+	document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
+        if (document.getElementById('AF_refuseform').style.display == '')
+            document.getElementById('AF_refuseform').style.display = 'none'
+        else {
+            document.getElementById('AF_refuseform').style.display = ''
 
             let topiclisttgcls = document.getElementsByName('topicofsuggest')
 
