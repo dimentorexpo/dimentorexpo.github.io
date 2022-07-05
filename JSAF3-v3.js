@@ -416,12 +416,19 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 			<div style="border: 2px double black; display: none; background-color: #464451" id="reminder_bar">
 				<div style="margin: 5px; width: 350px">
+					<label style="color:bisque">__Будильник №1</label> <label style="color:bisque">........................... Будильник №2__</label>
+				<br>
 					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 					<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
+
+					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas1" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+					<button title="Запуск будильника при устаноовленном времени" id="setreminder1" style="margin-top: 5px">SET🔔</button>
 				<br>
-					<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px">01 : 23 : 40</button>
+					<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
 					<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
+					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
@@ -2692,6 +2699,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
+    setInterval(clock_on_javascript_3, 1000);
 
     function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
         var data = new Date();
@@ -2737,7 +2745,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника
+    function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -2767,6 +2775,39 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         } else {
             time = "00" + " : " + "00" + " : " + "00";
             document.getElementById("clock_remin").innerHTML = time;
+        }
+    } 
+
+	function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
+        var data1 = new Date();
+        hours1 = data1.getHours();
+        if (hours1 < 10) { hours1 = "0" + hours1; }
+        minutes1 = data1.getMinutes();
+        if (minutes1 < 10) { minutes1 = "0" + minutes1; }
+        seconds1 = data1.getSeconds();
+        if (seconds1 < 10) { seconds1 = "0" + seconds1; }
+        var summin1 = JSON.parse(localStorage.getItem('setminuta1')) + 60;
+        if (localStorage.getItem('chronostamp1') === null) {
+            time1 = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) == 0) && ((localStorage.getItem('setminuta1') > minutes1))) {
+            time1 = "00" + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) > 1) && ((localStorage.getItem('setminuta1') - minutes1) == 0)) {
+            time1 = (localStorage.getItem('setchas1') - hours1) + " : " + "00" + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) >= 1) && localStorage.getItem('setminuta1') < minutes1) {
+            time1 = ((localStorage.getItem('setchas1') - hours1) - 1) + " : " + (summin1 - minutes1) + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) > 0) && localStorage.getItem('setminuta1') > minutes1) {
+            time1 = localStorage.getItem('setchas1') - hours1 + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) == 1) && (localStorage.getItem('setminuta1') - minutes1) == 0) {
+            time1 = localStorage.getItem('setchas1') - hours1 + " : " + "00" + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else {
+            time1 = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin1").innerHTML = time1;
         }
     }
 
@@ -3016,6 +3057,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     var abortTimeOut = ''								// перменная для отмены будильника
+    var abortTimeOut1 = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
     }
@@ -3034,8 +3076,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         //		setminuta.value = "";
         alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
         abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+    }   
+
+	document.getElementById('setreminder1').onclick = function () {  // выставляем будильник
+        document.getElementById('reminderstatus').textContent = "🔔";
+        localStorage.setItem('setchas1', setchas1.value);
+        if (setminuta1.value == "00") {
+            setminuta1.value = 0;
+        }
+        localStorage.setItem('setminuta1', setminuta1.value);
+        var timearr1 = new Date()
+        var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp1', chronostamp1);
+        //		setchas.value = "";
+        //		setminuta.value = "";
+        alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
+        abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
     }
-    function refreshTimerReminder() {
+	
+    function refreshTimerReminder() { // обновляет оставшееся время будильника №1
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             document.getElementById('reminderstatus').textContent = "🔔";
             setchas.value = localStorage.getItem('setchas');
@@ -3044,9 +3103,28 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
             abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
-        } else {
+        } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
             clearTimeout(abortTimeOut);
             document.getElementById('reminderstatus').textContent = "🔕";
+        } else if (localStorage.getItem('chronostamp1') !== null) {
+            document.getElementById('reminderstatus').textContent = "🔔";
+        }
+    }
+	
+	function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
+        if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+            document.getElementById('reminderstatus').textContent = "🔔";
+            setchas1.value = localStorage.getItem('setchas1');
+            setminuta1.value = localStorage.getItem('setminuta1');
+            var timearr1 = new Date()
+            var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+            localStorage.setItem('chronostamp22', chronostamp22);
+            abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp22'));
+        } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
+            clearTimeout(abortTimeOut1);
+            document.getElementById('reminderstatus').textContent = "🔕";
+        } else if (localStorage.getItem('chronostamp') !== null) {
+            document.getElementById('reminderstatus').textContent = "🔔";
         }
     }
 
@@ -3060,11 +3138,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             alert("Будильник удален")
             document.getElementById('reminderstatus').textContent = "🔕";
         }
+    }    
+	
+	document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника
+        if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+            clearTimeout(abortTimeOut1)
+            localStorage.removeItem('chronostamp1')
+            localStorage.removeItem('chronostamp22')
+            setchas1.value = ""
+            setminuta1.value = ""
+            alert("Будильник удален")
+            // document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
+        }
     }
 
-    refreshTimerReminder();
+    refreshTimerReminder(); //обновляет оставшееся время до будильника №1
+	refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
-    function setRemindAf() { //функция установки будильника
+    function setRemindAf() { //функция  при наступлении времени перевода в статус занят Будильник №1
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
                 "accept": "*/*",
@@ -3083,10 +3174,53 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "credentials": "include"
         });
         alert("Время ставить занят! :D");
-        document.getElementById('reminderstatus').textContent = "🔕";
-        localStorage.removeItem('chronostamp');
+		localStorage.removeItem('chronostamp');
+		
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
+            document.getElementById('reminderstatus').textContent = "🔕"; 
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+
         setchas.value = "";
         setminuta.value = "";
+    }   
+
+	function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
+        fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+            "headers": {
+                "accept": "*/*",
+                "cache-control": "max-age=0",
+                "content-type": "application/json",
+                "sec-ch-ua-mobile": "?0",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        alert("Время ставить занят! :D");
+        localStorage.removeItem('chronostamp1');
+		
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
+            document.getElementById('reminderstatus').textContent = "🔕"; 
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+
+        setchas1.value = "";
+        setminuta1.value = "";
     }
 
     document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
