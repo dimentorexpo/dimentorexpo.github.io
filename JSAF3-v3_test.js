@@ -416,7 +416,7 @@ var win_AFhelper =  // описание элементов главного ок
 		</div>
 			<div style="border: 2px double black; display: none; background-color: #464451" id="reminder_bar">
 				<div style="margin: 5px; width: 350px">
-					<label style="color:bisque">__Будильник №1</label> <label style="color:bisque">...........................Будильник №2__</label>
+					<label style="color:bisque">__Будильник №1</label> <label style="color:bisque">........................... Будильник №2__</label>
 				<br>
 					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
@@ -3103,9 +3103,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
             abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
-        } else {
+        } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
             clearTimeout(abortTimeOut);
             document.getElementById('reminderstatus').textContent = "🔕";
+        } else if (localStorage.getItem('chronostamp1') !== null) {
+            document.getElementById('reminderstatus').textContent = "🔔";
         }
     }
 	
@@ -3118,9 +3120,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
             localStorage.setItem('chronostamp22', chronostamp22);
             abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp22'));
-        } else {
+        } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
             clearTimeout(abortTimeOut1);
             document.getElementById('reminderstatus').textContent = "🔕";
+        } else if (localStorage.getItem('chronostamp') !== null) {
+            document.getElementById('reminderstatus').textContent = "🔔";
         }
     }
 
@@ -3170,8 +3174,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "credentials": "include"
         });
         alert("Время ставить занят! :D");
-        document.getElementById('reminderstatus').textContent = "🔕";
-        localStorage.removeItem('chronostamp');
+		localStorage.removeItem('chronostamp');
+		
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) {
+            document.getElementById('reminderstatus').textContent = "🔕"; 
+		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+
         setchas.value = "";
         setminuta.value = "";
     }   
@@ -3195,8 +3208,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "credentials": "include"
         });
         alert("Время ставить занят! :D");
-        document.getElementById('reminderstatus').textContent = "🔕";
         localStorage.removeItem('chronostamp1');
+		
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) {
+            document.getElementById('reminderstatus').textContent = "🔕"; 
+		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+
         setchas1.value = "";
         setminuta1.value = "";
     }
