@@ -300,6 +300,11 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
+		#refuseform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
 		#butChatHistory:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -2102,6 +2107,11 @@ let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
 butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butrefuseform = document.createElement('div')
+butrefuseform.id = "refuseform"
+butrefuseform.innerHTML = "❌Отказ от помощи"
+butrefuseform.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -12360,7 +12370,8 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
+            btnAdd1.insertBefore(butrefuseform, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
 
