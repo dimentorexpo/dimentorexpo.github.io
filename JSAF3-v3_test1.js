@@ -7,6 +7,7 @@ let flagsearch;
 let operchatsdata;
 let werechats = false;
 let chatisopen = "";
+let isChatOnOperator = false;
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -30,7 +31,6 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
-
 	.activebtn {
 		background-color: #1e90ff;
 	}
@@ -51,11 +51,9 @@ function mystyles() {
     .sdexpecactual {
         width: 420px;
     }
-
 	.selchatact {
 		border-left: 6px solid DeepSkyBlue;
 	}
-
 		.checkbox-audio {
 			display: inline-block;
 			height: 28px;
@@ -91,7 +89,6 @@ function mystyles() {
 			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 			transition: .15s;
 		}
-
 		.checkbox-audio input[type=checkbox] {
 			display: block;
 			width: 0;
@@ -110,11 +107,9 @@ function mystyles() {
 			content: '🔊';
 			transform:translateX(28px);
 		}
-
 		#buttonOpenForm {
 			height:50px;
 		}
-
 		.question-event {
 			background:#1890FF26;
 			min-width:280px;
@@ -124,7 +119,6 @@ function mystyles() {
 			padding: 5px 5px;
 			float:left;
 		}
-
 		.question-event-name {
 			color:#00BFFF;
 			font-weight:700;
@@ -133,20 +127,17 @@ function mystyles() {
 			margin-right:5px;
 			padding-left:5px;
 		}
-
 		.question-event-date {
 			color: #C0C0C0;
 			float: right;
 			max-width: 333px;
 			font-size: 12px;
 		}
-
 		.question-event-text {
 			color:white;
 			word-wrap: break-word;
 			padding-left:5px;
 		}
-
 		.event-container  {
 			float: left;
 			color: white;
@@ -154,7 +145,6 @@ function mystyles() {
 			width: 380px;
 			font-size: 12px;
 		}
-
 		.event-name {
 			float: left;
 			color: white;
@@ -162,16 +152,13 @@ function mystyles() {
 			width: 380px;
 			font-size: 12px;
 		}
-
 		.event-date {
 			float:right;
 		}
-
 		.event-other-date {
 			float:right;
 			font-size:12px;
 		}
-
 		.answer-bot-container {
 			background: #52C41A26;
 			min-width: 280px;
@@ -181,7 +168,6 @@ function mystyles() {
 			margin-right: 15px;
 			padding: 5px 5px;
 		}
-
 		.answer-bot-name {
 			color:#9ACD32;
 			float:left;
@@ -190,14 +176,12 @@ function mystyles() {
 			margin-right:5px;
 			padding-left:5px;
 		}
-
 		.answer-bot-date {
 			font-size:12px;
 			color:#C0C0C0;
 			float:right;
 			max-width:400px;
 		}
-
 		.answer-oper-container {
 			background: #FADA5E26;
 			min-width: 280px;
@@ -207,14 +191,12 @@ function mystyles() {
 			margin-right: 15px;
 			padding: 5px 5px;
 		}
-
 		.answer-oper-name {
 			color:bisque;
 			float:left;
 			font-size:12px;
 			padding-left:5px;
 		}
-
 		.oper-comment-container {
 			background:#80808054;
 			width:355px;
@@ -223,96 +205,76 @@ function mystyles() {
 			margin-left: 10px;
 			padding: 5px 5px;
 		}
-
 		.oper-comment-name {
 			color:#C0C0C0;
 			float:left;
 			font-size:12px;"
 		}
-
 		.oper-comment-operator {
 			color:#66CDAA;
 			float:left;
 			font-size:12px;
 		}
-
 		.event-name.light {
 			color: #999999 !important;
 		}
-
 		.question-event-text.light {
 			color: #000 !important;
 		}
-
 		.question-event-name.light {
 			color: #23609E !important;
 		}
-
 		.event-container.light {
 			color: #999999 !important;
 		}
-
 		.oper-comment-container.light {
 			background: #80808026 !important;
 		}
-
 		.oper-comment-name.light {
 			color: #808080 !important;
 		}
-
 		.oper-comment-operator.light {
 			color: #2a8ed9 !important;
 		}
-
 		.question-event-date.light {
 			color: #999999 !important;
 		}
-
 		.answer-bot-date.light {
 			color: #999999 !important;
 		}
-
 		.answer-oper-name.light {
 			color: #b8860b  !important;
 		}
-
 		.answer-bot-name.light {
 			color: #388C11 !important;
 		}
-
 		.chatlist.light {
 			color:#000 !important;
 		}
-
 		.copyserviceid {
 			margin-left: 5px;
 			cursor: pointer;
 		}
-
 		.underline-service {
 			width:260px; border: 1px dotted #ff0000;
 			border-style: none none dotted;
 			color: #fff;
 			background-color: #fff;
 		}
-
 		.img-chat-history {
 			width:160px;
 			transition: all 0.5s ease-out;
 		}
-
 		.img-chat-history:hover {
 			transform: scale(1.5);
 			width: 300px;
 			margin-left: 50px;
 			z-index: 9999;
 		}
-
 		.cursor-userinfobtns {
 			cursor:pointer;
 			font-weight:700;
 		}
-
 		#servDsk:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -328,38 +290,32 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-
 		#butMarks:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
 		}
-
 		#suggestform:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
 		}
-
 		#butChatHistory:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
 		}
-
 		.sugops {
 		margin-left:5px;
 		color:bisque;
 		font-size: 16px;
 		transition: all 0.5s ease;
 		}
-
 		.sugops:hover {
 			font-size:18px;
 			color: SteelBlue;
 			font-weight: 600;
 		}
-
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
@@ -368,7 +324,6 @@ function mystyles() {
 			background:lightgrey;
 			cursor:wait;
 		}
-
 		.otherfieldon{
 			text-align: center;
 			width: 400px;
@@ -377,18 +332,15 @@ function mystyles() {
 			background:white;
 			cursor:text;
 		}
-
 	.radio {
 		width:15px;
 		height:15px;
 		transition: all 0.5s ease;
 	}
-
 	.radio:hover {
 		transform: scale(1.5);
 		font-weight: 600;
 	}
-
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -441,7 +393,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
-
 				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
 				</div>
 			</span>
@@ -458,7 +409,6 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px; width: 350px">
 			</div>
 		</div>
-
 			<div style="border: 2px double black; display: none; background-color: #464451" id="reminder_bar">
 				<div style="margin: 5px; width: 350px">
 					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
@@ -469,23 +419,18 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
-
-
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
 				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button>
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
-
 				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
 					<input id="audioswitcher" type="checkbox" checked="">
 						<span class="checkbox-audio-switch"></span>
 				</label>
-
 				<br>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
-
 					<br>
 				<span style="color:bisque">Таймер автозакрытия:</span>
 				<input title="Ввод числа для автозакрытия, при этом от этого числа будет отнято 2 минуты чтобы чат закрасился в фиолетовый цвет, то есть при значении по-умолчанию 12 на 10 минуте чат зальется фиолетовым цветом оповещая, что скоро будет закрыт" id="autoclosetime" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="2" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;">
@@ -498,9 +443,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>
 			</div>
-
 		</div>
-
 	</span>
 </div>`;
 
@@ -597,7 +540,6 @@ var win_suggest =  // описание элементов окна предло�
 							<br>
 						</div>
 		</span>
-
 						<div>
                             <textarea id="textsuggest" placeholder="Текст предложения" title="Вводим текст предложения" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
 							<br>
@@ -680,7 +622,6 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="idteacheradult" placeholder="ID П Adults 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>
-
 				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
@@ -711,7 +652,6 @@ var win_Chathis =  // описание элементов окна Истори�
 					 <input id="hashchathis" placeholder="Хеш чата" title="" autocomplete="off" type="text" style="text-align: center; width: 130px; color: black; margin-top: 5px">
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:22px;padding:0;">🔎</button>
 				</div>
-
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
 					<button id="refreshchat" style="width:50px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
@@ -720,39 +660,47 @@ var win_Chathis =  // описание элементов окна Истори�
 					<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:115px; text-align:center; " name="EndDataChHis" id="dateToChHis">
 					<button style="width:30px;" id="chagetheme" title="Переключается светлую тему ☀ и темную🌛 вывода чата с пользователем">🌛</button>
 				</div>
-
 			</span>
-
+			
 				<div style="width: 410px;display:none" id="somechatinfo">
 					<span id="usidchat" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует сам айдишник">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="startchat" style="margin-left:10px;" title="Начать новый чат с пользователем">💬</button>
-					<button id="takechat" style="margin-left: 147px; margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
+					<button id="opencmtbar" style="margin-left:5px;" title="Открыть инструмент добавления комментария к чату (для тех у кого внизу в самом модуле не отображается это поле)">🚧</button>
+					<button id="takechat" style="margin-left: 117px; margin-top:5px;" title="Забирает чат и назначает на вас,но некоторые чаты или у других коллег забраться не получится">Забрать</button>
 					<br>
 					<span id="chid" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
-
+				
+			<div id="comentsbar" style="width: 410px; height:55px; position:fixed; top:50vh; right:40vh; background: rgb(70, 68, 81); display:none">
+						<textarea id="msgftochatornotes1" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
+						<button id="sendmsgtochatornotes1" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
+						<input class="radio" type="radio" name="chatornotes1" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
+						<input class="radio" type="radio" name="chatornotes1" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
+						<button id="hidecmtfield" title="скрывает эту менюшку небольшую" style="position:fixed;right:40vh; top:53vh; height:24px; width:25px; padding:0;">&gt;</button>
+			</div>
+				
 			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow-x:hidden;">
 			</div>
-
-			<div id="bottommenuchhis" style="width: 410px;display:none;">
-				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
+			
+			<div id="bottommenuchhis" style="width: 410px; position:absolute; display:none;">
+				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 2px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
 			</div>
-
+			
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
-				<div id="datainfoheader">
-				<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
-				<button id="gotocrm" style="width:50px;">CRM</button>
-				</div>
-
+			
+						<div id="datainfoheader">
+							<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
+							<button id="gotocrmhis" style="width:50px;">CRM</button>
+						</div>
+						
 					<div id="datafield" style="margin-top:5px;text-align:center; font-size:16px;">
 					</div>
-
+					
 			</div>
-
 	</span>
 </div>`;
 
@@ -766,7 +714,6 @@ var win_Jira =  // описание элементов окна Поиска п�
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
                         </div>
-
                 </span>
         </span>
 </div>`;
@@ -778,16 +725,12 @@ var win_Marks =  // описание элементов окна оценок о
                         <div style="margin: 5px; width: 300px;" id="jira_1str">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
                         </div>
-
 						<div>
 							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
 							<button id="findmarksstat">🔎</button>
 							<button id="clearmarksstat">🧹</button>
 						</div>
-
-
 			    </span>
-
                         <div style="margin: 5px; width: 550px" id="marks_box">
                                 <p id="markstable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
                         </div>
@@ -805,12 +748,10 @@ var win_Stat =  // описание элементов окна Статисти
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndData" id="dateTo"</span>
                         </div>
-
 						<div>
 							<input id="commenttosearch" placeholder="Слово или фраза для поиска среди закрытых чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
 						</div>
 						</span>
-
 						<div style="display:flex; justify-content:space-evenly; margin-top:5px;">
 							 <button title="Получает статистику, считает среднюю оценку всех чатов за период, и отображает чаты без тематики" id="getstatfromperiod">Получить статистику</button>
 							 <button title="Получает чаты с ксат <4 и выводит их в поле для просмотра и аппеляции" id="getlowcsat">Чаты с КСАТ<4</button>
@@ -964,20 +905,16 @@ var win_GrList =  // описание элементов окна Списка �
                         <div style="margin: 5px; width: 400;" id="grlistdata">
                                 <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
                         </div>
-
 						<div>
                         <input id="idgrouptolist" placeholder="ID группы" title="Введите ID группы для получения списка учеников" autocomplete="off" type="text" style="text-align: center; width: 80px; color: black;margin-left:5px; position:relative; left:30%;">
 							<button title="Запуск получения списка учеников группы" id="getidgrouptolist" style="position:relative; left:30%;">Get info</button>
 						</div>
-
 				</span>
-
 						<div id="grlstdiv">
 							 <br>
 							 <p id="grlistinfo" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 						</div>
-
         </span>
 </div>`;
 
@@ -993,7 +930,6 @@ var win_serviceinfo =  // описание элементов окна инфо�
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 5px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
                         </div>
-
 						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field">
 						<input id="idstudent" placeholder="ID У/П" title="Введите ID ученика для получения информации по услугам" oninput="onlyNumber(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
 				       	<button title="запускает поиск по услугам" id="getidstudent" class="usinfoops">🚀</button>
@@ -1005,7 +941,6 @@ var win_serviceinfo =  // описание элементов окна инфо�
 						<button title="Просмотр прошедших и предстоящих уроков" id="getpastandfuturelessons" class="usinfoops">📆</button>
 				       	<button title="очищает все поля" id="clearservinfo" class="usinfoops">🧹</button>
 				       	</div>
-
 						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field2">
 						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" class="usinfoops">📱</button>
@@ -1016,15 +951,11 @@ var win_serviceinfo =  // описание элементов окна инфо�
 						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" class="usinfoops">🎓</button>
 						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" class="usinfoops">💻</button>
 						</div>
-
-
 					   </span>
-
                         <div style="width: 320px;" id="servicebody">
 						<img id="useravatar" style="position: absolute; left: 1px; top: 120px; width: 55px; height: 60px; border-radius: 30px; display:none;">
                                 <p id="servicetable" style="max-height:400px; overflow:auto; color:bisque; text-align:center"></p>
                         </div>
-
         </span>
 </div>`;
 
@@ -1035,24 +966,19 @@ var win_LessonStatus =  // описание элементов окна стат
                         <div style="margin: 5px; width: 550;" id="lessomstatdata">
                                 <button id="hideMeLessonStatus" style="width:50px; background: #228B22;">hide</button>
                         </div>
-
 						 <div style="margin: 5px; width: 550px" id="databox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataLS" id="dateFromLS"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataLS" id="dateToLS"</span>
                         </div>
-
 						<div>
 							<input id="idteacherforsearch" placeholder="Teacher ID" title="Введите ID учителя, чтобы проверить информацию по урокам" autocomplete="off" type="text" style="position:relative; left:33%; text-align: center; width: 100px; color: black;margin-left:5px"">
 							<input id="idstudentforsearch" placeholder="Student ID" title="Введите ID ученика, чтобы отфильтровать поиск" autocomplete="off" type="text" style="position:relative; left:32%; text-align: center; width: 100px; color: black;margin-left:5px"">
 						</div>
-
 						<div style="position:relative; left:30%; margin-top:5px; margin-bottom:5px;">
 							 <button title="Запускает процесс поиска информации по статусам урока (отменен, перенесен, удален)" id="startlookstatus">Получить инфо об уроках</button>
 							 <button title="Очищает поле от полученной инфы" id="clearlessonstatus">Очистить</button>
 					    </div>
-
 				</span>
-
 						<div>
 							<p id="statustable" style="margin-top:5px; max-height:400px; overflow:auto; display:none; color:bisque; text-align:center"></p>
 						</div>
@@ -1066,7 +992,6 @@ var win_Timetable = // описание элементов окна предст
                 <div style="margin: 5px; width: 450;" id="HeadTimetable">
                         <button id="hideMeTT" style="width:50px; background: #228B22;">hide</button>
                 </div>
-
                 <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
                      <button title="Выводит инфо о прошедших уроках" id="getlessonpast">Прошедшие уроки</button>
                      <button title="Выводит инфо о предстоящих уроках" id="getlessonfuture">Предстоящие уроки</button>
@@ -1106,7 +1031,6 @@ var win_servicedesk = // описание элементов окна Service De
 						<span style="color:cyan">Last task</span>
 						<button id="newtask" style="width: 80px" title="Последняя задача"></button>
                 </div>
-
                 <div id="servicedeskinfo" style="margin-left:20px;">
                     <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">👽Teacher</button>
                     <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">🧮CRM2</button>
@@ -1132,7 +1056,6 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
                     <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px;">🛠Infra</button>
                 </div>
-
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
 					<button class="stcabmbsbtn" id="mpskyengmainsrv">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
@@ -1145,12 +1068,10 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="stcabmbsbtn" id="mpskysmartparents">МП Skysmart Parents</button>
 					<button class="stcabmbsbtn" id="mpunderground">Подземный стук</button>
 				</div>
-
 				<div id="infraoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">Здесь можно получить помощь от команды Инфраструктуры</p>
 					<button class="infrabtn" id="askfordelacc">Запрос на удаление перс. данных</button>
 				</div>
-
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#teachers-qa-support; канал по вопросам ЛКП, ТРМ</p>
 					<button class="teacbtn" id="teacherstatistic">Статистика</button>
@@ -1169,7 +1090,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="teacbtn" id="teacherTRMquestions">Вопросы по ТРМ</button>
 					<button class="teacbtn" id="teacherunderground">Подземный стук</button>
 				</div>
-
 				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
 					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
@@ -1186,7 +1106,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="crm2sbtn" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
 					<button class="crm2sbtn" id="crm2changestk">Смена STK услуги</button>
 				</div>
-
 				<div id="authsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#auth; Обсуждение общих вопросов по проектам Auth/ID (авторизация, роли и доступы, данные пользователей и т. д.)</p>
 					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
@@ -1198,7 +1117,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
 					<button class="authbtn" id="authunderground">Подземный стук</button>
 				</div>
-
 				<div id="schedulesrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#schedule-qa-support; Канал по вопросам расписания ученика, ТТ, автоподбора и ручного подбора</p>
 					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
@@ -1212,7 +1130,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
 					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
 				</div>
-
 				<div id="c1srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#c1-support; Поддержка витрины оплаты (Не виджет оплаты в pcs), Onboarding (Kids&Adult), Scoring, AutoIntroLesson (АвтоВУ)</p>
 					<button class="c1sbtn" id="c1verstka">Проблемы с версткой</button>
@@ -1220,7 +1137,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="c1sbtn" id="c1redirects">Циклические редиректы</button>
 					<button class="c1sbtn" id="c1underground">Подземный стук</button>
 				</div>
-
 				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#telephony-support; Канал для поддержки внутренней телефонии</p>
 					<button class="telepbtn" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
@@ -1260,7 +1176,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="billbtn" id="billbusanalys">Бизнес-анализ</button>
 					<button class="billbtn" id="billtechconv">Техническое обсуждение</button>
 				</div>
-
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
 					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
@@ -1275,7 +1190,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="edumodbtn" id="skysmartprogress">Страница прогресса</button>
 					<button class="edumodbtn" id="skysmartfeedback">Обратная связь</button>
 				</div>
-
 				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
 					<button class="mrktbtn" id="mrktsubscribptions">Подписки</button>
@@ -1290,7 +1204,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="mrktbtn" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
 					<button class="mrktbtn" id="mrktunderground">Подземный стук</button>
 				</div>
-
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-bugs; Проблемы со взрослой платформой vimbox</p>
 					<button class="vimbugsbtn" id="adultselfstudy">Adults Self-Study</button>
@@ -1302,7 +1215,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="vimbugsbtn" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
 					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 				</div>
-
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-video-call; Разработка модуля видеосвязи</p>
 					<button class="vimvidsbtn" id="vimvidqa">Обращение для QA</button>
@@ -1311,22 +1223,18 @@ var win_servicedesk = // описание элементов окна Service De
                 <p style="color:bisque; font-size:18px; position:relative; top:7px; left:10px;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
                 <button class="chatqabtn" id="chatqa">Обращение для QA</button>
                 </div>
-
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
 					<button class="tripwbtn" id="tripwqa">Обращение для QA</button>
 				</div>
-
 				<div id="analystoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#analysts-gm-tl; канал аналитиков teachers продукта</p>
 					<button class="analystbtn" id="analystsqa">Обращение для QA</button>
 				</div>
-
 				<div id="corpoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#corp-support; Канал поддержки по вопросам корпоративных клиентов: ЛККК (не ЛКУ), начислялка, self-study, карточка компании.</p>
 					<button class="corpbtn" id="corpqa">Обращение для QA</button>
 				</div>
-
 				<div id="marketingptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#marketing-qa; (регистрации, детские главные, взрослые главные, лендосы на лпг/тильде)</p>
 					<button class="marketingbtn" id="marketingqa">Обращение для QA</button>
@@ -1335,7 +1243,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
 					<button class="marketprojbugsbtn" id="marketprojbugsqa">Обращение для QA</button>
 				</div>
-
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
 					<button class="mobbugsbtn" id="mobbugsqa">Обращение для QA</button>
@@ -1355,9 +1262,7 @@ var win_servicedesk = // описание элементов окна Service De
                 <button class="studcabbtn" id="studcabshowcase">Страница шоукейса (подключение услуг)</button>
                 <button class="studcabbtn" id="studcabunderground">Подземный стук</button>
                 </div>
-
 	        </span>
-
 				<div id="kidsform" style="display: none; margin-left:20px;">
 					<input id="customfield_1" placeholder="ID Пользователей (Id П, Id У)" class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1371,7 +1276,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="teachersform" style="display: none; margin-left:20px;">
 					<input id="customfield_6" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1385,7 +1289,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="onboardingform" style="display: none; margin-left:20px;">
 					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1399,7 +1302,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="billqaform" style="display: none; margin-left:20px;">
 					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1413,7 +1315,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_4" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="scheduleform" style="display: none; margin-left:20px;">
 					<input id="customfield_21" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1427,7 +1328,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_5" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="authform" style="display: none; margin-left:20px;">
 					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1441,7 +1341,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="billingform" style="display: none; margin-left:20px;">
 					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1455,7 +1354,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_6" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="telephonyform" style="display: none; margin-left:20px;">
 					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<br>
@@ -1465,7 +1363,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="crm2form" style="display: none; margin-left:20px;">
 					<input id="customfield_40" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1479,7 +1376,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_9" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="mrktform" style="display: none; margin-left:20px;">
 					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
 					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
@@ -1488,7 +1384,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="vimbugsform" style="display: none; margin-left:20px;">
 					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1502,7 +1397,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_11" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="vimvideocallform" style="display: none; margin-left:20px;">
 					<input id="customfield_56" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1516,7 +1410,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_12" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="studcabform" style="display: none; margin-left:20px;">
 					<input id="customfield_61" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1530,7 +1423,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_13" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="chatform" style="display: none; margin-left:20px;">
 					<input id="customfield_66" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1544,7 +1436,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_14" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="tripwireform" style="display: none; margin-left:20px;">
 					<input id="customfield_71" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1558,7 +1449,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_15" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="analystform" style="display: none; margin-left:20px;">
 					<input id="customfield_76" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1572,7 +1462,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_16" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="corpform" style="display: none; margin-left:20px;">
 					<input id="customfield_81" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1586,7 +1475,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_17" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="marketingform" style="display: none; margin-left:20px;">
 					<input id="customfield_86" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1601,7 +1489,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button id="create_18" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="mobileform" style="display: none; margin-left:20px;">
-
 						<select style="height:28px;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
@@ -1611,7 +1498,6 @@ var win_servicedesk = // описание элементов окна Service De
 							<option value="4">Minor</option>
 							<option value="5">Trivial</option>
 					   </select>
-
 					   <br>
 					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1629,7 +1515,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_19" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="edumodelform" style="display: none; margin-left:20px;">
 					<input id="customfield_97" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1643,7 +1528,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_20" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="stcabmbbugsform" style="display: none; margin-left:20px;">
 					<input id="customfield_102" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1661,7 +1545,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_21" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="marketprojbugsform" style="display: none; margin-left:20px;">
 					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines  removefield"></input>
 					<br>
@@ -1675,7 +1558,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-
 				<div id="infraform" style="display: none; margin-left:20px;">
 					<input id="customfield_114" placeholder="ID в системе Auth"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1800,36 +1682,45 @@ if (localStorage.getItem('scriptAdr') == null) {
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
 infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+
 let nextstuduserbut = document.createElement('p');
 nextstuduserbut.id = 'nextStudentIdScript';
 nextstuduserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+
 let nextteachuserbut = document.createElement('p');
 nextteachuserbut.id = 'nextTeacherIdScript';
 nextteachuserbut.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
+
 let buttonhistory = document.createElement('span');
+buttonhistory.id = 'lookForHistory';
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
+
 let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
 buttonserv.innerHTML = " ⚜ ";
 buttonserv.style.width = "20px";
 buttonserv.style.cursor = "pointer";
+
 let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = " ⚜ ";
 buttonservstud.style.width = "20px";
 buttonservstud.style.cursor = "pointer";
+
 let buttonservteach = document.createElement('span');
 buttonservteach.id = 'nextTeacherServiceInfo1';
 buttonservteach.innerHTML = " ⚜ ";
 buttonservteach.style.width = "20px";
 buttonservteach.style.cursor = "pointer";
-buttonhistory.id = 'lookForHistory';
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
+
 let buttonnextstudentid = document.createElement('span');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
 buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+
 let buttonnextteacherid = document.createElement('span');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
 butteachid.innerHTML = "👽 (ID П) П обратился ";
@@ -1837,6 +1728,7 @@ butteachid.style.width = "160px";
 butteachid.style.cursor = "pointer";
 butteachid.style.border = "1px solid black";
 butteachid.style.borderRadius = "10px";
+
 let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
 butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
@@ -1845,6 +1737,7 @@ butstdid.style.cursor = "pointer";
 butstdid.style.marginLeft = "2px";
 butstdid.style.border = "1px solid black";
 butstdid.style.borderRadius = "10px";
+
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
 butteachidfstd.innerHTML = "👽 (ID П) У обратился";
@@ -1853,6 +1746,7 @@ butteachidfstd.style.cursor = "pointer";
 butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
+
 let buttonservid = document.createElement('button');
 buttonservid.id = 'servidstudento';
 buttonservid.innerHTML = "ID услуги У (крит)";
@@ -1862,6 +1756,7 @@ buttonservid.style.marginLeft = "2px";
 buttonservid.style.border = "1px solid black";
 buttonservid.style.borderRadius = "10px";
 buttonservid.style.marginTop = "5px";
+
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
@@ -1884,7 +1779,7 @@ buttonhistory.onclick = function () { //функция приска пр ист�
     }
 }
 
-marksstata.onclick = async function () {
+marksstata.onclick = async function () { //проверка статистики оценок от пользователя
 
     if (document.getElementById('AF_Marks').style.display == 'none') {
         document.getElementById('AF_Marks').style.display = ''
@@ -2067,7 +1962,7 @@ marksstata.onclick = async function () {
     }
 }
 
-buttonnextstudentid.onclick = function () {
+buttonnextstudentid.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
     document.getElementById('butChatHistory').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2078,7 +1973,7 @@ buttonnextstudentid.onclick = function () {
     }
 }
 
-buttonnextteacherid.onclick = function () {
+buttonnextteacherid.onclick = function () { //искать историю чатов по преподавателю с которым след урок при обращении У
     document.getElementById('butChatHistory').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2106,7 +2001,7 @@ infouserbut.onclick = function () { //функция Info по нажатию н
     }
 }
 
-buttonserv.onclick = function () {
+buttonserv.onclick = function () { //открывает юзер инфо с инфо о пользователе об ученике с которым след урок при обращении П
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -2118,7 +2013,7 @@ buttonserv.onclick = function () {
     }
 }
 
-buttonservteach.onclick = function () {
+buttonservteach.onclick = function () { //открывает юзер инфо с инфо о пользователе о преподавателе с которым след урок при обращении У
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -2130,7 +2025,7 @@ buttonservteach.onclick = function () {
     }
 }
 
-buttonservstud.onclick = function () {
+buttonservstud.onclick = function () { //открывает юзер инфо с инфо о пользователе
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -2142,7 +2037,7 @@ buttonservstud.onclick = function () {
     }
 }
 
-nextstuduserbut.onclick = function () {
+nextstuduserbut.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
             const editorExtensionId = localStorage.getItem('ext_id');
@@ -2159,7 +2054,7 @@ nextstuduserbut.onclick = function () {
     }
 }
 
-nextteachuserbut.onclick = function () {
+nextteachuserbut.onclick = function () { // открывает просмотр инфо о пользователе преподе при обращении У  взаимодействуя
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
             const editorExtensionId = localStorage.getItem('ext_id');
@@ -2218,7 +2113,7 @@ let menubar = document.createElement('div')
 menubar.style = 'background: white; position:absolute; left: 68%; top: 80%; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)'
 menubar.id = 'idmymenu'
 
-butmenu.onclick = () => {
+butmenu.onclick = () => { // кнопка открытия Меню
     if (menubar.style.display == 'none') {
         menubar.style.display = ''
         if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
@@ -2241,7 +2136,7 @@ maskBack.innerHTML = "Вернуть"
 maskBack.style.marginRight = "15px";
 maskBack.style.display = "none";
 
-maskBack.onclick = function () {
+maskBack.onclick = function () { // кнопка свернуть
     name = document.getElementById('maskBack').getAttribute('name')
     email = document.getElementById('maskBack').getAttribute('email')
     phone = document.getElementById('maskBack').getAttribute('phone')
@@ -2267,7 +2162,7 @@ maskBackHide.style.marginRight = "15px";
 maskBackHide.style.marginLeft = "15px";
 maskBackHide.style.display = "";
 
-maskBackHide.onclick = function () {
+maskBackHide.onclick = function () { // кнопка скрыть
     if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.innerText == "Добавить комментарий к диалогу") {
         document.getElementsByClassName('ant-modal-wrap')[0].style.display = 'none'
         document.getElementsByClassName('ant-modal-mask')[0].style.display = 'none'
@@ -2298,7 +2193,7 @@ maskBackHide.onclick = function () {
         }
 }
 
-hashBut.onclick = function () {
+hashBut.onclick = function () { // кнопка копирующая хеш чата
     adr = document.location.href
     adr1 = document.location.pathname
     adr1 = adr1.split('/')
@@ -2639,7 +2534,7 @@ var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 
 var flagLangBut = 0
-function move_again_AF() {
+function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
     const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
         const el = document.createElement('textarea');
@@ -2653,7 +2548,6 @@ function move_again_AF() {
     if (window.location.href.indexOf('autofaq') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
     }
-
 
     var listener2 = function (e, a) {
         wintAF.style.left = Number(e.clientX - myX2) + "px";
@@ -2687,15 +2581,7 @@ function move_again_AF() {
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
 
-
-    function setactivechatstyle() {
-        if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
-            document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
-    }
-
-    setInterval(setactivechatstyle, 1000)
-
-    function clock_on_javascript_1() {
+    function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -2739,7 +2625,7 @@ function move_again_AF() {
         }
     }
 
-    function clock_on_javascript_2() {
+    function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -2881,20 +2767,22 @@ function move_again_AF() {
         UserActions.value = "";
     }
 
-    document.getElementById('chid').onclick = () => {
+    document.getElementById('chid').onclick = () => { // копирует в буфер айди чата
         copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
     }
 
-    document.getElementById('usidchat').onclick = () => {
+    document.getElementById('usidchat').onclick = () => { //копирует в буфер айди пользователя
         copyToClipboard1(document.getElementById('placeusid').innerText)
     }
 
     document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
     })
+
     document.getElementById('timetable').addEventListener('click', function () {
         window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
     })
+
     document.getElementById('faqext').addEventListener('click', function () {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971")    // открываем инструкцию по расширению
     })
@@ -2906,15 +2794,19 @@ function move_again_AF() {
     document.getElementById('curVerAndroid').addEventListener('click', function () {
         window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")    // открываем инструкцию по расширению
     })
+
     document.getElementById('talksadm').addEventListener('click', function () {
         window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
     })
+
     document.getElementById('billingadm').addEventListener('click', function () {
         window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
     })
+
     document.getElementById('compens').addEventListener('click', function () {
         window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
     })
+
     document.getElementById('useradm').addEventListener('click', function () {
         window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
     })
@@ -3060,7 +2952,7 @@ function move_again_AF() {
 
     refreshTimerReminder();
 
-    function setRemindAf() {
+    function setRemindAf() { //функция установки будильника
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
                 "accept": "*/*",
@@ -3156,7 +3048,8 @@ function move_again_AF() {
     let commonidentity;
     let emailidentity;
     let phoneidentity;
-    async function checkemailandphoneidentity() {
+
+    async function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -3208,7 +3101,7 @@ function move_again_AF() {
 
     let unhidephone;
 
-    async function getunhidephone() {
+    async function getunhidephone() { // открывает номер телефона
 
         document.getElementById('responseTextarea1').value = `{
 		  "headers": {
@@ -3244,7 +3137,7 @@ function move_again_AF() {
     }
 
     let unhidenemail;
-    async function getunhideemail() {
+    async function getunhideemail() { //открывает почту пользователя
         document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"accept": "application/json, text/plain, */*",
@@ -3279,7 +3172,7 @@ function move_again_AF() {
     }
 
     let servicearray = "";
-    async function getservicearr() {
+    async function getservicearr() { // получает массив услуг с СРМки
 
         document.getElementById('responseTextarea1').value = `{
             "headers": {
@@ -3313,7 +3206,7 @@ function move_again_AF() {
         }, 1000)
     }
 
-    document.getElementById('getlessonpast').onclick = function () {
+    document.getElementById('getlessonpast').onclick = function () { // показывает прошедшие уроки
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
         stid = stid.trim();
@@ -3432,7 +3325,7 @@ function move_again_AF() {
         }, 1000)
     }
 
-    document.getElementById('getlessonfuture').onclick = function () {
+    document.getElementById('getlessonfuture').onclick = function () { // показывает предстоящие уроки
 
         document.getElementById('timetabledata').innerHTML = "";
         let stid = document.getElementById('idstudent').value;
@@ -3530,7 +3423,7 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('changelocalelng').onclick = function () {
+    document.getElementById('changelocalelng').onclick = function () { // меняет язык обслуживания выбранного пользователя в вензеле на русский
 
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
@@ -3545,7 +3438,6 @@ function move_again_AF() {
 		  "method": "PUT",
 		  "mode": "cors",
 		  "credentials": "include"
-
 	 }`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + document.getElementById('idstudent').value
         document.getElementById('responseTextarea3').value = ''
@@ -3555,7 +3447,7 @@ function move_again_AF() {
     }
 
 
-    document.getElementById('setservicelocaleru').onclick = function () {
+    document.getElementById('setservicelocaleru').onclick = function () { // меняет язык обслуживания выбранного пользователя в вензеле на русский но через кнопку в "L"
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
@@ -3569,7 +3461,6 @@ function move_again_AF() {
 		  "method": "PUT",
 		  "mode": "cors",
 		  "credentials": "include"
-
 	 }`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/general/" + idforservicelocaleru.value
         document.getElementById('responseTextarea3').value = ''
@@ -3579,8 +3470,7 @@ function move_again_AF() {
         setTimeout(function () { document.getElementById('setservicelocaleru').innerHTML = "🚀" }, 2000);
     }
 
-
-    document.getElementById('catchathistory').onclick = function () {
+    document.getElementById('catchathistory').onclick = function () { // открывает в вензеле историю чатов введеного айди пользователя
 
         if (document.getElementById('AF_ChatHis').style.display == 'none') {
             document.getElementById('butChatHistory').click();
@@ -3694,7 +3584,8 @@ function move_again_AF() {
     let avatarofuser;
     let countryofuser;
     let ageofuser;
-    async function getusernamecrm() {
+
+    async function getusernamecrm() { //получить имя пользователя из СРМ
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
         let curminutes = curdate.getMinutes();
@@ -3792,7 +3683,8 @@ function move_again_AF() {
 
     let tokenlogginer;
     let logginerinfo;
-    async function postuderdatatologin() {
+
+    async function postuderdatatologin() { // логгинер для У П ПМ
         logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
@@ -3852,9 +3744,9 @@ function move_again_AF() {
         }, 800)
     }
 
-
     let getcrmstatusinfo;
-    async function crmstatus() {
+
+    async function crmstatus() { // получить статус задача в СРМ в решении или в ожидании
         let tempvarcrm = document.getElementById('idstudent').value;
         tempvarcrm = tempvarcrm.trim();
 
@@ -3964,6 +3856,7 @@ function move_again_AF() {
     }
 
     let convid;
+
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
         convid = "";
         // document.getElementById('servicetable').innerHTML = "";
@@ -4260,7 +4153,7 @@ function move_again_AF() {
         }, 720)
     }
 
-    document.getElementById('ChatStatus').onclick = function () {
+    document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
         if (document.getElementById('ChatStatus').textContent == "📧") {
 
             if (document.querySelector('#hide_or_display').textContent != "свернуть") {
@@ -4275,7 +4168,7 @@ function move_again_AF() {
         } else { console.log("No chat with user!!!") }
     }
 
-    document.getElementById('CrmStatus').onclick = function () {
+    document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
 
         let tempvarcrm = document.getElementById('idstudent').value;
         let getcrmstatusinfo;
@@ -4296,8 +4189,6 @@ function move_again_AF() {
         document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
         document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
         document.getElementById('sendResponse').click()
-
-
 
         setTimeout(function () {
             document.getElementById('responseTextarea1').value = `{}`
@@ -4381,19 +4272,19 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('crmactivetasks').onclick = function () {
+    document.getElementById('crmactivetasks').onclick = function () { //открыват СРМ с активными задачами
         window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
     }
 
-    document.getElementById('newtrm').onclick = function () {
+    document.getElementById('newtrm').onclick = function () { //открывает новый TRM 2.0 п
         window.open("https://trm.skyeng.ru/teacher/" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('personalteacherpage').onclick = function () {
+    document.getElementById('personalteacherpage').onclick = function () { //открывает личную страницу П
         window.open("https://skyeng.ru/teachers/id/" + document.getElementById('idstudent').value)
     }
 
-    document.getElementById('clearservinfo').onclick = function () {
+    document.getElementById('clearservinfo').onclick = function () { //очищает все в вензеле
         document.getElementById('idstudent').value = "";
         document.getElementById('servicetable').innerHTML = "";
         document.getElementById('ChatStatus').style.display = "none";
@@ -4412,17 +4303,15 @@ function move_again_AF() {
 
     }
 
-    document.getElementById('useravatar').onmouseover = function () {
+    document.getElementById('useravatar').onmouseover = function () { // взаимодействие с аватаром пользователя увеличивает
         document.getElementById('useravatar').style.width = "200px";
         document.getElementById('useravatar').style.height = "230px";
     }
 
-    document.getElementById('useravatar').onmouseout = function () {
+    document.getElementById('useravatar').onmouseout = function () { // взаимодействие с аватаром пользователя уменьшает
         document.getElementById('useravatar').style.width = "55px";
         document.getElementById('useravatar').style.height = "60px";
     }
-
-
 
     // Просмотр таски по джира по ее коду и номеру
     document.getElementById('getJiraTasks').ondblclick = function () {
@@ -4492,7 +4381,7 @@ function move_again_AF() {
         setTimeout(getJiraTask1, 1000)
     }
 
-    document.getElementById('getJiraTasks').onclick = function () {
+    document.getElementById('getJiraTasks').onclick = function () { //поиска таско в Jira
 
         if (document.getElementById('AF_Jira').style.display = 'none') {
             document.getElementById('AF_Jira').style.display = ''
@@ -4646,7 +4535,7 @@ function move_again_AF() {
             document.querySelector('#parsechat').click()
         }
     })
-    document.getElementById('getpastandfuturelessons').onclick = function () {
+    document.getElementById('getpastandfuturelessons').onclick = function () { //открывает меню прошедших и предстоящих уроков
         if (document.getElementById('AF_Timetable').style.display == '')
             document.getElementById('AF_Timetable').style.display = 'none'
         else
@@ -4654,7 +4543,7 @@ function move_again_AF() {
         getlessonfuture.click();
     }
 
-    document.getElementById('gotolookip').onclick = function () {                  // проверка информации по айпишнику ученика/препода/ хостинга
+    document.getElementById('gotolookip').onclick = function () { // проверка информации по айпишнику ученика/препода/ хостинга
         let iplink = 'https://check-host.net/ip-info?host=';
         if (iplookup.value == "")
             console.log('Введите ip в поле')
@@ -4664,7 +4553,7 @@ function move_again_AF() {
         iplookup.value = "";
     }
 
-    document.getElementById('startjirasearch').onclick = function () {                  // поиск по Jira
+    document.getElementById('startjirasearch').onclick = function () { // поиск по Jira
         let jiralink = 'https://jira.skyeng.tech/issues/?filter=21266&jql=project%20in%20(VIM%2C%20MP%2C%20MV%2C%20KIDS%2C%20TS%2C%20ADULT%2C%20AUTH%2C%20BILL%2C%20COMM%2C%20KG%2C%20KIDSMOB%2C%20MATH%2C%20MOB%2C%20MOBACK%2C%20MOBT%2C%20SS%2C%20ST%2C%20SMMOB%2C%20STUDCAB%2C%20ESM)%20AND%20issuetype%20in%20(Bug%2C%20Task)%20AND%20status%20!%3D%20closed%20AND%20Reports%20%3E0%20AND%20resolution%20in%20(Unresolved%2C%20Incomplete%2C%20%22Cannot%20Reproduce%22)%20AND%20text%20~%20%22';
         if (jirasearch.value == "")
             console.log('Введите текст в поле')
@@ -4674,7 +4563,7 @@ function move_again_AF() {
         jirasearch.value = "";
     }
 
-    document.getElementById('getlgsinfo').onclick = function () {                  // открытие админки LGS по ID группы
+    document.getElementById('getlgsinfo').onclick = function () { // открытие админки LGS по ID группы
         let lgslink = 'https://learning-groups-storage.skyeng.ru/group/';
         if (lgssearch.value == "")
             console.log('Введите текст в поле')
@@ -4684,7 +4573,7 @@ function move_again_AF() {
         lgssearch.value = "";
     }
 
-    document.getElementById('msg').onclick = function () {
+    document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
         if (this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
             localStorage.setItem('msg', 'Заметки')
@@ -4703,12 +4592,12 @@ function move_again_AF() {
         prepTp()
     }
 
-    document.getElementById('hideMeSugForm').onclick = () => {
+    document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
     }
 
-    document.getElementById('hideMeChHis').onclick = () => {
+    document.getElementById('hideMeChHis').onclick = () => { //форма hide
         if (document.getElementById('AF_ChatHis').style.display == '') {
             document.getElementById('AF_ChatHis').style.display = 'none'
 
@@ -4717,22 +4606,24 @@ function move_again_AF() {
             document.getElementById('placechatid').innerText = ''
             document.getElementById('somechatinfo').style.display = 'none';
             document.getElementById('bottommenuchhis').style.display = 'none';
+            document.getElementById('comentsbar').style.display = 'none';
             document.getElementById('chatuserhis').value = ''
             document.getElementById('hashchathis').value = ''
         }
     }
 
-    document.getElementById('clearallinfo').onclick = () => {
+    document.getElementById('clearallinfo').onclick = () => { //кнопка очистки
         document.getElementById('infofield').innerText = ''
         document.getElementById('placeusid').innerText = ''
         document.getElementById('placechatid').innerText = ''
         document.getElementById('somechatinfo').style.display = 'none';
         document.getElementById('bottommenuchhis').style.display = 'none';
+        document.getElementById('comentsbar').style.display = 'none';
         document.getElementById('chatuserhis').value = ''
         document.getElementById('hashchathis').value = ''
     }
 
-    document.getElementById('hideMenu').onclick = function () {
+    document.getElementById('hideMenu').onclick = function () { //форма hide
         document.getElementById('AF_helper').style.display = 'none'
         document.getElementById('scriptBut').style.display = ''
         if (document.getElementById('cstmTmplates').style.display == '')
@@ -4749,7 +4640,7 @@ function move_again_AF() {
             document.getElementById('AF_Linksd').style.display = 'none'
     }
 
-    document.getElementById('hideMeSrvDsk').onclick = function () {
+    document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
         if (document.getElementById('AF_ServDsk').style.display == '') {
             $('.sdbtn').click(function () {
                 $('.sdbtn').not(this).removeClass('activebtnsd');
@@ -5387,7 +5278,7 @@ function move_again_AF() {
         audio.volume = localStorage.getItem('audiovol');
     } else localStorage.setItem('audiovol', 1);
 
-    document.getElementById('setting').onclick = function () {
+    document.getElementById('setting').onclick = function () { // открывает параметры
         if (document.getElementById('set_bar').style.display == '')
             document.getElementById('set_bar').style.display = 'none'
         else {
@@ -5475,7 +5366,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('links').onclick = function () {
+    document.getElementById('links').onclick = function () { //открывает  ссылки L
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
         else {
@@ -5491,7 +5382,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('reminderstatus').onclick = function () {
+    document.getElementById('reminderstatus').onclick = function () { // открывает настройки будильника
         if (document.getElementById('reminder_bar').style.display == '')
             document.getElementById('reminder_bar').style.display = 'none'
         else {
@@ -5501,14 +5392,14 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('addsrc').onclick = function () {
+    document.getElementById('addsrc').onclick = function () { //открывает окно с доп ссылкиами с доступами
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
         else
             document.getElementById('AF_Linksd').style.display = ''
     }
 
-    document.getElementById('butServ').onclick = function () {
+    document.getElementById('butServ').onclick = function () { //открывает вензель user info
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
@@ -5545,6 +5436,7 @@ function move_again_AF() {
         }
 
         let radiobtnsarray = document.getElementsByName('chatornotes')
+        let radiobtnsarray1 = document.getElementsByName('chatornotes1')
         let activetechopers = [];
         document.getElementById('RefrehOperators').onclick = currstate;
         let objSel = document.getElementById("operatorstp");
@@ -5650,7 +5542,10 @@ function move_again_AF() {
                     document.getElementById('somechatinfo').style.display = 'none';
 
                 if (document.getElementById('bottommenuchhis').style.display == '')
-                    document.getElementById('bottommenuchhis').style.display = 'none';
+                    document.getElementById('bottommenuchhis').style.display = 'none'; 
+
+				if (document.getElementById('comentsbar').style.display == '')
+                    document.getElementById('comentsbar').style.display = 'none';
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
@@ -5727,6 +5622,10 @@ function move_again_AF() {
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
+						
+						if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                            isChatOnOperator = true
+                        else isChatOnOperator = false;
 
                         fillchatbox();
                         checkandchangestyle();
@@ -5737,6 +5636,10 @@ function move_again_AF() {
                 flagsearch = 'searchbyhash'
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
+				
+					if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                       isChatOnOperator = true
+                    else isChatOnOperator = false;
 
                 fillchatbox();
                 checkandchangestyle();
@@ -5750,6 +5653,7 @@ function move_again_AF() {
             document.getElementById('placechatid').innerText = '';
             document.getElementById('somechatinfo').style.display = 'none';
             document.getElementById('bottommenuchhis').style.display = 'none';
+            document.getElementById('comentsbar').style.display = 'none';
 
             if (foundarr != '' && foundarr != null && foundarr != undefined) {
                 document.getElementById('infofield').innerHTML = foundarr;
@@ -5773,6 +5677,10 @@ function move_again_AF() {
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
+						
+						if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                            isChatOnOperator = true
+                        else isChatOnOperator = false;
 
                         fillchatbox();
                         checkandchangestyle();
@@ -5787,7 +5695,11 @@ function move_again_AF() {
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
-
+				
+				if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                    isChatOnOperator = true
+                else isChatOnOperator = false;
+				
                 fillchatbox();
                 checkandchangestyle();
             }
@@ -5811,12 +5723,44 @@ function move_again_AF() {
         } // конец обработчика нажатия кнопки "Забрать"
 
         document.getElementById('startchat').onclick = () => { //обработчик функции начала чата с пользователем
-            let polzid = document.getElementById('placeusid').innerText.trim();
-            document.getElementById('startchat').style.background = 'green';
-            startnewchatfast(polzid)
-            setTimeout(() => {
-                document.getElementById('startchat').style.background = '';
-            }, 3000)
+            let answer = confirm("Вы действительно желаете начать чат с пользователем?");
+            if (answer) {
+                if (isChatOnOperator == false) {
+                    let polzid = document.getElementById('placeusid').innerText.trim();
+                    document.getElementById('startchat').style.background = 'green';
+                    startnewchatfast(polzid)
+                    setTimeout(() => {
+                        document.getElementById('startchat').style.background = '';
+                    }, 3000)
+                } else alert('Чат не открыт, так как есть активный чат на операторе!')
+            }
+        } // конец обработчика нажатия кнопки Начать чат с пользователем   
+
+		document.getElementById('opencmtbar').onclick = function() { //обработчик функции начала чата с пользователем
+			if (document.getElementById('comentsbar').style.display == '')
+				document.getElementById('comentsbar').style.display = 'none';
+			else 
+				document.getElementById('comentsbar').style.display = '';
+			
+			        for (let i = 0; i < radiobtnsarray1.length; i++) {
+					if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
+						document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
+					} else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
+						document.getElementById('msgftochatornotes1').style.background = 'white';
+					}
+
+					radiobtnsarray1[i].onclick = () => {
+						if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
+							document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
+						} else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
+							document.getElementById('msgftochatornotes1').style.background = 'white';
+						}
+					}
+				}
+			
+			document.getElementById('hidecmtfield').onclick = function() {
+				document.getElementById('comentsbar').style.display = 'none';
+			}
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
@@ -5923,6 +5867,10 @@ function move_again_AF() {
 
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
+								
+								if (convdata.status != null && convdata.status == 'AssignedToOperator')
+									isChatOnOperator = true
+								else isChatOnOperator = false;
 
                                 fillchatbox();
                                 checkandchangestyle();
@@ -5931,10 +5879,104 @@ function move_again_AF() {
                 }
             }
         }
+		
+		        document.getElementById('sendmsgtochatornotes1').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
+
+            let radiobtnsarray1 = document.getElementsByName('chatornotes1')
+
+            for (let i = 0; i < radiobtnsarray1.length; i++) {
+                if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes1').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes1').value = ''
+
+                    setTimeout(
+                        async function () {
+                            if (document.getElementById('placechatid').innerText != '') {
+                                document.getElementById('infofield').innerHTML = '';
+
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
+
+                                fillchatbox();
+                                checkandchangestyle();
+                            }
+                        }, 1000);
+
+                } else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
+
+                    let chathashfromdiv = document.getElementById('placechatid').innerText
+                    let sesid;
+
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+                        .then(r => r.json()).then(r => rdata = r)
+                    sesid = rdata.sessionId;
+
+                    let notemsg = '<p>' + document.getElementById('msgftochatornotes1').value + '</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+
+                    document.getElementById('msgftochatornotes1').value = ''
+
+                    setTimeout(
+                        async function () {
+                            if (document.getElementById('placechatid').innerText != '') {
+                                document.getElementById('infofield').innerHTML = '';
+
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                console.log(convdata)
+								
+								if (convdata.status != null && convdata.status == 'AssignedToOperator')
+									isChatOnOperator = true
+								else isChatOnOperator = false;
+
+                                fillchatbox();
+                                checkandchangestyle();
+                            }
+                        }, 1000);
+                }
+            }
+        }
+		
+		
     }
 
 
-    document.getElementById('suggestform').onclick = () => {
+    document.getElementById('suggestform').onclick = () => { // открыть форму для предложения и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
@@ -6043,7 +6085,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('butMarks').onclick = function () {
+    document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
         else {
@@ -6180,12 +6222,12 @@ function move_again_AF() {
             document.getElementById('AF_Service').style.display = 'none'
     }
 
-    document.getElementById('hideuserdatainfo').onclick = () => {
+    document.getElementById('hideuserdatainfo').onclick = () => { // форма hide
         if (document.getElementById('userchatdata').style.display == '')
             document.getElementById('userchatdata').style.display = 'none'
     }
 
-    document.getElementById('gotocrm').onclick = () => {
+    document.getElementById('gotocrmhis').onclick = () => { //открывает СРМ пользователя паари в меню с историей чатов
         let fdata = document.getElementById('datafield').innerHTML
         fdata = fdata.match(/ID:.?\d+/)[0].split(' ')[1]
         window.open(`https://crm2.skyeng.ru/persons/${fdata}`)
@@ -6224,7 +6266,7 @@ function move_again_AF() {
         window.open("https://datsy.ru/")
     }
 
-    document.getElementById('gettechsummary').onclick = async function () {
+    document.getElementById('gettechsummary').onclick = async function () { //получает инфо об устройстве пользователя
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
         else
@@ -6254,7 +6296,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('getlessonstatus').onclick = function () {
+    document.getElementById('getlessonstatus').onclick = function () { // получение инфы о статусе урока кто удалил кем
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
@@ -6378,8 +6420,6 @@ function move_again_AF() {
 
     } // end of func getidgrouptolist
 
-
-
     document.getElementById('getStats').onclick = function () { // открытие Статистики
         let getcurdate = new Date()
         let getyear = getcurdate.getFullYear();
@@ -6428,7 +6468,7 @@ function move_again_AF() {
         window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
     })
 
-    document.getElementById('sound_save').onclick = function () {
+    document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
         if (document.getElementById('sound_adr').value == "")
             audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
@@ -6464,7 +6504,7 @@ function move_again_AF() {
         }
     }
 
-    document.getElementById('sndbot').onclick = async function () {
+    document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
         let txt = document.getElementById('inp').value;
         var values = await getInfo(flag)
         var adr = values[0]; var adr1 = values[1]; var uid = values[2]
@@ -6488,8 +6528,7 @@ function move_again_AF() {
         refCurTimer(time)
     }
 
-
-    document.getElementById('snd').onclick = function () {
+    document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
         document.getElementById('snd').setAttribute('disabled', 'disabled')
         setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
         if (document.getElementById('msg').innerHTML == "Чат") {
@@ -6542,12 +6581,11 @@ function move_again_AF() {
             document.getElementById('main_easy_win').style.display = "none";
 
     }
+
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
-
-
-    function screenshots() {
+    function screenshots() { //просмотр и трансформация скриншотов в активном чате
         if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
@@ -6569,9 +6607,11 @@ function move_again_AF() {
             }
         }
     }
+
     screenshots()
     setInterval(screenshots, 5000)
-    function screenshots2() {
+
+    function screenshots2() { //просмотр и трансформация скриншотов в архиве
         if (document.getElementsByClassName('chat-messages')[0] != undefined) {
             for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
                 if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
@@ -6593,6 +6633,7 @@ function move_again_AF() {
             }
         }
     }
+
     screenshots2()
     setInterval(screenshots2, 5000)
 
@@ -6629,7 +6670,6 @@ function move_again_AF() {
     getText()
 }
 
-
 function pageClick(pageId) { // по клику переключает страницы с шаблонами
     b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
     for (i = 0; i < b.childElementCount; i++) {
@@ -6644,7 +6684,7 @@ function pageClick(pageId) { // по клику переключает стра�
     document.getElementById(pageId[0] + "page").style.display = ''
 }
 
-function bagPageButtons(butId) {
+function bagPageButtons(butId) {  //с шаблонами тоже фукнкция связана
     txt = document.getElementById(butId).parentElement.childNodes[0].textContent
     for (l = 0; l < table.length; l++)
         if (table[l][0] == txt) {
@@ -6654,7 +6694,7 @@ function bagPageButtons(butId) {
         }
 }
 
-function transfPageButtons(textFromTable) {
+function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
     //resetFlags()
     phone = ""
     textFromTable = textFromTable.split('(phone)')
@@ -6766,7 +6806,8 @@ function servFromDoc(butName) { // отправка комента и сообщ
 
 var bool = 0;
 var table
-function getText() {
+
+function getText() { //получить текст
     var app = localStorage.getItem('scriptAdr'),
         xhr = new XMLHttpRequest();
     xhr.open('GET', app);
@@ -7142,6 +7183,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 }
 
 var templatesAF = []
+
 async function loadTemplates(template, word) { //загрузка шаблонов с дока
     return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
         "headers": {
@@ -8132,7 +8174,6 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                 chatId = data.conversationId
                 console.log(data, chatId)
             })
-        alert(`Чат начат c пользователем ${polzid}`);
     } else alert('Не введен id пользователя');
 }
 
@@ -8362,6 +8403,9 @@ async function findchatsoper() { // ищет активные чаты на вы
 
     if (document.getElementById('bottommenuchhis').style.display == '')
         document.getElementById('bottommenuchhis').style.display = 'none';
+    
+	if (document.getElementById('comentsbar').style.display == '')
+        document.getElementById('comentsbar').style.display = 'none';
 
 
     document.getElementById('infofield').innerHTML = 'Загрузка'
@@ -8385,8 +8429,6 @@ async function findchatsoper() { // ищет активные чаты на вы
 
                 if (operchatsdata.total == 0)
                     alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
-
-
 
                 for (let i = 0; i < operchatsdata.items.length; i++) {
 
@@ -8435,6 +8477,10 @@ async function findchatsoper() { // ищет активные чаты на вы
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
+
+                        if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                            isChatOnOperator = true
+                        else isChatOnOperator = false;
 
                         fillchatbox();
                         checkandchangestyle();
@@ -10052,7 +10098,8 @@ async function remandressl() { // функция удаления и сброс�
 setInterval(remandressl, 3000);
 
 let getidusrteachreq;
-butteachid.addEventListener('click', function () {
+
+butteachid.addEventListener('click', function () { // копирует в буфер что-то но надо понять ЧТО?
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -10066,7 +10113,8 @@ butteachid.addEventListener('click', function () {
 })
 
 let getidusrstud;
-butstdid.addEventListener('click', function () {
+
+butstdid.addEventListener('click', function () { //копирует в буфер nextClass-studentId
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -10075,7 +10123,8 @@ butstdid.addEventListener('click', function () {
 })
 
 let getidusrsteach;
-butteachidfstd.addEventListener('click', function () {
+
+butteachidfstd.addEventListener('click', function () { //копирует в буфер nextClass-teacherId
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -10084,7 +10133,8 @@ butteachidfstd.addEventListener('click', function () {
 })
 
 let getservidst;
-buttonservid.addEventListener('click', function () {
+
+buttonservid.addEventListener('click', function () { //копирует в буфер nextClass-educationServiceId
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId")
             getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -10094,7 +10144,7 @@ buttonservid.addEventListener('click', function () {
 
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
 
-function checJiraF() {
+function checJiraF() { //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
     try {
         if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
             document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
@@ -10132,7 +10182,7 @@ setInterval(checJiraF, 1000);
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if (document.location.pathname.split('/').length > 4 && location.href.split('/')[2] == 'skyeng.autofaq.ai') {
+        if (document.location.pathname.split('/').length >= 4 && location.href.split('/')[2] == 'skyeng.autofaq.ai') {
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
@@ -10496,7 +10546,7 @@ async function whoAmI() { // функция получения айди опер
 
 // Тут будет функция запуска получения информации о статистики
 
-document.getElementById('getstatfromperiod').onclick = async function () {
+document.getElementById('getstatfromperiod').onclick = async function () { // Тут будет функция запуска получения информации о статистики
     let datefrom = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto = document.getElementById('dateTo').value + "T20:59:59.059Z";
     let strnew = document.getElementById('chatsinfoout');
@@ -10593,7 +10643,7 @@ document.getElementById('getstatfromperiod').onclick = async function () {
     }
 }
 
-document.getElementById('changetheme').onclick = function () {
+document.getElementById('changetheme').onclick = function () { //функция изменения тематики чата
     let curval = document.getElementById('thematics').value;
     let chatId = document.getElementById('commenttosearch').value;
     if (chatId != "" && chatId != null && chatId != undefined)
@@ -10608,7 +10658,7 @@ document.getElementById('changetheme').onclick = function () {
     else alert("Введите хэш чата в длинное поле по центру");
 }
 
-document.getElementById('gofindit').onclick = async function () {
+document.getElementById('gofindit').onclick = async function () { //функция поиска чатов по вытсалвенной тематике с отображениеи и тегов
     let curval = document.getElementById('thematics').value;
     let strcsatnew = document.getElementById('themesdata');
     strcsatnew.textContent = "Загрузка"
@@ -10724,9 +10774,7 @@ document.getElementById('clearall').onclick = function () {
     document.querySelector('#themesdata').innerText = ""
 }
 
-
-
-document.getElementById('clearlessonstatus').onclick = function () {
+document.getElementById('clearlessonstatus').onclick = function () { // очистить поля проверки статуса урока
     if (confirm("Вы уверены, что хотите очистить?")) {
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
@@ -10752,7 +10800,8 @@ document.getElementById('clearlessonstatus').onclick = function () {
 
 //Функция парсинга чатов по заданному коменту
 let stringChatsWithComment;
-document.getElementById('parsechat').onclick = async function () {
+
+document.getElementById('parsechat').onclick = async function () { //Функция парсинга чатов по заданному коменту
     stringChatsWithComment = "";
     let datefrom2 = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto2 = document.getElementById('dateTo').value + "T20:59:59.059Z";
@@ -10817,7 +10866,8 @@ document.getElementById('parsechat').onclick = async function () {
 
 //Функция проверки статусов урока
 let arregetted;
-document.getElementById('startlookstatus').onclick = function () {
+
+document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
         document.querySelector('#statustable').innerText = "";
@@ -10929,10 +10979,10 @@ document.getElementById('startlookstatus').onclick = function () {
 
 }
 
-
 //Функция получения чатов с низким КСАТ
 let stringChatsWithLowCsat;
-document.getElementById('getlowcsat').onclick = async function () {
+
+document.getElementById('getlowcsat').onclick = async function () { // получить хеши чатов с оценками ниже 4
     let datefrom1 = document.getElementById('dateFrom').value + "T21:00:00.000Z";
     let dateto1 = document.getElementById('dateTo').value + "T20:59:59.059Z";
     let strcsatnew = document.getElementById('lowCSATcount');
@@ -11010,7 +11060,7 @@ document.getElementById('getlowcsat').onclick = async function () {
     }
 }
 
-document.getElementById('getfile').onclick = function () {
+document.getElementById('getfile').onclick = function () { // функция загрузки файла в виде HTML  lowcsat или всех чатов по комменту
     if (stringChatsWithComment != null || stringChatsWithComment != undefined) {
         var blob = new Blob([stringChatsWithComment], { type: "text/plain" });
         var link = document.createElement("a");
@@ -11026,7 +11076,7 @@ document.getElementById('getfile').onclick = function () {
     }
 }
 
-async function sendAnswerTemplate2(word, flag = 0) {
+async function sendAnswerTemplate2(word, flag = 0) { //функция отправки шаблона 2
     var tmpTxt = ""
     var adr = `https://skyeng.autofaq.ai/tickets/assigned/`
     if (word.length < 50)
@@ -11096,11 +11146,12 @@ async function sendAnswerTemplate2(word, flag = 0) {
         flagggg = 0
     }
 }
-function resetFlags() {
+
+function resetFlags() { //функция обнуления флагов
     template_flag = 0
     template_flag2 = 0
 }
-async function checkHistory(id) {
+async function checkHistory(id) { //проверка истории по чату чтобы занести переменные и флаги , но тоже проверить  нужна или нет ибо раньше использовалась для проверки повторного обращения чтобы при нажатии привет др шаблон отрабатывался НУЖНА?
     var date = new Date()
     var date2 = new Date()
     date2.setTime(date - 8 * 60 * 60 * 1000)
@@ -11174,7 +11225,7 @@ async function checkHistory(id) {
     return count
 }
 
-async function getNotGoods(stringDate) {
+async function getNotGoods(stringDate) { // функция проверки нот гуд оценок, рядовыми ТП не используется да и не знаю нужна ли она еще тут! НУЖНА?
 
     async function goNotgood(list, list2, date1, date2) {
         var text = ""
@@ -11272,9 +11323,7 @@ async function getNotGoods(stringDate) {
     goNotgood(list, list2, firstDate, secondDate)
 }
 
-
-
-function customTemplates(language = '') {
+function customTemplates(language = '') { //собственные шаблоны и их добавление
     if (localStorage.getItem('winCstmTmpsTop') == null) {
         localStorage.setItem('winCstmTmpsTop', '120');
         localStorage.setItem('winCstmTmpsLeft', '295');
@@ -11752,7 +11801,7 @@ async function getStats() {           // функция получения ст�
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
-async function checkkcpower() {
+async function checkkcpower() { //проверить нагрузку на КЦ
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -11805,7 +11854,7 @@ async function checkkcpower() {
     })
 }
 
-async function checktppower() {
+async function checktppower() { //проверить нагрузку на ТП
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -11859,9 +11908,9 @@ async function checktppower() {
     })
 }
 
-
 let chatneraspcount;
 let chattpquecount;
+
 async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
@@ -12203,7 +12252,7 @@ async function checkCSAT() {             // функция проверки CSAT
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 }
 
-function prepTp() {
+function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '11px'
 
@@ -12218,12 +12267,10 @@ function prepTp() {
     openchhis.id = 'opennewcat'
     document.getElementsByTagName('section')[1].append(openchhis)
 
-
     openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
             document.getElementById('butChatHistory').click()
     }
-
 
     flagLangBut = 1
     customTemplates()
@@ -12381,7 +12428,7 @@ document.getElementById('testMath').replaceWith(btnpm);
 document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
 
-btnpm.onclick = async function () {
+btnpm.onclick = async function () { // копирует в буфер логиннер для ПМ
     document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -12434,7 +12481,7 @@ btnpm.onclick = async function () {
     }, 1000)
 }
 
-btnsid.onclick = async function () {
+btnsid.onclick = async function () { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         document.getElementById('responseTextarea1').value = `{
@@ -12491,7 +12538,7 @@ btnsid.onclick = async function () {
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
-btntid.onclick = async function () {
+btntid.onclick = async function () { // копирует в буфер логиннер для П
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         document.getElementById('responseTextarea1').value = `{
