@@ -2340,7 +2340,7 @@ wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
 let wintRefuseForm = document.createElement('div'); // создание окна ссылок
-document.body.append(wintSugform);
+document.body.append(wintRefuseForm);
 wintSugform.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuse') + 'px; left: ' + localStorage.getItem('winLeftRefuse') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintRefuseForm.style.display = 'none';
 wintRefuseForm.setAttribute('id', 'AF_Refuseform');
