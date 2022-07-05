@@ -3178,11 +3178,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) {
             document.getElementById('reminderstatus').textContent = "🔕"; 
-		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
 			document.getElementById('reminderstatus').textContent = "🔔";
-		else if localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
 			document.getElementById('reminderstatus').textContent = "🔔";
-		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
 			document.getElementById('reminderstatus').textContent = "🔔";
 
         setchas.value = "";
@@ -3212,11 +3212,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) {
             document.getElementById('reminderstatus').textContent = "🔕"; 
-		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
 			document.getElementById('reminderstatus').textContent = "🔔";
-		else if localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
 			document.getElementById('reminderstatus').textContent = "🔔";
-		else if localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
 			document.getElementById('reminderstatus').textContent = "🔔";
 
         setchas1.value = "";
