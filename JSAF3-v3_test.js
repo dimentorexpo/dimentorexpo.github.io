@@ -557,7 +557,7 @@ var win_refuse =  // описание элементов окна отказа �
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 409px;" id="sug_form_main">
+                        <div style="margin: 5px; width: 409px;" id="refuse_form_main">
                             <button title="скрывает меню" id="hideMeRefuseForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
 							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestionsrefuseform" style="width:24px;">🗑</button>
@@ -6149,10 +6149,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }   
 
 	document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
-        if (document.getElementById('AF_refuseform').style.display == '')
-            document.getElementById('AF_refuseform').style.display = 'none'
+        if (document.getElementById('AF_Refuseform').style.display == '')
+            document.getElementById('AF_Refuseform').style.display = 'none'
         else {
-            document.getElementById('AF_refuseform').style.display = ''
+            document.getElementById('AF_Refuseform').style.display = ''
 
             let topiclisttgcls = document.getElementsByName('topicofsuggest')
 
