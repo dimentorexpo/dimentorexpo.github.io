@@ -6190,7 +6190,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             document.getElementById('responseTextarea3').value = ''
                         document.getElementById('sendResponse').click()
 
-                        sendComment('Отправка в документ "Отказ от помощи прошла успешно"')
+                        sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
                         document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
 						
                         setTimeout(() => {
