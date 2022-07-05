@@ -1275,12 +1275,12 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="mobbugsbtn" id="skymobauthorize">Skyeng МП: авторизация</button>
 					<button class="mobbugsbtn" id="skymobregister">Skyeng МП: регистрация</button>
 					<button class="mobbugsbtn" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
+					<button class="mobbugsbtn" id="skymobpayment">Skyeng МП: оплата</button>
 					<button class="mobbugsbtn" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
 					<button class="mobbugsbtn" id="skymobchats">Skyeng МП: чаты</button>
 					<button class="mobbugsbtn" id="skymobpush">Skyeng МП: пуши</button>
 					<button class="mobbugsbtn" id="skymobforcupd">Skyeng МП: force update</button>
 					<button class="mobbugsbtn" id="skymobasettings">Skyeng МП: настройки</button>
-					<button class="mobbugsbtn" id="skymobpayment">Skyeng МП: оплата</button>
 					<button class="mobbugsbtn" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
 					<button class="mobbugsbtn" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
 					<button class="mobbugsbtn" id="skyteachmob">Teachers МП</button>
