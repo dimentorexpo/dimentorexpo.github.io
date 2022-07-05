@@ -569,6 +569,7 @@ var win_refuse =  // описание элементов окна отказа �
 							<br>
 							<textarea id="textrefuseformsolution" placeholder="Как решилось? ( Здесь указываем, уточняем, как решился запрос). Пример: перешли на альтернативную связь в Zoom/Skype, подключились на урок с телефона (были проблемы на пк), удалили антивирус и т.д" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
 							<br>
+							<button title="Отправляет заполненные поля формы в док" id="sendrefusetodoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
 						</div>
 		</span> 
 
@@ -6154,51 +6155,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             document.getElementById('AF_Refuseform').style.display = ''
 
-            let topiclisttgcls = document.getElementsByName('topicofsuggest')
-
-            for (let i = 0; i < topiclisttgcls.length; i++) {
-                topiclisttgcls[i].onclick = () => {
-                    if (topiclisttgcls[i].checked && topiclisttgcls[i].value == 'Другое') {
-
-                        document.getElementById('otheroptionchecked').classList.remove('otherfieldoff')
-                        document.getElementById('otheroptionchecked').classList.add('otherfieldon')
-                        document.getElementById('otheroptionchecked').removeAttribute('disabled')
-
-                    } else {
-                        document.getElementById('otheroptionchecked').classList.add('otherfieldoff')
-                        document.getElementById('otheroptionchecked').classList.remove('otherfieldon')
-                        document.getElementById('otheroptionchecked').setAttribute('disabled', 'disabled')
-                    }
-                }
-            }
-
-
-            document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
-
             if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+                document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
 
-            document.getElementById('refreshchathash').onclick = () => {
+            document.getElementById('refreshchathashrefuseform').onclick = () => {
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+                    document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
             }
 
-            document.getElementById('getdocsuggestions').onclick = () => {
-                window.open("https://docs.google.com/spreadsheets/d/1bTR1BBwo57H1IOblb4Xkg9irf6jw0QNGzQOgrm_wr-c/edit#gid=706470682")
+            document.getElementById('getdocsuggestionsrefuseform').onclick = () => {
+                window.open("https://docs.google.com/spreadsheets/d/11LcR1mc-5aRFykYSZMwZcwluGORNbyHuvbWxpP3Su0U/edit?resourcekey#gid=2025786567")
             }
 
-            document.getElementById('sendtosuggestdoc').onclick = () => {
+            document.getElementById('sendrefusetodoc').onclick = () => {
 
-                let opnamevar = encodeURIComponent(document.getElementById('operatornamesuggest').value)
-                let chatlink = document.getElementById('linktochatsuggest').value
-                let topiclist = document.getElementsByName('topicofsuggest')
-                let checkedtopic;
-                let textsuggest = encodeURIComponent(document.getElementById('textsuggest').value)
+                let chatlink = document.getElementById('linktochatrefuse').value
+                let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
+                let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
 
-                for (let i = 0; i < topiclist.length; i++) {
-                    if (topiclist[i].checked && topiclist[i].value != 'Другое') {
-                        checkedtopic = encodeURIComponent(topiclist[i].value);
-                        let body1 = 'entry.1869164503=' + opnamevar + '&entry.1173970301=' + chatlink + '&entry.1369141134=' + checkedtopic + '&entry.2046808006=' + textsuggest
+                        let body1 = 'entry.1040202788=' + chatlink + '&entry.763930179"=' + textaskclient + '&entry.870072493=' +  textclientsolution
 
                         let options1 = {
                             "headers": {
@@ -6209,49 +6184,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         }
 
                         document.getElementById('responseTextarea1').value = JSON.stringify(options1)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/1bJG_imc0T17zpE7wSGcglhQ7p16mfDJyyIOz3j8Ymds/formResponse'
                         if (document.getElementById('responseTextarea3') != null)
                             document.getElementById('responseTextarea3').value = ''
                         document.getElementById('sendResponse').click()
 
-                        console.log('Выбрана тема из предложенных')
-                        sendComment('https://skr.sh/sEHecwURANZ')
-                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
+                        sendComment('Отправка в документ "Отказ от помощи прошла успешно"')
+                        document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
+						
                         setTimeout(() => {
-                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+                            document.getElementById('sendrefusetodoc').innerText = "Отправить"
                         }, 3000)
-                    } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
-                        checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
-
-                        let body2 = 'entry.1173970301=' + chatlink + '&entry.1369141134.other_option_response=' + checkedtopic + '&entry.1369141134=__other_option__' + '&entry.1869164503=' + opnamevar + '&entry.2046808006=' + textsuggest
-
-                        let options2 = {
-                            "headers": {
-                                "content-type": "application/x-www-form-urlencoded",
-                            },
-                            "body": body2,
-                            "method": "POST",
-                        }
-
-                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/formResponse'
-                        if (document.getElementById('responseTextarea3') != null)
-                            document.getElementById('responseTextarea3').value = ''
-                        document.getElementById('sendResponse').click()
-
-                        console.log('Выбрана опция Другое')
-                        sendComment('https://skr.sh/sEHecwURANZ')
-                        document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
-                        setTimeout(() => {
-                            document.getElementById('sendtosuggestdoc').innerText = "Отправить"
-                        }, 3000)
-                    }
-
-                }
-
-                document.getElementById('linktochatsuggest').value = ''
-                document.getElementById('otheroptionchecked').value = ''
-                document.getElementById('textsuggest').value = ''
+                
+                document.getElementById('linktochatrefuse').value = ''
+                document.getElementById('textrefuseform').value = ''
+                document.getElementById('textrefuseformsolution').value = ''
 
             }
         }
