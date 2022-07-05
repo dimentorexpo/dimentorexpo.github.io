@@ -684,7 +684,7 @@ var win_Chathis =  // описание элементов окна Истори�
 			</div>
 			
 			<div id="bottommenuchhis" style="width: 410px; position:absolute; display:none;">
-				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
+				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 2px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
@@ -5436,6 +5436,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
 
         let radiobtnsarray = document.getElementsByName('chatornotes')
+        let radiobtnsarray1 = document.getElementsByName('chatornotes1')
         let activetechopers = [];
         document.getElementById('RefrehOperators').onclick = currstate;
         let objSel = document.getElementById("operatorstp");
@@ -5741,6 +5742,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			else 
 				document.getElementById('comentsbar').style.display = '';
 			
+			        for (let i = 0; i < radiobtnsarray1.length; i++) {
+					if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
+						document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
+					} else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
+						document.getElementById('msgftochatornotes1').style.background = 'white';
+					}
+
+					radiobtnsarray1[i].onclick = () => {
+						if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
+							document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
+						} else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
+							document.getElementById('msgftochatornotes1').style.background = 'white';
+						}
+					}
+				}
+			
 			document.getElementById('hidecmtfield').onclick = function() {
 				document.getElementById('comentsbar').style.display = 'none';
 			}
@@ -5865,10 +5882,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		        document.getElementById('sendmsgtochatornotes1').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
 
-            let radiobtnsarray = document.getElementsByName('chatornotes1')
+            let radiobtnsarray1 = document.getElementsByName('chatornotes1')
 
-            for (let i = 0; i < radiobtnsarray.length; i++) {
-                if (radiobtnsarray[i].value == 'Notes' && radiobtnsarray[i].checked == true) {
+            for (let i = 0; i < radiobtnsarray1.length; i++) {
+                if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
 
                     let chathashfromdiv = document.getElementById('placechatid').innerText
                     let sesid;
@@ -5908,7 +5925,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             }
                         }, 1000);
 
-                } else if (radiobtnsarray[i].value == 'Chat' && radiobtnsarray[i].checked == true) {
+                } else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
 
                     let chathashfromdiv = document.getElementById('placechatid').innerText
                     let sesid;
