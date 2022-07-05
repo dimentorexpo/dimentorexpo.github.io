@@ -560,7 +560,6 @@ var win_refuse =  // описание элементов окна отказа �
                         <div style="margin: 5px; width: 409px;" id="refuse_form_main">
                             <button title="скрывает меню" id="hideMeRefuseForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
-							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestionsrefuseform" style="width:24px;">🗑</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_box">
                             <input id="linktochatrefuse" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
@@ -6162,10 +6161,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                     document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
 				else document.getElementById('linktochatrefuse').value =''
-            }
-
-            document.getElementById('getdocsuggestionsrefuseform').onclick = () => {
-                window.open("https://docs.google.com/spreadsheets/d/11LcR1mc-5aRFykYSZMwZcwluGORNbyHuvbWxpP3Su0U/edit?resourcekey#gid=2025786567")
             }
 
             document.getElementById('sendrefusetodoc').onclick = () => {
