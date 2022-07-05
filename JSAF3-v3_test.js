@@ -6177,7 +6177,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                         let options1 = {
                             "headers": {
-                                "content-type": "application/x-www-form-urlencoded",
+                                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                             },
                             "body": body1,
                             "method": "POST",
@@ -6902,7 +6902,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
     let options = {
         "headers": {
-            "content-type": "application/x-www-form-urlencoded; cha",
+            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         },
         "body": body,
         "method": "POST",

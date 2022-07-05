@@ -6783,7 +6783,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
     let options = {
         "headers": {
-            "content-type": "application/x-www-form-urlencoded; cha",
+            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",",
         },
         "body": body,
         "method": "POST",
