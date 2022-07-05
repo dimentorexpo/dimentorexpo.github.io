@@ -7999,6 +7999,10 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn15)
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
+		btn15.addEventListener('click', function () {
+			document.getElementById('refuseform').click();
+		})
+		
 
         let btn16 = document.createElement('span');
         btn16.id = 'solvd'
