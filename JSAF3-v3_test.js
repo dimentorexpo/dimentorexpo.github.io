@@ -6184,7 +6184,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         }
 
                         document.getElementById('responseTextarea1').value = JSON.stringify(options1)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/1bJG_imc0T17zpE7wSGcglhQ7p16mfDJyyIOz3j8Ymds/formResponse'
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
                         if (document.getElementById('responseTextarea3') != null)
                             document.getElementById('responseTextarea3').value = ''
                         document.getElementById('sendResponse').click()
