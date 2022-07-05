@@ -6174,6 +6174,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
 
                         let body1 = 'entry.1040202788=' + chatlink + '&entry.763930179"=' + textaskclient + '&entry.870072493=' +  textclientsolution
+						console.log(body1)
 
                         let options1 = {
                             "headers": {
