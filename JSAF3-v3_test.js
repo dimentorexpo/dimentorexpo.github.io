@@ -3176,7 +3176,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         alert("Время ставить занят! :D");
 		localStorage.removeItem('chronostamp');
 		
-		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) {
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
             document.getElementById('reminderstatus').textContent = "🔕"; 
 		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
 			document.getElementById('reminderstatus').textContent = "🔔";
@@ -3210,7 +3210,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         alert("Время ставить занят! :D");
         localStorage.removeItem('chronostamp1');
 		
-		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) {
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
             document.getElementById('reminderstatus').textContent = "🔕"; 
 		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
 			document.getElementById('reminderstatus').textContent = "🔔";
