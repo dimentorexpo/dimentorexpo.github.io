@@ -8001,7 +8001,7 @@ function startTimer() {
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
 		btn15.addEventListener('click', function () {
 			document.getElementById('refuseform').click();
-		}
+		})
 		
 
         let btn16 = document.createElement('span');
