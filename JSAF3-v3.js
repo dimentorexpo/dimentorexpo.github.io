@@ -6161,6 +6161,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('refreshchathashrefuseform').onclick = () => {
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                     document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+				else document.getElementById('linktochatrefuse').value =''
             }
 
             document.getElementById('getdocsuggestionsrefuseform').onclick = () => {
@@ -6892,6 +6893,9 @@ async function buttonsFromDoc(butName) { // функция отправки ша
             sendAnswerTemplate2(txt)
         return
     }
+	
+	if (butName =='🖕Отказ')
+		document.getElementById('refuseform').click();
 
     msgFromTable(butName)
 
