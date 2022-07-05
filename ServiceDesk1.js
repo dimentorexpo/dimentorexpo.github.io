@@ -6,7 +6,7 @@ let slacklnk;
 let infoarr;
 let lasttsk;
 let prevtsk;
-let flagpsis=0;
+let flagpsis = 0;
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний проект в джира
@@ -123,14 +123,14 @@ function getprsup() { //функция для получения ссылки н
         console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
 
         lasttsk = firstEl;
-		flagpsis = 1;
+        flagpsis = 1;
 
         if (lasttsk > prevtsk) {
             document.getElementById('newtask').innerText = lasttsk;
             sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
-			for(let i=0; i<document.getElementsByClassName('removefield').length;i++) {
-				document.getElementsByClassName('removefield')[i].value=''
-			}
+            for (let i = 0; i < document.getElementsByClassName('removefield').length; i++) {
+                document.getElementsByClassName('removefield')[i].value = ''
+            }
         } else if (lasttsk <= prevtsk) {
             alert("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!")
         }
@@ -189,35 +189,16 @@ function getinfrasup() { //функция для получения ссылки
         console.log("Link tp IS JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
 
         lasttsk = firstEl;
-		flagpsis = 2;
-		sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
+        flagpsis = 2;
+        sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
 
     }, 2000);
 
 }
 
-function getslacklnk() { // получаем ссылку на обращение в слака с помощью парсинга номера задачи в джире и вытягивание ссылки с нее 
-	if (flagpsis == 1) {
-    if (lasttsk > prevtsk) {
-        document.getElementById('responseTextarea1').value = `{    "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-         }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
-        document.getElementById('responseTextarea3').value = 'slacklnkhere'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async () => {
+function getslacklnk() { // получаем ссылку на обращение в слака с помощью парсинга номера задачи в джире и вытягивание ссылки с нее
+    if (flagpsis == 1) {
+        if (lasttsk > prevtsk) {
             document.getElementById('responseTextarea1').value = `{    "headers": {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     "sec-fetch-dest": "document",
@@ -232,26 +213,45 @@ function getslacklnk() { // получаем ссылку на обращени�
   "mode": "cors",
   "credentials": "include"
          }`
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
             document.getElementById('responseTextarea3').value = 'slacklnkhere'
             document.getElementById('sendResponse').click()
 
-            infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
-            document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
+            setTimeout(async () => {
+                document.getElementById('responseTextarea1').value = `{    "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "same-origin",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+         }`
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
+                document.getElementById('responseTextarea3').value = 'slacklnkhere'
+                document.getElementById('sendResponse').click()
 
-            slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
+                infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
+                document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
 
-            console.log("Slack link " + slacklnk);
-            sendComment("Slack Service Desk link: " + slacklnk);
+                slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
+
+                console.log("Slack link " + slacklnk);
+                sendComment("Slack Service Desk link: " + slacklnk);
 
 
-        }, 2000);
-		
-    } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
-	
-	} else if (flagpsis ==2) {
-		
-		        document.getElementById('responseTextarea1').value = `{    "headers": {
+            }, 2000);
+
+        } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+
+    } else if (flagpsis == 2) {
+
+        document.getElementById('responseTextarea1').value = `{    "headers": {
 					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 					"sec-fetch-dest": "document",
 					"sec-fetch-mode": "navigate",
@@ -297,9 +297,9 @@ function getslacklnk() { // получаем ссылку на обращени�
             sendComment("Slack Service Desk link: " + slacklnk);
 
         }, 2000);
-		
+
     } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
-		
+
 }
 
 
@@ -363,9 +363,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -390,9 +390,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -417,9 +417,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -444,9 +444,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -471,9 +471,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -498,9 +498,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -525,9 +525,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -552,9 +552,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -579,9 +579,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -606,9 +606,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -633,9 +633,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -660,9 +660,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -687,9 +687,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -714,9 +714,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -741,9 +741,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -768,9 +768,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -795,9 +795,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -822,9 +822,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -849,9 +849,9 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
     });
 
@@ -876,68 +876,14 @@ document.getElementById('servDsk').onclick = function () {
         $('.corpbtn').not(this).removeClass('activebtn');
         $('.marketingbtn').not(this).removeClass('activebtn');
         $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
-        $(this).toggleClass('activebtn');
-    });
-	
-    $('.stcabmbsbtn').click(function () {
-        $('.kidsbtn').not(this).removeClass('activebtn');
-        $('.edumodbtn').not(this).removeClass('activebtn');
-        $('.bilqabtn').not(this).removeClass('activebtn');
-        $('.teacbtn').not(this).removeClass('activebtn');
-        $('.c1sbtn').not(this).removeClass('activebtn');
-        $('.schdbtn').not(this).removeClass('activebtn');
-        $('.telepbtn').not(this).removeClass('activebtn');
-        $('.authbtn').not(this).removeClass('activebtn');
-        $('.crm2sbtn').not(this).removeClass('activebtn');
-        $('.mrktbtn').not(this).removeClass('activebtn');
-        $('.billbtn').not(this).removeClass('activebtn');
-        $('.vimbugsbtn').not(this).removeClass('activebtn');
-        $('.vimvidsbtn').not(this).removeClass('activebtn');
-        $('.studcabbtn').not(this).removeClass('activebtn');
-        $('.chatqabtn').not(this).removeClass('activebtn');
-        $('.tripwbtn').not(this).removeClass('activebtn');
-        $('.analystbtn').not(this).removeClass('activebtn');
-        $('.corpbtn').not(this).removeClass('activebtn');
-        $('.marketingbtn').not(this).removeClass('activebtn');
-        $('.mobbugsbtn').not(this).removeClass('activebtn');
-		$('.stcabmbsbtn').not(this).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
-        $(this).toggleClass('activebtn');
-    });
-	
-	$('.marketprojbugsbtn').click(function () {  //поправить
-        $('.kidsbtn').not(this).removeClass('activebtn');
-        $('.edumodbtn').not(this).removeClass('activebtn');
-        $('.bilqabtn').not(this).removeClass('activebtn');
-        $('.teacbtn').not(this).removeClass('activebtn');
-        $('.c1sbtn').not(this).removeClass('activebtn');
-        $('.schdbtn').not(this).removeClass('activebtn');
-        $('.telepbtn').not(this).removeClass('activebtn');
-        $('.authbtn').not(this).removeClass('activebtn');
-        $('.crm2sbtn').not(this).removeClass('activebtn');
-        $('.mrktbtn').not(this).removeClass('activebtn');
-        $('.billbtn').not(this).removeClass('activebtn');
-        $('.vimbugsbtn').not(this).removeClass('activebtn');
-        $('.vimvidsbtn').not(this).removeClass('activebtn');
-        $('.studcabbtn').not(this).removeClass('activebtn');
-        $('.chatqabtn').not(this).removeClass('activebtn');
-        $('.tripwbtn').not(this).removeClass('activebtn');
-        $('.analystbtn').not(this).removeClass('activebtn');
-        $('.corpbtn').not(this).removeClass('activebtn');
-        $('.marketingbtn').not(this).removeClass('activebtn');
-        $('.mobbugsbtn').not(this).removeClass('activebtn');
         $('.stcabmbsbtn').not(this).removeClass('activebtn');
         $('.marketprojbugsbtn').not(this).removeClass('activebtn');
-		$('.infrabtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
         $(this).toggleClass('activebtn');
-     });
-	 
-	$('.infrabtn').click(function () {  //поправить
-         $('.kidsbtn').not(this).removeClass('activebtn');
+    });
+
+    $('.stcabmbsbtn').click(function () {
+        $('.kidsbtn').not(this).removeClass('activebtn');
         $('.edumodbtn').not(this).removeClass('activebtn');
         $('.bilqabtn').not(this).removeClass('activebtn');
         $('.teacbtn').not(this).removeClass('activebtn');
@@ -960,8 +906,62 @@ document.getElementById('servDsk').onclick = function () {
         $('.stcabmbsbtn').not(this).removeClass('activebtn');
         $('.marketprojbugsbtn').not(this).removeClass('activebtn');
         $('.infrabtn').not(this).removeClass('activebtn');
-		$(this).toggleClass('activebtn');
-	});
+        $(this).toggleClass('activebtn');
+    });
+
+    $('.marketprojbugsbtn').click(function () {  //поправить
+        $('.kidsbtn').not(this).removeClass('activebtn');
+        $('.edumodbtn').not(this).removeClass('activebtn');
+        $('.bilqabtn').not(this).removeClass('activebtn');
+        $('.teacbtn').not(this).removeClass('activebtn');
+        $('.c1sbtn').not(this).removeClass('activebtn');
+        $('.schdbtn').not(this).removeClass('activebtn');
+        $('.telepbtn').not(this).removeClass('activebtn');
+        $('.authbtn').not(this).removeClass('activebtn');
+        $('.crm2sbtn').not(this).removeClass('activebtn');
+        $('.mrktbtn').not(this).removeClass('activebtn');
+        $('.billbtn').not(this).removeClass('activebtn');
+        $('.vimbugsbtn').not(this).removeClass('activebtn');
+        $('.vimvidsbtn').not(this).removeClass('activebtn');
+        $('.studcabbtn').not(this).removeClass('activebtn');
+        $('.chatqabtn').not(this).removeClass('activebtn');
+        $('.tripwbtn').not(this).removeClass('activebtn');
+        $('.analystbtn').not(this).removeClass('activebtn');
+        $('.corpbtn').not(this).removeClass('activebtn');
+        $('.marketingbtn').not(this).removeClass('activebtn');
+        $('.mobbugsbtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
+        $(this).toggleClass('activebtn');
+    });
+
+    $('.infrabtn').click(function () {  //поправить
+        $('.kidsbtn').not(this).removeClass('activebtn');
+        $('.edumodbtn').not(this).removeClass('activebtn');
+        $('.bilqabtn').not(this).removeClass('activebtn');
+        $('.teacbtn').not(this).removeClass('activebtn');
+        $('.c1sbtn').not(this).removeClass('activebtn');
+        $('.schdbtn').not(this).removeClass('activebtn');
+        $('.telepbtn').not(this).removeClass('activebtn');
+        $('.authbtn').not(this).removeClass('activebtn');
+        $('.crm2sbtn').not(this).removeClass('activebtn');
+        $('.mrktbtn').not(this).removeClass('activebtn');
+        $('.billbtn').not(this).removeClass('activebtn');
+        $('.vimbugsbtn').not(this).removeClass('activebtn');
+        $('.vimvidsbtn').not(this).removeClass('activebtn');
+        $('.studcabbtn').not(this).removeClass('activebtn');
+        $('.chatqabtn').not(this).removeClass('activebtn');
+        $('.tripwbtn').not(this).removeClass('activebtn');
+        $('.analystbtn').not(this).removeClass('activebtn');
+        $('.corpbtn').not(this).removeClass('activebtn');
+        $('.marketingbtn').not(this).removeClass('activebtn');
+        $('.mobbugsbtn').not(this).removeClass('activebtn');
+        $('.stcabmbsbtn').not(this).removeClass('activebtn');
+        $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+        $('.infrabtn').not(this).removeClass('activebtn');
+        $(this).toggleClass('activebtn');
+    });
 
 
     document.getElementById('optionTeacher').onclick = function () { // Teachers
@@ -988,13 +988,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -1024,7 +1024,7 @@ document.getElementById('servDsk').onclick = function () {
                 let erx = encodeURIComponent(document.getElementById('customfield_9').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_10').value);
 
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstatistic').textContent) {
+                if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherstatistic').textContent) {
                     console.log("Статистика: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -1071,7 +1071,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherbreak').textContent) {
                     console.log("Перерыв: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1095,7 +1095,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teachermoney').textContent) {
                     console.log("Финансы: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1166,7 +1166,7 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('sendResponse').click()
 
                     setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);			
+                    setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherperenos').textContent) {
                     console.log("Запросы на перенос занятия: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
@@ -1263,7 +1263,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgettimetableweek').textContent) {
                     console.log("Виджет расписания на неделю: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1287,7 +1287,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetKPI').textContent) {
                     console.log("Виджет KPI: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1311,7 +1311,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherwidgetmystudents').textContent) {
                     console.log("Виджет 'Мои ученики': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1335,7 +1335,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherTRMquestions').textContent) {
                     console.log("Вопросы по TRM': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1359,7 +1359,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teacherunderground').textContent) {
                     console.log("Подземный стук': " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1382,7 +1382,7 @@ document.getElementById('servDsk').onclick = function () {
                     document.getElementById('sendResponse').click()
 
                     setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);					
+                    setTimeout(getslacklnk, 8000);
 
                 } else
                     console.log("Not found");
@@ -1419,13 +1419,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -1452,7 +1452,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_3').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_4').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_5').value);
-				
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmarthomework').textContent) {
                     console.log("Страница ДЗ и тестов: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1501,7 +1501,7 @@ document.getElementById('servDsk').onclick = function () {
 
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
-					
+
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skysmartonetoone').textContent) {
                     console.log("Уроки 1:1: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1559,13 +1559,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('kidsform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('skysmartsrvdskoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -1592,7 +1592,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_99').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_100').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_101').value);
-                
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('edumgoal').textContent) {
                     console.log("Анкета целей: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -1746,13 +1746,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -1862,13 +1862,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -1955,13 +1955,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -2119,13 +2119,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -2309,13 +2309,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -2645,13 +2645,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -2906,13 +2906,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -3286,13 +3286,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -3725,13 +3725,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -4567,13 +4567,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -4829,13 +4829,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -5186,13 +5186,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -5222,7 +5222,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_68').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_69').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_70').value);
-                
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('chatqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -5279,13 +5279,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -5315,7 +5315,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_73').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_74').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_75').value);
-                
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -5372,13 +5372,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -5464,13 +5464,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';					
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
@@ -5500,7 +5500,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_83').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_84').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_85').value);
-                
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('corpqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -5557,13 +5557,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('corpform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';		
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('corpoptions').style.display = 'none';
@@ -5593,7 +5593,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_88').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_89').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_90').value);
-                
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('marketingqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -5625,8 +5625,8 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
         }
     }
-	
-	document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages)
+
+    document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages)
         if (document.getElementById('marketprojbugsptions').style.display != '') {
             document.getElementById('marketprojbugsptions').style.display = '';
             document.getElementById('marketprojbugsform').style.display = '';
@@ -5650,13 +5650,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('corpform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketingform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';					
-			document.getElementById('marketingptions').style.display = 'none';
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketingptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('corpoptions').style.display = 'none';
@@ -5686,7 +5686,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_111').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_112').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_113').value);
-                
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('marketingqa').textContent) {
                     console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -5743,13 +5743,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('corpform').style.display = 'none';
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-		    document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';								
-            document.getElementById('marketprojbugsptions').style.display = 'none';			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+
+            document.getElementById('infraoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
             document.getElementById('corpoptions').style.display = 'none';
@@ -5781,10 +5781,10 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_94').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_95').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_96').value);
-                
+
                 let priorvalue = document.getElementById('prioritymbugs').value;
-                if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mobbugsqa').textContent) {
-                    console.log("Обращение к QA: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobauthorize').textContent) {
+                    console.log("Skyeng МП: авторизация: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -5793,14 +5793,278 @@ document.getElementById('servDsk').onclick = function () {
 					 "x-requested-with": "XMLHttpRequest",
 					 "x-sitemesh-off": "true"
 					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/953",
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1031",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
 					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
 					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/953";
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1031";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobregister').textContent) {
+                    console.log("Skyeng МП: регистрация: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1030",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1030";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobregsocnetw').textContent) {
+                    console.log("Skyeng МП: регистрация через соц. сети: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1029",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1029";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobpayment').textContent) {
+                    console.log("Skyeng МП: оплата: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1023",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1023";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobauthsocnetw').textContent) {
+                    console.log("Skyeng МП: аторизация через соц. сети: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1028",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1028";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobchats').textContent) {
+                    console.log("Skyeng МП: чаты: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1027",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1027";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobpush').textContent) {
+                    console.log("Skyeng МП: пуши: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1026",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1026";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobforcupd').textContent) {
+                    console.log("Skyeng МП: Force update: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1025",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1025";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymobasettings').textContent) {
+                    console.log("Skyeng МП: настройки: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1024",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1024";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymoblanguage').textContent) {
+                    console.log("Skyeng МП: локализация(язык приложения, контента): " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1022",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1022";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skymovideocall').textContent) {
+                    console.log("Skyeng МП: видеосвязь(необразовательная часть): " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1021",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1021";
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
+
+                    setTimeout(getprsup, 5000);
+                    setTimeout(getslacklnk, 8000);
+
+                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('skyteachmob').textContent) {
+                    console.log("Teachers МП: " + " Priority:" + priorvalue + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
+
+                    document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1020",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/1020";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
@@ -5814,8 +6078,8 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('mobileform').style.display = 'none';
         }
     }
-	
-	document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-bugs
+
+    document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-bugs
         if (document.getElementById('studcabmobbugskoptions').style.display != '') {
             document.getElementById('studcabmobbugskoptions').style.display = '';
             document.getElementById('stcabmbbugsform').style.display = '';
@@ -5840,10 +6104,10 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
             document.getElementById('mobileform').style.display = 'none';
-		    document.getElementById('marketprojbugsform').style.display = 'none';	
+            document.getElementById('marketprojbugsform').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
-			
-            document.getElementById('infraoptions').style.display = 'none';						
+
+            document.getElementById('infraoptions').style.display = 'none';
             document.getElementById('marketprojbugsptions').style.display = 'none';
             document.getElementById('mobbugsoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
@@ -5877,7 +6141,7 @@ document.getElementById('servDsk').onclick = function () {
                 let str = encodeURIComponent(document.getElementById('customfield_106').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_107').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_108').value);
-                
+
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mpskyengmainsrv').textContent) {
                     console.log("МП Skyeng: главные страницы продуктов (кроме лайф и толкс) и страница подключения услуг: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " Название " + issuename + "Device " + device + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
@@ -6101,8 +6365,8 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('stcabmbbugsform').style.display = 'none';
         }
     }
-	
-	document.getElementById('optionInfra').onclick = function () { //Infra support for delete account 
+
+    document.getElementById('optionInfra').onclick = function () { //Infra support for delete account
         if (document.getElementById('infraoptions').style.display != '') {
             document.getElementById('infraoptions').style.display = '';
             document.getElementById('infraform').style.display = '';
@@ -6126,13 +6390,13 @@ document.getElementById('servDsk').onclick = function () {
             document.getElementById('corpform').style.display = 'none';
             document.getElementById('marketingform').style.display = 'none';
             document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-		    document.getElementById('marketprojbugsform').style.display = 'none';
-            document.getElementById('mobileform').style.display = 'none';			
-			
-            document.getElementById('mobbugsoptions').style.display = 'none';			
-            document.getElementById('marketprojbugsptions').style.display = 'none';			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
+            document.getElementById('stcabmbbugsform').style.display = 'none';
+            document.getElementById('marketprojbugsform').style.display = 'none';
+            document.getElementById('mobileform').style.display = 'none';
+
+            document.getElementById('mobbugsoptions').style.display = 'none';
+            document.getElementById('marketprojbugsptions').style.display = 'none';
+            document.getElementById('studcabmobbugskoptions').style.display = 'none';
             document.getElementById('edumodeloptions').style.display = 'none';
             document.getElementById('marketingptions').style.display = 'none';
             document.getElementById('corpoptions').style.display = 'none';
@@ -6160,13 +6424,13 @@ document.getElementById('servDsk').onclick = function () {
                 let idstdserv = encodeURIComponent(document.getElementById('customfield_114').value);
                 let lnk = encodeURIComponent(document.getElementById('customfield_115').value);
                 let commentos = encodeURIComponent(document.getElementById('customfield_117').value);
-				let radiosel  = document.getElementsByName('customfield_116');
+                let radiosel = document.getElementsByName('customfield_116');
                 if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('askfordelacc').textContent) {
                     console.log("Запрос на удаление перс.данных: " + "  Id student and teacher: " + idstdserv + " Link: " + lnk + " Комментарий " + commentos);
 
-					for (let i=0; i<radiosel.length;i++) {
-						if (radiosel[i].checked) {
-							document.getElementById('responseTextarea1').value = `{  "headers": {
+                    for (let i = 0; i < radiosel.length; i++) {
+                        if (radiosel[i].checked) {
+                            document.getElementById('responseTextarea1').value = `{  "headers": {
 							 "content-type": "application/x-www-form-urlencoded",
 							 "sec-fetch-mode": "cors",
 							 "sec-fetch-site": "same-origin",
@@ -6180,32 +6444,30 @@ document.getElementById('servDsk').onclick = function () {
 							  "mode": "cors",
 							  "credentials": "include"
 							  }`
-							document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957";
-							document.getElementById('responseTextarea3').value = ''
-							document.getElementById('sendResponse').click()
+                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957";
+                            document.getElementById('responseTextarea3').value = ''
+                            document.getElementById('sendResponse').click()
 
-							document.getElementById('customfield_91').value = "";
-							document.getElementById('customfield_92').value = "";
-							document.getElementById('customfield_911').value = "";
-							document.getElementById('customfield_912').value = "";
-							document.getElementById('customfield_94').value = "";
-							document.getElementById('customfield_95').value = "";
-							document.getElementById('customfield_96').value = "";
+                            document.getElementById('customfield_91').value = "";
+                            document.getElementById('customfield_92').value = "";
+                            document.getElementById('customfield_911').value = "";
+                            document.getElementById('customfield_912').value = "";
+                            document.getElementById('customfield_94').value = "";
+                            document.getElementById('customfield_95').value = "";
+                            document.getElementById('customfield_96').value = "";
 
-							setTimeout(getinfrasupsup, 5000);
-							setTimeout(getslacklnk, 8000);
-						} else alert("Выберите Да или Нет на вопрос нужен ли официальный ответ")
-					}
-
-
+                            setTimeout(getinfrasupsup, 5000);
+                            setTimeout(getslacklnk, 8000);
+                        } else alert("Выберите Да или Нет на вопрос нужен ли официальный ответ")
+                    }
                 } else console.log("Not found");
             }
-			
+
         } else {
             document.getElementById('infraoptions').style.display = 'none';
             document.getElementById('infraform').style.display = 'none';
         }
     }
 
-    //End of script	 
+    //End of script
 }
