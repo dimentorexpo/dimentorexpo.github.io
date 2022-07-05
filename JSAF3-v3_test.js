@@ -6173,12 +6173,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
                 let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
 
-                        let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179"=' + textaskclient + '&entry.870072493=' +  textclientsolution
+                        let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' +  textclientsolution
 						console.log(body2)
 
                         let options2 = {
                             "headers": {
-                                "content-type": "application/x-www-form-urlencoded;",
+                                "content-type": "application/x-www-form-urlencoded",
                             },
                             "body": body2,
                             "method": "POST",

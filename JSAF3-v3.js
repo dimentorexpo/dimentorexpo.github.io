@@ -300,6 +300,11 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
+		#refuseform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
 		#butChatHistory:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -545,6 +550,29 @@ var win_suggest =  // описание элементов окна предло�
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
                         </div>
+        </span>
+</div>`;
+
+var win_refuse =  // описание элементов окна отказа от помощи
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 409px;" id="refuse_form_main">
+                            <button title="скрывает меню" id="hideMeRefuseForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
+							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestionsrefuseform" style="width:24px;">🗑</button>
+                        </div>
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_box">
+                            <input id="linktochatrefuse" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<br>
+							<textarea id="textrefuseform" placeholder="C какой проблемой обратился клиент? (Пример: Не работает микрофон у ученика, не работает микрофон у преподавателя). Указывайте, что именно у кого не работает. Если конкретно не известно, можно указывать "не работает связь на уроке со стороны У" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
+							<br>
+							<textarea id="textrefuseformsolution" placeholder="Как решилось? ( Здесь указываем, уточняем, как решился запрос). Пример: перешли на альтернативную связь в Zoom/Skype, подключились на урок с телефона (были проблемы на пк), удалили антивирус и т.д" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="sendrefusetodoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+		</span> 
+
         </span>
 </div>`;
 
@@ -1659,6 +1687,11 @@ if (localStorage.getItem('winTopSugest') == null) { //начальное пол�
     localStorage.setItem('winLeftSugest', '295');
 }
 
+if (localStorage.getItem('winTopRefuse') == null) { //начальное положение окна Отказ от помощи
+    localStorage.setItem('winTopRefuse', '295');
+    localStorage.setItem('winLeftRefuse', '295');
+}
+
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
@@ -2103,6 +2136,11 @@ butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
 butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butrefuseform = document.createElement('div')
+butrefuseform.id = "refuseform"
+butrefuseform.innerHTML = "❌Отказ от помощи"
+butrefuseform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
@@ -2302,6 +2340,13 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
+let wintRefuseForm = document.createElement('div'); // создание окна ссылок
+document.body.append(wintRefuseForm);
+wintRefuseForm.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuse') + 'px; left: ' + localStorage.getItem('winLeftRefuse') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseForm.style.display = 'none';
+wintRefuseForm.setAttribute('id', 'AF_Refuseform');
+wintRefuseForm.innerHTML = win_refuse;
+
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -2477,6 +2522,20 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
     document.addEventListener('mousemove', listener15);
 }
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
+
+var listener16 = function (e, a) { // сохранение позиции окна доступов
+    wintRefuseForm.style.left = Number(e.clientX - myX16) + "px";
+    wintRefuseForm.style.top = Number(e.clientY - myY16) + "px";
+    localStorage.setItem('winTopRefuse', String(Number(e.clientY - myY16)));
+    localStorage.setItem('winLeftRefuse', String(Number(e.clientX - myX16)));
+};
+
+wintRefuseForm.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX16 = a.layerX;
+    window.myY16 = a.layerY;
+    document.addEventListener('mousemove', listener16);
+}
+wintRefuseForm.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -4595,6 +4654,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
+    }   
+
+	document.getElementById('hideMeRefuseForm').onclick = () => { //форма hide
+        if (document.getElementById('AF_Refuseform').style.display == '')
+            document.getElementById('AF_Refuseform').style.display = 'none'
     }
 
     document.getElementById('hideMeChHis').onclick = () => { //форма hide
@@ -6083,6 +6147,62 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             }
         }
+    }   
+
+	document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
+        if (document.getElementById('AF_Refuseform').style.display == '')
+            document.getElementById('AF_Refuseform').style.display = 'none'
+        else {
+            document.getElementById('AF_Refuseform').style.display = ''
+
+            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+
+            document.getElementById('refreshchathashrefuseform').onclick = () => {
+                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                    document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+            }
+
+            document.getElementById('getdocsuggestionsrefuseform').onclick = () => {
+                window.open("https://docs.google.com/spreadsheets/d/11LcR1mc-5aRFykYSZMwZcwluGORNbyHuvbWxpP3Su0U/edit?resourcekey#gid=2025786567")
+            }
+
+            document.getElementById('sendrefusetodoc').onclick = () => {
+
+                let chatlink = document.getElementById('linktochatrefuse').value
+                let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
+                let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
+
+                        let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' +  textclientsolution
+						console.log(body2)
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        sendComment('Отправка в документ "Отказ от помощи прошла успешно"')
+                        document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
+						
+                        setTimeout(() => {
+                            document.getElementById('sendrefusetodoc').innerText = "Отправить"
+                        }, 3000)
+                
+                document.getElementById('linktochatrefuse').value = ''
+                document.getElementById('textrefuseform').value = ''
+                document.getElementById('textrefuseformsolution').value = ''
+
+            }
+        }
     }
 
     document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
@@ -6783,7 +6903,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
     let options = {
         "headers": {
-            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",",
+            "content-type": "application/x-www-form-urlencoded;",
         },
         "body": body,
         "method": "POST",
@@ -12360,7 +12480,8 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
+            btnAdd1.insertBefore(butrefuseform, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
 
@@ -12377,6 +12498,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
+			menubar.append(document.getElementById('refuseform'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
