@@ -6173,18 +6173,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
                 let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
 
-                        let body1 = 'entry.1040202788=' + chatlink + '&entry.763930179"=' + textaskclient + '&entry.870072493=' +  textclientsolution
-						console.log(body1)
+                        let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179"=' + textaskclient + '&entry.870072493=' +  textclientsolution
+						console.log(body2)
 
-                        let options1 = {
+                        let options2 = {
                             "headers": {
                                 "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                             },
-                            "body": body1,
+                            "body": body2,
                             "method": "POST",
                         }
 
-                        document.getElementById('responseTextarea1').value = JSON.stringify(options1)
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
                         document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
                         if (document.getElementById('responseTextarea3') != null)
                             document.getElementById('responseTextarea3').value = ''
