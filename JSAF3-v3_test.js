@@ -428,7 +428,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 					<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
 					<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
-					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-top: 5px">00 : 00 : 00</button>
+					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
