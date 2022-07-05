@@ -12388,6 +12388,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
+			menubar.append(document.getElementById('refuseform'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
