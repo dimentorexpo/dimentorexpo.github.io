@@ -4331,9 +4331,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
 
-                if (arrservice.length != 0 && arrservice != null && arrservice != undefined) {
+                if (arrservice != null && arrservice != undefined) {
                     arrservice = arrservice.split(', ')
                 }
+				
                 let tmparr = document.querySelectorAll('.copyserviceid');
                 for (let j = 0; j < tmparr.length; j++) {
                     tmparr[j].onclick = function () {
