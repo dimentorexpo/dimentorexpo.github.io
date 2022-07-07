@@ -405,6 +405,9 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
+				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext">
+				<button id="insertlinktotex">Insert ✅</button>
+				<br>
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
                 <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:21px">🤖</button>
 				<button title="Отправить текст" id="snd" style="width:50px; margin-left:11px">send</button>
@@ -6860,6 +6863,38 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             localStorage.setItem('msg1', 'Отправить')
         }
     }
+	
+	function replaceSelectedText(elem, str){
+	elem.focus();
+
+	if (document.selection){
+		var s = document.selection.createRange(); 
+		if (s.text){
+			eval("s.text="+str+"(s.text);");
+			s.select();
+			return true;
+		}
+	}
+	else if (typeof(elem.selectionStart) == "number"){
+		if (elem.selectionStart!=elem.selectionEnd){
+			var start = elem.selectionStart;
+			var end = elem.selectionEnd;
+
+			eval("var rs = "+str+"(elem.value.substr(start,end-start));");
+			elem.value = elem.value.substr(0,start)+rs+elem.value.substr(end);
+			elem.setSelectionRange(end,end);
+		}
+		return true;
+	}
+	return false;
+}
+
+function change_str(s){return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">`+s+"</a>"}
+
+document.getElementById('insertlinktotex').onclick = function() {
+	replaceSelectedText(document.getElementById('inp'), 'change_str');
+	document.getElementById('bindlinktotext').value =''
+}
 
     document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
         let txt = document.getElementById('inp').value;
