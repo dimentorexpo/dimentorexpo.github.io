@@ -12951,7 +12951,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '11px'
+    document.getElementById('snd').style.marginLeft = '10px'
 
 
     if (localStorage.getItem('disablelpmwindow') == 1)
