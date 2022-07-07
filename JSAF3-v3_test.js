@@ -405,6 +405,9 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
+				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext">
+				<button id="insertlinktotex">Insert ✅</button>
+				<br>
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
                 <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:21px">🤖</button>
 				<button title="Отправить текст" id="snd" style="width:50px; margin-left:11px">send</button>
