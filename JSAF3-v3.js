@@ -9311,7 +9311,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Математика")
@@ -9331,7 +9343,6 @@ async function remandressl() { // функция удаления и сброс�
             "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
-
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
@@ -9347,7 +9358,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Английский ящык")
@@ -9383,7 +9406,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Компьютерные курсы")
@@ -9419,7 +9454,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Физика")
@@ -9455,7 +9502,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Дошколка")
@@ -9491,7 +9550,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Русский язык")
@@ -9527,7 +9598,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Обществознание")
@@ -9563,7 +9646,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Шахматы")
@@ -9599,7 +9694,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Химии")
@@ -9635,7 +9742,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Биологии")
@@ -9671,7 +9790,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Истории")
@@ -9700,7 +9831,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Английский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
@@ -9728,7 +9871,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Компьютерные курсы' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Компьютерные курсы'")
@@ -9756,7 +9911,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Шахматы' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Шахматы'")
@@ -9784,7 +9951,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Математика' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Математика'")
@@ -9812,7 +9991,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Русский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Русский язык'")
@@ -9840,7 +10031,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Дошколка' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Дошколка'")
@@ -9868,7 +10071,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Физика' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Физика'")
@@ -9896,7 +10111,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Обществознание' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Обществознание'")
@@ -9924,7 +10151,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Литературе' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Литературе'")
@@ -9952,7 +10191,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'История' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'История'")
@@ -9980,7 +10231,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'География' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'География'")
@@ -10008,7 +10271,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Химия' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Химия'")
@@ -10036,7 +10311,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Биология' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
