@@ -410,7 +410,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext"></input>
 				<button id="insertlinktotex">Insert ✅</button>
 			</div>
-				<br>
+
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
 				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;">🔗</button>
                 <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
