@@ -2715,37 +2715,37 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         time = hours + " : " + minutes + " : " + seconds;
         document.getElementById("clock_js").innerHTML = time;
 
-        let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
-        let c = [...bbc].map(i => i.innerText)
+        // let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
+        // let c = [...bbc].map(i => i.innerText)
 
-        for (let i = 0; i < bbc.length; i++) {
-            bbc[i].ondblclick = () => {
-                c = operatorsarray.filter(item => (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
-                console.log(c)
-                if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                    butChatHistory.click()
-                    setTimeout(function () {
-                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                document.getElementById('operatorstp')[j].selected = true;
-                                findchatsoper()
+        // for (let i = 0; i < bbc.length; i++) {
+            // bbc[i].ondblclick = () => {
+                // c = operatorsarray.filter(item => (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
+                // console.log(c)
+                // if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                    // butChatHistory.click()
+                    // setTimeout(function () {
+                        // for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
+                            // if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+                                // document.getElementById('operatorstp')[j].selected = true;
+                                // findchatsoper()
 
-                            }
-                        }
-                    }, 1000)
-                } else {
-                    setTimeout(function () {
-                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                document.getElementById('operatorstp')[j].selected = true;
-                                findchatsoper()
+                            // }
+                        // }
+                    // }, 1000)
+                // } else {
+                    // setTimeout(function () {
+                        // for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
+                            // if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+                                // document.getElementById('operatorstp')[j].selected = true;
+                                // findchatsoper()
 
-                            }
-                        }
-                    }, 1000)
-                }
-            }
-        }
+                            // }
+                        // }
+                    // }, 1000)
+                // }
+            // }
+        // }
     }
 
     function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
