@@ -4282,7 +4282,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.querySelector('#useravatar').style.display = "";
                         document.querySelector('#useravatar').src = avatarofuser;
                     }
-                    document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + teachername + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + "<br>" + "🌍: " + countryofuser + "<br>";
+                    document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + teachername + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "🌍: " + countryofuser + "<br>";
                     document.getElementById('changelocalelng').style.display = "none";
                     document.getElementById('checkbalance').style.display = "none";
                     document.getElementById('getkglinfokid').style.display = "none";
@@ -4308,19 +4308,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                     if (document.getElementById('getusremail1') != null) {
                         document.getElementById('getusremail1').onclick = function () {
-                            copyToClipboard(unhidenemail);
+                            copyToClipboard1(unhidenemail);
                         };
                     }
 
                     if (document.getElementById('getusrphone1') != null) {
                         document.getElementById('getusrphone1').onclick = function () {
-                            copyToClipboard(unhidephone);
+                            copyToClipboard1(unhidephone);
                         };
                     }
 
                     if (document.getElementById('getshowcase1') != null) {
                         document.getElementById('getshowcase1').onclick = function () {
-                            copyToClipboard("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                            copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
                         };
                     }
 
