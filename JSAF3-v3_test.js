@@ -6871,7 +6871,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 	document.getElementById('opandclsbarhyper').onclick = function () {
 		if (document.getElementById('hyperlnk').style.display == 'none')
 			document.getElementById('hyperlnk').style.display = ''
-		else document.getElementById('hyperlnk').style.display = 'none')
+		else document.getElementById('hyperlnk').style.display = 'none'
 	}
 	
 	function replaceSelectedText(elem, str){
