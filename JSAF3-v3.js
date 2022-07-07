@@ -403,16 +403,21 @@ var win_AFhelper =  // описание элементов главного ок
 			</span>
 			<div style="margin: 5px;" id="6str">
 			</div>
+			
 			<div style="margin: 5px;" id="7str">
-				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" title="Вставляете в это поле ссылку, выделяете слово в тексте шаблона и нажимаете Insert, чтобы сделать гиперссылку" id="bindlinktotext"></input>
+				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
+			<div id="hyperlnk" style="display:none">
+				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext"></input>
 				<button id="insertlinktotex">Insert ✅</button>
-				<br>
-				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-                <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:21px">🤖</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left:11px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:35px">Заметки</button>
 			</div>
+
+				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
+				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;">🔗</button>
+                <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
+			</div>
+			
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
 			</div>
@@ -6864,6 +6869,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 	
+	document.getElementById('opandclsbarhyper').onclick = function () {
+		if (document.getElementById('hyperlnk').style.display == 'none')
+			document.getElementById('hyperlnk').style.display = ''
+		else document.getElementById('hyperlnk').style.display = 'none'
+	}
+	
 	function replaceSelectedText(elem, str){
 	elem.focus();
 
@@ -12940,7 +12951,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '11px'
+    document.getElementById('snd').style.marginLeft = '10px'
 
 
     if (localStorage.getItem('disablelpmwindow') == 1)
