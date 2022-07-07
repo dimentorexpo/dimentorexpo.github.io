@@ -407,7 +407,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
 			<div id="hyperlnk" style="display:none">
-				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext">
+				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext"></input>
 				<button id="insertlinktotex">Insert ✅</button>
 			</div>
 				<br>
