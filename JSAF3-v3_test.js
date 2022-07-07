@@ -6430,6 +6430,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
                         setTimeout(() => {
                             document.getElementById('sendrefusetodoc').innerText = "Отправить"
+							document.getElementById('AF_Refuseform').style.display = 'none'
                         }, 3000)
                 
                 document.getElementById('linktochatrefuse').value = ''
