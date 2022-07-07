@@ -405,7 +405,7 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext">
+				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" title="Вставляете в это поле ссылку, выделяете слово в тексте шаблона и нажимаете Insert, чтобы сделать гиперссылку" id="bindlinktotext"></input>
 				<button id="insertlinktotex">Insert ✅</button>
 				<br>
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
