@@ -412,11 +412,12 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 				<br>
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
-				<button id="opandclsbarhyper" style="width:30px; margin:0; padding:2px; text-align:center;">🔗</button>
-                <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:5px">🤖</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left:5px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:20px">Чат</button>
+				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;">🔗</button>
+                <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
 			</div>
+			
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
 			</div>
