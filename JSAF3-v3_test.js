@@ -4308,19 +4308,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                     if (document.getElementById('getusremail1') != null) {
                         document.getElementById('getusremail1').onclick = function () {
-                            copyToClipboard1(unhidenemail);
+                            copyToClipboard(unhidenemail);
                         };
                     }
 
                     if (document.getElementById('getusrphone1') != null) {
                         document.getElementById('getusrphone1').onclick = function () {
-                            copyToClipboard1(unhidephone);
+                            copyToClipboard(unhidephone);
                         };
                     }
 
                     if (document.getElementById('getshowcase1') != null) {
                         document.getElementById('getshowcase1').onclick = function () {
-                            copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+                            copyToClipboard("https://profile.skyeng.ru/profile/" + stid + "/showcase");
                         };
                     }
 
