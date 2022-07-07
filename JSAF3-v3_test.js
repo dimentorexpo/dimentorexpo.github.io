@@ -9311,7 +9311,21 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
+				
+                //fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Математика")
