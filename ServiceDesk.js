@@ -6808,7 +6808,6 @@ document.getElementById('servDsk').onclick = function () {
                             document.getElementById('customfield_114').value = "";
                             document.getElementById('customfield_115').value = "";
                             document.getElementById('customfield_117').value = "";
-                            document.getElementById('customfield_912').value = "";
 
                             setTimeout(getinfrasup, 5000);
                             setTimeout(getslacklnk, 8000);
