@@ -1097,7 +1097,7 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
 					<button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
                     <button class="sdbtn" id="optionAcademymobbugs" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
-                    <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px;">🛠Infra</button>
+                    <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px; display:none">🛠Infra</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
@@ -3082,7 +3082,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         localStorage.setItem('chronostamp', chronostamp);
         //		setchas.value = "";
         //		setminuta.value = "";
-        alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
+        alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
         abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
     }   
 
