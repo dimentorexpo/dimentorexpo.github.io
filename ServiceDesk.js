@@ -6786,7 +6786,7 @@ document.getElementById('servDsk').onclick = function () {
                     console.log("Запрос на удаление перс.данных: " + "  Id student and teacher: " + idstdserv + " Link: " + lnk + " Комментарий " + commentos);
 
                     for (let i = 0; i < radiosel.length; i++) {
-                        if (radiosel[i].checked) {
+                        if (radiosel[i].checked == true) {
                             document.getElementById('responseTextarea1').value = `{  "headers": {
 							 "content-type": "application/x-www-form-urlencoded",
 							 "sec-fetch-mode": "cors",
@@ -6811,7 +6811,7 @@ document.getElementById('servDsk').onclick = function () {
 
                             setTimeout(getinfrasup, 5000);
                             setTimeout(getslacklnk, 8000);
-                        } else alert("Выберите Да или Нет на вопрос нужен ли официальный ответ")
+                        }
                     }
                 } else console.log("Not found");
             }
