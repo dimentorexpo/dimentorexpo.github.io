@@ -6813,7 +6813,7 @@ document.getElementById('servDsk').onclick = function () {
                             document.getElementById('customfield_95').value = "";
                             document.getElementById('customfield_96').value = "";
 
-                            setTimeout(getinfrasupsup, 5000);
+                            setTimeout(getinfrasup, 5000);
                             setTimeout(getslacklnk, 8000);
                         } else alert("Выберите Да или Нет на вопрос нужен ли официальный ответ")
                     }

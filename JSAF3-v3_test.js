@@ -3082,7 +3082,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         localStorage.setItem('chronostamp', chronostamp);
         //		setchas.value = "";
         //		setminuta.value = "";
-        alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
+        alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
         abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
     }   
 
