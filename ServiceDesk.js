@@ -6805,13 +6805,10 @@ document.getElementById('servDsk').onclick = function () {
                             document.getElementById('responseTextarea3').value = ''
                             document.getElementById('sendResponse').click()
 
-                            document.getElementById('customfield_91').value = "";
-                            document.getElementById('customfield_92').value = "";
-                            document.getElementById('customfield_911').value = "";
+                            document.getElementById('customfield_114').value = "";
+                            document.getElementById('customfield_115').value = "";
+                            document.getElementById('customfield_117').value = "";
                             document.getElementById('customfield_912').value = "";
-                            document.getElementById('customfield_94').value = "";
-                            document.getElementById('customfield_95').value = "";
-                            document.getElementById('customfield_96').value = "";
 
                             setTimeout(getinfrasup, 5000);
                             setTimeout(getslacklnk, 8000);
