@@ -6358,6 +6358,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+							document.getElementById('AF_Sugform').style.display ='none'
                         }, 3000)
                     } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
                         checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
@@ -6383,6 +6384,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+							document.getElementById('AF_Sugform').style.display ='none'
                         }, 3000)
                     }
 
