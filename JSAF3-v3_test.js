@@ -323,6 +323,7 @@ function mystyles() {
 			opacity:1;
 			height: 32px;
 			visibility: visible;
+			transition: 1s;
 		}
 		.sugops {
 		margin-left:5px;
