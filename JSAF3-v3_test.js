@@ -310,6 +310,11 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
+		
+		.hyper-active {
+			opacity:1;
+			height: 32px;
+		}
 		.sugops {
 		margin-left:5px;
 		color:bisque;
@@ -406,7 +411,7 @@ var win_AFhelper =  // описание элементов главного ок
 			
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
-			<div id="hyperlnk" style="display:none">
+			<div id="hyperlnk" style="height:0px; opacity:0; transition: 2s;">
 				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext" title="Вводите в это поле ссылку, после чего в общем поле выделяете слово или фразу и кнопкой Insert встраиваете ссылку в текст шаблона"></input>
 				<button id="insertlinktotex" title="Добавляет ссылку из поля слева в выделеное слово или фразу в тексте шаблона">Insert ✅</button>
 			</div>
@@ -6872,9 +6877,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 	
 	document.getElementById('opandclsbarhyper').onclick = function () {
-		if (document.getElementById('hyperlnk').style.display == 'none')
-			document.getElementById('hyperlnk').style.display = ''
-		else document.getElementById('hyperlnk').style.display = 'none'
+		document.getElementById('hyperlnk').classList.toggle('hyper-active')
+		// if (document.getElementById('hyperlnk').style.display == 'none')
+			// document.getElementById('hyperlnk').style.display = ''
+		// else document.getElementById('hyperlnk').style.display = 'none'
 	}
 	
 	function replaceSelectedText(elem, str){
