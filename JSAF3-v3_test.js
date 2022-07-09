@@ -319,7 +319,7 @@ function mystyles() {
 			transition: 2s;
 		}
 		
-		.hyperlnk.hyper-active {
+		.hyper-active {
 			display:block;
 			opacity:1;
 			height: 32px;
@@ -6886,7 +6886,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 	
 	document.getElementById('opandclsbarhyper').onclick = function () {
-		document.getElementById('hyperlnk').classList.toggle('hyper-active')
+		if (document.getElementById('hyperlnk').classList.contains('hyper-active') ==false ) {
+			document.getElementById('hyperlnk').classList.add('hyper-active')
+			document.getElementById('hyperlnk').classList.remove('hyperlnk')
+		} else {
+			document.getElementById('hyperlnk').classList.remove('hyper-active')
+			document.getElementById('hyperlnk').classList.add('hyperlnk')
+		}
 		// if (document.getElementById('hyperlnk').style.display == 'none')
 			// document.getElementById('hyperlnk').style.display = ''
 		// else document.getElementById('hyperlnk').style.display = 'none'
