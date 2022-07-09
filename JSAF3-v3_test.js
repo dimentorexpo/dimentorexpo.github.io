@@ -316,13 +316,13 @@ function mystyles() {
 			height:0px; 
 			opacity:0;
 			visibility: hidden;
-			transition: 2s;
+			transition: 1s;
 		}
 		
 		.hyper-active {
-			visibility: visible;
 			opacity:1;
 			height: 32px;
+			visibility: visible;
 		}
 		.sugops {
 		margin-left:5px;
