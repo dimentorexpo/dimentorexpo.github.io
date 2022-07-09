@@ -319,7 +319,7 @@ function mystyles() {
 			transition: 2s;
 		}
 		
-		.hyper-active {
+		.hyperlnk.hyper-active {
 			display:block;
 			opacity:1;
 			height: 32px;
