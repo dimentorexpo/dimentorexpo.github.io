@@ -423,7 +423,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
 			<div id="hyperlnk" class="hyperlnk">
 				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext" title="Вводите в это поле ссылку, после чего в общем поле выделяете слово или фразу и кнопкой Insert встраиваете ссылку в текст шаблона"></input>
-				<button id="insertlinktotex" title="Добавляет ссылку из поля слева в выделеное слово или фразу в тексте шаблона">Insert ✅</button>
+				<button id="insertlinktotext" title="Добавляет ссылку из поля слева в выделеное слово или фразу в тексте шаблона">Insert ✅</button>
 			</div>
 
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
@@ -6926,10 +6926,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 function change_str(s){return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">`+s+"</a>"}
 
-document.getElementById('insertlinktotex').onclick = function() {
+document.getElementById('insertlinktotext').onclick = function() {
 	replaceSelectedText(document.getElementById('inp'), 'change_str');
 	document.getElementById('bindlinktotext').value =''
-	document.getElementById('hyperlnk').style.display='none'
+	document.getElementById('hyperlnk').classList.remove('hyper-active')
+	document.getElementById('hyperlnk').classList.add('hyperlnk')
 }
 
     document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
