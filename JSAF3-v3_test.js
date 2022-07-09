@@ -676,7 +676,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getmvureport" style="width: 25.23px;">💾</button>
                     <input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
-					<input id="idteacheradult" placeholder="ID П Adults 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<input id="idteacheradult" placeholder="*ID П 💬" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">	
+					<input id="idstudentadult" placeholder="*ID У 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_butd">
@@ -3795,17 +3796,29 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         lookhash.value = "";
     }
 
-    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
-        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
-        if (idteacheradult.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
-        };
-        document.getElementById('setchatsadults').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
-        idteacheradult.value = "";
+document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
+    let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
+    if (idteacheradult.value == "")
+        console.log('Введите hash комнаты в поле')
+    else {
+        copyToClipboard("fetch(\'https://notify-vimbox.skyeng.ru/api/v1/chat/contact\', {
+                  method: 'POST',
+            headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+            credentials: 'include',
+            body: `JSON.stringify(\{
+                      userId1: ${idteacheradult},
+                      userId2: ${idstudentadult},
+                 })`
+        )
     }
+    document.getElementById('setchatsadults').innerHTML = "✅";
+    setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
+    idteacheradult.value = "";
+    idstudentadult.value = "";
+}
 
     document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
         let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
