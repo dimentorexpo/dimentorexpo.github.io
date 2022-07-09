@@ -6907,6 +6907,7 @@ function change_str(s){return `<a href="${document.getElementById('bindlinktotex
 document.getElementById('insertlinktotex').onclick = function() {
 	replaceSelectedText(document.getElementById('inp'), 'change_str');
 	document.getElementById('bindlinktotext').value =''
+	document.getElementById('hyperlnk').style.display='none'
 }
 
     document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
