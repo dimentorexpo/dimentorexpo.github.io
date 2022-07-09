@@ -3801,7 +3801,7 @@ document.getElementById('setchatsadults').onclick = function () {               
     if (idteacheradult.value == "")
         console.log('Введите hash комнаты в поле')
     else {
-        copyToClipboard("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:"+document.getElementById('idteacheradult').value + "," + "userId2:"+document.getElementById('idstudentadult').value + "," + "}))")
+        copyToClipboard("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:"+document.getElementById('idteacheradult').value + "," + "userId2:"+document.getElementById('idstudentadult').value + "," + "})})")
     }
     document.getElementById('setchatsadults').innerHTML = "✅";
     setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
