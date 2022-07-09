@@ -13391,3 +13391,27 @@ function textToUTF8String(string) {
     }
     return string2
 }
+
+
+// Conetxt Menu
+var hp = chrome.contextMenus.create({"title": "Chat Master AutoFAQ"});
+
+chrome.contextMenus.create({"title": "Поиск платежа", "contexts":["page"], "parentId": hp, "onclick": searchpayment});
+function searchpayment(i){
+	var createProperties = {url: encodeURI("https://accounting.skyeng.ru/userpayment/search/transaction")};
+	chrome.tabs.create(createProperties);
+}
+
+chrome.contextMenus.create({"title": "Начислятор", "contexts":["page"], "parentId": hp, "onclick": balanceinfo});
+function balanceinfo(i){
+	var createProperties = {url: encodeURI("https://billing-api.skyeng.ru/operations")};
+	chrome.tabs.create(createProperties);
+}
+
+chrome.contextMenus.create({"title": "Подписки", "contexts":["page"], "parentId": hp, "onclick": subscriptions});
+function subscriptions(i){
+	var createProperties = {url: encodeURI("https://billing-api.skyeng.ru/subscriptions")};
+	chrome.tabs.create(createProperties);
+}
+
+
