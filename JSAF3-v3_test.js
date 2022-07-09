@@ -311,6 +311,14 @@ function mystyles() {
 			font-weight:700;
 		}
 		
+		
+		.hyperlnk {
+			height:0px; 
+			opacity:0;
+			display:none; 
+			transition: 2s;
+		}
+		
 		.hyper-active {
 			display:block;
 			opacity:1;
@@ -412,7 +420,7 @@ var win_AFhelper =  // описание элементов главного ок
 			
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
-			<div id="hyperlnk" style="height:0px; opacity:0; display:none; transition: 2s;">
+			<div id="hyperlnk" class="hyperlnk">
 				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext" title="Вводите в это поле ссылку, после чего в общем поле выделяете слово или фразу и кнопкой Insert встраиваете ссылку в текст шаблона"></input>
 				<button id="insertlinktotex" title="Добавляет ссылку из поля слева в выделеное слово или фразу в тексте шаблона">Insert ✅</button>
 			</div>
