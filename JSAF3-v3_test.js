@@ -315,12 +315,13 @@ function mystyles() {
 		.hyperlnk {
 			height:0px; 
 			opacity:0;
-			display:none; 
 			transition: 2s;
+			display:none; 
 		}
 		
 		.hyper-active {
 			display:block;
+			transition: 2s;
 			opacity:1;
 			height: 32px;
 		}
