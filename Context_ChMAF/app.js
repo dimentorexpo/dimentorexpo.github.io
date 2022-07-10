@@ -40,6 +40,31 @@ function makecompens(i){
 
 var selmain = chrome.contextMenus.create( {"id":"selMainOption","title": "AutoFaq Support Master", "contexts":["selection"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
+chrome.contextMenus.create({"title": "Info ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": openinfo}); 
+function openinfo(i,t) { 
+
+            let selid = i.selectionText
+            console.log(selid)
+            const laserExtensionId = "kggpdmfnfmmkneemhknlojemcjmdlpjb";
+            let messageValue = {
+                        message: 'open-user-info',
+                        userId: selid,
+                    }
+            console.log(messageValue)
+            
+            let tabId = t.id
+            console.log(tabId)
+            
+            const message = {
+                messageValue,
+                tabId
+            }
+
+            chrome.runtime.sendMessage(laserExtensionId,
+                message,
+            );
+} 
+
 chrome.contextMenus.create({"title": "🕵️‍♂️ Открыть CRM для ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opencrmid}); //опция для открытия СРМки по выделенному ID пользователя
 function opencrmid(i){
 	var createProperties = { url: encodeURI("https://crm2.skyeng.ru/persons/" + i.selectionText) };
