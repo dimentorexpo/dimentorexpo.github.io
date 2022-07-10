@@ -1,0 +1,20 @@
+{
+  "name": "Technical Support Master",
+  "short_name": "TSM",
+  "description": "Удобное контекстное меню с разными плюшками и опциями, помогающими в работе",
+  "version": "1.0.0",
+  "permissions": ["contextMenus", "storage"],
+  "background": {
+    "scripts": ["app.js"]
+  },
+  "browser_action": {
+    "default_icon": "32.png"
+  },
+  "icons" : {
+		"16" : "16.png",
+		"32" : "32.png",
+		"48" : "48.png",
+		"128" : "128.png"
+	},
+  "manifest_version": 2
+}
