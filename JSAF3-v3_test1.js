@@ -13050,6 +13050,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
+        include("https://dimentorexpo.github.io/ContextMenu.js") // подключаем модуль Контекстного меню
     }, 2000)
 
     setTimeout(function () {
