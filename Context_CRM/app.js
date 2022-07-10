@@ -98,14 +98,8 @@ function copytoskipap(i){
 	document.body.removeChild(aux);
 }
 
-// функция общения с stat.js чтобы отправлять запрос на получение какой либо инфы для обхода CORS
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponseCtxt) {
-    if (request.name === "Ctxt") {
-		if (request.question == 'sendResponseCtxt') {
-			fetch(request.addr, request.options)
-				.then(response => response.text())
-				.then(result => { sendResponseCtxt({answer: result, respName: request.respName}) });
-			return true;
-		}
-    }		
-});
+chrome.contextMenus.create({"title": "👨‍🏫 Открыть ТРМ2.0 ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opentrm}); //опция для копирования ссылки для пропуска АП
+function opentrm(i){
+var createProperties = { url: encodeURI("https://trm.skyeng.ru/teacher/"  +  i.selectionText) }
+	chrome.tabs.create(createProperties);
+}
