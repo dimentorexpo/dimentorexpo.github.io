@@ -1,6 +1,6 @@
 {
-  "name": "Chat Master AF",
-  "short_name": "ChMAF",
+  "name": "AutoFaq Support Master",
+  "short_name": "AFSM",
   "description": "Удобное контекстное меню с разными плюшками и опциями",
   "version": "1.0.0",
   "permissions": ["contextMenus", "storage"],
