@@ -300,10 +300,30 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
+		#refuseform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
 		#butChatHistory:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
+		}
+		
+		
+		.hyperlnk {
+			height:0px; 
+			opacity:0;
+			visibility: hidden;
+			transition: 1s;
+		}
+		
+		.hyper-active {
+			opacity:1;
+			height: 32px;
+			visibility: visible;
+			transition: 1s;
 		}
 		.sugops {
 		margin-left:5px;
@@ -398,25 +418,40 @@ var win_AFhelper =  // описание элементов главного ок
 			</span>
 			<div style="margin: 5px;" id="6str">
 			</div>
+			
 			<div style="margin: 5px;" id="7str">
-				<textarea style="width: 341px; height: 125px;" id="inp"></textarea>
-				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Отправить</button>
-                <button title="Отправить текст от имени бота" id="sndbot" style="width:30px; margin-left:21px">🤖</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left:11px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width:80px; margin-left:35px">Заметки</button>
+				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
+			<div id="hyperlnk" class="hyperlnk">
+				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext" title="Вводите в это поле ссылку, после чего в общем поле выделяете слово или фразу и кнопкой Insert встраиваете ссылку в текст шаблона"></input>
+				<button id="insertlinktotext" title="Добавляет ссылку из поля слева в выделеное слово или фразу в тексте шаблона">Insert ✅</button>
 			</div>
+
+				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
+				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;" title="Открывает форму для прикрепления ссылки в текст">🔗</button>
+                <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
+			</div>
+			
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
 			</div>
 		</div>
 			<div style="border: 2px double black; display: none; background-color: #464451" id="reminder_bar">
 				<div style="margin: 5px; width: 350px">
+					<label style="color:bisque">__Будильник №1</label> <label style="color:bisque">........................... Будильник №2__</label>
+				<br>
 					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 					<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
+
+					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas1" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+					<button title="Запуск будильника при устаноовленном времени" id="setreminder1" style="margin-top: 5px">SET🔔</button>
 				<br>
-					<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px">01 : 23 : 40</button>
+					<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
 					<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
+					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
@@ -548,6 +583,28 @@ var win_suggest =  // описание элементов окна предло�
         </span>
 </div>`;
 
+var win_refuse =  // описание элементов окна отказа от помощи
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 409px;" id="refuse_form_main">
+                            <button title="скрывает меню" id="hideMeRefuseForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
+                        </div>
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_box">
+                            <input id="linktochatrefuse" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<br>
+							<textarea id="textrefuseform" placeholder="C какой проблемой обратился клиент? (Пример: Не работает микрофон у ученика, не работает микрофон у преподавателя). Указывайте, что именно у кого не работает. Если конкретно не известно, можно указывать "не работает связь на уроке со стороны У" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
+							<br>
+							<textarea id="textrefuseformsolution" placeholder="Как решилось? ( Здесь указываем, уточняем, как решился запрос). Пример: перешли на альтернативную связь в Zoom/Skype, подключились на урок с телефона (были проблемы на пк), удалили антивирус и т.д" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="sendrefusetodoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+		</span> 
+
+        </span>
+</div>`;
+
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -619,7 +676,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getmvureport" style="width: 25.23px;">💾</button>
                     <input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
-					<input id="idteacheradult" placeholder="ID П Adults 💬" title="введите айди П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль этого П для добавления чата с учениками Adults (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<input id="idteacheradult" placeholder="ID П add 💬 ->" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">	
+					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_butd">
@@ -1050,11 +1108,12 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">📊KPI T</button>
                     <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">💼Corp</button>
                     <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">📟Landing</button>
-                    <button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
+					<button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
-                    <button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
-                    <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px;">🛠Infra</button>
+					<button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
+                    <button class="sdbtn" id="optionAcademymobbugs" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
+                    <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px; display:none">🛠Infra</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
@@ -1245,8 +1304,32 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
-					<button class="mobbugsbtn" id="mobbugsqa">Обращение для QA</button>
+					<button class="mobbugsbtn" id="skymobauthorize">Skyeng МП: авторизация</button>
+					<button class="mobbugsbtn" id="skymobregister">Skyeng МП: регистрация</button>
+					<button class="mobbugsbtn" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
+					<button class="mobbugsbtn" id="skymobpayment">Skyeng МП: оплата</button>
+					<button class="mobbugsbtn" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
+					<button class="mobbugsbtn" id="skymobchats">Skyeng МП: чаты</button>
+					<button class="mobbugsbtn" id="skymobpush">Skyeng МП: пуши</button>
+					<button class="mobbugsbtn" id="skymobforcupd">Skyeng МП: force update</button>
+					<button class="mobbugsbtn" id="skymobasettings">Skyeng МП: настройки</button>
+					<button class="mobbugsbtn" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
+					<button class="mobbugsbtn" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
+					<button class="mobbugsbtn" id="skyteachmob">Teachers МП</button>
+				</div>	
+				
+				<div id="academymobbugsoptions" style="display: none; margin-left:20px;">
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#academic-mobile-bugs; Канал обработки обращений по МП Skyeng связанных с обучением.</p>
+					<button class="academymobbugsbtn" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
+					<button class="academymobbugsbtn" id="academmobsituations">МП Skyeng: Ситуации</button>
+					<button class="academymobbugsbtn" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
+					<button class="academymobbugsbtn" id="academmobselfstudy">МП Skyeng: Self Study</button>
+					<button class="academymobbugsbtn" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
+					<button class="academymobbugsbtn" id="academmobvocabular">МП Skyeng: Словарь</button>
+					<button class="academymobbugsbtn" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
+					<button class="academymobbugsbtn" id="academmobhomeworks">МП Skyeng: Домашки</button>
 				</div>
+				
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
                 <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
                 <button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница</button>
@@ -1558,6 +1641,35 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
+				
+				<div id="academymobileform" style="display: none; margin-left:20px;">
+						<select style="height:28px;" id="academyprioritymbugs">
+							<option selected disabled="">Приоритет</option>
+							<option value="1">Blocker</option>
+							<option value="2">Critical</option>
+							<option value="10100">High</option>
+							<option value="3">Major</option>
+							<option value="4">Minor</option>
+							<option value="5">Trivial</option>
+					   </select>
+					   <br>
+					<input id="customfield_118" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
+					<br>
+                    <textarea id="customfield_119" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+                    <textarea id="customfield_120" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_121" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_122" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_123" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
+					<br>
+					<textarea id="customfield_124" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
+					<br>
+					<button id="create_24" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+				</div>
+				
 				<div id="infraform" style="display: none; margin-left:20px;">
 					<input id="customfield_114" placeholder="ID в системе Auth"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -1657,6 +1769,11 @@ if (localStorage.getItem('winTopMarks') == null) { //начальное поло
 if (localStorage.getItem('winTopSugest') == null) { //начальное положение окна пожеланий и предложений
     localStorage.setItem('winTopSugest', '120');
     localStorage.setItem('winLeftSugest', '295');
+}
+
+if (localStorage.getItem('winTopRefuse') == null) { //начальное положение окна Отказ от помощи
+    localStorage.setItem('winTopRefuse', '295');
+    localStorage.setItem('winLeftRefuse', '295');
 }
 
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
@@ -2103,6 +2220,11 @@ butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
 butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butrefuseform = document.createElement('div')
+butrefuseform.id = "refuseform"
+butrefuseform.innerHTML = "❌Отказ от помощи"
+butrefuseform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
@@ -2302,6 +2424,13 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
+let wintRefuseForm = document.createElement('div'); // создание окна ссылок
+document.body.append(wintRefuseForm);
+wintRefuseForm.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuse') + 'px; left: ' + localStorage.getItem('winLeftRefuse') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseForm.style.display = 'none';
+wintRefuseForm.setAttribute('id', 'AF_Refuseform');
+wintRefuseForm.innerHTML = win_refuse;
+
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -2478,6 +2607,20 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
 }
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
 
+var listener16 = function (e, a) { // сохранение позиции окна доступов
+    wintRefuseForm.style.left = Number(e.clientX - myX16) + "px";
+    wintRefuseForm.style.top = Number(e.clientY - myY16) + "px";
+    localStorage.setItem('winTopRefuse', String(Number(e.clientY - myY16)));
+    localStorage.setItem('winLeftRefuse', String(Number(e.clientX - myX16)));
+};
+
+wintRefuseForm.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX16 = a.layerX;
+    window.myY16 = a.layerY;
+    document.addEventListener('mousemove', listener16);
+}
+wintRefuseForm.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
+
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
@@ -2580,6 +2723,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
+    setInterval(clock_on_javascript_3, 1000);
 
     function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
         var data = new Date();
@@ -2592,40 +2736,40 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         time = hours + " : " + minutes + " : " + seconds;
         document.getElementById("clock_js").innerHTML = time;
 
-        let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
-        let c = [...bbc].map(i => i.innerText)
+        // let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
+        // let c = [...bbc].map(i => i.innerText)
 
-        for (let i = 0; i < bbc.length; i++) {
-            bbc[i].ondblclick = () => {
-                c = operatorsarray.filter(item => (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
-                console.log(c)
-                if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                    butChatHistory.click()
-                    setTimeout(function () {
-                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                document.getElementById('operatorstp')[j].selected = true;
-                                findchatsoper()
+        // for (let i = 0; i < bbc.length; i++) {
+            // bbc[i].ondblclick = () => {
+                // c = operatorsarray.filter(item => (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
+                // console.log(c)
+                // if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                    // butChatHistory.click()
+                    // setTimeout(function () {
+                        // for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
+                            // if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+                                // document.getElementById('operatorstp')[j].selected = true;
+                                // findchatsoper()
 
-                            }
-                        }
-                    }, 1000)
-                } else {
-                    setTimeout(function () {
-                        for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                document.getElementById('operatorstp')[j].selected = true;
-                                findchatsoper()
+                            // }
+                        // }
+                    // }, 1000)
+                // } else {
+                    // setTimeout(function () {
+                        // for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
+                            // if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
+                                // document.getElementById('operatorstp')[j].selected = true;
+                                // findchatsoper()
 
-                            }
-                        }
-                    }, 1000)
-                }
-            }
-        }
+                            // }
+                        // }
+                    // }, 1000)
+                // }
+            // }
+        // }
     }
 
-    function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника
+    function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -2655,6 +2799,39 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         } else {
             time = "00" + " : " + "00" + " : " + "00";
             document.getElementById("clock_remin").innerHTML = time;
+        }
+    } 
+
+	function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
+        var data1 = new Date();
+        hours1 = data1.getHours();
+        if (hours1 < 10) { hours1 = "0" + hours1; }
+        minutes1 = data1.getMinutes();
+        if (minutes1 < 10) { minutes1 = "0" + minutes1; }
+        seconds1 = data1.getSeconds();
+        if (seconds1 < 10) { seconds1 = "0" + seconds1; }
+        var summin1 = JSON.parse(localStorage.getItem('setminuta1')) + 60;
+        if (localStorage.getItem('chronostamp1') === null) {
+            time1 = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) == 0) && ((localStorage.getItem('setminuta1') > minutes1))) {
+            time1 = "00" + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) > 1) && ((localStorage.getItem('setminuta1') - minutes1) == 0)) {
+            time1 = (localStorage.getItem('setchas1') - hours1) + " : " + "00" + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) >= 1) && localStorage.getItem('setminuta1') < minutes1) {
+            time1 = ((localStorage.getItem('setchas1') - hours1) - 1) + " : " + (summin1 - minutes1) + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) > 0) && localStorage.getItem('setminuta1') > minutes1) {
+            time1 = localStorage.getItem('setchas1') - hours1 + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else if (((localStorage.getItem('setchas1') - hours1) == 1) && (localStorage.getItem('setminuta1') - minutes1) == 0) {
+            time1 = localStorage.getItem('setchas1') - hours1 + " : " + "00" + " : " + (60 - seconds1);
+            document.getElementById("clock_remin1").innerHTML = time1;
+        } else {
+            time1 = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin1").innerHTML = time1;
         }
     }
 
@@ -2904,6 +3081,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     var abortTimeOut = ''								// перменная для отмены будильника
+    var abortTimeOut1 = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null) {
         document.getElementById('reminderstatus').textContent = "🔕";
     }
@@ -2920,10 +3098,27 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         localStorage.setItem('chronostamp', chronostamp);
         //		setchas.value = "";
         //		setminuta.value = "";
-        alert("Будильник установлен на" + setchas.value + ":" + setminuta.value + ":" + "00");
+        alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
         abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+    }   
+
+	document.getElementById('setreminder1').onclick = function () {  // выставляем будильник
+        document.getElementById('reminderstatus').textContent = "🔔";
+        localStorage.setItem('setchas1', setchas1.value);
+        if (setminuta1.value == "00") {
+            setminuta1.value = 0;
+        }
+        localStorage.setItem('setminuta1', setminuta1.value);
+        var timearr1 = new Date()
+        var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp1', chronostamp1);
+        //		setchas.value = "";
+        //		setminuta.value = "";
+        alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
+        abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
     }
-    function refreshTimerReminder() {
+	
+    function refreshTimerReminder() { // обновляет оставшееся время будильника №1
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             document.getElementById('reminderstatus').textContent = "🔔";
             setchas.value = localStorage.getItem('setchas');
@@ -2932,9 +3127,28 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
             abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
-        } else {
+        } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
             clearTimeout(abortTimeOut);
             document.getElementById('reminderstatus').textContent = "🔕";
+        } else if (localStorage.getItem('chronostamp1') !== null) {
+            document.getElementById('reminderstatus').textContent = "🔔";
+        }
+    }
+	
+	function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
+        if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+            document.getElementById('reminderstatus').textContent = "🔔";
+            setchas1.value = localStorage.getItem('setchas1');
+            setminuta1.value = localStorage.getItem('setminuta1');
+            var timearr1 = new Date()
+            var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+            localStorage.setItem('chronostamp22', chronostamp22);
+            abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp22'));
+        } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
+            clearTimeout(abortTimeOut1);
+            document.getElementById('reminderstatus').textContent = "🔕";
+        } else if (localStorage.getItem('chronostamp') !== null) {
+            document.getElementById('reminderstatus').textContent = "🔔";
         }
     }
 
@@ -2948,11 +3162,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             alert("Будильник удален")
             document.getElementById('reminderstatus').textContent = "🔕";
         }
+    }    
+	
+	document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника
+        if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+            clearTimeout(abortTimeOut1)
+            localStorage.removeItem('chronostamp1')
+            localStorage.removeItem('chronostamp22')
+            setchas1.value = ""
+            setminuta1.value = ""
+            alert("Будильник удален")
+            // document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
+        }
     }
 
-    refreshTimerReminder();
+    refreshTimerReminder(); //обновляет оставшееся время до будильника №1
+	refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
-    function setRemindAf() { //функция установки будильника
+    function setRemindAf() { //функция  при наступлении времени перевода в статус занят Будильник №1
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
                 "accept": "*/*",
@@ -2971,10 +3198,53 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "credentials": "include"
         });
         alert("Время ставить занят! :D");
-        document.getElementById('reminderstatus').textContent = "🔕";
-        localStorage.removeItem('chronostamp');
+		localStorage.removeItem('chronostamp');
+		
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
+            document.getElementById('reminderstatus').textContent = "🔕"; 
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+
         setchas.value = "";
         setminuta.value = "";
+    }   
+
+	function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
+        fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+            "headers": {
+                "accept": "*/*",
+                "cache-control": "max-age=0",
+                "content-type": "application/json",
+                "sec-ch-ua-mobile": "?0",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        alert("Время ставить занят! :D");
+        localStorage.removeItem('chronostamp1');
+		
+		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
+            document.getElementById('reminderstatus').textContent = "🔕"; 
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+			document.getElementById('reminderstatus').textContent = "🔔";
+
+        setchas1.value = "";
+        setminuta1.value = "";
     }
 
     document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
@@ -3526,17 +3796,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         lookhash.value = "";
     }
 
-    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
-        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
-        if (idteacheradult.value == "")
-            console.log('Введите hash комнаты в поле')
-        else {
-            copyToClipboard("let d = document.cookie;" + "\n" + "d = d.match(/token_global=(.*)/);" + "\n" + "let sidarr=[];" + hashlnk + ", { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"GET\", \"credentials\":\"include\" \} )" + "\n" + ".then(r=>r.json()).then(data=>studarr=data) \n for (let i=0; i <studarr.length;i++) \{ sidarr += studarr[i].id  + \",\" \} \n sidarr = sidarr.split(','); \n for(let j=0; j<sidarr.length-1; j++) \{ \n fetch(\"https://api-profile.skyeng.ru/api/v1/students/\"+sidarr[j]+\"/teacher/" + document.getElementById('idteacheradult').value.trim() + "\" , { \"headers\": \{ \"authorization\": \"Bearer\" + d[1] , \}, \"method\":\"POST\", \"credentials\":\"include\" \} ) \}");
-        };
-        document.getElementById('setchatsadults').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
-        idteacheradult.value = "";
+document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
+    let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
+    if (idteacheradult.value == "")
+        console.log('Введите hash комнаты в поле')
+    else {
+        copyToClipboard("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:"+document.getElementById('idteacheradult').value + "," + "userId2:"+document.getElementById('idstudentadult').value + "," + "})})")
     }
+    document.getElementById('setchatsadults').innerHTML = "✅";
+    setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
+    idteacheradult.value = "";
+    idstudentadult.value = "";
+}
 
     document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
         let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
@@ -4046,7 +4317,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('personalteacherpage').style.display = "";
 
                 } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
-                    document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>";
+                    document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + "<br>";
                     document.getElementById('checkbalance').style.display = "none";
                     document.getElementById('getkglinfokid').style.display = "none";
                     document.getElementById('partialpaymentinfo').style.display = "none";
@@ -4085,9 +4356,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
 
-                if (arrservice.length != 0 && arrservice != null && arrservice != undefined) {
+                if (arrservice != null && arrservice != undefined) {
                     arrservice = arrservice.split(', ')
                 }
+				
                 let tmparr = document.querySelectorAll('.copyserviceid');
                 for (let j = 0; j < tmparr.length; j++) {
                     tmparr[j].onclick = function () {
@@ -4595,6 +4867,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
+    }   
+
+	document.getElementById('hideMeRefuseForm').onclick = () => { //форма hide
+        if (document.getElementById('AF_Refuseform').style.display == '')
+            document.getElementById('AF_Refuseform').style.display = 'none'
     }
 
     document.getElementById('hideMeChHis').onclick = () => { //форма hide
@@ -4668,6 +4945,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4695,6 +4973,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4722,6 +5001,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4749,6 +5029,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4776,6 +5057,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4803,6 +5085,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4830,6 +5113,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4857,6 +5141,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4884,6 +5169,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4911,6 +5197,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4938,6 +5225,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4965,6 +5253,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4992,6 +5281,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5019,6 +5309,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5046,6 +5337,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5073,6 +5365,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5100,6 +5393,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5127,6 +5421,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5154,6 +5449,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5181,6 +5477,35 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
+                $(this).toggleClass('activebtn');
+            }); 
+
+			$('.academymobbugsbtn').click(function () {  //поправить
+                $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5208,6 +5533,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');				
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5235,6 +5561,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');				
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5263,6 +5590,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
+				$('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -6047,6 +6375,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+							document.getElementById('AF_Sugform').style.display ='none'
                         }, 3000)
                     } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
                         checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
@@ -6072,6 +6401,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
+							document.getElementById('AF_Sugform').style.display ='none'
                         }, 3000)
                     }
 
@@ -6080,6 +6410,60 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('linktochatsuggest').value = ''
                 document.getElementById('otheroptionchecked').value = ''
                 document.getElementById('textsuggest').value = ''
+
+            }
+        }
+    }   
+
+	document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
+        if (document.getElementById('AF_Refuseform').style.display == '')
+            document.getElementById('AF_Refuseform').style.display = 'none'
+        else {
+            document.getElementById('AF_Refuseform').style.display = ''
+
+            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+
+            document.getElementById('refreshchathashrefuseform').onclick = () => {
+                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                    document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+				else document.getElementById('linktochatrefuse').value =''
+            }
+
+            document.getElementById('sendrefusetodoc').onclick = () => {
+
+                let chatlink = document.getElementById('linktochatrefuse').value
+                let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
+                let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
+
+                        let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' +  textclientsolution
+						console.log(body2)
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                        document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
+						
+                        setTimeout(() => {
+                            document.getElementById('sendrefusetodoc').innerText = "Отправить"
+							document.getElementById('AF_Refuseform').style.display = 'none'
+                        }, 3000)
+                
+                document.getElementById('linktochatrefuse').value = ''
+                document.getElementById('textrefuseform').value = ''
+                document.getElementById('textrefuseformsolution').value = ''
 
             }
         }
@@ -6503,6 +6887,53 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             localStorage.setItem('msg1', 'Отправить')
         }
     }
+	
+	document.getElementById('opandclsbarhyper').onclick = function () {
+		if (document.getElementById('hyperlnk').classList.contains('hyper-active') ==false ) {
+			document.getElementById('hyperlnk').classList.add('hyper-active')
+			document.getElementById('hyperlnk').classList.remove('hyperlnk')
+		} else {
+			document.getElementById('hyperlnk').classList.remove('hyper-active')
+			document.getElementById('hyperlnk').classList.add('hyperlnk')
+		}
+		// if (document.getElementById('hyperlnk').style.display == 'none')
+			// document.getElementById('hyperlnk').style.display = ''
+		// else document.getElementById('hyperlnk').style.display = 'none'
+	}
+	
+	function replaceSelectedText(elem, str){
+	elem.focus();
+
+	if (document.selection){
+		var s = document.selection.createRange(); 
+		if (s.text){
+			eval("s.text="+str+"(s.text);");
+			s.select();
+			return true;
+		}
+	}
+	else if (typeof(elem.selectionStart) == "number"){
+		if (elem.selectionStart!=elem.selectionEnd){
+			var start = elem.selectionStart;
+			var end = elem.selectionEnd;
+
+			eval("var rs = "+str+"(elem.value.substr(start,end-start));");
+			elem.value = elem.value.substr(0,start)+rs+elem.value.substr(end);
+			elem.setSelectionRange(end,end);
+		}
+		return true;
+	}
+	return false;
+}
+
+function change_str(s){return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">`+s+"</a>"}
+
+document.getElementById('insertlinktotext').onclick = function() {
+	replaceSelectedText(document.getElementById('inp'), 'change_str');
+	document.getElementById('bindlinktotext').value =''
+	document.getElementById('hyperlnk').classList.remove('hyper-active')
+	document.getElementById('hyperlnk').classList.add('hyperlnk')
+}
 
     document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
         let txt = document.getElementById('inp').value;
@@ -6772,6 +7203,9 @@ async function buttonsFromDoc(butName) { // функция отправки ша
             sendAnswerTemplate2(txt)
         return
     }
+	
+	if (butName =='🖕Отказ')
+		document.getElementById('refuseform').click();
 
     msgFromTable(butName)
 
@@ -6783,7 +7217,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
     let options = {
         "headers": {
-            "content-type": "application/x-www-form-urlencoded; cha",
+            "content-type": "application/x-www-form-urlencoded;",
         },
         "body": body,
         "method": "POST",
@@ -7879,6 +8313,10 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn15)
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
+		btn15.addEventListener('click', function () {
+			document.getElementById('refuseform').click();
+		})
+		
 
         let btn16 = document.createElement('span');
         btn16.id = 'solvd'
@@ -8948,7 +9386,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Математика")
@@ -8968,7 +9418,6 @@ async function remandressl() { // функция удаления и сброс�
             "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
-
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
             "headers": {
                 "accept": "application/json, text/plain, */*",
@@ -8984,7 +9433,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Английский ящык")
@@ -9020,7 +9481,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Компьютерные курсы")
@@ -9056,7 +9529,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Физика")
@@ -9092,7 +9577,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+                fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Дошколка")
@@ -9128,7 +9625,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Русский язык")
@@ -9164,7 +9673,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Обществознание")
@@ -9200,7 +9721,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Шахматы")
@@ -9236,7 +9769,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Химии")
@@ -9272,7 +9817,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Биологии")
@@ -9308,7 +9865,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
         } else alert("Выбран не верный предмет или нет учеников в разделе Истории")
@@ -9337,7 +9906,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Английский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
@@ -9365,7 +9946,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Компьютерные курсы' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Компьютерные курсы'")
@@ -9393,7 +9986,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Шахматы' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Шахматы'")
@@ -9421,7 +10026,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Математика' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Математика'")
@@ -9449,7 +10066,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Русский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Русский язык'")
@@ -9477,7 +10106,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Дошколка' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Дошколка'")
@@ -9505,7 +10146,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Физика' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Физика'")
@@ -9533,7 +10186,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Обществознание' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Обществознание'")
@@ -9561,7 +10226,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Литературе' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Литературе'")
@@ -9589,7 +10266,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'История' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'История'")
@@ -9617,7 +10306,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'География' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'География'")
@@ -9645,7 +10346,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Химия' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Химия'")
@@ -9673,7 +10386,19 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + sidarr[j] + "/teacher/" + artid.user.id, { "headers": { "authorization": "Bearer" + d[1], }, "method": "POST", "credentials": "include" })
+				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				  "headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				  },
+				  "referrer": "https://vimbox.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
             }
             alert("Чаты с учениками в разделе 'Биология' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
@@ -12254,7 +12979,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '11px'
+    document.getElementById('snd').style.marginLeft = '10px'
 
 
     if (localStorage.getItem('disablelpmwindow') == 1)
@@ -12360,7 +13085,8 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
+            btnAdd1.insertBefore(butrefuseform, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
 
@@ -12377,6 +13103,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
+			menubar.append(document.getElementById('refuseform'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
@@ -12666,3 +13393,4 @@ function textToUTF8String(string) {
     }
     return string2
 }
+
