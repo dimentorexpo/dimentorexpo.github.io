@@ -98,6 +98,12 @@ function copytoskipap(i){
 	document.body.removeChild(aux);
 }
 
+chrome.contextMenus.create({"title": "👨‍🏫 Открыть ТРМ2.0 ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opentrm}); //опция для открытия ТРМ 2.0
+function opentrm(i){
+var createProperties = { url: encodeURI("https://trm.skyeng.ru/teacher/"  +  i.selectionText) }
+	chrome.tabs.create(createProperties);
+}
+
 // функция общения с stat.js чтобы отправлять запрос на получение какой либо инфы для обхода CORS
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.name === "Ctxt") {
