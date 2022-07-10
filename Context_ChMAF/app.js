@@ -8,15 +8,33 @@ function searchpayment(i){
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "💰 Начислятор", "contexts":["page"], "parentId": "mainoption", "onclick": balanceinfo}); //опция открывает раздел Начислятор для просмотра баланса
+chrome.contextMenus.create({"title": "💰 Начислятор / 📑 Подписки", "contexts":["page"], "parentId": "mainoption", "onclick": balanceinfo}); //опция открывает раздел Начислятор для просмотра баланса
 function balanceinfo(i){
 	var createProperties = {url: encodeURI("https://billing-api.skyeng.ru/operations")};
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "📑 Подписки", "contexts":["page"], "parentId": "mainoption", "onclick": subscriptions}); //опция открывает раздел Подписки для просмотра состояния подписки
-function subscriptions(i){
-	var createProperties = {url: encodeURI("https://billing-api.skyeng.ru/subscriptions")};
+chrome.contextMenus.create({"title": "🧾 Сертификаты / 🎟 Промокоды", "contexts":["page"], "parentId": "mainoption", "onclick": certandpromo}); //опция открывает раздел Начислятор для просмотра баланса
+function certandpromo(i){
+	var createProperties = {url: encodeURI("https://billing-marketing.skyeng.ru/certificate/certSearch")};
+	chrome.tabs.create(createProperties);
+}
+
+chrome.contextMenus.create({"title": "📟 Timetable", "contexts":["page"], "parentId": "mainoption", "onclick": opentt}); //опция открывает Timetable
+function opentt(i){
+	var createProperties = {url: encodeURI("https://timetable.skyeng.ru/")};
+	chrome.tabs.create(createProperties);
+}
+
+chrome.contextMenus.create({"title": "📆 Календарь (Datsy)", "contexts":["page"], "parentId": "mainoption", "onclick": opencalendar}); //опция открывает Datsy календарь
+function opencalendar(i){
+	var createProperties = {url: encodeURI("https://datsy.ru/")};
+	chrome.tabs.create(createProperties);
+}
+
+chrome.contextMenus.create({"title": "💵 Компенсации", "contexts":["page"], "parentId": "mainoption", "onclick": makecompens}); //опция открывает Окно с компенсациями
+function makecompens(i){
+	var createProperties = {url: encodeURI("https://billing-marketing.skyeng.ru/accrual-operations/create")};
 	chrome.tabs.create(createProperties);
 }
 
