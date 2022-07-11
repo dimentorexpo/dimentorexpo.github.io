@@ -11456,14 +11456,14 @@ document.getElementById('gofindit').onclick = async function () { //функци
     let csatchattids = document.querySelectorAll('.csatchatids');
     for (let j = 0; j < csatcontainer.length; j++) {
         csatcontainer[j].onclick = function () {
-
-            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                hide_or_display.click()
-                document.getElementById('chat_id').value = csatchattids[j].innerText;
-                search.click()
-            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                document.getElementById('chat_id').value = csatchattids[j].innerText;
-                search.click()
+			
+			            if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                document.getElementById('butChatHistory').click();
+                document.getElementById('hashchathis').value = csatchattids[j].innerText;
+                btn_search_history.click()
+            } else {
+                document.getElementById('hashchathis').value = csatchattids[j].innerText;
+                btn_search_history.click()
             }
         }
     }
