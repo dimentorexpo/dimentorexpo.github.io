@@ -7609,7 +7609,7 @@ async function loadTemplates(template, word) { //загрузка шаблоно
         "headers": {
             "content-type": "application/json",
         },
-        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286 , 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119844,  119649, 121381, 119841, 120181, 119646]}",
+        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286 , 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119844,  119649, 121381, 119841, 120181, 119646, 121388, 121384]}",
         "method": "POST",
     })
         .then(response => response.json())
