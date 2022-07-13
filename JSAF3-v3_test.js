@@ -9329,6 +9329,13 @@ async function remandressl() { // функция удаления и сброс�
     }
 
 function obrabaddchatmulti() {
+	        let sidarr = [];
+        let flagaddchat = 0;
+        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
+            "method": "POST",
+            "credentials": "include"
+        }).then(r => r.json()).then(data => studarr = data)
+		
         for (let j = 0; j < Object.values(studarr)[i].length; j++) {
             if (Object.values(studarr)[i][j].status != "sleep")
                 sidarr += Object.values(studarr)[i][j].id + ","
