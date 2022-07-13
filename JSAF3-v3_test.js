@@ -9349,7 +9349,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9358,11 +9358,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками в разделе Математика - Multi-classroom добавлены")
+                        alert("Чаты с учениками в разделе Математика - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
-
                     break;
                 case 'russian': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9379,10 +9376,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Русский язык - Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Русский язык - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'social-science': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9398,10 +9393,8 @@ async function remandressl() { // функция удаления и сброс�
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)                        }
-                        alert("Чаты с учениками при открытом разделе Обществознание - Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Обществознание - Multi-classroom добавлены в количестве: " + sidarr.length - 1))
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'preschool': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9418,10 +9411,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Дошкольная подготовка - Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Дошкольная подготовка - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'chess': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9438,10 +9429,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Шахматы -  Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Шахматы -  Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'computer-science': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9458,10 +9447,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Компьютерные курсы - Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Компьютерные курсы - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'chemistry': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9478,9 +9465,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Химия -  Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Химия -  Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-                    console.log(sidarr)
                     break;
                 case 'physics': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9497,10 +9483,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Физика - Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Физика - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'english': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9517,10 +9501,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Английский язык -  Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Английский язык -  Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'history': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9537,10 +9519,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе История -  Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе История -  Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'biology': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9557,10 +9537,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе Биология - Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе Биология - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
                 case 'geography': console.log(Object.values(studarr)[i])
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
@@ -9577,10 +9555,8 @@ async function remandressl() { // функция удаления и сброс�
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)
                         }
-                        alert("Чаты с учениками при открытом разделе География - Multi-classroom добавлены")
+                        alert("Чаты с учениками при открытом разделе География - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
-
-                    console.log(sidarr)
                     break;
             }
         }
