@@ -9367,7 +9367,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id  + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9385,7 +9385,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9402,7 +9402,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9420,7 +9420,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9438,7 +9438,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9456,7 +9456,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9474,7 +9474,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9492,7 +9492,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9510,7 +9510,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9528,7 +9528,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9546,7 +9546,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id)
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
