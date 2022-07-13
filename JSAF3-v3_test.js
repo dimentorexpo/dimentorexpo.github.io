@@ -9633,19 +9633,26 @@ async function remandressl() { // функция удаления и сброс�
 
 function dosetclasswork(subject) {
 	
-	fetch(subject + document.URL.split('/')[6], {
-		"body": "{\"status\":\"classwork\",\"name\":null}",
-		"method": "PATCH",
-		"mode": "cors",
-		"credentials": "include"
-	});
+	            let d = document.cookie;
+                d = d.match(/token_global=(.*)/);
 
-	document.getElementById('clwbtn').innerText = "Done!"
+                fetch(subject + document.URL.split('/')[6], {
+                    "headers": {
+                        "accept": "application/json",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"status\":\"classwork\",\"name\":null}",
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
 
-	setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+                document.getElementById('clwbtn').innerText = "Done!"
 
-}
-	
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+            }
+
     let classworkbtn = document.createElement('div')
     classworkbtn.id = "clwbtn"
     classworkbtn.innerText = "Classwork"
