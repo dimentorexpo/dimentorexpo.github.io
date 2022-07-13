@@ -9393,7 +9393,7 @@ async function remandressl() { // функция удаления и сброс�
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
 							fetchaddchat(sidarr[j] , artid.user.id)                        }
-                        alert("Чаты с учениками при открытом разделе Обществознание - Multi-classroom добавлены в количестве: " + sidarr.length - 1))
+                        alert("Чаты с учениками при открытом разделе Обществознание - Multi-classroom добавлены в количестве: " + sidarr.length - 1)
                     }
                     break;
                 case 'preschool': console.log(Object.values(studarr)[i])
