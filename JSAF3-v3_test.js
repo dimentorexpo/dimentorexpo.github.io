@@ -9372,8 +9372,6 @@ function obrabaddchatmulti() {
             "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
-        let sidarr = [];
-        let flagaddchat = 0;
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
             "method": "POST",
             "credentials": "include"
