@@ -9870,7 +9870,6 @@ async function remandressl() { // функция удаления и сброс�
     }
 
     async function addChat(subject) {
-		let subject
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
