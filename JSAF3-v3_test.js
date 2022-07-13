@@ -9502,7 +9502,7 @@ async function remandressl() { // функция удаления и сброс�
                     break;
                 case 'english': console.log(Object.values(studarr)[i])
 					sidarr = [];
-					console.log('%cАнглийский ящык','color:lightgreen; font-weight:700')
+					console.log('%cАнглийский язык','color:lightgreen; font-weight:700')
                     for (let j = 0; j < Object.values(studarr)[i].length; j++) {
 
                         if (Object.values(studarr)[i][j].status != "sleep")
