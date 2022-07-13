@@ -9585,7 +9585,7 @@ async function remandressl() { // функция удаления и сброс�
         }
     }
 	
-	function fetchaddchat(userid1, userid2) { 
+	function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
 		fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
 		"headers": {
 			"content-type": "application/json",
@@ -9601,8 +9601,7 @@ async function remandressl() { // функция удаления и сброс�
 	});
 	}
 
-
-    async function addChat(subject) {
+    async function addChat(subject) { // функция для массового добавления чатов не в мультиклассруме для каждого отдельного предмета 
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
@@ -9624,19 +9623,7 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                    "headers": {
-                        "content-type": "application/json",
-                        "sec-fetch-mode": "cors",
-                        "sec-fetch-site": "same-site"
-                    },
-                    "referrer": "https://vimbox.skyeng.ru/",
-                    "referrerPolicy": "strict-origin-when-cross-origin",
-                    "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                    "method": "POST",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
+				fetchaddchat(sidarr[j] , artid.user.id)
             }
             alert("Чаты с учениками в разделе 'Английский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
