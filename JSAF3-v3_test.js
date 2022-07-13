@@ -9328,7 +9328,7 @@ async function remandressl() { // функция удаления и сброс�
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по всем возможнным предметам сразу!"
     }
 
-function obrabaddchatmulti() {
+async function obrabaddchatmulti() {
 	        let sidarr = [];
         let flagaddchat = 0;
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
