@@ -9246,55 +9246,55 @@ async function remandressl() { // функция удаления и сброс�
 
     if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/english/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatseng;
+        achatb.onclick = addChat("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Английскому языку"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/computer-science/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsCompCours;
+        achatb.onclick = addChat("https://api-computer-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=digital_literacy_kids_f2f,python_kids_f2f,programming_kids_f2f,web_dev_kids_f2f,making_games_kids_f2f,computer_courses_app_inventor_kids_f2f,computer_courses_thunkable_kids_f2f,computer_courses_scratch_kids_f2f,computer_courses_unreal_kids_f2f,computer_courses_roblox_kids_f2f,computer_courses_unity_kids_f2f,computer_courses_construct_kids_f2f,computer_courses_minecraft_kids_f2f,computer_courses_app_inventor_kids_f2g,computer_courses_scratch_kids_f2g,computer_courses_thunkable_kids_f2g,computer_courses_web_dev_kids_f2g,computer_courses_digital_literacy_mac_kids_f2f,computer_courses_digital_literacy_windows_kids_f2f");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Компьютерным курсам"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chess/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsChess;
+        achatb.onclick = addChat("https://api-chess.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chess_kids_f2f,chess_kids_f2f_short_lessons");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Шахматам"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/math/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsMath;
+        achatb.onclick = addChat("https://api-math.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=mathematics_kids,math_kids_exam,math_kids_premium,math_kids_exam_premium");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Математике"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/russian/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsRuslng;
+        achatb.onclick = addChat("https://api-russian.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=russian_kids,russian_kids_exam_f2f,russian_kids_premium,russian_kids_exam_premium");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Русскому языку"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/preschool/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsPreschool;
+        achatb.onclick = addChat("https://api-preschool.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=preschool_kids_f2f");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Дошколке"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/physics/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsPhysics;
+        achatb.onclick = addChat("https://api-physics.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=physics_kids_f2f,physics_kids_exam_f2f");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Физике"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/social-science/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsSocial;
+        achatb.onclick = addChat("https://api-social-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=social_science_kids_f2f,social_science_kids_exam_f2f");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Обществознанию"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/literature/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsLiterature;
+        achatb.onclick = addChat("https://api-literature.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_literature_7_grade_folklore,large_classes_literature_7_grade_folklore_recorded");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Литературе"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/history/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsHistory;
+        achatb.onclick = addChat("https://api-history.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_history_7_grade_new_time,large_classes_history_7_grade_new_time_recorded");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Истории"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/geography/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsGeography;
+        achatb.onclick = addChat("https://api-geography.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=geography_kids_f2f,large_classes_geography_7_grade_human_on_earth,large_classes_geography_7_grade_human_on_earth_recorded");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Географии"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chemistry/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsChemistry;
+        achatb.onclick = addChat("https://api-chemistry.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chemistry_kids_exam_f2f");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Химии"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/biology/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsBiology;
+        achatb.onclick = addChat("https://api-biology.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=biology_kids_f2f,large_classes_biology_7_grade_bacteria_viruses,large_classes_biology_7_grade_bacteria_viruses_recorded");
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
     } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'math/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
@@ -9869,8 +9869,8 @@ async function remandressl() { // функция удаления и сброс�
         } else alert("Выбран не верный предмет или нет учеников в разделе Истории")
     }
 
-
-    async function addChatseng() {
+    async function addChat(subject) {
+		let subject
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
@@ -9883,7 +9883,7 @@ async function remandressl() { // функция удаления и сброс�
             "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
-        await fetch("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
+        await fetch(subject, { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
             .then(r => r.json()).then(data => studarr = data)
         if (studarr.results != '') {
             for (let i = 0; i < studarr.results.length; i++) {
@@ -9908,486 +9908,6 @@ async function remandressl() { // функция удаления и сброс�
             }
             alert("Чаты с учениками в разделе 'Английский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
-    }
-
-    async function addChatsCompCours() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-computer-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=digital_literacy_kids_f2f,python_kids_f2f,programming_kids_f2f,web_dev_kids_f2f,making_games_kids_f2f,computer_courses_app_inventor_kids_f2f,computer_courses_thunkable_kids_f2f,computer_courses_scratch_kids_f2f,computer_courses_unreal_kids_f2f,computer_courses_roblox_kids_f2f,computer_courses_unity_kids_f2f,computer_courses_construct_kids_f2f,computer_courses_minecraft_kids_f2f,computer_courses_app_inventor_kids_f2g,computer_courses_scratch_kids_f2g,computer_courses_thunkable_kids_f2g,computer_courses_web_dev_kids_f2g,computer_courses_digital_literacy_mac_kids_f2f,computer_courses_digital_literacy_windows_kids_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Компьютерные курсы' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Компьютерные курсы'")
-    }
-
-    async function addChatsChess() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-chess.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chess_kids_f2f,chess_kids_f2f_short_lessons", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Шахматы' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Шахматы'")
-    }
-
-    async function addChatsMath() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-math.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=mathematics_kids,math_kids_exam,math_kids_premium,math_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Математика' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Математика'")
-    }
-
-    async function addChatsRuslng() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-russian.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=russian_kids,russian_kids_exam_f2f,russian_kids_premium,russian_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Русский язык' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Русский язык'")
-    }
-
-    async function addChatsPreschool() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-preschool.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=preschool_kids_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Дошколка' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Дошколка'")
-    }
-
-    async function addChatsPhysics() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-physics.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=physics_kids_f2f,physics_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Физика' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Физика'")
-    }
-
-    async function addChatsSocial() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-social-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=social_science_kids_f2f,social_science_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Обществознание' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Обществознание'")
-    }
-
-    async function addChatsLiterature() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-literature.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_literature_7_grade_folklore,large_classes_literature_7_grade_folklore_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Литературе' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Литературе'")
-    }
-
-    async function addChatsHistory() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-history.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_history_7_grade_new_time,large_classes_history_7_grade_new_time_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'История' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'История'")
-    }
-
-    async function addChatsGeography() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-geography.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=geography_kids_f2f,large_classes_geography_7_grade_human_on_earth,large_classes_geography_7_grade_human_on_earth_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'География' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'География'")
-    }
-
-    async function addChatsChemistry() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-chemistry.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chemistry_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Химия' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Химия'")
-    }
-
-    async function addChatsBiology() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-biology.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=biology_kids_f2f,large_classes_biology_7_grade_bacteria_viruses,large_classes_biology_7_grade_bacteria_viruses_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Биология' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
     }
 
     // Добавляем в комнату кнопку Classwork для перезапуска урока
