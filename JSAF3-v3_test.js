@@ -9349,7 +9349,8 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                        console.log('%cМатематика','color:lightgreen; font-weight:700')
+						console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
                     if (typeof (sidarr) != 'object') {
@@ -9366,7 +9367,8 @@ async function remandressl() { // функция удаления и сброс�
 
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
-
+						                       
+						console.log('%cРусский язык','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id  + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9385,6 +9387,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cОбществознание','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9401,7 +9404,8 @@ async function remandressl() { // функция удаления и сброс�
 
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
-
+						
+						console.log('%cДошколка','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9420,6 +9424,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cШахматы','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9438,6 +9443,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cКомпьютерные курсы','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9456,6 +9462,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cХимия','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9474,6 +9481,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cФизика','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9492,6 +9500,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cАнглийский ящык','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9510,6 +9519,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cИстория','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9528,6 +9538,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cБиология','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
@@ -9546,6 +9557,7 @@ async function remandressl() { // функция удаления и сброс�
                         if (Object.values(studarr)[i][j].status != "sleep")
                             sidarr += Object.values(studarr)[i][j].id + ","
 
+						console.log('%cГеография','color:lightgreen; font-weight:700')
                         console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
                     }
 
