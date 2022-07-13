@@ -9631,6 +9631,21 @@ async function remandressl() { // функция удаления и сброс�
 
     // Добавляем в комнату кнопку Classwork для перезапуска урока
 
+function dosetclasswork(subject) {
+	
+	fetch(subject + document.URL.split('/')[6], {
+		"body": "{\"status\":\"classwork\",\"name\":null}",
+		"method": "PATCH",
+		"mode": "cors",
+		"credentials": "include"
+	});
+
+	document.getElementById('clwbtn').innerText = "Done!"
+
+	setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+
+}
+	
     let classworkbtn = document.createElement('div')
     classworkbtn.id = "clwbtn"
     classworkbtn.innerText = "Classwork"
@@ -9644,29 +9659,9 @@ async function remandressl() { // функция удаления и сброс�
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Шахматы"
 
-            function restchess() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-chess.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restchess
+            classworkbtn.onclick = function() {
+				dosetclasswork("https://api-chess.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "math/room":
