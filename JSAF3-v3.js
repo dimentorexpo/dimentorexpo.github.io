@@ -9631,6 +9631,22 @@ async function remandressl() { // функция удаления и сброс�
 
     // Добавляем в комнату кнопку Classwork для перезапуска урока
 
+function dosetclasswork(subject) {
+               fetch(subject + document.URL.split('/')[6], {
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": "{\"status\":\"classwork\"}",
+				  "method": "PATCH",
+				  "mode": "cors",
+				  "credentials": "include"
+                });
+
+                document.getElementById('clwbtn').innerText = "Done!"
+
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+            }
+
     let classworkbtn = document.createElement('div')
     classworkbtn.id = "clwbtn"
     classworkbtn.innerText = "Classwork"
@@ -9644,29 +9660,9 @@ async function remandressl() { // функция удаления и сброс�
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Шахматы"
 
-            function restchess() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-chess.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restchess
+            classworkbtn.onclick = function() {
+				dosetclasswork("https://api-chess.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "math/room":
@@ -9674,30 +9670,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Математика"
-
-            function restmath() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-math.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restmath
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-math.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "geography/room":
@@ -9705,91 +9681,31 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Географии"
-
-            function restgeo() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-geography.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restgeo
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-geography.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
         case "preschool/room":
             if (document.getElementById('clwbtn') == null)
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Дошколка"
-
-            function restpreschool() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-preschool.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restpreschool
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-preschool.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
         case "social-science/room":
             if (document.getElementById('clwbtn') == null)
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Обществознания"
-
-            function restobsh() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-social-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restobsh
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-social-science.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "history/room":
@@ -9797,30 +9713,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Истории"
-
-            function resthistory() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-history.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = resthistory
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-history.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "biology/room":
@@ -9828,30 +9724,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Биологии"
-
-            function restbio() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-biology.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restbio
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-biology.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "english/room":
@@ -9859,30 +9735,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Английского языка"
-
-            function resteng() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-english.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = resteng
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-english.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "computer-science/room":
@@ -9890,30 +9746,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Компьютерных курсов"
-
-            function restcompsc() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-computer-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restcompsc
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-computer-science.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "physics/room":
@@ -9921,61 +9757,21 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Физики"
-
-            function restphys() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-physics.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restphys
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-physics.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
         case "literature/room":
             if (document.getElementById('clwbtn') == null)
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Литературы"
-
-            function restlit() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-literature.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restlit
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-literature.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "chemistry/room":
@@ -9983,30 +9779,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Химии"
-
-            function restchem() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-chemistry.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restchem
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-chemistry.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "russian/room":
@@ -10014,35 +9790,14 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Русского языка"
-
-            function restrus() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-russian.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restrus
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-russian.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
-
     }
-
+	
 }
 
 setInterval(remandressl, 3000);
