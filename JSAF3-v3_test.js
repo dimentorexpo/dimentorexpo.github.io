@@ -9328,6 +9328,37 @@ async function remandressl() { // функция удаления и сброс�
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по всем возможнным предметам сразу!"
     }
 
+function obrabaddchatmulti() {
+        for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+            if (Object.values(studarr)[i][j].status != "sleep")
+                sidarr += Object.values(studarr)[i][j].id + ","
+            console.log(Object.values(studarr)[i][j].id + " Status " + Object.values(studarr)[i][j].status)
+        }
+
+        if (typeof (sidarr) != 'object') {
+            sidarr = sidarr.split(',');
+
+            for (let j = 0; j < sidarr.length - 1; j++) {
+                fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+                    "headers": {
+                        "content-type": "application/json",
+                        "sec-fetch-mode": "cors",
+                        "sec-fetch-site": "same-site"
+                    },
+                    "referrer": "https://vimbox.skyeng.ru/",
+                    "referrerPolicy": "strict-origin-when-cross-origin",
+                    "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+                flagaddchat = 1;
+            }
+        }
+
+        console.log(sidarr)
+    }
+
     async function addMulticlassrom() { // общая функция добавления чатов в мультиклассруме, но надо еще подфункцию сделать чтобы код сократить!
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
             "credentials": "include",
@@ -9335,401 +9366,72 @@ async function remandressl() { // функция удаления и сброс�
         }).then(r => r.json()).then(r => artid = r)
 
         let sidarr = [];
+        let flagaddchat = 0;
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
             "method": "POST",
             "credentials": "include"
         }).then(r => r.json()).then(data => studarr = data)
 
         for (let i = 0; i < Object.keys(studarr).length; i++) {
-            let coci = Object.keys(studarr)[i]
-            switch (coci) {
+            let arrayofsubjects = Object.keys(studarr)[i]
+            switch (arrayofsubjects) {
                 case 'math': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
-                        alert("Чаты с учениками в разделе Математика - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
-
-                    break;
-                case 'russian': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Русский язык - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'social-science': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Обществознание - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'preschool': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Дошкольная подготовка - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'chess': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Шахматы -  Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'computer-science': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Компьютерные курсы - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'chemistry': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Химия -  Multi-classroom добавлены")
-                    }
-                    console.log(sidarr)
                     break;
                 case 'physics': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Физика - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'english': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Английский язык -  Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'history': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе История -  Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'biology': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе Биология - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
                 case 'geography': console.log(Object.values(studarr)[i])
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                                "headers": {
-                                    "content-type": "application/json",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-site"
-                                },
-                                "referrer": "https://vimbox.skyeng.ru/",
-                                "referrerPolicy": "strict-origin-when-cross-origin",
-                                "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            });
-                        }
+                    obrabaddchatmulti()
+                    if (flagaddchat != 0)
                         alert("Чаты с учениками при открытом разделе География - Multi-classroom добавлены")
-                    }
-
-                    console.log(sidarr)
                     break;
             }
         }
-
     }
 
 
