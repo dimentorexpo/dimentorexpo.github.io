@@ -38,6 +38,19 @@ function makecompens(i){
 	chrome.tabs.create(createProperties);
 }
 
+chrome.contextMenus.create({"title": "💋 Админка Talks", "contexts":["page"], "parentId": "mainoption", "onclick": opentalksadm}); //опция открывает Окно с компенсациями
+function opentalksadm(i){
+	var createProperties = {url: encodeURI("https://vimbox.skyeng.ru/talks/admin/statistics")};
+	chrome.tabs.create(createProperties);
+}
+
+chrome.contextMenus.create({"title": "🏄‍♂️ Enable New Student", "contexts":["page"], "parentId": "mainoption", "onclick": enablens}); //опция открывает Окно с компенсациями
+function enablens(i){
+	var createProperties = {url: encodeURI("https://vimbox.skyeng.ru/start?enableNewStudent")};
+	chrome.tabs.create(createProperties);
+}
+
+
 var selmain = chrome.contextMenus.create( {"id":"selMainOption","title": "Technical Support Master", "contexts":["selection"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
 chrome.contextMenus.create({"title": "🕵️‍♂️ Открыть CRM для ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opencrmid}); //опция для открытия СРМки по выделенному ID пользователя
