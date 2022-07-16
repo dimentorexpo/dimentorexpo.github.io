@@ -676,17 +676,11 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
         document.getElementById('RemoveChat').onclick = function () { //функция удаления чата
 
             fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                "headers": {
-                    "accept": "application/json, text/plain, */*",
-                    "accept-language": "ru-RU,ru;q=0.9",
-                    "content-type": "application/json",
-                    "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": "\"Windows\"",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                   "sec-fetch-site": "same-site"
-                },
+				"headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				},
                 "referrer": "https://new-teachers.skyeng.ru/",
                 "referrerPolicy": "strict-origin-when-cross-origin",
                 "body": `{\"userId1\":${document.getElementById('userid1').value},\"userId2\":${document.getElementById('userid2').value}}`,
@@ -784,18 +778,21 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
                 document.getElementById('roomfor').style.display = 'none'
                 document.getElementById('forstudentid').style.display = 'none'
                 document.getElementById('setstclass').style.display = ''
+                document.getElementById('setstsucc').style.display = ''
             } else if (hashval[3] == 'lesson') {
                 document.getElementById('platformname').textContent = "Adults";
                 flagplatf = 2;
                 document.getElementById('roomfor').style.display = ''
                 document.getElementById('forstudentid').style.display = ''
                 document.getElementById('setstclass').style.display = 'none'
+                document.getElementById('setstsucc').style.display = 'none'
             } else {
                 flagplatf = 0
                 document.getElementById('platformname').textContent = "";
                 document.getElementById('roomfor').style.display = 'none'
                 document.getElementById('forstudentid').style.display = 'none'
                 document.getElementById('setstclass').style.display = 'none'
+                document.getElementById('setstsucc').style.display = 'none'
             }
 
             if (hashval != '' && flagplatf == 1) {
@@ -849,6 +846,8 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
             document.getElementById('partteachid').textContent = ""
             document.getElementById('partstudid').textContent = ""
             document.getElementById('hashfield').value = ""
+			document.getElementById('setstclass').style.display = 'none'
+            document.getElementById('setstsucc').style.display = 'none'
         }
 
         document.getElementById('hideMeLessonInfo').onclick = function () { // функция скрывает меню статуса уроков
