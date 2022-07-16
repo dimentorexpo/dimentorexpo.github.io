@@ -735,7 +735,7 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
             findapi(subject)
             setstclasswork(findapiv1,status)
         }
-        document.getElementById('setstclass').onclick = function () { //изменяет статус комнаты на classwork
+        document.getElementById('setstsucc').onclick = function (findapiv1,findapiv2) { //изменяет статус комнаты на classwork
             let status = 'success'
             let subject;
             if (document.getElementById('hashfield').value.split('/') == '')
