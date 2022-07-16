@@ -503,7 +503,6 @@ var win_getLessonInfo = `
 
 						<div style="display: flex; justify-content: center;">
 							<button class="commonbtn" id="setstclass" style="margin: 5px; width: 70px; height: 30px;">Classwork</button>
-                            <button class="commonbtn" id="setstsucc" style="margin: 5px; width: 70px; height: 30px;">Success</button>
 							<button class="commonbtn" id="searchHash" style="margin: 5px; width: 70px; height: 30px;">Search</button>
 						</div>
 
@@ -685,7 +684,7 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
                     "sec-ch-ua-platform": "\"Windows\"",
                     "sec-fetch-dest": "empty",
                     "sec-fetch-mode": "cors",
-                   "sec-fetch-site": "same-site"
+                    "sec-fetch-site": "same-site"
                 },
                 "referrer": "https://new-teachers.skyeng.ru/",
                 "referrerPolicy": "strict-origin-when-cross-origin",
@@ -724,35 +723,69 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
         //	Start
 
         document.getElementById('setstclass').onclick = function () { //изменяет статус комнаты на classwork
-            let status = 'classwork'
             let subject;
-            let api;
-            let vapi = '1';
             if (document.getElementById('hashfield').value.split('/') == '')
                 subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
             else if (document.getElementById('hashfield').value.split('/') != '') {
                 subject = document.getElementById('hashfield').value.split('/')[4] + '/' + document.getElementById('hashfield').value.split('/')[5];
                 alert('Комната была перезапущена. Можете нажать на кнопку Searсh и увидеть актуальный статус комнаты')
             }
-            api = findapi(subject,vapi)
-            setstclasswork(api,status)
-        }
 
-        document.getElementById('setstsucc').onclick = function () { //изменяет статус комнаты на success
-            let status = 'success'
-            let subject;
-            let api;
-            let vapi = '1';
-            if (document.getElementById('hashfield').value.split('/') == '')
-                subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
-            else if (document.getElementById('hashfield').value.split('/') != '') {
-                subject = document.getElementById('hashfield').value.split('/')[4] + '/' + document.getElementById('hashfield').value.split('/')[5];
-                alert('Комната была перезапущена. Можете нажать на кнопку Searсh и увидеть актуальный статус комнаты')
+            switch (subject) {
+                case "english/room":
+                    setstclasswork("https://api-english.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "math/room":
+                    setstclasswork("https://api-math.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "computer-science/room":
+                    setstclasswork("https://api-computer-science.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "geography/room":
+                    setstclasswork("https://api-geography.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "chess/room":
+                    setstclasswork("https://api-chess.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "social-science/room":
+                    setstclasswork("https://api-social-science.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "history/room":
+                    setstclasswork("https://api-history.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "biology/room":
+                    setstclasswork("https://api-biology.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "physics/room":
+                    setstclasswork("https://api-physics.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "literature/room":
+                    setstclasswork("https://api-literature.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "chemistry/room":
+                    setstclasswork("https://api-chemistry.skyeng.ru/api/v1/rooms/")
+                    break;
+
+                case "russian/room":
+                    setstclasswork("https://api-russian.skyeng.ru/api/v1/rooms/")
+                    break;  
+
+				case "preschool/room":
+                    setstclasswork("https://api-preschool.skyeng.ru/api/v1/rooms/")
+                    break;
             }
-            api = findapi(subject,vapi)
-            setstclasswork(api,status)
+
         }
-        
 
         // End
 
@@ -772,9 +805,6 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
 
         // Start
         document.getElementById('searchHash').onclick = async function () { // функция ищет информацию о комнате по полному хешу
-            let vapi = '1';
-            let api1;
-            let api2;
             let hashval = document.getElementById('hashfield').value.split('/')
 
             let flagplatf = 0; // unknown platform, for example main page or other page (1) - skysmart, (2) - adults
@@ -805,12 +835,72 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
 
                 let subject = hashval[4] + '/' + hashval[5]
 
-                api1 = findapi(subject,vapi)
-                vapi++;
-                api2 = findapi(subject,vapi)
-                loadinfo(api2)
-                getvideoconfigkids(api1)
+                switch (subject) {
+                    case "english/room":
+                        loadinfo("https://api-english.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-english.skyeng.ru/api/v1/rooms/")
+                        break;
 
+                    case "math/room":
+                        loadinfo("https://api-math.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-math.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "computer-science/room":
+                        loadinfo("https://api-computer-science.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-computer-science.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "geography/room":
+                        loadinfo("https://api-geography.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-geography.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "chess/room":
+                        loadinfo("https://api-chess.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-chess.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "social-science/room":
+                        loadinfo("https://api-social-science.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-social-science.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "history/room":
+                        loadinfo("https://api-history.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-history.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "biology/room":
+                        loadinfo("https://api-biology.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-biology.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "physics/room":
+                        loadinfo("https://api-physics.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-physics.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "literature/room":
+                        loadinfo("https://api-literature.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-literature.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "chemistry/room":
+                        loadinfo("https://api-chemistry.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-chemistry.skyeng.ru/api/v1/rooms/")
+                        break;
+
+                    case "russian/room":
+                        loadinfo("https://api-russian.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-russian.skyeng.ru/api/v1/rooms/")
+                        break;
+
+					case "preschool/room":
+                        loadinfo("https://api-preschool.skyeng.ru/api/v2/rooms/")
+                        getvideoconfigkids("https://api-preschool.skyeng.ru/api/v1/rooms/")
+                        break;
+                }
             } else if (hashval != '' && flagplatf == 2) {
                 document.getElementById('hashroom').textContent = hashval[4];
                 document.getElementById('statusroom').textContent = "No status"
@@ -860,9 +950,6 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
 }
 
 async function getlesinfojoin() { // получает инфо об уроке и записывает в поля
-    let vapi = '1';
-    let api1;
-    let api2;
     let flagplatf = 0; // unknown platform, for example main page or other page (1) - skysmart, (2) - adults
     if (location.pathname.split('/')[1] == 'kids') {
         document.getElementById('platformname').textContent = "Skymart";
@@ -890,12 +977,72 @@ async function getlesinfojoin() { // получает инфо об уроке �
 
         let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
 
-        api1 = findapi(subject,vapi)
-        vapi++;
-        api2 = findapi(subject,vapi)
-        loadinfo(api2)
-        getvideoconfigkids(api1)
+        switch (subject) {
+            case "english/room":
+                loadinfo("https://api-english.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-english.skyeng.ru/api/v1/rooms/")
+                break;
 
+            case "math/room":
+                loadinfo("https://api-math.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-math.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "computer-science/room":
+                loadinfo("https://api-computer-science.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-computer-science.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "geography/room":
+                loadinfo("https://api-geography.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-geography.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "chess/room":
+                loadinfo("https://api-chess.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-chess.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "social-science/room":
+                loadinfo("https://api-social-science.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-social-science.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "history/room":
+                loadinfo("https://api-history.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-history.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "biology/room":
+                loadinfo("https://api-biology.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-biology.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "physics/room":
+                loadinfo("https://api-physics.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-physics.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "literature/room":
+                loadinfo("https://api-literature.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-literature.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "chemistry/room":
+                loadinfo("https://api-chemistry.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-chemistry.skyeng.ru/api/v1/rooms/")
+                break;
+
+            case "russian/room":
+                loadinfo("https://api-russian.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-russian.skyeng.ru/api/v1/rooms/")
+                break;
+				
+			case "preschool/room":
+                loadinfo("https://api-preschool.skyeng.ru/api/v2/rooms/")
+                getvideoconfigkids("https://api-preschool.skyeng.ru/api/v1/rooms/")
+                break;
+        }
     } else if (document.location.origin == 'https://vimbox.skyeng.ru' && flagplatf == 2) {
 
         document.getElementById('hashroom').textContent = document.URL.split('/')[4];
@@ -973,7 +1120,7 @@ async function getjoinadultsinfo(hash) { // функция получает ин
 
 }
 
-async function getvideoconfigkids(api1) { // функция получения информации о видеосервере для англ языка
+async function getvideoconfigkids(subject) { // функция получения информации о видеосервере для англ языка
     let d = document.cookie;
     d = d.match(/token_global=(.*)/);
 
@@ -983,9 +1130,21 @@ async function getvideoconfigkids(api1) { // функция получения �
     else if (document.getElementById('hashfield').value != '')
         hashroom = document.getElementById('hashfield').value.split('/')[6]
 
-    await fetch(api1 + hashroom + "/video-config", {
+    await fetch(subject + hashroom + "/video-config", {
+
+        "headers": {
+            "accept": "application/json",
+            "authorization": "Bearer" + d[1],
+            "content-type": "application/json",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site"
+        },
+        "referrer": "https://vimbox.skyeng.ru/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
         "body": "{\"bannedServers\":[],\"recreateRoom\":false,\"forceServer\":null,\"rootDomain\":\"skyeng.ru\"}",
         "method": "POST",
+        "mode": "cors",
         "credentials": "include"
     }).then(r => r.json()).then(r => vidconfresult = r)
     console.log(vidconfresult)
@@ -993,7 +1152,7 @@ async function getvideoconfigkids(api1) { // функция получения �
     document.getElementById('vidserverurl').textContent = vidconfresult.endpoint.match(/video.*/)[0];
 }
 
-async function loadinfo(api2) { // инициализация функции для загрузки инфо о комнате
+async function loadinfo(subject) { // инициализация функции для загрузки инфо о комнате
     let d = document.cookie;
     d = d.match(/token_global=(.*)/);
     let hashroom;
@@ -1007,9 +1166,18 @@ async function loadinfo(api2) { // инициализация функции д�
     }
 
 
-    await fetch(api2 + hashroom, {
+    await fetch(subject + hashroom, {
+        "headers": {
+            "accept": "application/json",
+            "authorization": "Bearer" + d[1],
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site"
+        },
+        "referrer": "https://vimbox.skyeng.ru/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
         "body": null,
         "method": "GET",
+        "mode": "cors",
         "credentials": "include"
     }).then(r => r.json()).then(r => joinresult = r)
     document.getElementById('statusroom').textContent = joinresult.status
@@ -1031,111 +1199,43 @@ async function loadinfo(api2) { // инициализация функции д�
     console.log(joinresult)
 }
 
-function findapi (subject,vapi) {
-    let findapiv1;
-    let findapiv2;
-    
-    switch (subject) {
-        case "english/room":
-            findapiv1 = ("https://api-english.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-english.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "math/room":
-            findapiv1 = ("https://api-math.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-math.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "computer-science/room":
-            findapiv1 = ("https://api-computer-science.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-computer-science.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "geography/room":
-            findapiv1 = ("https://api-geography.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-geography.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "chess/room":
-            findapiv1 = ("https://api-chess.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-chess.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "social-science/room":
-            findapiv1 = ("https://api-social-science.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-social-science.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "history/room":
-            findapiv1 = ("https://api-history.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-history.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "biology/room":
-            findapiv1 = ("https://api-biology.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-biology.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "physics/room":
-            findapiv1 = ("https://api-physics.skyeng.ru/api/v1/rooms/")    
-            findapiv2 = ("https://api-physics.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "literature/room":
-            findapiv1 = ("https://api-literature.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-literature.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "chemistry/room":
-            findapiv1 = ("https://api-chemistry.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-chemistry.skyeng.ru/api/v2/rooms/")
-            break;
-
-        case "russian/room":
-            findapiv1 = ("https://api-russian.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-russian.skyeng.ru/api/v2/rooms/")
-            break;  
-
-        case "preschool/room":
-            findapiv1 = ("https://api-preschool.skyeng.ru/api/v1/rooms/")
-            findapiv2 = ("https://api-preschool.skyeng.ru/api/v2/rooms/")
-            break;
-    }
-    if (vapi == '1')  {
-        return(findapiv1)
-    }else if (vapi == '2'){
-        return(findapiv2)
-        }else { 
-        console.log(vapi + 'ошибка определения api');
-        }
-}
-
-function setstclasswork(api,status) { // функция изменяющая статус комнаты 
+function setstclasswork(subject) { // функция изменяющая статус комнаты с любого на classwork
 
     let hashval = document.getElementById('hashfield').value.split('/')
 
     if (location.origin == 'https://vimbox.skyeng.ru' && hashval == '' && location.pathname.split('/')[3] != 'teacher') {
 
-        fetch(api + document.URL.split('/')[6], {
+        fetch(subject + document.URL.split('/')[6], {
             "headers": {
                 "content-type": "application/json",
             },
-            "body": `{\"status\":\"${status}\"}`,
+            "body": "{\"status\":\"classwork\"}",
             "method": "PATCH",
             "mode": "cors",
             "credentials": "include"
         });
 
-        alert('Выставлен статус ' + status +' !')
+        alert('Комната перезапущена!')
         location.reload();
     } else if (hashval != '') {
 
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
 
-        fetch(api + hashval[6], {
-            "body": `{\"status\":\"${status}\"}`,
+        fetch(subject + hashval[6], {
+            "headers": {
+                "accept": "application/json",
+                "authorization": "Bearer" + d[1],
+                "content-type": "application/json",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
+            },
+            "referrer": "https://vimbox.skyeng.ru/",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"status\":\"classwork\"}",
             "method": "PATCH",
+            "mode": "cors",
             "credentials": "include"
         });
 
