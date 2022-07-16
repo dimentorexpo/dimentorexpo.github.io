@@ -503,6 +503,7 @@ var win_getLessonInfo = `
 
 						<div style="display: flex; justify-content: center;">
 							<button class="commonbtn" id="setstclass" style="margin: 5px; width: 70px; height: 30px;">Classwork</button>
+                            <button class="commonbtn" id="setstsucc" style="margin: 5px; width: 70px; height: 30px;">Success</button>
 							<button class="commonbtn" id="searchHash" style="margin: 5px; width: 70px; height: 30px;">Search</button>
 						</div>
 
@@ -723,6 +724,7 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
         //	Start
 
         document.getElementById('setstclass').onclick = function () { //изменяет статус комнаты на classwork
+            let status = 'classwork'
             let subject;
             if (document.getElementById('hashfield').value.split('/') == '')
                 subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
@@ -730,62 +732,10 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
                 subject = document.getElementById('hashfield').value.split('/')[4] + '/' + document.getElementById('hashfield').value.split('/')[5];
                 alert('Комната была перезапущена. Можете нажать на кнопку Searсh и увидеть актуальный статус комнаты')
             }
-
-            switch (subject) {
-                case "english/room":
-                    setstclasswork("https://api-english.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "math/room":
-                    setstclasswork("https://api-math.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "computer-science/room":
-                    setstclasswork("https://api-computer-science.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "geography/room":
-                    setstclasswork("https://api-geography.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "chess/room":
-                    setstclasswork("https://api-chess.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "social-science/room":
-                    setstclasswork("https://api-social-science.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "history/room":
-                    setstclasswork("https://api-history.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "biology/room":
-                    setstclasswork("https://api-biology.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "physics/room":
-                    setstclasswork("https://api-physics.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "literature/room":
-                    setstclasswork("https://api-literature.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "chemistry/room":
-                    setstclasswork("https://api-chemistry.skyeng.ru/api/v1/rooms/")
-                    break;
-
-                case "russian/room":
-                    setstclasswork("https://api-russian.skyeng.ru/api/v1/rooms/")
-                    break;  
-
-				case "preschool/room":
-                    setstclasswork("https://api-preschool.skyeng.ru/api/v1/rooms/")
-                    break;
-            }
-
+            findapi(subject)
+            setstclasswork(findapiv1,status)
         }
+        
 
         // End
 
@@ -1199,30 +1149,103 @@ async function loadinfo(subject) { // инициализация функции 
     console.log(joinresult)
 }
 
-function setstclasswork(subject) { // функция изменяющая статус комнаты с любого на classwork
+function findapi (subject) {
+    let findapiv1;
+    let findapiv2;
+    
+    switch (subject) {
+        case "english/room":
+            findapiv1 = ("https://api-english.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-english.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "math/room":
+            findapiv1 = ("https://api-math.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-math.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "computer-science/room":
+            findapiv1 = ("https://api-computer-science.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-computer-science.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "geography/room":
+            findapiv1 = ("https://api-geography.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-geography.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "chess/room":
+            findapiv1 = ("https://api-chess.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-chess.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "social-science/room":
+            findapiv1 = ("https://api-social-science.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-social-science.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "history/room":
+            findapiv1 = ("https://api-history.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-history.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "biology/room":
+            findapiv1 = ("https://api-biology.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-biology.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "physics/room":
+            findapiv1 = ("https://api-physics.skyeng.ru/api/v1/rooms/")    
+            findapiv2 = ("https://api-physics.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "literature/room":
+            findapiv1 = ("https://api-literature.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-literature.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "chemistry/room":
+            findapiv1 = ("https://api-chemistry.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-chemistry.skyeng.ru/api/v2/rooms/")
+            break;
+
+        case "russian/room":
+            findapiv1 = ("https://api-russian.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-russian.skyeng.ru/api/v2/rooms/")
+            break;  
+
+        case "preschool/room":
+            findapiv1 = ("https://api-preschool.skyeng.ru/api/v1/rooms/")
+            findapiv2 = ("https://api-preschool.skyeng.ru/api/v2/rooms/")
+            break;
+    }
+    return(findapiv1,findapiv2)
+}
+
+function setstclasswork(findapiv1,status) { // функция изменяющая статус комнаты 
 
     let hashval = document.getElementById('hashfield').value.split('/')
 
     if (location.origin == 'https://vimbox.skyeng.ru' && hashval == '' && location.pathname.split('/')[3] != 'teacher') {
 
-        fetch(subject + document.URL.split('/')[6], {
+        fetch(findapiv1 + document.URL.split('/')[6], {
             "headers": {
                 "content-type": "application/json",
             },
-            "body": "{\"status\":\"classwork\"}",
+            "body": `"{\"status\":${status}}"`,
             "method": "PATCH",
             "mode": "cors",
             "credentials": "include"
         });
 
-        alert('Комната перезапущена!')
+        alert('Выставлен статус' + status +'!')
         location.reload();
     } else if (hashval != '') {
 
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
 
-        fetch(subject + hashval[6], {
+        fetch(findapiv1 + hashval[6], {
             "headers": {
                 "accept": "application/json",
                 "authorization": "Bearer" + d[1],
@@ -1233,7 +1256,7 @@ function setstclasswork(subject) { // функция изменяющая ста
             },
             "referrer": "https://vimbox.skyeng.ru/",
             "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "{\"status\":\"classwork\"}",
+            "body": `"{\"status\":${status}}"`,
             "method": "PATCH",
             "mode": "cors",
             "credentials": "include"
