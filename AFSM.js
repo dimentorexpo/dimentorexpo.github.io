@@ -846,6 +846,8 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
             document.getElementById('partteachid').textContent = ""
             document.getElementById('partstudid').textContent = ""
             document.getElementById('hashfield').value = ""
+			document.getElementById('setstclass').style.display = 'none'
+			document.getElementById('setstsucc').style.display = 'none'
         }
 
         document.getElementById('hideMeLessonInfo').onclick = function () { // функция скрывает меню статуса уроков
