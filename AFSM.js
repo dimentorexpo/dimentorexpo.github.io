@@ -778,18 +778,21 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
                 document.getElementById('roomfor').style.display = 'none'
                 document.getElementById('forstudentid').style.display = 'none'
                 document.getElementById('setstclass').style.display = ''
+                document.getElementById('setstsucc').style.display = ''
             } else if (hashval[3] == 'lesson') {
                 document.getElementById('platformname').textContent = "Adults";
                 flagplatf = 2;
                 document.getElementById('roomfor').style.display = ''
                 document.getElementById('forstudentid').style.display = ''
                 document.getElementById('setstclass').style.display = 'none'
+                document.getElementById('setstsucc').style.display = 'none'
             } else {
                 flagplatf = 0
                 document.getElementById('platformname').textContent = "";
                 document.getElementById('roomfor').style.display = 'none'
                 document.getElementById('forstudentid').style.display = 'none'
                 document.getElementById('setstclass').style.display = 'none'
+                document.getElementById('setstsucc').style.display = 'none'
             }
 
             if (hashval != '' && flagplatf == 1) {
