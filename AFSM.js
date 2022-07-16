@@ -526,9 +526,9 @@ if (localStorage.getItem('winTopAddChatMenu') == null) { //additional Chat menu
 if (localStorage.getItem('winTopLessonInfo') == null) { //additional Lesson info menu
     localStorage.setItem('winTopLessonInfo', '118');
     localStorage.setItem('winLeftLessonInfo', '407');
-} if
+}
 
-    (localStorage.getItem('winTopstudentsAdults') == null) { //additional adults students info menu
+if (localStorage.getItem('winTopstudentsAdults') == null) { //additional adults students info menu
     localStorage.setItem('winTopstudentsAdults', '118');
     localStorage.setItem('winLeftstudentsAdults', '407');
 }
