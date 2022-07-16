@@ -726,7 +726,24 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
 
         //	Start
 
+<<<<<<< HEAD
         document.getElementById('setstclass').onclick = function () { //изменяет статус комнаты на classwork
+=======
+        document.getElementById('setstclass').onclick = function (findapiv1,findapiv2) { //изменяет статус комнаты на classwork
+            let status = 'classwork'
+            let subject;
+            if (document.getElementById('hashfield').value.split('/') == '')
+                subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
+            else if (document.getElementById('hashfield').value.split('/') != '') {
+                subject = document.getElementById('hashfield').value.split('/')[4] + '/' + document.getElementById('hashfield').value.split('/')[5];
+                alert('Комната была перезапущена. Можете нажать на кнопку Searсh и увидеть актуальный статус комнаты')
+            }
+            findapi(subject)
+            setstclasswork(findapiv1,status)
+        }
+        document.getElementById('setstsucc').onclick = function (findapiv1,findapiv2) { //изменяет статус комнаты на classwork
+            let status = 'success'
+>>>>>>> 3d60f465cf1a8ccaf6bc649a7031c81998abada0
             let subject;
             if (document.getElementById('hashfield').value.split('/') == '')
                 subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
