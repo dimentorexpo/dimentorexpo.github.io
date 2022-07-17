@@ -8967,7 +8967,7 @@ async function remandressl() { // функция удаления и сброс�
                     document.getElementsByClassName('-type-primary')[3].appendChild(reset)
                     document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 
-                    if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
+                    if (document.URL.split('/')[6].match(/materials/) !=null && document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
                         document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
                     document.getElementById('methodid').style.left = '615px';
 
