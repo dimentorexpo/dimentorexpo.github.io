@@ -12,6 +12,8 @@ function mystylesAFMS() {
 		border:1px solid #566963;
 		color:#ffffff;
 		padding:2px 2px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 	}
 	
 	.commonbtn:hover {
@@ -86,6 +88,45 @@ function mystylesAFMS() {
 		min-height: 170px;
 		max-height: 490px;
 		width: 668px;
+		font-size: 14px;
+		z-index: 20;
+		position: fixed;
+		border: 1px solid rgb(56, 56, 56);
+		background: rgb(70, 68, 81);
+		color: black;
+		font-family: sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
+	}	
+	
+	.wintInitializeAdultsExercisesInfo {
+		min-height: 170px;
+		max-height: 790px;
+		width: 534px;
+		font-size: 14px;
+		z-index: 20;
+		position: fixed;
+		border: 1px solid rgb(56, 56, 56);
+		background: rgb(70, 68, 81);
+		color: black;
+		font-family: sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
+	}
+	
+	.wintInitializeVocabulary {
+		min-height: 170px;
+		max-height: 790px;
+		width: 514px;
+		font-size: 14px;
+		z-index: 20;
+		position: fixed;
+		border: 1px solid rgb(56, 56, 56);
+		background: rgb(70, 68, 81);
+		color: black;
+		font-family: sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
+	}
+
+	.wintInitializeSkysmartExercisesInfo {
+		min-height: 170px;
+		max-height: 490px;
+		width: 500px;
 		font-size: 14px;
 		z-index: 20;
 		position: fixed;
@@ -345,6 +386,19 @@ function mystylesAFMS() {
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 		border-radius:20px;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+	}	
+	
+	.wordsetname {
+		color: bisque;
+		width: 480px;
+		margin: 5px;
+		border: 1px solid #516051;
+		text-align: center;
+		background: #647b7b;
+		font-weight: 700;
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+		border-radius:20px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 	}
 	
 	#listofsubjects {
@@ -381,7 +435,124 @@ function mystylesAFMS() {
 	.homeworklistkids:hover {
 		font-size: 20px;
 	}
+	
+	.vocabularbarcls {
+		width:490px;
+		text-align:center;
+	}	
+	
+	.vocabularremtools > button {
+		padding: 3px;
+		min-width: 80px;
+	}
 
+	.wordsout  {
+		width: 515px;
+		max-height: 500px;
+		overflow-x: hidden;
+		margin-top:5px;
+	}
+	
+	.checkdel {
+		float: right;
+		margin-right: 5px;
+		transition: all 0.5s ease;
+		width: 14px;
+		height: 14px;
+		margin-top: 4px;
+	}
+		
+	.savelinktowordcms {
+		cursor: pointer;
+		float: right;
+		font-size: 14px;
+		transition: all 0.5s ease;
+	}
+		
+	.headerexplain {
+		background: cadetblue;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+		color: lemonchiffon;
+		margin: 5px 0;
+	}
+	
+	.selectonesection {
+		float: right;
+		margin-right: 5px;
+		transition: all 0.5s ease;
+		width: 14px;
+		height: 14px;
+	}
+	
+	.selectonesection:hover {
+		width: 18px;
+		height: 18px;
+	}
+	
+	.adultsexcbar {
+		width: 535px;
+		max-height: 500px;
+		overflow-x: hidden;
+		margin-top:5px;
+	}
+	
+	.roomtype {
+		color: bisque;
+		width: 506px;
+		margin: 5px;
+		border: 1px solid #516051;
+		text-align: center;
+		background: #647b7b;
+		font-weight: 700;
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+		border-radius:20px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		cursor:pointer;
+	}
+	
+	.roomtype:hover {
+		background: #2eb05e;
+	}
+	
+	.itemexercises {
+		color:bisque;
+		margin:5px;
+	}
+	
+	.savelinktocms {
+		cursor: pointer;
+		float: right;
+		font-size: 14px;
+		transition: all 0.5s ease;
+	}
+	
+	.checkslides {
+		float: right;
+		margin-right: 5px;
+		transition: all 0.5s ease;
+		width: 14px;
+		height: 14px;
+		margin-top: 4px;
+	}
+	
+	.checkroom {
+		float: right;
+		margin-right: 10px;
+		margin-top: 2px;
+	}
+	
+	#toolsforslides > button {
+		padding:3px;
+		min-width:100px;
+	}
+
+	#toolsforroom > button {
+		padding:3px;
+		min-width:100px;
+		height:27px;
+	}
+	
 	`
     mystl.innerHTML = styleAFMS;
 }
@@ -399,8 +570,11 @@ var win_addMenu = `<div style="display: flex;">
 							<br>
 							<button id="openlesinfomenu" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">ℹ</span> LessonInfo</button>
 							<br>
-							<button id="openstudentsmenu" style="margin: 5px 0px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">👨‍🎓</span> Students</button>
+							<button id="openstudentsmenu" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">👨‍🎓</span> Students</button>
 							<br>
+							<button id="openexercisesmenu" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🎯</span> Exercises</button>
+							<br>
+							<button id="VocabularyMenu" title = "Открывает  меню для роаботы со словарем" style="margin: 5px 5px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">📚</span> Vocabulary</button>
 						</div>
 
 						<div id="studentsmenu" style="display:none">
@@ -409,8 +583,16 @@ var win_addMenu = `<div style="display: flex;">
 							<button id="lkpadult" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🅰</span> Aduls</button>
 							<br>
 							<button id="backtomainfromstudmenu" style="margin: 5px 0px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🔙</span> Back</button>
-						</div>
+						</div>	
 
+						<div id="exercisesmenu" style="display:none">
+							<button id="exercisekysmart" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🔞</span> Skysmart</button>
+							<br>
+							<button id="exerciseadult" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🅰</span> Aduls</button>
+							<br>
+							<button id="backmainmenufromexercises" style="margin: 5px 0px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🔙</span> Back</button>
+						</div>
+						
 					</span>
 				   </div>`;
 
@@ -427,6 +609,8 @@ var win_addChatMenu = `<div style="display: flex;">
 						<button class="commonbtn" id="RemoveChat" style="margin:5px">❌💬</button>
 					</span>
 				   </div>`;
+				   
+
 
 var win_studentsAdults = `<div style="display: flex;">
 					<span style="cursor: -webkit-grab;">
@@ -509,7 +693,86 @@ var win_getLessonInfo = `
 						</div>
 
 					</span>
-				  </div>`
+				  </div>`;
+				  
+var win_kidsExercises = `<div style="display: flex;">
+					<span style="cursor: -webkit-grab;">
+
+					     <div style="margin: 5px; width:500px;" id="exercisesSkysmartHeader">
+                            <button class="commonbtn" title="скрывает меню" id="hideExercisesSkysmartMenu" style="width:50px; height:30px; background: #228B22;">hide</button>
+							<button class="commonbtn" id="RefreshInfoExerciseKids" title = "Обновляет информацию по открытой комнате" style="margin: 5px; width: 25px; height: 25px; padding: 0;">♻</button>
+                        </div>
+
+						<div id="exercisebarskysmart" class="skysmartexcbar" style="color:bisque;text-align:center;">
+						<div>
+						
+					</span>
+				   </div>`;
+				   
+var win_adultsExercises = `<div style="display: flex;">
+					<span style="cursor: -webkit-grab;">
+
+					     <div style="margin: 5px; width:500px;" id="hideExercisesAdultsMenuHeader">
+                            <button class="commonbtn" title="скрывает меню" id="hideExercisesAdultsMenu" style="width:50px; height:30px; background: #228B22;">hide</button>
+							<button class="commonbtn" id="RefreshInfoExerciseAdults" title = "Обновляет информацию по открытой комнате" style="margin: 5px; width: 25px; height: 25px; padding: 0;">♻</button>
+							<button class="commonbtn" id="ClearExercFields" title = "Очищает поля" style="margin: 5px; width: 25px; height: 25px; padding: 0;">🧹</button>
+                        </div>
+						
+						<div style="margin:5px;">
+							<input id="roomhashhw" placeholder="homework link" style="width: 440px; margin-left: 15px; text-align: center;">
+							<button class="commonbtn" id="getroomdata">🔎</button>
+
+						</div>
+						
+						<div id="toolsforroom" style="text-align:center; margin-top:5px;">
+							<input readonly id="outidmethodist" placeholder="Methodist ID" style="width: 120px; margin-left: 15px; text-align: center;">
+							<button class="commonbtn" id="getidmethodist" title="Узнать ID методиста, срабатывает только при открытом слайде с работой либо эссе либо рекординг">ID Методиста</button>
+							<button class="commonbtn" id="getroominfo">❓ Room Info</button>
+						</div>
+
+						<div id="toolsforslides" style="text-align:center; margin-top:5px;">
+							<button class="commonbtn" id="removeslide" title="Удаляет слайды">❌ Remove</button>
+							<button class="commonbtn" id="resetslide" title="Сбрасывает прогресс в слайдах">⭕ Reset</button>
+							<button class="commonbtn" id="assignslideashw" title="Отправляет выбранный слайд в качестве ДЗ">💼 Assign</button>
+							<button class="commonbtn" id="selectallslides" title="Выделяет все слайды">☑ Select All</button>
+						</div>
+
+						<div id="exercisebaradults" class="adultsexcbar">
+						<div>
+						
+					</span>
+				   </div>`;
+				   
+				   
+var win_Vocabulary = `<div style="display: flex;">
+					<span style="cursor: -webkit-grab;">
+
+					     <div style="margin: 5px; width:500px;">
+                            <button class="commonbtn" title="скрывает меню" id="hideVocabularyMenu" style="width:50px; height:30px; background: #228B22;">hide</button>
+							<button class="commonbtn" id="ClearVocabulary" title = "Обновляет информацию по открытой комнате" style="margin: 5px; width: 30px; height: 30px; padding: 0">🧹</button>	
+                        </div>
+						
+						<div id="vocabularbar" class="vocabularbarcls">
+							<div id="searchtoolswords" style="margin: 5px; width:500px;">
+								<input id="iduserwords" style="width: 360px;text-align: center; height: 23px;" placeholder="Enter student ID to get vocabulary info">
+								<button id="findwords" class="commonbtn" style="height: 30px;width: 30px; margin-left: 5px;">🔎</button>
+							</div>
+							<div class="vocabularremtools">
+								<button class="commonbtn" id="deleteallwords" title="Удаляет все выделенные слова">❌ Selected</button>
+								<button class="commonbtn" id="unlearnallwords" title="Сбрасывает прогресс выученных слов">⭕ Reset Learned</button>
+								<button class="commonbtn" id="delunlearnallwords" title="Удаляет все выученные слова">⛔ Learned</button>	
+								<button class="commonbtn" id="learncheckedwords" title="Делает слово выученным">✅ Learn</button>	
+								<button class="commonbtn" id="selectallwords" title="Выделяет все слова">☑ Select All</button>	
+							</div>
+						</div>	
+						
+						<div id="wordsout" class="wordsout">
+						</div>
+						
+					</span>
+				   </div>`;				   
+				   
+	
 
 if (localStorage.getItem('winTopAddMenu') == null) { //additional menu
     localStorage.setItem('winTopAddMenu', '120');
@@ -524,9 +787,9 @@ if (localStorage.getItem('winTopAddChatMenu') == null) { //additional Chat menu
 if (localStorage.getItem('winTopLessonInfo') == null) { //additional Lesson info menu
     localStorage.setItem('winTopLessonInfo', '118');
     localStorage.setItem('winLeftLessonInfo', '407');
-} if
+}
 
-    (localStorage.getItem('winTopstudentsAdults') == null) { //additional adults students info menu
+if (localStorage.getItem('winTopstudentsAdults') == null) { //additional adults students info menu
     localStorage.setItem('winTopstudentsAdults', '118');
     localStorage.setItem('winLeftstudentsAdults', '407');
 }
@@ -534,6 +797,21 @@ if (localStorage.getItem('winTopLessonInfo') == null) { //additional Lesson info
 if (localStorage.getItem('winTopstudentsSkysmart') == null) { //additional skysmart students info menu
     localStorage.setItem('winTopstudentsSkysmart', '118');
     localStorage.setItem('winLeftstudentsSkysmart', '407');
+}
+
+if (localStorage.getItem('winTopexercisesAdults') == null) { //additional adults students info menu
+    localStorage.setItem('winTopexercisesAdults', '118');
+    localStorage.setItem('winLeftexercisesAdults', '407');
+}
+
+if (localStorage.getItem('winTopexercisesSkysmart') == null) { //additional skysmart students info menu
+    localStorage.setItem('winTopexercisesSkysmart', '118');
+    localStorage.setItem('winLeftexercisesSkysmart', '407');
+}
+
+if (localStorage.getItem('winTopVocabulary') == null) { //additional skysmart students info menu
+    localStorage.setItem('winTopVocabulary', '118');
+    localStorage.setItem('winLeftVocabulary', '407');
 }
 
 let wintAddMenu = document.createElement('div');
@@ -571,6 +849,29 @@ wintStudSkysmart.style = 'display:none;  top: ' + localStorage.getItem('winTopst
 wintStudSkysmart.setAttribute('id', 'AFMS_SkysmartStudInfo');
 wintStudSkysmart.innerHTML = win_studentsSkysmart;
 
+let wintExercAdults = document.createElement('div');
+document.body.append(wintExercAdults);
+wintExercAdults.className = 'wintInitializeAdultsExercisesInfo'
+wintExercAdults.style = 'display:none;  top: ' + localStorage.getItem('winTopexercisesAdults') + 'px; left: ' + localStorage.getItem('winLeftexercisesAdults') + 'px;';
+wintExercAdults.setAttribute('id', 'AFMS_AdultExercInfo');
+wintExercAdults.innerHTML = win_adultsExercises;
+
+let wintExercSkysmart = document.createElement('div');
+document.body.append(wintExercSkysmart);
+wintExercSkysmart.className = 'wintInitializeSkysmartExercisesInfo'
+wintExercSkysmart.style = 'display:none;  top: ' + localStorage.getItem('winTopexercisesSkysmart') + 'px; left: ' + localStorage.getItem('winLeftexercisesSkysmart') + 'px;';
+wintExercSkysmart.setAttribute('id', 'AFMS_SkysmartExercInfo');
+wintExercSkysmart.innerHTML = win_kidsExercises;
+
+let wintVocabulary = document.createElement('div');
+document.body.append(wintVocabulary);
+wintVocabulary.className = 'wintInitializeVocabulary'
+wintVocabulary.style = 'display:none;  top: ' + localStorage.getItem('winTopVocabulary') + 'px; left: ' + localStorage.getItem('winLeftVocabulary') + 'px;';
+wintVocabulary.setAttribute('id', 'AFMS_Vocabulary');
+wintVocabulary.innerHTML = win_Vocabulary;
+
+//aditional menu
+
 wintAddMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9999); }
 var listener9999 = function (e, a) {
     wintAddMenu.style.left = Number(e.clientX - myX9999) + "px";
@@ -584,6 +885,10 @@ wintAddMenu.firstElementChild.firstElementChild.onmousedown = function (a) {
     document.addEventListener('mousemove', listener9999);
 }
 wintAddMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9999); }
+
+// end aditional menu
+
+// add chat menu
 
 wintAddChatMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9998); }
 var listener9998 = function (e, a) {
@@ -599,6 +904,10 @@ wintAddChatMenu.firstElementChild.firstElementChild.onmousedown = function (a) {
 }
 wintAddChatMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9998); }
 
+// end add chat menu
+
+// lexxon info menu
+
 wintLessonInfo.onmouseup = function () { document.removeEventListener('mousemove', listener9997); }
 var listener9997 = function (e, a) {
     wintLessonInfo.style.left = Number(e.clientX - myX9997) + "px";
@@ -612,6 +921,10 @@ wintLessonInfo.firstElementChild.firstElementChild.onmousedown = function (a) {
     document.addEventListener('mousemove', listener9997);
 }
 wintLessonInfo.onmouseup = function () { document.removeEventListener('mousemove', listener9997); }
+
+// end lesson info menu
+
+// info students adult
 
 wintStudAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9996); }
 var listener9996 = function (e, a) {
@@ -627,6 +940,10 @@ wintStudAdults.firstElementChild.firstElementChild.onmousedown = function (a) {
 }
 wintStudAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9996); }
 
+// end info students adult
+
+// info students kids
+
 wintStudSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9995); }
 var listener9995 = function (e, a) {
     wintStudSkysmart.style.left = Number(e.clientX - myX9995) + "px";
@@ -641,10 +958,75 @@ wintStudSkysmart.firstElementChild.firstElementChild.onmousedown = function (a) 
 }
 wintStudSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9995); }
 
+// end info students kids
+
+// Exercises adult
+
+wintExercAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9994); }
+var listener9994 = function (e, a) {
+    wintExercAdults.style.left = Number(e.clientX - myX9994) + "px";
+    wintExercAdults.style.top = Number(e.clientY - myY9994) + "px";
+    localStorage.setItem('winTopexercisesAdults', String(Number(e.clientY - myY9994)));
+    localStorage.setItem('winLeftexercisesAdults', String(Number(e.clientX - myX9994)));
+};
+wintExercAdults.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX9994 = a.layerX;
+    window.myY9994 = a.layerY;
+    document.addEventListener('mousemove', listener9994);
+}
+wintExercAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9994); }
+
+// End exercises adult
+
+// Exercises skysmart
+
+wintExercSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9993); }
+var listener9993 = function (e, a) {
+    wintExercSkysmart.style.left = Number(e.clientX - myX9993) + "px";
+    wintExercSkysmart.style.top = Number(e.clientY - myY9993) + "px";
+    localStorage.setItem('winTopexercisesSkysmart', String(Number(e.clientY - myY9993)));
+    localStorage.setItem('winLeftexercisesSkysmart', String(Number(e.clientX - myX9993)));
+};
+wintExercSkysmart.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX9993 = a.layerX;
+    window.myY9993 = a.layerY;
+    document.addEventListener('mousemove', listener9993);
+}
+wintExercSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9993); }
+
+// End Exercises skysmart
+
+//Vocabulary
+
+wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove', listener9992); }
+var listener9992 = function (e, a) {
+    wintVocabulary.style.left = Number(e.clientX - myX9992) + "px";
+    wintVocabulary.style.top = Number(e.clientY - myY9992) + "px";
+    localStorage.setItem('winTopVocabulary', String(Number(e.clientY - myY9992)));
+    localStorage.setItem('winLeftVocabulary', String(Number(e.clientX - myX9992)));
+};
+wintVocabulary.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX9992 = a.layerX;
+    window.myY9992 = a.layerY;
+    document.addEventListener('mousemove', listener9992);
+}
+wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove', listener9992); }
+
+//End of vocabulary
+
+
+// main script
+let token;
 document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
     if (event.altKey && event.code == 'Numpad0') {
         if (document.getElementById('AFMS_addMenu').style.display == 'none') {
             document.getElementById('AFMS_addMenu').style.display = '';
+			
+			token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+				const [ key, ...v ] = c.split('=');
+				return [ key, decodeURIComponent(v.join('=')) ];
+				}));
+			console.log(token)
 
             document.getElementById('hidemainmenu').onclick = function () {
                 document.getElementById('AFMS_addMenu').style.display = 'none';
@@ -669,28 +1051,14 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
 
         document.getElementById('addChat').onclick = function () { //функция добавления чата
 		
-			fetchaddchat(document.getElementById('userid1').value , document.getElementById('userid2').value)
-
-            console.log('%cChat was added successfully!', 'color:orange; font-weight:700"');
+			fetchaddchat(document.getElementById('userid1').value , document.getElementById('userid2').value, "POST")
+            console.log('%cChat was added successfully!', 'color:lightgreen; font-weight:700');
         }
 
         document.getElementById('RemoveChat').onclick = function () { //функция удаления чата
-
-            fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				"headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				},
-                "referrer": "https://new-teachers.skyeng.ru/",
-                "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": `{\"userId1\":${document.getElementById('userid1').value},\"userId2\":${document.getElementById('userid2').value}}`,
-                "method": "DELETE",
-                "mode": "cors",
-                "credentials": "include"
-            });
-
-            console.log('%cChat was removed successfully!', 'color:red; font-weight:700"');
+		
+			fetchaddchat(document.getElementById('userid1').value , document.getElementById('userid2').value, "DELETE")
+            console.log('%cChat was removed successfully!', 'color:orange; font-weight:700');
         }
 
         document.getElementById('hideMeAddChatMenu').onclick = () => { //функция скрытия меню чатов
@@ -705,14 +1073,9 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
     if (document.getElementById('AFMS_LessonInfo').style.display == 'none') {
         document.getElementById('AFMS_LessonInfo').style.display = ''
 
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-
         //Start function when open window and send fetch to server
 
-
         getlesinfojoin()
-
 
         // ENd of func
 
@@ -732,8 +1095,12 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
             api = findapi(subject,vapi)
             setstclasswork(api,status)
         }
+		
+		 // End
+		
+		 //	Start
 
-        document.getElementById('setstsucc').onclick = function () { //изменяет статус комнаты на success
+		document.getElementById('setstsucc').onclick = function () { //изменяет статус комнаты на success
             let status = 'success'
             let subject;
             let api;
@@ -747,7 +1114,6 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
             api = findapi(subject,vapi)
             setstclasswork(api,status)
         }
-        
 
         // End
 
@@ -797,10 +1163,6 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
             }
 
             if (hashval != '' && flagplatf == 1) {
-
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
                 let subject = hashval[4] + '/' + hashval[5]
 
                 api1 = findapi(subject,vapi)
@@ -830,7 +1192,6 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
                 document.getElementById('roomfor').style.display = ''
                 document.getElementById('forstudentid').style.display = ''
             }
-
         }
         //end
 
@@ -854,7 +1215,7 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
         document.getElementById('hideMeLessonInfo').onclick = function () { // функция скрывает меню статуса уроков
             document.getElementById('AFMS_LessonInfo').style.display = 'none'
         }
-
+		
     } else document.getElementById('AFMS_LessonInfo').style.display = 'none'
 
 }
@@ -885,9 +1246,6 @@ async function getlesinfojoin() { // получает инфо об уроке �
     }
 
     if (document.location.origin == 'https://vimbox.skyeng.ru' && flagplatf == 1) {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-
         let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
 
         api1 = findapi(subject,vapi)
@@ -910,15 +1268,11 @@ async function getlesinfojoin() { // получает инфо об уроке �
 }
 
 async function getvideoconfadults(hash) { //функция получения видеосервера на Adults
-
-    let d = document.cookie;
-    d = d.match(/token_global=(.*)/);
-
     await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + hash + "/get-video-config?vendor=janus", {
         "headers": {
             "accept": "application/json, text/plain, */*",
             "accept-language": "ru",
-            "authorization": "Bearer" + d[1],
+            "authorization": "Bearer " + token.token_global,
             "content-type": "application/json",
             "sec-fetch-dest": "empty",
             "sec-fetch-mode": "cors",
@@ -951,32 +1305,24 @@ async function getusersadults(hash) { // функция получения ин�
 }
 
 async function getjoinadultsinfo(hash) { // функция получает информацию пользователйе на Adults
-    await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + hash + "/join", {
-        "method": "PATCH",
-        "credentials": "include"
-    }).then(r => r.json()).then(r => joindata = r)
+	await joinroom(hash)
 
-    console.log(joindata)
+    document.getElementById('partteachid').textContent = joinresult.teacher.id
+    document.getElementById('partteachid').title = joinresult.teacher.name + " " + joinresult.teacher.surname
 
-    document.getElementById('partteachid').textContent = joindata.teacher.id
-    document.getElementById('partteachid').title = joindata.teacher.name + " " + joindata.teacher.surname
-
-    if (joindata.students == '') {
+    if (joinresult.students == '') {
         document.getElementById('partstudid').textContent = "New Student"
         document.getElementById('partstudid').title = "No name, because student didn't join the room"
     }
     else {
-        document.getElementById('partstudid').textContent = joindata.students[0].id
-        document.getElementById('partstudid').title = joindata.students[0].name + " " + joindata.students[0].surname
+        document.getElementById('partstudid').textContent = joinresult.students[0].id
+        document.getElementById('partstudid').title = joinresult.students[0].name + " " + joinresult.students[0].surname
     }
 
 
 }
 
 async function getvideoconfigkids(api1) { // функция получения информации о видеосервере для англ языка
-    let d = document.cookie;
-    d = d.match(/token_global=(.*)/);
-
     let hashroom;
     if (document.getElementById('hashfield').value == '')
         hashroom = document.URL.split('/')[6]
@@ -994,8 +1340,6 @@ async function getvideoconfigkids(api1) { // функция получения �
 }
 
 async function loadinfo(api2) { // инициализация функции для загрузки инфо о комнате
-    let d = document.cookie;
-    d = d.match(/token_global=(.*)/);
     let hashroom;
     let subjname;
     if (document.getElementById('hashfield').value == '') {
@@ -1130,9 +1474,6 @@ function setstclasswork(api,status) { // функция изменяющая с�
         location.reload();
     } else if (hashval != '') {
 
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-
         fetch(api + hashval[6], {
             "body": `{\"status\":\"${status}\"}`,
             "method": "PATCH",
@@ -1152,7 +1493,7 @@ const copyToClipboard = str => { // функция копирования в б�
     document.body.removeChild(el);
 };
 
-function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
+function fetchaddchat(userid1, userid2, method) { //вспомогательная функция просто добавления чата мекжду пользователям
 		fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
 		"headers": {
 			"content-type": "application/json",
@@ -1162,7 +1503,7 @@ function fetchaddchat(userid1, userid2) { //вспомогательная фу�
 		"referrer": "https://vimbox.skyeng.ru/",
 		"referrerPolicy": "strict-origin-when-cross-origin",
 		"body": `{\"userId1\":${userid1},\"userId2\":${userid2}}`,
-		"method": "POST",
+		"method": method,
 		"mode": "cors",
 		"credentials": "include"
 	});
@@ -1172,10 +1513,19 @@ document.getElementById('openstudentsmenu').onclick = function () {
     document.getElementById('mainmenu').style.display = 'none'
     document.getElementById('studentsmenu').style.display = ''
 }
+document.getElementById('openexercisesmenu').onclick = function () {
+    document.getElementById('mainmenu').style.display = 'none'
+    document.getElementById('exercisesmenu').style.display = ''
+}
 
 document.getElementById('backtomainfromstudmenu').onclick = function () {
     document.getElementById('mainmenu').style.display = ''
     document.getElementById('studentsmenu').style.display = 'none'
+}
+
+document.getElementById('backmainmenufromexercises').onclick = function () {
+    document.getElementById('mainmenu').style.display = ''
+    document.getElementById('exercisesmenu').style.display = 'none'
 }
 
 document.getElementById('lkpskysmart').onclick = async function () { //обработчик открытия окна для ЛКП - Skysmart 
@@ -1407,7 +1757,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
 			}
 				
 			
-			function showselectedsubject() { // функция переключения отображения списка учеников в мультиклассруме только один предмет выводит или все
+function showselectedsubject() { // функция переключения отображения списка учеников в мультиклассруме только один предмет выводит или все
 			document.getElementById('infobarskysmart').innerHTML = ''
 			arraytoshow = [];
 			document.getElementById('infobarskysmart').innerHTML = '';
@@ -1578,10 +1928,9 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
 							window.open('https://vimbox.skyeng.ru/profile/student/' + document.getElementsByClassName('idkidsstyle')[l].textContent.match(/\d+/)[0] + '/last-classes')
 						}
 					}
-		
 			}
 			
-		document.getElementById('actualizestudreportkids').onclick = function () { // функция актуалазирует все отчеты в выбранном предмете или разделе "Все"
+document.getElementById('actualizestudreportkids').onclick = function () { // функция актуалазирует все отчеты в выбранном предмете или разделе "Все"
 			let idslist = document.getElementsByClassName('idkidsstyle')
 			for (let k = 0; k < idslist.length; k++) {
 			
@@ -1660,7 +2009,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками в разделе Математика - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1679,7 +2028,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Русский язык - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1699,7 +2048,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)                        }
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")                     }
                         alert("Чаты с учениками раздела Обществознание - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
                     break;
@@ -1718,7 +2067,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Дошкольная подготовка - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1738,7 +2087,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Шахматы -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1758,7 +2107,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Компьютерные курсы - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1778,7 +2127,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Химия -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1798,7 +2147,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Физика - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1818,7 +2167,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Английский язык -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1838,7 +2187,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела История -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1858,7 +2207,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела Биология - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1879,7 +2228,7 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                         sidarr = sidarr.split(',');
 
                         for (let j = 0; j < sidarr.length - 1; j++) {
-							fetchaddchat(sidarr[j] , artId.user.id)
+							fetchaddchat(sidarr[j] , artId.user.id, "POST")
                         }
                         alert("Чаты с учениками раздела География - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
@@ -1946,19 +2295,8 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
 						deleteonechat[l].onclick = function () {
 							let answ = confirm("Вы действительно желаете удалить чат с учеником? " + adultdata[l].id);
 							if (answ) {
-								fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-									"headers": {
-										"content-type": "application/json",
-										"sec-fetch-mode": "cors",
-										"sec-fetch-site": "same-site"
-									},
-									"referrer": "https://new-teachers.skyeng.ru/",
-									"referrerPolicy": "strict-origin-when-cross-origin",
-									"body": `{\"userId1\": ${artId.user.id},\"userId2\":${adultdata[l].id}}`,
-									"method": "DELETE",
-									"mode": "cors",
-									"credentials": "include"
-								});
+								
+								fetchaddchat(artId.user.id, adultdata[l].id, "DELETE")
 							}
 						}
 					}
@@ -1996,7 +2334,7 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
 
             for (let k = 0; k < adultdata.length; k++) {
 			
-				fetchaddchat(artId.user.id, adultdata[k].id)
+				fetchaddchat(artId.user.id, adultdata[k].id, "POST")
 
             }
             alert('Чаты со всеми учениками были добавлены успешно! Страницу будет перезагружена!');
@@ -2078,12 +2416,731 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
     }
 }
 
+
+document.getElementById('exercisekysmart').onclick = async function () { // открывает менюшку скайсмарт упражнений
+	    if (document.getElementById('AFMS_SkysmartExercInfo').style.display == 'none') {
+			document.getElementById('AFMS_SkysmartExercInfo').style.display = ''
+			document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
+			
+			
+		document.getElementById('hideExercisesSkysmartMenu').onclick = function () { // функция скрывает меню 
+            document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
+        }
+		
+		document.getElementById('exercisebarskysmart').innerText = "В РАЗРАБОТКЕ"
+			
+		} else {
+		    document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'	
+		}
+}
+
+document.getElementById('exerciseadult').onclick = async function () { // открывает менюшку Adults упражнений
+	    if (document.getElementById('AFMS_AdultExercInfo').style.display == 'none') {
+			document.getElementById('AFMS_AdultExercInfo').style.display = ''
+			document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
+			
+		document.getElementById('hideExercisesAdultsMenu').onclick = function () { // функция скрывает меню 
+            document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
+        }
+		
+let workbookid = 0 ;		
+		
+let checkedarray = [];
+document.getElementById('selectallslides').onclick = function () { //функция выделения всех слов
+	let checkallwords = document.getElementsByName('checkslideforaction')
+		for (let i=0; i<checkallwords.length; i++) {
+			if (checkallwords[i].checked != true) {
+			checkallwords[i].checked = true
+		//	checkedarray.push(getmeanids[i].textContent)
+			console.log(checkedarray)
+			} else if (checkallwords[i].checked == true) {
+				checkallwords[i].checked = false
+				checkedarray = []
+			}
+		}	
+}
+		
+		document.getElementById('roomhashhw').value = document.URL
+		let hashroom = document.getElementById('roomhashhw').value.split('/')[4]
+		
+document.getElementById('getroomdata').onclick = async function() { //  функция получения информации об  упражнении
+			let temparr = [];
+			document.getElementById('exercisebaradults').innerHTML = ''
+			await joinroom(hashroom)
+			
+			workbookid = joinresult.workbooks[0].id
+			
+			for (let i = 0; i < Object.keys(joinresult.lessonPlan).length; i++) {
+			let vartodefine = Object.keys(joinresult.lessonPlan)[i]
+			
+			switch(vartodefine) {
+				case "Lesson":
+					temparr = [];
+					for (let j = 0; j < Object.values(joinresult.lessonPlan)[i].length; j++) {
+						
+						 for (let k =0; k<joinresult.workbooks[0].workbookSteps.length; k++) {
+							 if (joinresult.workbooks[0].workbookSteps[k].stepRevId == Object.values(joinresult.lessonPlan)[i][j].id) {
+								 temparr += '<div class="itemexercises">' + [j+1] + '. ' + Object.values(joinresult.lessonPlan)[i][j].title +
+									 '<span class="stepuidsl" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].stepUUID + '</span>' +
+									 '<span class="stepids" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].id + '</span>' +
+									 '<input type="checkbox" name="checkslideforaction" class="checkslides">' +
+									 '<span style="display:none" class="sectionforcheck">'+ `section${i}` + '</span>' +
+									 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
+									 '<span class="sentashw" style="float:right; margin-right:5px;">' + (joinresult.workbooks[0].workbookSteps[k].homeworkAssigned ==  true ?
+									 '<span class="sentyes" style="float:right;margin-right:30px;">✔</span>' :
+									 '<span class="sentno" style="float:right; margin-right:30px;">❌</span>') + '</span>' +
+									 '<span class="scoreslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].score.toFixed(1) + '</span>' +
+									 '<span class="completnesofslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].completeness + '%' + '</span>' +
+								 '</div>'
+							 }
+						 }
+					}
+						document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Lesson</div>' +
+						'<div class="boxwithslides" style="display:none">' +
+							'<div class="headerexplain">'+
+							'<span style="margin-left: 60px;">Название слайда</span>' +
+							'<span style="margin-left: 160px;">%</span>' +
+							'<span style="margin-left: 24px;">Балл</span>' +
+							'<span style="margin-left: 20px;">💼</span>' +
+							'<input type="checkbox" name="checkroomtype" class="checkroom">' +
+							'</div>' +
+						temparr + '</div>' 
+				break;
+				
+				case "Homework":
+					temparr = [];
+					for (let j = 0; j < Object.values(joinresult.lessonPlan)[i].length; j++) {
+						
+						 for (let k =0; k<joinresult.workbooks[0].workbookSteps.length; k++) {
+							 if (joinresult.workbooks[0].workbookSteps[k].stepRevId == Object.values(joinresult.lessonPlan)[i][j].id) {
+								 temparr += '<div class="itemexercises">' + [j+1] + '. ' + Object.values(joinresult.lessonPlan)[i][j].title +
+									 '<span class="stepuidsl" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].stepUUID + '</span>' +
+									 '<span class="stepids" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].id + '</span>' +
+									 '<input type="checkbox" name="checkslideforaction" class="checkslides">' +
+									 '<span style="display:none" class="sectionforcheck">'+ `section${i}` + '</span>' +
+									 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
+									 '<span class="sentashw" style="float:right; margin-right:5px;">' + (joinresult.workbooks[0].workbookSteps[k].homeworkAssigned ==  true ?
+									 '<span class="sentyes" style="float:right;margin-right:30px;">✔</span>' :
+									 '<span class="sentno" style="float:right; margin-right:30px;">❌</span>') + '</span>' +
+									 '<span class="scoreslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].score.toFixed(1) + '</span>' +
+									 '<span class="completnesofslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].completeness + '%' + '</span>' +
+								 '</div>'
+							 }
+						 }
+					}
+						document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Homework</div>' +
+						'<div class="boxwithslides" style="display:none">' +
+							'<div class="headerexplain">'+
+							'<span style="margin-left: 60px;">Название слайда</span>' +
+							'<span style="margin-left: 160px;">%</span>' +
+							'<span style="margin-left: 24px;">Балл</span>' +
+							'<span style="margin-left: 20px;">💼</span>' +
+							'<input type="checkbox" name="checkroomtype" class="checkroom">' +
+							'</div>' +
+						temparr + '</div>' 
+				break;
+				
+				case "Test":
+					temparr = [];
+					for (let j = 0; j < Object.values(joinresult.lessonPlan)[i].length; j++) {
+						
+						 for (let k =0; k<joinresult.workbooks[0].workbookSteps.length; k++) {
+							 if (joinresult.workbooks[0].workbookSteps[k].stepRevId == Object.values(joinresult.lessonPlan)[i][j].id) {
+								 temparr += '<div class="itemexercises">' + [j+1] + '. ' + Object.values(joinresult.lessonPlan)[i][j].title +
+									 '<span class="stepuidsl" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].stepUUID + '</span>' +
+									 '<span class="stepids" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].id + '</span>' +
+									 '<input type="checkbox" name="checkslideforaction" class="checkslides">' +
+									 '<span style="display:none" class="sectionforcheck">'+ `section${i}` + '</span>' +
+									 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
+									 '<span class="sentashw" style="float:right; margin-right:5px;">' + (joinresult.workbooks[0].workbookSteps[k].homeworkAssigned ==  true ?
+									 '<span class="sentyes" style="float:right;margin-right:30px;">✔</span>' :
+									 '<span class="sentno" style="float:right; margin-right:30px;">❌</span>') + '</span>' +
+									 '<span class="scoreslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].score.toFixed(1) + '</span>' +
+									 '<span class="completnesofslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].completeness + '%' + '</span>' +
+								 '</div>'
+							 }
+						 }
+					}
+						document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Test</div>' +
+						'<div class="boxwithslides" style="display:none">' +
+							'<div class="headerexplain">'+
+							'<span style="margin-left: 60px;">Название слайда</span>' +
+							'<span style="margin-left: 160px;">%</span>' +
+							'<span style="margin-left: 24px;">Балл</span>' +
+							'<span style="margin-left: 20px;">💼</span>' +
+							'<input type="checkbox" name="checkroomtype" class="checkroom">' +
+							'</div>' +
+						temparr + '</div>' 
+				break;	
+			}
+			
+		}
+		
+				 
+		 let savelinkarr = document.getElementsByClassName('savelinktocms')
+		 for(let z=0; z< savelinkarr.length; z++) {
+			 	savelinkarr[z].onclick = function() {
+				 copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/"+document.getElementsByClassName('stepuidsl')[z].textContent)	 
+			 }
+		 }
+		
+		document.getElementById('resetslide').onclick = function() {
+			let steps = document.getElementsByClassName('stepids')
+			let chekeds = document.getElementsByName('checkslideforaction')
+			let massiv = [];
+			let quest4;
+			quest4 = confirm("Вы уверены, что хотите сбросить прогресс выбранных слайдов? Ок - Продолжить, Отмена - покинуть меню" )
+				if (quest4) {
+				for (let i=0; i<chekeds.length; i++) {
+					if (chekeds[i].checked == true)
+						massiv.push(steps[i].textContent)
+				}
+				console.log(massiv)
+				
+				for (let j =0; j<massiv.length;j++) {
+					fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/"+massiv[j]+"/reset", {
+					  "headers": {
+						"accept": "application/json, text/plain, */*",
+						"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+						"authorization": "Bearer " + token.token_global, 
+					  },
+					  "referrer": "https://vimbox.skyeng.ru/",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "workbookIds[]="+workbookid,
+					  "method": "DELETE",
+					  "mode": "cors",
+					  "credentials": "include"
+					});
+				}
+				
+				alert ("Слайды были успешно сброшены")
+				
+			}
+		}
+		
+		document.getElementById('removeslide').onclick = function() { // функция отзыва выбранных слайдов
+			let stepuuids = document.getElementsByClassName('stepuidsl')
+			let chekeds = document.getElementsByName('checkslideforaction')
+			let massivuustep = [];
+			let quest5;
+			quest5 = confirm("Вы уверены, что хотите отозвать выбранные слайды? Ок - Продолжить, Отмена - покинуть меню" )
+				if (quest5) {
+					for (let i=0; i<chekeds.length; i++) {
+					if (chekeds[i].checked == true)
+						massivuustep.push(stepuuids[i].textContent)
+					}
+				console.log(massivuustep)
+				
+				for (let j=0; j<massivuustep.length;j++) {
+					
+					sentordeletehw(workbookid, massivuustep[j], "DELETE")
+				}
+					alert("Выбранные слайды были успешно отозваны!")
+				}
+		}		
+		
+		document.getElementById('assignslideashw').onclick = function() { // функция добавления выбранных слайдов
+			let stepuuids = document.getElementsByClassName('stepuidsl')
+			let chekeds = document.getElementsByName('checkslideforaction')
+			let massivuustep = [];
+			let quest6;
+			quest6 = confirm("Вы уверены, что хотите добавить выбранные слайды? Ок - Продолжить, Отмена - покинуть меню" )
+				if (quest6) {
+					for (let i=0; i<chekeds.length; i++) {
+					if (chekeds[i].checked == true)
+						massivuustep.push(stepuuids[i].textContent)
+					}
+				console.log(massivuustep)
+				
+				for (let j=0; j<massivuustep.length;j++) {
+					
+					sentordeletehw(workbookid, massivuustep[j], "POST")
+				}
+					alert("Выбранные слайды были успешно добавлены!")
+				}
+		}
+		
+		function sentordeletehw(workbook, stepuuid, method) {
+			fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + workbook + "/step/" + stepuuid, {
+				"headers": {
+				"authorization": "Bearer " + token.token_global, 
+				},
+				"method": method,
+				"mode": "cors",
+				"credentials": "include"
+			});
+		}
+		
+		//select type room button Lesson Homework Test
+		
+		let selectoneles = document.getElementsByName('checkroomtype')
+		let checkboxesall = document.getElementsByName('checkslideforaction')
+		let flagforfilter = document.getElementsByClassName('sectionforcheck')
+		let massiv = [];
+
+		for (let i = 0; i < selectoneles.length; i++) {
+			selectoneles[i].onclick = function () {
+				massiv = [];
+				for (let j = 0; j < flagforfilter.length; j++) {
+					if (flagforfilter[j].textContent == ('section' + (i+1))) {
+						massiv.push(j)
+					} 
+				}
+				console.log(massiv)
+				
+				 for (let k=massiv[0]; k<=massiv[massiv.length-1];k++) {
+					if (checkboxesall[k].checked !=true)
+						checkboxesall[k].checked = true;
+					else checkboxesall[k].checked = false;
+				}
+			}
+		}	
+		
+		//select all button
+		
+		let subjbtnsarr = document.getElementsByClassName('roomtype')
+		let slidesbar = document.getElementsByClassName('boxwithslides') 
+		for (let i=0; i < subjbtnsarr.length; i++) {
+			subjbtnsarr[i].onclick = function() {
+				if (slidesbar[i].style.display == 'none')
+					slidesbar[i].style.display = ''
+				else slidesbar[i].style.display = 'none'
+			}	
+		}
+	}
+		
+		
+document.getElementById('getroominfo').onclick = async function() { //функция получает инфо о текущем слайде, курсе, уровне, уроке, получает ссылку на CMS, и конкретный открытый степ
+				await joinroom(hashroom)
+
+                if (joinresult.lessonPlan.Homework != undefined) {
+
+                    for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
+                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
+                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                            copyToClipboard('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                        }
+                    }
+
+                    for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
+                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Lesson[i].id) {
+                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                            copyToClipboard('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                        }
+                    }
+
+                } else {
+                    for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
+                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Test[i].id) {
+                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                            copyToClipboard('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                        }
+                    }
+                }
+		}
+		
+document.getElementById('RefreshInfoExerciseAdults').onclick = function() {
+			document.getElementById('roomhashhw').value = document.URL
+		}		
+		
+document.getElementById('ClearExercFields').onclick = function() { // функция очищает разные поля
+			document.getElementById('roomhashhw').value = ''
+			document.getElementById('outidmethodist').value = ''
+		}
+		
+document.getElementById('getidmethodist').onclick = async function() { // функция получения ID методиста, Которому отправлено
+				document.getElementById('outidmethodist').value = ''
+					if (document.getElementById('roomhashhw').value.split('/')[6] != 'materials?tool=homework') {
+						await joinroom(hashroom = document.URL.split('/')[4])
+						
+						await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
+							"headers": {
+								"accept": "application/json, text/plain, */*",
+								"accept-language": "ru",
+								"authorization": "Bearer " + token.token_global,
+								"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+							},
+							"body": `studentId=${joinresult.students[0].id}&projectName=vimbox`,
+							"method": "POST",
+							"mode": "cors",
+							"credentials": "include"
+						}).then(r => r.json()).then(r => result = r)
+
+						if (result.record == undefined && result.text != null) {
+							document.getElementById('outidmethodist').value =  "Essay: " + result.methodistId
+
+						} else {
+							await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
+								"headers": {
+									"accept": "application/json, text/plain, */*",
+									"accept-language": "ru",
+									"authorization": "Bearer " + token.token_global,
+									"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+								},
+								"body": `studentId=${joinresult.students[0].id}&projectName=vimbox&sourceId=0`,
+								"method": "POST",
+								"mode": "cors",
+								"credentials": "include"
+							}).then(r => r.json()).then(r => result = r)
+
+							if (result.record != undefined)
+							document.getElementById('outidmethodist').value = "Record: " + result.record.methodistId
+						}
+					} else {
+
+						await joinroom(hashroom = document.URL.split('/')[4])
+						await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
+							"headers": {
+								"accept": "application/json, text/plain, */*",
+								"accept-language": "ru",
+								"authorization": "Bearer " + token.token_global,
+								"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+							},
+							"method": "POST",
+							"mode": "cors",
+							"credentials": "include"
+						}).then(r => r.json()).then(r => result = r)
+
+						if (result.record == undefined && result.text != null) {
+							document.getElementById('outidmethodist').value = "Essay: " + result.methodistId
+
+						} else {
+							await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
+								"headers": {
+									"accept": "application/json, text/plain, */*",
+									"accept-language": "ru",
+									"authorization": "Bearer " + token.token_global,
+									"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+								},
+								"method": "POST",
+								"mode": "cors",
+								"credentials": "include"
+							}).then(r => r.json()).then(r => result = r)
+
+							if (result.record != undefined)
+							document.getElementById('outidmethodist').value = "Record: " +  result.record.methodistId
+						}
+					}
+			}
+		
+		} else {
+		    document.getElementById('AFMS_AdultExercInfo').style.display = 'none'	
+		}
+} // end of exercises menu adults
+
+async function joinroom(item) { //функция сканирования комнаты по запросу на join
+		await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/"+item+"/join", {
+		  "method": "PATCH",
+		  "credentials": "include"
+		}).then(r=>r.json()).then(r=>joinresult=r)
+		console.log(joinresult)	
+}
+
 document.getElementById('hidestudentsSkysmartMenu').onclick = function () {
     document.getElementById('AFMS_SkysmartStudInfo').style.display = 'none'
 }
 
 document.getElementById('hidestudentsAdultstMenu').onclick = function () {
     document.getElementById('AFMS_AdultStudInfo').style.display = 'none'
+}
+
+
+		document.getElementById('VocabularyMenu').onclick = function () { // открывает меню для работы со словарем
+		
+		if (document.getElementById('AFMS_Vocabulary').style.display == 'none') {
+			document.getElementById('AFMS_Vocabulary').style.display = ''
+			document.getElementById('vocabularbar').style.display ='';
+		} else document.getElementById('AFMS_Vocabulary').style.display = 'none'
+			
+		
+			document.getElementById('findwords').onclick = async function() {
+				
+				getwordsets(document.getElementById('iduserwords').value.trim())
+				
+			}
+			
+			document.getElementById('ClearVocabulary').onclick = function() {
+				document.getElementById('wordsout').innerHTML = '';
+				document.getElementById('iduserwords').value = '';	
+			}	
+
+			document.getElementById('hideVocabularyMenu').onclick = function() {
+				document.getElementById('wordsout').innerHTML = '';
+				document.getElementById('iduserwords').value = '';	
+				document.getElementById('AFMS_Vocabulary').style.display = 'none'
+			}
+		
+		} // end of open vocabulary menu function
+
+
+
+let checkedarray = [];
+document.getElementById('selectallwords').onclick = function () { //функция выделения всех слов
+	let getmeanids = document.getElementsByClassName('wminId');
+	let checkallwords = document.getElementsByName('checkfordel')
+		for (let i=0; i<checkallwords.length; i++) {
+			if (checkallwords[i].checked != true) {
+			checkallwords[i].checked = true
+			checkedarray.push(getmeanids[i].textContent)
+			console.log(checkedarray)
+			} else if (checkallwords[i].checked == true) {
+				checkallwords[i].checked = false
+				checkedarray = []
+			}
+		}	
+}
+
+document.getElementById('delunlearnallwords').onclick = function () { // функция удаления всех выученных слов
+	let learnedwords = document.getElementsByClassName('islearnedyesno')
+	let userstud = document.getElementById('iduserwords').value.trim();
+	let idslov = document.getElementsByClassName('wminId');
+	let isLearned = []
+	var quest3;
+	for (let i=0; i<learnedwords.length;i++) {
+		if (learnedwords[i].textContent == '✔')
+			isLearned.push(i)
+	}
+	
+	if (isLearned != '') { 
+		quest3 = confirm("Вы уверены, что хотите удалить ВСЕ выученные слова?");
+		if (quest3) {
+			for (let j=0; j<isLearned.length; j++) {
+				fetch("https://api-words.skyeng.ru/api/v2/words/"+idslov[isLearned[j]].textContent+".json?studentId="+userstud, {
+					"headers": {
+						"accept": "application/json, text/plain, */*",
+						"authorization": "Bearer " + token.token_global,
+					  },
+					  "method": "DELETE"
+					})
+			}
+			console.log(isLearned)
+			alert("Все выученные слова были успешно удалены 😏")
+		} 
+	} else alert("Выученных слов в кабинете ученика нет")
+}
+
+document.getElementById('learncheckedwords').onclick = function () { // функция изучения выбранного слова минуя тренировку
+	let checkisSelected = document.getElementsByName('checkfordel')
+	let getwordsids = document.getElementsByClassName('wminId');
+	let userstud = document.getElementById('iduserwords').value.trim();
+	let flagselected = [];
+		for (let i=0; i < checkisSelected.length; i++) {
+			if (checkisSelected[i].checked == true)
+				flagselected.push(i)
+		}
+		
+		console.log(flagselected)
+	
+		if (flagselected != '') { 
+			for (let i=0; i<flagselected.length;i++) {
+				fetch("https://api-words.skyeng.ru/api/for-vimbox/v1/words/"+getwordsids[flagselected[i]].textContent+"/skip.json?studentId="+userstud, {
+					"headers": {
+					"accept": "application/json, text/plain, */*",
+					"authorization": "Bearer " + token.token_global,
+				  },
+				  "method": "PUT"
+				})
+			}
+			alert("Выбранные слова были успешно выучены 😏")
+		} else alert("Нет выбранных слов для изменения статуса на выучен. Отметье, пожалуйста, после чего повторите попытку")
+}
+
+document.getElementById('unlearnallwords').onclick = function() { // функция сброса выученного слова
+	let checkisSelected = document.getElementsByName('checkfordel')
+	let getwordsids = document.getElementsByClassName('wminId');
+	let userstud = document.getElementById('iduserwords').value.trim();
+	let flagselected = [];
+	var quest1;
+	for (let i=0; i < checkisSelected.length; i++) {
+		if (checkisSelected[i].checked == true)
+			flagselected.push(i)
+	}
+
+	if (flagselected == '') {
+		quest1 = confirm("Не был выбран ниодин пункт. Будет автоматически сброшен прогресс для всех слов. Продолжить?");
+		if (quest1) { 
+			for (let g=0; g<getwordsids.length; g++) {
+				fetch("https://api-words.skyeng.ru/api/trainings/v1/users/"+userstud+"/meanings/"+getwordsids[g].textContent+"/progress", {
+				"headers": {
+					"accept": "application/json, text/plain, */*",
+					"authorization": "Bearer " + token.token_global,
+				  },
+				  "method": "DELETE"
+				})			
+			}
+			alert("Прогресс всех слов был успешно сброшен! 🤠")
+		}
+	} else {
+		quest1 = confirm("Вы выбрали некоторые пункты для сброса прогресса слов. Продолжить?");
+		if (quest1) { 
+			for (let g=0; g<flagselected.length; g++) {
+				console.log(getwordsids[flagselected[g]]);
+				fetch("https://api-words.skyeng.ru/api/trainings/v1/users/"+userstud+"/meanings/"+getwordsids[flagselected[g]].textContent+"/progress", {
+				"headers": {
+					"accept": "application/json, text/plain, */*",
+					"authorization": "Bearer " + token.token_global,
+				  },
+				  "method": "DELETE"
+				})			
+			}
+			alert("Прогресс выбранных слов был успешно сброшен! 🤠")
+		}
+	}
+	console.log(flagselected)
+}
+
+document.getElementById('deleteallwords').onclick = function () { // функция удаленя слов выбраных в списке если ничего не выбрано то всех!
+			let cheks = document.getElementsByName('checkfordel');
+			let idslov = document.getElementsByClassName('wminId');
+			let userstud = document.getElementById('iduserwords').value.trim();
+			let flagselected = [];
+			var quest2;
+				for (let i=0; i < cheks.length; i++) {
+					if (cheks[i].checked == true)
+						flagselected.push(i)
+				}
+			
+		if (flagselected == '') {
+			quest2 = confirm("Не был выбран ниодин пункт. Будут автоматически удалены все слова из словаря. Продолжить?");
+			if (quest2) { 
+				for (let g=0; g<idslov.length; g++) {
+					
+					fetch("https://api-words.skyeng.ru/api/v2/words/"+idslov[g].textContent+".json?studentId="+userstud, {
+					"headers": {
+						"accept": "application/json, text/plain, */*",
+						"authorization": "Bearer " + token.token_global,
+					  },
+					  "method": "DELETE"
+					})			
+				}
+				alert("Все слова были успешно удалены! 🤠");
+			}
+		} else {
+			quest2 = confirm("Вы выбрали некоторые пункты для удаления слов. Продолжить?");
+			if (quest2) { 
+				for (let g=0; g<flagselected.length; g++) {
+					console.log(idslov[flagselected[g]]);
+					
+					fetch("https://api-words.skyeng.ru/api/v2/words/"+idslov[flagselected[g]].textContent+".json?studentId="+userstud, {
+					"headers": {
+						"accept": "application/json, text/plain, */*",
+						"authorization": "Bearer " + token.token_global,
+					  },
+					  "method": "DELETE"
+					})		
+				}
+				alert("Выбранные слова были успешно удалены! 🤠");
+			}
+		}
+		console.log(flagselected)
+	}
+
+async function getwordsets(studentId) { // функция получения информации из ворд сетов и словах в них
+	let wordsdata = [];
+	let wordsname = [];
+	let counter = 0;
+	let page = 1;
+	document.getElementById('wordsout').innerHTML = ''
+		await fetch("https://api-words.skyeng.ru/api/for-vimbox/v1/wordsets.json?studentId="+studentId+"&pageSize=500", {
+	  "headers": {
+		"accept": "application/json, text/plain, */*",
+		"authorization": "Bearer " + token.token_global,
+	  },
+	}).then(r=>r.json()).then(r=>wordsetsarr=r)
+	console.log('%cHere we are wordsets','color:lightgreen; font-weight:700')
+	console.log(wordsetsarr)
+
+	for (let i = 0; i < wordsetsarr.data.length; i++) {
+			if (counter == 500)  {
+				counter =0;
+				page++;
+			}
+			
+		wordsdata = [];
+		wordsname = [];
+		await fetch("https://api-words.skyeng.ru/api/v1/wordsets/"+wordsetsarr.data[i].id + "/words.json?wordsetId="+wordsetsarr.data[i].id+"&studentId="+studentId+"&page="+page+"&pageSize=500", {
+			"headers": {
+				"accept": "application/json, text/plain, */*",
+				"authorization": "Bearer " + token.token_global,
+			},
+		}).then(r => r.json()).then(r => objectwdsets = r)
+		
+
+		for (let k=0; k<objectwdsets.data.length; k++) { 
+			wordsname.push(objectwdsets.data[k].meaningId)
+		}
+		// console.log(wordsname);
+		console.log(wordsname.toString());
+		
+		await fetch("https://dictionary.skyeng.ru/api/for-services/v2/meanings?ids="+wordsname.toString()+"&acceptLanguage=ru", {
+			"headers": {
+				"accept": "application/json, text/plain, */*",
+				"authorization": "Bearer " + token.token_global,
+			},
+		}).then(r => r.json()).then(r => wordsnames = r)
+		
+		for (let j=0; j<objectwdsets.data.length; j++) {
+			wordsdata += '<span style="color: #00FA9A; margin-left:5px;">&#5129; </span>' +
+			'<span style="color: bisque; cursor: text;" name="meaningsId">' +
+				'<span style="color: #30dbe3; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);">' + (typeof(wordsnames[j].text) == 'undefined' ? '' : wordsnames[j].text ) + '</span>' +
+				'<input type="checkbox" name="checkfordel" class="checkdel">' +
+				'<span style="display:none" class="sectionforcheck">'+ `section${i}` + '</span>'+
+				'<span class="savelinktowordcms" title="Копирует в буфер обмена ссылку на CMS словаря для этого слова"> 💾 </span>' +
+				'<span class="checkislearned">' + (objectwdsets.data[j].isLearned == true ? '<span class="islearnedyesno" style="float:right;margin-right:30px;">✔</span>' : '<span class="islearnedyesno" style="float:right; margin-right:30px;">❌</span>') + '</span>' +
+				'<span style="float:right; margin-right:35px;">' + (objectwdsets.data[j].progress < 100 ? '<span style="padding-left: 8px;">' + objectwdsets.data[j].progress + '%' + '</span>' : objectwdsets.data[j].progress + '%' ) + '</span>' +
+				'<span class="wminId" style="float:right; margin-right:5px;">' + objectwdsets.data[j].meaningId + '</span>' +
+			'</span>' + '<br>'; 
+			counter++
+		}
+		
+		console.log('%cHere we are words in wordsets','color:lightgreen; font-weight:700')
+		console.log(objectwdsets)
+		document.getElementById('wordsout').innerHTML += `<div class="wordsetname">${wordsetsarr.data[i].title} (${objectwdsets.data.length})</div>` +
+		'<div class="headerexplain">' +
+			'<span style="margin-left: 30px;">Слово или фраза</span>' +
+			'<span style="margin-left: 142px;">ID слова</span>' +
+			'<span style="margin-left: 12px;"> % </span>' +
+			'<span style="margin-left: 10px;"> Выучено </span>' +
+			'<input type="checkbox" name="selectwordsinonelesson" class="selectonesection">' +
+		'</div>' + wordsdata;	
+		}
+
+		let selectoneles = document.getElementsByName('selectwordsinonelesson')
+		let checkboxesall = document.getElementsByName('checkfordel')
+		let flagforfilter = document.getElementsByClassName('sectionforcheck')
+		let massiv = [];
+
+		for (let i = 0; i < selectoneles.length; i++) {
+			selectoneles[i].onclick = function () {
+				counter = 0;
+				massiv = [];
+				for (let j = 0; j < flagforfilter.length; j++) {
+					if (flagforfilter[j].textContent == ('section' + i)) {
+						massiv.push(j)
+					} 
+				}
+				console.log(massiv)
+				
+				 for (let k=massiv[0]; k<=massiv[massiv.length-1];k++) {
+					if (checkboxesall[k].checked !=true)
+						checkboxesall[k].checked = true;
+					else checkboxesall[k].checked = false;
+				}
+			}
+		}			
+		
+		let savebtnsarr = document.getElementsByClassName('savelinktowordcms')
+		 for (let z=0; z< savebtnsarr.length; z++) {
+			 savebtnsarr[z].onclick = function() {
+				 let allmeanings = document.getElementsByClassName('wminId')
+				 copyToClipboard("https://dictionary.skyeng.ru/cms/meaning/"+allmeanings[z].textContent)	 
+			 }
+		 }
+
+		
 }
 
 
