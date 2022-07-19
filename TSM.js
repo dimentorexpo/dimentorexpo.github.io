@@ -401,6 +401,10 @@ function mystylesAFMS() {
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 	}
 	
+	.wordsetname:hover {
+		background: #2eb05e;
+	}
+	
 	#listofsubjects {
 		background: rgb(70, 68, 81);
 		height: 30px;
@@ -3100,13 +3104,25 @@ async function getwordsets(studentId) { // функция получения и�
 		console.log('%cHere we are words in wordsets','color:lightgreen; font-weight:700')
 		console.log(objectwdsets)
 		document.getElementById('wordsout').innerHTML += `<div class="wordsetname">${wordsetsarr.data[i].title} (${objectwdsets.data.length})</div>` +
-		'<div class="headerexplain">' +
-			'<span style="margin-left: 30px;">Слово или фраза</span>' +
-			'<span style="margin-left: 142px;">ID слова</span>' +
-			'<span style="margin-left: 12px;"> % </span>' +
-			'<span style="margin-left: 10px;"> Выучено </span>' +
-			'<input type="checkbox" name="selectwordsinonelesson" class="selectonesection">' +
-		'</div>' + wordsdata;	
+		'<div class="boxwithwords" style="display:none">' +
+			'<div class="headerexplain">' +
+				'<span style="margin-left: 30px;">Слово или фраза</span>' +
+				'<span style="margin-left: 142px;">ID слова</span>' +
+				'<span style="margin-left: 12px;"> % </span>' +
+				'<span style="margin-left: 10px;"> Выучено </span>' +
+				'<input type="checkbox" name="selectwordsinonelesson" class="selectonesection">' +
+			'</div>' +
+			wordsdata + '</div>';	
+		}
+		
+		let wordsetnames = document.getElementsByClassName('wordsetname')
+		let boxwithwordsbar = document.getElementsByClassName('boxwithwords') 
+		for (let i=0; i < wordsetnames.length; i++) {
+			wordsetnames[i].onclick = function() {
+				if (boxwithwordsbar[i].style.display == 'none')
+					boxwithwordsbar[i].style.display = ''
+				else boxwithwordsbar[i].style.display = 'none'
+			}	
 		}
 
 		let selectoneles = document.getElementsByName('selectwordsinonelesson')
