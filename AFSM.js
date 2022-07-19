@@ -730,7 +730,7 @@ var win_adultsExercises = `<div style="display: flex;">
 						
 						<div id="toolsforroom" style="text-align:center; margin-top:5px;">
 							<input readonly id="outidmethodist" placeholder="Methodist ID" style="width: 120px; margin-left: 15px; text-align: center;">
-							<button class="commonbtn" id="getidmethodist" title="Узнать ID методиста, срабатывает только при открытом слайде с работой либо эссе либо рекординг">ID Методиста</button>
+							<button class="commonbtn" id="getidmethodist" title="Узнать ID методиста, срабатывает только при открытом слайде с работой либо эссе либо рекординг">🆔 Методиста</button>
 							<button class="commonbtn" id="getroominfo">❓ Room Info</button>
 						</div>
 
@@ -2469,6 +2469,7 @@ document.getElementById('selectallslides').onclick = function () { //функц�
 		let hashroom = document.getElementById('roomhashhw').value.split('/')[4]
 		
 document.getElementById('getroomdata').onclick = async function() { //  функция получения информации об  упражнении
+			let hashroom = document.getElementById('roomhashhw').value.split('/')[4]
 			let temparr = [];
 			document.getElementById('exercisebaradults').innerHTML = ''
 			await joinroom(hashroom)
