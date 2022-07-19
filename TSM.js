@@ -459,6 +459,7 @@ function mystylesAFMS() {
 		transition: all 0.5s ease;
 		width: 14px;
 		height: 14px;
+		margin-top: 3px;
 	}
 		
 	.savelinktowordcms {
