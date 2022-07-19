@@ -1018,7 +1018,7 @@ wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove
 // main script
 let token;
 document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
-    if (event.altKey && event.code == 'Numpad0') {
+    if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
         if (document.getElementById('AFMS_addMenu').style.display == 'none') {
             document.getElementById('AFMS_addMenu').style.display = '';
 			
@@ -1034,6 +1034,7 @@ document.onkeydown = function (event) { // горячие клавиши для 
 
         } else document.getElementById('AFMS_addMenu').style.display = 'none'
     }
+	
 }
 
 document.getElementById('openchataddmenu').onclick = async function () { // открывает меню для удаления и добавления чатов
