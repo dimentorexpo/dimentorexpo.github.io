@@ -8632,6 +8632,7 @@ function fillchatbox() { //функция наполнения элемента,
 
                     if (testarray != null) {
                         temppics = [];
+						
                         for (let i = 0; i < testarray.length; i++) {
                             if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
                                 temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
@@ -8641,19 +8642,21 @@ function fillchatbox() { //функция наполнения элемента,
                                 temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
                         }
 
-                        if (temppics.length == 1)
-                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<a href="${temppics[0]}" data-lightbox="pictures"><img src="${temppics[0]}" class="img-chat-history" alt="Изображение"></img></a>`) + '</a>' + '</div>' + '</div>'
+							if (temppics.length == 1) {
+								document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<a href="${temppics[0]}" data-lightbox="pictures"><img src="${temppics[0]}" class="img-chat-history" alt="Изображение"></img></a>`) + '</a>' + '</div>' + '</div>'
 
-                        else if (temppics.length > 1) {
+							} else if (temppics.length > 1) {
 
-                            restul = convdata.messages[i].txt;
-                            for (let j = 0; j < temppics.length; j++) {
-                                restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<a href="${temppics[j]}" data-lightbox="pictures"><img src="${temppics[j]}" class="img-chat-history" alt="Изображение"></img></a>`)
+								restul = convdata.messages[i].txt;
+								for (let j = 0; j < temppics.length; j++) {
+									restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<a href="${temppics[j]}" data-lightbox="pictures"><img src="${temppics[j]}" class="img-chat-history" alt="Изображение"></img></a>`)
 
-                            }
+								}
 
-                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-                        }
+								document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+							} else if (temppics.length == 0) { 
+							    document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+							}
                     } else if (brarray != null) {
 
                         if (brarray.length == 1)
@@ -9618,7 +9621,7 @@ function dosetclasswork(subject) {
     let classworkbtn = document.createElement('div')
     classworkbtn.id = "clwbtn"
     classworkbtn.innerText = "Classwork"
-    classworkbtn.style = "position:absolute; top:14px; left:55.5%; cursor: pointer;"
+    classworkbtn.style = "position:absolute; top:14px; left:60%; cursor: pointer;"
     let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
 
     switch (subject) {
