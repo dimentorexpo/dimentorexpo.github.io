@@ -7141,7 +7141,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
         if (document.getElementById('languageAF').innerHTML == "Русский") {
-            if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать") {
+            if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Я виртуальный помощник Skyeng' && document.getElementById('msg1').innerHTML == "Доработать") {
                 console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
                 txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             } else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
@@ -9864,7 +9864,7 @@ async function checkthemestatus() { //функция проверки выста
             }).then(r => r.json()).then(r => pldata = r)
 
             if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
-                drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
+                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
 
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
