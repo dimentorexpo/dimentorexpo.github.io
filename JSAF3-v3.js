@@ -1682,6 +1682,9 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
+let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+console.log("Подразделение - " + opsection);
+
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
     if (object.value.length > object.maxLength)
@@ -10958,7 +10961,7 @@ async function getNotGoods(stringDate) { // функция проверки но
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
         if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == "ТП") {
+            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName.split('-')[1])
             }
@@ -11300,7 +11303,7 @@ async function getStats() {           // функция получения ст�
         "mode": "cors",
         "credentials": "include"
     }).then(response => b = response.json().then(b => b.rows.forEach(k => {
-        if (k.operator.indexOf('ТП') != -1) {
+        if (k.operator.indexOf(opsection) != -1) {
             array.push(k)
         }
     })))
@@ -11314,7 +11317,7 @@ async function getStats() {           // функция получения ст�
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
         if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == "ТП") {
+            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
             }
