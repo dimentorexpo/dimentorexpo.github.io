@@ -11262,6 +11262,8 @@ function customTemplates(language = '') { //собственные шаблон�
 }
 
 async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
+    let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
+    console.log('подразделение '+ opsection)
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
@@ -11300,7 +11302,7 @@ async function getStats() {           // функция получения ст�
         "mode": "cors",
         "credentials": "include"
     }).then(response => b = response.json().then(b => b.rows.forEach(k => {
-        if (k.operator.indexOf('ТП') != -1) {
+        if (k.operator.indexOf(opsection) != -1) {
             array.push(k)
         }
     })))
@@ -11314,7 +11316,7 @@ async function getStats() {           // функция получения ст�
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
         if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == "ТП") {
+            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
             }
