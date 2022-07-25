@@ -11938,8 +11938,11 @@ function prepTp() { //функция подготовки расширения �
 
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
-    else document.getElementById('testUsers').style.display = ''
+    else if (window.location.href.indexOf('skyeng.autofaq.ai/') != -1){
+        document.getElementById('testUsers').style.display = "none";
+        } else document.getElementById('testUsers').style.display = '';
 
+    
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
     openchhis.style = 'position:fixed;top:45px;right:0px;z-index:5;'
