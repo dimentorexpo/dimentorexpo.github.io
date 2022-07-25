@@ -11938,7 +11938,7 @@ function prepTp() { //функция подготовки расширения �
 
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
-    else if (window.location.href.indexOf('skyeng.autofaq.ai/') != -1){
+    else if (window.location.href.indexOf('skyeng.autofaq.ai') != -1){
         document.getElementById('testUsers').style.display = "none";
         } else document.getElementById('testUsers').style.display = '';
 
