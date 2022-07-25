@@ -1,5 +1,4 @@
-﻿//Global vars
-let pldata;
+﻿let pldata;
 let drevo;
 let afopername;
 let foundarr;
@@ -310,15 +309,15 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-		
-		
+
+
 		.hyperlnk {
-			height:0px; 
+			height:0px;
 			opacity:0;
 			visibility: hidden;
 			transition: 1s;
 		}
-		
+
 		.hyper-active {
 			opacity:1;
 			height: 32px;
@@ -418,21 +417,20 @@ var win_AFhelper =  // описание элементов главного ок
 			</span>
 			<div style="margin: 5px;" id="6str">
 			</div>
-			
+
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
 			<div id="hyperlnk" class="hyperlnk">
 				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext" title="Вводите в это поле ссылку, после чего в общем поле выделяете слово или фразу и кнопкой Insert встраиваете ссылку в текст шаблона"></input>
 				<button id="insertlinktotext" title="Добавляет ссылку из поля слева в выделеное слово или фразу в тексте шаблона">Insert ✅</button>
 			</div>
-
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
 				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;" title="Открывает форму для прикрепления ссылки в текст">🔗</button>
                 <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
 				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
 				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
 			</div>
-			
+
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
 			</div>
@@ -444,7 +442,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 					<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
-
 					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas1" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 					<button title="Запуск будильника при устаноовленном времени" id="setreminder1" style="margin-top: 5px">SET🔔</button>
@@ -503,8 +500,6 @@ var win_linksd =  // описание элементов окна доступо
                             <button id="kibheshvidbut">🔎</button>
                             <input id="kibstihesh" placeholder="Хэш стрим" title="Вводим Хэш комнаты для проверки срстояния стрима" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibstiheshbut">🔎</button>
-                            <input id="kiblk" placeholder="ID ЛК" title="Вводим id пользователя для просмотра входа в ЛК" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="kiblkbut">🔎</button>
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Redash</p>
                             <input id="mobappid" placeholder="ID mob.app" title="Вводим id пользователя для открытия действий в приложении" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="mobappidbut">🔎</button>
@@ -600,8 +595,7 @@ var win_refuse =  // описание элементов окна отказа �
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="sendrefusetodoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
 						</div>
-		</span> 
-
+		</span>
         </span>
 </div>`;
 
@@ -676,7 +670,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getmvureport" style="width: 25.23px;">💾</button>
                     <input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
-					<input id="idteacheradult" placeholder="ID П add 💬 ->" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">	
+					<input id="idteacheradult" placeholder="ID П add 💬 ->" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>
@@ -719,7 +713,7 @@ var win_Chathis =  // описание элементов окна Истори�
 					<button style="width:30px;" id="chagetheme" title="Переключается светлую тему ☀ и темную🌛 вывода чата с пользователем">🌛</button>
 				</div>
 			</span>
-			
+
 				<div style="width: 410px;display:none" id="somechatinfo">
 					<span id="usidchat" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует сам айдишник">User ID: </span> <span id="placeusid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="startchat" style="margin-left:10px;" title="Начать новый чат с пользователем">💬</button>
@@ -729,7 +723,7 @@ var win_Chathis =  // описание элементов окна Истори�
 					<span id="chid" style="color:bisque; margin-left:10px; margin-top:5px; user-select:none; cursor:pointer" title="При клике копирует ссылку с добавлением HDI">Chat ID: </span> <span id="placechatid" style="color:bisque; margin-left:5px; margin-top:5px;"></span>
 					<button id="reassign" title="По нажатию на кнопку переведет чат на сотрудника. Порядок такой: выбираете из списка операторы на линии того, кому желаете перевести, после чего открываете чат по хешу в поле хеш чата вводите его и нажимаете найти, и затем уже после этого жмете на кнопку и скрипт отработает" style="width:45px; margin-left:5px; font-size:16px; margin-top:2px;user-select:none;">🔀</button>
 				</div>
-				
+
 			<div id="comentsbar" style="width: 410px; height:55px; position:fixed; top:50vh; right:40vh; background: rgb(70, 68, 81); display:none">
 						<textarea id="msgftochatornotes1" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 12px;"></textarea>
 						<button id="sendmsgtochatornotes1" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
@@ -737,27 +731,27 @@ var win_Chathis =  // описание элементов окна Истори�
 						<input class="radio" type="radio" name="chatornotes1" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
 						<button id="hidecmtfield" title="скрывает эту менюшку небольшую" style="position:fixed;right:40vh; top:53vh; height:24px; width:25px; padding:0;">&gt;</button>
 			</div>
-				
+
 			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow-x:hidden;">
 			</div>
-			
+
 			<div id="bottommenuchhis" style="width: 410px; position:absolute; display:none;">
 				<textarea id="msgftochatornotes" style="margin-left: 10px; margin-top: 5px; width: 210px; height: 29px; background: lightgrey;position: absolute; bottom: 2px;"></textarea>
 				<button id="sendmsgtochatornotes" title="В зависимости от опции отправляет текст в чат или заметки" style="margin-left: 5px; margin-top:5px; position:absolute; top 10px; left:220px;">Send</button>
 				<input class="radio" type="radio" name="chatornotes" style="float:right; margin-top:10px;margin-right:5px;" value="Notes" checked="" resolved=""><label style="color:bisque; font-size: 16px;float:right; margin-right:5px;margin-top:10px;">Заметки</label>
 				<input class="radio" type="radio" name="chatornotes" style="float:right;margin-top:10px; margin-right:5px;" value="Chat" resolved=""><label style="color:bisque; font-size: 16px; float:right; margin-top:10px; margin-right:5px;">Чат</label>
 			</div>
-			
+
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
-			
+
 						<div id="datainfoheader">
 							<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
 							<button id="gotocrmhis" style="width:50px;">CRM</button>
 						</div>
-						
+
 					<div id="datafield" style="margin-top:5px;text-align:center; font-size:16px;">
 					</div>
-					
+
 			</div>
 	</span>
 </div>`;
@@ -1316,8 +1310,8 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="mobbugsbtn" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
 					<button class="mobbugsbtn" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
 					<button class="mobbugsbtn" id="skyteachmob">Teachers МП</button>
-				</div>	
-				
+				</div>
+
 				<div id="academymobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#academic-mobile-bugs; Канал обработки обращений по МП Skyeng связанных с обучением.</p>
 					<button class="academymobbugsbtn" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
@@ -1329,7 +1323,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="academymobbugsbtn" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
 					<button class="academymobbugsbtn" id="academmobhomeworks">МП Skyeng: Домашки</button>
 				</div>
-				
+
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
                 <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
                 <button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница</button>
@@ -1641,7 +1635,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-				
+
 				<div id="academymobileform" style="display: none; margin-left:20px;">
 						<select style="height:28px;" id="academyprioritymbugs">
 							<option selected disabled="">Приоритет</option>
@@ -1669,7 +1663,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<br>
 					<button id="create_24" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-				
+
 				<div id="infraform" style="display: none; margin-left:20px;">
 					<input id="customfield_114" placeholder="ID в системе Auth"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -2735,38 +2729,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         if (seconds < 10) { seconds = "0" + seconds; }
         time = hours + " : " + minutes + " : " + seconds;
         document.getElementById("clock_js").innerHTML = time;
-
-        // let bbc = document.getElementsByClassName('ant-badge fs-el-0_6 ms-1')
-        // let c = [...bbc].map(i => i.innerText)
-
-        // for (let i = 0; i < bbc.length; i++) {
-            // bbc[i].ondblclick = () => {
-                // c = operatorsarray.filter(item => (item.operator.fullName == bbc[i].innerText) ? item.operator.id : '')
-                // console.log(c)
-                // if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                    // butChatHistory.click()
-                    // setTimeout(function () {
-                        // for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            // if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                // document.getElementById('operatorstp')[j].selected = true;
-                                // findchatsoper()
-
-                            // }
-                        // }
-                    // }, 1000)
-                // } else {
-                    // setTimeout(function () {
-                        // for (let j = 0; j < document.getElementById('operatorstp').length; j++) {
-                            // if (document.getElementById('operatorstp')[j].value == c[0].operator.id) {
-                                // document.getElementById('operatorstp')[j].selected = true;
-                                // findchatsoper()
-
-                            // }
-                        // }
-                    // }, 1000)
-                // }
-            // }
-        // }
     }
 
     function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
@@ -2800,9 +2762,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             time = "00" + " : " + "00" + " : " + "00";
             document.getElementById("clock_remin").innerHTML = time;
         }
-    } 
+    }
 
-	function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
+    function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
         var data1 = new Date();
         hours1 = data1.getHours();
         if (hours1 < 10) { hours1 = "0" + hours1; }
@@ -2890,14 +2852,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         kibstihesh.value = "";
     }
 
-    document.getElementById('kiblkbut').onclick = function () { // kibana вход в ЛК
-        if (kiblk.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://kibana-logs.skyeng.link/app/kibana#/discover/09bfbec0-a67f-11ea-b33d-d1adb43c9089?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1w,to:now))&_a=(columns:!(nginx.access.user_name,nginx.access.geoip.ip,event.module,event.dataset,nginx.access.geoip.city_name,nginx.access.user_agent.name,nginx.access.geoip.timezone,nginx.access.geoip.country_name,nginx.access.referrer),filters:!(),index:e3117a40-64f5-11ea-b4fe-d19755c7dd55,interval:auto,query:(language:lucene,query:'nginx.access.user_name:" + kiblk.value + "'),sort:!(!('@timestamp',desc)))");
-        };
-        kiblk.value = "";
-    }
     // действия конопок редаш в окне доступов
     document.getElementById('mobappidbut').onclick = function () { // Редаш логи действий мобилки
         if (mobappid.value == "") {
@@ -3100,9 +3054,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         //		setminuta.value = "";
         alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
         abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
-    }   
+    }
 
-	document.getElementById('setreminder1').onclick = function () {  // выставляем будильник
+    document.getElementById('setreminder1').onclick = function () {  // выставляем будильник
         document.getElementById('reminderstatus').textContent = "🔔";
         localStorage.setItem('setchas1', setchas1.value);
         if (setminuta1.value == "00") {
@@ -3117,7 +3071,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
         abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
     }
-	
+
     function refreshTimerReminder() { // обновляет оставшееся время будильника №1
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             document.getElementById('reminderstatus').textContent = "🔔";
@@ -3134,8 +3088,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('reminderstatus').textContent = "🔔";
         }
     }
-	
-	function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
+
+    function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
         if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
             document.getElementById('reminderstatus').textContent = "🔔";
             setchas1.value = localStorage.getItem('setchas1');
@@ -3162,9 +3116,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             alert("Будильник удален")
             document.getElementById('reminderstatus').textContent = "🔕";
         }
-    }    
-	
-	document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника
+    }
+
+    document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника
         if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
             clearTimeout(abortTimeOut1)
             localStorage.removeItem('chronostamp1')
@@ -3177,7 +3131,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     refreshTimerReminder(); //обновляет оставшееся время до будильника №1
-	refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
+    refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
     function setRemindAf() { //функция  при наступлении времени перевода в статус занят Будильник №1
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
@@ -3198,22 +3152,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "credentials": "include"
         });
         alert("Время ставить занят! :D");
-		localStorage.removeItem('chronostamp');
-		
-		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
-            document.getElementById('reminderstatus').textContent = "🔕"; 
-		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-			document.getElementById('reminderstatus').textContent = "🔔";
-		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-			document.getElementById('reminderstatus').textContent = "🔔";
-		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-			document.getElementById('reminderstatus').textContent = "🔔";
+        localStorage.removeItem('chronostamp');
+
+        if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
+            document.getElementById('reminderstatus').textContent = "🔕";
+        else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+            document.getElementById('reminderstatus').textContent = "🔔";
+        else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+            document.getElementById('reminderstatus').textContent = "🔔";
+        else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+            document.getElementById('reminderstatus').textContent = "🔔";
 
         setchas.value = "";
         setminuta.value = "";
-    }   
+    }
 
-	function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
+    function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
                 "accept": "*/*",
@@ -3233,15 +3187,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         });
         alert("Время ставить занят! :D");
         localStorage.removeItem('chronostamp1');
-		
-		if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null) 
-            document.getElementById('reminderstatus').textContent = "🔕"; 
-		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-			document.getElementById('reminderstatus').textContent = "🔔";
-		else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-			document.getElementById('reminderstatus').textContent = "🔔";
-		else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-			document.getElementById('reminderstatus').textContent = "🔔";
+
+        if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
+            document.getElementById('reminderstatus').textContent = "🔕";
+        else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+            document.getElementById('reminderstatus').textContent = "🔔";
+        else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+            document.getElementById('reminderstatus').textContent = "🔔";
+        else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+            document.getElementById('reminderstatus').textContent = "🔔";
 
         setchas1.value = "";
         setminuta1.value = "";
@@ -3796,18 +3750,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         lookhash.value = "";
     }
 
-document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
-    let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
-    if (idteacheradult.value == "")
-        console.log('Введите hash комнаты в поле')
-    else {
-        copyToClipboard("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:"+document.getElementById('idteacheradult').value + "," + "userId2:"+document.getElementById('idstudentadult').value + "," + "})})")
+    document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
+        let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
+        if (idteacheradult.value == "")
+            console.log('Введите hash комнаты в поле')
+        else {
+            copyToClipboard("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:" + document.getElementById('idteacheradult').value + "," + "userId2:" + document.getElementById('idstudentadult').value + "," + "})})")
+        }
+        document.getElementById('setchatsadults').innerHTML = "✅";
+        setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
+        idteacheradult.value = "";
+        idstudentadult.value = "";
     }
-    document.getElementById('setchatsadults').innerHTML = "✅";
-    setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
-    idteacheradult.value = "";
-    idstudentadult.value = "";
-}
 
     document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
         let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
@@ -4359,7 +4313,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 if (arrservice != null && arrservice != undefined) {
                     arrservice = arrservice.split(', ')
                 }
-				
+
                 let tmparr = document.querySelectorAll('.copyserviceid');
                 for (let j = 0; j < tmparr.length; j++) {
                     tmparr[j].onclick = function () {
@@ -4867,9 +4821,9 @@ document.getElementById('setchatsadults').onclick = function () {               
     document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
-    }   
+    }
 
-	document.getElementById('hideMeRefuseForm').onclick = () => { //форма hide
+    document.getElementById('hideMeRefuseForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Refuseform').style.display == '')
             document.getElementById('AF_Refuseform').style.display = 'none'
     }
@@ -4945,7 +4899,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -4973,7 +4927,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5001,7 +4955,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5029,7 +4983,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5057,7 +5011,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5085,7 +5039,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5113,7 +5067,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5141,7 +5095,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5169,7 +5123,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5197,7 +5151,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5225,7 +5179,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5253,7 +5207,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5281,7 +5235,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5309,7 +5263,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5337,7 +5291,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5365,7 +5319,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5393,7 +5347,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5421,7 +5375,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5449,7 +5403,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5477,14 +5431,14 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
                 $(this).toggleClass('activebtn');
-            }); 
+            });
 
-			$('.academymobbugsbtn').click(function () {  //поправить
+            $('.academymobbugsbtn').click(function () {  //поправить
                 $('.kidsbtn').not(this).removeClass('activebtn');
                 $('.edumodbtn').not(this).removeClass('activebtn');
                 $('.bilqabtn').not(this).removeClass('activebtn');
@@ -5533,7 +5487,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');				
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5561,7 +5515,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');				
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5590,7 +5544,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                 $('.corpbtn').not(this).removeClass('activebtn');
                 $('.marketingbtn').not(this).removeClass('activebtn');
                 $('.mobbugsbtn').not(this).removeClass('activebtn');
-				$('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
                 $('.stcabmbsbtn').not(this).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(this).removeClass('activebtn');
                 $('.infrabtn').not(this).removeClass('activebtn');
@@ -5870,9 +5824,9 @@ document.getElementById('setchatsadults').onclick = function () {               
                     document.getElementById('somechatinfo').style.display = 'none';
 
                 if (document.getElementById('bottommenuchhis').style.display == '')
-                    document.getElementById('bottommenuchhis').style.display = 'none'; 
+                    document.getElementById('bottommenuchhis').style.display = 'none';
 
-				if (document.getElementById('comentsbar').style.display == '')
+                if (document.getElementById('comentsbar').style.display == '')
                     document.getElementById('comentsbar').style.display = 'none';
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
@@ -5950,8 +5904,8 @@ document.getElementById('setchatsadults').onclick = function () {               
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
-						
-						if (convdata.status != null && convdata.status == 'AssignedToOperator')
+
+                        if (convdata.status != null && convdata.status == 'AssignedToOperator')
                             isChatOnOperator = true
                         else isChatOnOperator = false;
 
@@ -5964,10 +5918,10 @@ document.getElementById('setchatsadults').onclick = function () {               
                 flagsearch = 'searchbyhash'
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
-				
-					if (convdata.status != null && convdata.status == 'AssignedToOperator')
-                       isChatOnOperator = true
-                    else isChatOnOperator = false;
+
+                if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                    isChatOnOperator = true
+                else isChatOnOperator = false;
 
                 fillchatbox();
                 checkandchangestyle();
@@ -6005,8 +5959,8 @@ document.getElementById('setchatsadults').onclick = function () {               
 
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
-						
-						if (convdata.status != null && convdata.status == 'AssignedToOperator')
+
+                        if (convdata.status != null && convdata.status == 'AssignedToOperator')
                             isChatOnOperator = true
                         else isChatOnOperator = false;
 
@@ -6023,11 +5977,11 @@ document.getElementById('setchatsadults').onclick = function () {               
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
-				
-				if (convdata.status != null && convdata.status == 'AssignedToOperator')
+
+                if (convdata.status != null && convdata.status == 'AssignedToOperator')
                     isChatOnOperator = true
                 else isChatOnOperator = false;
-				
+
                 fillchatbox();
                 checkandchangestyle();
             }
@@ -6062,33 +6016,33 @@ document.getElementById('setchatsadults').onclick = function () {               
                     }, 3000)
                 } else alert('Чат не открыт, так как есть активный чат на операторе!')
             }
-        } // конец обработчика нажатия кнопки Начать чат с пользователем   
+        } // конец обработчика нажатия кнопки Начать чат с пользователем
 
-		document.getElementById('opencmtbar').onclick = function() { //обработчик функции начала чата с пользователем
-			if (document.getElementById('comentsbar').style.display == '')
-				document.getElementById('comentsbar').style.display = 'none';
-			else 
-				document.getElementById('comentsbar').style.display = '';
-			
-			        for (let i = 0; i < radiobtnsarray1.length; i++) {
-					if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
-						document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
-					} else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
-						document.getElementById('msgftochatornotes1').style.background = 'white';
-					}
+        document.getElementById('opencmtbar').onclick = function () { //обработчик функции начала чата с пользователем
+            if (document.getElementById('comentsbar').style.display == '')
+                document.getElementById('comentsbar').style.display = 'none';
+            else
+                document.getElementById('comentsbar').style.display = '';
 
-					radiobtnsarray1[i].onclick = () => {
-						if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
-							document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
-						} else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
-							document.getElementById('msgftochatornotes1').style.background = 'white';
-						}
-					}
-				}
-			
-			document.getElementById('hidecmtfield').onclick = function() {
-				document.getElementById('comentsbar').style.display = 'none';
-			}
+            for (let i = 0; i < radiobtnsarray1.length; i++) {
+                if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
+                    document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
+                } else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
+                    document.getElementById('msgftochatornotes1').style.background = 'white';
+                }
+
+                radiobtnsarray1[i].onclick = () => {
+                    if (radiobtnsarray1[i].value == 'Notes' && radiobtnsarray1[i].checked == true) {
+                        document.getElementById('msgftochatornotes1').style.background = 'LightGrey';
+                    } else if (radiobtnsarray1[i].value == 'Chat' && radiobtnsarray1[i].checked == true) {
+                        document.getElementById('msgftochatornotes1').style.background = 'white';
+                    }
+                }
+            }
+
+            document.getElementById('hidecmtfield').onclick = function () {
+                document.getElementById('comentsbar').style.display = 'none';
+            }
         } // конец обработчика нажатия кнопки Начать чат с пользователем
 
         document.getElementById('reassign').onclick = () => { //кнопка перевода чата на выбранного из верхнего списка операторы на линии и открытом чате, который желаем переветси
@@ -6195,10 +6149,10 @@ document.getElementById('setchatsadults').onclick = function () {               
 
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
-								
-								if (convdata.status != null && convdata.status == 'AssignedToOperator')
-									isChatOnOperator = true
-								else isChatOnOperator = false;
+
+                                if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                                    isChatOnOperator = true
+                                else isChatOnOperator = false;
 
                                 fillchatbox();
                                 checkandchangestyle();
@@ -6207,8 +6161,8 @@ document.getElementById('setchatsadults').onclick = function () {               
                 }
             }
         }
-		
-		        document.getElementById('sendmsgtochatornotes1').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
+
+        document.getElementById('sendmsgtochatornotes1').onclick = async () => { // обработчик кнопки Отправить в зависимости от радиокнопки в заметки или в чат
 
             let radiobtnsarray1 = document.getElementsByName('chatornotes1')
 
@@ -6287,10 +6241,10 @@ document.getElementById('setchatsadults').onclick = function () {               
 
                                 await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
-								
-								if (convdata.status != null && convdata.status == 'AssignedToOperator')
-									isChatOnOperator = true
-								else isChatOnOperator = false;
+
+                                if (convdata.status != null && convdata.status == 'AssignedToOperator')
+                                    isChatOnOperator = true
+                                else isChatOnOperator = false;
 
                                 fillchatbox();
                                 checkandchangestyle();
@@ -6299,8 +6253,8 @@ document.getElementById('setchatsadults').onclick = function () {               
                 }
             }
         }
-		
-		
+
+
     }
 
 
@@ -6375,7 +6329,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
-							document.getElementById('AF_Sugform').style.display ='none'
+                            document.getElementById('AF_Sugform').style.display = 'none'
                         }, 3000)
                     } else if (topiclist[i].checked && topiclist[i].value == 'Другое') {
                         checkedtopic = encodeURIComponent(document.getElementById('otheroptionchecked').value)
@@ -6401,7 +6355,7 @@ document.getElementById('setchatsadults').onclick = function () {               
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
-							document.getElementById('AF_Sugform').style.display ='none'
+                            document.getElementById('AF_Sugform').style.display = 'none'
                         }, 3000)
                     }
 
@@ -6413,9 +6367,9 @@ document.getElementById('setchatsadults').onclick = function () {               
 
             }
         }
-    }   
+    }
 
-	document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
+    document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseform').style.display == '')
             document.getElementById('AF_Refuseform').style.display = 'none'
         else {
@@ -6427,7 +6381,7 @@ document.getElementById('setchatsadults').onclick = function () {               
             document.getElementById('refreshchathashrefuseform').onclick = () => {
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                     document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
-				else document.getElementById('linktochatrefuse').value =''
+                else document.getElementById('linktochatrefuse').value = ''
             }
 
             document.getElementById('sendrefusetodoc').onclick = () => {
@@ -6436,31 +6390,31 @@ document.getElementById('setchatsadults').onclick = function () {               
                 let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
                 let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
 
-                        let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' +  textclientsolution
-						console.log(body2)
+                let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
+                console.log(body2)
 
-                        let options2 = {
-                            "headers": {
-                                "content-type": "application/x-www-form-urlencoded",
-                            },
-                            "body": body2,
-                            "method": "POST",
-                        }
+                let options2 = {
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded",
+                    },
+                    "body": body2,
+                    "method": "POST",
+                }
 
-                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
-                        if (document.getElementById('responseTextarea3') != null)
-                            document.getElementById('responseTextarea3').value = ''
-                        document.getElementById('sendResponse').click()
+                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
+                if (document.getElementById('responseTextarea3') != null)
+                    document.getElementById('responseTextarea3').value = ''
+                document.getElementById('sendResponse').click()
 
-                        sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                        document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
-						
-                        setTimeout(() => {
-                            document.getElementById('sendrefusetodoc').innerText = "Отправить"
-							document.getElementById('AF_Refuseform').style.display = 'none'
-                        }, 3000)
-                
+                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
+
+                setTimeout(() => {
+                    document.getElementById('sendrefusetodoc').innerText = "Отправить"
+                    document.getElementById('AF_Refuseform').style.display = 'none'
+                }, 3000)
+
                 document.getElementById('linktochatrefuse').value = ''
                 document.getElementById('textrefuseform').value = ''
                 document.getElementById('textrefuseformsolution').value = ''
@@ -6887,53 +6841,53 @@ document.getElementById('setchatsadults').onclick = function () {               
             localStorage.setItem('msg1', 'Отправить')
         }
     }
-	
-	document.getElementById('opandclsbarhyper').onclick = function () {
-		if (document.getElementById('hyperlnk').classList.contains('hyper-active') ==false ) {
-			document.getElementById('hyperlnk').classList.add('hyper-active')
-			document.getElementById('hyperlnk').classList.remove('hyperlnk')
-		} else {
-			document.getElementById('hyperlnk').classList.remove('hyper-active')
-			document.getElementById('hyperlnk').classList.add('hyperlnk')
-		}
-		// if (document.getElementById('hyperlnk').style.display == 'none')
-			// document.getElementById('hyperlnk').style.display = ''
-		// else document.getElementById('hyperlnk').style.display = 'none'
-	}
-	
-	function replaceSelectedText(elem, str){
-	elem.focus();
 
-	if (document.selection){
-		var s = document.selection.createRange(); 
-		if (s.text){
-			eval("s.text="+str+"(s.text);");
-			s.select();
-			return true;
-		}
-	}
-	else if (typeof(elem.selectionStart) == "number"){
-		if (elem.selectionStart!=elem.selectionEnd){
-			var start = elem.selectionStart;
-			var end = elem.selectionEnd;
+    document.getElementById('opandclsbarhyper').onclick = function () {
+        if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
+            document.getElementById('hyperlnk').classList.add('hyper-active')
+            document.getElementById('hyperlnk').classList.remove('hyperlnk')
+        } else {
+            document.getElementById('hyperlnk').classList.remove('hyper-active')
+            document.getElementById('hyperlnk').classList.add('hyperlnk')
+        }
+        // if (document.getElementById('hyperlnk').style.display == 'none')
+        // document.getElementById('hyperlnk').style.display = ''
+        // else document.getElementById('hyperlnk').style.display = 'none'
+    }
 
-			eval("var rs = "+str+"(elem.value.substr(start,end-start));");
-			elem.value = elem.value.substr(0,start)+rs+elem.value.substr(end);
-			elem.setSelectionRange(end,end);
-		}
-		return true;
-	}
-	return false;
-}
+    function replaceSelectedText(elem, str) {
+        elem.focus();
 
-function change_str(s){return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">`+s+"</a>"}
+        if (document.selection) {
+            var s = document.selection.createRange();
+            if (s.text) {
+                eval("s.text=" + str + "(s.text);");
+                s.select();
+                return true;
+            }
+        }
+        else if (typeof (elem.selectionStart) == "number") {
+            if (elem.selectionStart != elem.selectionEnd) {
+                var start = elem.selectionStart;
+                var end = elem.selectionEnd;
 
-document.getElementById('insertlinktotext').onclick = function() {
-	replaceSelectedText(document.getElementById('inp'), 'change_str');
-	document.getElementById('bindlinktotext').value =''
-	document.getElementById('hyperlnk').classList.remove('hyper-active')
-	document.getElementById('hyperlnk').classList.add('hyperlnk')
-}
+                eval("var rs = " + str + "(elem.value.substr(start,end-start));");
+                elem.value = elem.value.substr(0, start) + rs + elem.value.substr(end);
+                elem.setSelectionRange(end, end);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    function change_str(s) { return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>" }
+
+    document.getElementById('insertlinktotext').onclick = function () {
+        replaceSelectedText(document.getElementById('inp'), 'change_str');
+        document.getElementById('bindlinktotext').value = ''
+        document.getElementById('hyperlnk').classList.remove('hyper-active')
+        document.getElementById('hyperlnk').classList.add('hyperlnk')
+    }
 
     document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
         let txt = document.getElementById('inp').value;
@@ -7187,7 +7141,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
         if (document.getElementById('languageAF').innerHTML == "Русский") {
-            if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Выберите тему ниже или напишите ваш вопрос' && document.getElementById('msg1').innerHTML == "Доработать") {
+            if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Я виртуальный помощник Skyeng' && document.getElementById('msg1').innerHTML == "Доработать") {
                 console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
                 txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             } else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
@@ -7203,9 +7157,9 @@ async function buttonsFromDoc(butName) { // функция отправки ша
             sendAnswerTemplate2(txt)
         return
     }
-	
-	if (butName =='🖕Отказ')
-		document.getElementById('refuseform').click();
+
+    if (butName == '🖕Отказ')
+        document.getElementById('refuseform').click();
 
     msgFromTable(butName)
 
@@ -7623,7 +7577,7 @@ async function loadTemplates(template, word) { //загрузка шаблоно
         "headers": {
             "content-type": "application/json",
         },
-        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[119638,121385,121300,119843,118980,120969,121387,121348,121386,119636,119844,119649,121286,121381,119841,120181,119646,121303,121343,121388,121162,121158,121346,121151,121341,121152,121342,121156,121347,121079,121163,121155,121344,121157,121345,121304,121340,121384]}",
+        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286 , 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119844,  119649, 121381, 119841, 120181, 119646, 121388, 121384]}",
         "method": "POST",
     })
         .then(response => response.json())
@@ -8313,10 +8267,10 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn15)
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
-		btn15.addEventListener('click', function () {
-			document.getElementById('refuseform').click();
-		})
-		
+        btn15.addEventListener('click', function () {
+            document.getElementById('refuseform').click();
+        })
+
 
         let btn16 = document.createElement('span');
         btn16.id = 'solvd'
@@ -8616,7 +8570,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
 }
 
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-    if (document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
         document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
 }
 
@@ -8678,6 +8632,7 @@ function fillchatbox() { //функция наполнения элемента,
 
                     if (testarray != null) {
                         temppics = [];
+						
                         for (let i = 0; i < testarray.length; i++) {
                             if (testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm) != null)
                                 temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpg/gm)[0])
@@ -8687,19 +8642,21 @@ function fillchatbox() { //функция наполнения элемента,
                                 temppics.push(testarray[i].match(/https:\/\/vimbox-resource.*jpeg/gm)[0])
                         }
 
-                        if (temppics.length == 1)
-                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<a href="${temppics[0]}" data-lightbox="pictures"><img src="${temppics[0]}" class="img-chat-history" alt="Изображение"></img></a>`) + '</a>' + '</div>' + '</div>'
+							if (temppics.length == 1) {
+								document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[0], `<a href="${temppics[0]}" data-lightbox="pictures"><img src="${temppics[0]}" class="img-chat-history" alt="Изображение"></img></a>`) + '</a>' + '</div>' + '</div>'
 
-                        else if (temppics.length > 1) {
+							} else if (temppics.length > 1) {
 
-                            restul = convdata.messages[i].txt;
-                            for (let j = 0; j < temppics.length; j++) {
-                                restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<a href="${temppics[j]}" data-lightbox="pictures"><img src="${temppics[j]}" class="img-chat-history" alt="Изображение"></img></a>`)
+								restul = convdata.messages[i].txt;
+								for (let j = 0; j < temppics.length; j++) {
+									restul = restul.replace(convdata.messages[i].txt.match(/<p>(.*?)<\/p>/gm)[j], `<a href="${temppics[j]}" data-lightbox="pictures"><img src="${temppics[j]}" class="img-chat-history" alt="Изображение"></img></a>`)
 
-                            }
+								}
 
-                            document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
-                        }
+								document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + restul + '</div>' + '</div>'
+							} else if (temppics.length == 0) { 
+							    document.getElementById('infofield').innerHTML += '<br>' + '<div class="question-event">' + '<span class="question-event-name">' + convdata.channelUser.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div  class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+							}
                     } else if (brarray != null) {
 
                         if (brarray.length == 1)
@@ -8841,8 +8798,8 @@ async function findchatsoper() { // ищет активные чаты на вы
 
     if (document.getElementById('bottommenuchhis').style.display == '')
         document.getElementById('bottommenuchhis').style.display = 'none';
-    
-	if (document.getElementById('comentsbar').style.display == '')
+
+    if (document.getElementById('comentsbar').style.display == '')
         document.getElementById('comentsbar').style.display = 'none';
 
 
@@ -9260,152 +9217,362 @@ async function remandressl() { // функция удаления и сброс�
 
     if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/english/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatseng;
+        achatb.onclick = function () {
+            addChat("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Английскому языку"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/computer-science/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsCompCours;
+        achatb.onclick = function () {
+            addChat("https://api-computer-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=digital_literacy_kids_f2f,python_kids_f2f,programming_kids_f2f,web_dev_kids_f2f,making_games_kids_f2f,computer_courses_app_inventor_kids_f2f,computer_courses_thunkable_kids_f2f,computer_courses_scratch_kids_f2f,computer_courses_unreal_kids_f2f,computer_courses_roblox_kids_f2f,computer_courses_unity_kids_f2f,computer_courses_construct_kids_f2f,computer_courses_minecraft_kids_f2f,computer_courses_app_inventor_kids_f2g,computer_courses_scratch_kids_f2g,computer_courses_thunkable_kids_f2g,computer_courses_web_dev_kids_f2g,computer_courses_digital_literacy_mac_kids_f2f,computer_courses_digital_literacy_windows_kids_f2f");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Компьютерным курсам"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chess/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsChess;
+        achatb.onclick = function () {
+            addChat("https://api-chess.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chess_kids_f2f,chess_kids_f2f_short_lessons");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Шахматам"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/math/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsMath;
+        achatb.onclick = function () {
+            addChat("https://api-math.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=mathematics_kids,math_kids_exam,math_kids_premium,math_kids_exam_premium");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Математике"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/russian/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsRuslng;
+        achatb.onclick = function () {
+            addChat("https://api-russian.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=russian_kids,russian_kids_exam_f2f,russian_kids_premium,russian_kids_exam_premium");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Русскому языку"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/preschool/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsPreschool;
+        achatb.onclick = function () {
+            addChat("https://api-preschool.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=preschool_kids_f2f");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Дошколке"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/physics/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsPhysics;
+        achatb.onclick = function () {
+            addChat("https://api-physics.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=physics_kids_f2f,physics_kids_exam_f2f");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Физике"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/social-science/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsSocial;
+        achatb.onclick = function () {
+            addChat("https://api-social-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=social_science_kids_f2f,social_science_kids_exam_f2f");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Обществознанию"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/literature/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsLiterature;
+        achatb.onclick = function () {
+            addChat("https://api-literature.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_literature_7_grade_folklore,large_classes_literature_7_grade_folklore_recorded");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Литературе"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/history/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsHistory;
+        achatb.onclick = function () {
+            addChat("https://api-history.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_history_7_grade_new_time,large_classes_history_7_grade_new_time_recorded");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Истории"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/geography/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsGeography;
+        achatb.onclick = function () {
+            addChat("https://api-geography.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=geography_kids_f2f,large_classes_geography_7_grade_human_on_earth,large_classes_geography_7_grade_human_on_earth_recorded");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Географии"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/chemistry/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsChemistry;
+        achatb.onclick = function () {
+            addChat("https://api-chemistry.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chemistry_kids_exam_f2f");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Химии"
     } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] != 'teacher/multi-classroom' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] + "/" + document.URL.split('/')[4] + "/" + document.URL.split('/')[5] == 'vimbox.skyeng.ru/kids/biology/teacher' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addChatsBiology;
+        achatb.onclick = function () {
+            addChat("https://api-biology.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=biology_kids_f2f,large_classes_biology_7_grade_bacteria_viruses,large_classes_biology_7_grade_bacteria_viruses_recorded");
+        }
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по Биологии"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'math/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
+    } else if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromMath;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Математика"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'english/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromEnglish;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Английский язык"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'computer-science/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromComputer;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Компьютерные курсы"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'physics/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromPhysics;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Физика"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'preschool/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromPreschool;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Дошколка"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'russian/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromRussian;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Русский язык"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'social-science/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromSocscience;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Обществознание"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'chess/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromChess;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Шахматы"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'chemistry/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromChemistry;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Химия"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'biology/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromBiology;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули Биология"
-    } else if (document.URL.split('/')[4] + '/' + document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'history/teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
-        document.querySelector('.navigation').appendChild(achatb)
-        achatb.onclick = addMulticlassromHistory;
-        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули История"
+        achatb.onclick = addMulticlassrom;
+        achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по всем возможнным предметам сразу!"
     }
 
-    async function addMulticlassromMath() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
+    async function addMulticlassrom() { // общая функция добавления чатов в мультиклассруме, но надо еще подфункцию сделать чтобы код сократить!
         await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
             "credentials": "include",
             "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
-
+        let sidarr = [];
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
             "method": "POST",
             "credentials": "include"
         }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.math != '') {
-            for (let i = 0; i < studarr.math.length; i++) {
-                if (studarr.math[i].status != "sleep")
-                    sidarr += studarr.math[i].id + ","
+
+        for (let i = 0; i < Object.keys(studarr).length; i++) {
+            let arrayofsubjects = Object.keys(studarr)[i]
+            switch (arrayofsubjects) {
+                case 'math': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cМатематика','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+						
+						console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками в разделе Математика - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'russian': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cРусский язык','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","  
+
+                        console.log(Object.values(studarr)[i][j].id  + " Status: " + Object.values(studarr)[i][j].status)						
+                    }
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Русский язык - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'social-science': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cОбществознание','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)                        }
+                        alert("Чаты с учениками раздела Обществознание - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'preschool': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cДошколка','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Дошкольная подготовка - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'chess': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cШахматы','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+						
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Шахматы -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'computer-science': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cКомпьютерные курсы','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Компьютерные курсы - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'chemistry': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cХимия','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+						
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Химия -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'physics': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cФизика','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Физика - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'english': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cАнглийский язык','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Английский язык -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'history': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cИстория','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+						
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела История -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'biology': console.log(Object.values(studarr)[i])
+						sidarr = [];
+						console.log('%cБиология','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+						
+                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела Биология - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
+                case 'geography': console.log(Object.values(studarr)[i])
+					sidarr = [];
+					console.log('%cГеография','color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[i][j].status != "sleep")
+                            sidarr += Object.values(studarr)[i][j].id + ","
+						
+						
+						console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    }
+
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+							fetchaddchat(sidarr[j] , artid.user.id)
+                        }
+                        alert("Чаты с учениками раздела География - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
+                    }
+                    break;
             }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Математика")
+        }
     }
+	
+	function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
+		fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+		"headers": {
+			"content-type": "application/json",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		},
+		"referrer": "https://vimbox.skyeng.ru/",
+		"referrerPolicy": "strict-origin-when-cross-origin",
+		"body": `{\"userId1\":${userid1},\"userId2\":${userid2}}`,
+		"method": "POST",
+		"mode": "cors",
+		"credentials": "include"
+	});
+	}
 
-    async function addMulticlassromEnglish() {
-
+    async function addChat(subject) { // функция для массового добавления чатов не в мультиклассруме для каждого отдельного предмета 
         let d = document.cookie;
         d = d.match(/token_global=(.*)/);
         let sidarr = [];
@@ -9418,486 +9585,7 @@ async function remandressl() { // функция удаления и сброс�
             "method": "POST",
         }).then(r => r.json()).then(r => artid = r)
 
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.english != '') {
-            for (let i = 0; i < studarr.english.length; i++) {
-                if (studarr.english[i].status != "sleep")
-                    sidarr += studarr.english[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Английский ящык")
-    }
-
-    async function addMulticlassromComputer() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr['computer-science'] != '') {
-            for (let i = 0; i < studarr['computer-science'].length; i++) {
-                if (studarr['computer-science'][i].status != "sleep")
-                    sidarr += studarr['computer-science'][i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Компьютерные курсы")
-    }
-
-    async function addMulticlassromPhysics() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.physics != '') {
-            for (let i = 0; i < studarr.physics.length; i++) {
-                if (studarr.physics[i].status != "sleep")
-                    sidarr += studarr.physics[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Физика")
-    }
-
-    async function addMulticlassromPreschool() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.preschool != '') {
-            for (let i = 0; i < studarr.preschool.length; i++) {
-                if (studarr.preschool[i].status != "sleep")
-                    sidarr += studarr.preschool[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-                fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Дошколка")
-    }
-
-    async function addMulticlassromRussian() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.russian != '') {
-            for (let i = 0; i < studarr.russian.length; i++) {
-                if (studarr.russian[i].status != "sleep")
-                    sidarr += studarr.russian[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Русский язык")
-    }
-
-    async function addMulticlassromSocscience() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr["social-science"] != '') {
-            for (let i = 0; i < studarr["social-science"].length; i++) {
-                if (studarr["social-science"][i].status != "sleep")
-                    sidarr += studarr["social-science"][i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Обществознание")
-    }
-
-    async function addMulticlassromChess() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.chess != '') {
-            for (let i = 0; i < studarr.chess.length; i++) {
-                if (studarr.chess[i].status != "sleep")
-                    sidarr += studarr.chess[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Шахматы")
-    }
-
-    async function addMulticlassromChemistry() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.chemistry != '') {
-            for (let i = 0; i < studarr.chemistry.length; i++) {
-                if (studarr.chemistry[i].status != "sleep")
-                    sidarr += studarr.chemistry[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Химии")
-    }
-
-    async function addMulticlassromBiology() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.biology != '') {
-            for (let i = 0; i < studarr.biology.length; i++) {
-                if (studarr.biology[i].status != "sleep")
-                    sidarr += studarr.biology[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Биологии")
-    }
-
-    async function addMulticlassromHistory() {
-
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-
-        await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1],
-            },
-            "method": "POST",
-            "credentials": "include"
-        }).then(r => r.json()).then(data => studarr = data)
-        if (studarr.history != '') {
-            for (let i = 0; i < studarr.history.length; i++) {
-                if (studarr.history[i].status != "sleep")
-                    sidarr += studarr.history[i].id + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками при открытом разделе Multi-classroom добавлены")
-        } else alert("Выбран не верный предмет или нет учеников в разделе Истории")
-    }
-
-
-    async function addChatseng() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-english.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=english_junior_native_speaker,english_junior_not_native_speaker,english_kids_exam,english_klp_native_speaker,english_klp_native_speaker_short,english_klp_not_native_speaker,english_klp_not_native_speaker_short_lesson,english_klp_not_native_speaker_premium,english_junior_not_native_speaker_premium,english_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
+        await fetch(subject, { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
             .then(r => r.json()).then(data => studarr = data)
         if (studarr.results != '') {
             for (let i = 0; i < studarr.results.length; i++) {
@@ -9906,510 +9594,34 @@ async function remandressl() { // функция удаления и сброс�
             }
             sidarr = sidarr.split(',');
             for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
+				fetchaddchat(sidarr[j] , artid.user.id)
             }
             alert("Чаты с учениками в разделе 'Английский язык' успешно добавлены!")
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
     }
 
-    async function addChatsCompCours() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-computer-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=digital_literacy_kids_f2f,python_kids_f2f,programming_kids_f2f,web_dev_kids_f2f,making_games_kids_f2f,computer_courses_app_inventor_kids_f2f,computer_courses_thunkable_kids_f2f,computer_courses_scratch_kids_f2f,computer_courses_unreal_kids_f2f,computer_courses_roblox_kids_f2f,computer_courses_unity_kids_f2f,computer_courses_construct_kids_f2f,computer_courses_minecraft_kids_f2f,computer_courses_app_inventor_kids_f2g,computer_courses_scratch_kids_f2g,computer_courses_thunkable_kids_f2g,computer_courses_web_dev_kids_f2g,computer_courses_digital_literacy_mac_kids_f2f,computer_courses_digital_literacy_windows_kids_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Компьютерные курсы' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Компьютерные курсы'")
-    }
-
-    async function addChatsChess() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-chess.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chess_kids_f2f,chess_kids_f2f_short_lessons", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Шахматы' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Шахматы'")
-    }
-
-    async function addChatsMath() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-math.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=mathematics_kids,math_kids_exam,math_kids_premium,math_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Математика' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Математика'")
-    }
-
-    async function addChatsRuslng() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-russian.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=russian_kids,russian_kids_exam_f2f,russian_kids_premium,russian_kids_exam_premium", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Русский язык' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Русский язык'")
-    }
-
-    async function addChatsPreschool() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-preschool.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=preschool_kids_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Дошколка' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Дошколка'")
-    }
-
-    async function addChatsPhysics() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-physics.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=physics_kids_f2f,physics_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Физика' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Физика'")
-    }
-
-    async function addChatsSocial() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-social-science.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=social_science_kids_f2f,social_science_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Обществознание' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Обществознание'")
-    }
-
-    async function addChatsLiterature() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-literature.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_literature_7_grade_folklore,large_classes_literature_7_grade_folklore_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Литературе' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Литературе'")
-    }
-
-    async function addChatsHistory() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-history.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=large_classes_history_7_grade_new_time,large_classes_history_7_grade_new_time_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'История' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'История'")
-    }
-
-    async function addChatsGeography() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-geography.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=geography_kids_f2f,large_classes_geography_7_grade_human_on_earth,large_classes_geography_7_grade_human_on_earth_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'География' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'География'")
-    }
-
-    async function addChatsChemistry() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-chemistry.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=chemistry_kids_exam_f2f", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Химия' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Химия'")
-    }
-
-    async function addChatsBiology() {
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch("https://api-biology.skyeng.ru/api/teacher-cabinet/v1/active-students?serviceTypeKeys=biology_kids_f2f,large_classes_biology_7_grade_bacteria_viruses,large_classes_biology_7_grade_bacteria_viruses_recorded", { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-				fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-				  "headers": {
-					"content-type": "application/json",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "referrer": "https://vimbox.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": `{\"userId1\":${sidarr[j]},\"userId2\":${artid.user.id}}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-            }
-            alert("Чаты с учениками в разделе 'Биология' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Биология'")
-    }
-
     // Добавляем в комнату кнопку Classwork для перезапуска урока
+
+function dosetclasswork(subject) {
+               fetch(subject + document.URL.split('/')[6], {
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": "{\"status\":\"classwork\"}",
+				  "method": "PATCH",
+				  "mode": "cors",
+				  "credentials": "include"
+                });
+
+                document.getElementById('clwbtn').innerText = "Done!"
+
+                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+            }
 
     let classworkbtn = document.createElement('div')
     classworkbtn.id = "clwbtn"
     classworkbtn.innerText = "Classwork"
-    classworkbtn.style = "position:absolute; top:14px; left:65%; cursor: pointer;"
+    classworkbtn.style = "position:absolute; top:14px; left:60%; cursor: pointer;"
     let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
 
     switch (subject) {
@@ -10419,29 +9631,9 @@ async function remandressl() { // функция удаления и сброс�
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Шахматы"
 
-            function restchess() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-chess.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restchess
+            classworkbtn.onclick = function() {
+				dosetclasswork("https://api-chess.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "math/room":
@@ -10449,30 +9641,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Математика"
-
-            function restmath() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-math.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restmath
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-math.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "geography/room":
@@ -10480,91 +9652,31 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Географии"
-
-            function restgeo() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-geography.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restgeo
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-geography.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
         case "preschool/room":
             if (document.getElementById('clwbtn') == null)
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Дошколка"
-
-            function restpreschool() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-preschool.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restpreschool
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-preschool.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
         case "social-science/room":
             if (document.getElementById('clwbtn') == null)
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Обществознания"
-
-            function restobsh() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-social-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restobsh
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-social-science.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "history/room":
@@ -10572,30 +9684,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Истории"
-
-            function resthistory() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-history.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = resthistory
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-history.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "biology/room":
@@ -10603,30 +9695,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Биологии"
-
-            function restbio() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-biology.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restbio
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-biology.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "english/room":
@@ -10634,30 +9706,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Английского языка"
-
-            function resteng() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-english.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = resteng
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-english.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "computer-science/room":
@@ -10665,30 +9717,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Компьютерных курсов"
-
-            function restcompsc() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-computer-science.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restcompsc
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-computer-science.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "physics/room":
@@ -10696,61 +9728,21 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Физики"
-
-            function restphys() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-physics.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restphys
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-physics.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
         case "literature/room":
             if (document.getElementById('clwbtn') == null)
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Литературы"
-
-            function restlit() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-literature.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restlit
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-literature.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "chemistry/room":
@@ -10758,30 +9750,10 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Химии"
-
-            function restchem() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-chemistry.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restchem
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-chemistry.skyeng.ru/api/v1/rooms/")
+			}
 
             break;
         case "russian/room":
@@ -10789,35 +9761,14 @@ async function remandressl() { // функция удаления и сброс�
                 document.getElementsByClassName('root')[0].appendChild(classworkbtn)
 
             classworkbtn.title = "Перезапускает комнату выставляя статус Classwork для Русского языка"
-
-            function restrus() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                fetch("https://api-russian.skyeng.ru/api/v1/rooms/" + document.URL.split('/')[6], {
-                    "headers": {
-                        "accept": "application/json",
-                        "authorization": "Bearer" + d[1],
-                        "content-type": "application/json",
-                    },
-                    "body": "{\"status\":\"classwork\",\"name\":null}",
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-
-                document.getElementById('clwbtn').innerText = "Done!"
-
-                setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-
-            }
-
-            classworkbtn.onclick = restrus
-
+			
+			classworkbtn.onclick = function() {
+				dosetclasswork("https://api-russian.skyeng.ru/api/v1/rooms/")
+			}
+			
             break;
-
     }
-
+	
 }
 
 setInterval(remandressl, 3000);
@@ -10913,7 +9864,7 @@ async function checkthemestatus() { //функция проверки выста
             }).then(r => r.json()).then(r => pldata = r)
 
             if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
-                drevo = pldata.messages[0].txt.match(/Здравствуйте! Выберите тему ниже или напишите ваш вопрос/)
+                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
 
 
             if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
@@ -11210,12 +10161,12 @@ function timerHideButtons() { //функция добавления скрыти
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "1 line")
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (группа работает ежедневно с 07:00 до 23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (группа работает ежедневно с 08:00 - 22:50)")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Тех. поддержка V1")
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (группа работает ежедневно с 07:00 до 23:50)")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
@@ -11471,13 +10422,13 @@ document.getElementById('gofindit').onclick = async function () { //функци
     for (let j = 0; j < csatcontainer.length; j++) {
         csatcontainer[j].onclick = function () {
 
-            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                hide_or_display.click()
-                document.getElementById('chat_id').value = csatchattids[j].innerText;
-                search.click()
-            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                document.getElementById('chat_id').value = csatchattids[j].innerText;
-                search.click()
+            if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                document.getElementById('butChatHistory').click();
+                document.getElementById('hashchathis').value = csatchattids[j].innerText;
+                btn_search_history.click()
+            } else {
+                document.getElementById('hashchathis').value = csatchattids[j].innerText;
+                btn_search_history.click()
             }
         }
     }
@@ -13103,7 +12054,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
-			menubar.append(document.getElementById('refuseform'))
+            menubar.append(document.getElementById('refuseform'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
@@ -13393,4 +12344,3 @@ function textToUTF8String(string) {
     }
     return string2
 }
-
