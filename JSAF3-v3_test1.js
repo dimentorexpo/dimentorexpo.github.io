@@ -8,7 +8,7 @@ let werechats = false;
 let chatisopen = "";
 let isChatOnOperator = false;
 let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
-console.log("Подразделение" + opsection)
+console.log("Подразделение - " + opsection)
 
 function mystyles() {
     let mstl = document.createElement('style');
