@@ -7,6 +7,8 @@ let operchatsdata;
 let werechats = false;
 let chatisopen = "";
 let isChatOnOperator = false;
+let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+console.log("Подразделение" + opsection)
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -11262,8 +11264,6 @@ function customTemplates(language = '') { //собственные шаблон�
 }
 
 async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
-    let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
-    console.log(opsection)
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
