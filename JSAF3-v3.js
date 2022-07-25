@@ -1685,6 +1685,10 @@ let audio
 let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
 console.log("Подразделение - " + opsection);
 
+if (window.location.href.indexOf('skyeng.autofaq.ai') != -1)
+        document.getElementById('testUsers').style.display = "none";
+    else document.getElementById('testUsers').style.display = ''
+
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
     if (object.value.length > object.maxLength)
@@ -11938,9 +11942,6 @@ function prepTp() { //функция подготовки расширения �
 
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
-    else if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
-        document.getElementById('testUsers').style.display = "none";
-    }
     else document.getElementById('testUsers').style.display = ''
 
     let openchhis = document.createElement('button')
