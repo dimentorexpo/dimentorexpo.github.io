@@ -9787,7 +9787,7 @@ butteachid.addEventListener('click', function () { // кнопка ID П
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id") {
                     idforcase = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-                    inputforcase(idforcase)
+                    inputforcase(idforcase,typeofcase)
                 }
             }
         }
