@@ -9832,7 +9832,7 @@ function inputforcase (idforcase,typeofcase){ // функция подставл
     }
     if (typeofcase == "nextClass-teacherId" || typeofcase == "nextClass-studentId" || typeofcase == "ID П") {
         for (i = 0; document.querySelectorAll('.ant-form-item-has-success')[i] != undefined; i++) {
-            if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].name == userId){
+            if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].name == "userId"){
                 document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].value = idforcase
                 console.log("Указан id пользователя" + idforcase) 
             }
