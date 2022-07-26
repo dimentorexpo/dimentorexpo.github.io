@@ -7,6 +7,7 @@ let operchatsdata;
 let werechats = false;
 let chatisopen = "";
 let isChatOnOperator = false;
+document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
     let mstl = document.createElement('style');
@@ -1681,6 +1682,9 @@ var win_servicedesk = // описание элементов окна Service De
 </div>`;
 
 let audio
+
+let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+console.log("Подразделение - " + opsection);
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
@@ -7577,7 +7581,7 @@ async function loadTemplates(template, word) { //загрузка шаблоно
         "headers": {
             "content-type": "application/json",
         },
-        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286 , 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119844,  119649, 121381, 119841, 120181, 119646, 121388, 121384]}",
+        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286, 119638, 121385, 121300, 119843, 118980, 121387, 121692, 121386, 119636, 119844, 119649, 121381, 119841, 120181, 119646]}",
         "method": "POST",
     })
         .then(response => response.json())
@@ -9862,8 +9866,6 @@ async function checkthemestatus() { //функция проверки выста
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
-			
-			drevo = '';
 
             if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
                 drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
@@ -10960,7 +10962,7 @@ async function getNotGoods(stringDate) { // функция проверки но
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
         if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == "ТП") {
+            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName.split('-')[1])
             }
@@ -11302,7 +11304,7 @@ async function getStats() {           // функция получения ст�
         "mode": "cors",
         "credentials": "include"
     }).then(response => b = response.json().then(b => b.rows.forEach(k => {
-        if (k.operator.indexOf('ТП') != -1) {
+        if (k.operator.indexOf(opsection) != -1) {
             array.push(k)
         }
     })))
@@ -11316,7 +11318,7 @@ async function getStats() {           // функция получения ст�
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
         if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == "ТП") {
+            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
             }
