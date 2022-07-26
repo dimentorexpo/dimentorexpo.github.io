@@ -9831,7 +9831,7 @@ function inputforcase (idforcase,typeofcase){ // функция подставл
     }
     for (i = 0; document.querySelectorAll('.ant-input-number-input')[i] != undefined; i++) {
         if (document.querySelectorAll('.ant-input-number-input')[i].name == typeforinput){
-            document.querySelectorAll('.ant-input-number-input')[i].value = idforcase
+            document.querySelectorAll('.ant-input-number-input')[i].value = idforcase;
             console.log("Указан id пользователя" + idforcase) 
         }
     }
