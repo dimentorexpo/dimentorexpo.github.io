@@ -9813,6 +9813,7 @@ buttonservid.addEventListener('click', function () { //кнопка nextClass-ed
 })
 
 function inputforcase (idforcase,typeofcase){ // функция подставления id и услуги при создании задачи
+    let typeforinput
     if (idforcase != undefined || idforcase > 0) {
         console.log(idforcase) 
     } else {
@@ -9823,21 +9824,19 @@ function inputforcase (idforcase,typeofcase){ // функция подставл
             }
         }
     if (typeofcase == "nextClass-educationServiceId") {
-        for (i = 0; document.querySelectorAll('.ant-form-item-has-success')[i] != undefined; i++) {
-            if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[0].children[0].name == "educationServiceIdInput"){
-                document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[0].children[0].value = idforcase
-                console.log("Указан id услуги" + idforcase) 
-            }    
-       }
+        typeforinput = "educationServiceIdInput"
     }
     if (typeofcase == "nextClass-teacherId" || typeofcase == "nextClass-studentId" || typeofcase == "ID П") {
-        for (i = 0; document.querySelectorAll('.ant-form-item-has-success')[i] != undefined; i++) {
-            if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].name == "userId"){
-                document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].value = idforcase
-                console.log("Указан id пользователя" + idforcase) 
-            }
+        typeforinput = "userId"
+    }
+    for (i = 0; document.querySelectorAll('.ant-input-number-input')[i] != undefined; i++) {
+        if (document.querySelectorAll('.ant-input-number-input')[i].name == typeforinput){
+            document.querySelectorAll('.ant-input-number-input')[i].value = idforcase
+            console.log("Указан id пользователя" + idforcase) 
         }
-    } 
+    }
+    typeofcase = ''
+    idforcase = '' 
 }   
 
 
