@@ -9822,21 +9822,23 @@ function inputforcase (idforcase,typeofcase){ // функция подставл
                 console.log(idforcase)
             }
         }
-    if (typeofcase = "nextClass-educationServiceId") {
+    if (typeofcase == "nextClass-educationServiceId") {
         for (i = 0; document.querySelectorAll('.ant-form-item-has-success')[i] != undefined; i++) {
             if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[0].children[0].name == "educationServiceIdInput"){
                 document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[0].children[0].value = idforcase
                 console.log("Указан id услуги" + idforcase) 
             }    
+       }
     }
-    if (typeofcase = "nextClass-teacherId" || typeofcase = "nextClass-studentId" || typeofcase = ID П) {
+    if (typeofcase == "nextClass-teacherId" || typeofcase == "nextClass-studentId" || typeofcase == "ID П") {
         for (i = 0; document.querySelectorAll('.ant-form-item-has-success')[i] != undefined; i++) {
             if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].name == userId){
                 document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].value = idforcase
                 console.log("Указан id пользователя" + idforcase) 
-            }    
-}
-
+            }
+        }
+    } 
+}   
 
 
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
