@@ -9777,50 +9777,67 @@ function dosetclasswork(subject) {
 
 setInterval(remandressl, 3000);
 
-let getidusrteachreq;
+let idforcase;
+let typeofcase;
 
-butteachid.addEventListener('click', function () { // копирует в буфер что-то но надо понять ЧТО?
+butteachid.addEventListener('click', function () { // кнопка ID П
+    typeofcase = "ID П"
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id") {
-                    getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
-                    copyToClipboard1(getidusrteachreq)
+                    idforcase = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
+                    inputforcase(idforcase)
                 }
             }
         }
     }
 })
 
-let getidusrstud;
-
-butstdid.addEventListener('click', function () { //копирует в буфер nextClass-studentId
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-        copyToClipboard1(getidusrstud)
-    }
+butstdid.addEventListener('click', function () { //кнопка nextClass-studentId
+    typeofcase = "nextClass-studentId";
+    console.log(typeofcase)
+    inputforcase(typeofcase)
 })
 
-let getidusrsteach;
-
-butteachidfstd.addEventListener('click', function () { //копирует в буфер nextClass-teacherId
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-        copyToClipboard1(getidusrsteach)
-    }
+butteachidfstd.addEventListener('click', function () { //кнопка nextClass-teacherId
+    typeofcase = "nextClass-teacherId";
+    console.log(typeofcase)
+    inputforcase(typeofcase)
 })
 
-let getservidst;
-
-buttonservid.addEventListener('click', function () { //копирует в буфер nextClass-educationServiceId
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId")
-            getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-        copyToClipboard1(getservidst)
-    }
+buttonservid.addEventListener('click', function () { //кнопка nextClass-educationServiceId
+    typeofcase = "nextClass-educationServiceId";
+    console.log(typeofcase)
+    inputforcase(typeofcase)
 })
+
+function inputforcase (idforcase,typeofcase){ // функция подставления id и услуги при создании задачи
+    if (idforcase != undefined || idforcase > 0) {
+        console.log(idforcase) 
+    } else {
+        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == typeofcase)
+                idforcase = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                console.log(idforcase)
+            }
+        }
+    if (typeofcase = "nextClass-educationServiceId") {
+        for (i = 0; document.querySelectorAll('.ant-form-item-has-success')[i] != undefined; i++) {
+            if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[0].children[0].name == "educationServiceIdInput"){
+                document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[0].children[0].value = idforcase
+                console.log("Указан id услуги" + idforcase) 
+            }    
+    }
+    if (typeofcase = "nextClass-teacherId" || typeofcase = "nextClass-studentId" || typeofcase = ID П) {
+        for (i = 0; document.querySelectorAll('.ant-form-item-has-success')[i] != undefined; i++) {
+            if (document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].name == userId){
+                document.querySelectorAll('.ant-form-item-has-success')[i].children[1].children[0].children[0].children[0].children[1].children[0].value = idforcase
+                console.log("Указан id пользователя" + idforcase) 
+            }    
+}
+
+
 
 //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
 
