@@ -1683,8 +1683,9 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
-let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
-console.log("Подразделение - " + opsection);
+let opsection //определение отдела оператора
+setTimeout(function () { opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]}, 3000)
+//console.log("Подразделение - " + opsection);
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
