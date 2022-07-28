@@ -11286,6 +11286,8 @@ async function getStats() {           // функция получения ст�
     var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21%3A00%3A00Z"
     var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21%3A00%3A00Z"
     var array = []
+	let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+	console.log("Подразделение - " + opsection);
     await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1, {
         "headers": {
             "accept": "*/*",
@@ -11959,9 +11961,6 @@ function prepTp() { //функция подготовки расширения �
     buttonGetStat.innerHTML = "Статистика";
     buttonGetStat.style.marginLeft = "15px";
     buttonGetStat.onclick = function () {
-
-	let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
-	console.log("Подразделение - " + opsection);
         if (this.textContent == 'Скрыть стату') {
             if (this.getAttribute('disabled') != null)
                 return
