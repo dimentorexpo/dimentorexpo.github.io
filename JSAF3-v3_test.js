@@ -803,7 +803,7 @@ var win_Stat =  // описание элементов окна Статисти
                         </div>
 						<div>
 							<input id="commenttosearch" placeholder="Слово или фраза для поиска среди закрытых чатов по заметкам" title="введите слово или фразу для поиска по заметкам в закрытом чате" autocomplete="off" type="text" style="text-align: center; width: 540px; color: black;margin-left:5px">
-								<select id="thematics">
+								<select id="thematics" style="margin-left:150px; margin-top:10px;">
 									<option style="background-color:DarkKhaki;" value="skmob">Skyeng👨‍🎓Mob</option>
 									<option value="1804">-Авторизация</option>
 									<option value="1805">-Домашка</option>
