@@ -1683,9 +1683,6 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
-let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
-console.log("Подразделение - " + opsection);
-
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
     if (object.value.length > object.maxLength)
@@ -7576,6 +7573,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 
 var templatesAF = []
 
+
 async function loadTemplates(template, word) { //загрузка шаблонов с дока
     return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
         "headers": {
@@ -11961,6 +11959,9 @@ function prepTp() { //функция подготовки расширения �
     buttonGetStat.innerHTML = "Статистика";
     buttonGetStat.style.marginLeft = "15px";
     buttonGetStat.onclick = function () {
+
+	let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+	console.log("Подразделение - " + opsection);
         if (this.textContent == 'Скрыть стату') {
             if (this.getAttribute('disabled') != null)
                 return
