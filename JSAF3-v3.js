@@ -1683,10 +1683,6 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
-let opsection //определение отдела оператора
-setTimeout(function () { opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]}, 3000)
-console.log("Подразделение - " + opsection);
-
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
     if (object.value.length > object.maxLength)
@@ -7577,6 +7573,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 
 var templatesAF = []
 
+
 async function loadTemplates(template, word) { //загрузка шаблонов с дока
     return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
         "headers": {
@@ -11289,6 +11286,8 @@ async function getStats() {           // функция получения ст�
     var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21%3A00%3A00Z"
     var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21%3A00%3A00Z"
     var array = []
+	let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+	console.log("Подразделение - " + opsection);
     await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1, {
         "headers": {
             "accept": "*/*",
