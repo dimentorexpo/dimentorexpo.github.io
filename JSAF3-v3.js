@@ -9623,7 +9623,7 @@ function dosetclasswork(subject) {
     let classworkbtn = document.createElement('div')
     classworkbtn.id = "clwbtn"
     classworkbtn.innerText = "Classwork"
-    classworkbtn.style = "position:absolute; top:14px; left:60%; cursor: pointer;"
+    classworkbtn.style = "position:absolute; top:14px; left:65%; cursor: pointer;"
     let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
 
     switch (subject) {
