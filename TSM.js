@@ -608,7 +608,7 @@ var win_addChatMenu = `<div style="display: flex;">
                         </div>
 
 						<input id="userid1" style="margin-left: 5px; width:100px; text-align:center;" placeholder="teacherId">
-						<input id="userid2" style="width:100px; text-align:center;" placeholder="studentId">
+						<input id="userid2" style="width:100px; text-align:center;" placeholder="userId #2">
 						<button class="commonbtn" id="addChat" style="margin:5px">➕💬</button>
 						<button class="commonbtn" id="RemoveChat" style="margin:5px">❌💬</button>
 					</span>
