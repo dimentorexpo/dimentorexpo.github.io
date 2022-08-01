@@ -11904,6 +11904,7 @@ async function checkCSAT() {             // функция проверки CSAT
         }
     } catch (e) {
         console.error(e, e.stack); 
+		console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack)
     }
 
     let slaclchatcontainer = document.querySelectorAll('.lookchat');
