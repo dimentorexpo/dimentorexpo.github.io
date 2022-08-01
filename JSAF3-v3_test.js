@@ -4755,6 +4755,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.querySelector('#getJiraTasks').click()
         }
     })
+	
+	
 
     let searchCommentsByEnter = document.querySelector('#commenttosearch'); //по Enter запускает поиск по комментариям
     searchCommentsByEnter.addEventListener('keydown', event => {
@@ -6384,9 +6386,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
                 else document.getElementById('linktochatrefuse').value = ''
             }
+			
+					let sendrefuseformbyenter = document.querySelector('#sendrefusetodoc'); //по Enter запускает поиск по Jira
+					sendrefuseformbyenter.addEventListener('keydown', event => {
+						if (event.key === "Enter") {
+							document.querySelector('#sendrefusetodoc').click()
+						}
+					})
 
             document.getElementById('sendrefusetodoc').onclick = () => {
-
+				
                 let chatlink = document.getElementById('linktochatrefuse').value
                 let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
                 let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
