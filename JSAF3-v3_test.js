@@ -6379,11 +6379,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Refuseform').style.display = ''
 
             if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+                document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
 
             document.getElementById('refreshchathashrefuseform').onclick = () => {
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('linktochatrefuse').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+                    document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
                 else document.getElementById('linktochatrefuse').value = ''
             }
 			
