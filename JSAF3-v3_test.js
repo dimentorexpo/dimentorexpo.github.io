@@ -7588,7 +7588,7 @@ async function loadTemplates(template, word) { //загрузка шаблоно
         "headers": {
             "content-type": "application/json",
         },
-        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286, 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119844, 119649, 121381, 119841, 120181, 119646, 121388, 121384]}",
+        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286, 119638, 121385, 121300, 119843, 118980, 121387, 121692, 121386, 119636, 119844, 119649, 121381, 119841, 120181, 119646, 121388, 121384]}",
         "method": "POST",
     })
         .then(response => response.json())
@@ -10311,13 +10311,13 @@ document.getElementById('getstatfromperiod').onclick = async function () { // Т
                             csatCountNew++
                         }
                 if (flagTopic == 1)
-                    stringChatsWithoutTopic2 += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;">' + test.items[i].conversationId + '</a></br>'
+                    stringChatsWithoutTopic2 += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;">' + test.items[i].conversationId + '</a></br>'
             }
 
             if (stringChatsWithoutTopic2 == "")
                 stringChatsWithoutTopic2 = ' нет таких' + '<br>'
 
-            strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' + stringChatsWithoutTopic2
+            strnew.innerHTML = 'Оценка: ' + Math.round(csatScoreNew / csatCountNew * 100) / 100 + '<br>' + 'Чаты без тематики: <br>' + stringChatsWithoutTopic2
 
             if ((test.total / 100) > pagenew) {
                 pagenew++;
@@ -10409,7 +10409,7 @@ document.getElementById('gofindit').onclick = async function () { //функци
                                 tsm = "0" + timestmp.getMinutes();
                             else tsm = timestmp.getMinutes();
 
-                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#FFA07A;" class = "csatchatids">' + data.id + '</a>' + " " + tagflag + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + " " + tsh + ":" + tsm + '</br>';
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + data.id + '" onclick="" style="color:#FFA07A;" class = "csatchatids">' + data.id + '</a>' + " " + tagflag + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + " " + tsh + ":" + tsm + '</br>';
                             count++;
                         }
                     })
@@ -10514,7 +10514,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
                                 flagComment = 1
                         }
                         if (flagComment == 1)
-                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + data.id + '" onclick="" style="color:#1E90FF;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + data.id + '" onclick="" style="color:#1E90FF;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
 
                     })
             }
@@ -10707,7 +10707,7 @@ document.getElementById('getlowcsat').onclick = async function () { // полу�
                         }
 
                 if (csatScoreNewLow == 1)
-                    stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
+                    stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
 
             }
 
@@ -10945,10 +10945,10 @@ async function getNotGoods(stringDate) { // функция проверки но
                     if (a.stats.rate != undefined)
                         if (a.stats.rate.rate != undefined) {
                             if (a.stats.rate.rate < 4) {
-                                text += stringDate2 + "	" + list2[m] + "	https://hdi.skyeng.ru/autofaq/conversation/-11/" + a.conversationId + "	" + a.stats.rate.rate + "\n"
+                                text += stringDate2 + "	" + list2[m] + "	https://skyeng.autofaq.ai/logs/" + a.conversationId + "	" + a.stats.rate.rate + "\n"
                                 if (n == 1)
                                     text2 += "\nАгент: `" + list2[m] + "` C	S	A		T =\n "
-                                text2 += "=HYPERLINK(\"https://hdi.skyeng.ru/autofaq/conversation/-11/" + a.conversationId + "\"; \"Нотгуд №" + n + "\" 	 (	оценка " + a.stats.rate.rate + ") - \n"
+                                text2 += "=HYPERLINK(\"https://skyeng.autofaq.ai/logs/" + a.conversationId + "\"; \"Нотгуд №" + n + "\" 	 (	оценка " + a.stats.rate.rate + ") - \n"
                                 n++
                             }
                         }
@@ -11785,7 +11785,7 @@ async function checkCSAT() {             // функция проверки CSAT
 
                             slacount++;
                             abovecloseslaarr += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
-                                '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
+                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
                                 clschatarr[k] + '</a>' + ' Время чата: ' + (test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) +
                                 '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + ' Создан чат в: ' + tshrs + ":" + tsmin + ' МСК ' + tagsarr[k] + '<br>')
                         }
@@ -11793,7 +11793,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         if (test.items[i].stats.averageOperatorAnswerTime !== undefined && ((test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
                             artcount++;
                             aboveart += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
-                                '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "artchatids">' +
+                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "artchatids">' +
                                 clschatarr[k] + '</a>' + ' Ср.время ответа: ' + (test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2) +
                                 '<span class = "lookchatart" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '<br>')
                         }
@@ -11814,7 +11814,7 @@ async function checkCSAT() {             // функция проверки CSAT
                                 flagmid += '• ' + test.items[i].stats.conversationId + '<br>'
                         }
                 if (flagTopic == 1)
-                    stringChatsWithoutTopic += '<a href="https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '" onclick="">https://hdi.skyeng.ru/autofaq/conversation/-11/' + test.items[i].conversationId + '</a></br>'
+                    stringChatsWithoutTopic += '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="">https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '</a></br>'
             }
 
             if (test.total / 100 >= page) {
