@@ -2318,10 +2318,10 @@ butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
 butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
-let butrefuseform = document.createElement('div')
-butrefuseform.id = "refuseform"
-butrefuseform.innerHTML = "❌Отказ от помощи"
-butrefuseform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+let butrefuse = document.createElement('div')
+butrefuse.id = "otkaz"
+butrefuse.innerHTML = "❌Отказ от помощи"
+butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -4950,9 +4950,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Sugform').style.display = 'none'
     }
 
-    document.getElementById('hideMeRefuseForm').onclick = () => { //форма hide
-        if (document.getElementById('AF_Refuseform').style.display == '')
-            document.getElementById('AF_Refuseform').style.display = 'none'
+    document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
+        if (document.getElementById('AF_Refuseformnew').style.display == '')
+            document.getElementById('AF_Refuseformnew').style.display = 'none'
     }
 
     document.getElementById('hideMeChHis').onclick = () => { //форма hide
@@ -6496,71 +6496,71 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
-        if (document.getElementById('AF_Refuseform').style.display == '')
-            document.getElementById('AF_Refuseform').style.display = 'none'
+    document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
+        if (document.getElementById('AF_Refuseformnew').style.display == '')
+            document.getElementById('AF_Refuseformnew').style.display = 'none'
         else {
-            document.getElementById('AF_Refuseform').style.display = ''
+            document.getElementById('AF_Refuseformnew').style.display = ''
 
-            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+            // if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                // document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
 
-            document.getElementById('refreshchathashrefuseform').onclick = () => {
-                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
-                else document.getElementById('linktochatrefuse').value = ''
-            }
+            // document.getElementById('refreshchathashrefuseform').onclick = () => {
+                // if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                    // document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                // else document.getElementById('linktochatrefuse').value = ''
+            // }
 			
-					let sendrefuseformbyenter = document.querySelector('#textrefuseform'); //по Enter отправляет в форму отказа но еще тестится
-					sendrefuseformbyenter.addEventListener('keydown', event => {
-						if (event.key === "Enter") {
-							document.querySelector('#sendrefusetodoc').click()
-						}
-					})
+					// let sendrefuseformbyenter = document.querySelector('#textrefuseform'); //по Enter отправляет в форму отказа но еще тестится
+					// sendrefuseformbyenter.addEventListener('keydown', event => {
+						// if (event.key === "Enter") {
+							// document.querySelector('#sendrefusetodoc').click()
+						// }
+					// })
 
-					let textrefuseformsolutionbyenter = document.querySelector('#textrefuseformsolution'); //по Enter отправляет в форму отказа но еще тестится
-					textrefuseformsolutionbyenter.addEventListener('keydown', event => {
-						if (event.key === "Enter") {
-							document.querySelector('#sendrefusetodoc').click()
-						}
-					})
+					// let textrefuseformsolutionbyenter = document.querySelector('#textrefuseformsolution'); //по Enter отправляет в форму отказа но еще тестится
+					// textrefuseformsolutionbyenter.addEventListener('keydown', event => {
+						// if (event.key === "Enter") {
+							// document.querySelector('#sendrefusetodoc').click()
+						// }
+					// })
 
-            document.getElementById('sendrefusetodoc').onclick = () => {
+            // document.getElementById('sendrefusetodoc').onclick = () => {
 				
-                let chatlink = document.getElementById('linktochatrefuse').value
-                let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
-                let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
+                // let chatlink = document.getElementById('linktochatrefuse').value
+                // let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
+                // let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
 
-                let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
-                console.log(body2)
+                // let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
+                // console.log(body2)
 
-                let options2 = {
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                    },
-                    "body": body2,
-                    "method": "POST",
-                }
+                // let options2 = {
+                    // "headers": {
+                        // "content-type": "application/x-www-form-urlencoded",
+                    // },
+                    // "body": body2,
+                    // "method": "POST",
+                // }
 
-                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
-                if (document.getElementById('responseTextarea3') != null)
-                    document.getElementById('responseTextarea3').value = ''
-                document.getElementById('sendResponse').click()
+                // document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                // document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
+                // if (document.getElementById('responseTextarea3') != null)
+                    // document.getElementById('responseTextarea3').value = ''
+                // document.getElementById('sendResponse').click()
 
-                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
+                // sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                // document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
 
-                setTimeout(() => {
-                    document.getElementById('sendrefusetodoc').innerText = "Отправить"
-                    document.getElementById('AF_Refuseform').style.display = 'none'
-                }, 3000)
+                // setTimeout(() => {
+                    // document.getElementById('sendrefusetodoc').innerText = "Отправить"
+                    // document.getElementById('AF_Refuseform').style.display = 'none'
+                // }, 3000)
 
-                document.getElementById('linktochatrefuse').value = ''
-                document.getElementById('textrefuseform').value = ''
-                document.getElementById('textrefuseformsolution').value = ''
+                // document.getElementById('linktochatrefuse').value = ''
+                // document.getElementById('textrefuseform').value = ''
+                // document.getElementById('textrefuseformsolution').value = ''
 
-            }
+            // }
         }
     }
 
@@ -7300,7 +7300,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
     }
 
     if (butName == '🖕Отказ')
-        document.getElementById('refuseform').click();
+        document.getElementById('otkaz').click();
 
     msgFromTable(butName)
 
@@ -8410,7 +8410,7 @@ function startTimer() {
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
         btn15.addEventListener('click', function () {
-            document.getElementById('refuseform').click();
+            document.getElementById('otkaz').click();
         })
 
 
@@ -12181,7 +12181,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
-            btnAdd1.insertBefore(butrefuseform, btnAdd1.children[5])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[5])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
@@ -12199,7 +12199,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
-            menubar.append(document.getElementById('refuseform'))
+            menubar.append(document.getElementById('otkaz'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
