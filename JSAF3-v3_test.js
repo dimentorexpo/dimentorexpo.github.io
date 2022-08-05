@@ -300,7 +300,7 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-		#refuseform:hover {
+		#otkaz:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
@@ -576,27 +576,6 @@ var win_suggest =  // описание элементов окна предло�
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
                         </div>
-        </span>
-</div>`;
-
-var win_refuse =  // описание элементов окна отказа от помощи
-    `<div style="display: flex; width: 414px;">
-        <span style="width: 414px">
-                <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 409px;" id="refuse_form_main">
-                            <button title="скрывает меню" id="hideMeRefuseForm" style="width:50px; background: #228B22;">hide</button>
-                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
-                        </div>
-                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_box">
-                            <input id="linktochatrefuse" placeholder="Ссылка на чат" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
-							<br>
-							<textarea id="textrefuseform" placeholder="C какой проблемой обратился клиент? (Пример: Не работает микрофон у ученика, не работает микрофон у преподавателя). Указывайте, что именно у кого не работает. Если конкретно не известно, можно указывать "не работает связь на уроке со стороны У" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
-							<br>
-							<textarea id="textrefuseformsolution" placeholder="Как решилось? ( Здесь указываем, уточняем, как решился запрос). Пример: перешли на альтернативную связь в Zoom/Skype, подключились на урок с телефона (были проблемы на пк), удалили антивирус и т.д" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
-							<br>
-							<button title="Отправляет заполненные поля формы в док" id="sendrefusetodoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
-						</div>
-		</span>
         </span>
 </div>`;
 
@@ -6477,12 +6456,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Refuseformnew').style.display = ''
 
             // if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                // document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                // document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
 
-            // document.getElementById('refreshchathashrefuseform').onclick = () => {
+            // document.getElementById('refreshhashrefuseform').onclick = () => {
                 // if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    // document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
-                // else document.getElementById('linktochatrefuse').value = ''
+                    // document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                // else document.getElementById('chatlnk').value = ''
             // }
 			
 					// let sendrefuseformbyenter = document.querySelector('#textrefuseform'); //по Enter отправляет в форму отказа но еще тестится
@@ -6501,7 +6480,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             // document.getElementById('sendrefusetodoc').onclick = () => {
 				
-                // let chatlink = document.getElementById('linktochatrefuse').value
+                // let chatlink = document.getElementById('chatlnk').value
                 // let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
                 // let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
 
@@ -6530,7 +6509,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     // document.getElementById('AF_Refuseform').style.display = 'none'
                 // }, 3000)
 
-                // document.getElementById('linktochatrefuse').value = ''
+                // document.getElementById('chatlnk').value = ''
                 // document.getElementById('textrefuseform').value = ''
                 // document.getElementById('textrefuseformsolution').value = ''
 
