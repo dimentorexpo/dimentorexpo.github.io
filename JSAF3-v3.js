@@ -2535,8 +2535,8 @@ wintTimetable.onmouseup = function () { document.removeEventListener('mousemove'
 var listener11 = function (e, a) { // сохранение позиции окна доступов
     wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
     wintTechSummary.style.top = Number(e.clientY - myY11) + "px";
-    localStorage.setItem('winTopTimetable', String(Number(e.clientY - myY11)));
-    localStorage.setItem('winLeftTimetable', String(Number(e.clientX - myX11)));
+    localStorage.setItem('winTopTechSum', String(Number(e.clientY - myY11)));
+    localStorage.setItem('winLeftTechSum', String(Number(e.clientX - myX11)));
 };
 
 wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
