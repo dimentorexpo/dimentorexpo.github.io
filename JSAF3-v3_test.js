@@ -1864,11 +1864,6 @@ if (localStorage.getItem('winTopSugest') == null) { //начальное пол�
     localStorage.setItem('winLeftSugest', '295');
 }
 
-if (localStorage.getItem('winTopRefuse') == null) { //начальное положение окна Отказ от помощи
-    localStorage.setItem('winTopRefuse', '295');
-    localStorage.setItem('winLeftRefuse', '295');
-}
-
 if (localStorage.getItem('winTopRefuseNew') == null) { //начальное положение окна Отказ от помощи
     localStorage.setItem('winTopRefuseNew', '295');
     localStorage.setItem('winLeftRefuseNew', '295');
@@ -2706,32 +2701,18 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
 
 var listener16 = function (e, a) { // сохранение позиции окна доступов
-    wintRefuseForm.style.left = Number(e.clientX - myX16) + "px";
-    wintRefuseForm.style.top = Number(e.clientY - myY16) + "px";
-    localStorage.setItem('winTopRefuse', String(Number(e.clientY - myY16)));
-    localStorage.setItem('winLeftRefuse', String(Number(e.clientX - myX16)));
+    wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
+    wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";
+    localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY16)));
+    localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
 };
 
-wintRefuseForm.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
     window.myX16 = a.layerX;
     window.myY16 = a.layerY;
     document.addEventListener('mousemove', listener16);
 }
-wintRefuseForm.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
-
-var listener17 = function (e, a) { // сохранение позиции окна доступов
-    wintRefuseFormNew.style.left = Number(e.clientX - myX17) + "px";
-    wintRefuseFormNew.style.top = Number(e.clientY - myY17) + "px";
-    localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY17)));
-    localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX17)));
-};
-
-wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX17 = a.layerX;
-    window.myY17 = a.layerY;
-    document.addEventListener('mousemove', listener17);
-}
-wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener17); }
+wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
