@@ -629,7 +629,7 @@ var win_refusefrom =  // описание элементов окна отказ
                                     <option value="Неполадка при переносе урока У">Неполадка при переносе урока У</option>
                                     <option value="Неполадка при переносе урока П">Неполадка при переносе урока П</option>
                                     <option value="Сообщение что П нет на уроке">Сообщение что П нет на уроке</option>
-                                    <option value="Нет информацию о сути неполадки">Нет информацию о сути неполадки</option>
+                                    <option value="Нет информации о сути неполадки">Нет информации о сути неполадки</option>
 							</select>
 							<br>
 									
@@ -6455,65 +6455,75 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
 
-            // if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                // document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
 
-            // document.getElementById('refreshhashrefuseform').onclick = () => {
-                // if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    // document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
-                // else document.getElementById('chatlnk').value = ''
-            // }
+            document.getElementById('refreshhashrefuseform').onclick = () => {
+                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                    document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                else document.getElementById('chatlnk').value = ''
+            }
 			
-					// let sendrefuseformbyenter = document.querySelector('#textrefuseform'); //по Enter отправляет в форму отказа но еще тестится
-					// sendrefuseformbyenter.addEventListener('keydown', event => {
-						// if (event.key === "Enter") {
-							// document.querySelector('#sendrefusetodoc').click()
-						// }
-					// })
+					let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
+					sendrefuseformbyenter.addEventListener('keydown', event => {
+						if (event.key === "Enter") {
+							document.querySelector('#send2doc').click()
+						}
+					})
 
-					// let textrefuseformsolutionbyenter = document.querySelector('#textrefuseformsolution'); //по Enter отправляет в форму отказа но еще тестится
-					// textrefuseformsolutionbyenter.addEventListener('keydown', event => {
-						// if (event.key === "Enter") {
-							// document.querySelector('#sendrefusetodoc').click()
-						// }
-					// })
+					let textrefuseformsolutionbyenter = document.querySelector('#howissuesolverd'); //по Enter отправляет в форму отказа но еще тестится
+					textrefuseformsolutionbyenter.addEventListener('keydown', event => {
+						if (event.key === "Enter") {
+							document.querySelector('#send2doc').click()
+						}
+					})
 
-            // document.getElementById('sendrefusetodoc').onclick = () => {
+            document.getElementById('send2doc').onclick = () => {
 				
-                // let chatlink = document.getElementById('chatlnk').value
-                // let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
-                // let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
+                let chatlink = document.getElementById('chatlnk').value
+				
+				for (let i = 0; i< document.getElementById('userissue').children.length; i++) {
+					if (document.getElementById('userissue').children[i].selected == true)
+						let textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
+						console.log(document.getElementById('userissue').children[i].value)
+				}
+				
+				for (let i = 0; i< document.getElementById('howissuesolverd').children.length; i++) {
+					if (document.getElementById('howissuesolverd').children[i].selected == true)
+						let textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
+						console.log(document.getElementById('howissuesolverd').children[i].value)
+				}
 
-                // let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
-                // console.log(body2)
+                let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution
+                console.log(body2)
 
-                // let options2 = {
-                    // "headers": {
-                        // "content-type": "application/x-www-form-urlencoded",
-                    // },
-                    // "body": body2,
-                    // "method": "POST",
-                // }
+                let options2 = {
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded",
+                    },
+                    "body": body2,
+                    "method": "POST",
+                }
 
-                // document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                // document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
-                // if (document.getElementById('responseTextarea3') != null)
-                    // document.getElementById('responseTextarea3').value = ''
-                // document.getElementById('sendResponse').click()
+                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
+                if (document.getElementById('responseTextarea3') != null)
+                    document.getElementById('responseTextarea3').value = ''
+                document.getElementById('sendResponse').click()
 
-                // sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                // document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
+                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                document.getElementById('send2doc').innerText = "Отправлено✅"
 
-                // setTimeout(() => {
-                    // document.getElementById('sendrefusetodoc').innerText = "Отправить"
-                    // document.getElementById('AF_Refuseform').style.display = 'none'
-                // }, 3000)
+                setTimeout(() => {
+                    document.getElementById('send2doc').innerText = "Отправить"
+                    document.getElementById('AF_Refuseformnew').style.display = 'none'
+                }, 3000)
 
-                // document.getElementById('chatlnk').value = ''
-                // document.getElementById('textrefuseform').value = ''
-                // document.getElementById('textrefuseformsolution').value = ''
+                document.getElementById('chatlnk').value = ''
+                document.getElementById('userissue').value = 'Проблема клиента'
+                document.getElementById('howissuesolverd').value = 'Как решилась'
 
-            // }
+            }
         }
     }
 
