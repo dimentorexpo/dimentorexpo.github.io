@@ -6480,17 +6480,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             document.getElementById('send2doc').onclick = () => {
 				
+				let textclientsolution;
+				let textaskclient;
+				
                 let chatlink = document.getElementById('chatlnk').value
 				
 				for (let i = 0; i< document.getElementById('userissue').children.length; i++) {
 					if (document.getElementById('userissue').children[i].selected == true)
-						let textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
+						textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
 						console.log(document.getElementById('userissue').children[i].value)
 				}
 				
 				for (let i = 0; i< document.getElementById('howissuesolverd').children.length; i++) {
 					if (document.getElementById('howissuesolverd').children[i].selected == true)
-						let textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
+						textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
 						console.log(document.getElementById('howissuesolverd').children[i].value)
 				}
 
