@@ -6387,7 +6387,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 else document.getElementById('linktochatrefuse').value = ''
             }
 			
-					let sendrefuseformbyenter = document.querySelector('#sendrefusetodoc'); //по Enter отправляет в форму отказа но еще тестится
+					let sendrefuseformbyenter = document.querySelector('#textrefuseform'); //по Enter отправляет в форму отказа но еще тестится
+					sendrefuseformbyenter.addEventListener('keydown', event => {
+						if (event.key === "Enter") {
+							document.querySelector('#sendrefusetodoc').click()
+						}
+					})
+
+					let sendrefuseformbyenter = document.querySelector('#textrefuseformsolution'); //по Enter отправляет в форму отказа но еще тестится
 					sendrefuseformbyenter.addEventListener('keydown', event => {
 						if (event.key === "Enter") {
 							document.querySelector('#sendrefusetodoc').click()
