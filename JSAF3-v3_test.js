@@ -588,13 +588,111 @@ var win_refuse =  // описание элементов окна отказа �
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_box">
-                            <input id="linktochatrefuse" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+                            <input id="linktochatrefuse" placeholder="Ссылка на чат" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
 							<br>
 							<textarea id="textrefuseform" placeholder="C какой проблемой обратился клиент? (Пример: Не работает микрофон у ученика, не работает микрофон у преподавателя). Указывайте, что именно у кого не работает. Если конкретно не известно, можно указывать "не работает связь на уроке со стороны У" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
 							<br>
 							<textarea id="textrefuseformsolution" placeholder="Как решилось? ( Здесь указываем, уточняем, как решился запрос). Пример: перешли на альтернативную связь в Zoom/Skype, подключились на урок с телефона (были проблемы на пк), удалили антивирус и т.д" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="sendrefusetodoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+		</span>
+        </span>
+</div>`;
+
+var win_refusefrom =  // описание элементов окна отказа от помощи
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 409px;" id="refuse_form_header">
+                            <button title="скрывает меню" id="hideMeRefuseFormv2" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
+                        </div>
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_menu">
+                            <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							<br>
+							<select id="userissue" style="margin-left:150px; margin-top:10px;">
+									<option selected disabled="" style="background-color:DarkKhaki;" value="payf">Проблема клиента</option>
+									<option value="Не работает микрофон У">Не работает микрофон У</option>
+									<option value="Не работает микрофон П">Не работает микрофон П</option>
+									<option value="Не работает камера У">Не работает камера У</option>
+									<option value="Не работает камера П">Не работает камера П</option>
+									<option value="Не работает камера и микрофон У">Не работает камера и микрофон У</option>
+									<option value="Не работает камера и микрофон П">Не работает камера и микрофон П</option>
+									<option value="Не работает гарнитура/динамики У">Не работает гарнитура/динамики У</option>
+                                    <option value="Не работает гарнитура/динамики П">Не работает гарнитура/динамики П</option>
+									<option value="Нет синхронизации видеосвязи на уроке у обоих">Нет синхронизации видеосвязи на уроке у обоих</option>
+									<option value="Прерывается связь со стороны У">Прерывается связь со стороны У</option>
+									<option value="Прерывается связь со стороны П">Прерывается связь со стороны П</option>
+									<option value="Не работает видео связь без уточнения">Не работает видео связь без уточнения</option>
+									<option value="Помехи звука со стороны У">Помехи звука со стороны У</option>
+									<option value="Помехи звука со стороны П">Помехи звука со стороны П</option>
+									<option value="У пропал с урока">У пропал с урока</option>
+                                    <option value="Не работает кнопка входа на урок У">Не работает кнопка входа на урок У</option>
+									<option value="Не работает кнопка входа на урок П">Не работает кнопка входа на урок П</option>
+									<option value="Не может зайти на урок У">Не может зайти на урок У</option>
+									<option value="Не может зайти на урок П">Не может зайти на урок П</option>
+									<option value="Проблема с контентом урока/ДЗ У">Проблема с контентом урока/ДЗ У</option>
+									<option value="Проблема с контентом урока/ДЗ П">Проблема с контентом урока/ДЗ П</option>
+                                    <option value="Неполадка с чатом У">Неполадка с чатом У</option>
+									<option value="Неполадка с чатом П">Неполадка с чатом П</option>
+									<option value="Проблема с входом в ЛКУ">Проблема с входом в ЛКУ</option>
+									<option value="Проблема с входом в ЛКП">Проблема с входом в ЛКП</option>
+									<option value="Отображение данных в ЛК">Отображение данных в ЛК</option>
+									<option value="Проблема с ДЗ в моб. приложении">Проблема с ДЗ в моб. приложении</option>
+                                    <option value="Неполадки/ошибки при оплате">Неполадки/ошибки при оплате</option>
+									<option value="Проблема с демонстрацие экрана У">Проблема с демонстрацие экрана У</option>
+									<option value="Проблема с демонстрацие экрана П">Проблема с демонстрацие экрана П</option>
+									<option value="Запрос консультационного характера не относящийся к ТП">Запрос консультационного характера не относящийся к ТП</option>
+									<option value="Проблема с отправкой ДЗ/Тест П">Проблема с отправкой ДЗ/Тест П</option>		
+                                    <option value="Неполадки с доской на уроке У">Неполадки с доской на уроке У</option>
+                                    <option value="Неполадки с доской на уроке П">Неполадки с доской на уроке П</option>
+                                    <option value="Неполадка при переносе урока У">Неполадка при переносе урока У</option>
+                                    <option value="Неполадка при переносе урока П">Неполадка при переносе урока П</option>
+                                    <option value="Сообщение что П нет на уроке">Сообщение что П нет на уроке</option>
+                                    <option value="Нет информацию о сути неполадки">Нет информацию о сути неполадки</option>
+							</select>
+							<br>
+									
+							<select id="howissuesolverd" style="margin-left:150px; margin-top:10px;">
+									<option selected disabled="" style="background-color:DarkKhaki;" value="payf">Как решилась</option>
+									<option value="Решилось само - нет информации как">Решилось само - нет информации как</option>
+									<option value="Поменяли браузер">Поменяли браузер</option>
+									<option value="Перезапустили браузер">Перезапустили браузер</option>
+									<option value="Обновили Браузер">Обновили Браузер</option>
+									<option value="Очистили Браузер(кэш,куки)">Очистили Браузер(кэш,куки)</option>
+									<option value="Отключили расширения в Браузере">Отключили расширения в Браузере</option>
+									<option value="Обновили страницу">Обновили страницу</option>
+									<option value="Перезагрузили устройство">Перезагрузили устройство</option>
+									<option value="Поменяли устройво">Поменяли устройво</option>
+									<option value="Сменили гарнитуру">Сменили гарнитуру</option>
+									<option value="Подключили гарнитуру">Подключили гарнитуру</option>
+									<option value="Переподключились к уроку">Переподключились к уроку</option>
+									<option value="Некачественный интернет">Некачественный интернет</option>
+									<option value="Сменили интернет подключение">Сменили интернет подключение</option>
+									<option value="Сами настроили микрофон">Сами настроили микрофон</option>
+									<option value="Сами настроили камеру">Сами настроили камеру</option>
+									<option value="Сами настроили камеру и микрофон">Сами настроили камеру и микрофон</option>
+									<option value="Сами настроили гарнитура/динамики">Сами настроили гарнитура/динамики</option>
+									<option value="Перешли в мессенджер (Zoom, Skype, WA и т.д.)">Перешли в мессенджер (Zoom, Skype, WA и т.д.)</option>
+									<option value="П пересоздал урок">П пересоздал урок</option>
+									<option value="Отказ от проверки">Отказ от проверки</option>
+									<option value="Авторизовался в ЛК">Авторизовался в ЛК</option>
+									<option value="Зашел по ссылке отправленной П">Зашел по ссылке отправленной П</option>
+									<option value="Отсутствие электроенергии">Отсутствие электроенергии</option>
+									<option value="Сменили материал урока">Сменили материал урока</option>
+									<option value="Устройство ниже минимальных требований">Устройство ниже минимальных требований</option>
+									<option value="Перенос/отмена урока">Перенос/отмена урока</option>
+									<option value="Опоздание П на урок">Опоздание П на урок</option>
+									<option value="Опоздание У на урок">Опоздание У на урок</option>
+									<option value="У ученика 0 на балансе">У ученика 0 на балансе</option>
+									<option value="Решен без помощи оператора ТП">Решен без помощи оператора ТП</option>
+									<option value="П начала урок не для того У">П начала урок не для того У</option>
+									<option value="Сами настроили часовой пояс в ОС">Сами настроили часовой пояс в ОС</option>
+                            </select>
+							
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="send2doc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
 						</div>
 		</span>
         </span>
@@ -1771,6 +1869,11 @@ if (localStorage.getItem('winTopRefuse') == null) { //начальное пол�
     localStorage.setItem('winLeftRefuse', '295');
 }
 
+if (localStorage.getItem('winTopRefuseNew') == null) { //начальное положение окна Отказ от помощи
+    localStorage.setItem('winTopRefuseNew', '295');
+    localStorage.setItem('winLeftRefuseNew', '295');
+}
+
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
@@ -2426,6 +2529,13 @@ wintRefuseForm.style.display = 'none';
 wintRefuseForm.setAttribute('id', 'AF_Refuseform');
 wintRefuseForm.innerHTML = win_refuse;
 
+let wintRefuseFormNew = document.createElement('div'); // создание окна ссылок
+document.body.append(wintRefuseFormNew);
+wintRefuseFormNew.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseFormNew.style.display = 'none';
+wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
+wintRefuseFormNew.innerHTML = win_refusefrom;
+
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -2535,8 +2645,8 @@ wintTimetable.onmouseup = function () { document.removeEventListener('mousemove'
 var listener11 = function (e, a) { // сохранение позиции окна доступов
     wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
     wintTechSummary.style.top = Number(e.clientY - myY11) + "px";
-    localStorage.setItem('winTopTimetable', String(Number(e.clientY - myY11)));
-    localStorage.setItem('winLeftTimetable', String(Number(e.clientX - myX11)));
+    localStorage.setItem('winTopTechSum', String(Number(e.clientY - myY11)));
+    localStorage.setItem('winLeftTechSum', String(Number(e.clientX - myX11)));
 };
 
 wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
@@ -2615,6 +2725,20 @@ wintRefuseForm.firstElementChild.firstElementChild.firstElementChild.onmousedown
     document.addEventListener('mousemove', listener16);
 }
 wintRefuseForm.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
+
+var listener17 = function (e, a) { // сохранение позиции окна доступов
+    wintRefuseFormNew.style.left = Number(e.clientX - myX17) + "px";
+    wintRefuseFormNew.style.top = Number(e.clientY - myY17) + "px";
+    localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY17)));
+    localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX17)));
+};
+
+wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX17 = a.layerX;
+    window.myY17 = a.layerY;
+    document.addEventListener('mousemove', listener17);
+}
+wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener17); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
