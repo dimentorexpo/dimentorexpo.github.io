@@ -591,7 +591,7 @@ var win_refusefrom =  // описание элементов окна отказ
                             <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
 							<br>
 							<select id="userissue" style="height: 25px; margin-top:5px;">
-									<option selected disabled="" style="background-color:DarkKhaki;" value="payf">Проблема клиента</option>
+									<option selected disabled="" style="background-color:orange; color:white;" value="problclient">Проблема клиента</option>
 									<option value="Не работает микрофон У">Не работает микрофон У</option>
 									<option value="Не работает микрофон П">Не работает микрофон П</option>
 									<option value="Не работает камера У">Не работает камера У</option>
@@ -634,7 +634,7 @@ var win_refusefrom =  // описание элементов окна отказ
 							<br>
 									
 							<select id="howissuesolverd" style="width:410px; height: 25px;">
-									<option selected disabled="" style="background-color:DarkKhaki;" value="payf">Как решилась</option>
+									<option selected disabled="" style="background-color:orange; color:white;" value="howsolved">Как решилась</option>
 									<option value="Решилось само - нет информации как">Решилось само - нет информации как</option>
 									<option value="Поменяли браузер">Поменяли браузер</option>
 									<option value="Перезапустили браузер">Перезапустили браузер</option>
