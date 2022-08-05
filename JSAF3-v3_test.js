@@ -6523,8 +6523,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }, 3000)
 
                 document.getElementById('chatlnk').value = ''
-                document.getElementById('userissue').value = 'Проблема клиента'
-                document.getElementById('howissuesolverd').value = 'Как решилась'
+                document.getElementById('userissue').children[0].selected = true
+                document.getElementById('howissuesolverd').children[0].selected = true
 
             }
         }
