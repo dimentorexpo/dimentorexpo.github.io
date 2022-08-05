@@ -604,14 +604,14 @@ var win_refusefrom =  // описание элементов окна отказ
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 409px;" id="refuse_form_header">
+                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
                             <button title="скрывает меню" id="hideMeRefuseFormv2" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
                         </div>
-                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_menu">
-                            <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
+                            <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
 							<br>
-							<select id="userissue" style="margin-left:150px; margin-top:10px;">
+							<select id="userissue" style="height: 25px; margin-top:5px;">
 									<option selected disabled="" style="background-color:DarkKhaki;" value="payf">Проблема клиента</option>
 									<option value="Не работает микрофон У">Не работает микрофон У</option>
 									<option value="Не работает микрофон П">Не работает микрофон П</option>
@@ -654,7 +654,7 @@ var win_refusefrom =  // описание элементов окна отказ
 							</select>
 							<br>
 									
-							<select id="howissuesolverd" style="margin-left:150px; margin-top:10px;">
+							<select id="howissuesolverd" style="width:410px; height: 25px;">
 									<option selected disabled="" style="background-color:DarkKhaki;" value="payf">Как решилась</option>
 									<option value="Решилось само - нет информации как">Решилось само - нет информации как</option>
 									<option value="Поменяли браузер">Поменяли браузер</option>
@@ -2522,16 +2522,9 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
-let wintRefuseForm = document.createElement('div'); // создание окна ссылок
-document.body.append(wintRefuseForm);
-wintRefuseForm.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuse') + 'px; left: ' + localStorage.getItem('winLeftRefuse') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintRefuseForm.style.display = 'none';
-wintRefuseForm.setAttribute('id', 'AF_Refuseform');
-wintRefuseForm.innerHTML = win_refuse;
-
 let wintRefuseFormNew = document.createElement('div'); // создание окна ссылок
 document.body.append(wintRefuseFormNew);
-wintRefuseFormNew.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
