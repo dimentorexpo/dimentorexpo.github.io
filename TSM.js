@@ -631,6 +631,7 @@ var win_addChatMenu = `<div style="display: flex;">
 
 					     <div style="margin: 5px;" id="addChatMenuHeader">
                             <button class="commonbtn" title="скрывает меню" id="hideMeAddChatMenu" style="width:50px; background: #228B22;">hide</button>
+							<span id="outputstatus" style="display:none; background:#537068; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border-radius: 20px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); border: 1px solid black; font-weight:700;padding: 5px;"></span>
                         </div>
 
 						<input id="userid1" style="margin-left: 5px; width:100px; text-align:center;" placeholder="teacherId">
@@ -1091,12 +1092,29 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
 
             fetchaddchat(document.getElementById('userid1').value, document.getElementById('userid2').value, "POST")
             console.log('%cChat was added successfully!', 'color:lightgreen; font-weight:700');
+			document.getElementById('outputstatus').innerText =  "Чат добавлен"
+			document.getElementById('outputstatus').style.color =  "#48e114"
+			document.getElementById('outputstatus').style.display =  ""
+			setTimeout( () => {
+				document.getElementById('outputstatus').innerText =  ""
+				document.getElementById('outputstatus').style.display =  "none"
+			}, 3000 ) 
         }
 
         document.getElementById('RemoveChat').onclick = function () { //функция удаления чата
 
             fetchaddchat(document.getElementById('userid1').value, document.getElementById('userid2').value, "DELETE")
             console.log('%cChat was removed successfully!', 'color:orange; font-weight:700');
+			
+			document.getElementById('outputstatus').innerText =  "Чат удалён"
+			document.getElementById('outputstatus').style.color =  "red"
+			document.getElementById('outputstatus').style.display =  ""
+			setTimeout( () => {
+				document.getElementById('outputstatus').innerText =  ""
+				document.getElementById('outputstatus').style.color =  "#48e114"
+				document.getElementById('outputstatus').style.display =  "none"
+			}, 3000 ) 
+			
         }
 
         document.getElementById('hideMeAddChatMenu').onclick = () => { //функция скрытия меню чатов
