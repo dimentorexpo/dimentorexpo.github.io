@@ -6549,9 +6549,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('AF_Refuseformnew').style.display = 'none'
                 }, 3000)
 
-            }
-			
-			} else if (flagotherproblem == 1 && flagothersolved == 0)) {
+            } else if (flagotherproblem == 1 && flagothersolved == 0)) {
 				console.log('other problem =1  othersolve = 0')
 				
 			} else if (flagotherproblem == 0 && flagothersolved == 1)) {
