@@ -514,6 +514,8 @@ var win_linksd =  // описание элементов окна доступо
                             <button id="GetUserActions">🔎</button>
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>
                             <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
+							<p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">KPI Teachers</p>
+							<button title="Открывает Tableaue для просмотра информации по KPI teachers" id="kpiteachersdashboard" style="width:105px">Tableaue Dashboard</button>
                         </div>
                 </span>
         </span>
@@ -2995,7 +2997,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('grafanalnk').addEventListener('click', function () {
-        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // копируем в буфер ссылку на Grafana
+        window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем Grafana
+    })
+	
+    document.getElementById('kpiteachersdashboard').addEventListener('click', function () {
+        window.open("https://tableau.skyeng.ru/#/views/-_16291119357240/sheet18?:iid=1")    // копируем открываем дашборд КПИ тичерсов
     })
 
     document.getElementById('timetable').addEventListener('click', function () {
