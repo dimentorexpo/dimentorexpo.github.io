@@ -6431,7 +6431,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Refuseformnew').style.display = ''
 			
 			//unhide fields when choose 'other'
-			
+			let flagotherproblem=0;
 			let problemlist = document.getElementById('userissue')
 			
 			 problemlist.onchange = () => {
@@ -6443,15 +6443,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('otherproblem').classList.remove('otherfieldoff')
                         document.getElementById('otherproblem').classList.add('otherfieldon')
                         document.getElementById('otherproblem').removeAttribute('disabled')
+						flagotherproblem=1;
 
                     } else {
                         document.getElementById('otherproblem').classList.add('otherfieldoff')
                         document.getElementById('otherproblem').classList.remove('otherfieldon')
                         document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+						flagotherproblem=0;
                     }
                 }
             }			
 			
+			let flagothersolved=0;
 			let solvedlist = document.getElementById('howissuesolverd')
 			
 			 solvedlist.onchange = () => {
@@ -6463,22 +6466,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('othersolved').classList.remove('otherfieldoff')
                         document.getElementById('othersolved').classList.add('otherfieldon')
                         document.getElementById('othersolved').removeAttribute('disabled')
+						flagothersolved=1;
 
                     } else {
                         document.getElementById('othersolved').classList.add('otherfieldoff')
                         document.getElementById('othersolved').classList.remove('otherfieldon')
                         document.getElementById('othersolved').setAttribute('disabled', 'disabled')
+						flagothersolved=0;
                     }
                 }
             }
-			
-			
-			
+					
 			// end of it
-			
-			
-			
-			
+						
 
             if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                 document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
@@ -6509,7 +6509,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let textaskclient;
 				
                 let chatlink = document.getElementById('chatlnk').value
-				
+							
 				for (let i = 0; i< document.getElementById('userissue').children.length; i++) {
 					if (document.getElementById('userissue').children[i].selected == true)
 						textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
@@ -6521,6 +6521,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
 						console.log(document.getElementById('howissuesolverd').children[i].value)
 				}
+				
+				if (flagotherproblem == 0 && flagothersolved == 0) {
 
                 let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution
                 console.log(body2)
@@ -6547,11 +6549,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('AF_Refuseformnew').style.display = 'none'
                 }, 3000)
 
-                document.getElementById('chatlnk').value = ''
+            }
+			
+			} else if (flagotherproblem == 1 && flagothersolved == 0)) {
+				console.log('other problem =1  othersolve = 0')
+				
+			} else if (flagotherproblem == 0 && flagothersolved == 1)) {
+				console.log('other problem =0  othersolve = 1')
+				
+			} else if (flagotherproblem == 1 && flagothersolved == 1)) {	
+				console.log('other problem =1  othersolve = 1')
+			}
+			
+			    document.getElementById('chatlnk').value = ''
                 document.getElementById('userissue').children[0].selected = true
                 document.getElementById('howissuesolverd').children[0].selected = true
-
-            }
         }
     }
 
