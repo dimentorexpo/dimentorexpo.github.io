@@ -6470,6 +6470,34 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Refuseformnew').style.display = 'none'
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
+			
+			//unhide fields when choose 'other'
+			
+			let problemlist = document.getElementById('userissue')
+
+            for (let i = 0; i < problemlist.children.length; i++) {
+                problemlist.children[i].onclick = () => {
+                    if (problemlist.children[i].selected == true && problemlist.children[i].value == 'Другое') {
+
+                        document.getElementById('otherproblem').classList.remove('otherfieldoff')
+                        document.getElementById('otherproblem').classList.add('otherfieldon')
+                        document.getElementById('otherproblem').removeAttribute('disabled')
+
+                    } else {
+                        document.getElementById('otherproblem').classList.add('otherfieldoff')
+                        document.getElementById('otherproblem').classList.remove('otherfieldon')
+                        document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+                    }
+                }
+            }
+			
+			
+			
+			// end of it
+			
+			
+			
+			
 
             if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                 document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
