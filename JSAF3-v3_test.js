@@ -6564,6 +6564,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('howissuesolverd').children[0].selected = true
         }
     }
+	}
 
     document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
