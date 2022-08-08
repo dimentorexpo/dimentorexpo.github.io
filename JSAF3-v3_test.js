@@ -592,7 +592,7 @@ var win_refusefrom =  // описание элементов окна отказ
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
                             <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
 							<br>
-							<select id="userissue" style="height: 25px; margin-top:5px;">
+							<select id="userissue" style="height: 25px; width:410px; margin-top:5px;">
 									<option selected disabled="" style="background-color:orange; color:white;" value="problclient">Проблема клиента</option>
 									<option value="Не работает камера и микрофон У">Не работает камера и микрофон У</option>
 									<option value="Не работает микрофон У">Не работает микрофон У</option>
