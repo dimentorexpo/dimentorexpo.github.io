@@ -6524,60 +6524,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				if (flagotherproblem == 0 && flagothersolved == 0) {
 
-                let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution
+                let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
                 console.log(body2)
-
-                let options2 = {
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                    },
-                    "body": body2,
-                    "method": "POST",
-                }
-
-                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
-                if (document.getElementById('responseTextarea3') != null)
-                    document.getElementById('responseTextarea3').value = ''
-                document.getElementById('sendResponse').click()
-
-                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                document.getElementById('send2doc').innerText = "Отправлено✅"
-
-                setTimeout(() => {
-                    document.getElementById('send2doc').innerText = "Отправить"
-                    document.getElementById('AF_Refuseformnew').style.display = 'none'
-                }, 3000)
 
             } else if (flagotherproblem == 1 && flagothersolved == 0) {
 				
 				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 				
-				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.436898488=' + otherproblemtext
+				let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
                 console.log(body2)
-
-                let options2 = {
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                    },
-                    "body": body2,
-                    "method": "POST",
-                }
-
-                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
-                if (document.getElementById('responseTextarea3') != null)
-                    document.getElementById('responseTextarea3').value = ''
-                document.getElementById('sendResponse').click()
-
-                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                document.getElementById('send2doc').innerText = "Отправлено✅"
-
-                setTimeout(() => {
-                    document.getElementById('send2doc').innerText = "Отправить"
-                    document.getElementById('AF_Refuseformnew').style.display = 'none'
-                }, 3000)
-				
 								
 				console.log('other problem =1  othersolve = 0')
 				
@@ -6585,31 +6540,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
-				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541=' + othersolvedtext
+				let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
                 console.log(body2)
-
-                let options2 = {
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                    },
-                    "body": body2,
-                    "method": "POST",
-                }
-
-                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
-                if (document.getElementById('responseTextarea3') != null)
-                    document.getElementById('responseTextarea3').value = ''
-                document.getElementById('sendResponse').click()
-
-                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                document.getElementById('send2doc').innerText = "Отправлено✅"
-
-                setTimeout(() => {
-                    document.getElementById('send2doc').innerText = "Отправить"
-                    document.getElementById('AF_Refuseformnew').style.display = 'none'
-                }, 3000)
-				
 				
 				console.log('other problem =0  othersolve = 1')
 				
@@ -6618,9 +6550,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
-				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541=' + othersolvedtext + '&entry.436898488=' + otherproblemtext
+				let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
                 console.log(body2)
 
+			}
+			
                 let options2 = {
                     "headers": {
                         "content-type": "application/x-www-form-urlencoded",
@@ -6630,7 +6564,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }
 
                 document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
+                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
                 if (document.getElementById('responseTextarea3') != null)
                     document.getElementById('responseTextarea3').value = ''
                 document.getElementById('sendResponse').click()
@@ -6642,9 +6576,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('send2doc').innerText = "Отправить"
                     document.getElementById('AF_Refuseformnew').style.display = 'none'
                 }, 3000)
-			
-				console.log('other problem =1  othersolve = 1')
-			}
 			
 			    document.getElementById('chatlnk').value = ''
                 document.getElementById('userissue').children[0].selected = true
