@@ -6509,6 +6509,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let textaskclient;
 				let otherproblemtext;
 				let othersolvedtext;
+				let body2ж
 				
                 let chatlink = document.getElementById('chatlnk').value
 							
@@ -6524,14 +6525,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				if (flagotherproblem == 0 && flagothersolved == 0) {
 
-                let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
+                body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
                 console.log(body2)
 
             } else if (flagotherproblem == 1 && flagothersolved == 0) {
 				
 				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 				
-				let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
+				body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
                 console.log(body2)
 								
 				console.log('other problem =1  othersolve = 0')
@@ -6540,7 +6541,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
-				let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
+				body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
                 console.log(body2)
 				
 				console.log('other problem =0  othersolve = 1')
@@ -6550,7 +6551,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
-				let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
+				body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
                 console.log(body2)
 
 			}
