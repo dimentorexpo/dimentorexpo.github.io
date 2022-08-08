@@ -6474,9 +6474,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			//unhide fields when choose 'other'
 			
 			let problemlist = document.getElementById('userissue')
+			
+			 problemlist.onchange = () => {
 
             for (let i = 0; i < problemlist.children.length; i++) {
-                problemlist.children[i].onclick = () => {
+
                     if (problemlist.children[i].selected == true && problemlist.children[i].value == 'Другое') {
 
                         document.getElementById('otherproblem').classList.remove('otherfieldoff')
@@ -6487,6 +6489,26 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('otherproblem').classList.add('otherfieldoff')
                         document.getElementById('otherproblem').classList.remove('otherfieldon')
                         document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+                    }
+                }
+            }			
+			
+			let solvedlist = document.getElementById('howissuesolverd')
+			
+			 solvedlist.onchange = () => {
+
+            for (let i = 0; i < solvedlist.children.length; i++) {
+
+                    if (solvedlist.children[i].selected == true && solvedlist.children[i].value == 'Другое') {
+
+                        document.getElementById('othersolved').classList.remove('otherfieldoff')
+                        document.getElementById('othersolved').classList.add('otherfieldon')
+                        document.getElementById('othersolved').removeAttribute('disabled')
+
+                    } else {
+                        document.getElementById('othersolved').classList.add('otherfieldoff')
+                        document.getElementById('othersolved').classList.remove('otherfieldon')
+                        document.getElementById('othersolved').setAttribute('disabled', 'disabled')
                     }
                 }
             }
