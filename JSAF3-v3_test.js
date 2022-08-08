@@ -6553,7 +6553,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 				
-				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.436898488' + otherproblemtext
+				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.436898488=' + otherproblemtext
                 console.log(body2)
 
                 let options2 = {
@@ -6585,7 +6585,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
-				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541' + othersolvedtext
+				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541=' + othersolvedtext
                 console.log(body2)
 
                 let options2 = {
@@ -6618,7 +6618,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
-				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541' + othersolvedtext + '&entry.436898488' + otherproblemtext
+				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541=' + othersolvedtext + '&entry.436898488=' + otherproblemtext
                 console.log(body2)
 
                 let options2 = {
