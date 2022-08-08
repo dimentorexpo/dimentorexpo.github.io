@@ -6507,6 +6507,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				let textclientsolution;
 				let textaskclient;
+				let otherproblemtext;
+				let othersolvedtext;
 				
                 let chatlink = document.getElementById('chatlnk').value
 							
@@ -6548,12 +6550,99 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }, 3000)
 
             } else if (flagotherproblem == 1 && flagothersolved == 0) {
+				
+				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').innerText)
+				
+				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.436898488' + otherproblemtext
+                console.log(body2)
+
+                let options2 = {
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded",
+                    },
+                    "body": body2,
+                    "method": "POST",
+                }
+
+                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
+                if (document.getElementById('responseTextarea3') != null)
+                    document.getElementById('responseTextarea3').value = ''
+                document.getElementById('sendResponse').click()
+
+                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                document.getElementById('send2doc').innerText = "Отправлено✅"
+
+                setTimeout(() => {
+                    document.getElementById('send2doc').innerText = "Отправить"
+                    document.getElementById('AF_Refuseformnew').style.display = 'none'
+                }, 3000)
+				
+								
 				console.log('other problem =1  othersolve = 0')
 				
 			} else if (flagotherproblem == 0 && flagothersolved == 1) {
+				
+				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').innerText)
+				
+				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541' + othersolvedtext
+                console.log(body2)
+
+                let options2 = {
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded",
+                    },
+                    "body": body2,
+                    "method": "POST",
+                }
+
+                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
+                if (document.getElementById('responseTextarea3') != null)
+                    document.getElementById('responseTextarea3').value = ''
+                document.getElementById('sendResponse').click()
+
+                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                document.getElementById('send2doc').innerText = "Отправлено✅"
+
+                setTimeout(() => {
+                    document.getElementById('send2doc').innerText = "Отправить"
+                    document.getElementById('AF_Refuseformnew').style.display = 'none'
+                }, 3000)
+				
+				
 				console.log('other problem =0  othersolve = 1')
 				
 			} else if (flagotherproblem == 1 && flagothersolved == 1) {	
+			
+				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').innerText)
+				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').innerText)
+				
+				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541' + othersolvedtext + '&entry.436898488' + otherproblemtext
+                console.log(body2)
+
+                let options2 = {
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded",
+                    },
+                    "body": body2,
+                    "method": "POST",
+                }
+
+                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScfuYLibPjiTeAXWFjWxiOvaaaz2nlGsV9yLj6F9yr1j2OLQA/formResponse'
+                if (document.getElementById('responseTextarea3') != null)
+                    document.getElementById('responseTextarea3').value = ''
+                document.getElementById('sendResponse').click()
+
+                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                document.getElementById('send2doc').innerText = "Отправлено✅"
+
+                setTimeout(() => {
+                    document.getElementById('send2doc').innerText = "Отправить"
+                    document.getElementById('AF_Refuseformnew').style.display = 'none'
+                }, 3000)
+			
 				console.log('other problem =1  othersolve = 1')
 			}
 			
