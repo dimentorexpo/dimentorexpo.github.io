@@ -6551,7 +6551,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             } else if (flagotherproblem == 1 && flagothersolved == 0) {
 				
-				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').innerText)
+				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 				
 				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.436898488' + otherproblemtext
                 console.log(body2)
@@ -6583,7 +6583,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			} else if (flagotherproblem == 0 && flagothersolved == 1) {
 				
-				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').innerText)
+				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
 				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541' + othersolvedtext
                 console.log(body2)
@@ -6615,8 +6615,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			} else if (flagotherproblem == 1 && flagothersolved == 1) {	
 			
-				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').innerText)
-				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').innerText)
+				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
+				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 				
 				let body2 = 'entry.473798010=' + chatlink + '&entry.1007574392=' + textaskclient + '&entry.976487000=' + textclientsolution + '&entry.1413265541' + othersolvedtext + '&entry.436898488' + otherproblemtext
                 console.log(body2)
