@@ -6587,6 +6587,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('otherproblem').classList.add('otherfieldoff')
                 document.getElementById('otherproblem').classList.remove('otherfieldon')
                 document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+				document.getElementById('otherproblem').value = ''
+				document.getElementById('othersolved').value = ''
+
         }
     }
 	}
