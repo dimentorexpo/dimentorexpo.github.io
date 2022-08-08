@@ -607,7 +607,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550;" id="links_1str">
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar">ℹ</button>
-					<button title="Открывает раздел для генерирования одноразового пароля для мобильного приложения" id="passappgen" class="uplinksbar">📲</button>
+					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar">🗑</button>
 					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" class="uplinksbar">📚</button>
 					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" class="uplinksbar">📆</button>
 					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar">📋</button>
@@ -6804,8 +6804,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Stat').style.display = ''
     }
 
-    document.getElementById('passappgen').addEventListener('click', function () {
-        window.open("https://id.skyeng.ru/admin/auth/one-time-password")    // открываем ссылку в новой вкладке на генерацию одноразовых паролей
+    document.getElementById('deleteaclnk').addEventListener('click', function () {
+        window.open("https://infra.skyeng.ru/request/create/166")    // открываем ссылку в новой вкладке для создания задачи на удаление аккаунта
     })
 
     document.getElementById('probniki').addEventListener('click', function () {
