@@ -300,7 +300,7 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-		#refuseform:hover {
+		#otkaz:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
@@ -581,22 +581,68 @@ var win_suggest =  // описание элементов окна предло�
         </span>
 </div>`;
 
-var win_refuse =  // описание элементов окна отказа от помощи
+var win_refusefrom =  // описание элементов окна отказа от помощи
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 409px;" id="refuse_form_main">
-                            <button title="скрывает меню" id="hideMeRefuseForm" style="width:50px; background: #228B22;">hide</button>
-                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathashrefuseform" style="width:24px;">♻</button>
+                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
+                            <button title="скрывает меню" id="hideMeRefuseFormv2" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
                         </div>
-                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="refuse_form_box">
-                            <input id="linktochatrefuse" placeholder="Ссылка на предложение (чат)" title="Копируем ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
+                            <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
 							<br>
-							<textarea id="textrefuseform" placeholder="C какой проблемой обратился клиент? (Пример: Не работает микрофон у ученика, не работает микрофон у преподавателя). Указывайте, что именно у кого не работает. Если конкретно не известно, можно указывать "не работает связь на уроке со стороны У" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
+							<select id="userissue" style="height: 25px; width:410px; margin-top:5px;">
+									<option selected disabled="" style="background-color:orange; color:white;" value="problclient">Проблема клиента</option>
+									<option value="Не работает камера и микрофон У">Не работает камера и микрофон У</option>
+									<option value="Не работает микрофон У">Не работает микрофон У</option>
+									<option value="Не работает камера У">Не работает камера У</option>
+									<option value="Не работает гарнитура/динамики У">Не работает гарнитура/динамики У</option>
+									<option value="Прерывается связь со стороны У">Прерывается связь со стороны У</option>
+									<option value="У пропал с урока">У пропал с урока</option>
+									<option value="Не может зайти на урок У">Не может зайти на урок У</option>
+									<option value="Не работает кнопка входа на урок У">Не работает кнопка входа на урок У</option>
+									<option value="Не работает камера и микрофон П">Не работает камера и микрофон П</option>
+									<option value="Не работает микрофон П">Не работает микрофон П</option>
+									<option value="Не работает камера П">Не работает камера П</option>
+									<option value="Нет синхронизации видеосвязи на уроке у обоих">Нет синхронизации видеосвязи на уроке у обоих</option>
+									<option value="Проблема с контентом урока/ДЗ У">Проблема с контентом урока/ДЗ У</option>
+									<option value="Проблема с входом в ЛКУ">Проблема с входом в ЛКУ</option>
+									<option value="Отображение данных в ЛК">Отображение данных в ЛК</option>
+									<option value="Другое">Другое</option>
+							</select>
 							<br>
-							<textarea id="textrefuseformsolution" placeholder="Как решилось? ( Здесь указываем, уточняем, как решился запрос). Пример: перешли на альтернативную связь в Zoom/Skype, подключились на урок с телефона (были проблемы на пк), удалили антивирус и т.д" и подобное." title="Вводим текст проблемы клиента" autocomplete="off" type="text" style="text-align: center; width: 405px; height:100px; color: black; margin-top: 5px"></textarea>
+							
+							<textarea id="otherproblem" class="otherfieldoff" disabled="true" placeholder="Другое, не подошли варианты 'Проблема'" title="Вводим свой вариант какая у пользователя проблема" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							
 							<br>
-							<button title="Отправляет заполненные поля формы в док" id="sendrefusetodoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
+									
+							<select id="howissuesolverd" style="width:410px; height: 25px;">
+									<option selected disabled="" style="background-color:orange; color:white;" value="howsolved">Как решилась</option>
+									<option value="Решилось само - нет информации как">Решилось само - нет информации как</option>
+									<option value="Отказ от проверки">Отказ от проверки</option>
+									<option value="Обновили страницу">Обновили страницу</option>
+									<option value="Перезагрузили устройство">Перезагрузили устройство</option>
+									<option value="Поменяли устройство">Поменяли устройство</option>
+									<option value="Некачественный интернет">Некачественный интернет</option>
+									<option value="Сменили интернет подключение">Сменили интернет подключение</option>
+									<option value="Поменяли браузер">Поменяли браузер</option>
+									<option value="Переподключились к уроку">Переподключились к уроку</option>
+									<option value="Перешли в мессенджер (Zoom, Skype, WA и т.д.)">Перешли в мессенджер (Zoom, Skype, WA и т.д.)</option>
+									<option value="Сами настроили камеру и микрофон">Сами настроили камеру и микрофон</option>
+									<option value="Сами настроили микрофон">Сами настроили микрофон</option>
+									<option value="Сами настроили камеру">Сами настроили камеру</option>
+									<option value="Сами настроили гарнитура/динамики">Сами настроили гарнитура/динамики</option>
+									<option value="Сменили гарнитуру">Сменили гарнитуру</option>
+									<option value="Другое">Другое</option>
+                            </select>
+							
+							<br>
+							
+							<textarea id="othersolved" class="otherfieldoff" disabled="true" placeholder="Другое, не подошли варианты 'Решилось'" title="Вводим свой вариант как решилась проблема" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="send2doc" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 						</div>
 		</span>
         </span>
@@ -1768,9 +1814,9 @@ if (localStorage.getItem('winTopSugest') == null) { //начальное пол�
     localStorage.setItem('winLeftSugest', '295');
 }
 
-if (localStorage.getItem('winTopRefuse') == null) { //начальное положение окна Отказ от помощи
-    localStorage.setItem('winTopRefuse', '295');
-    localStorage.setItem('winLeftRefuse', '295');
+if (localStorage.getItem('winTopRefuseNew') == null) { //начальное положение окна Отказ от помощи
+    localStorage.setItem('winTopRefuseNew', '295');
+    localStorage.setItem('winLeftRefuseNew', '295');
 }
 
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
@@ -2217,10 +2263,10 @@ butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
 butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
-let butrefuseform = document.createElement('div')
-butrefuseform.id = "refuseform"
-butrefuseform.innerHTML = "❌Отказ от помощи"
-butrefuseform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+let butrefuse = document.createElement('div')
+butrefuse.id = "otkaz"
+butrefuse.innerHTML = "❌Отказ от помощи"
+butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -2421,12 +2467,12 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
-let wintRefuseForm = document.createElement('div'); // создание окна ссылок
-document.body.append(wintRefuseForm);
-wintRefuseForm.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRefuse') + 'px; left: ' + localStorage.getItem('winLeftRefuse') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintRefuseForm.style.display = 'none';
-wintRefuseForm.setAttribute('id', 'AF_Refuseform');
-wintRefuseForm.innerHTML = win_refuse;
+let wintRefuseFormNew = document.createElement('div'); // создание окна ссылок
+document.body.append(wintRefuseFormNew);
+wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseFormNew.style.display = 'none';
+wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
+wintRefuseFormNew.innerHTML = win_refusefrom;
 
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
@@ -2605,18 +2651,18 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
 
 var listener16 = function (e, a) { // сохранение позиции окна доступов
-    wintRefuseForm.style.left = Number(e.clientX - myX16) + "px";
-    wintRefuseForm.style.top = Number(e.clientY - myY16) + "px";
-    localStorage.setItem('winTopRefuse', String(Number(e.clientY - myY16)));
-    localStorage.setItem('winLeftRefuse', String(Number(e.clientX - myX16)));
+    wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
+    wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";
+    localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY16)));
+    localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
 };
 
-wintRefuseForm.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
     window.myX16 = a.layerX;
     window.myY16 = a.layerY;
     document.addEventListener('mousemove', listener16);
 }
-wintRefuseForm.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
+wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
@@ -4832,9 +4878,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Sugform').style.display = 'none'
     }
 
-    document.getElementById('hideMeRefuseForm').onclick = () => { //форма hide
-        if (document.getElementById('AF_Refuseform').style.display == '')
-            document.getElementById('AF_Refuseform').style.display = 'none'
+    document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
+        if (document.getElementById('AF_Refuseformnew').style.display == '')
+            document.getElementById('AF_Refuseformnew').style.display = 'none'
     }
 
     document.getElementById('hideMeChHis').onclick = () => { //форма hide
@@ -6378,44 +6424,138 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('refuseform').onclick = () => { // открыть форму Отказ от помощи
-        if (document.getElementById('AF_Refuseform').style.display == '')
-            document.getElementById('AF_Refuseform').style.display = 'none'
+    document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
+        if (document.getElementById('AF_Refuseformnew').style.display == '')
+            document.getElementById('AF_Refuseformnew').style.display = 'none'
         else {
-            document.getElementById('AF_Refuseform').style.display = ''
+            document.getElementById('AF_Refuseformnew').style.display = ''
+			
+			//unhide fields when choose 'other'
+			let flagotherproblem=0;
+			let problemlist = document.getElementById('userissue')
+			
+			 problemlist.onchange = () => {
+
+            for (let i = 0; i < problemlist.children.length; i++) {
+
+                    if (problemlist.children[i].selected == true && problemlist.children[i].value == 'Другое') {
+
+                        document.getElementById('otherproblem').classList.remove('otherfieldoff')
+                        document.getElementById('otherproblem').classList.add('otherfieldon')
+                        document.getElementById('otherproblem').removeAttribute('disabled')
+						flagotherproblem=1;
+
+                    } else {
+                        document.getElementById('otherproblem').classList.add('otherfieldoff')
+                        document.getElementById('otherproblem').classList.remove('otherfieldon')
+                        document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+						flagotherproblem=0;
+                    }
+                }
+            }			
+			
+			let flagothersolved=0;
+			let solvedlist = document.getElementById('howissuesolverd')
+			
+			 solvedlist.onchange = () => {
+
+            for (let i = 0; i < solvedlist.children.length; i++) {
+
+                    if (solvedlist.children[i].selected == true && solvedlist.children[i].value == 'Другое') {
+
+                        document.getElementById('othersolved').classList.remove('otherfieldoff')
+                        document.getElementById('othersolved').classList.add('otherfieldon')
+                        document.getElementById('othersolved').removeAttribute('disabled')
+						flagothersolved=1;
+
+                    } else {
+                        document.getElementById('othersolved').classList.add('otherfieldoff')
+                        document.getElementById('othersolved').classList.remove('otherfieldon')
+                        document.getElementById('othersolved').setAttribute('disabled', 'disabled')
+						flagothersolved=0;
+                    }
+                }
+            }
+					
+			// end of it
+						
 
             if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
 
-            document.getElementById('refreshchathashrefuseform').onclick = () => {
+            document.getElementById('refreshhashrefuseform').onclick = () => {
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('linktochatrefuse').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
-                else document.getElementById('linktochatrefuse').value = ''
+                    document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                else document.getElementById('chatlnk').value = ''
             }
 			
-					let sendrefuseformbyenter = document.querySelector('#textrefuseform'); //по Enter отправляет в форму отказа но еще тестится
+					let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
 					sendrefuseformbyenter.addEventListener('keydown', event => {
 						if (event.key === "Enter") {
-							document.querySelector('#sendrefusetodoc').click()
+							document.querySelector('#send2doc').click()
 						}
 					})
 
-					let textrefuseformsolutionbyenter = document.querySelector('#textrefuseformsolution'); //по Enter отправляет в форму отказа но еще тестится
+					let textrefuseformsolutionbyenter = document.querySelector('#howissuesolverd'); //по Enter отправляет в форму отказа но еще тестится
 					textrefuseformsolutionbyenter.addEventListener('keydown', event => {
 						if (event.key === "Enter") {
-							document.querySelector('#sendrefusetodoc').click()
+							document.querySelector('#send2doc').click()
 						}
 					})
 
-            document.getElementById('sendrefusetodoc').onclick = () => {
+            document.getElementById('send2doc').onclick = () => {
 				
-                let chatlink = document.getElementById('linktochatrefuse').value
-                let textaskclient = encodeURIComponent(document.getElementById('textrefuseform').value)
-                let textclientsolution = encodeURIComponent(document.getElementById('textrefuseformsolution').value)
+				let textclientsolution;
+				let textaskclient;
+				let otherproblemtext;
+				let othersolvedtext;
+				let body2ж
+				
+                let chatlink = document.getElementById('chatlnk').value
+							
+				for (let i = 0; i< document.getElementById('userissue').children.length; i++) {
+					if (document.getElementById('userissue').children[i].selected == true)
+						textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
+				}
+				
+				for (let i = 0; i< document.getElementById('howissuesolverd').children.length; i++) {
+					if (document.getElementById('howissuesolverd').children[i].selected == true)
+						textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
+				}
+				
+				if (flagotherproblem == 0 && flagothersolved == 0) {
 
-                let body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
+                body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
                 console.log(body2)
 
+            } else if (flagotherproblem == 1 && flagothersolved == 0) {
+				
+				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
+				
+				body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
+                console.log(body2)
+								
+				console.log('other problem =1  othersolve = 0')
+				
+			} else if (flagotherproblem == 0 && flagothersolved == 1) {
+				
+				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
+				
+				body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
+                console.log(body2)
+				
+				console.log('other problem =0  othersolve = 1')
+				
+			} else if (flagotherproblem == 1 && flagothersolved == 1) {	
+			
+				otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
+				othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
+				
+				body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
+                console.log(body2)
+
+			}
+			
                 let options2 = {
                     "headers": {
                         "content-type": "application/x-www-form-urlencoded",
@@ -6431,20 +6571,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('sendResponse').click()
 
                 sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                document.getElementById('sendrefusetodoc').innerText = "Отправлено✅"
+                document.getElementById('send2doc').innerText = "Отправлено✅"
 
                 setTimeout(() => {
-                    document.getElementById('sendrefusetodoc').innerText = "Отправить"
-                    document.getElementById('AF_Refuseform').style.display = 'none'
+                    document.getElementById('send2doc').innerText = "Отправить"
+                    document.getElementById('AF_Refuseformnew').style.display = 'none'
                 }, 3000)
-
-                document.getElementById('linktochatrefuse').value = ''
-                document.getElementById('textrefuseform').value = ''
-                document.getElementById('textrefuseformsolution').value = ''
-
-            }
+			
+			    document.getElementById('chatlnk').value = ''
+                document.getElementById('userissue').children[0].selected = true
+                document.getElementById('howissuesolverd').children[0].selected = true
+				document.getElementById('othersolved').classList.add('otherfieldoff')
+				document.getElementById('othersolved').classList.remove('otherfieldon')
+				document.getElementById('othersolved').setAttribute('disabled', 'disabled')
+				document.getElementById('otherproblem').classList.add('otherfieldoff')
+                document.getElementById('otherproblem').classList.remove('otherfieldon')
+                document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
         }
     }
+	}
 
     document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
@@ -6812,8 +6957,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     document.getElementById('deleteaclnk').addEventListener('click', function () {
         window.open("https://infra.skyeng.ru/request/create/166")    // открываем ссылку в новой вкладке для создания задачи на удаление аккаунта
-    })
-
+	    })
+		
     document.getElementById('probniki').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
     })
@@ -7182,7 +7327,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
     }
 
     if (butName == '🖕Отказ')
-        document.getElementById('refuseform').click();
+        document.getElementById('otkaz').click();
 
     msgFromTable(butName)
 
@@ -8292,7 +8437,7 @@ function startTimer() {
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
         btn15.addEventListener('click', function () {
-            document.getElementById('refuseform').click();
+            document.getElementById('otkaz').click();
         })
 
 
@@ -12063,7 +12208,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
-            btnAdd1.insertBefore(butrefuseform, btnAdd1.children[5])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[5])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
         }, 2000)
@@ -12081,7 +12226,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
-            menubar.append(document.getElementById('refuseform'))
+            menubar.append(document.getElementById('otkaz'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
