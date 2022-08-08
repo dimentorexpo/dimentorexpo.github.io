@@ -6896,7 +6896,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     document.getElementById('deleteaclnk').addEventListener('click', function () {
         window.open("https://infra.skyeng.ru/request/create/166")    // открываем ссылку в новой вкладке для создания задачи на удаление аккаунта
-
+	    })
+		
     document.getElementById('probniki').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
     })
