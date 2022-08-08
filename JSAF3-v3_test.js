@@ -630,7 +630,12 @@ var win_refusefrom =  // описание элементов окна отказ
                                     <option value="Неполадка при переносе урока П">Неполадка при переносе урока П</option>
                                     <option value="Сообщение что П нет на уроке">Сообщение что П нет на уроке</option>
                                     <option value="Нет информации о сути неполадки">Нет информации о сути неполадки</option>
+                                    <option value="Другое">Другое</option>
 							</select>
+							<br>
+							
+							<textarea id="otherproblem" placeholder="Другое, не подошли варианты Проблема" title="Вводим свой вариант какая у пользователя проблема" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							
 							<br>
 									
 							<select id="howissuesolverd" style="width:410px; height: 25px;">
@@ -668,7 +673,12 @@ var win_refusefrom =  // описание элементов окна отказ
 									<option value="Решен без помощи оператора ТП">Решен без помощи оператора ТП</option>
 									<option value="П начала урок не для того У">П начала урок не для того У</option>
 									<option value="Сами настроили часовой пояс в ОС">Сами настроили часовой пояс в ОС</option>
+									<option value="Другое">Другое</option>
                             </select>
+							
+							<br>
+							
+							<textarea id="othersolved" placeholder="Другое, не подошли варианты Решилось" title="Вводим свой вариант как решилась проблема" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 							
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="send2doc" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
