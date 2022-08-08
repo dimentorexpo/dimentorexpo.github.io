@@ -6513,13 +6513,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i = 0; i< document.getElementById('userissue').children.length; i++) {
 					if (document.getElementById('userissue').children[i].selected == true)
 						textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
-						console.log(document.getElementById('userissue').children[i].value)
 				}
 				
 				for (let i = 0; i< document.getElementById('howissuesolverd').children.length; i++) {
 					if (document.getElementById('howissuesolverd').children[i].selected == true)
 						textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
-						console.log(document.getElementById('howissuesolverd').children[i].value)
 				}
 				
 				if (flagotherproblem == 0 && flagothersolved == 0) {
@@ -6562,6 +6560,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			    document.getElementById('chatlnk').value = ''
                 document.getElementById('userissue').children[0].selected = true
                 document.getElementById('howissuesolverd').children[0].selected = true
+				document.getElementById('othersolved').classList.add('otherfieldoff')
+				document.getElementById('othersolved').classList.remove('otherfieldon')
+				document.getElementById('othersolved').setAttribute('disabled', 'disabled')
+				document.getElementById('otherproblem').classList.add('otherfieldoff')
+                document.getElementById('otherproblem').classList.remove('otherfieldon')
+                document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
         }
     }
 	}
