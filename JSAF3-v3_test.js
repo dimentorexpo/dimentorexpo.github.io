@@ -515,7 +515,7 @@ var win_linksd =  // описание элементов окна доступо
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>
                             <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
 							<p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">KPI Teachers</p>
-							<button title="Открывает Tableaue для просмотра информации по KPI teachers" id="kpiteachersdashboard" style="width:105px">Tableaue Dashboard</button>
+							<button title="Открывает Tableaue для просмотра информации по KPI teachers" id="kpiteachersdashboard" style="width:150px">Tableaue Dashboard</button>
                         </div>
                 </span>
         </span>
