@@ -463,7 +463,7 @@ function mystylesAFMS() {
 		transition: all 0.5s ease;
 		width: 14px;
 		height: 14px;
-		margin-top: 3px;
+		margin-top: 2px;
 	}
 
 	.savelinktowordcms {
@@ -1107,7 +1107,7 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
             console.log('%cChat was removed successfully!', 'color:orange; font-weight:700');
 			
 			document.getElementById('outputstatus').innerText =  "Чат удалён"
-			document.getElementById('outputstatus').style.color =  "red"
+			document.getElementById('outputstatus').style.color =  "orange"
 			document.getElementById('outputstatus').style.display =  ""
 			setTimeout( () => {
 				document.getElementById('outputstatus').innerText =  ""
