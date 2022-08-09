@@ -588,6 +588,7 @@ var win_refusefrom =  // описание элементов окна отказ
                         <div style="margin: 5px; width: 410px;" id="refuse_form_header">
                             <button title="скрывает меню" id="hideMeRefuseFormv2" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
+                            <button title="По нажатию обновляет перечень опций в разделе Проблема и Как решилось" id="refreshoptions" style="width:24px;">🔄</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
                             <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
@@ -6444,7 +6445,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 			
 			getissueandsolution();
-
 			
 			//unhide fields when choose 'other'
 			let flagotherproblem=0;
@@ -6492,6 +6492,34 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
             }
+			
+			document.getElementById('refreshoptions').onclick = async function() {
+				objSelIssue.length = 1;
+				objSelSolution.length = 1;
+				
+				document.getElementById('send2doc').innerText = 'Загрузка'
+
+				issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
+				await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
+				issuecontainer = issuedata.result;
+				console.log(issuedata.result) //получим список проблем
+
+				for (let i = 0; i < issuecontainer.length; i++) {
+					addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
+					}
+				
+				solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
+				await fetch(solutionfromdoc).then(r=>r.json()).then(r=>solutiondata=r)
+				solutioncontainer = solutiondata.result;
+				console.log(solutiondata.result) //получим список как решилось
+				
+				for (let i = 0; i < solutioncontainer.length; i++) {
+						addOption(objSelSolution, `${solutioncontainer[i][0]}`, `${solutioncontainer[i][0]}`)
+					}
+				
+				document.getElementById('send2doc').innerText = 'Отправить'
+				
+			}
 					
 			// end of it
 						
