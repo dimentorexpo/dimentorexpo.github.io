@@ -6436,6 +6436,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			let solutioncontainer;
 			
 			async function getissueandsolution() {
+				document.getElementById('send2doc').innerText = 'Загрузка шаблонов'
 				
 			issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
 			await fetch(issuefromdoc).then(r=>r.json()).then(r=>issuedata=r)
@@ -6446,6 +6447,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
 			await fetch(solutionfromdoc).then(r=>r.json()).then(r=>solutiondata=r)
 			console.log(solutiondata.result) //получим список как решилось
+			document.getElementById('send2doc').innerText = 'Отправить'
 				
 			}
 			
