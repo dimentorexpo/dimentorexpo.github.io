@@ -6525,7 +6525,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let textaskclient;
 				let otherproblemtext;
 				let othersolvedtext;
-				let body2ж
+				let body2;
 				
                 let chatlink = document.getElementById('chatlnk').value
 							
