@@ -6441,7 +6441,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					for (let i = 0; i < issuecontainer.length; i++) {
 						addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
 					}
-				}
+				
 
 			solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
 			await fetch(solutionfromdoc).then(r=>r.json()).then(r=>solutiondata=r)
