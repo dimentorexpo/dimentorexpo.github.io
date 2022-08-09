@@ -594,22 +594,6 @@ var win_refusefrom =  // описание элементов окна отказ
 							<br>
 							<select id="userissue" style="height: 25px; width:410px; margin-top:5px;">
 									<option selected disabled="" style="background-color:orange; color:white;" value="problclient">Проблема клиента</option>
-									<option value="Не работает камера и микрофон У">Не работает камера и микрофон У</option>
-									<option value="Не работает микрофон У">Не работает микрофон У</option>
-									<option value="Не работает камера У">Не работает камера У</option>
-									<option value="Не работает гарнитура/динамики У">Не работает гарнитура/динамики У</option>
-									<option value="Прерывается связь со стороны У">Прерывается связь со стороны У</option>
-									<option value="У пропал с урока">У пропал с урока</option>
-									<option value="Не может зайти на урок У">Не может зайти на урок У</option>
-									<option value="Не работает кнопка входа на урок У">Не работает кнопка входа на урок У</option>
-									<option value="Не работает камера и микрофон П">Не работает камера и микрофон П</option>
-									<option value="Не работает микрофон П">Не работает микрофон П</option>
-									<option value="Не работает камера П">Не работает камера П</option>
-									<option value="Нет синхронизации видеосвязи на уроке у обоих">Нет синхронизации видеосвязи на уроке у обоих</option>
-									<option value="Проблема с контентом урока/ДЗ У">Проблема с контентом урока/ДЗ У</option>
-									<option value="Проблема с входом в ЛКУ">Проблема с входом в ЛКУ</option>
-									<option value="Отображение данных в ЛК">Отображение данных в ЛК</option>
-									<option value="Другое">Другое</option>
 							</select>
 							<br>
 							
@@ -619,22 +603,6 @@ var win_refusefrom =  // описание элементов окна отказ
 									
 							<select id="howissuesolverd" style="width:410px; height: 25px;">
 									<option selected disabled="" style="background-color:orange; color:white;" value="howsolved">Как решилась</option>
-									<option value="Решилось само - нет информации как">Решилось само - нет информации как</option>
-									<option value="Отказ от проверки">Отказ от проверки</option>
-									<option value="Обновили страницу">Обновили страницу</option>
-									<option value="Перезагрузили устройство">Перезагрузили устройство</option>
-									<option value="Поменяли устройство">Поменяли устройство</option>
-									<option value="Некачественный интернет">Некачественный интернет</option>
-									<option value="Сменили интернет подключение">Сменили интернет подключение</option>
-									<option value="Поменяли браузер">Поменяли браузер</option>
-									<option value="Переподключились к уроку">Переподключились к уроку</option>
-									<option value="Перешли в мессенджер (Zoom, Skype, WA и т.д.)">Перешли в мессенджер (Zoom, Skype, WA и т.д.)</option>
-									<option value="Сами настроили камеру и микрофон">Сами настроили камеру и микрофон</option>
-									<option value="Сами настроили микрофон">Сами настроили микрофон</option>
-									<option value="Сами настроили камеру">Сами настроили камеру</option>
-									<option value="Сами настроили гарнитура/динамики">Сами настроили гарнитура/динамики</option>
-									<option value="Сменили гарнитуру">Сменили гарнитуру</option>
-									<option value="Другое">Другое</option>
                             </select>
 							
 							<br>
@@ -6430,6 +6398,50 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
 			
+			let objSelIssue = document.getElementById("userissue");
+			let objSelSolution = document.getElementById("howissuesolverd");
+			
+			function addOption(oListbox, text, value)  //функция добавления опции в список
+				{
+					var oOption = document.createElement("option");
+					oOption.appendChild(document.createTextNode(text));
+					oOption.setAttribute("value", value);
+					oListbox.appendChild(oOption);
+				}
+			
+			let issuefromdoc;
+			let issuecontainer;
+			let solutionfromdoc;
+			let solutioncontainer;
+			
+			async function getissueandsolution() {
+				document.getElementById('send2doc').innerText = 'Загрузка'
+
+				issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
+				await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
+				issuecontainer = issuedata.result;
+				console.log(issuedata.result) //получим список проблем
+
+				for (let i = 0; i < issuecontainer.length; i++) {
+					addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
+					}
+				
+			solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
+			await fetch(solutionfromdoc).then(r=>r.json()).then(r=>solutiondata=r)
+			solutioncontainer = solutiondata.result;
+			console.log(solutiondata.result) //получим список как решилось
+			
+			for (let i = 0; i < solutioncontainer.length; i++) {
+					addOption(objSelSolution, `${solutioncontainer[i][0]}`, `${solutioncontainer[i][0]}`)
+				}
+			
+			document.getElementById('send2doc').innerText = 'Отправить'
+				
+			}
+			
+			getissueandsolution();
+
+			
 			//unhide fields when choose 'other'
 			let flagotherproblem=0;
 			let problemlist = document.getElementById('userissue')
@@ -6526,7 +6538,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if (flagotherproblem == 0 && flagothersolved == 0) {
 
                 body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
-                console.log(body2)
+
 
             } else if (flagotherproblem == 1 && flagothersolved == 0) {
 				
