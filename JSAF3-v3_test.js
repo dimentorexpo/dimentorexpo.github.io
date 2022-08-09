@@ -6431,21 +6431,27 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			let solutioncontainer;
 			
 			async function getissueandsolution() {
-					document.getElementById('send2doc').innerText = 'Загрузка'
+				document.getElementById('send2doc').innerText = 'Загрузка'
 
-					issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
-					await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
-					issuecontainer = issuedata.result;
-					console.log(issuedata.result) //получим список проблем
+				issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
+				await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
+				issuecontainer = issuedata.result;
+				console.log(issuedata.result) //получим список проблем
 
-					for (let i = 0; i < issuecontainer.length; i++) {
-						addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
+				for (let i = 0; i < issuecontainer.length; i++) {
+					addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
 					}
 				
-
 			solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
 			await fetch(solutionfromdoc).then(r=>r.json()).then(r=>solutiondata=r)
+			solutioncontainer = solutiondata.result;
 			console.log(solutiondata.result) //получим список как решилось
+			
+			for (let i = 0; i < solutioncontainer.length; i++) {
+					addOption(objSelSolution, `${solutioncontainer[i][0]}`, `${solutioncontainer[i][0]}`)
+				}
+			
+			
 			document.getElementById('send2doc').innerText = 'Отправить'
 				
 			}
