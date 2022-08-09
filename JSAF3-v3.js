@@ -10355,7 +10355,7 @@ function timerHideButtons() { //функция добавления скрыти
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (группа работает ежедневно с 07:00 до 23:50)")
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 08:00-22:50)")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
