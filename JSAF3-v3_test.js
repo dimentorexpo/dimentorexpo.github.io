@@ -6453,9 +6453,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			await fetch(issuefromdoc).then(r=>r.json()).then(r=>issuedata=r)
 			console.log(issuedata.result) //получим список проблем
 			
-			for (let i=0; i<issuedata.result.length;i++) {
-				addOption(objSelIssue,  `${issuedata.result[i][0]}`, `${{issuedata.result[i][0]}`)
-			}
+			// for (let i=0; i<issuedata.result.length;i++) {
+				// addOption(objSelIssue,  `${issuedata.result[i][0]}`, `${{issuedata.result[i][0]}`)
+			// }
 
 			//получить текст нулевого элемента testo.result[0][0] но в скрипте игнорируется первая строка и не все данные есть
 
