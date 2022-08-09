@@ -6430,17 +6430,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
 			
+			let objSelIssue = document.getElementById("userissue");
+			let objSelSolution = document.getElementById("howissuesolverd");
+			
+			function addOption(oListbox, text, value)  //функция добавления опции в список
+				{
+					var oOption = document.createElement("option");
+					oOption.appendChild(document.createTextNode(text));
+					oOption.setAttribute("value", value);
+					oListbox.appendChild(oOption);
+				}
+			
 			let issuefromdoc;
 			let issuecontainer;
 			let solutionfromdoc;
 			let solutioncontainer;
 			
 			async function getissueandsolution() {
-				document.getElementById('send2doc').innerText = 'Загрузка шаблонов'
+				document.getElementById('send2doc').innerText = 'Загрузка'
 				
 			issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
 			await fetch(issuefromdoc).then(r=>r.json()).then(r=>issuedata=r)
 			console.log(issuedata.result) //получим список проблем
+			
+			for (let i=0; i<issuedata.result.length;i++) {
+				addOption(objSelIssue,  `${issuedata.result[i][0]}`, `${{issuedata.result[i][0]}`)
+			}
 
 			//получить текст нулевого элемента testo.result[0][0] но в скрипте игнорируется первая строка и не все данные есть
 
