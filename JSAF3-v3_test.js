@@ -594,22 +594,6 @@ var win_refusefrom =  // описание элементов окна отказ
 							<br>
 							<select id="userissue" style="height: 25px; width:410px; margin-top:5px;">
 									<option selected disabled="" style="background-color:orange; color:white;" value="problclient">Проблема клиента</option>
-									<option value="Не работает камера и микрофон У">Не работает камера и микрофон У</option>
-									<option value="Не работает микрофон У">Не работает микрофон У</option>
-									<option value="Не работает камера У">Не работает камера У</option>
-									<option value="Не работает гарнитура/динамики У">Не работает гарнитура/динамики У</option>
-									<option value="Прерывается связь со стороны У">Прерывается связь со стороны У</option>
-									<option value="У пропал с урока">У пропал с урока</option>
-									<option value="Не может зайти на урок У">Не может зайти на урок У</option>
-									<option value="Не работает кнопка входа на урок У">Не работает кнопка входа на урок У</option>
-									<option value="Не работает камера и микрофон П">Не работает камера и микрофон П</option>
-									<option value="Не работает микрофон П">Не работает микрофон П</option>
-									<option value="Не работает камера П">Не работает камера П</option>
-									<option value="Нет синхронизации видеосвязи на уроке у обоих">Нет синхронизации видеосвязи на уроке у обоих</option>
-									<option value="Проблема с контентом урока/ДЗ У">Проблема с контентом урока/ДЗ У</option>
-									<option value="Проблема с входом в ЛКУ">Проблема с входом в ЛКУ</option>
-									<option value="Отображение данных в ЛК">Отображение данных в ЛК</option>
-									<option value="Другое">Другое</option>
 							</select>
 							<br>
 							
@@ -6447,17 +6431,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			let solutioncontainer;
 			
 			async function getissueandsolution() {
-				document.getElementById('send2doc').innerText = 'Загрузка'
-				
-			issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
-			await fetch(issuefromdoc).then(r=>r.json()).then(r=>issuedata=r)
-			console.log(issuedata.result) //получим список проблем
-			
-			// for (let i=0; i<issuedata.result.length;i++) {
-				// addOption(objSelIssue,  `${issuedata.result[i][0]}`, `${{issuedata.result[i][0]}`)
-			// }
+					document.getElementById('send2doc').innerText = 'Загрузка'
 
-			//получить текст нулевого элемента testo.result[0][0] но в скрипте игнорируется первая строка и не все данные есть
+					issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
+					await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
+					issuecontainer = issuedata.result;
+					console.log(issuedata.result) //получим список проблем
+
+					for (let i = 0; i < issuecontainer.length; i++) {
+						addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
+					}
+				}
 
 			solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
 			await fetch(solutionfromdoc).then(r=>r.json()).then(r=>solutiondata=r)
