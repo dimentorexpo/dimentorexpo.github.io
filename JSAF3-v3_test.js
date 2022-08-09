@@ -6415,6 +6415,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			let solutioncontainer;
 			
 			async function getissueandsolution() {
+				if (objSelIssue.children.length == 1) {
 				document.getElementById('send2doc').innerText = 'Загрузка'
 
 				issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
@@ -6436,6 +6437,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 			
 			document.getElementById('send2doc').innerText = 'Отправить'
+				} else {
+					document.getElementById('send2doc').innerText = 'Отправить'
+				}
 				
 			}
 			
