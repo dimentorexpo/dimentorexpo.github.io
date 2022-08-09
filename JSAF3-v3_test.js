@@ -6494,8 +6494,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
 			
 			document.getElementById('refreshoptions').onclick = async function() {
-				objSelIssue.children.length = 1;
-				objSelSolution.children.length = 1;
+				objSelIssue.length = 1;
+				objSelSolution.length = 1;
 				
 				document.getElementById('send2doc').innerText = 'Загрузка'
 
