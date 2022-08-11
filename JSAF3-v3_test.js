@@ -8733,12 +8733,6 @@ async function startnewchat(polzid) { //открывает чат с польз�
 
     if (polzid) {
         console.log(polzid);
-        await chatstatus()
-        if (!werechats) {
-            alert('Начать чат с пользователем невозможно (пользователь не писал в чат)');
-        } else if (chatisopen)
-            alert('Уже есть активный чат');
-        else {
             await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}&groupId=b6f7f34d-2f08-fc19-3661-29ac00842898`, {
                 headers: {
                 },
@@ -8757,7 +8751,7 @@ async function startnewchat(polzid) { //открывает чат с польз�
             alert(`Чат начат c пользователем ${polzid}`);
             chatisopen = '';
             werechats = false;
-        }
+        
     } else alert('Не введен id пользователя');
 }
 
