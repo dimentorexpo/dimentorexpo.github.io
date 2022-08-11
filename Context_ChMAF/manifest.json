@@ -3,7 +3,15 @@
   "short_name": "AFSM",
   "description": "Удобное контекстное меню с разными плюшками и опциями",
   "version": "1.0.0",
-  "permissions": ["contextMenus", "storage", "tabs"],
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "storage",
+    "*://*.skyeng.ru/*",
+    "*://skyeng.autofaq.ai/*",
+    "*://*.slack.com/*",
+    "*://jira.skyeng.tech/*"
+],
   "background": {
     "scripts": ["app.js"]
   },
