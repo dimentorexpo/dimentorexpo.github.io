@@ -53,6 +53,42 @@ function enablens(i){
 
 var selmain = chrome.contextMenus.create( {"id":"selMainOption","title": "Technical Support Master", "contexts":["selection"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
+chrome.contextMenus.create({"title": "🏡 Ссылка-логинер для ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": dologginer}); //опция для копирования ссылки для пропуска АП
+function dologginer(i){
+
+// Данные для form-data токен можно взять как тебе удобно
+let userId = i.selectionText
+let tokenId = null
+
+// fetch
+fetch("https://id.skyeng.ru/admin/auth/login-links", {
+    headers: {"content-type": "application/x-www-form-urlencoded"},
+    referrer: "https://id.skyeng.ru/admin/auth/login-links",
+    referrerPolicy: "strict-origin-when-cross-origin",
+    body: `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${userId}+&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenId}`,
+    method: "POST",
+    mode: "cors",
+    credentials: "include"
+})
+    .then(res => res.text())
+    .then(textHtml => {
+        let domPars = new DOMParser()
+        // let loginLink = domPars.parseFromString(textHtml, `text/html`).querySelector("[value^='https://id.skyeng.ru/auth/login-link/']").value
+		let testlink =domPars.parseFromString(textHtml, `text/html`).querySelectorAll("[value^='https://id.skyeng.ru/auth/login-link/']")
+		        
+        // Выводит последнюю ссылку в инпуте 
+        console.log(`Loginner: ${testlink[testlink.length-1].value}`)
+		
+		var copyloginlnk = document.createElement("input");
+		copyloginlnk.setAttribute("value", testlink[testlink.length-1].value)
+		document.body.appendChild(copyloginlnk);
+		copyloginlnk.select();
+		document.execCommand("copy");
+		document.body.removeChild(copyloginlnk);
+
+    })
+}
+
 chrome.contextMenus.create({"title": "🕵️‍♂️ Открыть CRM для ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opencrmid}); //опция для открытия СРМки по выделенному ID пользователя
 function opencrmid(i){
 	var createProperties = { url: encodeURI("https://crm2.skyeng.ru/persons/" + i.selectionText) };
