@@ -471,6 +471,9 @@ var win_AFhelper =  // описание элементов главного ок
 					<br>
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 					<br>
+					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
+					<option selected="" disabled="">Звук нового сообщения</option></select>
+					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
@@ -1889,6 +1892,21 @@ buttonservid.style.marginTop = "5px";
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
+
+			function changesoundaddr() {
+				let objSoundList = document.getElementById('soundlistaddr')
+				
+				    if (objSoundList.length > 1) {
+						for (let i = 1; i < objSoundList.length; i++) {
+							if (objSoundList[i].selected == true) {					
+								console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
+								localStorage.setItem('sound_str', objSoundList[i].value)
+								audio = new Audio (localStorage.getItem('sound_str'))
+
+							}
+						}
+					}
+			}
 
 let template_flag = 0
 let template_flag2 = 0
@@ -5591,7 +5609,34 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('set_bar').style.display = ''
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
+						
+			let objSoundList = document.getElementById('soundlistaddr')
+			let flagsound;
+						function addOption(oListbox, text, value)  //функция добавления опции в список
+						{
+							var oOption = document.createElement("option");
+							oOption.appendChild(document.createTextNode(text));
+							oOption.setAttribute("value", value);
 
+							oListbox.appendChild(oOption);
+						}
+			for (let i = 0; i < table.length; i++) {
+				if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
+					flagsound=[i+1]
+			}
+							
+			for (j=flagsound[0];j<table.length;j++) {
+				if(table[j][2] != '') {
+					addOption(objSoundList, `${table[j][2]}`, `${table[j][3]}`)
+				}
+			}
+			
+			for(let i=0; i<objSoundList.length; i++) {
+				if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
+					objSoundList.children[i].selected = true;
+				}
+			}
+														
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
                 document.getElementById('test_std').value = localStorage.getItem('test_stud');
             } else document.getElementById('test_std').value = "";
