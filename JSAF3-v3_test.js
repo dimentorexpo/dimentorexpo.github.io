@@ -471,7 +471,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<br>
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 					<br>
-					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr">
+					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
 					<option selected="" disabled="">Звук нового сообщения</option></select>
 					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
@@ -5594,6 +5594,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('set_bar').style.display = ''
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
+			
+			function changesoundaddr() {
+				let objSoundList = document.getElementById('soundlistaddr')
+				
+				    if (objSoundList.length > 1) {
+						for (let i = 1; i < objSoundList.length; i++) {
+							if (objSoundList[i].selected == true) {					
+								console.log(objSoundList[i].innerText + '' + objSoundList[i].value)
+							}
+						}
+					}
+			}
 			
 			let objSoundList = document.getElementById('soundlistaddr')
 			let flagsound;
