@@ -5635,11 +5635,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
 					objSoundList.children[i].selected = true;
 				}
-
 			}
-			
-			if (localStorage.getItem('sound_str') == 
-											
+														
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
                 document.getElementById('test_std').value = localStorage.getItem('test_stud');
             } else document.getElementById('test_std').value = "";
