@@ -1901,7 +1901,7 @@ marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 							if (objSoundList[i].selected == true) {					
 								console.log(objSoundList[i].innerText + '' + objSoundList[i].value)
 								localStorage.setItem('sound_str', objSoundList[i].value)
-								audio = new Audio (localStorage.getItem('sound_str')
+								audio = new Audio (localStorage.getItem('sound_str'))
 
 							}
 						}
