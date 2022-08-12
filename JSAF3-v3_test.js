@@ -1893,6 +1893,18 @@ let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 
+			function changesoundaddr() {
+				let objSoundList = document.getElementById('soundlistaddr')
+				
+				    if (objSoundList.length > 1) {
+						for (let i = 1; i < objSoundList.length; i++) {
+							if (objSoundList[i].selected == true) {					
+								console.log(objSoundList[i].innerText + '' + objSoundList[i].value)
+							}
+						}
+					}
+			}
+
 let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
@@ -5594,19 +5606,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('set_bar').style.display = ''
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
-			
-			function changesoundaddr() {
-				let objSoundList = document.getElementById('soundlistaddr')
-				
-				    if (objSoundList.length > 1) {
-						for (let i = 1; i < objSoundList.length; i++) {
-							if (objSoundList[i].selected == true) {					
-								console.log(objSoundList[i].innerText + '' + objSoundList[i].value)
-							}
-						}
-					}
-			}
-			
+						
 			let objSoundList = document.getElementById('soundlistaddr')
 			let flagsound;
 						function addOption(oListbox, text, value)  //функция добавления опции в список
