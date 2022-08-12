@@ -471,6 +471,9 @@ var win_AFhelper =  // описание элементов главного ок
 					<br>
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 					<br>
+					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr">
+					<option selected="" disabled="">Звук нового сообщения</option></select>
+					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
@@ -5591,6 +5594,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('set_bar').style.display = ''
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
+			
+			let objSoundList = document.getElementById('soundlistaddr')
+			
+			function addOption(oListbox, text, value)  //функция добавления опции в список
+			{
+				var oOption = document.createElement("option");
+				oOption.appendChild(document.createTextNode(text));
+				oOption.setAttribute("value", value);
+
+				oListbox.appendChild(oOption);
+			}
+			
+			for (let i = 0; i < table.length; i++) {
+                if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
+                    if (table[i+1][2] != '' && table[i+1][3] != '') {
+						addOption(objSoundList , `${table[i+1][2]}`, `${table[i+1][3}`)
+					}
+            }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
                 document.getElementById('test_std').value = localStorage.getItem('test_stud');
