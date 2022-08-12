@@ -1899,7 +1899,7 @@ marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 				    if (objSoundList.length > 1) {
 						for (let i = 1; i < objSoundList.length; i++) {
 							if (objSoundList[i].selected == true) {					
-								console.log(objSoundList[i].innerText + '' + objSoundList[i].value)
+								console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
 								localStorage.setItem('sound_str', objSoundList[i].value)
 								audio = new Audio (localStorage.getItem('sound_str'))
 
@@ -5629,8 +5629,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if(table[j][2] != '') {
 					addOption(objSoundList, `${table[j][2]}`, `${table[j][3]}`)
 				}
-				
 			}
+			
+			for(let i=0; i<objSoundList.length; i++) {
+				if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
+					objSoundList.children[i].selected = true;
+				}
+
+			}
+			
+			if (localStorage.getItem('sound_str') == 
 											
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
                 document.getElementById('test_std').value = localStorage.getItem('test_stud');
