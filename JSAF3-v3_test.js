@@ -5596,23 +5596,27 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('addTmp').style.display = 'none'
 			
 			let objSoundList = document.getElementById('soundlistaddr')
-			
-			function addOption(oListbox, text, value)  //функция добавления опции в список
-			{
-				var oOption = document.createElement("option");
-				oOption.appendChild(document.createTextNode(text));
-				oOption.setAttribute("value", value);
+			let flagsound;
+						function addOption(oListbox, text, value)  //функция добавления опции в список
+						{
+							var oOption = document.createElement("option");
+							oOption.appendChild(document.createTextNode(text));
+							oOption.setAttribute("value", value);
 
-				oListbox.appendChild(oOption);
-			}
-			
+							oListbox.appendChild(oOption);
+						}
 			for (let i = 0; i < table.length; i++) {
-                if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
-                    if (table[i+1][2] != '' && table[i+1][3] != '') {
-						addOption(objSoundList , `${table[i+1][2]}`, `${table[i+1][3]}`)
-					}
-            }
-
+				if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
+					flagsound=[i+1]
+			}
+							
+			for (j=flagsound[0];j<table.length;j++) {
+				if(table[j][2] != '') {
+					addOption(objSoundList, `${table[j][2]}`, `${table[j][3]}`)
+				}
+				
+			}
+											
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
                 document.getElementById('test_std').value = localStorage.getItem('test_stud');
             } else document.getElementById('test_std').value = "";
