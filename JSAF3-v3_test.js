@@ -5609,7 +5609,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			for (let i = 0; i < table.length; i++) {
                 if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
                     if (table[i+1][2] != '' && table[i+1][3] != '') {
-						addOption(objSoundList , `${table[i+1][2]}`, `${table[i+1][3}`)
+						addOption(objSoundList , `${table[i+1][2]}`, `${table[i+1][3]}`)
 					}
             }
 
