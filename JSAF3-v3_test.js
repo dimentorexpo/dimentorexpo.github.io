@@ -7809,6 +7809,12 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                 if (table[l][1] == "Шаблон") {
                     sendAnswerTemplate(table[l][2], table[l][3])
                 }
+				if(table[l][1].indexOf("Рандом") != -1) {
+					var counttmpl = table[l][1][7]
+					var newL = Math.floor(Math.random() * (counttmpl)) + l
+					sendAnswer(table[newL][2])
+				}
+				
                 break
             } else {
                 if (table[l][4] == "") {
