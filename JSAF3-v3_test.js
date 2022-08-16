@@ -7812,10 +7812,14 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 				if(table[l][1].indexOf("Рандом") != -1) {
 					var counttmpl = table[l][1][7]
 					var newL = Math.floor(Math.random() * (counttmpl)) + l
-					let splittedarr = table[newL][2].split('$')
+					let splittedarr = table[l][2+newL].split('$')
+					console.log(splittedarr)
 					if (splittedarr[0] == "Текст")
 						sendAnswer(splittedarr[1])
-					console.log(splittedarr)
+					else {
+						sendAnswerTemplate(splittedarr[1], splittedarr[1])
+					}
+
 					//sendAnswer(table[newL][2])
 				}
 				
