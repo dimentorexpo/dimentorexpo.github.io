@@ -10770,19 +10770,22 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
 
             let chatscontainer = document.querySelectorAll('.chatswithcomments');
             let chatids = document.querySelectorAll('.chatids');
-            for (let j = 0; j < chatscontainer.length; j++) {
-                chatscontainer[j].onclick = function () {
+			    for (let j = 0; j < chatscontainer.length; j++) {
+							chatscontainer[j].onclick = function () {
 
-                    if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                        hide_or_display.click()
-                        document.getElementById('chat_id').value = chatids[j].innerText;
-                        search.click()
-                    } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                        document.getElementById('chat_id').value = chatids[j].innerText;
-                        search.click()
-                    }
+								if (document.getElementById('AF_ChatHis').style.display == 'none') {
+									document.getElementById('butChatHistory').click();
+
+									document.getElementById('hashchathis').value = chatids[j].innerText;
+									btn_search_history.click()
+
+								} else {
+									document.getElementById('hashchathis').value = chatids[j].innerText;
+									btn_search_history.click()
+								}
                 }
             }
+			
             if ((test.total / 100) > pagecmt) {
                 pagecmt++;
             } else {
