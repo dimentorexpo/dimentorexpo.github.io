@@ -376,7 +376,37 @@ async function cancelishodcall(i,t){
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
-});
+		}).then(r=>r.json()).then(r=>data=r)
+		
+		console.log(data.ts)
+		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
+		
+		console.log(t.url)
+		
+		
+		let chathashfromdiv = t.url.split('/')[5]
+		let sesid;
+
+		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+			.then(r => r.json()).then(r => rdata = r)
+		sesid = rdata.sessionId;
+
+		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+
+		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+			"headers": {
+				"accept": "*/*",
+				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			},
+			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+		});
+		
 
 }
 
@@ -405,7 +435,37 @@ async function cancelishodcallwithowntext(i,t){
 			"method": "POST",
 			"mode": "cors",
 			"credentials": "include"
-		  });
+		  	}).then(r=>r.json()).then(r=>data=r)
+		
+		console.log(data.ts)
+		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
+		
+		console.log(t.url)
+		
+		
+		let chathashfromdiv = t.url.split('/')[5]
+		let sesid;
+
+		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+			.then(r => r.json()).then(r => rdata = r)
+		sesid = rdata.sessionId;
+
+		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+
+		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+			"headers": {
+				"accept": "*/*",
+				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			},
+			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+		});
+		
 		} else alert("Текст слишком короткий");
 	} else console.log("Нажата кнопка Отмена");
 	
@@ -432,7 +492,37 @@ async function cancelsecondline(i,t){
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
-});
+  }).then(r=>r.json()).then(r=>data=r)
+		
+		console.log(data.ts)
+		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
+		
+		console.log(t.url)
+		
+		
+		let chathashfromdiv = t.url.split('/')[5]
+		let sesid;
+
+		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+			.then(r => r.json()).then(r => rdata = r)
+		sesid = rdata.sessionId;
+
+		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+
+		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+			"headers": {
+				"accept": "*/*",
+				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			},
+			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+		});
+		
 	
 }
 
@@ -461,7 +551,37 @@ async function cancelsecondlinewithowntext(i,t){
   			"method": "POST",
   			"mode": "cors",
   			"credentials": "include"
+		}).then(r=>r.json()).then(r=>data=r)
+		
+		console.log(data.ts)
+		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
+		
+		console.log(t.url)
+		
+		
+		let chathashfromdiv = t.url.split('/')[5]
+		let sesid;
+
+		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
+			.then(r => r.json()).then(r => rdata = r)
+		sesid = rdata.sessionId;
+
+		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+
+		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+			"headers": {
+				"accept": "*/*",
+				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			},
+			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
 		});
+		
 		} else alert("Текст слишком короткий");
 	} else console.log("Нажата кнопка Отмена");
 	
