@@ -7811,7 +7811,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                 }
 				if(table[l][1].indexOf("Рандом") != -1) {
 					var counttmpl = table[l][1][7]
-					var newL = Math.floor(Math.random() * (counttmpl)) + l
+					var newL = Math.floor(Math.random() * (counttmpl))
 					let splittedarr = table[l][2+newL].split('$')
 					console.log(splittedarr)
 					if (splittedarr[0] == "Текст")
