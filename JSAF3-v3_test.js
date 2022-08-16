@@ -7811,6 +7811,8 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                 }
 				if(table[l][1].indexOf("Рандом") != -1) {
 					var counttmpl = table[l][1][7]
+					let splittedarr = table[newL][2].split('$')
+					console.log(splittedarr)
 					var newL = Math.floor(Math.random() * (counttmpl)) + l
 					sendAnswer(table[newL][2])
 				}
