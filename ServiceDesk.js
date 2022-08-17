@@ -309,6 +309,8 @@ document.getElementById('servDsk').onclick = function () {
         document.getElementById('AF_ServDsk').style.display = 'none'
     else
         document.getElementById('AF_ServDsk').style.display = ''
+		document.getElementById('idmymenu').style.display = 'none'
+	
 
     document.getElementById('responseTextarea1').value = '{}'
     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
