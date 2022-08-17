@@ -7843,7 +7843,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                     document.getElementById('inp').value = "Нет английского варианта шаблонов"
                 }
             } else if (table[l][4] == "") {
-                document.getElementById('inp').value = "Нет такого шаблона"
+                document.getElementById('inp').value = "Нет английского варианта шаблона"
             } else {
                 if (table[l][5] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][6])
