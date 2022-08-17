@@ -2262,7 +2262,7 @@ butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
 
 let menubar = document.createElement('div')
-menubar.style = `background: white; position:absolute; left: ${xvarmenu}; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+menubar.style = `background: white; position:absolute; left: 1270px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
 menubar.id = 'idmymenu'
 
 
