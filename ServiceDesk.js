@@ -302,7 +302,6 @@ function getslacklnk() { // получаем ссылку на обращени�
 
 }
 
-
 //main
 document.getElementById('servDsk').onclick = function () {
     if (document.getElementById('AF_ServDsk').style.display == '')
