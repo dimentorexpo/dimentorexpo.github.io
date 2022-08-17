@@ -7793,7 +7793,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 
             setTimeout(() => {
                 if (table[tempindex][9] == undefined || table[tempindex][9] == null || table[tempindex][9] == " " || table[tempindex][9] == "") {
-                    console.log("Не значения тематики")
+                    console.log("Нет значения тегов")
                 } else {
                     newTags(table[tempindex][9])
                 }
