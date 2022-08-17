@@ -8195,7 +8195,7 @@ function startTimer() {
     if (document.getElementById('audioswitcher').checked == true)
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
             txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-            if (txt != "Взять запрос (0)")
+            if (txt[14] > 0)
                 audio.play()
         }
 
