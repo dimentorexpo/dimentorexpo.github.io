@@ -471,6 +471,8 @@ var win_AFhelper =  // описание элементов главного ок
 					<br>
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 					<br>
+					<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
+					<br>
 					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
 					<option selected="" disabled="">Звук нового сообщения</option></select>
 					<br>
@@ -5698,6 +5700,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             } else {
                 lpmboxstatus.checked = false;
             }
+			// 
+
+			//Скрыть окно выбора языка
+            let flaglng = 0;   // функция чекбокса вкл и откл  информационного окна
+            var lngbtnonoff = document.getElementById('hidelngselector');
+            lngbtnonoff.onclick = function () {
+
+                if (!lngbtnonoff.checked) {
+					document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+                    flaglng = 0;
+                    localStorage.setItem('disablelngpmwindow', flaglng)
+                } else {   // поставить checked, если он не установлен
+					document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                    flaglng = 1;
+                    localStorage.setItem('disablelngpmwindow', flaglng)
+                }
+            }
+
+            if (localStorage.getItem('disablelngpmwindow') == 1) {
+				document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                lngbtnonoff.checked = true;
+            } else {
+                lngbtnonoff.checked = false;
+            }
+			//
+			
 
             if (localStorage.getItem('audio') == '0')
                 document.getElementById('audioswitcher').checked = false;
@@ -7227,8 +7255,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         this.style.display = 'none'
         //скрывает окна при выбранно опции скрытия КОД
         if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
+            document.getElementById('testUsers').style.display = "none";  
 
+		if (localStorage.getItem('disablelngpmwindow') == 1)
+            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+		
         if (localStorage.getItem('disableomelchenkowindow') == 1)
             document.getElementById('main_easy_win').style.display = "none";
 
