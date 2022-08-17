@@ -12266,6 +12266,10 @@ function prepTp() { //функция подготовки расширения �
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
     else document.getElementById('testUsers').style.display = ''
+	
+	if (localStorage.getItem('disablelngpmwindow') == 1)
+		document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+	else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
