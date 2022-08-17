@@ -7829,19 +7829,19 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
             } else {
 				
 				if(table[l][1].indexOf("Рандом") != -1) {
-					var counttmpleng = table[l][1][9]
-					var newLeng = Math.floor(Math.random() * (counttmpleng))
-					let splittedarreng = table[l][5+newLeng].split('$')
-					console.log(splittedarreng)
-					if (splittedarreng[0] == "Текст")
-						sendAnswer(splittedarreng[1])
-					else if (splittedarreng[0] == "Шаблон") {
-						sendAnswerTemplate(splittedarreng[1], splittedarreng[1])
-					} else {
-						document.getElementById('inp').value = "Нет такого шаблона"
+					if (counttmpleng >0) {
+						var counttmpleng = table[l][1][9]
+						var newLeng = Math.floor(Math.random() * (counttmpleng))
+						let splittedarreng = table[l][5+newLeng].split('$')
+						console.log(splittedarreng)
+						if (splittedarreng[0] == "Текст")
+							sendAnswer(splittedarreng[1])
+						else if (splittedarreng[0] == "Шаблон") {
+							sendAnswerTemplate(splittedarreng[1], splittedarreng[1])
+						} else {
+							document.getElementById('inp').value = "Нет такого шаблона"
+						} else document.getElementById('inp').value = "Нет английского варианта шаблонов"
 					}
-
-					//sendAnswer(table[newL][2])
 				}
 				
                 else if (table[l][4] == "") {
