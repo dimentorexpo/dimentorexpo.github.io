@@ -2261,11 +2261,14 @@ butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
 butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
-xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
 
-let menubar = document.createElement('div')
-menubar.style = `background: white; position:absolute; left: ${xvarmenu}; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
-menubar.id = 'idmymenu'
+setTimeout(()=> {
+	xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
+	let menubar = document.createElement('div')
+	menubar.style = `background: white; position:absolute; left: ${xvarmenu}; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+	menubar.id = 'idmymenu'
+}, 5000)
+
 
 butmenu.onclick = () => { // кнопка открытия Меню
     if (menubar.style.display == 'none') {
