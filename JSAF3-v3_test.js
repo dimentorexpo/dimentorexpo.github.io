@@ -7837,7 +7837,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                     } else if (splittedarreng[0] == "Шаблон") {
                         sendAnswerTemplate(splittedarreng[1], splittedarreng[1])
                     } else {
-                        document.getElementById('inp').value = "Нет такого шаблона"
+                        document.getElementById('inp').value = "Шаблон  указан не верно, повторите попытку еще раз!"
                     }
                 } else {
                     document.getElementById('inp').value = "Нет английского варианта шаблонов"
