@@ -7816,8 +7816,10 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 					console.log(splittedarr)
 					if (splittedarr[0] == "Текст")
 						sendAnswer(splittedarr[1])
-					else {
+					else if (splittedarr[0] == "Шаблон") {
 						sendAnswerTemplate(splittedarr[1], splittedarr[1])
+					} else {
+						document.getElementById('inp').value = "Нет такого шаблона"
 					}
 
 					//sendAnswer(table[newL][2])
