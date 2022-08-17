@@ -2255,14 +2255,15 @@ butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let xvarmenu; 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
 butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
+xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
 
 let menubar = document.createElement('div')
-let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
 menubar.style = `background: white; position:absolute; left: ${xvarmenu}; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
 menubar.id = 'idmymenu'
 
