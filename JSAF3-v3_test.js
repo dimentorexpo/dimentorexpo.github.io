@@ -7784,6 +7784,7 @@ function newTag(valueId) { // функция выставления тега ч�
 function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
+			tempindex = [l];
             if (table[l][8] == undefined || table[l][8] == null || table[l][8] == " " || table[l][8] == "") {
                 console.log("Не значения тематики")
             } else {
@@ -7791,10 +7792,10 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
             }
 
             setTimeout(() => {
-                if (table[l][9] == undefined || table[l][9] == null || table[l][9] == " " || table[l][9] == "") {
+                if (table[tempindex][9] == undefined || table[tempindex][9] == null || table[tempindex][9] == " " || table[tempindex][9] == "") {
                     console.log("Не значения тематики")
                 } else {
-                    newTags(table[l][9])
+                    newTags(table[tempindex][9])
                 }
             }, 1000)
 
@@ -7822,7 +7823,6 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                         document.getElementById('inp').value = "Шаблон  указан не верно, повторите попытку еще раз!"
                     }
 
-                    //sendAnswer(table[newL][2])
                 }
 
                 break
