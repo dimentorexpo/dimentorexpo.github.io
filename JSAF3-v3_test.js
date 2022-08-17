@@ -7819,32 +7819,29 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 					else if (splittedarr[0] == "Шаблон") {
 						sendAnswerTemplate(splittedarr[1], splittedarr[1])
 					} else {
-						document.getElementById('inp').value = "Нет такого шаблона"
+						document.getElementById('inp').value = "Шаблон  указан не верно, повторите попытку еще раз!"
 					}
 
 					//sendAnswer(table[newL][2])
 				}
 				
                 break
-            } else {
-				
-				if(table[l][1].indexOf("Рандом") != -1) {
-					if (counttmpleng >0) {
+            } else if(table[l][1].indexOf("Рандом") != -1) {
 						var counttmpleng = table[l][1][9]
+						if (counttmpleng >0) {
 						var newLeng = Math.floor(Math.random() * (counttmpleng))
 						let splittedarreng = table[l][5+newLeng].split('$')
 						console.log(splittedarreng)
-						if (splittedarreng[0] == "Текст")
+						if (splittedarreng[0] == "Текст") {
 							sendAnswer(splittedarreng[1])
-						else if (splittedarreng[0] == "Шаблон") {
+						} else if (splittedarreng[0] == "Шаблон") {
 							sendAnswerTemplate(splittedarreng[1], splittedarreng[1])
 						} else {
 							document.getElementById('inp').value = "Нет такого шаблона"
-						} else document.getElementById('inp').value = "Нет английского варианта шаблонов"
+						} else
+							document.getElementById('inp').value = "Нет английского варианта шаблонов"
 					}
-				}
-				
-                else if (table[l][4] == "") {
+				} else if (table[l][4] == "") {
                     document.getElementById('inp').value = "Нет такого шаблона"
                 } else {
                     if (table[l][5] == "Быстрый шаблон") {
@@ -7857,7 +7854,6 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                         sendAnswerTemplate(table[l][6], table[l][7])
                     }
                     break
-                }
             }
         }
     }
