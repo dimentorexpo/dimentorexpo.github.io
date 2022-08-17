@@ -5765,6 +5765,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
+			document.getElementById('idmymenu').style.display = 'none'
 
         changeviewtheme()
 
@@ -6334,6 +6335,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
+			document.getElementById('idmymenu').style.display = 'none'
 
             let topiclisttgcls = document.getElementsByName('topicofsuggest')
 
@@ -6445,6 +6447,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Refuseformnew').style.display = 'none'
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
+			document.getElementById('idmymenu').style.display = 'none'
 
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
@@ -6690,6 +6693,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Marks').style.display = 'none'
         else {
             document.getElementById('AF_Marks').style.display = ''
+			document.getElementById('idmymenu').style.display = 'none'
+					
             document.getElementById('findmarksstat').onclick = async function () {
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
