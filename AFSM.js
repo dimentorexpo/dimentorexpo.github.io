@@ -1117,7 +1117,7 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
 			
         }
 
-        document.getElementById('hideMeAddChatMenu').onclick = () => { //функция скрытия меню чатов
+        document.getElementById('hideMeAddChatMenu').onclick = function () { //функция скрытия меню чатов
             document.getElementById('AFMS_addChatMenu').style.display = 'none'
         }
     }
