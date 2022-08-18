@@ -1080,13 +1080,16 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
         document.getElementById('AFMS_addChatMenu').style.display = ''
 
         let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "credentials": "include",
-            "method": "POST"
-        }).then(r => r.json()).then(r => artId = r)
-        console.log(artId)
+        //Проверяем, в ЛКУ или ЛКП открыто
+        if (window.location.href.indexOf('vimbox.skyeng.ru') != -1 || window.location.href.indexOf('new-teachers.skyeng.ru') != -1 || window.location.href.indexOf('teachers.skyeng.ru') != -1 || window.location.href.indexOf('student.skyeng.ru') != -1) {
+            await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
+                "credentials": "include",
+                "method": "POST"
+            }).then(r => r.json()).then(r => artId = r)
+            console.log(artId)
 
-        document.getElementById('userid1').value = artId.user.id;
+            document.getElementById('userid1').value = artId.user.id;
+        }
 
         document.getElementById('addChat').onclick = function () { //функция добавления чата
 
