@@ -656,7 +656,7 @@ var win_taskform  = //описание формы создания задач в
 							<input id="taskuserid" placeholder="ID пользователя" style="width: 100%; text-align: center; height: 25px;">
 							<br>
 
-							<textarea id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							<textarea id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
@@ -2275,6 +2275,11 @@ hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
 hashBut.style.marginRight = "15px";
 
+let taskBut = document.createElement('div')
+taskBut.id = "taskBut"
+taskBut.innerHTML = "🛠 Task"
+taskBut.style.marginRight = "15px";
+
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
@@ -2395,6 +2400,18 @@ maskBackHide.onclick = function () { // кнопка скрыть
                 break;
             }
         }
+}
+
+taskBut.onclick = function() {
+	if (document.getElementById('AF_Createtask').style.display == 'none')
+		document.getElementById('AF_Createtask').style.display = ''
+	else document.getElementById('AF_Createtask').style.display = 'none'
+}
+
+document.getElementById('hideMeCreateForm').onclick = function() {
+	if (document.getElementById('AF_Createtask').style.display == 'none')
+		document.getElementById('AF_Createtask').style.display = ''
+	else document.getElementById('AF_Createtask').style.display = 'none'
 }
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата
@@ -12439,6 +12456,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[5])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[1])
         }, 2000)
 
         setTimeout(() => {
