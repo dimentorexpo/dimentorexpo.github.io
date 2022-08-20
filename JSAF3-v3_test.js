@@ -2406,13 +2406,14 @@ taskBut.onclick = function() {
 	if (document.getElementById('AF_Createtask').style.display == 'none')
 		document.getElementById('AF_Createtask').style.display = ''
 	else document.getElementById('AF_Createtask').style.display = 'none'
-}
-
-document.getElementById('hideMeCreateForm').onclick = function() {
+	
+	document.getElementById('hideMeCreateForm').onclick = function() {
 	if (document.getElementById('AF_Createtask').style.display == 'none')
 		document.getElementById('AF_Createtask').style.display = ''
 	else document.getElementById('AF_Createtask').style.display = 'none'
 }
+}
+
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата
     adr = document.location.href
