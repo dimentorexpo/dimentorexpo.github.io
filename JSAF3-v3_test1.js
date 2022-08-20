@@ -2649,9 +2649,11 @@ var listener16 = function (e, a) { // сохранение позиции окн
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX16 = a.layerX;
-    window.myY16 = a.layerY;
-    document.addEventListener('mousemove', listener16);
+    if (wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.nodeName != 'BUTTON'){
+        window.myX16 = a.layerX;
+        window.myY16 = a.layerY;
+        document.addEventListener('mousemove', listener16);
+    }
 }
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
