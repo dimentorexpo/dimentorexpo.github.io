@@ -2433,10 +2433,23 @@ taskBut.onclick = function() {
 	}
 	
 	document.getElementById('hideMeCreateForm').onclick = function() {
-	if (document.getElementById('AF_Createtask').style.display == 'none')
-		document.getElementById('AF_Createtask').style.display = ''
-	else document.getElementById('AF_Createtask').style.display = 'none'
-}
+		document.getElementById('AF_Createtask').style.display = 'none'
+		
+			document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": "{\"conversationId\":\"${conversid}\"}",
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+			}`
+		document.getElementById('responseTextarea2').value = "https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form"
+		document.getElementById('responseTextarea3').value = ''
+		document.getElementById('sendResponse').click()
+		
+		
+	}
 }
 
 
