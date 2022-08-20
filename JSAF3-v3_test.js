@@ -634,11 +634,21 @@ var win_taskform  = //описание формы создания задач в
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
                             <input id="chathashlnk" placeholder="Хэш чата" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
 							<br>
-							<select id="priority">
+							<select id="priority" style=" width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
 								<option value="low">Низкий</option>
 								<option value="high">Высокий</option>
 								<option value="highest">Критический</option>
+							</select>
+
+							<select id="customerservice" style=" width: 100%; text-align: center; height: 25px;">
+								<option disabled="" selected="">Отдел</option>
+								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
+								<option value="teachers_care_crm ">Teachers Care</option>
+								<option value="content_management_dictionary">Словарь</option>
+								<option value="content_management">Контент</option>
+								<option value="teachers_support">Teachers Support</option>
+								<option value="tech_support_second_line_crm2">Техподдержка 2Л CRM</option>
 							</select>
 
 							<textarea id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
