@@ -473,7 +473,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<br>
                     <label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
 					<br>
-					<input style="height:28px; width:260px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
+					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
 					<option selected="" disabled="">Звук нового сообщения</option></select>
 					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
