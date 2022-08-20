@@ -2648,7 +2648,7 @@ var listener16 = function (e, a) { // сохранение позиции окн
     localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
 };
 
-wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmouseup = function (a) {
+wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
     window.myX16 = a.layerX;
     window.myY16 = a.layerY;
     document.addEventListener('mousemove', listener16);
