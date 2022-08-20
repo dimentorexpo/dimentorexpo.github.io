@@ -2416,7 +2416,7 @@ taskBut.onclick = function() {
 			  "headers": {
 				"content-type": "application/json",
 			  },
-			  "body": "{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"${conversid}\"}",
+			  "body": "{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"conversid\"}",
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
@@ -2439,7 +2439,7 @@ taskBut.onclick = function() {
 				  "headers": {
 					"content-type": "application/json",
 				  },
-				  "body": "{\"conversationId\":\"${conversid}\"}",
+				  "body": "{\"conversationId\":\"conversid\"}",
 				  "method": "POST",
 				  "mode": "cors",
 				  "credentials": "include"
