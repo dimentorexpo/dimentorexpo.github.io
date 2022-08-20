@@ -2649,7 +2649,7 @@ var listener16 = function (e, a) { // сохранение позиции окн
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'INPUT'){
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listener16);
