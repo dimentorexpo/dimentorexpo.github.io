@@ -2649,10 +2649,10 @@ var listener16 = function (e, a) { // сохранение позиции окн
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'button'){
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){
         console.log('Бинго')
     }
-    if (document.elementFromPoint(a.clientX,a.clientY).nodeName == 'button'){
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName == 'BUTTON'){
         console.log('Ну вот')
     }
         window.myX16 = a.layerX;
