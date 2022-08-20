@@ -2649,11 +2649,12 @@ var listener16 = function (e, a) { // сохранение позиции окн
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    let element16 =document.elementFromPoint(a.clientX,a.clientY)
-    if (element16.nodeName != 'INPUT' || element16.nodeName != 'BUTTON'){
-        window.myX16 = a.layerX;
-        window.myY16 = a.layerY;
-        document.addEventListener('mousemove', listener16);
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){
+        if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'INPUT'){
+            window.myX16 = a.layerX;
+            window.myY16 = a.layerY;
+            document.addEventListener('mousemove', listener16);
+        }
     }
 }
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
