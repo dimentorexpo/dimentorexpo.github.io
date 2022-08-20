@@ -2653,6 +2653,7 @@ wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmoused
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listener16);
+    }
 }
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
