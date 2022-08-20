@@ -2278,7 +2278,7 @@ hashBut.style.marginRight = "15px";
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
-taskBut.style.marginRight = "15px";
+taskBut.style = "margin-right:15px; cursor:pointer";
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
