@@ -2412,18 +2412,22 @@ taskBut.onclick = function() {
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
 		conversid = document.getElementById('chathashlnk').value;
 		
-		document.getElementById('responseTextarea1').value = {
+		setTimeout( () => {
+		document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"content-type": "application/json",
 			  },
-			  "body": "{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\""+conversid+"\"}",
+			  "body": "{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"${conversid}\"}",
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
-			}
+			}`
 		document.getElementById('responseTextarea2').value = "https://skyeng.autofaq.ai/api/reason8/operator/customButtons/click"
 		document.getElementById('responseTextarea3').value = ''
 		document.getElementById('sendResponse').click()
+			
+		}, 1000)
+
 	}
 	
 	document.getElementById('refreshhashcreateform').onclick = function() {
@@ -2435,18 +2439,20 @@ taskBut.onclick = function() {
 	document.getElementById('hideMeCreateForm').onclick = function() {
 		document.getElementById('AF_Createtask').style.display = 'none'
 		
-			document.getElementById('responseTextarea1').value = {
+				setTimeout( () => {
+			document.getElementById('responseTextarea1').value = `{
 				  "headers": {
 					"content-type": "application/json",
 				  },
-				  "body": "{\"conversationId\":\""+conversid+"\"}",
+				  "body": "{\"conversationId\":\"${conversid}\"}",
 				  "method": "POST",
 				  "mode": "cors",
 				  "credentials": "include"
-			}
+			}`
 		document.getElementById('responseTextarea2').value = "https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form"
 		document.getElementById('responseTextarea3').value = ''
 		document.getElementById('sendResponse').click()
+				}, 1000)
 		
 		
 	}
