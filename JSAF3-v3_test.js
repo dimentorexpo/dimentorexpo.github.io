@@ -622,6 +622,34 @@ var win_refusefrom =  // описание элементов окна отказ
         </span>
 </div>`;
 
+var win_taskform  = //описание формы создания задач в СРМ2
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
+                            <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button>
+                        </div>
+						
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
+                            <input id="chathashlnk" placeholder="Хэш чата" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
+							<br>
+							<select id="priority">
+								<option disabled="" selected="">Приоритет</option>
+								<option value="low">Низкий</option>
+								<option value="high">Высокий</option>
+								<option value="highest">Критический</option>
+							</select>
+
+							<textarea id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+		</span>
+        </span>
+</div>`;
+
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -1793,6 +1821,11 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
+if (localStorage.getItem('winTopTaskCreate') == null) { //начальное положение окна Отказ от помощи
+    localStorage.setItem('winTopTaskCreate', '295');
+    localStorage.setItem('winLeftTaskCreate', '295');
+}
+
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
@@ -2465,6 +2498,13 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+let wintCreateTask = document.createElement('div'); // создание окна ссылок
+document.body.append(wintCreateTask);
+wintCreateTask.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopTaskCreate') + 'px; left: ' + localStorage.getItem('winLeftTaskCreate') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintCreateTask.style.display = 'none';
+wintCreateTask.setAttribute('id', 'AF_Createtask');
+wintCreateTask.innerHTML = win_taskform;
+
 let wintChatHis = document.createElement('div'); // создание окна ссылок
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -2654,6 +2694,20 @@ wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmoused
     document.addEventListener('mousemove', listener16);
 }
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
+
+var listener17 = function (e, a) { // сохранение позиции окна доступов
+    wintCreateTask.style.left = Number(e.clientX - myX17) + "px";
+    wintCreateTask.style.top = Number(e.clientY - myY17) + "px";
+    localStorage.setItem('winTopTaskCreate', String(Number(e.clientY - myY17)));
+    localStorage.setItem('winLeftTaskCreate', String(Number(e.clientX - myX17)));
+};
+
+wintCreateTask.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
+    window.myX17 = a.layerX;
+    window.myY17 = a.layerY;
+    document.addEventListener('mousemove', listener17);
+}
+wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listener17); }
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
