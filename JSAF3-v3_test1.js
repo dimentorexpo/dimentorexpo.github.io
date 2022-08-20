@@ -2654,7 +2654,7 @@ wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmoused
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listener16);
     }
-    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName == 'BUTTON'){
         console.log('Вот вам а не хуйня')
     }
 }
