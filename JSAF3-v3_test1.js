@@ -2649,11 +2649,15 @@ var listener16 = function (e, a) { // сохранение позиции окн
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    if (wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.nodeName != 'BUTTON'){
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'button'){
+        console.log('Бинго')
+    }
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName == 'button'){
+        console.log('Ну вот')
+    }
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listener16);
-    }
 }
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
 
