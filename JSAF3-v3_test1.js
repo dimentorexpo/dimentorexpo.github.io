@@ -2458,7 +2458,7 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
-let wintRefuseFormNew = document.createElement('div'); // создание окна ссылок
+let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
 document.body.append(wintRefuseFormNew);
 wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintRefuseFormNew.style.display = 'none';
@@ -2627,19 +2627,21 @@ wintMarks.firstElementChild.firstElementChild.firstElementChild.onmousedown = fu
 }
 wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listener14); }
 
-var listener15 = function (e, a) { // сохранение позиции окна доступов
+var listenerSugform = function (e, a) { // сохранение позиции окна предложения
     wintSugform.style.left = Number(e.clientX - myX15) + "px";
     wintSugform.style.top = Number(e.clientY - myY15) + "px";
     localStorage.setItem('winTopSugest', String(Number(e.clientY - myY15)));
     localStorage.setItem('winLeftSugest', String(Number(e.clientX - myX15)));
 };
 
-wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX15 = a.layerX;
-    window.myY15 = a.layerY;
-    document.addEventListener('mousemove', listener15);
+wintSugform.onmousedown = function (a) { // изменение позиции окна предложения
+    if (checkelementtype(a)){
+        window.myX15 = a.layerX;
+        window.myY15 = a.layerY;
+        document.addEventListener('mousemove', listenerSugform);
+    }
 }
-wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
+wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listenerSugform); } //  прекращение изменения позиции окна предложения
 
 var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
     wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
