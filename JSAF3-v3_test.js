@@ -12648,7 +12648,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(taskBut, btnAdd1.children[1])
 			btnAdd1.insertBefore(butServ, btnAdd1.children[2])
         }, 2000)
-
+ 
         setTimeout(() => {
             let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             let menubutarea = document.createElement('div')
