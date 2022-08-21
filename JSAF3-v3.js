@@ -622,6 +622,60 @@ var win_refusefrom =  // описание элементов окна отказ
         </span>
 </div>`;
 
+var win_taskform  = //описание формы создания задач в СРМ2
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 410px;" id="create_form_header">
+                            <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
+							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
+                        </div>
+
+						<div id="addcreateformbtns">
+							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
+							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
+							<button id="highstudsecondline" style="height:25px; width: 130px;">🗓Калик 👨‍🎓У</button>
+							<br>
+							<button id="highteachersecondline" style="height:25px; width: 130px; margin-left:10px;">📆Калик 👽П</button>
+							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
+							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
+						</div>
+						
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
+                            <input disabled="" required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
+							<br>
+							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
+								<option disabled="" selected="">Приоритет</option>
+								<option value="low">🟢 Низкий</option>
+								<option value="high">🟡 Высокий</option>
+								<option value="highest">🔴 Критический</option>
+							</select>
+
+							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
+								<option disabled="" selected="">Отдел</option>
+								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
+								<option value="teachers_care_crm ">Teachers Care</option>
+								<option value="content_management_dictionary">Словарь</option>
+								<option value="content_management">Контент</option>
+								<option value="teachers_support">Teachers Support</option>
+								<option value="tech_support_second_line_crm2">Техподдержка 2Л CRM</option>
+							</select>
+							
+							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
+							<br>
+							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
+							<br>
+
+							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+		</span>
+        </span>
+</div>`;
+
 var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -1798,6 +1852,11 @@ if (localStorage.getItem('winTopChatHis') == null) { //начальное пол
     localStorage.setItem('winLeftChatHis', '80.6');
 }
 
+if (localStorage.getItem('winTopTaskCreate') == null) { //начальное положение окна Создания задач на СРМ
+    localStorage.setItem('winTopTaskCreate', '295');
+    localStorage.setItem('winLeftTaskCreate', '295');
+}
+
 //заносим переменную для переключения окна
 if (localStorage.getItem('theme') == null) {
     localStorage.setItem('theme', 'dark');
@@ -2227,6 +2286,11 @@ hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
 hashBut.style.marginRight = "15px";
 
+let taskBut = document.createElement('div')
+taskBut.id = "taskBut"
+taskBut.innerHTML = "🛠 Task"
+taskBut.style = "margin-right:15px; cursor:pointer";
+
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
@@ -2347,6 +2411,157 @@ maskBackHide.onclick = function () { // кнопка скрыть
                 break;
             }
         }
+}
+
+taskBut.onclick = function() { // функция открытия окна для работы с созданием задач на СРМ
+	let conversid;
+	if (document.getElementById('AF_Createtask').style.display == 'none')
+		document.getElementById('AF_Createtask').style.display = ''
+	else document.getElementById('AF_Createtask').style.display = 'none'
+	
+	if (location.pathname.length > 17) {
+		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
+		conversid = document.getElementById('chathashlnk').value;
+		
+		fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/click", {
+		  "headers": {
+			"content-type": "application/json",
+		  },
+		  "body": `{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"${conversid}\"}`,
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		});
+
+	}
+	
+	document.getElementById('refreshhashcreateform').onclick = function() {
+			if (location.pathname.length > 17) {
+		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
+		}
+	}
+	
+	
+	document.getElementById('hideMeCreateForm').onclick = function() {
+		document.getElementById('AF_Createtask').style.display = 'none'
+		
+				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": `{\"conversationId\":\"${conversid}\"}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
+	}
+	
+	document.getElementById('clearcreateform').onclick = function() {
+		document.getElementById('taskcomment').value = '';
+		document.getElementById('taskserviceid').value = '';
+		document.getElementById('taskuserid').value = '';
+		document.getElementById('priority').children[0].selected = true
+		document.getElementById('customerservice').children[0].selected = true
+	}
+	
+	document.getElementById('critteachertostudent').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+		
+				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+						document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+					}else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+						document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+				}
+			}
+		}
+	
+	
+	document.getElementById('critstudent').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+
+	document.getElementById('highstudsecondline').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[6].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+	
+	document.getElementById('highteachersecondline').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[6].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+	
+	document.getElementById('highteachersc').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[5].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+	
+	document.getElementById('highteachertc').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[2].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+
+	document.getElementById('createtask').onclick = function() {
+		let prioritystate;
+		let csstate;
+		for (let i=0; i<document.getElementById('priority').children.length;i++) {
+			if (document.getElementById('priority').children[i].selected == true)
+				prioritystate = document.getElementById('priority').children[i].value
+		}
+
+		for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
+			if (document.getElementById('customerservice').children[i].selected == true)
+				csstate = document.getElementById('customerservice').children[i].value
+		}
+		
+		if (document.getElementById('chathashlnk').value != '' && prioritystate !='Приоритет' && csstate != 'Отдел' && document.getElementById('taskuserid').value !='' && document.getElementById('taskcomment').value !='') {
+			fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+			  "headers": {
+				"content-type": "application/json",
+			  },
+			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${document.getElementById('taskserviceid').value.trim()}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n",  "\\n")}\"}]}`,
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			
+		
+			document.getElementById('taskcomment').value = '';
+			document.getElementById('taskserviceid').value = '';
+			document.getElementById('taskuserid').value = '';
+			document.getElementById('priority').children[0].selected = true
+			document.getElementById('customerservice').children[0].selected = true
+			document.getElementById('AF_Createtask').style.display = 'none'
+			
+		} else alert("Задача не была создана, проверьте, пожалуйста, поля: хеш чата, приоритет, отдел, ID пользователя, комментарий")
+	}
 }
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата
@@ -2471,6 +2686,13 @@ wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background
 wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
+
+let wintCreateTask = document.createElement('div'); // создание окна ссылок
+document.body.append(wintCreateTask);
+wintCreateTask.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopTaskCreate') + 'px; left: ' + localStorage.getItem('winLeftTaskCreate') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintCreateTask.style.display = 'none';
+wintCreateTask.setAttribute('id', 'AF_Createtask');
+wintCreateTask.innerHTML = win_taskform;
 
 var listenerLinks = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -2680,6 +2902,25 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 }
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
+
+
+var listenerTaskCreate = function (e, a) { // сохранение позиции окна доступов
+    wintCreateTask.style.left = Number(e.clientX - myX17) + "px";
+    wintCreateTask.style.top = Number(e.clientY - myY17) + "px";
+    localStorage.setItem('winTopTaskCreate', String(Number(e.clientY - myY17)));
+    localStorage.setItem('winLeftTaskCreate', String(Number(e.clientX - myX17)));
+};
+
+wintCreateTask.onmousedown = function (a) {
+    if (checkelementtype(a)){
+        window.myX17 = a.layerX;
+        window.myY17 = a.layerY;
+        document.addEventListener('mousemove', listenerTaskCreate);
+    }
+}
+wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
+
+
 
 function checkelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
@@ -8397,6 +8638,7 @@ function startTimer() {
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+				if (typeof buttonmobpas == 'object')
                 btn.appendChild(buttonmobpas)
             }
 
@@ -12402,15 +12644,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[1])
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[5])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[1])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[2])
         }, 2000)
-
+ 
         setTimeout(() => {
             let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             let menubutarea = document.createElement('div')
