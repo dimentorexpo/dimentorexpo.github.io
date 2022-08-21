@@ -651,9 +651,9 @@ var win_taskform  = //описание формы создания задач в
 								<option value="tech_support_second_line_crm2">Техподдержка 2Л CRM</option>
 							</select>
 							
-							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; text-align: center; height: 25px;">
+							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
 							<br>
-							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; text-align: center; height: 25px;">
+							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
 							<br>
 
 							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
