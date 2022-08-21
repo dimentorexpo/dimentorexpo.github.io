@@ -628,7 +628,8 @@ var win_taskform  = //описание формы создания задач в
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 410px;" id="refuse_form_header">
                             <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
-                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
+							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
                         </div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
@@ -2445,6 +2446,14 @@ taskBut.onclick = function() {
 				});
 	}
 	
+	document.getElementById('clearcreateform').onclick = function() {
+		document.getElementById('taskcomment').value = '';
+		document.getElementById('taskserviceid').value = '';
+		document.getElementById('taskuserid').value = '';
+		document.getElementById('priority').children[0].selected = true
+		document.getElementById('customerservice').children[0].selected = true
+	}
+	
 	document.getElementById('createtask').onclick = function() {
 		let prioritystate;
 		let csstate;
@@ -2468,6 +2477,15 @@ taskBut.onclick = function() {
 			  "mode": "cors",
 			  "credentials": "include"
 			});
+			
+		
+			document.getElementById('taskcomment').value = '';
+			document.getElementById('taskserviceid').value = '';
+			document.getElementById('taskuserid').value = '';
+			document.getElementById('priority').children[0].selected = true
+			document.getElementById('customerservice').children[0].selected = true
+			document.getElementById('AF_Createtask').style.display = 'none'
+			
 		} else alert("Задача не была создана, проверьте, пожалуйста, поля: хеш чата, приоритет, отдел, ID пользователя, комментарий")
 	}
 }
