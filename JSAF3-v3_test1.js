@@ -2649,10 +2649,11 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) { // изменение позиции окна отказов
-    chechekementtype(a);
-    window.myX16 = a.layerX;
-    window.myY16 = a.layerY;
-    document.addEventListener('mousemove', listenerRefuseForm);
+    if (chechekementtype(a)){
+        window.myX16 = a.layerX;
+        window.myY16 = a.layerY;
+        document.addEventListener('mousemove', listenerRefuseForm);
+    }
 }
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
