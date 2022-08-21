@@ -2472,7 +2472,7 @@ taskBut.onclick = function() {
 			  "headers": {
 				"content-type": "application/json",
 			  },
-			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${document.getElementById('taskserviceid').value.trim()}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value}\"}]}`,
+			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${document.getElementById('taskserviceid').value.trim()}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replace("\n",  "\\n")}\"}]}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
