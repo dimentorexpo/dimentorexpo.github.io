@@ -1060,7 +1060,7 @@ var win_LessonStatus =  // описание элементов окна стат
         </span>
 </div>`;
 
-var win_Timetable = // описание элементов окна предстоящих и пршедших занятиях
+var win_Timetable = // описание элементов окна предстоящих и прошедших занятиях
     `<div style="display: flex; width: 450px;">
 <span style="width: 450px">
         <span style="cursor: -webkit-grab;">
@@ -2388,84 +2388,84 @@ wintLinksd.style.display = 'none';
 wintLinksd.setAttribute('id', 'AF_Linksd');
 wintLinksd.innerHTML = win_linksd;
 
-let wintJira = document.createElement('div'); // создание окна ссылок
+let wintJira = document.createElement('div'); // создание окна поиска по Jira
 document.body.append(wintJira);
 wintJira.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopJira') + 'px; left: ' + localStorage.getItem('winLeftJira') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintJira.style.display = 'none';
 wintJira.setAttribute('id', 'AF_Jira');
 wintJira.innerHTML = win_Jira;
 
-let wintStat = document.createElement('div'); // создание окна ссылок
+let wintStat = document.createElement('div'); // создание окна работы со статистикой
 document.body.append(wintStat);
 wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStat.style.display = 'none';
 wintStat.setAttribute('id', 'AF_Stat');
 wintStat.innerHTML = win_Stat;
 
-let wintServices = document.createElement('div'); // создание окна ссылок
+let wintServices = document.createElement('div'); // создание окна вензель user info
 document.body.append(wintServices);
 wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
 
-let wintLessonStatus = document.createElement('div'); // создание окна ссылок
+let wintLessonStatus = document.createElement('div'); // создание окна статус урока
 document.body.append(wintLessonStatus);
 wintLessonStatus.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLessonStatus') + 'px; left: ' + localStorage.getItem('winLeftLessonStatus') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLessonStatus.style.display = 'none';
 wintLessonStatus.setAttribute('id', 'AF_LessonStatus');
 wintLessonStatus.innerHTML = win_LessonStatus;
 
-let wintTimetable = document.createElement('div'); // создание окна ссылок
+let wintTimetable = document.createElement('div'); // создание окна предстоящих и прошедших занятиях
 document.body.append(wintTimetable);
 wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintTimetable.style.display = 'none';
 wintTimetable.setAttribute('id', 'AF_Timetable');
 wintTimetable.innerHTML = win_Timetable;
 
-let wintTechSummary = document.createElement('div'); // создание окна ссылок
+let wintTechSummary = document.createElement('div'); // создание окна инфо об устройстве пользователя
 document.body.append(wintTechSummary);
 wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTechSum') + 'px; left: ' + localStorage.getItem('winLeftTechSum') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintTechSummary.style.display = 'none';
 wintTechSummary.setAttribute('id', 'AF_TechSummary');
 wintTechSummary.innerHTML = win_Techsummary;
 
-let wintServDsk = document.createElement('div'); // создание окна ссылок
+let wintServDsk = document.createElement('div'); // создание окна ServiceDesk
 document.body.append(wintServDsk);
 wintServDsk.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
-let wintGrList = document.createElement('div'); // создание окна ссылок
+let wintGrList = document.createElement('div'); // создание окна Список группы
 document.body.append(wintGrList);
 wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrList') + 'px; left: ' + localStorage.getItem('winLeftGrList') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintGrList.style.display = 'none';
 wintGrList.setAttribute('id', 'AF_GrList');
 wintGrList.innerHTML = win_GrList;
 
-let wintMarks = document.createElement('div'); // создание окна ссылок
+let wintMarks = document.createElement('div'); // создание окна поиска оценок от пользователя
 document.body.append(wintMarks);
 wintMarks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMarks') + 'px; left: ' + localStorage.getItem('winLeftMarks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintMarks.style.display = 'none';
 wintMarks.setAttribute('id', 'AF_Marks');
 wintMarks.innerHTML = win_Marks;
 
-let wintSugform = document.createElement('div'); // создание окна ссылок
+let wintSugform = document.createElement('div'); // создание окна предложения
 document.body.append(wintSugform);
 wintSugform.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSugest') + 'px; left: ' + localStorage.getItem('winLeftSugest') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
-let wintRefuseFormNew = document.createElement('div'); // создание окна ссылок
+let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
 document.body.append(wintRefuseFormNew);
 wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
-let wintChatHis = document.createElement('div'); // создание окна ссылок
+let wintChatHis = document.createElement('div'); // создание окна работы с историей чата
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
 wintChatHis.style.display = 'none';
@@ -2627,19 +2627,21 @@ wintMarks.firstElementChild.firstElementChild.firstElementChild.onmousedown = fu
 }
 wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listener14); }
 
-var listener15 = function (e, a) { // сохранение позиции окна доступов
+var listenerSugform = function (e, a) { // сохранение позиции окна предложения
     wintSugform.style.left = Number(e.clientX - myX15) + "px";
     wintSugform.style.top = Number(e.clientY - myY15) + "px";
     localStorage.setItem('winTopSugest', String(Number(e.clientY - myY15)));
     localStorage.setItem('winLeftSugest', String(Number(e.clientX - myX15)));
 };
 
-wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX15 = a.layerX;
-    window.myY15 = a.layerY;
-    document.addEventListener('mousemove', listener15);
+wintSugform.onmousedown = function (a) { // изменение позиции окна предложения
+    if (checkelementtype(a)){
+        window.myX15 = a.layerX;
+        window.myY15 = a.layerY;
+        document.addEventListener('mousemove', listenerSugform);
+    }
 }
-wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
+wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listenerSugform); } //  прекращение изменения позиции окна предложения
 
 var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
     wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
@@ -6825,17 +6827,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('hideMe').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMe').onclick = function () { // скрытие окна ссылок
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
     }
 
-    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна окна доступов
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
 
-    document.getElementById('hideMej').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMej').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
     }
@@ -6845,7 +6847,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Marks').style.display = 'none'
     }
 
-    document.getElementById('hideMeTT').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeTT').onclick = function () { // скрытие окна предстоящих и прошедших занятиях
         if (document.getElementById('AF_Timetable').style.display == '')
             document.getElementById('AF_Timetable').style.display = 'none'
 
