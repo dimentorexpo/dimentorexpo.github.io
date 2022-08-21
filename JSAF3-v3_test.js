@@ -7486,8 +7486,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     loginer = document.getElementById('testUsers')
     loginer.appendChild(addInfoUser)
 
-
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
     var listener3 = function (e, a) {
         loginer.style.left = Number(e.clientX - myX3) + "px";
         loginer.style.top = Number(e.clientY - myY3) + "px";
