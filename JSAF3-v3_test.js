@@ -636,9 +636,9 @@ var win_taskform  = //описание формы создания задач в
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
-								<option value="low">Низкий</option>
-								<option value="high">Высокий</option>
-								<option value="highest">Критический</option>
+								<option value="low">🟢 Низкий</option>
+								<option value="high">🟡 Высокий</option>
+								<option value="highest">🔴 Критический</option>
 							</select>
 
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
