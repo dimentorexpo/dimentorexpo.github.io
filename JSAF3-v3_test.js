@@ -651,7 +651,7 @@ var win_taskform  = //описание формы создания задач в
 								<option value="tech_support_second_line_crm2">Техподдержка 2Л CRM</option>
 							</select>
 							
-							<input id="taskuserid" placeholder="ID услуги" style="width: 100%; text-align: center; height: 25px;">
+							<input id="taskserviceid" placeholder="ID услуги" style="width: 100%; text-align: center; height: 25px;">
 							<br>
 							<input id="taskuserid" placeholder="ID пользователя" style="width: 100%; text-align: center; height: 25px;">
 							<br>
@@ -2443,8 +2443,26 @@ taskBut.onclick = function() {
 				  "mode": "cors",
 				  "credentials": "include"
 				});
+	}
+	
+	document.getElementById('createtask').onclick = function() {
+		let prioritystate;
+		let csstate;
+		for (let i=0; i<document.getElementById('priority').children.length;i++) {
+			if (document.getElementById('priority').children[i].selected == true)
+				prioritystate = document.getElementById('priority').children[i].value
+		}
+
+		for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
+			if (document.getElementById('customerservice').children[i].selected == true)
+				csstate = document.getElementById('customerservice').children[i].value
+		}
 		
-		
+		if (document.getElementById('chathashlnk').value != '' && prioritystate !='Приоритет' && csstate != 'Отдел' && document.getElementById('taskuserid').value !='' && document.getElementById('taskcomment').value !='') {
+			console.log("True")
+		}
+
+
 	}
 }
 
