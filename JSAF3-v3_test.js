@@ -2807,6 +2807,8 @@ wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmoused
     }
 }
 
+wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
+
 var listener17 = function (e, a) { // сохранение позиции окна доступов
     wintCreateTask.style.left = Number(e.clientX - myX17) + "px";
     wintCreateTask.style.top = Number(e.clientY - myY17) + "px";
