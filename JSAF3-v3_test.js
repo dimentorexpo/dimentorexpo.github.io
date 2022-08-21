@@ -2459,7 +2459,15 @@ taskBut.onclick = function() {
 		}
 		
 		if (document.getElementById('chathashlnk').value != '' && prioritystate !='Приоритет' && csstate != 'Отдел' && document.getElementById('taskuserid').value !='' && document.getElementById('taskcomment').value !='') {
-			console.log("True")
+			fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+			  "headers": {
+				"content-type": "application/json",
+			  },
+			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value}\"}]}`,
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
 		}
 
 
