@@ -2485,18 +2485,43 @@ taskBut.onclick = function() {
 	document.getElementById('highstudsecondline').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[6].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+		
 	}
 	document.getElementById('highteachersecondline').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[6].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+		
 	}
 	document.getElementById('highteachersc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[5].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+		
+		
 	}
 	document.getElementById('highteachertc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[2].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+		
 	}
 
 	
