@@ -2649,7 +2649,7 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
 };
 
 wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
-    if (chechelementtype(a)){
+    if (checkelementtype(a)){
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listenerRefuseForm);
@@ -2658,7 +2658,7 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
 
-function chechelementtype (a){ // проверка на какой элемент нажали
+function checkelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
     
     if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT'){
