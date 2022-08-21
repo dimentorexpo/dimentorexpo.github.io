@@ -2480,6 +2480,12 @@ taskBut.onclick = function() {
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
 		document.getElementById('customerservice').children[1].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+		
 	}
 
 	document.getElementById('highstudsecondline').onclick = function() {
