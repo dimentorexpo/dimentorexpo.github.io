@@ -632,7 +632,16 @@ var win_taskform  = //описание формы создания задач в
 							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
                         </div>
 						
-                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
+						<div id="addcreateformbtns">
+							<button id="critteachertostudent" style="height:25px; width: 100px;">(1ЛТП)Крит 👽П -> У👨‍🎓</button>
+							<button id="highstudsecondline" style="height:25px; width: 100px;">(2ЛТП)Выс калик 👨‍🎓У</button>
+							<button id="highteachersecondline" style="height:25px; width: 100px;">(2ЛТП)Выс калик 👽П</button>
+							<button id="highteachersc" style="height:25px; width: 100px;">👽П SC</button>
+							<button id="highteachertc" style="height:25px; width: 100px;">👽П TC</button>
+							<button id="highteachercommon" style="height:25px; width: 100px;">П общ</button>
+						</div>
+						
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
                             <input required id="chathashlnk" placeholder="Хэш чата" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
