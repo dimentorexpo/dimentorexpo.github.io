@@ -976,91 +976,96 @@ wintLessonInfo.onmouseup = function () { document.removeEventListener('mousemove
 
 // info students adult
 
-wintStudAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9996); }
-var listener9996 = function (e, a) {
+var listenerStudAdults = function (e, a) {
     wintStudAdults.style.left = Number(e.clientX - myX9996) + "px";
     wintStudAdults.style.top = Number(e.clientY - myY9996) + "px";
     localStorage.setItem('winTopstudentsAdults', String(Number(e.clientY - myY9996)));
     localStorage.setItem('winLeftstudentsAdults', String(Number(e.clientX - myX9996)));
 };
-wintStudAdults.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9996 = a.layerX;
-    window.myY9996 = a.layerY;
-    document.addEventListener('mousemove', listener9996);
+wintStudAdults.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9996 = a.layerX;
+        window.myY9996 = a.layerY;
+        document.addEventListener('mousemove', listenerStudAdults);
+    }
 }
-wintStudAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9996); }
+wintStudAdults.onmouseup = function () { document.removeEventListener('mousemove', listenerStudAdults); }
 
 // end info students adult
 
 // info students kids
 
-wintStudSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9995); }
-var listener9995 = function (e, a) {
+var listenerStudSkysmart = function (e, a) {
     wintStudSkysmart.style.left = Number(e.clientX - myX9995) + "px";
     wintStudSkysmart.style.top = Number(e.clientY - myY9995) + "px";
     localStorage.setItem('winTopstudentsSkysmart', String(Number(e.clientY - myY9995)));
     localStorage.setItem('winLeftstudentsSkysmart', String(Number(e.clientX - myX9995)));
 };
-wintStudSkysmart.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9995 = a.layerX;
-    window.myY9995 = a.layerY;
-    document.addEventListener('mousemove', listener9995);
+wintStudSkysmart.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9995 = a.layerX;
+        window.myY9995 = a.layerY;
+        document.addEventListener('mousemove', listenerStudSkysmart);
+    }
 }
-wintStudSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9995); }
+wintStudSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listenerStudSkysmart); }
 
 // end info students kids
 
 // Exercises adult
 
-wintExercAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9994); }
-var listener9994 = function (e, a) {
+var listenerExercAdults = function (e, a) {
     wintExercAdults.style.left = Number(e.clientX - myX9994) + "px";
     wintExercAdults.style.top = Number(e.clientY - myY9994) + "px";
     localStorage.setItem('winTopexercisesAdults', String(Number(e.clientY - myY9994)));
     localStorage.setItem('winLeftexercisesAdults', String(Number(e.clientX - myX9994)));
 };
-wintExercAdults.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9994 = a.layerX;
-    window.myY9994 = a.layerY;
-    document.addEventListener('mousemove', listener9994);
+wintExercAdults.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9994 = a.layerX;
+        window.myY9994 = a.layerY;
+        document.addEventListener('mousemove', listenerExercAdults);
+    }
 }
-wintExercAdults.onmouseup = function () { document.removeEventListener('mousemove', listener9994); }
+wintExercAdults.onmouseup = function () { document.removeEventListener('mousemove', listenerExercAdults); }
 
 // End exercises adult
 
 // Exercises skysmart
 
-wintExercSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9993); }
-var listener9993 = function (e, a) {
+var listenerExercSkysmart = function (e, a) {
     wintExercSkysmart.style.left = Number(e.clientX - myX9993) + "px";
     wintExercSkysmart.style.top = Number(e.clientY - myY9993) + "px";
     localStorage.setItem('winTopexercisesSkysmart', String(Number(e.clientY - myY9993)));
     localStorage.setItem('winLeftexercisesSkysmart', String(Number(e.clientX - myX9993)));
 };
-wintExercSkysmart.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9993 = a.layerX;
-    window.myY9993 = a.layerY;
-    document.addEventListener('mousemove', listener9993);
+wintExercSkysmart.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9993 = a.layerX;
+        window.myY9993 = a.layerY;
+        document.addEventListener('mousemove', listenerExercSkysmart);
+    }
 }
-wintExercSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listener9993); }
+wintExercSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listenerExercSkysmart); }
 
 // End Exercises skysmart
 
 //Vocabulary
 
-wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove', listener9992); }
-var listener9992 = function (e, a) {
+var listenerVocabulary = function (e, a) {
     wintVocabulary.style.left = Number(e.clientX - myX9992) + "px";
     wintVocabulary.style.top = Number(e.clientY - myY9992) + "px";
     localStorage.setItem('winTopVocabulary', String(Number(e.clientY - myY9992)));
     localStorage.setItem('winLeftVocabulary', String(Number(e.clientX - myX9992)));
 };
-wintVocabulary.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9992 = a.layerX;
-    window.myY9992 = a.layerY;
-    document.addEventListener('mousemove', listener9992);
+wintVocabulary.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9992 = a.layerX;
+        window.myY9992 = a.layerY;
+        document.addEventListener('mousemove', listenerVocabulary);
+    }
 }
-wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove', listener9992); }
+wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove', listenerVocabulary); }
 
 //End of vocabulary
 
