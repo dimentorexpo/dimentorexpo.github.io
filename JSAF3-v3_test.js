@@ -12604,7 +12604,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[1])
             btnAdd1.insertBefore(butMarks, btnAdd1.children[2])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[3])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
@@ -12612,6 +12611,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(taskBut, btnAdd1.children[1])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[2])
         }, 2000)
 
         setTimeout(() => {
