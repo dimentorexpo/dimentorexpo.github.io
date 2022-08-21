@@ -2473,7 +2473,7 @@ taskBut.onclick = function() {
 	}
 		
 	}	
-	document.getElementById('critstudent').onclick = function() {
+	document.getElementById('critteachertostudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
 		document.getElementById('customerservice').children[1].selected = true;
 	}
