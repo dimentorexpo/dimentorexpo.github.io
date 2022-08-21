@@ -2641,19 +2641,24 @@ wintSugform.firstElementChild.firstElementChild.firstElementChild.onmousedown = 
 }
 wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listener15); }
 
-var listener16 = function (e, a) { // сохранение позиции окна доступов
+var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
     wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
     wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";
     localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY16)));
     localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
 };
 
-wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX16 = a.layerX;
-    window.myY16 = a.layerY;
-    document.addEventListener('mousemove', listener16);
+wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) { // изменение позиции окна отказов
+    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){ // не двигать окно если нажали на кнопку
+        if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'INPUT'){ // не двигать окно если нажали на поле ввода
+            window.myX16 = a.layerX;
+            window.myY16 = a.layerY;
+            document.addEventListener('mousemove', listenerRefuseForm);
+        }
+    }
 }
-wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listener16); }
+
+wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
