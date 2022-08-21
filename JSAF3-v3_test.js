@@ -632,16 +632,16 @@ var win_taskform  = //описание формы создания задач в
                         </div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
-                            <input id="chathashlnk" placeholder="Хэш чата" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
+                            <input required id="chathashlnk" placeholder="Хэш чата" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
 							<br>
-							<select id="priority" style="width: 100%; text-align: center; height: 25px;">
+							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
 								<option value="low">Низкий</option>
 								<option value="high">Высокий</option>
 								<option value="highest">Критический</option>
 							</select>
 
-							<select id="customerservice" style="width: 100%; text-align: center; height: 25px;">
+							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Отдел</option>
 								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
 								<option value="teachers_care_crm ">Teachers Care</option>
@@ -651,12 +651,12 @@ var win_taskform  = //описание формы создания задач в
 								<option value="tech_support_second_line_crm2">Техподдержка 2Л CRM</option>
 							</select>
 							
-							<input id="taskserviceid" placeholder="ID услуги" style="width: 100%; text-align: center; height: 25px;">
+							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; text-align: center; height: 25px;">
 							<br>
-							<input id="taskuserid" placeholder="ID пользователя" style="width: 100%; text-align: center; height: 25px;">
+							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; text-align: center; height: 25px;">
 							<br>
 
-							<textarea id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
