@@ -2661,7 +2661,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 function chechelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
     
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA'){
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT'){
         return true;
     }
     return false;
