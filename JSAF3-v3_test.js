@@ -626,24 +626,24 @@ var win_taskform  = //описание формы создания задач в
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
+                        <div style="margin: 5px; width: 410px;" id="create_form_header">
                             <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
 							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
                         </div>
-						
+
 						<div id="addcreateformbtns">
-							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:5px;">Крит 👽П -> У👨‍🎓</button>
-							<button id="highstudsecondline" style="height:25px; width: 130px;">Калик 👨‍🎓У</button>
-							<button id="highteachersecondline" style="height:25px; width: 130px;">Калик 👽П</button>
+							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
+							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
+							<button id="highstudsecondline" style="height:25px; width: 130px;">🗓Калик 👨‍🎓У</button>
 							<br>
-							<button id="highteachersc" style="height:25px; width: 130px; margin-left:5px;">👽П SC</button>
-							<button id="highteachertc" style="height:25px; width: 130px;">👽П TC</button>
-							<button id="highteachercommon" style="height:25px; width: 130px;">П общ</button>
+							<button id="highteachersecondline" style="height:25px; width: 130px; margin-left:10px;">📆Калик 👽П</button>
+							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
+							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
-                            <input required id="chathashlnk" placeholder="Хэш чата" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
+                            <input disabled="" required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
@@ -2464,6 +2464,73 @@ taskBut.onclick = function() {
 		document.getElementById('customerservice').children[0].selected = true
 	}
 	
+	document.getElementById('critteachertostudent').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+        }
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId")
+            document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+		}
+		
+		}
+	}
+	
+	document.getElementById('critstudent').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+
+	document.getElementById('highstudsecondline').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[6].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+	
+	document.getElementById('highteachersecondline').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[6].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+	
+	document.getElementById('highteachersc').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[5].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+	
+	document.getElementById('highteachertc').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[2].selected = true;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+	}
+
 	document.getElementById('createtask').onclick = function() {
 		let prioritystate;
 		let csstate;
@@ -8536,6 +8603,7 @@ function startTimer() {
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+				if (typeof buttonmobpas == 'object')
                 btn.appendChild(buttonmobpas)
             }
 
