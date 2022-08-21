@@ -2649,19 +2649,22 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) { // изменение позиции окна отказов
-    let elem = document.elementFromPoint(a.clientX,a.clientY)
-    if (elem.nodeName != 'BUTTON'){ // не двигать окно если нажали на кнопку
-        if (elem.nodeName != 'INPUT'){ // не двигать окно если нажали на поле ввода
-            if (elem.nodeName != 'TEXTAREA'){
-                window.myX16 = a.layerX;
-                window.myY16 = a.layerY;
-                document.addEventListener('mousemove', listenerRefuseForm);
-            }
-        }
-    }
+    chechekementtype(a);
+    window.myX16 = a.layerX;
+    window.myY16 = a.layerY;
+    document.addEventListener('mousemove', listenerRefuseForm);
 }
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
+
+function chechekementtype (a){ // проверка на какой элемент нажали для перемещения окна
+    let elem = document.elementFromPoint(a.clientX,a.clientY)
+    
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA'){
+        return true;
+    }
+    return false;
+}
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
