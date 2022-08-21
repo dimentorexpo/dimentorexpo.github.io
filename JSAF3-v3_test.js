@@ -2500,7 +2500,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	}
 	
 	document.getElementById('secondlinedatabase').onclick = function() {
-		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('priority').children[1].selected = true;
 		document.getElementById('customerservice').children[6].selected = true;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
