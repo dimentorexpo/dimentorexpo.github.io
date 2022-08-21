@@ -2648,8 +2648,8 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
     localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
 };
 
-wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) { // изменение позиции окна отказов
-    if (chechekementtype(a)){
+wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
+    if (chechelementtype(a)){
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listenerRefuseForm);
@@ -2658,7 +2658,7 @@ wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmoused
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
 
-function chechekementtype (a){ // проверка на какой элемент нажали для перемещения окна
+function chechelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
     
     if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA'){
