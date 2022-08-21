@@ -2648,21 +2648,11 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
     localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
 };
 
-<<<<<<< HEAD
 wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
     if (checkelementtype(a)){
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listenerRefuseForm);
-=======
-wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) { // изменение позиции окна отказов
-    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){ // не двигать окно если нажали на кнопку
-        if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'INPUT' && document.elementFromPoint(a.clientX,a.clientY).nodeName != 'TEXTAREA'){ // не двигать окно если нажали на поле ввода
-            window.myX16 = a.layerX;
-            window.myY16 = a.layerY;
-            document.addEventListener('mousemove', listenerRefuseForm);
-        }
->>>>>>> d8e1ea60c89e7d0e537ad76902a660df09809e3b
     }
 }
 
