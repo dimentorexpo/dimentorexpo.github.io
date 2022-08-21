@@ -2478,8 +2478,9 @@ taskBut.onclick = function() {
             document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 		}
 		
+		}
 	}
-	}
+	
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
 		document.getElementById('customerservice').children[1].selected = true;
@@ -2488,7 +2489,6 @@ taskBut.onclick = function() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
-		
 	}
 
 	document.getElementById('highstudsecondline').onclick = function() {
@@ -2499,8 +2499,8 @@ taskBut.onclick = function() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
-		
 	}
+	
 	document.getElementById('highteachersecondline').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[6].selected = true;
@@ -2509,8 +2509,8 @@ taskBut.onclick = function() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
-		
 	}
+	
 	document.getElementById('highteachersc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[5].selected = true;
@@ -2519,9 +2519,8 @@ taskBut.onclick = function() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
-		
-		
 	}
+	
 	document.getElementById('highteachertc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[2].selected = true;
@@ -2530,10 +2529,8 @@ taskBut.onclick = function() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
-		
 	}
 
-	
 	document.getElementById('createtask').onclick = function() {
 		let prioritystate;
 		let csstate;
