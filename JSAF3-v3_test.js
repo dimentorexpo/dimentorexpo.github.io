@@ -635,9 +635,9 @@ var win_taskform  = //описание формы создания задач в
 						<div id="addcreateformbtns">
 							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
-							<button id="highstudsecondline" style="height:25px; width: 130px;">🗓Калик 👨‍🎓У</button>
+							<button id="highsecondline" style="height:25px; width: 130px;">🗓Калик У/П</button>
 							<br>
-							<button id="highteachersecondline" style="height:25px; width: 130px; margin-left:10px;">📆Калик 👽П</button>
+							<button id="secondlinedatabase" style="height:25px; width: 130px; margin-left:10px;">🔎 Поиск БД</button>
 							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
@@ -2487,8 +2487,9 @@ taskBut.onclick = function() { // функция открытия окна дл�
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
 	}
+	
 
-	document.getElementById('highstudsecondline').onclick = function() {
+	document.getElementById('highsecondline').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[6].selected = true;
 		
@@ -2498,7 +2499,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
         }
 	}
 	
-	document.getElementById('highteachersecondline').onclick = function() {
+	document.getElementById('secondlinedatabase').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
 		document.getElementById('customerservice').children[6].selected = true;
 		
