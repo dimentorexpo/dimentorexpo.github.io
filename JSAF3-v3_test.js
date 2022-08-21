@@ -2465,15 +2465,6 @@ taskBut.onclick = function() {
 	}
 	
 	document.getElementById('critteachertostudent').onclick = function() {
-		
-	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
-			
-		}
-	}
-		
-	}	
-	document.getElementById('critteachertostudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
 		document.getElementById('customerservice').children[1].selected = true;
 		
@@ -2487,6 +2478,7 @@ taskBut.onclick = function() {
             document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 		}
 		
+	}
 	}
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
