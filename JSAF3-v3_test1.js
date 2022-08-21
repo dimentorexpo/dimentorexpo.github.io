@@ -2649,11 +2649,14 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
 };
 
 wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) { // изменение позиции окна отказов
-    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){ // не двигать окно если нажали на кнопку
-        if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'INPUT'){ // не двигать окно если нажали на поле ввода
-            window.myX16 = a.layerX;
-            window.myY16 = a.layerY;
-            document.addEventListener('mousemove', listenerRefuseForm);
+    let elem = document.elementFromPoint(a.clientX,a.clientY)
+    if (elem.nodeName != 'BUTTON'){ // не двигать окно если нажали на кнопку
+        if (elem.nodeName != 'INPUT'){ // не двигать окно если нажали на поле ввода
+            if (elem.nodeName != 'TEXTAREA'){
+                window.myX16 = a.layerX;
+                window.myY16 = a.layerY;
+                document.addEventListener('mousemove', listenerRefuseForm);
+            }
         }
     }
 }
