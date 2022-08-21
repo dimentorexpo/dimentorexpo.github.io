@@ -633,13 +633,13 @@ var win_taskform  = //описание формы создания задач в
                         </div>
 						
 						<div id="addcreateformbtns">
-							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:5px;">Крит 👽П -> У👨‍🎓</button>
+							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
 							<button id="highstudsecondline" style="height:25px; width: 130px;">Калик 👨‍🎓У</button>
 							<button id="highteachersecondline" style="height:25px; width: 130px;">Калик 👽П</button>
 							<br>
-							<button id="highteachersc" style="height:25px; width: 130px; margin-left:5px;">👽П SC</button>
+							<button id="highteachersc" style="height:25px; width: 130px; margin-left:10px;">👽П SC</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П TC</button>
-							<button id="highteachercommon" style="height:25px; width: 130px;">П общ</button>
+							<button id="highteachercommon" style="height:25px; width: 130px;">👽П общ</button>
 						</div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
