@@ -2150,7 +2150,7 @@ infouserbut.onclick = function () { //функция Info по нажатию н
     }
 }
 
-buttonserv.onclick = function () { //открывает юзер инфо с инфо о пользователе об ученике с которым след урок при обращении П
+buttonserv.onclick = function () { //открывает окно вензель user info
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -2162,7 +2162,7 @@ buttonserv.onclick = function () { //открывает юзер инфо с и�
     }
 }
 
-buttonservteach.onclick = function () { //открывает юзер инфо с инфо о пользователе о преподавателе с которым след урок при обращении У
+buttonservteach.onclick = function () { //открывает окно вензель user info
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -2174,7 +2174,7 @@ buttonservteach.onclick = function () { //открывает юзер инфо �
     }
 }
 
-buttonservstud.onclick = function () { //открывает юзер инфо с инфо о пользователе
+buttonservstud.onclick = function () { //открывает окно вензель user info
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
@@ -2472,160 +2472,181 @@ wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
 
-var listener4 = function (e, a) { // сохранение позиции окна ссылок
+var listenerLinks = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";
     localStorage.setItem('winTopLinks', String(Number(e.clientY - myY4)));
     localStorage.setItem('winLeftLinks', String(Number(e.clientX - myX4)));
 };
 
-wintLinks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX4 = a.layerX;
-    window.myY4 = a.layerY;
-    document.addEventListener('mousemove', listener4);
+wintLinks.onmousedown = function (a) { // изменение позиции окна ссылок
+    if (checkelementtype(a)){
+        window.myX4 = a.layerX;
+        window.myY4 = a.layerY;
+        document.addEventListener('mousemove', listenerLinks);
+    }
 }
-wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listener4); }
+wintLinks.onmouseup = function () { document.removeEventListener('mousemove', listenerLinks); } // прекращение изменения позиции окна ссылок
 
-
-var listener5 = function (e, a) { // сохранение позиции окна ссылок
+var listenerJira = function (e, a) { // сохранение позиции окна поиска по Jira
     wintJira.style.left = Number(e.clientX - myX5) + "px";
     wintJira.style.top = Number(e.clientY - myY5) + "px";
     localStorage.setItem('winTopJira', String(Number(e.clientY - myY5)));
     localStorage.setItem('winLeftJira', String(Number(e.clientX - myX5)));
 };
 
-wintJira.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX5 = a.layerX;
-    window.myY5 = a.layerY;
-    document.addEventListener('mousemove', listener5);
+wintJira.onmousedown = function (a) { // изменение позиции окна поиска по Jira
+    if (checkelementtype(a)){
+        window.myX5 = a.layerX;
+        window.myY5 = a.layerY;
+        document.addEventListener('mousemove', listenerJira);
+    }
 }
-wintJira.onmouseup = function () { document.removeEventListener('mousemove', listener5); }
+wintJira.onmouseup = function () { document.removeEventListener('mousemove', listenerJira); } // прекращение изменения позиции окна поиска по Jira
 
-var listener6 = function (e, a) { // сохранение позиции окна ссылок
+var listenerStat = function (e, a) { // сохранение позиции окна работы со статистикой
     wintStat.style.left = Number(e.clientX - myX6) + "px";
     wintStat.style.top = Number(e.clientY - myY6) + "px";
     localStorage.setItem('winTopStat', String(Number(e.clientY - myY6)));
     localStorage.setItem('winLeftStat', String(Number(e.clientX - myX6)));
 };
 
-wintStat.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX6 = a.layerX;
-    window.myY6 = a.layerY;
-    document.addEventListener('mousemove', listener6);
+wintStat.onmousedown = function (a) { // изменение позиции окна работы со статистикой
+    if (checkelementtype(a)){
+        window.myX6 = a.layerX;
+        window.myY6 = a.layerY;
+        document.addEventListener('mousemove', listenerStat);
+    }
 }
-wintStat.onmouseup = function () { document.removeEventListener('mousemove', listener6); }
+wintStat.onmouseup = function () { document.removeEventListener('mousemove', listenerStat); } // прекращение изменения позиции окна работы со статистикой
 
-var listener7 = function (e, a) { // сохранение позиции окна ссылок
+var listenerServices = function (e, a) { // сохранение позиции окна вензель user info
     wintServices.style.left = Number(e.clientX - myX7) + "px";
     wintServices.style.top = Number(e.clientY - myY7) + "px";
     localStorage.setItem('winTopService', String(Number(e.clientY - myY7)));
     localStorage.setItem('winLeftService', String(Number(e.clientX - myX7)));
 };
 
-wintServices.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX7 = a.layerX;
-    window.myY7 = a.layerY;
-    document.addEventListener('mousemove', listener7);
+wintServices.onmousedown = function (a) {
+    if (checkelementtype(a)){
+        window.myX7 = a.layerX;
+        window.myY7 = a.layerY;
+        document.addEventListener('mousemove', listenerServices); // изменение позиции вензель user info
+    }
 }
-wintServices.onmouseup = function () { document.removeEventListener('mousemove', listener7); }
+wintServices.onmouseup = function () { document.removeEventListener('mousemove', listenerServices); } // прекращение изменения позиции вензель user info
 
-var listener8 = function (e, a) { // сохранение позиции окна ссылок
+var listenerLessonStatus = function (e, a) { // сохранение позиции окна статус урока
     wintLessonStatus.style.left = Number(e.clientX - myX8) + "px";
     wintLessonStatus.style.top = Number(e.clientY - myY8) + "px";
     localStorage.setItem('winTopLessonStatus', String(Number(e.clientY - myY8)));
     localStorage.setItem('winLeftLessonStatus', String(Number(e.clientX - myX8)));
 };
 
-wintLessonStatus.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX8 = a.layerX;
-    window.myY8 = a.layerY;
-    document.addEventListener('mousemove', listener8);
+wintLessonStatus.onmousedown = function (a) { // изменение позиции окна статус урока
+    if (checkelementtype(a)){
+        window.myX8 = a.layerX;
+        window.myY8 = a.layerY;
+        document.addEventListener('mousemove', listenerLessonStatus);
+    }
 }
-wintLessonStatus.onmouseup = function () { document.removeEventListener('mousemove', listener8); }
+wintLessonStatus.onmouseup = function () { document.removeEventListener('mousemove', listenerLessonStatus); } // прекращение изменения позиции окна
 
-var listener9 = function (e, a) { // сохранение позиции окна доступов
+var listenerLinksd = function (e, a) { // сохранение позиции окна доступов
     wintLinksd.style.left = Number(e.clientX - myX9) + "px";
     wintLinksd.style.top = Number(e.clientY - myY9) + "px";
     localStorage.setItem('winTopLinksd', String(Number(e.clientY - myY9)));
     localStorage.setItem('winLeftLinksd', String(Number(e.clientX - myX9)));
 };
 
-wintLinksd.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9 = a.layerX;
-    window.myY9 = a.layerY;
-    document.addEventListener('mousemove', listener9);
+wintLinksd.onmousedown = function (a) { // изменение позиции окна доступов
+    if (checkelementtype(a)){
+        window.myX9 = a.layerX;
+        window.myY9 = a.layerY;
+        document.addEventListener('mousemove', listenerLinksd);
+    }
 }
-wintLinksd.onmouseup = function () { document.removeEventListener('mousemove', listener9); }
+wintLinksd.onmouseup = function () { document.removeEventListener('mousemove', listenerLinksd); } // прекращение изменения позиции окна доступов
 
-var listener10 = function (e, a) { // сохранение позиции окна доступов
+var listenerTimetable = function (e, a) { // сохранение позиции окна предстоящих и прошедших занятиях
     wintTimetable.style.left = Number(e.clientX - myX10) + "px";
     wintTimetable.style.top = Number(e.clientY - myY10) + "px";
     localStorage.setItem('winTopTimetable', String(Number(e.clientY - myY10)));
     localStorage.setItem('winLeftTimetable', String(Number(e.clientX - myX10)));
 };
 
-wintTimetable.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX10 = a.layerX;
-    window.myY10 = a.layerY;
-    document.addEventListener('mousemove', listener10);
+wintTimetable.onmousedown = function (a) { // изменение позиции окна предстоящих и прошедших занятиях
+    if (checkelementtype(a)){
+        window.myX10 = a.layerX;
+        window.myY10 = a.layerY;
+        document.addEventListener('mousemove', listenerTimetable);
+    }
 }
-wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listener10); }
+wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listenerTimetable); } // прекращение изменения позиции окна предстоящих и прошедших занятиях
 
-var listener11 = function (e, a) { // сохранение позиции окна доступов
+var listenerTechSummary = function (e, a) { // сохранение позиции окна инфо об устройстве пользователя
     wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
     wintTechSummary.style.top = Number(e.clientY - myY11) + "px";
     localStorage.setItem('winTopTechSum', String(Number(e.clientY - myY11)));
     localStorage.setItem('winLeftTechSum', String(Number(e.clientX - myX11)));
 };
 
-wintTechSummary.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX11 = a.layerX;
-    window.myY11 = a.layerY;
-    document.addEventListener('mousemove', listener11);
+wintTechSummary.onmousedown = function (a) { // изменение позиции окна инфо об устройстве пользователя
+    if (checkelementtype(a)){
+        window.myX11 = a.layerX;
+        window.myY11 = a.layerY;
+        document.addEventListener('mousemove', listenerTechSummary);
+    }
 }
-wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listener11); }
+wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listenerTechSummary); } // прекращение изменения позиции окна инфо об устройстве пользователя
 
-var listener12 = function (e, a) { // сохранение позиции окна доступов
+var listenerServDsk = function (e, a) { // сохранение позиции окна ServiceDesk
     wintServDsk.style.left = Number(e.clientX - myX12) + "px";
     wintServDsk.style.top = Number(e.clientY - myY12) + "px";
     localStorage.setItem('winTopServDsk', String(Number(e.clientY - myY12)));
     localStorage.setItem('winLeftServDsk', String(Number(e.clientX - myX12)));
 };
 
-wintServDsk.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX12 = a.layerX;
-    window.myY12 = a.layerY;
-    document.addEventListener('mousemove', listener12);
+wintServDsk.onmousedown = function (a) { // изменение позиции окна ServiceDesk
+    if (checkelementtype(a)){
+        window.myX12 = a.layerX;
+        window.myY12 = a.layerY;
+        document.addEventListener('mousemove', listenerServDsk);
+    }
 }
-wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listener12); }
+wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listenerServDsk); } // прекращение изменения позиции окна ServiceDesk
 
-var listener13 = function (e, a) { // сохранение позиции окна доступов
+var listenerGrList = function (e, a) { // сохранение позиции окна Список группы
     wintGrList.style.left = Number(e.clientX - myX13) + "px";
     wintGrList.style.top = Number(e.clientY - myY13) + "px";
     localStorage.setItem('winTopGrList', String(Number(e.clientY - myY13)));
     localStorage.setItem('winLeftGrList', String(Number(e.clientX - myX13)));
 };
 
-wintGrList.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX13 = a.layerX;
-    window.myY13 = a.layerY;
-    document.addEventListener('mousemove', listener13);
+wintGrList.onmousedown = function (a) { // изменение позиции окна Список группы
+    if (checkelementtype(a)){
+        window.myX13 = a.layerX;
+        window.myY13 = a.layerY;
+        document.addEventListener('mousemove', listenerGrList);
+    }
 }
-wintGrList.onmouseup = function () { document.removeEventListener('mousemove', listener13); }
+wintGrList.onmouseup = function () { document.removeEventListener('mousemove', listenerGrList); } // прекращение изменения позиции окна Список группы
 
-var listener14 = function (e, a) { // сохранение позиции окна доступов
+var listenerMarks = function (e, a) { // сохранение позиции окна поиска оценок от пользователя
     wintMarks.style.left = Number(e.clientX - myX14) + "px";
     wintMarks.style.top = Number(e.clientY - myY14) + "px";
     localStorage.setItem('winTopMarks', String(Number(e.clientY - myY14)));
     localStorage.setItem('winLeftMarks', String(Number(e.clientX - myX14)));
 };
 
-wintMarks.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX14 = a.layerX;
-    window.myY14 = a.layerY;
-    document.addEventListener('mousemove', listener14);
+wintMarks.onmousedown = function (a) { // изменение позиции окна поиска оценок от пользователя
+    if (checkelementtype(a)){
+        window.myX14 = a.layerX;
+        window.myY14 = a.layerY;
+        document.addEventListener('mousemove', listenerMarks);
+    }
 }
-wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listener14); }
+wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listenerMarks); } // прекращение изменения позиции окна поиска оценок от пользователя
 
 var listenerSugform = function (e, a) { // сохранение позиции окна предложения
     wintSugform.style.left = Number(e.clientX - myX15) + "px";
@@ -2641,7 +2662,7 @@ wintSugform.onmousedown = function (a) { // изменение позиции о
         document.addEventListener('mousemove', listenerSugform);
     }
 }
-wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listenerSugform); } //  прекращение изменения позиции окна предложения
+wintSugform.onmouseup = function () { document.removeEventListener('mousemove', listenerSugform); } // прекращение изменения позиции окна предложения
 
 var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
     wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
@@ -2658,7 +2679,7 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
     }
 }
 
-wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
+wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
 
 function checkelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
@@ -2678,43 +2699,43 @@ document.getElementById('links_but').ondblclick = function () { // скрыти�
 document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
 }
-document.getElementById('linksd_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('linksd_1str').ondblclick = function () { // скрытие окна доступов по двойному клику
     document.getElementById('AF_Linksd').style.display = 'none';
 }
-document.getElementById('linksd_kib_box').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('linksd_kib_box').ondblclick = function () { // скрытие окна доступов по двойному клику
     document.getElementById('AF_Linksd').style.display = 'none';
 }
-document.getElementById('jira_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('jira_1str').ondblclick = function () { // скрытие окна Jira по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
-document.getElementById('grlistdata').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('grlistdata').ondblclick = function () { // скрытие окна Список группы по двойному клику
     document.getElementById('AF_GrList').style.display = 'none';
 }
-document.getElementById('HeadTimetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('HeadTimetable').ondblclick = function () { // скрытие окна предстоящих и прошедших занятиях по двойному клику
     document.getElementById('AF_Timetable').style.display = 'none';
     document.getElementById('timetabledata').innerHTML = "";
 }
-document.getElementById('HeadTechSummary').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('HeadTechSummary').ondblclick = function () { // скрытие окна инфо об устройстве пользователя по двойному клику
     document.getElementById('AF_TechSummary').style.display = 'none';
     document.getElementById('techsumdata').innerHTML = "";
 }
-document.getElementById('issuetable').ondblclick = function () { // скрытие окна ссылок по двойному клику
+document.getElementById('issuetable').ondblclick = function () { // скрытие окна Jira по двойному клику
     document.getElementById('AF_Jira').style.display = 'none';
 }
-document.getElementById('statdata').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('statdata').ondblclick = function () { // скрытие окна работы со статистикой
     document.getElementById('AF_Stat').style.display = 'none';
 }
-document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна работы со статистикой
     document.getElementById('AF_Stat').style.display = 'none';
 }
-document.getElementById('lessomstatdata').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('lessomstatdata').ondblclick = function () { // скрытие окна статус урока по двойному клику
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
-document.getElementById('databox').ondblclick = function () { // скрытие окна статистики по двойному клику
+document.getElementById('databox').ondblclick = function () { // скрытие окна статус урока по двойному клику
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
-let wintAF = document.createElement('div');
+let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
 wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintAF.setAttribute('id', 'AF_helper');
@@ -2740,19 +2761,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_helper').style.display = 'none';
     }
 
-    var listener2 = function (e, a) {
+    var listenerAF = function (e, a) { // сохранение позиции главного окна 
         wintAF.style.left = Number(e.clientX - myX2) + "px";
         wintAF.style.top = Number(e.clientY - myY2) + "px";
         localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
         localStorage.setItem('winLeftAF', String(Number(e.clientX - myX2)));
     };
 
-    wintAF.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) {
-        window.myX2 = a.layerX;
-        window.myY2 = a.layerY;
-        document.addEventListener('mousemove', listener2);
+    wintAF.onmousedown = function (a) { // изменение позиции главного окна
+        if (checkelementtype(a)){
+            window.myX2 = a.layerX;
+            window.myY2 = a.layerY;
+            document.addEventListener('mousemove', listenerAF);
+        }
     }
-    wintAF.onmouseup = function () { document.removeEventListener('mousemove', listener2); }
+    wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
 
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
         audio.play()
@@ -5758,7 +5781,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('links').onclick = function () { //открывает  ссылки L
+    document.getElementById('links').onclick = function () { //открывает окно ссылок
         if (document.getElementById('AF_Links').style.display == '')
             document.getElementById('AF_Links').style.display = 'none'
         else {
@@ -5784,7 +5807,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('addsrc').onclick = function () { //открывает окно с доп ссылкиами с доступами
+    document.getElementById('addsrc').onclick = function () { //открывает окно доступов
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
         else
@@ -6832,7 +6855,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Links').style.display = 'none'
     }
 
-    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна окна доступов
+    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна доступов
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
@@ -6842,7 +6865,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Jira').style.display = 'none'
     }
 
-    document.getElementById('hideMeMarks').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
     }
@@ -6854,14 +6877,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('timetabledata').innerHTML = "";
     }
 
-    document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна инфо об устройстве пользователя
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
 
         document.getElementById('techsumdata').innerHTML = "";
     }
 
-    document.getElementById('hideMeservice').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeservice').onclick = function () { // скрытие окна вензель user info
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
     }
@@ -6877,20 +6900,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         window.open(`https://crm2.skyeng.ru/persons/${fdata}`)
     }
 
-    document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна статус урока
         if (document.getElementById('AF_LessonStatus').style.display == '') {
             document.getElementById('AF_LessonStatus').style.display = 'none'
             document.getElementById('statustable').innerText = "";
         }
     }
 
-    document.getElementById('hideMeStat').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeStat').onclick = function () { // скрытие окна работы со статистикой
         if (document.getElementById('AF_Stat').style.display == '')
             document.getElementById('AF_Stat').style.display = 'none'
 
     }
 
-    document.getElementById('hideMeGrList').onclick = function () { // скрытие окна с доп ссылками
+    document.getElementById('hideMeGrList').onclick = function () { // скрытие окна Список группы
         if (document.getElementById('AF_GrList').style.display == '') {
             document.getElementById('AF_GrList').style.display = 'none';
             document.getElementById('grlistinfo').innerText = "";
