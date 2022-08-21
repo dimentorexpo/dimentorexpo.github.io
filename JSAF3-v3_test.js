@@ -643,7 +643,7 @@ var win_taskform  = //описание формы создания задач в
 						</div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
-                            <input required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
+                            <input disabled="" required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
