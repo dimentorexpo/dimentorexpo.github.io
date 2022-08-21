@@ -908,57 +908,69 @@ wintVocabulary.style = 'display:none;  top: ' + localStorage.getItem('winTopVoca
 wintVocabulary.setAttribute('id', 'AFMS_Vocabulary');
 wintVocabulary.innerHTML = win_Vocabulary;
 
+function checkelementt (a){ // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX,a.clientY)
+    
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT'){
+        return true;
+    }
+    return false;
+}
+
 //aditional menu
 
-wintAddMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9999); }
-var listener9999 = function (e, a) {
+var listenerAddMenu = function (e, a) {
     wintAddMenu.style.left = Number(e.clientX - myX9999) + "px";
     wintAddMenu.style.top = Number(e.clientY - myY9999) + "px";
     localStorage.setItem('winTopAddMenu', String(Number(e.clientY - myY9999)));
     localStorage.setItem('winLeftAddMenu', String(Number(e.clientX - myX9999)));
 };
-wintAddMenu.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9999 = a.layerX;
-    window.myY9999 = a.layerY;
-    document.addEventListener('mousemove', listener9999);
+wintAddMenu.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9999 = a.layerX;
+        window.myY9999 = a.layerY;
+        document.addEventListener('mousemove', listenerAddMenu);
+    }
 }
-wintAddMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9999); }
+wintAddMenu.onmouseup = function () { document.removeEventListener('mousemove', listenerAddMenu); }
 
 // end aditional menu
 
 // add chat menu
 
-wintAddChatMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9998); }
-var listener9998 = function (e, a) {
+var listenerAddChatMenu = function (e, a) {
     wintAddChatMenu.style.left = Number(e.clientX - myX9998) + "px";
     wintAddChatMenu.style.top = Number(e.clientY - myY9998) + "px";
     localStorage.setItem('winTopAddChatMenu', String(Number(e.clientY - myY9998)));
     localStorage.setItem('winLeftAddChatMenu', String(Number(e.clientX - myX9998)));
 };
-wintAddChatMenu.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9998 = a.layerX;
-    window.myY9998 = a.layerY;
-    document.addEventListener('mousemove', listener9998);
+wintAddChatMenu.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9998 = a.layerX;
+        window.myY9998 = a.layerY;
+        document.addEventListener('mousemove', listenerAddChatMenu);
+    }
 }
-wintAddChatMenu.onmouseup = function () { document.removeEventListener('mousemove', listener9998); }
+wintAddChatMenu.onmouseup = function () { document.removeEventListener('mousemove', listenerAddChatMenu); }
 
 // end add chat menu
 
 // lexxon info menu
 
-wintLessonInfo.onmouseup = function () { document.removeEventListener('mousemove', listener9997); }
-var listener9997 = function (e, a) {
+var listenerLessonInfo = function (e, a) {
     wintLessonInfo.style.left = Number(e.clientX - myX9997) + "px";
     wintLessonInfo.style.top = Number(e.clientY - myY9997) + "px";
     localStorage.setItem('winTopLessonInfo', String(Number(e.clientY - myY9997)));
     localStorage.setItem('winLeftLessonInfo', String(Number(e.clientX - myX9997)));
 };
-wintLessonInfo.firstElementChild.firstElementChild.onmousedown = function (a) {
-    window.myX9997 = a.layerX;
-    window.myY9997 = a.layerY;
-    document.addEventListener('mousemove', listener9997);
+wintLessonInfo.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9997 = a.layerX;
+        window.myY9997 = a.layerY;
+        document.addEventListener('mousemove', listenerLessonInfo);
+    }
 }
-wintLessonInfo.onmouseup = function () { document.removeEventListener('mousemove', listener9997); }
+wintLessonInfo.onmouseup = function () { document.removeEventListener('mousemove', listenerLessonInfo); }
 
 // end lesson info menu
 

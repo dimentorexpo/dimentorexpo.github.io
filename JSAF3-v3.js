@@ -7360,20 +7360,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     loginer = document.getElementById('testUsers')
     loginer.appendChild(addInfoUser)
 
-
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
-    var listener3 = function (e, a) {
+    var listenerloginer = function (e, a) {
         loginer.style.left = Number(e.clientX - myX3) + "px";
         loginer.style.top = Number(e.clientY - myY3) + "px";
         localStorage.setItem('winTop3', String(Number(e.clientY - myY3)));
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
-    loginer.childNodes[1].onmousedown = function (a) {
-        window.myX3 = a.layerX;
-        window.myY3 = a.layerY;
-        document.addEventListener('mousemove', listener3);
+    loginer.onmousedown = function (a) {
+        if (checkelementt(a)){
+            window.myX3 = a.layerX;
+            window.myY3 = a.layerY;
+            document.addEventListener('mousemove', listenerloginer);
+        }
     }
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
+    loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); }
 
     user = "student"
 
@@ -11596,19 +11596,21 @@ function customTemplates(language = '') { //собственные шаблон�
             addNewString(i)
     refreshHotTmps()
 
-    var listener3 = function (e, a) {
+    var listenercstmTmp = function (e, a) {
         cstmTmp.style.left = Number(e.clientX - myX3) + "px";
         cstmTmp.style.top = Number(e.clientY - myY3) + "px";
         localStorage.setItem('winCstmTmpsTop', String(Number(e.clientY - myY3)));
         localStorage.setItem('winCstmTmpsLeft', String(Number(e.clientX - myX3)));
     };
 
-    cstmTmp.lastElementChild.onmousedown = function (a) {
-        window.myX3 = a.layerX;
-        window.myY3 = a.layerY;
-        document.addEventListener('mousemove', listener3);
+    cstmTmp.onmousedown = function (a) {
+        if (checkelementt(a)){
+            window.myX3 = a.layerX;
+            window.myY3 = a.layerY;
+            document.addEventListener('mousemove', listenercstmTmp);
+        }
     }
-    cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listener3); }
+    cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listenercstmTmp); }
 
     document.getElementById('languageAF').onclick = function () {
         if (this.innerHTML == "Русский") {
