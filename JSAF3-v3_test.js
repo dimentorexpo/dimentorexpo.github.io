@@ -626,7 +626,7 @@ var win_taskform  = //описание формы создания задач в
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
+                        <div style="margin: 5px; width: 410px;" id="create_form_header">
                             <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
 							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
@@ -634,12 +634,12 @@ var win_taskform  = //описание формы создания задач в
 						
 						<div id="addcreateformbtns">
 							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
+							<button id="critstudent" style="height:25px; width: 130px; margin-left:10px;">Крит У👨‍🎓</button>
 							<button id="highstudsecondline" style="height:25px; width: 130px;">Калик 👨‍🎓У</button>
-							<button id="highteachersecondline" style="height:25px; width: 130px;">Калик 👽П</button>
 							<br>
+							<button id="highteachersecondline" style="height:25px; width: 130px;">Калик 👽П</button>
 							<button id="highteachersc" style="height:25px; width: 130px; margin-left:10px;">👽П SC</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П TC</button>
-							<button id="highteachercommon" style="height:25px; width: 130px;">👽П общ</button>
 						</div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
@@ -2463,6 +2463,42 @@ taskBut.onclick = function() {
 		document.getElementById('priority').children[0].selected = true
 		document.getElementById('customerservice').children[0].selected = true
 	}
+	
+	document.getElementById('critteachertostudent').onclick = function() {
+		
+	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
+			
+		}
+	}
+		
+	}	
+	document.getElementById('critstudent').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+	}
+	document.getElementById('critstudent').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+	}
+
+	document.getElementById('highstudsecondline').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[6].selected = true;
+	}
+	document.getElementById('highteachersecondline').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[6].selected = true;
+	}
+	document.getElementById('highteachersc').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[5].selected = true;
+	}
+	document.getElementById('highteachertc').onclick = function() {
+		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('customerservice').children[2].selected = true;
+	}
+
 	
 	document.getElementById('createtask').onclick = function() {
 		let prioritystate;
