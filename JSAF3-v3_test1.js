@@ -2648,17 +2648,24 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
     localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
 };
 
-wintRefuseFormNew.firstElementChild.firstElementChild.firstElementChild.onmousedown = function (a) { // изменение позиции окна отказов
-    if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'BUTTON'){ // не двигать окно если нажали на кнопку
-        if (document.elementFromPoint(a.clientX,a.clientY).nodeName != 'INPUT'){ // не двигать окно если нажали на поле ввода
-            window.myX16 = a.layerX;
-            window.myY16 = a.layerY;
-            document.addEventListener('mousemove', listenerRefuseForm);
-        }
+wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
+    if (chechelementtype(a)){
+        window.myX16 = a.layerX;
+        window.myY16 = a.layerY;
+        document.addEventListener('mousemove', listenerRefuseForm);
     }
 }
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } //  прекращение изменения позиции окна отказов
+
+function chechelementtype (a){ // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX,a.clientY)
+    
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT'){
+        return true;
+    }
+    return false;
+}
 
 document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
     document.getElementById('AF_Links').style.display = 'none';
