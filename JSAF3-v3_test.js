@@ -12609,9 +12609,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[4])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[5])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[7])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[0])
             btnAdd1.insertBefore(taskBut, btnAdd1.children[1])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[2])
         }, 2000)
 
         setTimeout(() => {
