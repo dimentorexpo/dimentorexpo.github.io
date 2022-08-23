@@ -637,8 +637,7 @@ var win_taskform  = //описание формы создания задач в
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<button id="highsecondline" style="height:25px; width: 130px;">🗓Калик У/П</button>
 							<br>
-							<button id="secondlinedatabase" style="height:25px; width: 130px; margin-left:10px;">🔎 Поиск БД</button>
-							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
+							<button id="highteachersc" style="height:25px; width: 130px; margin-left:10px;">👽П Student Care</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
 						
@@ -670,7 +669,7 @@ var win_taskform  = //описание формы создания задач в
 							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 
 							<br>
-							<button title="Отправляет заполненные поля формы в док" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
+							<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 						</div>
 		</span>
         </span>
@@ -2499,15 +2498,6 @@ taskBut.onclick = function() { // функция открытия окна дл�
         }
 	}
 	
-	document.getElementById('secondlinedatabase').onclick = function() {
-		document.getElementById('priority').children[1].selected = true;
-		document.getElementById('customerservice').children[6].selected = true;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-	}
 	
 	document.getElementById('highteachersc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
