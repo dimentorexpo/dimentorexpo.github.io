@@ -12280,8 +12280,8 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[4])
 			btnAdd1.insertBefore(maskBack, btnAdd1.children[5])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[6])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[7])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[8])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[7])
+			btnAdd1.insertBefore(taskBut, btnAdd1.children[8])
         }, 2000)
  
         setTimeout(() => {
