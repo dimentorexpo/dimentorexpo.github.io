@@ -2972,7 +2972,7 @@ document.getElementById('databox').ondblclick = function () { // скрытие 
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
-document.getElementById('testUsers').ondblclick = function () { // скрытие поля ввода и кнопки логинера в окне testUsers
+document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)){
         if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
             document.getElementById('testid').style.display = 'none';
