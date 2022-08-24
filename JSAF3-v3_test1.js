@@ -6923,7 +6923,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let body2;
                 let flagempty = 0;
                 
-                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value < 3){
+                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
                     document.getElementById('otherproblem').addClass('empty_field');
                     flagempty = 1;    
                 } else {
@@ -6931,7 +6931,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     flagempty = 0;
                 }
 
-                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value < 3){
+                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
                     document.getElementById('othersolved').addClass('empty_field');
                     flagempty = 1;    
                 } else {
