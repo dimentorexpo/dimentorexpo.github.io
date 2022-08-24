@@ -3076,7 +3076,7 @@ document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скр
 document.getElementById('AF_Createtask').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
     if (checkelementtype(a)){document.getElementById('hideMeCreateForm').click();}
 }
-document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
+document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
     if (checkelementtype(a)){document.getElementById('hideMeSrvDsk').click();}
 }
 // Конец модуля скрытия окон по двойному клику
