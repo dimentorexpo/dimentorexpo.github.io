@@ -2500,11 +2500,23 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
 		document.getElementById('customerservice').children[1].selected = true;
+		let services;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+        }
+		}
+
+		if (services.length == 1) {
+			document.getElementById('taskserviceid').value = services[0].replace('service-','')
+		}
+		
 	}
 	
 
