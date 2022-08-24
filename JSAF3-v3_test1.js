@@ -6929,7 +6929,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('chatlnk').style.backgroundColor = '';
                     }
                 
-                if (document.getElementById('userissue').children[0].selected = true){
+                if (document.getElementById('userissue').children[0].selected == true){
                     document.getElementById('userissue').style.backgroundColor = 'red';
                     flagempty = 1;    
                     } else {
@@ -6943,7 +6943,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('otherproblem').style.backgroundColor = '';    
                     }
 
-                if (document.getElementById('howissuesolverd').children[0].selected = true){
+                if (document.getElementById('howissuesolverd').children[0].selected == true){
                     document.getElementById('howissuesolverd').style.backgroundColor = 'red';
                     flagempty = 1;    
                     } else {
