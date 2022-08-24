@@ -647,11 +647,11 @@ var win_taskform  = //описание формы создания задач в
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
                             <input disabled="" required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
 							<br>
-							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
+							<select required id="priority" onchange="changeprioritycolor()" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
-								<option value="low">🟢 Низкий</option>
-								<option value="high">🟡 Высокий</option>
-								<option value="highest">🔴 Критический</option>
+								<option value="low" style="color:green; font-weight:600">🟢 Низкий</option>
+								<option value="high" style="color:orange; font-weight:600">🟡 Высокий</option>
+								<option value="highest" style="color:red; font-weight:600">🔴 Критический</option>
 							</select>
 
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
@@ -2486,6 +2486,16 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				  "mode": "cors",
 				  "credentials": "include"
 				});
+	}
+	
+	function changeprioritycolor() {
+		if (document.getElementById('priority').children[1].selected == true)
+			document.getElementById('priority').style ="color:green;font-weight:600"
+		else if (document.getElementById('priority').children[2].selected == true)
+			document.getElementById('priority').style ="color:orange;font-weight:600"
+		else if (document.getElementById('priority').children[3].selected == true)
+			document.getElementById('priority').style ="color:red;font-weight:600"
+		else document.getElementById('priority').style ="color:#000;font-weight:400"
 	}
 	
 	document.getElementById('clearcreateform').onclick = function() {
