@@ -2490,12 +2490,12 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	function changeprioritycolor() {
 		if (document.getElementById('priority').children[1].selected == true)
-			document.getElementById('priority').style ="color:green;font-weight:600"
+			document.getElementById('priority').style ="color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		else if (document.getElementById('priority').children[2].selected == true)
-			document.getElementById('priority').style ="color:orange;font-weight:600"
+			document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		else if (document.getElementById('priority').children[3].selected == true)
-			document.getElementById('priority').style ="color:red;font-weight:600"
-		else document.getElementById('priority').style ="color:#000;font-weight:400"
+			document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+		else document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
 	}
 	
 	document.getElementById('priority').onchange = changeprioritycolor;
