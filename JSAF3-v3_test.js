@@ -12119,13 +12119,13 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
-    }, 2000)
+    }, 3000)
 
     setTimeout(function () {
 
         include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
-    }, 6000)
+    }, 7000)
 
 }
 function include(url) {
