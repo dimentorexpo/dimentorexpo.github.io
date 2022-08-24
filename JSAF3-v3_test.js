@@ -636,10 +636,11 @@ var win_taskform  = //описание формы создания задач в
 
 						<div id="addcreateformbtns">
 							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
+							<button id="critstudenttoteacher" style="height:25px; width: 130px; margin-left:10px;">Крит У👨‍🎓 -> 👽П<</button>
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
-							<button id="highsecondline" style="height:25px; width: 130px;">🗓Калик У/П</button>
 							<br>
-							<button id="highteachersc" style="height:25px; width: 130px; margin-left:10px;">👽П Student Care</button>
+							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px;">🗓Калик У/П</button>
+							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
 						
@@ -2502,10 +2503,39 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
 						document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-					}else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
 						document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 				}
 			}
+			
+			document.getElementById('taskcomment').value = "Проверил связь с П, все ок, свяжитесь с У!"
+		}
+
+		document.getElementById('critstudenttoteacher').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+		
+		let services;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+        }
+		}
+
+		if (services.length == 1) {
+			document.getElementById('taskserviceid').value = services[0].replace('service-','')
+		} else {
+			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
+			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+		}
+			
+			document.getElementById('taskcomment').value = "Проверил связь с У, все ок, свяжитесь с П!"
 		}
 	
 	
@@ -2529,7 +2559,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			document.getElementById('taskserviceid').value = services[0].replace('service-','')
 		} else {
 			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
-			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;'
+			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
 		}
 		
 	}
