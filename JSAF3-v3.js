@@ -3070,9 +3070,6 @@ document.getElementById('AF_Marks').ondblclick = function (a) { // скрыти�
 document.getElementById('AF_Service').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_Service').style.display = 'none';}
 }
-document.getElementById('cstmTmplates').ondblclick = function (a) { // скрытие окна своих шаблонов по двойному клику
-    if (checkelementtype(a)){document.getElementById('cstmTmplates').style.display = 'none';}
-}
 document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
 }
