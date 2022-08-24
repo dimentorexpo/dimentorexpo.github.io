@@ -636,7 +636,7 @@ var win_taskform  = //описание формы создания задач в
 
 						<div id="addcreateformbtns">
 							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
-							<button id="critstudenttoteacher" style="height:25px; width: 130px;">Крит У👨‍🎓 -> 👽П</button>
+							<button id="critstudenttoteacher" style="height:25px; width: 130px;">Крит 👨‍🎓У -> П👽</button>
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<br>
 							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
@@ -649,9 +649,9 @@ var win_taskform  = //описание формы создания задач в
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
-								<option value="low">🟢 Низкий</option>
-								<option value="high">🟡 Высокий</option>
-								<option value="highest">🔴 Критический</option>
+								<option value="low" style="color:green; font-weight:600">🟢 Низкий</option>
+								<option value="high" style="color:orange; font-weight:600">🟡 Высокий</option>
+								<option value="highest" style="color:red; font-weight:600">🔴 Критический</option>
 							</select>
 
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
@@ -2488,6 +2488,18 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				});
 	}
 	
+	function changeprioritycolor() {
+		if (document.getElementById('priority').children[1].selected == true)
+			document.getElementById('priority').style ="color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
+		else if (document.getElementById('priority').children[2].selected == true)
+			document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+		else if (document.getElementById('priority').children[3].selected == true)
+			document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+		else document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+	}
+	
+	document.getElementById('priority').onchange = changeprioritycolor;
+	
 	document.getElementById('clearcreateform').onclick = function() {
 		document.getElementById('taskcomment').value = '';
 		document.getElementById('taskserviceid').value = '';
@@ -2495,10 +2507,12 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		document.getElementById('priority').children[0].selected = true
 		document.getElementById('customerservice').children[0].selected = true
 		document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
+		document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
 	}
 	
 	document.getElementById('critteachertostudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		
 				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2514,6 +2528,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
 		document.getElementById('critstudenttoteacher').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		
 		let services;
@@ -2542,6 +2557,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		let services;
 		
@@ -2568,12 +2584,15 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
 	document.getElementById('highsecondline').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[6].selected = true;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
+		
+		document.getElementById('taskserviceid').value = '';
 	}
 	
 	
@@ -2589,6 +2608,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('highteachertc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[2].selected = true;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
