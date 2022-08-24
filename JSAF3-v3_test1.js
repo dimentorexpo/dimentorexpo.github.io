@@ -6919,7 +6919,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let othersolvedtext;
                 let body2;
 
-
                 let flagempty = 0;
 
                 if (document.getElementById('chatlnk').value.length < 3){

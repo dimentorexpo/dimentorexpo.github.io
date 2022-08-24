@@ -6396,85 +6396,123 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let othersolvedtext;
                 let body2;
 
-                let chatlink = document.getElementById('chatlnk').value
+                let flagempty = 0;
 
-                for (let i = 0; i < document.getElementById('userissue').children.length; i++) {
-                    if (document.getElementById('userissue').children[i].selected == true)
-                        textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
+                if (document.getElementById('chatlnk').value.length < 3){
+                    document.getElementById('chatlnk').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                    } else {
+                    document.getElementById('chatlnk').style.backgroundColor = '';
+                    }
+                
+                if (document.getElementById('userissue').children[0].selected == true){
+                    document.getElementById('userissue').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                    } else {
+                        document.getElementById('userissue').style.backgroundColor = '';
+                    }
+
+                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
+                    document.getElementById('otherproblem').style.backgroundColor = 'red';
+                    flagempty = 1;
+                    } else {
+                        document.getElementById('otherproblem').style.backgroundColor = '';    
+                    }
+
+                if (document.getElementById('howissuesolverd').children[0].selected == true){
+                    document.getElementById('howissuesolverd').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                    } else {
+                        document.getElementById('howissuesolverd').style.backgroundColor = '';
+                    }
+                
+                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
+                    document.getElementById('othersolved').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                } else {
+                    document.getElementById('othersolved').style.backgroundColor = '';
                 }
 
-                for (let i = 0; i < document.getElementById('howissuesolverd').children.length; i++) {
-                    if (document.getElementById('howissuesolverd').children[i].selected == true)
-                        textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
-                }
+                if (flagempty == 0){
+                    let chatlink = document.getElementById('chatlnk').value
 
-                if (flagotherproblem == 0 && flagothersolved == 0) {
+                    for (let i = 0; i < document.getElementById('userissue').children.length; i++) {
+                        if (document.getElementById('userissue').children[i].selected == true)
+                            textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
+                    }
 
-                    body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
+                    for (let i = 0; i < document.getElementById('howissuesolverd').children.length; i++) {
+                        if (document.getElementById('howissuesolverd').children[i].selected == true)
+                            textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
+                    }
+
+                    if (flagotherproblem == 0 && flagothersolved == 0) {
+
+                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
 
 
-                } else if (flagotherproblem == 1 && flagothersolved == 0) {
+                    } else if (flagotherproblem == 1 && flagothersolved == 0) {
 
-                    otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
+                        otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
 
-                    body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
-                    console.log(body2)
+                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
+                        console.log(body2)
 
-                    console.log('other problem =1  othersolve = 0')
+                        console.log('other problem =1  othersolve = 0')
 
-                } else if (flagotherproblem == 0 && flagothersolved == 1) {
+                    } else if (flagotherproblem == 0 && flagothersolved == 1) {
 
-                    othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
+                        othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 
-                    body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
-                    console.log(body2)
+                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
+                        console.log(body2)
 
-                    console.log('other problem =0  othersolve = 1')
+                        console.log('other problem =0  othersolve = 1')
 
-                } else if (flagotherproblem == 1 && flagothersolved == 1) {
+                    } else if (flagotherproblem == 1 && flagothersolved == 1) {
 
-                    otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
-                    othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
+                        otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
+                        othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
 
-                    body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
-                    console.log(body2)
+                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
+                        console.log(body2)
 
-                }
+                    }
 
-                let options2 = {
-                    "headers": {
-                        "content-type": "application/x-www-form-urlencoded",
-                    },
-                    "body": body2,
-                    "method": "POST",
-                }
+                    let options2 = {
+                        "headers": {
+                            "content-type": "application/x-www-form-urlencoded",
+                        },
+                        "body": body2,
+                        "method": "POST",
+                    }
 
-                document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
-                if (document.getElementById('responseTextarea3') != null)
-                    document.getElementById('responseTextarea3').value = ''
-                document.getElementById('sendResponse').click()
+                    document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                    document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
+                    if (document.getElementById('responseTextarea3') != null)
+                        document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
 
-                sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                document.getElementById('send2doc').innerText = "Отправлено✅"
+                    sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                    document.getElementById('send2doc').innerText = "Отправлено✅"
 
-                setTimeout(() => {
-                    document.getElementById('send2doc').innerText = "Отправить"
-                    document.getElementById('AF_Refuseformnew').style.display = 'none'
-                }, 3000)
+                    setTimeout(() => {
+                        document.getElementById('send2doc').innerText = "Отправить"
+                        document.getElementById('AF_Refuseformnew').style.display = 'none'
+                    }, 3000)
 
-                document.getElementById('chatlnk').value = ''
-                document.getElementById('userissue').children[0].selected = true
-                document.getElementById('howissuesolverd').children[0].selected = true
-                document.getElementById('othersolved').classList.add('otherfieldoff')
-                document.getElementById('othersolved').classList.remove('otherfieldon')
-                document.getElementById('othersolved').setAttribute('disabled', 'disabled')
-                document.getElementById('otherproblem').classList.add('otherfieldoff')
-                document.getElementById('otherproblem').classList.remove('otherfieldon')
-                document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
-                document.getElementById('otherproblem').value = ''
-                document.getElementById('othersolved').value = ''
-
+                    document.getElementById('chatlnk').value = ''
+                    document.getElementById('userissue').children[0].selected = true
+                    document.getElementById('howissuesolverd').children[0].selected = true
+                    document.getElementById('othersolved').classList.add('otherfieldoff')
+                    document.getElementById('othersolved').classList.remove('otherfieldon')
+                    document.getElementById('othersolved').setAttribute('disabled', 'disabled')
+                    document.getElementById('otherproblem').classList.add('otherfieldoff')
+                    document.getElementById('otherproblem').classList.remove('otherfieldon')
+                    document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+                    document.getElementById('otherproblem').value = ''
+                    document.getElementById('othersolved').value = ''
+                }                
             }
         }
     }
