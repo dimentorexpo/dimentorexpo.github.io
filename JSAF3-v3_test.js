@@ -2512,6 +2512,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('critteachertostudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		
 				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2527,6 +2528,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
 		document.getElementById('critstudenttoteacher').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		
 		let services;
@@ -2555,6 +2557,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		let services;
 		
@@ -2581,6 +2584,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
 	document.getElementById('highsecondline').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[6].selected = true;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2604,6 +2608,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('highteachertc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[2].selected = true;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
