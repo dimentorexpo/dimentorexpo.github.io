@@ -395,10 +395,7 @@ function mystyles() {
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
-	}
-    .empty-field {
-        border: 2px red;
-    }`
+	}`
     mstl.innerHTML = style;
 }
 
@@ -6924,18 +6921,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let flagempty = 0;
                 
                 if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
-                    document.getElementById('otherproblem').addClass('empty-field');
+                    document.getElementById('otherproblem').style.backgroundColor = 'red';
                     flagempty = 1;    
                 } else {
-                    document.getElementById('otherproblem').removeClass('empty-field');
+                    document.getElementById('otherproblem').style.backgroundColor = '';
                     flagempty = 0;
                 }
 
                 if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
-                    document.getElementById('othersolved').addClass('empty-field');
+                    document.getElementById('othersolved').style.backgroundColor = 'red';
                     flagempty = 1;    
                 } else {
-                    document.getElementById('othersolved').removeClass('empty-field');
+                    document.getElementById('othersolved').style.backgroundColor = '';
                     flagempty = 0;
                 }
 
