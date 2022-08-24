@@ -679,7 +679,7 @@ function bagPageButtons(butId) {
 function transfPageButtons(butName) {
 	resetFlags()
 	textFromTable = ""
-	for(l = 0; l < table.length; l++)
+	for(l = 0; l < table.length; l++){
 		if(table[l][0] == butName) {
 			if(table[l][1] == "Поле") {
 				textFromTable = table[l][2]
