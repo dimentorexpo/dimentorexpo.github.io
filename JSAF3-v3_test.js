@@ -5396,71 +5396,69 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $(this).toggleClass('activebtn');
             });
 
-            $('.vimbugsbtn').click(function () {  //поправить
+            $('.vimbugsbtn').click(function () {  
 				remclass($('.vimbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.vimvidsbtn').click(function () {  //поправить
+            $('.vimvidsbtn').click(function () {  
 				remclass($('.vimvidsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.studcabbtn').click(function () {  //поправить
+            $('.studcabbtn').click(function () {  
 				remclass($('.studcabbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.chatqabtn').click(function () {  //поправить
+            $('.chatqabtn').click(function () {  
 				remclass($('.chatqabtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.tripwbtn').click(function () {  //поправить
+            $('.tripwbtn').click(function () {  
 				remclass($('.tripwbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.analystbtn').click(function () {  //поправить
+            $('.analystbtn').click(function () {  
 				remclass($('.analystbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.corpbtn').click(function () {  //поправить
+            $('.corpbtn').click(function () {  
 				remclass($('.corpbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.marketingbtn').click(function () {  //поправить
+            $('.marketingbtn').click(function () {  
 				remclass($('.marketingbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.mobbugsbtn').click(function () {  //поправить
+            $('.mobbugsbtn').click(function () {  
 				remclass( $('.mobbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.academymobbugsbtn').click(function () {  //поправить
+            $('.academymobbugsbtn').click(function () {  
 				remclass($('.academymobbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.stcabmbsbtn').click(function () {  //поправить
+            $('.stcabmbsbtn').click(function () {  
 				remclass($('.stcabmbsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.marketprojbugsbtn').click(function () {  //поправить
+            $('.marketprojbugsbtn').click(function () {  
 				remclass($('.marketprojbugsbtn'))
                 $(this).toggleClass('activebtn');
-
             });
 
-            $('.infrabtn').click(function () {  //поправить
-		remclass()
+            $('.infrabtn').click(function () {  
+				remclass($('.infrabtn'))
                 $(this).toggleClass('activebtn');
-
             });
 
             document.getElementById('AF_ServDsk').style.display = 'none'
