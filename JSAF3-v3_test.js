@@ -2527,6 +2527,9 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
 		if (services.length == 1) {
 			document.getElementById('taskserviceid').value = services[0].replace('service-','')
+		} else {
+			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
+			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;'
 		}
 		
 	}
