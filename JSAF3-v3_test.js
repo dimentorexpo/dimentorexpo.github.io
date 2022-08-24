@@ -630,6 +630,8 @@ var win_taskform  = //описание формы создания задач в
                             <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
 							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
+							<span style="color:bisque">Статус урока: </span>
+							<span id="statusuroka"></span>
                         </div>
 
 						<div id="addcreateformbtns">
@@ -2416,7 +2418,21 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	let conversid;
 	if (document.getElementById('AF_Createtask').style.display == 'none')
 		document.getElementById('AF_Createtask').style.display = ''
+	
+		
+	
 	else document.getElementById('AF_Createtask').style.display = 'none'
+	
+	
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+						document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+						document.getElementById('statusuroka').style.background = "red"
+					} else
+						document.getElementById('statusuroka').innerHTML = ""
+		}
+	}
 	
 	if (location.pathname.length > 17) {
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
@@ -2439,6 +2455,8 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
 		}
 	}
+	
+	
 	
 	
 	document.getElementById('hideMeCreateForm').onclick = function() {
@@ -12101,13 +12119,13 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
-    }, 2000)
+    }, 3000)
 
     setTimeout(function () {
 
         include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
-    }, 4000)
+    }, 7000)
 
 }
 function include(url) {
