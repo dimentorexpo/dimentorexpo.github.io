@@ -6924,18 +6924,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let flagempty = 0;
                 
                 if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
-                    document.getElementById('otherproblem').addClass('empty_field');
+                    document.getElementById('otherproblem').addClass('empty-field');
                     flagempty = 1;    
                 } else {
-                    document.getElementById('otherproblem').removeClass('empty_field');
+                    document.getElementById('otherproblem').removeClass('empty-field');
                     flagempty = 0;
                 }
 
                 if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
-                    document.getElementById('othersolved').addClass('empty_field');
+                    document.getElementById('othersolved').addClass('empty-field');
                     flagempty = 1;    
                 } else {
-                    document.getElementById('othersolved').removeClass('empty_field');
+                    document.getElementById('othersolved').removeClass('empty-field');
                     flagempty = 0;
                 }
 
