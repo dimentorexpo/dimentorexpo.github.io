@@ -3030,51 +3030,49 @@ function checkelementtype (a){ // проверка на какой элемен�
     return false;
 }
 
-document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
-    document.getElementById('AF_Links').style.display = 'none';
+// Модуль скрытия окон по двойному клику
+document.getElementById('AF_Links').ondblclick = function (a) { // скрытие окна ссылок по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Links').style.display = 'none';}
 }
-document.getElementById('links_but').ondblclick = function () { // скрытие окна ссылок по двойному клику
-    document.getElementById('AF_Links').style.display = 'none';
+document.getElementById('AF_Linksd').ondblclick = function (a) { // скрытие окна доступов по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Linksd').style.display = 'none';}
 }
-document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
-    document.getElementById('AF_Links').style.display = 'none';
+document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие окна Jira по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Jira').style.display = 'none';}
 }
-document.getElementById('linksd_1str').ondblclick = function () { // скрытие окна доступов по двойному клику
-    document.getElementById('AF_Linksd').style.display = 'none';
+document.getElementById('AF_GrList').ondblclick = function (a) { // скрытие окна Список группы по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_GrList').style.display = 'none';}
 }
-document.getElementById('linksd_kib_box').ondblclick = function () { // скрытие окна доступов по двойному клику
-    document.getElementById('AF_Linksd').style.display = 'none';
+document.getElementById('AF_Timetable').ondblclick = function (a) { // скрытие окна предстоящих и прошедших занятиях по двойному клику
+    if (checkelementtype(a)){
+        document.getElementById('AF_Timetable').style.display = 'none';
+        document.getElementById('timetabledata').innerHTML = "";
+    }
 }
-document.getElementById('jira_1str').ondblclick = function () { // скрытие окна Jira по двойному клику
-    document.getElementById('AF_Jira').style.display = 'none';
+document.getElementById('AF_TechSummary').ondblclick = function (a) { // скрытие окна инфо об устройстве пользователя по двойному клику
+    if (checkelementtype(a)){
+        document.getElementById('AF_TechSummary').style.display = 'none';
+        document.getElementById('techsumdata').innerHTML = "";
+    }
 }
-document.getElementById('grlistdata').ondblclick = function () { // скрытие окна Список группы по двойному клику
-    document.getElementById('AF_GrList').style.display = 'none';
+document.getElementById('AF_Stat').ondblclick = function (a) { // скрытие окна работы со статистикой
+    if (checkelementtype(a)){document.getElementById('AF_Stat').style.display = 'none';}
 }
-document.getElementById('HeadTimetable').ondblclick = function () { // скрытие окна предстоящих и прошедших занятиях по двойному клику
-    document.getElementById('AF_Timetable').style.display = 'none';
-    document.getElementById('timetabledata').innerHTML = "";
+document.getElementById('AF_Sugform').ondblclick = function (a) { // скрытие окна окна предложений по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Sugform').style.display = 'none';}
 }
-document.getElementById('HeadTechSummary').ondblclick = function () { // скрытие окна инфо об устройстве пользователя по двойному клику
-    document.getElementById('AF_TechSummary').style.display = 'none';
-    document.getElementById('techsumdata').innerHTML = "";
+document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Refuseformnew').style.display = 'none';}
 }
-document.getElementById('issuetable').ondblclick = function () { // скрытие окна Jira по двойному клику
-    document.getElementById('AF_Jira').style.display = 'none';
+document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Marks').style.display = 'none';}
 }
-document.getElementById('statdata').ondblclick = function () { // скрытие окна работы со статистикой
-    document.getElementById('AF_Stat').style.display = 'none';
+document.getElementById('AF_Service').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Service').style.display = 'none';}
 }
-document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна работы со статистикой
-    document.getElementById('AF_Stat').style.display = 'none';
+document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
 }
-document.getElementById('lessomstatdata').ondblclick = function () { // скрытие окна статус урока по двойному клику
-    document.getElementById('AF_LessonStatus').style.display = 'none';
-}
-document.getElementById('databox').ondblclick = function () { // скрытие окна статус урока по двойному клику
-    document.getElementById('AF_LessonStatus').style.display = 'none';
-}
-
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)){
         if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
@@ -3089,6 +3087,7 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
         }
     }
 }
+// Конец модуля скрытия окон по двойному клику
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
@@ -12543,49 +12542,4 @@ function hesoyam() {
     }
     newDiv.append(button)
     document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
-}
-
-function toUTF8Array(str) {
-    var utf8 = [];
-    for (var i = 0; i < str.length; i++) {
-        var charcode = str.charCodeAt(i);
-        if (charcode < 0x80) utf8.push(charcode);
-        else if (charcode < 0x800) {
-            utf8.push(0xc0 | (charcode >> 6),
-                0x80 | (charcode & 0x3f));
-        }
-        else if (charcode < 0xd800 || charcode >= 0xe000) {
-            utf8.push(0xe0 | (charcode >> 12),
-                0x80 | ((charcode >> 6) & 0x3f),
-                0x80 | (charcode & 0x3f));
-        }
-        // surrogate pair
-        else {
-            i++;
-            charcode = 0x10000 + (((charcode & 0x3ff) << 10)
-                | (str.charCodeAt(i) & 0x3ff))
-            utf8.push(0xf0 | (charcode >> 18),
-                0x80 | ((charcode >> 12) & 0x3f),
-                0x80 | ((charcode >> 6) & 0x3f),
-                0x80 | (charcode & 0x3f));
-        }
-    }
-    return utf8;
-}
-
-function decToHex(dec) {
-    var hexStr = '0123456789ABCDEF';
-    var low = dec % 16;
-    var high = (dec - low) / 16;
-    hex = '' + hexStr.charAt(high) + hexStr.charAt(low);
-    return hex;
-}
-
-function textToUTF8String(string) {
-    string = toUTF8Array(string)
-    let string2 = ""
-    for (i = 0; i < string.length; i++) {
-        string2 += "%" + decToHex(string[i])
-    }
-    return string2
 }
