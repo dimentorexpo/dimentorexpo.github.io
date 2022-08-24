@@ -489,10 +489,10 @@ var win_linksd =  // описание элементов окна доступо
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 409px;" id="linksd_1str">
+                        <div style="margin: 5px; width: 409px;">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
+                        <div style="margin: 5px; margin-top: 0px; width: 409px">
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Kibana</p>
                             <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
@@ -682,7 +682,7 @@ var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 550;" id="links_1str">
+				<div style="margin: 5px; width: 550;">
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar">ℹ</button>
 					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar">🗑</button>
@@ -694,7 +694,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" class="uplinksbar">👩‍👧‍👧</button>
                     <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px">🐞</button>
 				</div>
-				<div style="margin: 5px; width: 550px;" id="links_but">
+				<div style="margin: 5px; width: 550px;">
 					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
 					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
 					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
@@ -753,7 +753,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>
-				<div style="margin: 5px; width: 550px" id="links_butd">
+				<div style="margin: 5px; width: 550px">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
@@ -839,10 +839,10 @@ var win_Jira =  // описание элементов окна Поиска п�
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;" id="jira_1str">
+                        <div style="margin: 5px; width: 550;">
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; width: 550px" id="jira_tasks_box">
+                        <div style="margin: 5px; width: 550px">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
                         </div>
                 </span>
@@ -872,7 +872,7 @@ var win_Stat =  // описание элементов окна Статисти
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;" id="statdata">
+                        <div style="margin: 5px; width: 550;">
                                 <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="statbox">
@@ -1017,7 +1017,7 @@ var win_Stat =  // описание элементов окна Статисти
 							 <button title="загружает полученные результаты как для Чаты с ксат <4 так и для чатов с комментариями в виде HTML файла" id="getfile">🔰</button>
 							 <br>
 					    </div>
-						<div id="chatcoutnsinfo">
+						<div>
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
@@ -1033,7 +1033,7 @@ var win_GrList =  // описание элементов окна Списка �
     `<div style="display: flex; width: 450px;">
         <span style="width: 450px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 400;" id="grlistdata">
+                        <div style="margin: 5px; width: 400;">
                                 <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						<div>
@@ -1094,10 +1094,10 @@ var win_LessonStatus =  // описание элементов окна стат
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;" id="lessomstatdata">
+                        <div style="margin: 5px; width: 550;">
                                 <button id="hideMeLessonStatus" style="width:50px; background: #228B22;">hide</button>
                         </div>
-						 <div style="margin: 5px; width: 550px" id="databox">
+						 <div style="margin: 5px; width: 550px">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataLS" id="dateFromLS"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataLS" id="dateToLS"</span>
                         </div>
@@ -1120,7 +1120,7 @@ var win_Timetable = // описание элементов окна предст
     `<div style="display: flex; width: 450px;">
 <span style="width: 450px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 450;" id="HeadTimetable">
+                <div style="margin: 5px; width: 450;">
                         <button id="hideMeTT" style="width:50px; background: #228B22;">hide</button>
                 </div>
                 <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
@@ -1139,7 +1139,7 @@ var win_Techsummary = // описание элементов окна вывод
     `<div style="display: flex; width: 400px;">
 <span style="width: 400px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 400;" id="HeadTechSummary">
+                <div style="margin: 5px; width: 400;">
                         <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
                 </div>
                  </span>
@@ -3004,50 +3004,36 @@ function checkelementtype (a){ // проверка на какой элемен�
     }
     return false;
 }
-
-document.getElementById('links_1str').ondblclick = function () { // скрытие окна ссылок по двойному клику
-    document.getElementById('AF_Links').style.display = 'none';
+// Модуль скрытия окон по двойному клику
+document.getElementById('AF_Links').ondblclick = function (a) { // скрытие окна ссылок по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Links').style.display = 'none';}
 }
-document.getElementById('links_but').ondblclick = function () { // скрытие окна ссылок по двойному клику
-    document.getElementById('AF_Links').style.display = 'none';
+document.getElementById('AF_Linksd').ondblclick = function (a) { // скрытие окна доступов по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Linksd').style.display = 'none';}
 }
-document.getElementById('links_butd').ondblclick = function () { // скрытие окна ссылок по двойному клику
-    document.getElementById('AF_Links').style.display = 'none';
+document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие окна Jira по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Jira').style.display = 'none';}
 }
-document.getElementById('linksd_1str').ondblclick = function () { // скрытие окна доступов по двойному клику
-    document.getElementById('AF_Linksd').style.display = 'none';
+document.getElementById('AF_GrList').ondblclick = function (a) { // скрытие окна Список группы по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_GrList').style.display = 'none';}
 }
-document.getElementById('linksd_kib_box').ondblclick = function () { // скрытие окна доступов по двойному клику
-    document.getElementById('AF_Linksd').style.display = 'none';
+document.getElementById('AF_Timetable').ondblclick = function (a) { // скрытие окна предстоящих и прошедших занятиях по двойному клику
+    if (checkelementtype(a)){
+        document.getElementById('AF_Timetable').style.display = 'none';
+        document.getElementById('timetabledata').innerHTML = "";
+    }
 }
-document.getElementById('jira_1str').ondblclick = function () { // скрытие окна Jira по двойному клику
-    document.getElementById('AF_Jira').style.display = 'none';
+document.getElementById('AF_TechSummary').ondblclick = function (a) { // скрытие окна инфо об устройстве пользователя по двойному клику
+    if (checkelementtype(a)){
+        document.getElementById('AF_TechSummary').style.display = 'none';
+        document.getElementById('techsumdata').innerHTML = "";
+    }
 }
-document.getElementById('grlistdata').ondblclick = function () { // скрытие окна Список группы по двойному клику
-    document.getElementById('AF_GrList').style.display = 'none';
+document.getElementById('AF_Stat').ondblclick = function (a) { // скрытие окна работы со статистикой
+    if (checkelementtype(a)){document.getElementById('AF_Stat').style.display = 'none';}
 }
-document.getElementById('HeadTimetable').ondblclick = function () { // скрытие окна предстоящих и прошедших занятиях по двойному клику
-    document.getElementById('AF_Timetable').style.display = 'none';
-    document.getElementById('timetabledata').innerHTML = "";
-}
-document.getElementById('HeadTechSummary').ondblclick = function () { // скрытие окна инфо об устройстве пользователя по двойному клику
-    document.getElementById('AF_TechSummary').style.display = 'none';
-    document.getElementById('techsumdata').innerHTML = "";
-}
-document.getElementById('issuetable').ondblclick = function () { // скрытие окна Jira по двойному клику
-    document.getElementById('AF_Jira').style.display = 'none';
-}
-document.getElementById('statdata').ondblclick = function () { // скрытие окна работы со статистикой
-    document.getElementById('AF_Stat').style.display = 'none';
-}
-document.getElementById('chatcoutnsinfo').ondblclick = function () { // скрытие окна работы со статистикой
-    document.getElementById('AF_Stat').style.display = 'none';
-}
-document.getElementById('lessomstatdata').ondblclick = function () { // скрытие окна статус урока по двойному клику
-    document.getElementById('AF_LessonStatus').style.display = 'none';
-}
-document.getElementById('databox').ondblclick = function () { // скрытие окна статус урока по двойному клику
-    document.getElementById('AF_LessonStatus').style.display = 'none';
+document.getElementById('AF_LessonStatus').ondblclick = function () { // скрытие окна статус урока по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
 }
 
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
