@@ -2972,6 +2972,21 @@ document.getElementById('databox').ondblclick = function () { // скрытие 
     document.getElementById('AF_LessonStatus').style.display = 'none';
 }
 
+document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
+    if (checkelementtype(a)){
+        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
+            document.getElementById('testid').style.display = 'none';
+            document.getElementById('idlogin').style.display = 'none';
+            localStorage.setItem('Hidetestid', '0');
+        }
+        else {
+            document.getElementById('testid').style.display = '';
+            document.getElementById('idlogin').style.display = '';
+            localStorage.setItem('Hidetestid', '1');
+        }
+    }
+}
+
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
 wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -12634,6 +12649,11 @@ function firstLoadPage() { //первичаня загрузка страниц�
 
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('Hidetestid') == 0){
+            document.getElementById('testid').style.display = 'none';
+            document.getElementById('idlogin').style.display = 'none';
+        }
 
         setTimeout(move_again_AF, 3500)
 
