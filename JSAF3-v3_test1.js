@@ -6923,26 +6923,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.getElementById('chatlnk').value.length < 3){
                     document.getElementById('chatlnk').style.backgroundColor = 'red';
                     flagempty = 1;    
-                } else {
-                    document.getElementById('chatlnk').style.backgroundColor = '';
-                    flagempty = 0;
-                }
-                
-                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
+                } else if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
                     document.getElementById('otherproblem').style.backgroundColor = 'red';
-                    flagempty = 1;    
-                } else {
-                    document.getElementById('otherproblem').style.backgroundColor = '';
-                    flagempty = 0;
-                }
-
-                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
-                    document.getElementById('othersolved').style.backgroundColor = 'red';
-                    flagempty = 1;    
-                } else {
-                    document.getElementById('othersolved').style.backgroundColor = '';
-                    flagempty = 0;
-                }
+                    flagempty = 1;
+                    } else if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
+                        document.getElementById('othersolved').style.backgroundColor = 'red';
+                        flagempty = 1;    
+                    } else {
+                        document.getElementById('chatlnk').style.backgroundColor = '';
+                        document.getElementById('otherproblem').style.backgroundColor = '';
+                        document.getElementById('othersolved').style.backgroundColor = '';
+                        flagempty = 0;
+                    }
 
                 if (flagempty == 0){
                     let chatlink = document.getElementById('chatlnk').value
