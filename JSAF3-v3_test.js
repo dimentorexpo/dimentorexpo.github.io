@@ -2586,6 +2586,8 @@ taskBut.onclick = function() { // функция открытия окна дл�
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
+		
+		document.getElementById('taskserviceid').value = '';
 	}
 	
 	
