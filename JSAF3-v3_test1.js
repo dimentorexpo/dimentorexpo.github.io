@@ -6920,6 +6920,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let body2;
                 let flagempty = 0;
                 
+                if (document.getElementById('chatlnk').value.length < 3){
+                    document.getElementById('chatlnk').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                } else {
+                    document.getElementById('chatlnk').style.backgroundColor = '';
+                    flagempty = 0;
+                }
+                
                 if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
                     document.getElementById('otherproblem').style.backgroundColor = 'red';
                     flagempty = 1;    
