@@ -2426,15 +2426,17 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	else document.getElementById('AF_Createtask').style.display = 'none'
 	
 	
-	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
-					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
-						document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
-						document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
-					} else {
-						document.getElementById('statusuroka').innerHTML = "Урок не идет"
-						document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
-					}
+	if (document.getElementsByClassName('expert-user_details-list').length >0) {
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+							document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+							document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+						} else {
+							document.getElementById('statusuroka').innerHTML = "Урок не идет"
+							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+						}
+			}
 		}
 	}
 	
@@ -2458,7 +2460,8 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			if (location.pathname.length > 17) {
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
 		}
-		
+				
+		if (document.getElementsByClassName('expert-user_details-list').length >0) {
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
 						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
@@ -2469,6 +2472,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
 						}
 			}
+		}
 		}
 	}
 	
@@ -7231,7 +7235,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
     loginer.onmousedown = function (a) {
-        if (checkelementt(a)){
+        if (checkelementtype(a)){
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenerloginer);
@@ -11469,7 +11473,7 @@ function customTemplates(language = '') { //собственные шаблон�
     };
 
     cstmTmp.onmousedown = function (a) {
-        if (checkelementt(a)){
+        if (checkelementtype(a)){
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenercstmTmp);

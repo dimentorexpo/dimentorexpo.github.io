@@ -7235,7 +7235,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
     loginer.onmousedown = function (a) {
-        if (checkelementt(a)){
+        if (checkelementtype(a)){
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenerloginer);
@@ -11473,7 +11473,7 @@ function customTemplates(language = '') { //собственные шаблон�
     };
 
     cstmTmp.onmousedown = function (a) {
-        if (checkelementt(a)){
+        if (checkelementtype(a)){
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenercstmTmp);
