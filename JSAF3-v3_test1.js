@@ -6918,23 +6918,44 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let otherproblemtext;
                 let othersolvedtext;
                 let body2;
+
+
                 let flagempty = 0;
-                
+
                 if (document.getElementById('chatlnk').value.length < 3){
                     document.getElementById('chatlnk').style.backgroundColor = 'red';
                     flagempty = 1;    
-                } else if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
+                    } else {
+                    document.getElementById('chatlnk').style.backgroundColor = '';
+                    }
+                
+                if (document.getElementById('userissue').children[0].selected = true){
+                    document.getElementById('userissue').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                    } else {
+                        document.getElementById('userissue').style.backgroundColor = '';
+                    }
+
+                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
                     document.getElementById('otherproblem').style.backgroundColor = 'red';
                     flagempty = 1;
-                    } else if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
-                        document.getElementById('othersolved').style.backgroundColor = 'red';
-                        flagempty = 1;    
                     } else {
-                        document.getElementById('chatlnk').style.backgroundColor = '';
-                        document.getElementById('otherproblem').style.backgroundColor = '';
-                        document.getElementById('othersolved').style.backgroundColor = '';
-                        flagempty = 0;
+                        document.getElementById('otherproblem').style.backgroundColor = '';    
                     }
+
+                if (document.getElementById('howissuesolverd').children[0].selected = true){
+                    document.getElementById('howissuesolverd').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                    } else {
+                        document.getElementById('howissuesolverd').style.backgroundColor = '';
+                    }
+                
+                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
+                    document.getElementById('othersolved').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                } else {
+                    document.getElementById('othersolved').style.backgroundColor = '';
+                }
 
                 if (flagempty == 0){
                     let chatlink = document.getElementById('chatlnk').value
