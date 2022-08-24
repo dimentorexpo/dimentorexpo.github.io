@@ -630,14 +630,17 @@ var win_taskform  = //описание формы создания задач в
                             <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
 							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
+							<span style="color:bisque">Статус урока: </span>
+							<span id="statusuroka"></span>
                         </div>
 
 						<div id="addcreateformbtns">
 							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
+							<button id="critstudenttoteacher" style="height:25px; width: 130px;">Крит У👨‍🎓 -> 👽П</button>
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
-							<button id="highsecondline" style="height:25px; width: 130px;">🗓Калик У/П</button>
 							<br>
-							<button id="highteachersc" style="height:25px; width: 130px; margin-left:10px;">👽П Student Care</button>
+							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
+							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
 						
@@ -2416,7 +2419,23 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	let conversid;
 	if (document.getElementById('AF_Createtask').style.display == 'none')
 		document.getElementById('AF_Createtask').style.display = ''
+	
+		
+	
 	else document.getElementById('AF_Createtask').style.display = 'none'
+	
+	
+	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+						document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+						document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+					} else {
+						document.getElementById('statusuroka').innerHTML = "Урок не идет"
+						document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+					}
+		}
+	}
 	
 	if (location.pathname.length > 17) {
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
@@ -2438,7 +2457,21 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			if (location.pathname.length > 17) {
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
 		}
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+							document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+							document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+						} else {
+							document.getElementById('statusuroka').innerHTML = "Урок не идет"
+							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+						}
+			}
+		}
 	}
+	
+	
 	
 	
 	document.getElementById('hideMeCreateForm').onclick = function() {
@@ -2461,6 +2494,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		document.getElementById('taskuserid').value = '';
 		document.getElementById('priority').children[0].selected = true
 		document.getElementById('customerservice').children[0].selected = true
+		document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
 	}
 	
 	document.getElementById('critteachertostudent').onclick = function() {
@@ -2470,21 +2504,65 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
 						document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-					}else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
 						document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
 				}
 			}
+			
+			document.getElementById('taskcomment').value = "Проверил связь с П, все ок, свяжитесь с У!"
+		}
+
+		document.getElementById('critstudenttoteacher').onclick = function() {
+		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('customerservice').children[1].selected = true;
+		
+		let services;
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+        }
+		}
+
+		if (services.length == 1) {
+			document.getElementById('taskserviceid').value = services[0].replace('service-','')
+		} else {
+			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
+			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+		}
+			
+			document.getElementById('taskcomment').value = "Проверил связь с У, все ок, свяжитесь с П!"
 		}
 	
 	
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
 		document.getElementById('customerservice').children[1].selected = true;
+		let services;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
+		
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+        }
+		}
+
+		if (services.length == 1) {
+			document.getElementById('taskserviceid').value = services[0].replace('service-','')
+		} else {
+			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
+			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+		}
+		
 	}
 	
 
