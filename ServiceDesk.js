@@ -343,7 +343,7 @@ document.getElementById('servDsk').onclick = function () {
         $(this).toggleClass('activebtnsd');
     });
 
-		function remclass(a) {
+		function remclasss(a) {
 			    $('.kidsbtn').not(a).removeClass('activebtn');
                 $('.edumodbtn').not(a).removeClass('activebtn');
                 $('.bilqabtn').not(a).removeClass('activebtn');
@@ -371,122 +371,122 @@ document.getElementById('servDsk').onclick = function () {
 		}
 		
             $('.teacbtn').click(function () {
-				remclass($('.teacbtn'))
+				remclasss($('.teacbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.kidsbtn').click(function () {
-				remclass($('.kidsbtn'))
+				remclasss($('.kidsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.edumodbtn').click(function () {
-				remclass($('.edumodbtn'))
+				remclasss($('.edumodbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.bilqabtn').click(function () {
-				remclass($('.bilqabtn'))
+				remclasss($('.bilqabtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.c1sbtn').click(function () {
-				remclass($('.c1sbtn'))
+				remclasss($('.c1sbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.schdbtn').click(function () {
-				remclass($('.schdbtn'))
+				remclasss($('.schdbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.telepbtn').click(function () {
-				remclass($('.telepbtn'))
+				remclasss($('.telepbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.authbtn').click(function () {
-				remclass($('.authbtn'))
+				remclasss($('.authbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.crm2sbtn').click(function () {
-				remclass($('.crm2sbtn'))
+				remclasss($('.crm2sbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.mrktbtn').click(function () {
-				remclass($('.mrktbtn'))
+				remclasss($('.mrktbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.billbtn').click(function () {
-				remclass($('.billbtn'))
+				remclasss($('.billbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.vimbugsbtn').click(function () {  
-				remclass($('.vimbugsbtn'))
+				remclasss($('.vimbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.vimvidsbtn').click(function () {  
-				remclass($('.vimvidsbtn'))
+				remclasss($('.vimvidsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.studcabbtn').click(function () {  
-				remclass($('.studcabbtn'))
+				remclasss($('.studcabbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.chatqabtn').click(function () {  
-				remclass($('.chatqabtn'))
+				remclasss($('.chatqabtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.tripwbtn').click(function () {  
-				remclass($('.tripwbtn'))
+				remclasss($('.tripwbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.analystbtn').click(function () {  
-				remclass($('.analystbtn'))
+				remclasss($('.analystbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.corpbtn').click(function () {  
-				remclass($('.corpbtn'))
+				remclasss($('.corpbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.marketingbtn').click(function () {  
-				remclass($('.marketingbtn'))
+				remclasss($('.marketingbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.mobbugsbtn').click(function () {  
-				remclass( $('.mobbugsbtn'))
+				remclasss($('.mobbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.academymobbugsbtn').click(function () {  
-				remclass($('.academymobbugsbtn'))
+				remclasss($('.academymobbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.stcabmbsbtn').click(function () {  
-				remclass($('.stcabmbsbtn'))
+				remclasss($('.stcabmbsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.marketprojbugsbtn').click(function () {  
-				remclass($('.marketprojbugsbtn'))
+				remclasss($('.marketprojbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
             $('.infrabtn').click(function () {  
-				remclass($('.infrabtn'))
+				remclasss($('.infrabtn'))
                 $(this).toggleClass('activebtn');
             });
 
