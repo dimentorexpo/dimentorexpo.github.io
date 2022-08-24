@@ -489,10 +489,10 @@ var win_linksd =  // описание элементов окна доступо
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 409px;">
+                        <div style="margin: 5px; width: 409px;" id="linksd_1str">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; margin-top: 0px; width: 409px">
+                        <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Kibana</p>
                             <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="kibsvidbut">🔎</button>
@@ -636,7 +636,7 @@ var win_taskform  = //описание формы создания задач в
 
 						<div id="addcreateformbtns">
 							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
-							<button id="critstudenttoteacher" style="height:25px; width: 130px;">Крит У👨‍🎓 -> 👽П</button>
+							<button id="critstudenttoteacher" style="height:25px; width: 130px;">Крит 👨‍🎓У -> П👽</button>
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<br>
 							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
@@ -649,9 +649,9 @@ var win_taskform  = //описание формы создания задач в
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
-								<option value="low">🟢 Низкий</option>
-								<option value="high">🟡 Высокий</option>
-								<option value="highest">🔴 Критический</option>
+								<option value="low" style="color:green; font-weight:600">🟢 Низкий</option>
+								<option value="high" style="color:orange; font-weight:600">🟡 Высокий</option>
+								<option value="highest" style="color:red; font-weight:600">🔴 Критический</option>
 							</select>
 
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
@@ -682,7 +682,7 @@ var win_Links =  // описание элементов окна ссылок
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 550;">
+				<div style="margin: 5px; width: 550;" id="links_1str">
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
 					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar">ℹ</button>
 					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar">🗑</button>
@@ -694,7 +694,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" class="uplinksbar">👩‍👧‍👧</button>
                     <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px">🐞</button>
 				</div>
-				<div style="margin: 5px; width: 550px;">
+				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
 					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
 					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
@@ -753,7 +753,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
 				</div>
-				<div style="margin: 5px; width: 550px">
+				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
@@ -839,10 +839,10 @@ var win_Jira =  // описание элементов окна Поиска п�
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;">
+                        <div style="margin: 5px; width: 550;" id="jira_1str">
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
-                        <div style="margin: 5px; width: 550px">
+                        <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
                         </div>
                 </span>
@@ -872,7 +872,7 @@ var win_Stat =  // описание элементов окна Статисти
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;">
+                        <div style="margin: 5px; width: 550;" id="statdata">
                                 <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="statbox">
@@ -1017,7 +1017,7 @@ var win_Stat =  // описание элементов окна Статисти
 							 <button title="загружает полученные результаты как для Чаты с ксат <4 так и для чатов с комментариями в виде HTML файла" id="getfile">🔰</button>
 							 <br>
 					    </div>
-						<div>
+						<div id="chatcoutnsinfo">
 							 <span id="sumchatcounttouched" style="margin-left: 5px; color:bisque;"></span>
 							 <br>
 							 <span id="sumchatcountclosed" style="margin-left: 5px; color:bisque;"></span>
@@ -1033,7 +1033,7 @@ var win_GrList =  // описание элементов окна Списка �
     `<div style="display: flex; width: 450px;">
         <span style="width: 450px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 400;">
+                        <div style="margin: 5px; width: 400;" id="grlistdata">
                                 <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						<div>
@@ -1094,10 +1094,10 @@ var win_LessonStatus =  // описание элементов окна стат
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;">
+                        <div style="margin: 5px; width: 550;" id="lessomstatdata">
                                 <button id="hideMeLessonStatus" style="width:50px; background: #228B22;">hide</button>
                         </div>
-						 <div style="margin: 5px; width: 550px">
+						 <div style="margin: 5px; width: 550px" id="databox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataLS" id="dateFromLS"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataLS" id="dateToLS"</span>
                         </div>
@@ -1120,7 +1120,7 @@ var win_Timetable = // описание элементов окна предст
     `<div style="display: flex; width: 450px;">
 <span style="width: 450px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 450;">
+                <div style="margin: 5px; width: 450;" id="HeadTimetable">
                         <button id="hideMeTT" style="width:50px; background: #228B22;">hide</button>
                 </div>
                 <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
@@ -1139,7 +1139,7 @@ var win_Techsummary = // описание элементов окна вывод
     `<div style="display: flex; width: 400px;">
 <span style="width: 400px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 400;">
+                <div style="margin: 5px; width: 400;" id="HeadTechSummary">
                         <button id="hideMeTechSum" style="width:50px; background: #228B22;">hide</button>
                 </div>
                  </span>
@@ -2291,7 +2291,8 @@ hashBut.style.marginRight = "15px";
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
-taskBut.style = "margin-right:15px; cursor:pointer";
+taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;";
+taskBut.classList.add('ant-btn')
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
@@ -2425,15 +2426,17 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	else document.getElementById('AF_Createtask').style.display = 'none'
 	
 	
-	for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
-					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
-						document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
-						document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
-					} else {
-						document.getElementById('statusuroka').innerHTML = "Урок не идет"
-						document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
-					}
+	if (document.getElementsByClassName('expert-user_details-list').length >0) {
+		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+							document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+							document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+						} else {
+							document.getElementById('statusuroka').innerHTML = "Урок не идет"
+							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+						}
+			}
 		}
 	}
 	
@@ -2457,7 +2460,8 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			if (location.pathname.length > 17) {
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
 		}
-		
+				
+		if (document.getElementsByClassName('expert-user_details-list').length >0) {
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
 						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
@@ -2468,6 +2472,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
 						}
 			}
+		}
 		}
 	}
 	
@@ -2488,6 +2493,18 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				});
 	}
 	
+	function changeprioritycolor() {
+		if (document.getElementById('priority').children[1].selected == true)
+			document.getElementById('priority').style ="color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
+		else if (document.getElementById('priority').children[2].selected == true)
+			document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+		else if (document.getElementById('priority').children[3].selected == true)
+			document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+		else document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+	}
+	
+	document.getElementById('priority').onchange = changeprioritycolor;
+	
 	document.getElementById('clearcreateform').onclick = function() {
 		document.getElementById('taskcomment').value = '';
 		document.getElementById('taskserviceid').value = '';
@@ -2495,10 +2512,12 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		document.getElementById('priority').children[0].selected = true
 		document.getElementById('customerservice').children[0].selected = true
 		document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
+		document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
 	}
 	
 	document.getElementById('critteachertostudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		
 				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2514,6 +2533,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
 		document.getElementById('critstudenttoteacher').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		
 		let services;
@@ -2542,6 +2562,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('critstudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
+		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[1].selected = true;
 		let services;
 		
@@ -2568,12 +2589,15 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
 	document.getElementById('highsecondline').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[6].selected = true;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                 document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
         }
+		
+		document.getElementById('taskserviceid').value = '';
 	}
 	
 	
@@ -2589,6 +2613,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('highteachertc').onclick = function() {
 		document.getElementById('priority').children[2].selected = true;
+		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
 		document.getElementById('customerservice').children[2].selected = true;
 		
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -3004,6 +3029,7 @@ function checkelementtype (a){ // проверка на какой элемен�
     }
     return false;
 }
+
 // Модуль скрытия окон по двойному клику
 document.getElementById('AF_Links').ondblclick = function (a) { // скрытие окна ссылок по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_Links').style.display = 'none';}
@@ -3032,10 +3058,24 @@ document.getElementById('AF_TechSummary').ondblclick = function (a) { // скр�
 document.getElementById('AF_Stat').ondblclick = function (a) { // скрытие окна работы со статистикой
     if (checkelementtype(a)){document.getElementById('AF_Stat').style.display = 'none';}
 }
-document.getElementById('AF_LessonStatus').ondblclick = function () { // скрытие окна статус урока по двойному клику
+document.getElementById('AF_Sugform').ondblclick = function (a) { // скрытие окна окна предложений по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Sugform').style.display = 'none';}
+}
+document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Refuseformnew').style.display = 'none';}
+}
+document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Marks').style.display = 'none';}
+}
+document.getElementById('AF_Service').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
+    if (checkelementtype(a)){document.getElementById('AF_Service').style.display = 'none';}
+}
+document.getElementById('cstmTmplates').ondblclick = function (a) { // скрытие окна своих шаблонов по двойному клику
+    if (checkelementtype(a)){document.getElementById('cstmTmplates').style.display = 'none';}
+}
+document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
 }
-
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)){
         if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
@@ -3050,6 +3090,7 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
         }
     }
 }
+// Конец модуля скрытия окон по двойному клику
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
@@ -5361,71 +5402,69 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $(this).toggleClass('activebtn');
             });
 
-            $('.vimbugsbtn').click(function () {  //поправить
+            $('.vimbugsbtn').click(function () {  
 				remclass($('.vimbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.vimvidsbtn').click(function () {  //поправить
+            $('.vimvidsbtn').click(function () {  
 				remclass($('.vimvidsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.studcabbtn').click(function () {  //поправить
+            $('.studcabbtn').click(function () {  
 				remclass($('.studcabbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.chatqabtn').click(function () {  //поправить
+            $('.chatqabtn').click(function () {  
 				remclass($('.chatqabtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.tripwbtn').click(function () {  //поправить
+            $('.tripwbtn').click(function () {  
 				remclass($('.tripwbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.analystbtn').click(function () {  //поправить
+            $('.analystbtn').click(function () {  
 				remclass($('.analystbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.corpbtn').click(function () {  //поправить
+            $('.corpbtn').click(function () {  
 				remclass($('.corpbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.marketingbtn').click(function () {  //поправить
+            $('.marketingbtn').click(function () {  
 				remclass($('.marketingbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.mobbugsbtn').click(function () {  //поправить
-				remclass( $('.mobbugsbtn'))
+            $('.mobbugsbtn').click(function () {  
+				remclass($('.mobbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.academymobbugsbtn').click(function () {  //поправить
+            $('.academymobbugsbtn').click(function () {  
 				remclass($('.academymobbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.stcabmbsbtn').click(function () {  //поправить
+            $('.stcabmbsbtn').click(function () {  
 				remclass($('.stcabmbsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
-            $('.marketprojbugsbtn').click(function () {  //поправить
+            $('.marketprojbugsbtn').click(function () {  
 				remclass($('.marketprojbugsbtn'))
                 $(this).toggleClass('activebtn');
-
             });
 
-            $('.infrabtn').click(function () {  //поправить
-		remclass()
+            $('.infrabtn').click(function () {  
+				remclass($('.infrabtn'))
                 $(this).toggleClass('activebtn');
-
             });
 
             document.getElementById('AF_ServDsk').style.display = 'none'
@@ -7198,7 +7237,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
     loginer.onmousedown = function (a) {
-        if (checkelementt(a)){
+        if (checkelementtype(a)){
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenerloginer);
@@ -10171,20 +10210,6 @@ function paintstatus() { //функция перекрашивания стат�
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-            if (document.querySelectorAll('.ant-btn')[2].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[2].innerText == 'Перерыв')
-                document.querySelectorAll('.ant-btn')[2].style.background = "red";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
-            document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-            if (document.querySelectorAll('.ant-btn')[2].innerText == 'Онлайн')
-                document.querySelectorAll('.ant-btn')[2].style.background = "green";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
-            document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-            if (document.querySelectorAll('.ant-btn')[2].innerText == 'Занят')
-                document.querySelectorAll('.ant-btn')[2].style.background = "yellow";
-        }
-    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
-        if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
-            document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             if (document.querySelectorAll('.ant-btn')[3].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[3].innerText == 'Перерыв')
                 document.querySelectorAll('.ant-btn')[3].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
@@ -10195,6 +10220,20 @@ function paintstatus() { //функция перекрашивания стат�
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
             if (document.querySelectorAll('.ant-btn')[3].innerText == 'Занят')
                 document.querySelectorAll('.ant-btn')[3].style.background = "yellow";
+        }
+    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
+        if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
+            if (document.querySelectorAll('.ant-btn')[4].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[4].innerText == 'Перерыв')
+                document.querySelectorAll('.ant-btn')[4].style.background = "red";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
+            if (document.querySelectorAll('.ant-btn')[4].innerText == 'Онлайн')
+                document.querySelectorAll('.ant-btn')[4].style.background = "green";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
+            if (document.querySelectorAll('.ant-btn')[4].innerText == 'Занят')
+                document.querySelectorAll('.ant-btn')[4].style.background = "yellow";
         }
     }
 
@@ -11436,7 +11475,7 @@ function customTemplates(language = '') { //собственные шаблон�
     };
 
     cstmTmp.onmousedown = function (a) {
-        if (checkelementt(a)){
+        if (checkelementtype(a)){
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenercstmTmp);
@@ -12245,8 +12284,8 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[4])
 			btnAdd1.insertBefore(maskBack, btnAdd1.children[5])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[6])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[7])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[8])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[7])
+			btnAdd1.insertBefore(taskBut, btnAdd1.children[8])
         }, 2000)
  
         setTimeout(() => {
