@@ -3073,6 +3073,14 @@ document.getElementById('AF_Service').ondblclick = function (a) { // скрыт�
 document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
 }
+document.getElementById('AF_Createtask').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
+    if (checkelementtype(a)){document.getElementById('hideMeCreateForm').click();}
+}
+document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
+    if (checkelementtype(a)){document.getElementById('hideMeSrvDsk').click();}
+}
+// Конец модуля скрытия окон по двойному клику
+
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)){
         if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
@@ -3087,7 +3095,6 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
         }
     }
 }
-// Конец модуля скрытия окон по двойному клику
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
@@ -12542,49 +12549,4 @@ function hesoyam() {
     }
     newDiv.append(button)
     document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
-}
-
-function toUTF8Array(str) {
-    var utf8 = [];
-    for (var i = 0; i < str.length; i++) {
-        var charcode = str.charCodeAt(i);
-        if (charcode < 0x80) utf8.push(charcode);
-        else if (charcode < 0x800) {
-            utf8.push(0xc0 | (charcode >> 6),
-                0x80 | (charcode & 0x3f));
-        }
-        else if (charcode < 0xd800 || charcode >= 0xe000) {
-            utf8.push(0xe0 | (charcode >> 12),
-                0x80 | ((charcode >> 6) & 0x3f),
-                0x80 | (charcode & 0x3f));
-        }
-        // surrogate pair
-        else {
-            i++;
-            charcode = 0x10000 + (((charcode & 0x3ff) << 10)
-                | (str.charCodeAt(i) & 0x3ff))
-            utf8.push(0xf0 | (charcode >> 18),
-                0x80 | ((charcode >> 12) & 0x3f),
-                0x80 | ((charcode >> 6) & 0x3f),
-                0x80 | (charcode & 0x3f));
-        }
-    }
-    return utf8;
-}
-
-function decToHex(dec) {
-    var hexStr = '0123456789ABCDEF';
-    var low = dec % 16;
-    var high = (dec - low) / 16;
-    hex = '' + hexStr.charAt(high) + hexStr.charAt(low);
-    return hex;
-}
-
-function textToUTF8String(string) {
-    string = toUTF8Array(string)
-    let string2 = ""
-    for (i = 0; i < string.length; i++) {
-        string2 += "%" + decToHex(string[i])
-    }
-    return string2
 }
