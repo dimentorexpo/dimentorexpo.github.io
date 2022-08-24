@@ -12302,7 +12302,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubar, headmenulist.children[11])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('buttonOpenForm'))
-            //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
