@@ -2522,6 +2522,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	document.getElementById('createtask').onclick = function() {
 		let prioritystate;
 		let csstate;
+		let usluga;
 		for (let i=0; i<document.getElementById('priority').children.length;i++) {
 			if (document.getElementById('priority').children[i].selected == true)
 				prioritystate = document.getElementById('priority').children[i].value
@@ -2532,12 +2533,16 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				csstate = document.getElementById('customerservice').children[i].value
 		}
 		
+		if (document.getElementById('taskserviceid').value == '')
+			usluga = document.getElementById('taskserviceid').value = null;
+		else usluga = document.getElementById('taskserviceid').value
+		
 		if (document.getElementById('chathashlnk').value != '' && prioritystate !='Приоритет' && csstate != 'Отдел' && document.getElementById('taskuserid').value !='' && document.getElementById('taskcomment').value !='') {
 			fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
 			  "headers": {
 				"content-type": "application/json",
 			  },
-			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${document.getElementById('taskserviceid').value.trim()}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n",  "\\n")}\"}]}`,
+			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n",  "\\n")}\"}]}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
@@ -12642,7 +12647,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
 			btnAdd1.insertBefore(maskBack, btnAdd1.children[0])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[1])
             btnAdd1.insertBefore(taskBut, btnAdd1.children[2])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[3])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[0])
         }, 2000)
  
         setTimeout(() => {
