@@ -2977,10 +2977,12 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
         if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
+            localStorage.setItem('Hidetestid', '0');
         }
         else {
             document.getElementById('testid').style.display = '';
             document.getElementById('idlogin').style.display = '';
+            localStorage.setItem('Hidetestid', '1');
         }
     }
 }
@@ -12647,6 +12649,11 @@ function firstLoadPage() { //первичаня загрузка страниц�
 
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('Hidetestid') == 0){
+            document.getElementById('testid').style.display = 'none';
+            document.getElementById('idlogin').style.display = 'none';
+        }
 
         setTimeout(move_again_AF, 3500)
 
