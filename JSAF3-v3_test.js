@@ -3073,6 +3073,14 @@ document.getElementById('AF_Service').ondblclick = function (a) { // скрыт�
 document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
 }
+document.getElementById('AF_Createtask').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
+    if (checkelementtype(a)){document.getElementById('hideMeCreateForm').click();}
+}
+document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
+    if (checkelementtype(a)){document.getElementById('hideMeSrvDsk').click();}
+}
+// Конец модуля скрытия окон по двойному клику
+
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)){
         if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
@@ -3087,7 +3095,6 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
         }
     }
 }
-// Конец модуля скрытия окон по двойному клику
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
@@ -12295,7 +12302,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubar, headmenulist.children[11])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('buttonOpenForm'))
-            //menubar.append(document.getElementById('butServ'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
