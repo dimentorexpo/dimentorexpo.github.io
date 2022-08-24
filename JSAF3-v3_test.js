@@ -2418,7 +2418,20 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	let conversid;
 	if (document.getElementById('AF_Createtask').style.display == 'none')
 		document.getElementById('AF_Createtask').style.display = ''
+	
+		
+	
 	else document.getElementById('AF_Createtask').style.display = 'none'
+	
+	if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML")
+	for (k = 0; k < idk; k++) {
+		if (tmrs[k][1] == name) {
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок")
+				document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+			else
+				document.getElementById('statusuroka').innerHTML = ""
+		}
+	}
 	
 	if (location.pathname.length > 17) {
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
@@ -2441,6 +2454,8 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
 		}
 	}
+	
+	
 	
 	
 	document.getElementById('hideMeCreateForm').onclick = function() {
