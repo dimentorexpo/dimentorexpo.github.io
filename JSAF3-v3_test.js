@@ -639,7 +639,7 @@ var win_taskform  = //описание формы создания задач в
 							<button id="critstudenttoteacher" style="height:25px; width: 130px;">Крит У👨‍🎓 -> 👽П</button>
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<br>
-							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px;">🗓Калик У/П</button>
+							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
 							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
@@ -2494,6 +2494,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		document.getElementById('taskuserid').value = '';
 		document.getElementById('priority').children[0].selected = true
 		document.getElementById('customerservice').children[0].selected = true
+		document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
 	}
 	
 	document.getElementById('critteachertostudent').onclick = function() {
