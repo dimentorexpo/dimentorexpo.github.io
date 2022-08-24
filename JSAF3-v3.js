@@ -5441,7 +5441,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             });
 
             $('.mobbugsbtn').click(function () {  
-				remclass( $('.mobbugsbtn'))
+				remclass($('.mobbugsbtn'))
                 $(this).toggleClass('activebtn');
             });
 
