@@ -342,7 +342,7 @@ $('.sdbtn').click(function () {
         $('.sdbtn').not(this).removeClass('activebtnsd');
         $(this).toggleClass('activebtnsd');
     });
-
+ 
 			function remres(a) {
 				$('.kidsbtn').not(a).removeClass('activebtn');
                 $('.edumodbtn').not(a).removeClass('activebtn');
