@@ -5331,152 +5331,655 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             });
 			
 			
-		function remclass(a) {
-			    $('.kidsbtn').not(a).removeClass('activebtn');
-                $('.edumodbtn').not(a).removeClass('activebtn');
-                $('.bilqabtn').not(a).removeClass('activebtn');
-                $('.teacbtn').not(a).removeClass('activebtn');
-                $('.c1sbtn').not(a).removeClass('activebtn');
-                $('.schdbtn').not(a).removeClass('activebtn');
-                $('.telepbtn').not(a).removeClass('activebtn');
-                $('.authbtn').not(a).removeClass('activebtn');
-                $('.crm2sbtn').not(a).removeClass('activebtn');
-                $('.mrktbtn').not(a).removeClass('activebtn');
-                $('.billbtn').not(a).removeClass('activebtn');
-                $('.vimbugsbtn').not(a).removeClass('activebtn');
-                $('.vimvidsbtn').not(a).removeClass('activebtn');
-                $('.studcabbtn').not(a).removeClass('activebtn');
-                $('.chatqabtn').not(a).removeClass('activebtn');
-                $('.tripwbtn').not(a).removeClass('activebtn');
-                $('.analystbtn').not(a).removeClass('activebtn');
-                $('.corpbtn').not(a).removeClass('activebtn');
-                $('.marketingbtn').not(a).removeClass('activebtn');
-                $('.mobbugsbtn').not(a).removeClass('activebtn');
-                $('.academymobbugsbtn').not(a).removeClass('activebtn');
-                $('.stcabmbsbtn').not(a).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(a).removeClass('activebtn');
-                $('.infrabtn').not(a).removeClass('activebtn');
-		}
+
 		
 		
-            $('.teacbtn').click(function () {
-				remclass($('.teacbtn'))
-                $(this).toggleClass('activebtn');
+                       $('.teacbtn').click(function () {
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.kidsbtn').click(function () {
-				remclass($('.kidsbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.edumodbtn').click(function () {
-				remclass($('.edumodbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.bilqabtn').click(function () {
-				remclass($('.bilqabtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.c1sbtn').click(function () {
-				remclass($('.c1sbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.schdbtn').click(function () {
-				remclass($('.schdbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.telepbtn').click(function () {
-				remclass($('.telepbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.authbtn').click(function () {
-				remclass($('.authbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.crm2sbtn').click(function () {
-				remclass($('.crm2sbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.mrktbtn').click(function () {
-				remclass($('.mrktbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.billbtn').click(function () {
-				remclass($('.billbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.vimbugsbtn').click(function () {  
-				remclass($('.vimbugsbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.vimvidsbtn').click(function () {  
-				remclass($('.vimvidsbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.studcabbtn').click(function () {  
-				remclass($('.studcabbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.chatqabtn').click(function () {  
-				remclass($('.chatqabtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.tripwbtn').click(function () {  
-				remclass($('.tripwbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.analystbtn').click(function () {  
-				remclass($('.analystbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.corpbtn').click(function () {  
-				remclass($('.corpbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.marketingbtn').click(function () {  
-				remclass($('.marketingbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.mobbugsbtn').click(function () {  
-				remclass($('.mobbugsbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.academymobbugsbtn').click(function () {  
-				remclass($('.academymobbugsbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.stcabmbsbtn').click(function () {  
-				remclass($('.stcabmbsbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.marketprojbugsbtn').click(function () {  
-				remclass($('.marketprojbugsbtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             $('.infrabtn').click(function () {  
-				remclass($('.infrabtn'))
-                $(this).toggleClass('activebtn');
+			    $('.kidsbtn').not(this).removeClass('activebtn');
+                $('.edumodbtn').not(this).removeClass('activebtn');
+                $('.bilqabtn').not(this).removeClass('activebtn');
+                $('.teacbtn').not(this).removeClass('activebtn');
+                $('.c1sbtn').not(this).removeClass('activebtn');
+                $('.schdbtn').not(this).removeClass('activebtn');
+                $('.telepbtn').not(this).removeClass('activebtn');
+                $('.authbtn').not(this).removeClass('activebtn');
+                $('.crm2sbtn').not(this).removeClass('activebtn');
+                $('.mrktbtn').not(this).removeClass('activebtn');
+                $('.billbtn').not(this).removeClass('activebtn');
+                $('.vimbugsbtn').not(this).removeClass('activebtn');
+                $('.vimvidsbtn').not(this).removeClass('activebtn');
+                $('.studcabbtn').not(this).removeClass('activebtn');
+                $('.chatqabtn').not(this).removeClass('activebtn');
+                $('.tripwbtn').not(this).removeClass('activebtn');
+                $('.analystbtn').not(this).removeClass('activebtn');
+                $('.corpbtn').not(this).removeClass('activebtn');
+                $('.marketingbtn').not(this).removeClass('activebtn');
+                $('.mobbugsbtn').not(this).removeClass('activebtn');
+                $('.academymobbugsbtn').not(this).removeClass('activebtn');
+                $('.stcabmbsbtn').not(this).removeClass('activebtn');
+                $('.marketprojbugsbtn').not(this).removeClass('activebtn');
+                $('.infrabtn').not(this).removeClass('activebtn');
             });
 
             document.getElementById('AF_ServDsk').style.display = 'none'
