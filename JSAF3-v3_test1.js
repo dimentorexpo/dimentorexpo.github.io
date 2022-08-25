@@ -3021,8 +3021,8 @@ wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove
 
 function noinputerror (nameofelem){ // мигаем полем где не введено обязательное значение
     for (let i = 1; i < 4; i++){
-        setTimeout(function () {nameofelem.style.border = '3px solid red'}, 1000);
-        setTimeout(function () {nameofelem.style.border = ''}, 1000);
+        setTimeout(function () {document.getElementById(nameofelem).style.border = '3px solid red'}, 1000);
+        setTimeout(function () {document.getElementById(nameofelem).style.border = ''}, 1000);
     }
 }
 
@@ -6512,7 +6512,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 if (document.getElementById('chatlnk').value.length < 3){
                     //document.getElementById('chatlnk').style.backgroundColor = 'red';
-                    noinputerror(document.getElementById('chatlnk'));
+                    noinputerror(document.getElementById('chatlnk').id);
                     flagempty = 1;    
                     //} else {
                     //document.getElementById('chatlnk').style.backgroundColor = '';
