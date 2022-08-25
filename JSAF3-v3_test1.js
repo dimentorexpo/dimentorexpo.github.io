@@ -3021,8 +3021,8 @@ wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove
 
 function noinputerror (nameofelem){ // мигаем полем где не введено обязательное значение
     for (let i = 1; i < 4; i++){
-        nameofelem.style.border = '3px solid red';
-        setTimeout(function () {nameofelem.style.border = ''}, 1000)
+        setTimeout(function () {nameofelem.style.border = '3px solid red'}, 500);
+        setTimeout(function () {nameofelem.style.border = ''}, 500);
     }
 }
 
