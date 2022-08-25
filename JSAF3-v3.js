@@ -657,7 +657,7 @@ var win_taskform  = //описание формы создания задач в
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Отдел</option>
 								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
-								<option value="teachers_care_crm ">Teachers Care</option>
+								<option value="teachers_care_crm">Teachers Care</option>
 								<option value="content_management_dictionary">Словарь</option>
 								<option value="content_management">Контент</option>
 								<option value="teachers_support">Teachers Support</option>
@@ -2418,15 +2418,10 @@ maskBackHide.onclick = function () { // кнопка скрыть
 
 taskBut.onclick = function() { // функция открытия окна для работы с созданием задач на СРМ
 	let conversid;
-	if (document.getElementById('AF_Createtask').style.display == 'none')
+	if (document.getElementById('AF_Createtask').style.display == 'none') {
 		document.getElementById('AF_Createtask').style.display = ''
-	
 		
-	
-	else document.getElementById('AF_Createtask').style.display = 'none'
-	
-	
-	if (document.getElementsByClassName('expert-user_details-list').length >0) {
+			if (document.getElementsByClassName('expert-user_details-list').length >0) {
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
 						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
@@ -2475,9 +2470,6 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		}
 		}
 	}
-	
-	
-	
 	
 	document.getElementById('hideMeCreateForm').onclick = function() {
 		document.getElementById('AF_Createtask').style.display = 'none'
@@ -2661,6 +2653,22 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			
 		} else alert("Задача не была создана, проверьте, пожалуйста, поля: хеш чата, приоритет, отдел, ID пользователя, комментарий")
 	}
+		
+	
+	} else {
+		document.getElementById('AF_Createtask').style.display = 'none'
+				conversid = document.getElementById('chathashlnk').value;
+				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": `{\"conversationId\":\"${conversid}\"}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
+		}
+	
 }
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата

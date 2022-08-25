@@ -657,7 +657,7 @@ var win_taskform  = //описание формы создания задач в
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Отдел</option>
 								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
-								<option value="teachers_care_crm ">Teachers Care</option>
+								<option value="teachers_care_crm">Teachers Care</option>
 								<option value="content_management_dictionary">Словарь</option>
 								<option value="content_management">Контент</option>
 								<option value="teachers_support">Teachers Support</option>
