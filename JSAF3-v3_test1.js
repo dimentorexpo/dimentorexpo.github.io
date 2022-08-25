@@ -6509,10 +6509,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let body2;
 
                 let flagempty = 0;
+                let nameofelem = '';
 
                 if (document.getElementById('chatlnk').value.length < 3){
                     //document.getElementById('chatlnk').style.backgroundColor = 'red';
-                    noinputerror(document.getElementById('chatlnk').id);
+                    nameofelem = this.id;
+                    noinputerror(nameofelem);
                     flagempty = 1;    
                     //} else {
                     //document.getElementById('chatlnk').style.backgroundColor = '';
