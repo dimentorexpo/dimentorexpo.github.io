@@ -3019,7 +3019,12 @@ wintCreateTask.onmousedown = function (a) {
 }
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
 
-
+function noinputerror (nameofelem){ // мигаем полем где не введено обязательное значение
+    for (let i = 1; i < 4; i++){
+        setTimeout(function () {document.getElementById(nameofelem).style.border = '3px solid red'}, 1000);
+        setTimeout(function () {document.getElementById(nameofelem).style.border = ''}, 1000);
+    }
+}
 
 function checkelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
@@ -6504,12 +6509,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let body2;
 
                 let flagempty = 0;
+                let nameofelem = '';
 
                 if (document.getElementById('chatlnk').value.length < 3){
-                    document.getElementById('chatlnk').style.backgroundColor = 'red';
+                    //document.getElementById('chatlnk').style.backgroundColor = 'red';
+                    nameofelem = this.id;
+                    noinputerror(nameofelem);
                     flagempty = 1;    
-                    } else {
-                    document.getElementById('chatlnk').style.backgroundColor = '';
+                    //} else {
+                    //document.getElementById('chatlnk').style.backgroundColor = '';
                     }
                 
                 if (document.getElementById('userissue').children[0].selected == true){
