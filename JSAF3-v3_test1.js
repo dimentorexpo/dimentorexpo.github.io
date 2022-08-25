@@ -3019,7 +3019,12 @@ wintCreateTask.onmousedown = function (a) {
 }
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
 
-
+function noinputerror (nameofelem){ // мигаем полем где не введено обязательное значение
+    for (let i = 1; i < 4; i++){
+        nameofelem.style.border = '3px solid red';
+        setTimeout(function () {nameofelem.style.border = '3px solid red'}, 1000)
+    }
+}
 
 function checkelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
