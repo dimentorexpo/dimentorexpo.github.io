@@ -2421,9 +2421,20 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	if (document.getElementById('AF_Createtask').style.display == 'none')
 		document.getElementById('AF_Createtask').style.display = ''
 	
+	else {
+		document.getElementById('AF_Createtask').style.display = 'none'
 		
-	
-	else document.getElementById('AF_Createtask').style.display = 'none'
+				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": `{\"conversationId\":\"${conversid}\"}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
+		
+	}
 	
 	
 	if (document.getElementsByClassName('expert-user_details-list').length >0) {
@@ -2475,9 +2486,6 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		}
 		}
 	}
-	
-	
-	
 	
 	document.getElementById('hideMeCreateForm').onclick = function() {
 		document.getElementById('AF_Createtask').style.display = 'none'
