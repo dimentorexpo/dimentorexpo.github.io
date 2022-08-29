@@ -9826,7 +9826,7 @@ async function remandressl() { // функция удаления и сброс�
             "headers": {
                 "content-type": "application/json",
             },
-            "body": "{\"status\":\"classwork\"}",
+            "body": "{\"status\":\"classwork\",\"name\":\"\"}",
             "method": "PATCH",
             "mode": "cors",
             "credentials": "include"
