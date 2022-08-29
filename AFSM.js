@@ -3444,7 +3444,7 @@ async function getwordsets(studentId) { // функция получения и�
 intOldShow = setInterval(addOldShowcaseBtn, 3000) // переменная которая хранит интервал и если условие выполняется прекращает его выполнение
 
 function addOldShowcaseBtn() { //функция добавляющая в левое меню Showcase * 
-	if (location.host == 'new-teachers.skyeng.ru' || location.href.split('/')[6] =="multi-classroom") { 
+	if (location.host == 'new-teachers.skyeng.ru' || location.href.split('/')[6] =="multi-classroom" || location.host =='teachers.skyeng.ru') { 
 		if (document.getElementById('oldShowcase') == null) {
 			let oldshowcase = document.createElement('div')
 			oldshowcase.innerText = "🎓 Showcase*"
