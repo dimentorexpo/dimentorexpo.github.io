@@ -311,6 +311,12 @@ function mystyles() {
 			font-weight:700;
 		}
 
+		#JiraOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+
 
 		.hyperlnk {
 			height:0px;
@@ -727,8 +733,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gotolookip">🔎</button>
 					<input id="lgssearch" placeholder="ID Группы" title="Введите ID LGS или обычной группы KGL для просмотра информации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getlgsinfo">🔎</button>
-					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="startjirasearch">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -5020,16 +5024,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             window.open(iplink + iplookup.value);
         };
         iplookup.value = "";
-    }
-
-    document.getElementById('startjirasearch').onclick = function () { // поиск по Jira
-        let jiralink = 'https://jira.skyeng.tech/issues/?filter=21266&jql=project%20in%20(VIM%2C%20MP%2C%20MV%2C%20KIDS%2C%20TS%2C%20ADULT%2C%20AUTH%2C%20BILL%2C%20COMM%2C%20KG%2C%20KIDSMOB%2C%20MATH%2C%20MOB%2C%20MOBACK%2C%20MOBT%2C%20SS%2C%20ST%2C%20SMMOB%2C%20STUDCAB%2C%20ESM)%20AND%20issuetype%20in%20(Bug%2C%20Task)%20AND%20status%20!%3D%20closed%20AND%20Reports%20%3E0%20AND%20resolution%20in%20(Unresolved%2C%20Incomplete%2C%20%22Cannot%20Reproduce%22)%20AND%20text%20~%20%22';
-        if (jirasearch.value == "")
-            console.log('Введите текст в поле')
-        else {
-            window.open(jiralink + jirasearch.value + '%22%20ORDER%20BY%20updated');
-        };
-        jirasearch.value = "";
     }
 
     document.getElementById('getlgsinfo').onclick = function () { // открытие админки LGS по ID группы
@@ -12280,9 +12274,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[2])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[4])
+			btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
 			btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
@@ -12299,12 +12293,12 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubutarea.append(butmenu)
             headmenulist.insertBefore(menubar, headmenulist.children[11])
             menubar.append(document.getElementById('servDsk'))
+			menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
             menubar.append(document.getElementById('butChatHistory'))
-            menubar.append(document.getElementById('JiraOpenForm'))
         }, 8000)
 
         setInterval(startTimer, 1000)
