@@ -6508,8 +6508,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 let flagempty = 0;
                 let nameofelem = '';
-                
-                let chatlnkinterval
+
+                let chatlnkinterval;
 
                 if (document.getElementById('chatlnk').value.length < 3){
                     //document.getElementById('chatlnk').style.backgroundColor = 'red';
