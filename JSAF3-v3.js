@@ -4991,7 +4991,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     // Просмотр таски по джира по ее коду и номеру
     document.getElementById('getJiraTasks').ondblclick = function () {
-        if (document.getElementById('AF_Jira').style.display = 'none') {
+        if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
         }
 
