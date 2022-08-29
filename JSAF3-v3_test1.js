@@ -3020,12 +3020,8 @@ wintCreateTask.onmousedown = function (a) {
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
 
 function noinputerror (nameofelem){ // мигаем полем где не введено обязательное значение
-    if (document.getElementById(nameofelem).style.border != '') document.getElementById(nameofelem).style.border = '';
-        else document.getElementById(nameofelem).style.border = '3px solid red';
-//    for (let i = 1; i < 4; i++){
-//        setTimeout(function () {document.getElementById(nameofelem).style.border = '3px solid red'}, 1000);
-//        setTimeout(function () {document.getElementById(nameofelem).style.border = ''}, 1000);
-//    }
+    if (document.getElementById(nameofelem).style.border != '') {document.getElementById(nameofelem).style.border = '';}
+    else {document.getElementById(nameofelem).style.border = '3px solid red';}
 }
 
 function checkelementtype (a){ // проверка на какой элемент нажали
@@ -6517,7 +6513,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     //document.getElementById('chatlnk').style.backgroundColor = 'red';
                     nameofelem = document.getElementById('chatlnk').id;
                     flagempty = 1;
-                    var chatlnkinterval = setInterval(noinputerror(nameofelem), 500);
+                    let chatlnkinterval = setInterval(noinputerror(nameofelem), 1000);
                 } else {
                     //document.getElementById('chatlnk').style.backgroundColor = '';
                     clearInterval(chatlnkinterval);
