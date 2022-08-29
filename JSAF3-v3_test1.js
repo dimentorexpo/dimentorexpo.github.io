@@ -6508,17 +6508,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 let flagempty = 0;
                 let nameofelem = '';
-                
-                let chatlnkinterval
+
+                let chatlnkinterval;
 
                 if (document.getElementById('chatlnk').value.length < 3){
                     //document.getElementById('chatlnk').style.backgroundColor = 'red';
                     nameofelem = document.getElementById('chatlnk').id;
                     flagempty = 1;
-                    chatlnkinterval = setInterval(function(){noinputerror(nameofelem)}, 500);
+                    chatlnkinterval = setInterval(noinputerror, 500, nameofelem);
                 } else {
                     //document.getElementById('chatlnk').style.backgroundColor = '';
                     clearInterval(chatlnkinterval);
+                    chatlnkinterval = null;
                     }
                 
                 if (document.getElementById('userissue').children[0].selected == true){
