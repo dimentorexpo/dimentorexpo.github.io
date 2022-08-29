@@ -136,6 +136,19 @@ function mystylesAFMS() {
 		font-family: sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
 	}
 
+	.wintInitializeTTCExercisesInfo {
+		min-height: 170px;
+		max-height: 790px;
+		width: 560px;
+		font-size: 14px;
+		z-index: 20;
+		position: fixed;
+		border: 1px solid rgb(56, 56, 56);
+		background: rgb(70, 68, 81);
+		color: black;
+		font-family: sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
+	}
+
 	.lesson-field-name {
 		width: 50px;
 		text-align: center;
@@ -620,6 +633,8 @@ var win_addMenu = `<div style="display: flex;">
 							<br>
 							<button id="exerciseadult" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🅰</span> Aduls</button>
 							<br>
+							<button id="exercisesttc" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">👽</span> TTC</button>
+							<br>
 							<button id="backmainmenufromexercises" style="margin: 5px 0px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🔙</span> Back</button>
 						</div>
 
@@ -780,6 +795,25 @@ var win_adultsExercises = `<div style="display: flex;">
 
 					</span>
 				   </div>`;
+				   
+var win_TTCExercises = `<div style="display: flex;">
+					<span style="cursor: -webkit-grab;">
+
+					     <div style="margin: 5px; width:500px;" id="exercisesTTCHeader">
+                            <button class="commonbtn" title="скрывает меню" id="hideExercisesTTCMenu" style="width:50px; height:30px; background: #228B22;">hide</button>
+							<button class="commonbtn" id="RefreshInfoExerciseTTC" title = "Обновляет информацию по открытой комнате" style="margin: 5px; width: 25px; height: 25px; padding: 0;">♻</button>
+                        </div>
+
+						<div style="margin:5px;">
+							<input id="roomhashttc" placeholder="Room link" style="width: 500px; margin-left: 10px; text-align: center;">
+							<button class="commonbtn" id="getroomdatattc">🔎</button>
+						</div>
+
+						<div id="exercisebarttc" class="skysmartexcbar">
+						<div>
+
+					</span>
+				   </div>`;			
 
 
 var win_Vocabulary = `<div style="display: flex;">
@@ -847,6 +881,11 @@ if (localStorage.getItem('winTopexercisesSkysmart') == null) { //additional skys
     localStorage.setItem('winLeftexercisesSkysmart', '407');
 }
 
+if (localStorage.getItem('winTopexercisesTTC') == null) { //additional TTC info menu
+    localStorage.setItem('winTopexercisesTTC', '118');
+    localStorage.setItem('winLeftexercisesTTC', '407');
+}
+
 if (localStorage.getItem('winTopVocabulary') == null) { //additional skysmart students info menu
     localStorage.setItem('winTopVocabulary', '118');
     localStorage.setItem('winLeftVocabulary', '407');
@@ -900,6 +939,13 @@ wintExercSkysmart.className = 'wintInitializeSkysmartExercisesInfo'
 wintExercSkysmart.style = 'display:none;  top: ' + localStorage.getItem('winTopexercisesSkysmart') + 'px; left: ' + localStorage.getItem('winLeftexercisesSkysmart') + 'px;';
 wintExercSkysmart.setAttribute('id', 'AFMS_SkysmartExercInfo');
 wintExercSkysmart.innerHTML = win_kidsExercises;
+
+let wintExercTTC = document.createElement('div');
+document.body.append(wintExercTTC);
+wintExercTTC.className = 'wintInitializeTTCExercisesInfo'
+wintExercTTC.style = 'display:none;  top: ' + localStorage.getItem('winTopexercisesTTC') + 'px; left: ' + localStorage.getItem('winLeftexercisesTTC') + 'px;';
+wintExercTTC.setAttribute('id', 'AFMS_TTCExercInfo');
+wintExercTTC.innerHTML = win_TTCExercises;
 
 let wintVocabulary = document.createElement('div');
 document.body.append(wintVocabulary);
@@ -1049,6 +1095,25 @@ wintExercSkysmart.onmousedown = function (a) {
 wintExercSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listenerExercSkysmart); }
 
 // End Exercises skysmart
+
+// Exercises TTC
+
+var listenerExercTTC = function (e, a) {
+    wintExercTTC.style.left = Number(e.clientX - myX9992) + "px";
+    wintExercTTC.style.top = Number(e.clientY - myY9992) + "px";
+    localStorage.setItem('winTopexercisesTTC', String(Number(e.clientY - myY9992)));
+    localStorage.setItem('winLeftexercisesTTC', String(Number(e.clientX - myX9992)));
+};
+wintExercTTC.onmousedown = function (a) {
+    if (checkelementt(a)){
+        window.myX9992 = a.layerX;
+        window.myY9992 = a.layerY;
+        document.addEventListener('mousemove', listenerExercTTC);
+    }
+}
+wintExercTTC.onmouseup = function () { document.removeEventListener('mousemove', listenerExercTTC); }
+
+// End Exercises TTC
 
 //Vocabulary
 
@@ -2611,10 +2676,78 @@ document.getElementById('studid').innerHTML = '<span style="user-select:none; fo
 
 }
 
+document.getElementById('exercisesttc').onclick = async function() {
+	if (document.getElementById('AFMS_TTCExercInfo').style.display == 'none') {
+		document.getElementById('AFMS_TTCExercInfo').style.display = ''
+		document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
+        document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
+		
+		if (location.host == 'ttc.skyeng.ru')
+			document.getElementById('roomhashttc').value = document.URL.split('/')[5]
+		else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
+		
+		document.getElementById('hideExercisesTTCMenu').onclick = function() {
+			document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
+		}
+		
+		document.getElementById('RefreshInfoExerciseTTC').onclick = function() {
+			if (location.host == 'ttc.skyeng.ru')
+				document.getElementById('roomhashttc').value = document.URL.split('/')[5]
+			else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
+		}
+		
+		document.getElementById('getroomdatattc').onclick = async function() {
+			let rhash = document.getElementById('roomhashttc').value
+			if (rhash.length < 20) {
+				await fetch("https://ttc-api.skyeng.ru/api/v1/lesson/join", {
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": "{\"roomHash\":\""+rhash+"\"}",
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				}).then(r=>r.json()).then(r=>ttcroomdata=r)
+				
+				console.log(ttcroomdata)
+				
+				let tmparr=[];
+				for (let i=0; i< ttcroomdata.participants[0].nodes[0].steps.length; i++) {
+					if (ttcroomdata.participants[0].nodes[0].steps[i].score == null)
+						ttcroomdata.participants[0].nodes[0].steps[i].score = 0
+					if (ttcroomdata.participants[0].nodes[0].steps[i].completeness == null)
+						ttcroomdata.participants[0].nodes[0].steps[i].completeness = 0
+					tmparr += '<div class="itemexerciseskids">' + [i + 1] + '.' + '<span>'+ttcroomdata.participants[0].nodes[0].steps[i].title+'</span>' + '<span class="TTCstepid" style="display:none">' + ttcroomdata.participants[0].nodes[0].steps[i].stepId + '</span>' + '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' + '<span style="float:right;margin-right:20%">' + ttcroomdata.participants[0].nodes[0].steps[i].completeness + '%' + '</span>' + '<span style="float:right;margin-right:11%">' + ttcroomdata.participants[0].nodes[0].steps[i].score/10 + '</span>' + '<br>' + '</div>'
+				}
+				
+				document.getElementById('exercisebarttc').innerHTML = `<div style="width:90%; margin-left:5%; text-align:center; color:bisque; background: #bb531a; border-radius: 20px;">"${ttcroomdata.participants[0].nodes[0].title}" • Выполнено на: ${ttcroomdata.participants[0].nodes[0].completeness}% • Оценка: ${ttcroomdata.participants[0].nodes[0].score/10}</div>`+'<br>' + 
+				'<div class="headerexplain">' +
+					'<span style="margin-left: 60px;">Название слайда</span>' +
+					'<span style="margin-left: 140px;">Балл</span>' +
+					'<span style="margin-left: 60px;">%</span>' +
+				'</div>' +
+				tmparr;
+				
+				let savelinkarr = document.getElementsByClassName('savelinktocms')
+				for (let z = 0; z < savelinkarr.length; z++) {
+					savelinkarr[z].onclick = function () {
+						copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
+					}
+				}
+				
+			}
+		}
+	}
+	else { 
+		document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
+	}
+}
+
 document.getElementById('exercisekysmart').onclick = async function () { // открывает менюшку скайсмарт упражнений
     if (document.getElementById('AFMS_SkysmartExercInfo').style.display == 'none') {
         document.getElementById('AFMS_SkysmartExercInfo').style.display = ''
         document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
+		document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
 		
 		document.getElementById('RefreshInfoExerciseKids').onclick = function() {
 			document.getElementById('roomhashhwkids').value = document.URL;
@@ -2723,6 +2856,7 @@ document.getElementById('exerciseadult').onclick = async function () { // отк
     if (document.getElementById('AFMS_AdultExercInfo').style.display == 'none') {
         document.getElementById('AFMS_AdultExercInfo').style.display = ''
         document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
+		document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
 
         document.getElementById('hideExercisesAdultsMenu').onclick = function () { // функция скрывает меню
             document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
