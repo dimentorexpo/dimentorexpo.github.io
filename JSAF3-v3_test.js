@@ -9824,6 +9824,7 @@ async function remandressl() { // функция удаления и сброс�
     function dosetclasswork(subject) {
         fetch(subject + document.URL.split('/')[6], {
             "headers": {
+				"accept": "application/json",
                 "content-type": "application/json",
             },
             "body": "{\"status\":\"classwork\",\"name\":\"\"}",
