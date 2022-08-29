@@ -1538,12 +1538,15 @@ function setstclasswork(api, status) { // функция изменяющая с
 
         fetch(api + document.URL.split('/')[6], {
             "headers": {
-                "content-type": "application/json",
+                "accept": "application/json",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
             },
-            "body": `{\"status\":\"${status}\"}`,
-            "method": "PATCH",
-            "mode": "cors",
-            "credentials": "include"
+			  "body": "{\"status\":\""+status+"\",\"name\":\"\"}",
+			  "method": "PATCH",
+			  "mode": "cors",
+			  "credentials": "include"
         });
 
         alert('Выставлен статус ' + status + ' !')
@@ -1551,9 +1554,16 @@ function setstclasswork(api, status) { // функция изменяющая с
     } else if (hashval != '') {
 
         fetch(api + hashval[6], {
-            "body": `{\"status\":\"${status}\"}`,
-            "method": "PATCH",
-            "credentials": "include"
+			 "headers": {
+                "accept": "application/json",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
+            },
+			  "body": "{\"status\":\""+status+"\",\"name\":\"\"}",
+			  "method": "PATCH",
+			  "mode": "cors",
+			  "credentials": "include"
         });
 
     }
