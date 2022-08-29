@@ -6350,7 +6350,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Refuseformnew').style.display = ''
 			document.getElementById('idmymenu').style.display = 'none'
 
+            //переменные для мигания полями
             let chatlnkinterval;
+
 
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
@@ -6512,15 +6514,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let nameofelem = '';
 
                 if (document.getElementById('chatlnk').value.length < 3){
-                    //document.getElementById('chatlnk').style.backgroundColor = 'red';
-                    nameofelem = document.getElementById('chatlnk').id;
-                    flagempty = 1;
-                    chatlnkinterval = setInterval(noinputerror, 500, nameofelem);
-                } else {
-                    //document.getElementById('chatlnk').style.backgroundColor = '';
+                    if (!chatlnkinterval){
+                        nameofelem = document.getElementById('chatlnk').id;
+                        flagempty = 1;
+                        chatlnkinterval = setInterval(noinputerror, 500, nameofelem); 
+                    }
+                }
+                if (document.getElementById('chatlnk').value.length >= 3){
                     clearInterval(chatlnkinterval);
                     chatlnkinterval = null;
-                    }
+                }   
                 
                 if (document.getElementById('userissue').children[0].selected == true){
                     document.getElementById('userissue').style.backgroundColor = 'red';
