@@ -1107,6 +1107,7 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
 
             document.getElementById('userid1').value = artId.user.id;
         }
+
         document.getElementById('addChat').onclick = function () { //функция добавления чата
 
             fetchaddchat(document.getElementById('userid1').value, document.getElementById('userid2').value, "POST")
@@ -1136,7 +1137,7 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
 			
         }
 
-        document.getElementById('hideMeAddChatMenu').onclick = () => { //функция скрытия меню чатов
+        document.getElementById('hideMeAddChatMenu').onclick = function () { //функция скрытия меню чатов
             document.getElementById('AFMS_addChatMenu').style.display = 'none'
         }
     }
@@ -1537,12 +1538,15 @@ function setstclasswork(api, status) { // функция изменяющая с
 
         fetch(api + document.URL.split('/')[6], {
             "headers": {
-                "content-type": "application/json",
+                "accept": "application/json",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
             },
-            "body": `{\"status\":\"${status}\"}`,
-            "method": "PATCH",
-            "mode": "cors",
-            "credentials": "include"
+			  "body": "{\"status\":\""+status+"\",\"name\":\"\"}",
+			  "method": "PATCH",
+			  "mode": "cors",
+			  "credentials": "include"
         });
 
         alert('Выставлен статус ' + status + ' !')
@@ -1550,9 +1554,16 @@ function setstclasswork(api, status) { // функция изменяющая с
     } else if (hashval != '') {
 
         fetch(api + hashval[6], {
-            "body": `{\"status\":\"${status}\"}`,
-            "method": "PATCH",
-            "credentials": "include"
+			 "headers": {
+                "accept": "application/json",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-site"
+            },
+			  "body": "{\"status\":\""+status+"\",\"name\":\"\"}",
+			  "method": "PATCH",
+			  "mode": "cors",
+			  "credentials": "include"
         });
 
     }
