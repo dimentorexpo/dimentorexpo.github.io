@@ -6513,7 +6513,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     //document.getElementById('chatlnk').style.backgroundColor = 'red';
                     nameofelem = document.getElementById('chatlnk').id;
                     flagempty = 1;
-                    let chatlnkinterval = setInterval(noinputerror(nameofelem) {}.bind(undefined, 10), 1000);
+                    let chatlnkinterval = setInterval(function(){noinputerror(nameofelem)}, 1000);
                 } else {
                     //document.getElementById('chatlnk').style.backgroundColor = '';
                     clearInterval(chatlnkinterval);
