@@ -2324,6 +2324,11 @@ butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butJiraOpenForm = document.createElement('div')
+butJiraOpenForm.id = "JiraOpenForm"
+butJiraOpenForm.innerHTML = "🔎Jira Search"
+butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
@@ -4991,7 +4996,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     // Просмотр таски по джира по ее коду и номеру
     document.getElementById('getJiraTasks').ondblclick = function () {
-        if (document.getElementById('AF_Jira').style.display = 'none') {
+        if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
         }
 
@@ -6325,6 +6330,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }
     }
+
+document.getElementById('JiraOpenForm').onclick = function() { // открывает поле для работой с JIRA поиском
+	    if (document.getElementById('AF_Jira').style.display == 'none') {
+            document.getElementById('AF_Jira').style.display = ''
+        } else {
+			document.getElementById('AF_Jira').style.display = 'none')
+		}
+}
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
@@ -12272,11 +12285,12 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[2])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[4])
-			btnAdd1.insertBefore(maskBack, btnAdd1.children[5])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[6])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[7])
-			btnAdd1.insertBefore(taskBut, btnAdd1.children[8])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[4])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
+			btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[8])
+			btnAdd1.insertBefore(taskBut, btnAdd1.children[9])
         }, 2000)
  
         setTimeout(() => {
