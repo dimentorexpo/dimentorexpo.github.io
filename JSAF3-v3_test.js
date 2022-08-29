@@ -12545,10 +12545,10 @@ function hesoyam() {
 }
 
 
-document.getElementById('JiraOpenForm').onclick = () => { // открывает поле для работой с JIRA поиском
-	    if (document.getElementById('AF_Jira').style.display == 'none') {
-            document.getElementById('AF_Jira').style.display = ''
-        } else if (document.getElementById('AF_Jira').style.display == '') {
-			document.getElementById('AF_Jira').style.display = 'none')
-		}
-}
+// document.getElementById('JiraOpenForm').onclick = function() { // открывает поле для работой с JIRA поиском
+	    // if (document.getElementById('AF_Jira').style.display == 'none') {
+            // document.getElementById('AF_Jira').style.display = ''
+        // } else if (document.getElementById('AF_Jira').style.display == '') {
+			// document.getElementById('AF_Jira').style.display = 'none')
+		// }
+// }
