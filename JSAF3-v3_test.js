@@ -6334,7 +6334,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 document.getElementById('JiraOpenForm').onclick = function() { // открывает поле для работой с JIRA поиском
 	    if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
-        } else {
+        } else if (document.getElementById('AF_Jira').style.display == '') {
 			document.getElementById('AF_Jira').style.display = 'none')
 		}
 }
