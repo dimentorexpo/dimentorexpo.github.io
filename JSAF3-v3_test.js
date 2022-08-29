@@ -2533,7 +2533,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				}
 			}
 			
-			document.getElementById('taskcomment').value = "Проверил связь с П, все ок, свяжитесь с У!"
+			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
 		}
 
 		document.getElementById('critstudenttoteacher').onclick = function() {
@@ -2561,7 +2561,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
 		}
 			
-			document.getElementById('taskcomment').value = "Проверил связь с У, все ок, свяжитесь с П!"
+			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
 		}
 	
 	
