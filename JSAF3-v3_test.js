@@ -12299,6 +12299,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
             menubar.append(document.getElementById('butChatHistory'))
+            menubar.append(document.getElementById('JiraOpenForm'))
         }, 8000)
 
         setInterval(startTimer, 1000)
