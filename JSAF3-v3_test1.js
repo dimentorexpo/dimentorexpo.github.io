@@ -6490,11 +6490,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('userissue').children[0].selected = true
                 document.getElementById('otherproblem').style.background = '';
                 document.getElementById('otherproblem').value = '';
-                document.getElementById('otherproblem').disabled = true;
+                document.getElementById('otherproblem').removeAttribute('class');
+                document.getElementById('otherproblem').classList.add('otherfieldoff')
                 document.getElementById('howissuesolverd').style.background = '';
                 document.getElementById('howissuesolverd').children[0].selected = true
                 document.getElementById('othersolved').style.background = '';
                 document.getElementById('othersolved').value = '';
+                document.getElementById('othersolved').removeAttribute('class');
                 document.getElementById('othersolved').classList.add('otherfieldoff')
             }
 
