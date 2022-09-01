@@ -6192,8 +6192,8 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 
                     if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 						
-						if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').toUpperCase().indexOf(document.getElementById('testJira').value.toUpperCase()) !=-1) {
-							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(document.getElementById('testJira').value.toUpperCase(), `<span style="color:green">${document.getElementById('testJira').value.toUpperCase()}</span>`)
+						if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').indexOf(document.getElementById('testJira').value) !=-1) {
+							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(document.getElementById('testJira'), `<span style="color:green">${document.getElementById('testJira').value}</span>`)
 						} else {
 							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ')
 						}
