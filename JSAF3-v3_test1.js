@@ -663,12 +663,12 @@ var win_taskform  = //описание формы создания задач в
 
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Отдел</option>
-								<option value="tech_support_outgoing_crm2" style="background: white>Техподдержка 1Л CRM (исход)</option>
-								<option value="teachers_care_crm" style="background: white>Teachers Care</option>
-								<option value="content_management_dictionary" style="background: white>Словарь</option>
-								<option value="content_management" style="background: white>Контент</option>
-								<option value="teachers_support" style="background: white>Teachers Support</option>
-								<option value="tech_support_second_line_crm2" style="background: white>Техподдержка 2Л CRM</option>
+								<option value="tech_support_outgoing_crm2" style="background: white">Техподдержка 1Л CRM (исход)</option>
+								<option value="teachers_care_crm" style="background: white">Teachers Care</option>
+								<option value="content_management_dictionary" style="background: white">Словарь</option>
+								<option value="content_management" style="background: white">Контент</option>
+								<option value="teachers_support" style="background: white">Teachers Support</option>
+								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
 							</select>
 							
 							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
@@ -2646,11 +2646,17 @@ taskBut.onclick = function() { // функция открытия окна дл�
             taskflagempty = 1;
         }
 
-		for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
-			if (document.getElementById('customerservice').children[i].selected == true)
-				csstate = document.getElementById('customerservice').children[i].value
-		}
-		
+        if (document.getElementById('customerservice').value != 'Отдел'){
+            document.getElementById('customerservice').style.background = '';
+            for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
+                if (document.getElementById('customerservice').children[i].selected == true)
+                    csstate = document.getElementById('customerservice').children[i].value
+            }
+		} else {
+            document.getElementById('customerservice').style.background = 'Coral';
+            taskflagempty = 1;
+        }
+
 		if (document.getElementById('taskserviceid').value == '')
 			usluga = document.getElementById('taskserviceid').value = null;
 		else usluga = document.getElementById('taskserviceid').value
