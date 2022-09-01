@@ -6146,7 +6146,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 			}
 			
 			checkJiraToken()
-				
+				 
 	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
 			
 	document.getElementById('getJiraTasks').onclick = function () {
