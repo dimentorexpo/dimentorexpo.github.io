@@ -6193,7 +6193,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                     if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 						
 						if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').value.toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) !=-1) {
-							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(new RegExp(document.getElementById('testJira').value,'i'), `<span style="color:lightgreen; font-weight:700;">${document.getElementById('testJira').value}</span>`)
+							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(new RegExp(document.getElementById('testJira').value,'i'), `<span style="color:MediumSpringGreen; font-weight:700;">${document.getElementById('testJira').value.toUpperCase()}</span>`)
 						} else {
 							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ')
 						}
