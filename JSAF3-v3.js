@@ -600,7 +600,6 @@ var win_refusefrom =  // описание элементов окна отказ
                             <button title="скрывает меню" id="hideMeRefuseFormv2" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
                             <button title="По нажатию обновляет перечень опций в разделе Проблема и Как решилось" id="refreshoptions" style="width:24px;">🔄</button>
-                            <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearrefuseform" style="width:24px;">🧹</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
                             <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
@@ -865,7 +864,7 @@ var win_Marks =  // описание элементов окна оценок о
     `<div style="display: flex; width: 300px;">
         <span style="width: 300px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 300px;" id="jira_1str">
+                        <div style="margin: 5px; width: 300px;" id="marks_header">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						<div>
@@ -6192,7 +6191,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 
                     if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;">` + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+                        issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: Три красные стрелки вверх - Major, три синие вниз - Minor, пустой круг - Trivial">` + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
 
                     }
 
@@ -6506,23 +6505,6 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                     document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
                 else document.getElementById('chatlnk').value = ''
             }
-            
-            document.getElementById('clearrefuseform').onclick = () => { 
-                document.getElementById('chatlnk').style.background = '';
-                document.getElementById('chatlnk').value = '';
-                document.getElementById('userissue').style.background = '';
-                document.getElementById('userissue').children[0].selected = true
-                document.getElementById('otherproblem').style.background = '';
-                document.getElementById('otherproblem').value = '';
-                document.getElementById('otherproblem').removeAttribute('class');
-                document.getElementById('otherproblem').classList.add('otherfieldoff')
-                document.getElementById('howissuesolverd').style.background = '';
-                document.getElementById('howissuesolverd').children[0].selected = true
-                document.getElementById('othersolved').style.background = '';
-                document.getElementById('othersolved').value = '';
-                document.getElementById('othersolved').removeAttribute('class');
-                document.getElementById('othersolved').classList.add('otherfieldoff')
-            }
 
             let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
             sendrefuseformbyenter.addEventListener('keydown', event => {
@@ -6546,44 +6528,43 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                 let othersolvedtext;
                 let body2;
 
-
                 let flagempty = 0;
 
                 if (document.getElementById('chatlnk').value.length < 3){
-                    document.getElementById('chatlnk').style.backgroundColor = 'Coral';
-                    flagempty = 1;
-                } else {
+                    document.getElementById('chatlnk').style.backgroundColor = 'red';
+                    flagempty = 1;    
+                    } else {
                     document.getElementById('chatlnk').style.backgroundColor = '';
-                }
+                    }
                 
                 if (document.getElementById('userissue').children[0].selected == true){
-                    document.getElementById('userissue').style.backgroundColor = 'Coral';
+                    document.getElementById('userissue').style.backgroundColor = 'red';
                     flagempty = 1;    
                     } else {
                         document.getElementById('userissue').style.backgroundColor = '';
                     }
 
-                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3){
-                    document.getElementById('otherproblem').style.backgroundColor = 'Coral';
+                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
+                    document.getElementById('otherproblem').style.backgroundColor = 'red';
                     flagempty = 1;
                     } else {
                         document.getElementById('otherproblem').style.backgroundColor = '';    
                     }
 
                 if (document.getElementById('howissuesolverd').children[0].selected == true){
-                    document.getElementById('howissuesolverd').style.backgroundColor = 'Coral';
+                    document.getElementById('howissuesolverd').style.backgroundColor = 'red';
                     flagempty = 1;    
                     } else {
                         document.getElementById('howissuesolverd').style.backgroundColor = '';
                     }
                 
-                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3){
-                    document.getElementById('othersolved').style.backgroundColor = 'Coral';
+                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
+                    document.getElementById('othersolved').style.backgroundColor = 'red';
                     flagempty = 1;    
                 } else {
                     document.getElementById('othersolved').style.backgroundColor = '';
                 }
-                
+
                 if (flagempty == 0){
                     let chatlink = document.getElementById('chatlnk').value
 
@@ -9193,7 +9174,7 @@ function addbuttonsintegration() { // добавляет подсветку пр
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl() { // функция удаления и сброса слайдов но с добавлением также функций просмотра ID методиста которому была отправлена работае, информации об уроке в контенте
-    if (document.URL.split('/').length > 4 && document.URL.split('/')[3] != 'portfolio' && document.URL.split('/')[2] != 'skyeng.autofaq.ai' && document.URL.split('/')[3] != 'circles' && document.URL.split('/')[3] != 'profile' && document.URL.split('/')[3] != 'adults' && document.URL.split('/')[3] != 'kids' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] != 'vimbox.skyeng.ru/lesson' && document.URL.split('/')[3] != 'inspector-showcase') {
+    if (document.URL.split('/').length > 4 && location.host != 'ttc.skyeng.ru' && document.URL.split('/')[3] != 'portfolio' && document.URL.split('/')[2] != 'skyeng.autofaq.ai' && document.URL.split('/')[3] != 'circles' && document.URL.split('/')[3] != 'profile' && document.URL.split('/')[3] != 'adults' && document.URL.split('/')[3] != 'kids' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] != 'vimbox.skyeng.ru/lesson' && document.URL.split('/')[3] != 'inspector-showcase') {
         if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=') {
             let remove = document.createElement('span')
             remove.id = "removebtn"
