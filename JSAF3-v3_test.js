@@ -845,6 +845,7 @@ var win_Jira =  // описание элементов окна Поиска п�
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
 								<span style="color:bisque">Token Status: </span>
 								<span id="searchjiratknstatus"></span>
+								<button id="RefreshJiraStatus">🔄</button>
                         </div>
 						
 						<div id="control_jira_search">
@@ -6118,7 +6119,8 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 			
 			let jiratkn;
 			
-			    document.getElementById('responseTextarea1').value = '{}'
+			async function checkJiraToken() {
+							    document.getElementById('responseTextarea1').value = '{}'
 				document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
 				document.getElementById('responseTextarea3').value = 'getjiratoken'
 				document.getElementById('sendResponse').click()
@@ -6141,6 +6143,11 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 					console.log("TOKEN: " + jiratkn);
 				}, 1000)
+			}
+			
+			checkJiraToken()
+				
+	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
 			
 	document.getElementById('getJiraTasks').onclick = function () {
 			  let rezissuetable;
