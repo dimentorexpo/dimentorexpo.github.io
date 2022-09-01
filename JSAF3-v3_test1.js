@@ -3019,11 +3019,6 @@ wintCreateTask.onmousedown = function (a) {
 }
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
 
-function noinputerror (nameofelem){ // мигаем полем где не введено обязательное значение
-    if (document.getElementById(nameofelem).style.border != '') {document.getElementById(nameofelem).style.border = '';}
-    else {document.getElementById(nameofelem).style.border = '3px solid red';}
-}
-
 function checkelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
     
@@ -6514,16 +6509,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let nameofelem = '';
 
                 if (document.getElementById('chatlnk').value.length < 3){
-                    if (!chatlnkinterval){
-                        nameofelem = document.getElementById('chatlnk').id;
-                        flagempty = 1;
-                        chatlnkinterval = setInterval(noinputerror, 500, nameofelem); 
-                    }
+                    document.getElementById('chatlnk').style.backgroundColor = 'tomato';
+                    flagempty = 1;
+                } else {
+                    document.getElementById('chatlnk').style.backgroundColor = '';
                 }
-                if (document.getElementById('chatlnk').value.length >= 3){
-                    clearInterval(chatlnkinterval);
-                    chatlnkinterval = null;
-                }   
                 
                 if (document.getElementById('userissue').children[0].selected == true){
                     document.getElementById('userissue').style.backgroundColor = 'red';
