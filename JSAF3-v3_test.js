@@ -12013,7 +12013,7 @@ async function checkCSAT() {             // функция проверки CSAT
                     .then(r => {
                         if (r.operatorId == operatorId) {
                             clschatarr.push(test.items[i].conversationId)
-                            if (r.payload == undefined || r.payload.tags.value == '')
+                            if (r.payload == undefined || r.payload.tags == undefined || r.payload.tags.value == '')
                                 tagsarr.push('Нет тега!')
                             else if (r.payload.tags.value == '[\n  \"queue\"\n]')
                                 tagsarr.push('Тег: Очередь КЦ') //добавляет что тег очередь КЦ выставлен
