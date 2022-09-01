@@ -656,19 +656,19 @@ var win_taskform  = //описание формы создания задач в
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
-								<option value="low" style="color:green; font-weight:600">🟢 Низкий</option>
-								<option value="high" style="color:orange; font-weight:600">🟡 Высокий</option>
-								<option value="highest" style="color:red; font-weight:600">🔴 Критический</option>
+								<option value="low" style="background: white; color:green; font-weight:600">🟢 Низкий</option>
+								<option value="high" style="background: white; color:orange; font-weight:600">🟡 Высокий</option>
+								<option value="highest" style="background: white; color:red; font-weight:600">🔴 Критический</option>
 							</select>
 
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Отдел</option>
-								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
-								<option value="teachers_care_crm">Teachers Care</option>
-								<option value="content_management_dictionary">Словарь</option>
-								<option value="content_management">Контент</option>
-								<option value="teachers_support">Teachers Support</option>
-								<option value="tech_support_second_line_crm2">Техподдержка 2Л CRM</option>
+								<option value="tech_support_outgoing_crm2" style="background: white>Техподдержка 1Л CRM (исход)</option>
+								<option value="teachers_care_crm" style="background: white>Teachers Care</option>
+								<option value="content_management_dictionary" style="background: white>Словарь</option>
+								<option value="content_management" style="background: white>Контент</option>
+								<option value="teachers_support" style="background: white>Teachers Support</option>
+								<option value="tech_support_second_line_crm2" style="background: white>Техподдержка 2Л CRM</option>
 							</select>
 							
 							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
