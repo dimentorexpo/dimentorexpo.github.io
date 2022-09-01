@@ -311,6 +311,12 @@ function mystyles() {
 			font-weight:700;
 		}
 
+		#JiraOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+
 
 		.hyperlnk {
 			height:0px;
@@ -658,7 +664,7 @@ var win_taskform  = //описание формы создания задач в
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Отдел</option>
 								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
-								<option value="teachers_care_crm ">Teachers Care</option>
+								<option value="teachers_care_crm">Teachers Care</option>
 								<option value="content_management_dictionary">Словарь</option>
 								<option value="content_management">Контент</option>
 								<option value="teachers_support">Teachers Support</option>
@@ -728,8 +734,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="gotolookip">🔎</button>
 					<input id="lgssearch" placeholder="ID Группы" title="Введите ID LGS или обычной группы KGL для просмотра информации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getlgsinfo">🔎</button>
-					<input id="jirasearch" placeholder="FindJira" title="введите слово или фразу для поиска задачи по Jira" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="startjirasearch">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -746,13 +750,11 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getskipAP" style="width: 25.23px;">💾</button>
 					<input id="skiponboarding" placeholder="ID ус(skip Onbo)" title="копируем услуги, где нужно отключить онбоардинг в ЛКУ" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="doskiponboard" style="width: 25.23px;">💾</button>
-					<input id="reportmvu" placeholder="У отчет МВУ" title="Введите ID ученика, чтобы в буфер обмена скопировать ссылку на отчет МВУ и открывать ее под преподавателем" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getmvureport" style="width: 25.23px;">💾</button>
-                    <input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 					<input id="idteacheradult" placeholder="ID П add 💬 ->" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
+					<input id="reportmvu" placeholder="У отчет МВУ" title="Введите ID ученика, чтобы в буфер обмена скопировать ссылку на отчет МВУ и открывать ее под преподавателем" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<button id="getmvureport" style="width: 25.23px;">💾</button>
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
@@ -843,6 +845,12 @@ var win_Jira =  // описание элементов окна Поиска п�
                         <div style="margin: 5px; width: 550;" id="jira_1str">
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
                         </div>
+						
+						<div id="control_jira_search">
+							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
+							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
+						</div>
+						
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
                         </div>
@@ -2325,6 +2333,11 @@ butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butJiraOpenForm = document.createElement('div')
+butJiraOpenForm.id = "JiraOpenForm"
+butJiraOpenForm.innerHTML = "🔎Jira Search"
+butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
 butmenu.id = 'headmymenu'
@@ -2419,15 +2432,10 @@ maskBackHide.onclick = function () { // кнопка скрыть
 
 taskBut.onclick = function() { // функция открытия окна для работы с созданием задач на СРМ
 	let conversid;
-	if (document.getElementById('AF_Createtask').style.display == 'none')
+	if (document.getElementById('AF_Createtask').style.display == 'none') {
 		document.getElementById('AF_Createtask').style.display = ''
-	
 		
-	
-	else document.getElementById('AF_Createtask').style.display = 'none'
-	
-	
-	if (document.getElementsByClassName('expert-user_details-list').length >0) {
+			if (document.getElementsByClassName('expert-user_details-list').length >0) {
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
 						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
@@ -2476,9 +2484,6 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		}
 		}
 	}
-	
-	
-	
 	
 	document.getElementById('hideMeCreateForm').onclick = function() {
 		document.getElementById('AF_Createtask').style.display = 'none'
@@ -2529,7 +2534,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 				}
 			}
 			
-			document.getElementById('taskcomment').value = "Проверил связь с П, все ок, свяжитесь с У!"
+			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
 		}
 
 		document.getElementById('critstudenttoteacher').onclick = function() {
@@ -2557,7 +2562,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
 		}
 			
-			document.getElementById('taskcomment').value = "Проверил связь с У, все ок, свяжитесь с П!"
+			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
 		}
 	
 	
@@ -2662,6 +2667,22 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			
 		} else alert("Задача не была создана, проверьте, пожалуйста, поля: хеш чата, приоритет, отдел, ID пользователя, комментарий")
 	}
+		
+	
+	} else {
+		document.getElementById('AF_Createtask').style.display = 'none'
+				conversid = document.getElementById('chathashlnk').value;
+				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+				  "headers": {
+					"content-type": "application/json",
+				  },
+				  "body": `{\"conversationId\":\"${conversid}\"}`,
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				});
+		}
+	
 }
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата
@@ -3019,6 +3040,8 @@ wintCreateTask.onmousedown = function (a) {
     }
 }
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
+
+
 
 function checkelementtype (a){ // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX,a.clientY)
@@ -4980,224 +5003,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('useravatar').style.height = "60px";
     }
 
-    // Просмотр таски по джира по ее коду и номеру
-    document.getElementById('getJiraTasks').ondblclick = function () {
-        if (document.getElementById('AF_Jira').style.display = 'none') {
-            document.getElementById('AF_Jira').style.display = ''
-        }
-
-
-        let rezissuetable;
-
-        document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"accept": "*/*",
-					"sec-fetch-dest": "empty",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-origin",
-					"x-requested-with": "XMLHttpRequest"
-				  },
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-               }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-        document.getElementById('responseTextarea3').value = 'getissuetable1'
-        document.getElementById('sendResponse').click()
-
-        async function getJiraTask1() {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-            document.getElementById('responseTextarea3').value = 'getissuetable1'
-            document.getElementById('sendResponse').click()
-
-
-            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
-            rezissuetable = await rezissuetable;
-            document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
-            if (rezissuetable != null) {
-                let issues = [];
-                issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
-
-                document.getElementById('issuetable').innerHTML = issues;
-
-                let barray = document.querySelector('.jiraissues');
-                barray.onclick = function () {
-                    sendComment(rezissuetable[0].items[0].url)
-                    let b = document.URL.split('/')
-                    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                        "headers": {
-                            "accept": "*/*",
-                            "content-type": "application/json",
-                            "sec-fetch-dest": "empty",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    })
-                }
-
-                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
-            }
-        }
-
-        setTimeout(getJiraTask1, 1000)
-    }
-
-    document.getElementById('getJiraTasks').onclick = function () { //поиска таско в Jira
-
-        if (document.getElementById('AF_Jira').style.display = 'none') {
-            document.getElementById('AF_Jira').style.display = ''
-        }
-
-
-        let rezissuetable;
-
-        document.getElementById('responseTextarea1').value = `{
-                     "headers": {
-                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
-                       "accept": "*/*",
-                        "sec-fetch-mode": "cors",
-                       "sec-fetch-site": "same-origin",
-                       "x-atlassian-token": "no-check",
-                       "x-requested-with": "XMLHttpRequest"
-                     },
-                     "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+ESM%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
-                     "method": "POST",
-                     "mode": "cors",
-                     "credentials": "include"
-               }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-        document.getElementById('responseTextarea3').value = 'getissuetable'
-        document.getElementById('sendResponse').click()
-
-        async function getJiraTask() {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-            document.getElementById('responseTextarea3').value = ''
-            document.getElementById('sendResponse').click()
-
-            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-            rezissuetable = await rezissuetable;
-            if (rezissuetable == null)
-                setTimeout(getJiraTask, 1000)
-            else {
-                //   rezissuetable = JSON.parse(rezissuetable)
-                document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-
-                let issues = [];
-                if (rezissuetable.issueTable.issueKeys.length > 50)
-                    rezissuetable.issueTable.issueKeys.length = 50;
-                for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
-
-                    if (rezissuetable.issueTable.issueKeys[i] != undefined) {
-
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-
-                    }
-
-                }
-
-                document.getElementById('issuetable').innerHTML = issues;
-
-                let barray = document.querySelectorAll('.jiraissues');
-                for (let j = 0; j < barray.length; j++) {
-                    barray[j].onclick = function () {
-                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
-                        let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                            "headers": {
-                                "accept": "*/*",
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                    }
-                }
-
-                let refreshissuesarr = document.querySelectorAll('.refreshissues');
-                for (let f = 0; f < refreshissuesarr.length; f++) {
-                    refreshissuesarr[f].onclick = function () {
-
-                        document.getElementById('responseTextarea1').value = '{}'
-                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                        document.getElementById('responseTextarea3').value = 'reportscount'
-                        document.getElementById('sendResponse').click()
-
-                        let count;
-                        let jira_token;
-                        let increasedcount;
-                        setTimeout(async function () {
-                            document.getElementById('responseTextarea1').value = '{}'
-                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                            document.getElementById('responseTextarea3').value = 'reportscount'
-                            document.getElementById('sendResponse').click()
-
-                            let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
-                            repcount = await repcount;
-                            jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-                            document.getElementById('responseTextarea1').removeAttribute('reportscount')
-
-                            count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-                            count = parseInt(count);
-                            increasedcount = count + 1;
-                            increasedcount = increasedcount.toString();
-                            console.log("count=" + count + " increasedcount " + increasedcount);
-
-                            setTimeout(function () {
-
-                                document.getElementById('responseTextarea1').value = `{
-						"headers": {
-							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-						    "sec-fetch-mode": "cors",
-							"sec-fetch-site": "same-origin",
-							"x-requested-with": "XMLHttpRequest",
-							"x-sitemesh-off": "true"
-									},
-						"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-						  "method": "POST",
-						  "mode": "cors",
-						  "credentials": "include"
-							}`
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-                                document.getElementById('responseTextarea3').value = ''
-                                document.getElementById('sendResponse').click()
-                                let newinfocount = document.querySelectorAll('.newcount');
-                                newinfocount[f].innerHTML = increasedcount;
-                                increasedcount = "";
-                            }, 1000);
-                        }, 1000)
-                    }
-                }
-
-                console.log(rezissuetable.issueTable.issueKeys);
-                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
-            }
-
-        }
-
-        setTimeout(getJiraTask, 1000)
-    }
-
-    let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
-    searchJiraByEnter.addEventListener('keydown', event => {
-        if (event.key === "Enter") {
-            document.querySelector('#getJiraTasks').click()
-        }
-    })
-
-
-
     let searchCommentsByEnter = document.querySelector('#commenttosearch'); //по Enter запускает поиск по комментариям
     searchCommentsByEnter.addEventListener('keydown', event => {
         if (event.key === "Enter") {
@@ -5220,16 +5025,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             window.open(iplink + iplookup.value);
         };
         iplookup.value = "";
-    }
-
-    document.getElementById('startjirasearch').onclick = function () { // поиск по Jira
-        let jiralink = 'https://jira.skyeng.tech/issues/?filter=21266&jql=project%20in%20(VIM%2C%20MP%2C%20MV%2C%20KIDS%2C%20TS%2C%20ADULT%2C%20AUTH%2C%20BILL%2C%20COMM%2C%20KG%2C%20KIDSMOB%2C%20MATH%2C%20MOB%2C%20MOBACK%2C%20MOBT%2C%20SS%2C%20ST%2C%20SMMOB%2C%20STUDCAB%2C%20ESM)%20AND%20issuetype%20in%20(Bug%2C%20Task)%20AND%20status%20!%3D%20closed%20AND%20Reports%20%3E0%20AND%20resolution%20in%20(Unresolved%2C%20Incomplete%2C%20%22Cannot%20Reproduce%22)%20AND%20text%20~%20%22';
-        if (jirasearch.value == "")
-            console.log('Введите текст в поле')
-        else {
-            window.open(jiralink + jirasearch.value + '%22%20ORDER%20BY%20updated');
-        };
-        jirasearch.value = "";
     }
 
     document.getElementById('getlgsinfo').onclick = function () { // открытие админки LGS по ID группы
@@ -5321,9 +5116,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $(this).toggleClass('activebtnsd');
             });
 			
-			
-		function remclass(a) {
-			    $('.kidsbtn').not(a).removeClass('activebtn');
+			function remres(a) {
+				$('.kidsbtn').not(a).removeClass('activebtn');
                 $('.edumodbtn').not(a).removeClass('activebtn');
                 $('.bilqabtn').not(a).removeClass('activebtn');
                 $('.teacbtn').not(a).removeClass('activebtn');
@@ -5347,128 +5141,107 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.stcabmbsbtn').not(a).removeClass('activebtn');
                 $('.marketprojbugsbtn').not(a).removeClass('activebtn');
                 $('.infrabtn').not(a).removeClass('activebtn');
-		}
-		
-		
+                $(a).toggleClass('activebtn');
+			}
+			
             $('.teacbtn').click(function () {
-				remclass($('.teacbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.kidsbtn').click(function () {
-				remclass($('.kidsbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.edumodbtn').click(function () {
-				remclass($('.edumodbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.bilqabtn').click(function () {
-				remclass($('.bilqabtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.c1sbtn').click(function () {
-				remclass($('.c1sbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.schdbtn').click(function () {
-				remclass($('.schdbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.telepbtn').click(function () {
-				remclass($('.telepbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.authbtn').click(function () {
-				remclass($('.authbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.crm2sbtn').click(function () {
-				remclass($('.crm2sbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.mrktbtn').click(function () {
-				remclass($('.mrktbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
             $('.billbtn').click(function () {
-				remclass($('.billbtn'))
-                $(this).toggleClass('activebtn');
+				remres(this)
             });
 
-            $('.vimbugsbtn').click(function () {  
-				remclass($('.vimbugsbtn'))
-                $(this).toggleClass('activebtn');
+            $('.vimbugsbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.vimvidsbtn').click(function () {  
-				remclass($('.vimvidsbtn'))
-                $(this).toggleClass('activebtn');
+            $('.vimvidsbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.studcabbtn').click(function () {  
-				remclass($('.studcabbtn'))
-                $(this).toggleClass('activebtn');
+            $('.studcabbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.chatqabtn').click(function () {  
-				remclass($('.chatqabtn'))
-                $(this).toggleClass('activebtn');
+            $('.chatqabtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.tripwbtn').click(function () {  
-				remclass($('.tripwbtn'))
-                $(this).toggleClass('activebtn');
+            $('.tripwbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.analystbtn').click(function () {  
-				remclass($('.analystbtn'))
-                $(this).toggleClass('activebtn');
+            $('.analystbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.corpbtn').click(function () {  
-				remclass($('.corpbtn'))
-                $(this).toggleClass('activebtn');
+            $('.corpbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.marketingbtn').click(function () {  
-				remclass($('.marketingbtn'))
-                $(this).toggleClass('activebtn');
+            $('.marketingbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.mobbugsbtn').click(function () {  
-				remclass($('.mobbugsbtn'))
-                $(this).toggleClass('activebtn');
+            $('.mobbugsbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.academymobbugsbtn').click(function () {  
-				remclass($('.academymobbugsbtn'))
-                $(this).toggleClass('activebtn');
+            $('.academymobbugsbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.stcabmbsbtn').click(function () {  
-				remclass($('.stcabmbsbtn'))
-                $(this).toggleClass('activebtn');
+            $('.stcabmbsbtn').click(function () {  //поправить
+				remres(this)
             });
 
-            $('.marketprojbugsbtn').click(function () {  
-				remclass($('.marketprojbugsbtn'))
-                $(this).toggleClass('activebtn');
+            $('.marketprojbugsbtn').click(function () {  //поправить
+				remres(this)
+
             });
 
-            $('.infrabtn').click(function () {  
-				remclass($('.infrabtn'))
-                $(this).toggleClass('activebtn');
+            $('.infrabtn').click(function () {  //поправить
+				remres(this)
+
             });
+
 
             document.getElementById('AF_ServDsk').style.display = 'none'
         }
@@ -6226,7 +5999,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     }
 
-
     document.getElementById('suggestform').onclick = () => { // открыть форму для предложения и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
@@ -6338,6 +6110,226 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }
     }
+	
+document.getElementById('JiraOpenForm').onclick = function() { // открывает поле для работой с JIRA поиском
+	    if (document.getElementById('AF_Jira').style.display == 'none') {
+            document.getElementById('AF_Jira').style.display = ''
+			
+	document.getElementById('getJiraTasks').onclick = function () {
+			  let rezissuetable;
+
+        document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+ESM%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+        document.getElementById('responseTextarea3').value = 'getissuetable'
+        document.getElementById('sendResponse').click()
+
+        async function getJiraTask() {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+            document.getElementById('responseTextarea3').value = ''
+            document.getElementById('sendResponse').click()
+
+            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+            rezissuetable = await rezissuetable;
+            if (rezissuetable == null)
+                setTimeout(getJiraTask, 1000)
+            else {
+                //   rezissuetable = JSON.parse(rezissuetable)
+                document.getElementById('responseTextarea1').removeAttribute('getissuetable')
+
+                let issues = [];
+                if (rezissuetable.issueTable.issueKeys.length > 50)
+                    rezissuetable.issueTable.issueKeys.length = 50;
+                for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
+
+                    if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+
+                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+
+                    }
+
+                }
+
+                document.getElementById('issuetable').innerHTML = issues;
+
+                let barray = document.querySelectorAll('.jiraissues');
+                for (let j = 0; j < barray.length; j++) {
+                    barray[j].onclick = function () {
+                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
+                        let b = document.URL.split('/')
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                            "headers": {
+                                "accept": "*/*",
+                                "content-type": "application/json",
+                                "sec-fetch-dest": "empty",
+                                "sec-fetch-mode": "cors",
+                                "sec-fetch-site": "same-origin"
+                            },
+                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                    }
+                }
+
+                let refreshissuesarr = document.querySelectorAll('.refreshissues');
+                for (let f = 0; f < refreshissuesarr.length; f++) {
+                    refreshissuesarr[f].onclick = function () {
+
+                        document.getElementById('responseTextarea1').value = '{}'
+                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                        document.getElementById('responseTextarea3').value = 'reportscount'
+                        document.getElementById('sendResponse').click()
+
+                        let count;
+                        let jira_token;
+                        let increasedcount;
+                        setTimeout(async function () {
+                            document.getElementById('responseTextarea1').value = '{}'
+                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                            document.getElementById('responseTextarea3').value = 'reportscount'
+                            document.getElementById('sendResponse').click()
+
+                            let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+                            repcount = await repcount;
+                            jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                            document.getElementById('responseTextarea1').removeAttribute('reportscount')
+
+                            count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                            count = parseInt(count);
+                            increasedcount = count + 1;
+                            increasedcount = increasedcount.toString();
+                            console.log("count=" + count + " increasedcount " + increasedcount);
+
+                            setTimeout(function () {
+
+                                document.getElementById('responseTextarea1').value = `{
+						"headers": {
+							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+						    "sec-fetch-mode": "cors",
+							"sec-fetch-site": "same-origin",
+							"x-requested-with": "XMLHttpRequest",
+							"x-sitemesh-off": "true"
+									},
+						"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+						  "method": "POST",
+						  "mode": "cors",
+						  "credentials": "include"
+							}`
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                document.getElementById('responseTextarea3').value = ''
+                                document.getElementById('sendResponse').click()
+                                let newinfocount = document.querySelectorAll('.newcount');
+                                newinfocount[f].innerHTML = increasedcount;
+                                increasedcount = "";
+                            }, 1000);
+                        }, 1000)
+                    }
+                }
+
+                console.log(rezissuetable.issueTable.issueKeys);
+                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+            }
+
+        }
+
+        setTimeout(getJiraTask, 1000)
+		
+		}
+		    // Просмотр таски по джира по ее коду и номеру
+    document.getElementById('getJiraTasks').ondblclick = function () {
+        if (document.getElementById('AF_Jira').style.display == 'none') {
+            document.getElementById('AF_Jira').style.display = ''
+        }
+
+
+        let rezissuetable;
+
+        document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"accept": "*/*",
+					"sec-fetch-dest": "empty",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-origin",
+					"x-requested-with": "XMLHttpRequest"
+				  },
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "method": "GET",
+				  "mode": "cors",
+				  "credentials": "include"
+               }`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
+        document.getElementById('responseTextarea3').value = 'getissuetable1'
+        document.getElementById('sendResponse').click()
+
+        async function getJiraTask1() {
+            document.getElementById('responseTextarea1').value = '{}'
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
+            document.getElementById('responseTextarea3').value = 'getissuetable1'
+            document.getElementById('sendResponse').click()
+
+
+            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+            rezissuetable = await rezissuetable;
+            document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
+            if (rezissuetable != null) {
+                let issues = [];
+                issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
+
+                document.getElementById('issuetable').innerHTML = issues;
+
+                let barray = document.querySelector('.jiraissues');
+                barray.onclick = function () {
+                    sendComment(rezissuetable[0].items[0].url)
+                    let b = document.URL.split('/')
+                    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        "headers": {
+                            "accept": "*/*",
+                            "content-type": "application/json",
+                            "sec-fetch-dest": "empty",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    })
+                }
+
+                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+            }
+        }
+
+        setTimeout(getJiraTask1, 1000)
+    }
+
+    let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
+    searchJiraByEnter.addEventListener('keydown', event => {
+        if (event.key === "Enter") {
+            document.querySelector('#getJiraTasks').click()
+        }
+    })
+			
+			
+        } else if (document.getElementById('AF_Jira').style.display == '') {
+			document.getElementById('AF_Jira').style.display = 'none'
+		}
+}
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
@@ -6345,10 +6337,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
 			document.getElementById('idmymenu').style.display = 'none'
-
-            //переменные для мигания полями
-            let chatlnkinterval;
-
 
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
@@ -6483,7 +6471,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
                 else document.getElementById('chatlnk').value = ''
             }
-
+            
             document.getElementById('clearrefuseform').onclick = () => { 
                 document.getElementById('chatlnk').style.background = '';
                 document.getElementById('chatlnk').value = '';
@@ -6523,6 +6511,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let othersolvedtext;
                 let body2;
 
+
                 let flagempty = 0;
 
                 if (document.getElementById('chatlnk').value.length < 3){
@@ -6559,7 +6548,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 } else {
                     document.getElementById('othersolved').style.backgroundColor = '';
                 }
-
+                
                 if (flagempty == 0){
                     let chatlink = document.getElementById('chatlnk').value
 
@@ -7834,7 +7823,7 @@ async function loadTemplates(template, word) { //загрузка шаблоно
         "headers": {
             "content-type": "application/json",
         },
-        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286, 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119844, 119649, 121381, 119841, 120181, 119646, 121388, 121384, 121387]}",
+        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286, 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119649, 121381, 119841, 120181, 119646, 121388, 121384, 121387]}",
         "method": "POST",
     })
         .then(response => response.json())
@@ -8822,7 +8811,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
 }
 
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] !=undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
         document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
 }
 
@@ -9858,9 +9847,10 @@ async function remandressl() { // функция удаления и сброс�
     function dosetclasswork(subject) {
         fetch(subject + document.URL.split('/')[6], {
             "headers": {
+				"accept": "application/json",
                 "content-type": "application/json",
             },
-            "body": "{\"status\":\"classwork\"}",
+            "body": "{\"status\":\"classwork\",\"name\":\"\"}",
             "method": "PATCH",
             "mode": "cors",
             "credentials": "include"
@@ -12303,13 +12293,14 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[2])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[4])
-			btnAdd1.insertBefore(maskBack, btnAdd1.children[5])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[6])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[7])
-			btnAdd1.insertBefore(taskBut, btnAdd1.children[8])
+			btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
+			btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
+			btnAdd1.insertBefore(butServ, btnAdd1.children[8])
+			btnAdd1.insertBefore(taskBut, btnAdd1.children[9])
         }, 2000)
  
         setTimeout(() => {
@@ -12321,6 +12312,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubutarea.append(butmenu)
             headmenulist.insertBefore(menubar, headmenulist.children[11])
             menubar.append(document.getElementById('servDsk'))
+			menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
