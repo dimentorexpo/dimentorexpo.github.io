@@ -6539,7 +6539,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('userissue').style.backgroundColor = '';
                     }
 
-                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
+                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3){
                     document.getElementById('otherproblem').style.backgroundColor = 'Coral';
                     flagempty = 1;
                     } else {
@@ -6553,7 +6553,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('howissuesolverd').style.backgroundColor = '';
                     }
                 
-                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
+                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3){
                     document.getElementById('othersolved').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                 } else {
