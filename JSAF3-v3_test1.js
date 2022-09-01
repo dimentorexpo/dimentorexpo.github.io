@@ -594,6 +594,7 @@ var win_refusefrom =  // описание элементов окна отказ
                             <button title="скрывает меню" id="hideMeRefuseFormv2" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
                             <button title="По нажатию обновляет перечень опций в разделе Проблема и Как решилось" id="refreshoptions" style="width:24px;">🔄</button>
+                            <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearrefuseform" style="width:24px;">🧹</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
                             <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
@@ -6481,11 +6482,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                     document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
                 else document.getElementById('chatlnk').value = ''
+            }
+            document.getElementById('clearrefuseform').onclick = () => { 
                 document.getElementById('chatlnk').style.backgroundColor = '';
+                document.getElementById('chatlnk').value = '';
                 document.getElementById('userissue').style.backgroundColor = '';
+                document.getElementById('userissue').children[0].selected = true
                 document.getElementById('otherproblem').style.backgroundColor = '';
+                document.getElementById('otherproblem').value = '';
+                document.getElementById('otherproblem').style.disabled = true;
                 document.getElementById('howissuesolverd').style.backgroundColor = '';
+                document.getElementById('howissuesolverd').children[0].selected = true
                 document.getElementById('othersolved').style.backgroundColor = '';
+                document.getElementById('othersolved').value = '';
+                document.getElementById('othersolved').style.disabled = true;
             }
 
             let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
