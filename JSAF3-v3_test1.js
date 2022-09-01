@@ -6483,6 +6483,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
                 else document.getElementById('chatlnk').value = ''
             }
+
             document.getElementById('clearrefuseform').onclick = () => { 
                 document.getElementById('chatlnk').style.background = '';
                 document.getElementById('chatlnk').value = '';
@@ -6523,7 +6524,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let body2;
 
                 let flagempty = 0;
-                let nameofelem = '';
 
                 if (document.getElementById('chatlnk').value.length < 3){
                     document.getElementById('chatlnk').style.backgroundColor = 'Coral';
