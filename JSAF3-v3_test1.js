@@ -6484,18 +6484,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 else document.getElementById('chatlnk').value = ''
             }
             document.getElementById('clearrefuseform').onclick = () => { 
-                document.getElementById('chatlnk').style.backgroundColor = '';
+                document.getElementById('chatlnk').style.background = '';
                 document.getElementById('chatlnk').value = '';
-                document.getElementById('userissue').style.backgroundColor = '';
+                document.getElementById('userissue').style.background = '';
                 document.getElementById('userissue').children[0].selected = true
-                document.getElementById('otherproblem').style.backgroundColor = '';
+                document.getElementById('otherproblem').style.background = '';
                 document.getElementById('otherproblem').value = '';
-                document.getElementById('otherproblem').style.disabled = true;
-                document.getElementById('howissuesolverd').style.backgroundColor = '';
+                document.getElementById('otherproblem').removeAttribute('class');
+                document.getElementById('otherproblem').classList.add('otherfieldoff')
+                document.getElementById('howissuesolverd').style.background = '';
                 document.getElementById('howissuesolverd').children[0].selected = true
-                document.getElementById('othersolved').style.backgroundColor = '';
+                document.getElementById('othersolved').style.background = '';
                 document.getElementById('othersolved').value = '';
-                document.getElementById('othersolved').style.disabled = true;
+                document.getElementById('othersolved').removeAttribute('class');
+                document.getElementById('othersolved').classList.add('otherfieldoff')
             }
 
             let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
@@ -6537,7 +6539,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('userissue').style.backgroundColor = '';
                     }
 
-                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
+                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3){
                     document.getElementById('otherproblem').style.backgroundColor = 'Coral';
                     flagempty = 1;
                     } else {
@@ -6551,7 +6553,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('howissuesolverd').style.backgroundColor = '';
                     }
                 
-                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
+                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3){
                     document.getElementById('othersolved').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                 } else {
