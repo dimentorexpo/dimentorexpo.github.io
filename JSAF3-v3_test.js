@@ -6192,8 +6192,8 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 
                     if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 						
-						if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').toUpperCase().indexOf(document.getElementById('testJira').value.toUpperCase()) !=-1) {
-							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(new RegExp(document.getElementById('testJira').value,'g'), `<span style="color:green; font-weight:700;">${document.getElementById('testJira').value.toUpperCase()}</span>`)
+						if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').value.toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) !=-1) {
+							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(new RegExp(document.getElementById('testJira').value,'i'), `<span style="color:lightgreen; font-weight:700;">${document.getElementById('testJira').value}</span>`)
 						} else {
 							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ')
 						}
