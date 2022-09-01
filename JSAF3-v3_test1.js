@@ -6490,12 +6490,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('userissue').children[0].selected = true
                 document.getElementById('otherproblem').style.backgroundColor = '';
                 document.getElementById('otherproblem').value = '';
-                document.getElementById('otherproblem').style.disabled = true;
+                document.getElementById('otherproblem').disabled = true;
                 document.getElementById('howissuesolverd').style.backgroundColor = '';
                 document.getElementById('howissuesolverd').children[0].selected = true
                 document.getElementById('othersolved').style.backgroundColor = '';
                 document.getElementById('othersolved').value = '';
-                document.getElementById('othersolved').style.disabled = true;
+                document.getElementById('othersolved').disabled = true;
             }
 
             let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
