@@ -843,6 +843,8 @@ var win_Jira =  // описание элементов окна Поиска п�
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 550;" id="jira_1str">
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
+								<span style="color:bisque">Token Status: </span>
+								<span id="searchjiratknstatus"></span>
                         </div>
 						
 						<div id="control_jira_search">
@@ -861,7 +863,7 @@ var win_Marks =  // описание элементов окна оценок о
     `<div style="display: flex; width: 300px;">
         <span style="width: 300px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 300px;" id="jira_1str">
+                        <div style="margin: 5px; width: 300px;" id="marks_header">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						<div>
@@ -6113,6 +6115,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 document.getElementById('JiraOpenForm').onclick = function() { // открывает поле для работой с JIRA поиском
 	    if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
+			
+			let jiratkn;
+			
+			    document.getElementById('responseTextarea1').value = '{}'
+				document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+				document.getElementById('responseTextarea3').value = 'getjiratoken'
+				document.getElementById('sendResponse').click()
+
+				setTimeout(async function () {
+
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+					document.getElementById('responseTextarea3').value = 'getjiratoken'
+					document.getElementById('sendResponse').click()
+
+					jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+					if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
+						jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+						document.getElementById('searchjiratknstatus').innerText = "🟢"
+					} else {
+						alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+						document.getElementById('searchjiratknstatus').innerText = "🔴"
+					}
+					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+					console.log("TOKEN: " + jiratkn);
+				}, 1000)
 			
 	document.getElementById('getJiraTasks').onclick = function () {
 			  let rezissuetable;
