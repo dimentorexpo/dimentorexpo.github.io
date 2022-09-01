@@ -844,6 +844,9 @@ var win_Jira =  // описание элементов окна Поиска п�
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 550;" id="jira_1str">
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
+								<button id="RefreshJiraStatus" title="Обновляет статус Токена Jira, чтобы проверить авторизованы вы или нет">🔄</button>
+								<span style="color:bisque">Token Status: </span>
+								<span id="searchjiratknstatus"></span>
                         </div>
 						
 						<div id="control_jira_search">
@@ -6115,6 +6118,38 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	    if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
 			
+			let jiratkn;
+			
+			async function checkJiraToken() {
+				document.getElementById('responseTextarea1').value = '{}'
+				document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+				document.getElementById('responseTextarea3').value = 'getjiratoken'
+				document.getElementById('sendResponse').click()
+
+				setTimeout(async function () {
+
+					document.getElementById('responseTextarea1').value = '{}'
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+					document.getElementById('responseTextarea3').value = 'getjiratoken'
+					document.getElementById('sendResponse').click()
+
+					jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+					if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
+						jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+						document.getElementById('searchjiratknstatus').innerText = "🟢"
+					} else {
+						alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+						document.getElementById('searchjiratknstatus').innerText = "🔴"
+					}
+					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+					console.log("TOKEN: " + jiratkn);
+				}, 5000)
+			}
+			
+			checkJiraToken()
+				 
+	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
+			
 	document.getElementById('getJiraTasks').onclick = function () {
 			  let rezissuetable;
 
@@ -6157,7 +6192,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 
                     if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+                        issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;">` + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i] + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
 
                     }
 
