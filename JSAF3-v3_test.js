@@ -6142,7 +6142,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 					}
 					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 					console.log("TOKEN: " + jiratkn);
-				}, 3000)
+				}, 5000)
 			}
 			
 			checkJiraToken()
