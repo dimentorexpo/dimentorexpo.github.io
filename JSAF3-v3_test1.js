@@ -6481,6 +6481,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
                     document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
                 else document.getElementById('chatlnk').value = ''
+                document.getElementById('chatlnk').style.backgroundColor = '';
+                document.getElementById('userissue').style.backgroundColor = '';
+                document.getElementById('otherproblem').style.backgroundColor = '';
+                document.getElementById('howissuesolverd').style.backgroundColor = '';
+                document.getElementById('othersolved').style.backgroundColor = '';
             }
 
             let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
@@ -6509,35 +6514,35 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let nameofelem = '';
 
                 if (document.getElementById('chatlnk').value.length < 3){
-                    document.getElementById('chatlnk').style.backgroundColor = 'tomato';
+                    document.getElementById('chatlnk').style.backgroundColor = 'Coral';
                     flagempty = 1;
                 } else {
                     document.getElementById('chatlnk').style.backgroundColor = '';
                 }
                 
                 if (document.getElementById('userissue').children[0].selected == true){
-                    document.getElementById('userissue').style.backgroundColor = 'red';
+                    document.getElementById('userissue').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                     } else {
                         document.getElementById('userissue').style.backgroundColor = '';
                     }
 
                 if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
-                    document.getElementById('otherproblem').style.backgroundColor = 'red';
+                    document.getElementById('otherproblem').style.backgroundColor = 'Coral';
                     flagempty = 1;
                     } else {
                         document.getElementById('otherproblem').style.backgroundColor = '';    
                     }
 
                 if (document.getElementById('howissuesolverd').children[0].selected == true){
-                    document.getElementById('howissuesolverd').style.backgroundColor = 'red';
+                    document.getElementById('howissuesolverd').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                     } else {
                         document.getElementById('howissuesolverd').style.backgroundColor = '';
                     }
                 
                 if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
-                    document.getElementById('othersolved').style.backgroundColor = 'red';
+                    document.getElementById('othersolved').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                 } else {
                     document.getElementById('othersolved').style.backgroundColor = '';
