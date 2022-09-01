@@ -2632,10 +2632,19 @@ taskBut.onclick = function() { // функция открытия окна дл�
 		let prioritystate;
 		let csstate;
 		let usluga;
-		for (let i=0; i<document.getElementById('priority').children.length;i++) {
-			if (document.getElementById('priority').children[i].selected == true)
-				prioritystate = document.getElementById('priority').children[i].value
-		}
+
+        let taskflagempty = 0;
+
+        if (document.getElementById('priority').value != 'Приоритет'){
+            document.getElementById('priority').style.background = '';
+            for (let i=0; i<document.getElementById('priority').children.length;i++) {
+                if (document.getElementById('priority').children[i].selected == true)
+                    prioritystate = document.getElementById('priority').children[i].value
+            }
+        } else {
+            document.getElementById('priority').style.background = 'Coral';
+            taskflagempty = 1;
+        }
 
 		for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
 			if (document.getElementById('customerservice').children[i].selected == true)
