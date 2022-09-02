@@ -600,6 +600,7 @@ var win_refusefrom =  // описание элементов окна отказ
                             <button title="скрывает меню" id="hideMeRefuseFormv2" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
                             <button title="По нажатию обновляет перечень опций в разделе Проблема и Как решилось" id="refreshoptions" style="width:24px;">🔄</button>
+                            <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearrefuseform" style="width:24px;">🧹</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
                             <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
@@ -655,19 +656,19 @@ var win_taskform  = //описание формы создания задач в
 							<br>
 							<select required id="priority" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Приоритет</option>
-								<option value="low" style="color:green; font-weight:600">🟢 Низкий</option>
-								<option value="high" style="color:orange; font-weight:600">🟡 Высокий</option>
-								<option value="highest" style="color:red; font-weight:600">🔴 Критический</option>
+								<option value="low" style="background: white; color:green; font-weight:600">🟢 Низкий</option>
+								<option value="high" style="background: white; color:orange; font-weight:600">🟡 Высокий</option>
+								<option value="highest" style="background: white; color:red; font-weight:600">🔴 Критический</option>
 							</select>
 
 							<select required id="customerservice" style="width: 100%; text-align: center; height: 25px;">
 								<option disabled="" selected="">Отдел</option>
-								<option value="tech_support_outgoing_crm2">Техподдержка 1Л CRM (исход)</option>
-								<option value="teachers_care_crm">Teachers Care</option>
-								<option value="content_management_dictionary">Словарь</option>
-								<option value="content_management">Контент</option>
-								<option value="teachers_support">Teachers Support</option>
-								<option value="tech_support_second_line_crm2">Техподдержка 2Л CRM</option>
+								<option value="tech_support_outgoing_crm2" style="background: white">Техподдержка 1Л CRM (исход)</option>
+								<option value="teachers_care_crm" style="background: white">Teachers Care</option>
+								<option value="content_management_dictionary" style="background: white">Словарь</option>
+								<option value="content_management" style="background: white">Контент</option>
+								<option value="teachers_support" style="background: white">Teachers Support</option>
+								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
 							</select>
 							
 							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
@@ -2515,15 +2516,20 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	document.getElementById('priority').onchange = changeprioritycolor;
 	
 	document.getElementById('clearcreateform').onclick = function() {
+        document.getElementById('chathashlnk').style.background = '#cac1b1';
 		document.getElementById('taskcomment').value = '';
+        document.getElementById('taskcomment').style.background = '';
 		document.getElementById('taskserviceid').value = '';
+        document.getElementById('taskserviceid').style.background = '';
+        document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
 		document.getElementById('taskuserid').value = '';
+        document.getElementById('taskuserid').style.background = '';
 		document.getElementById('priority').children[0].selected = true
-		document.getElementById('customerservice').children[0].selected = true
-		document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
 		document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+        document.getElementById('customerservice').children[0].selected = true
+		document.getElementById('customerservice').style.background = '';		
 	}
-	
+
 	document.getElementById('critteachertostudent').onclick = function() {
 		document.getElementById('priority').children[3].selected = true;
 		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
@@ -2631,26 +2637,68 @@ taskBut.onclick = function() { // функция открытия окна дл�
         }
 	}
 
-	document.getElementById('createtask').onclick = function() {
+    document.getElementById('createtask').onclick = function() {
 		let prioritystate;
 		let csstate;
 		let usluga;
-		for (let i=0; i<document.getElementById('priority').children.length;i++) {
-			if (document.getElementById('priority').children[i].selected == true)
-				prioritystate = document.getElementById('priority').children[i].value
-		}
 
-		for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
-			if (document.getElementById('customerservice').children[i].selected == true)
-				csstate = document.getElementById('customerservice').children[i].value
-		}
+        let taskflagempty = 0;
+
+        if (document.getElementById('chathashlnk').value.length < 3){
+            document.getElementById('chathashlnk').style.background = 'Coral';
+            taskflagempty = 1;
+        } else { document.getElementById('chathashlnk').style.background = '#cac1b1'; }
+
+        if (document.getElementById('priority').value != 'Приоритет'){
+            document.getElementById('priority').style.background = '';
+            for (let i=0; i<document.getElementById('priority').children.length;i++) {
+                if (document.getElementById('priority').children[i].selected == true)
+                    prioritystate = document.getElementById('priority').children[i].value
+            }
+        } else {
+            document.getElementById('priority').style.background = 'Coral';
+            taskflagempty = 1;
+        }
+
+        if (document.getElementById('customerservice').value != 'Отдел'){
+            document.getElementById('customerservice').style.background = '';
+            for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
+                if (document.getElementById('customerservice').children[i].selected == true)
+                    csstate = document.getElementById('customerservice').children[i].value
+            }
+		} else {
+            document.getElementById('customerservice').style.background = 'Coral';
+            taskflagempty = 1;
+        }
+        
+        if (document.getElementById('taskserviceid').value.length < 3){
+            if (document.getElementById('priority').value == 'highest'){
+                document.getElementById('taskserviceid').style.background = 'Coral';
+                taskflagempty = 1;
+            } else {
+                document.getElementById('taskserviceid').style.background = '';
+            }
+        } else {
+            document.getElementById('taskserviceid').style.background = '';
+        }
+
+        if (document.getElementById('taskuserid').value.length < 3){
+            document.getElementById('taskuserid').style.background = 'Coral';
+            taskflagempty = 1;
+        } else { document.getElementById('taskuserid').style.background = ''; }
+
+        if (document.getElementById('taskcomment').value.length < 3){
+            document.getElementById('taskcomment').style.background = 'Coral';
+            taskflagempty = 1;
+        } else { document.getElementById('taskcomment').style.background = ''; }
+
+        if (taskflagempty == 0){
+
+            if (document.getElementById('taskserviceid').value == '')
+                usluga = document.getElementById('taskserviceid').value = null;
+            else usluga = document.getElementById('taskserviceid').value
 		
-		if (document.getElementById('taskserviceid').value == '')
-			usluga = document.getElementById('taskserviceid').value = null;
-		else usluga = document.getElementById('taskserviceid').value
-		
-		if (document.getElementById('chathashlnk').value != '' && prioritystate !='Приоритет' && csstate != 'Отдел' && document.getElementById('taskuserid').value !='' && document.getElementById('taskcomment').value !='') {
-			fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+		    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
 			  "headers": {
 				"content-type": "application/json",
 			  },
@@ -2658,8 +2706,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
-			});
-			
+			});			
 		
 			document.getElementById('taskcomment').value = '';
 			document.getElementById('taskserviceid').value = '';
@@ -2668,7 +2715,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			document.getElementById('customerservice').children[0].selected = true
 			document.getElementById('AF_Createtask').style.display = 'none'
 			
-		} else alert("Задача не была создана, проверьте, пожалуйста, поля: хеш чата, приоритет, отдел, ID пользователя, комментарий")
+		} else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
 	}
 		
 	
@@ -6379,6 +6426,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 		}
 }
 
+
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
             document.getElementById('AF_Refuseformnew').style.display = 'none'
@@ -6520,6 +6568,23 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                 else document.getElementById('chatlnk').value = ''
             }
 
+            document.getElementById('clearrefuseform').onclick = () => { 
+                document.getElementById('chatlnk').style.background = '';
+                document.getElementById('chatlnk').value = '';
+                document.getElementById('userissue').style.background = '';
+                document.getElementById('userissue').children[0].selected = true
+                document.getElementById('otherproblem').style.background = '';
+                document.getElementById('otherproblem').value = '';
+                document.getElementById('otherproblem').removeAttribute('class');
+                document.getElementById('otherproblem').classList.add('otherfieldoff')
+                document.getElementById('howissuesolverd').style.background = '';
+                document.getElementById('howissuesolverd').children[0].selected = true
+                document.getElementById('othersolved').style.background = '';
+                document.getElementById('othersolved').value = '';
+                document.getElementById('othersolved').removeAttribute('class');
+                document.getElementById('othersolved').classList.add('otherfieldoff')
+            }
+
             let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
             sendrefuseformbyenter.addEventListener('keydown', event => {
                 if (event.key === "Enter") {
@@ -6545,35 +6610,35 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                 let flagempty = 0;
 
                 if (document.getElementById('chatlnk').value.length < 3){
-                    document.getElementById('chatlnk').style.backgroundColor = 'red';
-                    flagempty = 1;    
-                    } else {
+                    document.getElementById('chatlnk').style.backgroundColor = 'Coral';
+                    flagempty = 1;
+                } else {
                     document.getElementById('chatlnk').style.backgroundColor = '';
-                    }
+                }
                 
                 if (document.getElementById('userissue').children[0].selected == true){
-                    document.getElementById('userissue').style.backgroundColor = 'red';
+                    document.getElementById('userissue').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                     } else {
                         document.getElementById('userissue').style.backgroundColor = '';
                     }
 
-                if (document.getElementById('otherproblem').disabled != true && document.getElementById('otherproblem').value.length < 3){
-                    document.getElementById('otherproblem').style.backgroundColor = 'red';
+                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3){
+                    document.getElementById('otherproblem').style.backgroundColor = 'Coral';
                     flagempty = 1;
                     } else {
                         document.getElementById('otherproblem').style.backgroundColor = '';    
                     }
 
                 if (document.getElementById('howissuesolverd').children[0].selected == true){
-                    document.getElementById('howissuesolverd').style.backgroundColor = 'red';
+                    document.getElementById('howissuesolverd').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                     } else {
                         document.getElementById('howissuesolverd').style.backgroundColor = '';
                     }
                 
-                if (document.getElementById('othersolved').disabled != true && document.getElementById('othersolved').value.length < 3){
-                    document.getElementById('othersolved').style.backgroundColor = 'red';
+                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3){
+                    document.getElementById('othersolved').style.backgroundColor = 'Coral';
                     flagempty = 1;    
                 } else {
                     document.getElementById('othersolved').style.backgroundColor = '';
@@ -6835,7 +6900,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: QGe6^lY]xW=kvXY9tdqG@iIpfJl8bgmEv_L5");
+        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
