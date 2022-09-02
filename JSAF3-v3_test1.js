@@ -2513,12 +2513,16 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	
 	document.getElementById('clearcreateform').onclick = function() {
 		document.getElementById('taskcomment').value = '';
+        document.getElementById('taskcomment').style.background = '';
 		document.getElementById('taskserviceid').value = '';
+        document.getElementById('taskserviceid').style.background = '';
+        document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
 		document.getElementById('taskuserid').value = '';
+        document.getElementById('taskuserid').style.background = '';
 		document.getElementById('priority').children[0].selected = true
-		document.getElementById('customerservice').children[0].selected = true
-		document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
 		document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+        document.getElementById('customerservice').children[0].selected = true
+		document.getElementById('customerservice').style.background = '';		
 	}
 	
 	document.getElementById('critteachertostudent').onclick = function() {
