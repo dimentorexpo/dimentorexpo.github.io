@@ -2662,10 +2662,14 @@ taskBut.onclick = function() { // функция открытия окна дл�
             taskflagempty = 1;
         }
         
-        if (document.getElementById('priority').value == 'highest' && document.getElementById('taskserviceid').value.length < 3){
-            document.getElementById('taskserviceid').style.background = 'Coral';
-            taskflagempty = 1;
-        } else if (document.getElementById('taskserviceid').style.background == 'Coral'){
+        if (document.getElementById('taskserviceid').value.length < 3){
+            if (document.getElementById('priority').value == 'highest'){
+                document.getElementById('taskserviceid').style.background = 'Coral';
+                taskflagempty = 1;
+            } else {
+                document.getElementById('taskserviceid').style.background = '';
+            }
+        } else {
             document.getElementById('taskserviceid').style.background = '';
         }
 
