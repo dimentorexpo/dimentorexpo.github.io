@@ -2512,6 +2512,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 	document.getElementById('priority').onchange = changeprioritycolor;
 	
 	document.getElementById('clearcreateform').onclick = function() {
+        document.getElementById('chathashlnk').style.background = '#cac1b1';
 		document.getElementById('taskcomment').value = '';
         document.getElementById('taskcomment').style.background = '';
 		document.getElementById('taskserviceid').value = '';
@@ -2687,12 +2688,13 @@ taskBut.onclick = function() { // функция открытия окна дл�
             taskflagempty = 1;
         } else { document.getElementById('taskcomment').style.background = ''; }
 
-		if (document.getElementById('taskserviceid').value == '')
-			usluga = document.getElementById('taskserviceid').value = null;
-		else usluga = document.getElementById('taskserviceid').value
+        if (taskflagempty == 0){
+
+            if (document.getElementById('taskserviceid').value == '')
+                usluga = document.getElementById('taskserviceid').value = null;
+            else usluga = document.getElementById('taskserviceid').value
 		
-		if (document.getElementById('chathashlnk').value != '' && prioritystate !='Приоритет' && csstate != 'Отдел' && document.getElementById('taskuserid').value !='' && document.getElementById('taskcomment').value !='') {
-			fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+		    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
 			  "headers": {
 				"content-type": "application/json",
 			  },
@@ -2700,8 +2702,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
-			});
-			
+			});			
 		
 			document.getElementById('taskcomment').value = '';
 			document.getElementById('taskserviceid').value = '';
@@ -2710,7 +2711,7 @@ taskBut.onclick = function() { // функция открытия окна дл�
 			document.getElementById('customerservice').children[0].selected = true
 			document.getElementById('AF_Createtask').style.display = 'none'
 			
-		} else alert("Задача не была создана, проверьте, пожалуйста, поля: хеш чата, приоритет, отдел, ID пользователя, комментарий")
+		} else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
 	}
 		
 	
