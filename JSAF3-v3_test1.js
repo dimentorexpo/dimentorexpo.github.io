@@ -2635,6 +2635,11 @@ taskBut.onclick = function() { // функция открытия окна дл�
 
         let taskflagempty = 0;
 
+        if (document.getElementById('chathashlnk').value.length < 3){
+            document.getElementById('chathashlnk').style.background = 'Coral';
+            taskflagempty = 1;
+        } else { document.getElementById('chathashlnk').style.background = '#cac1b1'; }
+
         if (document.getElementById('priority').value != 'Приоритет'){
             document.getElementById('priority').style.background = '';
             for (let i=0; i<document.getElementById('priority').children.length;i++) {
@@ -2656,6 +2661,23 @@ taskBut.onclick = function() { // функция открытия окна дл�
             document.getElementById('customerservice').style.background = 'Coral';
             taskflagempty = 1;
         }
+        
+        if (document.getElementById('priority').value == 'highest' && document.getElementById('taskserviceid').value.length < 3){
+            document.getElementById('taskserviceid').style.background = 'Coral';
+            taskflagempty = 1;
+        } else if (document.getElementById('taskserviceid').style.background == 'Coral'){
+            document.getElementById('taskserviceid').style.background = '';
+        }
+
+        if (document.getElementById('taskuserid').value.length < 3){
+            document.getElementById('taskuserid').style.background = 'Coral';
+            taskflagempty = 1;
+        } else { document.getElementById('taskuserid').style.background = ''; }
+
+        if (document.getElementById('taskcomment').value.length < 3){
+            document.getElementById('taskcomment').style.background = 'Coral';
+            taskflagempty = 1;
+        } else { document.getElementById('taskcomment').style.background = ''; }
 
 		if (document.getElementById('taskserviceid').value == '')
 			usluga = document.getElementById('taskserviceid').value = null;
