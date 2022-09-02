@@ -6147,6 +6147,11 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 			}
 			
 			checkJiraToken()
+			
+	document.getElementById('ClearJiraData').onclick = function() {
+		document.getElementById('testJira').value = '';
+		document.getElementById('issuetable').innerText = ''
+	}
 				 
 	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
 			

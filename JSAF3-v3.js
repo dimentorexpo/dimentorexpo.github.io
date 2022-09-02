@@ -844,6 +844,7 @@ var win_Jira =  // описание элементов окна Поиска п�
                         <div style="margin: 5px; width: 550;" id="jira_1str">
                                 <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
 								<button id="RefreshJiraStatus" title="Обновляет статус Токена Jira, чтобы проверить авторизованы вы или нет">🔄</button>
+								<button id="ClearJiraData" title="Очищает поля с результатами и полем для ввода">🧹</button>
 								<span style="color:bisque">Token Status: </span>
 								<span id="searchjiratknstatus"></span>
                         </div>
@@ -6146,6 +6147,11 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 			}
 			
 			checkJiraToken()
+			
+	document.getElementById('ClearJiraData').onclick = function() {
+		document.getElementById('testJira').value = '';
+		document.getElementById('issuetable').innerText = ''
+	}
 				 
 	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
 			
