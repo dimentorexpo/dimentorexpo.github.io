@@ -6899,7 +6899,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
+        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: QGe6^lY]xW=kvXY9tdqG@iIpfJl8bgmEv_L5");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
