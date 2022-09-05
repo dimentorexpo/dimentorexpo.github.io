@@ -44,12 +44,18 @@ function opentalksadm(i){
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "🏄‍♂️ Enable New Student", "contexts":["page"], "parentId": "mainoption", "onclick": enablens}); //опция открывает Окно с компенсациями
-function enablens(i){
-	var createProperties = {url: encodeURI("https://vimbox.skyeng.ru/start?enableNewStudent")};
-	chrome.tabs.create(createProperties);
-}
+chrome.contextMenus.create({"title": "⚕ Enable Health Widget", "contexts":["page"], "parentId": "mainoption", "onclick": enablehealth}); //опция открывает Окно с компенсациями
+function enablehealth(i){
+chrome.tabs.getSelected(null, function(tab) {
 
+	// Execute code on the existing tab to open the Message.
+	chrome.tabs.executeScript(tab.id, {
+		"code": "window.localStorage.setItem('health-widget-visibility', true);"
+			+ "location.reload()"
+	});
+});
+		
+}
 
 var selmain = chrome.contextMenus.create( {"id":"selMainOption","title": "Technical Support Master", "contexts":["selection"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
