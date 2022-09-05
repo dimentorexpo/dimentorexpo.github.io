@@ -386,6 +386,15 @@ function mystylesAFMS() {
 
     .portfoliolist:hover {
         font-size: 20px;
+    }	
+	
+	.removestudent  {
+        cursor:pointer;
+		transition:all 0.7s ease;
+    }
+
+    .removestudent:hover {
+        font-size: 20px;
     }
 
 	.subjname {
@@ -2416,7 +2425,7 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
         testos = adultdata;
 
         for (let i = 0; i < adultdata.length; i++) {
-            arrtoshow += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
+            arrtoshow += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
         }
 
         document.getElementById('infobaradult').innerHTML = arrtoshow;
@@ -2428,9 +2437,9 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
 
             for (var i = 0; i < testos.length; ++i) {
                 if (testos[i].id == val1) {
-                    s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
+                    s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
                 } else if (testos[i].name.toUpperCase() == val1.toUpperCase()) {
-                    s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
+                    s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
                 }
             }
             document.getElementById('infobaradult').innerHTML = document.getElementById("usersearch").value != '' ? s : arrtoshow;
@@ -2439,6 +2448,17 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
             for (let j = 0; j < arrmvurep.length; j++) {
                 arrmvurep[j].onclick = function () {
                     window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + adultdata[j].id)
+                }
+            }    
+
+			let removestudent = document.getElementsByName('removeadult')
+            for (let z = 0; z < removestudent.length; z++) {
+                removestudent[z].onclick = function () {
+                    fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/"+adultdata[z].id, {
+					  "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					});
                 }
             }
 
@@ -2512,6 +2532,22 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
                 window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + adultdata[j].id)
             }
         }
+		
+			let removestudent = document.getElementsByName('removeadult')
+            for (let z = 0; z < removestudent.length; z++) {
+                removestudent[z].onclick = function () {
+					let deletestudansw;
+					deletestudansw = confirm("Вы уверены, что хотите удалить ученика из Showcase?")
+					if (deletestudansw) {
+						
+						fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/"+adultdata[z].id, {
+						  "method": "POST",
+						  "mode": "cors",
+						  "credentials": "include"
+						});
+					}
+                }
+            }
 
         let deleteonechat = document.getElementsByName('delchat')
         for (let l = 0; l < deleteonechat.length; l++) {
