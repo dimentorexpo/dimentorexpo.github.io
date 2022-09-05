@@ -3139,7 +3139,7 @@ document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // ск�
 document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_Marks').style.display = 'none';}
 }
-document.getElementById('AF_Service').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
+document.getElementById('servicehead').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
     if (checkelementtype(a)){document.getElementById('AF_Service').style.display = 'none';}
 }
 document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
