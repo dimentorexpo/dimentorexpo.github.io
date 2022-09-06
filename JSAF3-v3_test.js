@@ -9033,7 +9033,11 @@ function fillchatbox() { //функция наполнения элемента,
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                    document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName + ' взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+					if (opername != '') {
+						document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName + ' взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+					} else {
+						document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Оператор взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+					}
                 } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender != undefined && convdata.messages[i].payload.sender != 'timer') {
                     let operid = convdata.messages[i].payload.sender;
                     let opername;
