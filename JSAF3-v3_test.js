@@ -9087,7 +9087,11 @@ function fillchatbox() { //функция наполнения элемента,
                     let operidanswcom = convdata.messages[i].operatorId
                     let opernameanswcom;
                     opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
-                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+					if (opernameanswcom != '') {
+						document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>' 
+					}  else {
+						document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + 'Оператор' + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>' 
+					}
                 } else {
                     document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                 }
