@@ -9026,9 +9026,9 @@ function fillchatbox() { //функция наполнения элемента,
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator != undefined && i.operator.id == operid))
-					if (opername != '' || opername != null || opername !=undefined) {
-                    document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>' }
-					else document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на оператора' +  '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+					if (opername != '') {
+						document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+					} else document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на оператора' +  '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status == 'AssignedToOperator' && convdata.messages[i].payload.oid != undefined) {
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
