@@ -9025,7 +9025,7 @@ function fillchatbox() { //функция наполнения элемента,
                 } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status == 'OnOperator' && convdata.messages[i].payload.oid != undefined) {
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
-                    opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
+                    opername = operatorsarray.filter(i => (i.operator != null && i.operator != undefined && i.operator.id == operid))
                     document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status == 'AssignedToOperator' && convdata.messages[i].payload.oid != undefined) {
                     let operid = convdata.messages[i].payload.oid;
