@@ -12479,7 +12479,7 @@ btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371 ; margin-left: 5px;";
+btntid.style = "background-color: #3CB371 ; margin-left: 5px; margin-right: 5px;";
 
 document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
