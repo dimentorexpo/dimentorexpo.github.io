@@ -364,7 +364,9 @@ function mystyles() {
 		.active-query {
 			border-left:6px solid #1ff400;
 			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
-			1px 2px 5px rgb(0 0 0 / 55%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			font-weight: 700;
+			color: greenyellow;
 			transition: all 1s ease;
 		}
 	.radio {
@@ -863,7 +865,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
 							<button id="freshQuery">Fresh</button>
 							<button id="customQuery">Custom</button>
-							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;"></textarea>
+							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 500px; color: black; margin-top: 5px; margin-left: 5%;"></textarea>
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 						</div>
