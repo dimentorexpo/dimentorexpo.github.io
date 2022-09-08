@@ -6293,7 +6293,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                      "credentials": "include"
                }`
 		} else if (document.getElementById('customQuery').classList.contains('active-query')) {
-			customquery = `${localStorage.getItem('customquery')} AND text ~ "${testJira.value}"`
+			customquery = `${localStorage.getItem('customquery')}`
 			document.getElementById('JQLquery').value = customquery
 			customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
 						document.getElementById('responseTextarea1').value = `{
