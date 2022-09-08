@@ -337,11 +337,13 @@ function mystyles() {
 		font-size: 16px;
 		transition: all 0.5s ease;
 		}
+		
 		.sugops:hover {
 			font-size:18px;
 			color: SteelBlue;
 			font-weight: 600;
 		}
+		
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
@@ -350,6 +352,7 @@ function mystyles() {
 			background:lightgrey;
 			cursor:wait;
 		}
+		
 		.otherfieldon{
 			text-align: center;
 			width: 400px;
@@ -357,6 +360,14 @@ function mystyles() {
 			margin-top: 5px;
 			background:white;
 			cursor:text;
+		}
+		.active-query {
+			border-left:6px solid #1ff400;
+			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			font-weight: 700;
+			color: greenyellow;
+			transition: all 1s ease;
 		}
 	.radio {
 		width:15px;
@@ -851,6 +862,10 @@ var win_Jira =  // описание элементов окна Поиска п�
                         </div>
 						
 						<div id="control_jira_search">
+							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
+							<button id="freshQuery">Fresh</button>
+							<button id="customQuery">Custom</button>
+							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 500px; color: black; margin-top: 5px; margin-left: 5%;"></textarea>
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 						</div>
@@ -6165,6 +6180,11 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	    if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
 			
+			let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+			document.getElementById('JQLquery').innerText = defqueryitem;
+			let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+			let customquery = '';
+			
 			let jiratkn;
 			
 			async function checkJiraToken() {
@@ -6201,11 +6221,44 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	}
 				 
 	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
+	
+	
+	document.getElementById('defaultQuery').onclick = function()  {
+		defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+		document.getElementById('JQLquery').value = defqueryitem;
+		this.classList.toggle('active-query')
+		document.getElementById('freshQuery').classList.remove('active-query')
+		document.getElementById('customQuery').classList.remove('active-query')
+	}
+	
+	document.getElementById('freshQuery').onclick = function()  {
+		frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+		document.getElementById('JQLquery').value = frqueryitem;
+		this.classList.toggle('active-query')
+		document.getElementById('defaultQuery').classList.remove('active-query')
+		document.getElementById('customQuery').classList.remove('active-query')
+	}
+	
+	document.getElementById('customQuery').onclick = function()  {
+		document.getElementById('JQLquery').oninput = function() {
+			localStorage.setItem('customquery', this.value)
+		}
+		document.getElementById('JQLquery').value = localStorage.getItem('customquery');
+		this.classList.toggle('active-query')
+		document.getElementById('freshQuery').classList.remove('active-query')
+		document.getElementById('defaultQuery').classList.remove('active-query')
+	}
 			
 	document.getElementById('getJiraTasks').onclick = function () {
+		
 			  let rezissuetable;
-
-        document.getElementById('responseTextarea1').value = `{
+			  
+		if (document.getElementById('defaultQuery').classList.contains('active-query')) {	
+			defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+			document.getElementById('JQLquery').value = defqueryitem;
+			defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
+			
+			 document.getElementById('responseTextarea1').value = `{
                      "headers": {
                         "__amdmodulename": "jira/issue/utils/xsrf-token-header",
                        "accept": "*/*",
@@ -6214,11 +6267,52 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                        "x-atlassian-token": "no-check",
                        "x-requested-with": "XMLHttpRequest"
                      },
-                     "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+ESM%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
+                     "body": "startIndex=0&filterId=21266&jql=${defqueryitem}&layoutKey=list-view",
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
                }`
+			
+		} else if (document.getElementById('freshQuery').classList.contains('active-query')) {
+			frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+			document.getElementById('JQLquery').value = frqueryitem;
+			frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
+			
+			document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${frqueryitem}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
+		} else if (document.getElementById('customQuery').classList.contains('active-query')) {
+			customquery = `${localStorage.getItem('customquery')}`
+			document.getElementById('JQLquery').value = customquery
+			customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
+						document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${customquery}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
+		}
+
+
         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
         document.getElementById('responseTextarea3').value = 'getissuetable'
         document.getElementById('sendResponse').click()
