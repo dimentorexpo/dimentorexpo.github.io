@@ -6244,8 +6244,13 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	document.getElementById('getJiraTasks').onclick = function () {
 		
 			  let rezissuetable;
-
-        document.getElementById('responseTextarea1').value = `{
+			  
+		if (document.getElementById('defaultQuery').classList.contains('active-query')) {	
+			defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+			document.getElementById('JQLquery').value = defqueryitem;
+			defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
+			
+			 document.getElementById('responseTextarea1').value = `{
                      "headers": {
                         "__amdmodulename": "jira/issue/utils/xsrf-token-header",
                        "accept": "*/*",
@@ -6254,11 +6259,19 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                        "x-atlassian-token": "no-check",
                        "x-requested-with": "XMLHttpRequest"
                      },
-                     "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+ESM%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
+                     "body": "startIndex=0&filterId=21266&jql=${defqueryitem}&layoutKey=list-view",
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
                }`
+			
+		} else if (document.getElementById('freshQuery').classList.contains('active-query')) {
+			console.log('Under Construction  Fresh')
+		} else if (document.getElementById('customQuery').classList.contains('active-query')) {
+			console.log('Under Construction Custom')
+		}
+
+
         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
         document.getElementById('responseTextarea3').value = 'getissuetable'
         document.getElementById('sendResponse').click()
