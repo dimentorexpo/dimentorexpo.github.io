@@ -6293,7 +6293,22 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                      "credentials": "include"
                }`
 		} else if (document.getElementById('customQuery').classList.contains('active-query')) {
-			console.log('Under Construction Custom')
+			customquery = `${localStorage.getItem('customquery')} AND text ~ "${testJira.value}"`
+			document.getElementById('JQLquery').value = customquery
+						document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${customquery}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
 		}
 
 
