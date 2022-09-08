@@ -362,8 +362,10 @@ function mystyles() {
 			cursor:text;
 		}
 		.active-query {
-			border-left:4px solid #1ff400;
-			transition: all 0.5s ease;
+			border-left:6px solid #1ff400;
+			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
+			1px 2px 5px rgb(0 0 0 / 55%);
+			transition: all 1s ease;
 		}
 	.radio {
 		width:15px;
@@ -6216,14 +6218,20 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	
 	document.getElementById('defaultQuery').onclick = function()  {
 		this.classList.toggle('active-query')
+		document.getElementById('freshQuery').classList.remove('active-query')
+		document.getElementById('customQuery').classList.remove('active-query')
 	}
 	
 	document.getElementById('freshQuery').onclick = function()  {
 		this.classList.toggle('active-query')
+		document.getElementById('defaultQuery').classList.remove('active-query')
+		document.getElementById('customQuery').classList.remove('active-query')
 	}
 	
 	document.getElementById('customQuery').onclick = function()  {
 		this.classList.toggle('active-query')
+		document.getElementById('freshQuery').classList.remove('active-query')
+		document.getElementById('defaultQuery').classList.remove('active-query')
 	}
 			
 	document.getElementById('getJiraTasks').onclick = function () {
