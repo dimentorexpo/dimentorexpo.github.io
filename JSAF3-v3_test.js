@@ -337,11 +337,13 @@ function mystyles() {
 		font-size: 16px;
 		transition: all 0.5s ease;
 		}
+		
 		.sugops:hover {
 			font-size:18px;
 			color: SteelBlue;
 			font-weight: 600;
 		}
+		
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
@@ -350,6 +352,7 @@ function mystyles() {
 			background:lightgrey;
 			cursor:wait;
 		}
+		
 		.otherfieldon{
 			text-align: center;
 			width: 400px;
@@ -357,6 +360,9 @@ function mystyles() {
 			margin-top: 5px;
 			background:white;
 			cursor:text;
+		}
+		.active-query {
+			border-left:4px solid #1ff400;
 		}
 	.radio {
 		width:15px;
@@ -851,7 +857,7 @@ var win_Jira =  // описание элементов окна Поиска п�
                         </div>
 						
 						<div id="control_jira_search">
-							<button id="defaultQuery">Default</button>
+							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
 							<button id="FreshQuery">Fresh</button>
 							<button id="customQuery">Custom</button>
 							<input id="JQLquery" placeholder="Jira Tasks Bar" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
