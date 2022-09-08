@@ -6182,6 +6182,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 			
 			let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
 			document.getElementById('JQLquery').innerText = defqueryitem;
+			let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
 			
 			let jiratkn;
 			
@@ -6230,6 +6231,8 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	}
 	
 	document.getElementById('freshQuery').onclick = function()  {
+		frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+		document.getElementById('JQLquery').value = frqueryitem;
 		this.classList.toggle('active-query')
 		document.getElementById('defaultQuery').classList.remove('active-query')
 		document.getElementById('customQuery').classList.remove('active-query')
@@ -6266,7 +6269,24 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                }`
 			
 		} else if (document.getElementById('freshQuery').classList.contains('active-query')) {
-			console.log('Under Construction  Fresh')
+			frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+			document.getElementById('JQLquery').value = frqueryitem;
+			frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
+			
+			document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${frqueryitem}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
 		} else if (document.getElementById('customQuery').classList.contains('active-query')) {
 			console.log('Under Construction Custom')
 		}
