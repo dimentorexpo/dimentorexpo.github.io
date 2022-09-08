@@ -1709,7 +1709,11 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
         console.log(artId)
 
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
+			"headers": {
+				"content-type": "application/json",
+			},
             "method": "POST",
+			"body": "{\"teacherId\":null}",
             "credentials": "include"
         }).then(r => r.json()).then(r => kidsdata = r)
         console.log(kidsdata)
