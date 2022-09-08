@@ -363,6 +363,7 @@ function mystyles() {
 		}
 		.active-query {
 			border-left:4px solid #1ff400;
+			transition: all 0.5s ease;
 		}
 	.radio {
 		width:15px;
@@ -858,9 +859,9 @@ var win_Jira =  // описание элементов окна Поиска п�
 						
 						<div id="control_jira_search">
 							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
-							<button id="FreshQuery">Fresh</button>
+							<button id="freshQuery">Fresh</button>
 							<button id="customQuery">Custom</button>
-							<input id="JQLquery" placeholder="Jira Tasks Bar" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
+							<input id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 						</div>
@@ -6211,6 +6212,19 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	}
 				 
 	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
+	
+	
+	document.getElementById('defaultQuery').onclick = function()  {
+		this.classList.toggle('active-query')
+	}
+	
+	document.getElementById('freshQuery').onclick = function()  {
+		this.classList.toggle('active-query')
+	}
+	
+	document.getElementById('customQuery').onclick = function()  {
+		this.classList.toggle('active-query')
+	}
 			
 	document.getElementById('getJiraTasks').onclick = function () {
 		
