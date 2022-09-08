@@ -863,7 +863,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
 							<button id="freshQuery">Fresh</button>
 							<button id="customQuery">Custom</button>
-							<input id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
+							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 						</div>
@@ -6179,7 +6179,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
             document.getElementById('AF_Jira').style.display = ''
 			
 			let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
-			document.getElementById('JQLquery').value = defqueryitem;
+			document.getElementById('JQLquery').innerText = defqueryitem;
 			
 			let jiratkn;
 			
