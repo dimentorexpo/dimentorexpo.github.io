@@ -6183,6 +6183,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 			let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
 			document.getElementById('JQLquery').innerText = defqueryitem;
 			let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+			let customquery = '';
 			
 			let jiratkn;
 			
@@ -6239,6 +6240,10 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	}
 	
 	document.getElementById('customQuery').onclick = function()  {
+		document.getElementById('JQLquery').oninput = function() {
+			localStorage.setItem('customquery', this.value)
+		}
+		document.getElementById('JQLquery').value = localStorage.getItem('customquery');
 		this.classList.toggle('active-query')
 		document.getElementById('freshQuery').classList.remove('active-query')
 		document.getElementById('defaultQuery').classList.remove('active-query')
