@@ -851,6 +851,10 @@ var win_Jira =  // описание элементов окна Поиска п�
                         </div>
 						
 						<div id="control_jira_search">
+							<button id="defaultQuery">Default</button>
+							<button id="FreshQuery">Fresh</button>
+							<button id="customQuery">Custom</button>
+							<input id="JQLquery" placeholder="Jira Tasks Bar" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 						</div>
@@ -6203,6 +6207,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
 			
 	document.getElementById('getJiraTasks').onclick = function () {
+		
 			  let rezissuetable;
 
         document.getElementById('responseTextarea1').value = `{
