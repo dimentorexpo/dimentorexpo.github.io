@@ -6178,6 +6178,9 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	    if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
 			
+			let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+			document.getElementById('JQLquery').value = defqueryitem;
+			
 			let jiratkn;
 			
 			async function checkJiraToken() {
@@ -6217,6 +6220,8 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 	
 	
 	document.getElementById('defaultQuery').onclick = function()  {
+		defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+		document.getElementById('JQLquery').value = defqueryitem;
 		this.classList.toggle('active-query')
 		document.getElementById('freshQuery').classList.remove('active-query')
 		document.getElementById('customQuery').classList.remove('active-query')
