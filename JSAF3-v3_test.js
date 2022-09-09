@@ -878,7 +878,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 </div>`;
 
 var win_Themes =  // описание элементов окна Тематик
-    `<div style="display: flex; width: 350px;">
+    `<div style="display: flex; width: 350px; padding-bottom:15px;">
         <span style="width: 350px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 350;" id="themes_header">
@@ -1048,7 +1048,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1972" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>
 							<button name="themesbtn" value="1973" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>
 							<button name="themesbtn" value="1966" style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>
-							<button name="themesbtn" value="1965" style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос\отмена урока</button>
+							<button name="themesbtn" value="1965" style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>
 							<button name="themesbtn" value="1967" style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>
 							<button name="themesbtn" value="1968" style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>
 							<button name="themesbtn" value="1969" style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>
