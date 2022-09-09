@@ -877,7 +877,7 @@ var win_Jira =  // описание элементов окна Поиска п�
         </span>
 </div>`;
 
-var win_Themes =  // описание элементов окна Поиска по Jira
+var win_Themes =  // описание элементов окна Тематик
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
@@ -3147,6 +3147,23 @@ wintCreateTask.onmousedown = function (a) {
     }
 }
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
+
+
+var listenerThemes= function (e, a) { // сохранение позиции окна Тематик
+    listenerThemes.style.left = Number(e.clientX - myX18) + "px";
+    listenerThemes.style.top = Number(e.clientY - myY18) + "px";
+    localStorage.setItem('winTopThemes', String(Number(e.clientY - myY18)));
+    localStorage.setItem('winLeftThemes', String(Number(e.clientX - myX18)));
+};
+
+wintThemes.onmousedown = function (a) {
+    if (checkelementtype(a)){
+        window.myX18 = a.layerX;
+        window.myY18 = a.layerY;
+        document.addEventListener('mousemove', listenerThemes);
+    }
+}
+wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); }
 
 
 
@@ -6986,6 +7003,11 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
     document.getElementById('hideMej').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
+    }  
+
+	document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
+        if (document.getElementById('AF_Themes').style.display == '')
+            document.getElementById('AF_Themes').style.display = 'none'
     }
 
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
