@@ -877,6 +877,31 @@ var win_Jira =  // описание элементов окна Поиска п�
         </span>
 </div>`;
 
+var win_Themes =  // описание элементов окна Поиска по Jira
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 550;" id="themes_header">
+                                <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
+                        </div>
+						
+						<div id="themes_body>
+							<button>Проблемы с ЛК</button>
+							<button>Домашнее задание (вимбокс)</button>
+							<button>Оплата</button>
+							<button>Поиск по БД</button>
+							<button>Приложение Skyeng</button>
+							<button>Приложение Teachers</button>
+							<button>Приложение Skysmart Parents</button>
+							<button>Приложение Skysmart Класс</button>
+							<button>Серверные неполадки</button>
+							<button>Отзывы и пожелания</button>
+						</div>
+						
+                </span>
+        </span>
+</div>`;
+
 var win_Marks =  // описание элементов окна оценок от пользователя
     `<div style="display: flex; width: 300px;">
         <span style="width: 300px">
@@ -1857,6 +1882,11 @@ if (localStorage.getItem('winTopServDsk') == null) { // начальное по�
     localStorage.setItem('winLeftServDsk', '295');
 }
 
+if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
+    localStorage.setItem('winTopThemes', '120');
+    localStorage.setItem('winLeftThemes', '295');
+}
+
 if (localStorage.getItem('winTopGrList') == null) {  // начальное положение окна списка группы
     localStorage.setItem('winTopGrList', '120');
     localStorage.setItem('winLeftGrList', '295');
@@ -2352,6 +2382,11 @@ butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butThemes = document.createElement('div')
+butThemes.id = "themes"
+butThemes.innerHTML = "Темы"
+butThemes.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
@@ -2837,6 +2872,13 @@ wintServDsk.style = 'min-height: 25px; min-width: 65px; background: #464451; top
 wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
+
+let wintThemes = document.createElement('div'); // создание окна ServiceDesk
+document.body.append(wintThemes);
+wintThemes.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopThemes') + 'px; left: ' + localStorage.getItem('winLeftThemes') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServDsk.style.display = 'none';
+wintServDsk.setAttribute('id', 'AF_Themes');
+wintServDsk.innerHTML = win_Themes;
 
 let wintGrList = document.createElement('div'); // создание окна Список группы
 document.body.append(wintGrList);
