@@ -909,9 +909,20 @@ var win_Themes =  // описание элементов окна Тематик
 							<label style="color:bisque; width:300px;">Теги</label>
 							<br>
 							<button style="margin-left:2px; width:150px; height: 25px;">ОшибкаКЦ</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Очередь</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Даны рекомендации</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Запрос решен</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Недозвон</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Действий не требуется</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Отказ от помощи</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Контент</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Дубль</button>
 							<button style="margin-left:2px; width:150px; height: 25px;">2ЛТП</button>
 							<button style="margin-left:2px; width:150px; height: 25px;">Исход</button>
 							<button style="margin-left:2px; width:150px; height: 25px;">QA</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">TC</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">SC</button>
+							<button style="margin-left:2px; width:150px; height: 25px;">Серверные</button>
 							<button style="margin-left:2px; width:150px; height: 25px;">Jira</button>
 						</div>
 						
