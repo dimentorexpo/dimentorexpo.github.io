@@ -912,24 +912,24 @@ var win_Themes =  // описание элементов окна Тематик
 							<button style="margin-left:2px; width:150px; height: 25px;">Jira</button>
 						</div>
 						
-						<div id="svyazissues" style="display:none">
+						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button id="backfromsvyaz">🔙</button>
-							<button>ПО(ОС/браузер)🔽 мин</button>
-							<button>Консульт раб связи</button>
-							<button>Корп сеть/ус-во</button>
-							<button>ОС/Браузер</button>	
-							<button>ПК</button>
-							<button>Гарнитура</button>
-							<button>Камера</button>
-							<button>Не поддерж брауз/ОС</button>
-							<button>Не поддерж ус (камера, гарнитура,комп)</button>
-							<button>Сб на плат</button>
-							<button>Сб на плат - аудио:задержки/искажения</button>
-							<button>Сб на плат - блок/прерыв связь</button>
-							<button>Сб на плат - видео: задержки/плох карт</button>
-							<button>Связь блок ПО</button>
-							<button>Хар-ки инета 🔽мин</button>
-							<button>Хар-ки устр 🔽мин</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Корп сеть/ус-во</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ОС/Браузер</button>	
+							<button style="margin-left:2px; width:150px; height: 44px;">ПК</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Гарнитура</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Камера</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Не поддерж брауз/ОС</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Не поддерж ус (камера, гарнитура,комп)</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - аудио:задержки/искажения</button>
+							<button style="margin-left:2px; width:150px; height: 44px;"Сб на плат - блок/прерыв связь</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - видео: задержки/плох карт</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Связь блок ПО</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Хар-ки устр 🔽мин</button>
 						</div>
                 </span>
         </span>
