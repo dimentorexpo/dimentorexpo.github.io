@@ -883,7 +883,7 @@ var win_Themes =  // описание элементов окна Тематик
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 350;" id="themes_header">
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
-								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px;">🔙</button>
+								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
                         </div>
 						
 
@@ -5749,11 +5749,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('svyazissues').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('svyazissues').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
 
@@ -5761,11 +5763,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('vhodurok').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('vhodurok').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}		
 
@@ -5773,11 +5777,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('funcurok').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('funcurok').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}			
 			
@@ -5785,11 +5791,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('cabusr').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('cabusr').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
 
@@ -5797,11 +5805,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('HWvim').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('HWvim').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}		
 
@@ -5809,11 +5819,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('paymn').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('paymn').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
 			
@@ -5821,11 +5833,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('skyengpril').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('skyengpril').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
 
@@ -5833,11 +5847,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('teacherpril').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('teacherpril').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}			
 			
@@ -5845,11 +5861,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('skysmartrodpril').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('skysmartrodpril').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}		
 
@@ -5857,11 +5875,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('feedbackpog').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('feedbackpog').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
 
@@ -5869,11 +5889,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('poiskbd').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('poiskbd').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
 
@@ -5881,11 +5903,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('vnutrzapr').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('vnutrzapr').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
 
@@ -5893,11 +5917,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('prochee').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
+				document.getElementById('backtomenu').style.display =''
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('prochee').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
+				document.getElementById('backtomenu').style.display ='none'
 				}
 			}
 	}
