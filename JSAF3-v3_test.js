@@ -883,7 +883,7 @@ var win_Themes =  // описание элементов окна Тематик
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 350;" id="themes_header">
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
-								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 18px;">🔙</button>
+								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px;">🔙</button>
                         </div>
 						
 
@@ -932,6 +932,54 @@ var win_Themes =  // описание элементов окна Тематик
 							<button style="margin-left:2px; width:150px; height: 44px;">Связь блок ПО</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Хар-ки устр 🔽мин</button>
+						</div>
+						
+						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Не привязана 📧/📱 как логин<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Даные для входа<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Сброс пароля<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Консульт по вх на урок<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутсn кноп<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Консульт по авториз<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сбой с авторизацией<button>
+						</div>
+
+						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+						
+						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+						
+						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+
+						<div id="paymn" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+						
+						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+						
+						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+
+						<div id="skysmartrodpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+						
+						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+						
+						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+
+						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+						</div>
+						
+						<div id="prochee" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 						</div>
                 </span>
         </span>
@@ -5596,8 +5644,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
 				
-			document.getElementById('backfromsvyaz').onclick = function() {
+			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('svyazissues').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}	
+
+			document.getElementById('enterlesson').onclick = function() {
+				document.getElementById('vhodurok').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('vhodurok').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
 				}
