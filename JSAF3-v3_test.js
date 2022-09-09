@@ -5553,6 +5553,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Linksd').style.display = ''
     }
 
+	document.getElementById('themes').onclick = function() {
+			   if (document.getElementById('AF_Themes').style.display == '')
+				document.getElementById('AF_Themes').style.display = 'none'
+			else
+				document.getElementById('AF_Themes').style.display = ''
+	}
+
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
@@ -12594,7 +12601,8 @@ function firstLoadPage() { //первичаня загрузка страниц�
 			btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
 			btnAdd1.insertBefore(butServ, btnAdd1.children[8])
-			btnAdd1.insertBefore(taskBut, btnAdd1.children[9])
+			btnAdd1.insertBefore(butThemes, btnAdd1.children[9])
+			btnAdd1.insertBefore(taskBut, btnAdd1.children[10])
         }, 2000)
  
         setTimeout(() => {
