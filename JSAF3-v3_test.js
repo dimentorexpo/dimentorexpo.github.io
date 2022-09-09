@@ -883,6 +883,7 @@ var win_Themes =  // описание элементов окна Тематик
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 350;" id="themes_header">
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
+								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 18px;">🔙</button>
                         </div>
 						
 
@@ -915,8 +916,6 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 						
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button id="backfromsvyaz" style="width: 45px; height: 45px; font-size: 22px;">🔙</button>
-							<br>
 							<button style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Корп сеть/ус-во</button>
@@ -928,7 +927,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button style="margin-left:2px; width:150px; height: 44px;">Не поддерж ус (камера, гарнитура,комп)</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - 🔊:задерж/искаж</button>
-							<button style="margin-left:2px; width:150px; height: 44px;"Сб на плат - блок/прерыв</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - блок/прерыв</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - 📷: задерж/плох карт</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Связь блок ПО</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
