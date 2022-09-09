@@ -885,21 +885,21 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						
-						<div id="themes_body" style="margin-left:20px;">
-							<button style="margin-left:2px; width:80px;">Проблемы со связью</button>
-							<button style="margin-le ft:2px; width:80px;">Проблемы со входом и подключением к уроку</button>
-							<button style="margin-left:2px; width:80px;">Проблемы с функционалом на странице урока</button>
-							<button style="margin-left:2px; width:80px;">Проблемы с ЛК</button>
-							<button style="margin-left:2px; width:80px;">Домашнее задание (вимбокс)</button>
-							<button style="margin-left:2px; width:80px;">Оплата</button>
-							<button style="margin-left:2px; width:80px;">Приложение Skyeng</button>
-							<button style="margin-left:2px; width:80px;">Приложение Teachers</button>
-							<button style="margin-left:2px; width:80px;">Приложение Skysmart Parents</button>
-							<button style="margin-left:2px; width:80px;">Приложение Skysmart Класс</button>
-							<button style="margin-left:2px; width:80px;">Серверные неполадки</button>
-							<button style="margin-left:2px; width:80px;">Отзывы и пожелания</button>
-							<button style="margin-left:2px; width:80px;">Поиск по БД</button>
-							<button style="margin-left:2px; width:80px;">Прочее</button>
+						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+							<button style="margin-left:2px;">🔇Проблемы со связью</button>
+							<button style="margin-le ft:2px;">🔌Проблемы со входом и подключением к уроку</button>
+							<button style="margin-left:2px;">🧯Проблемы с функционалом на странице урока</button>
+							<button style="margin-left:2px;">Проблемы с ЛК</button>
+							<button style="margin-left:2px;">💼ДЗ (вимбокс)</button>
+							<button style="margin-left:2px;">💳Оплата</button>
+							<button style="margin-left:2px;">📱Skyeng</button>
+							<button style="margin-left:2px;">📱 Teachers</button>
+							<button style="margin-left:2px;">📱 Skysmart Parents</button>
+							<button style="margin-left:2px;">🔥Серверные неполадки</button>
+							<button style="margin-left:2px;">💭Отзывы и пожелания</button>
+							<button style="margin-left:2px;">🔎Поиск по БД</button>
+							<button style="margin-left:2px;">💨Внутренние запросы</button>
+							<button style="margin-left:2px;">💫Прочее</button>
 							
 						</div>	
                 </span>
