@@ -3208,7 +3208,7 @@ document.getElementById('AF_Createtask').ondblclick = function (a) { // скры
 document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
     if (checkelementtype(a)){document.getElementById('hideMeSrvDsk').click();}
 }
-document.getElementById('AF_THemes').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
+document.getElementById('AF_Themes').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
     if (checkelementtype(a)){document.getElementById('hideMeThemes').click();}
 }
 // Конец модуля скрытия окон по двойному клику
