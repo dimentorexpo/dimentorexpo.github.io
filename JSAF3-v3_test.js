@@ -935,10 +935,10 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1585" style="margin-left:2px; width:150px; height: 44px;">📸Камера</button>
 							<button name="themesbtn" value="1594" style="margin-left:2px; width:150px; height: 44px;">❌Не поддерж брауз/ОС</button>
 							<button name="themesbtn" value="1595" style="margin-left:2px; width:150px; height: 44px; font-size:10px;">❌Не поддерж ус (📸камера, 🎧гарнитура,💻комп)</button>
-							<button name="themesbtn" value="1593" style="margin-left:2px; width:150px; height: 44px;">🔥Сб на плат</button>
-							<button name="themesbtn" value="1591" style="margin-left:2px; width:150px; height: 44px;">🔥Сб на плат - 🔊:задерж/искаж</button>
-							<button name="themesbtn" value="1590" style="margin-left:2px; width:150px; height: 44px;">🔥Сб на плат - блок/прерыв</button>
-							<button name="themesbtn" value="1592" style="margin-left:2px; width:150px; height: 44px;">🔥Сб на плат - 📷: задерж/плох карт</button>
+							<button name="themesbtn" value="1593" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат</button>
+							<button name="themesbtn" value="1591" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 🔊:задерж/искаж</button>
+							<button name="themesbtn" value="1590" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - блок/прерыв</button>
+							<button name="themesbtn" value="1592" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 📷: задерж/плох карт</button>
 							<button name="themesbtn" value="1580" style="margin-left:2px; width:150px; height: 44px;">Связь блок ПО</button>
 							<button name="themesbtn" value="1587" style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
 							<button name="themesbtn" value="1588" style="margin-left:2px; width:150px; height: 44px;">Хар-ки 💻устр 🔽мин</button>
@@ -949,29 +949,29 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1632" style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
 							<button name="themesbtn" value="1635" style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Даные для входа</button>
 							<button name="themesbtn" value="1634" style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Сброс пароля</button>
-							<button name="themesbtn" value="1624" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У</button>
-							<button name="themesbtn" value="1630" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна</button>
+							<button name="themesbtn" value="1624" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У⏳</button>
+							<button name="themesbtn" value="1630" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна🔘</button>
 							<button name="themesbtn" value="1627" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Консульт по вх на урок</button>
-							<button name="themesbtn" value="1629" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутсn кноп</button>
+							<button name="themesbtn" value="1629" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутстств кноп⁉</button>
 							<button name="themesbtn" value="1628" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
 							<button name="themesbtn" value="1625" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
-							<button name="themesbtn" value="1626" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске</button>
+							<button name="themesbtn" value="1626" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске🏝</button>
 							<button name="themesbtn" value="1631" style="margin-left:2px; width:150px; height: 44px;">🔐Консульт по авториз</button>
 							<button name="themesbtn" value="1633" style="margin-left:2px; width:150px; height: 44px;">🔐Сбой с авторизацией</button>
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1772" style="margin-left:2px; width:150px; height: 44px;">STT</button>
-							<button name="themesbtn" value="1773" style="margin-left:2px; width:150px; height: 44px;">TTT</button>
-							<button name="themesbtn" value="1767" style="margin-left:2px; width:150px; height: 44px;">Вложения</button>
-							<button name="themesbtn" value="1771" style="margin-left:2px; width:150px; height: 44px;">Демонстрация экрана</button>
-							<button name="themesbtn" value="1768" style="margin-left:2px; width:150px; height: 44px;">Доска</button>
-							<button name="themesbtn" value="2037" style="margin-left:2px; width:150px; height: 44px;">Заметки</button>
-							<button name="themesbtn" value="1775" style="margin-left:2px; width:150px; height: 44px;">Отправка ДЗ на уроке</button>
-							<button name="themesbtn" value="1770" style="margin-left:2px; width:150px; height: 44px;">Переключение материалов</button>
-							<button name="themesbtn" value="1776" style="margin-left:2px; width:150px; height: 44px;">Проблема с плеером (аудио/видеоролики)</button>
-							<button name="themesbtn" value="1769" style="margin-left:2px; width:150px; height: 44px;">Словарь на уроке</button>
-							<button name="themesbtn" value="1774" style="margin-left:2px; width:150px; height: 44px;">Упражнения на уроке</button>
+							<button name="themesbtn" value="1772" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>
+							<button name="themesbtn" value="1773" style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>
+							<button name="themesbtn" value="1767" style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>
+							<button name="themesbtn" value="1771" style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>
+							<button name="themesbtn" value="1768" style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>
+							<button name="themesbtn" value="2037" style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>
+							<button name="themesbtn" value="1775" style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>
+							<button name="themesbtn" value="1770" style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>
+							<button name="themesbtn" value="1776" style="margin-left:2px; width:150px; height: 44px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>
+							<button name="themesbtn" value="1769" style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>
+							<button name="themesbtn" value="1774" style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>
 						</div>
 						
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
