@@ -5593,14 +5593,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			
 			document.getElementById('vimcall').onclick = function() {
-				document.getElementById('svyazissues').style.display = ''
+				document.getElementById('svyazissues').style.display = 'flex'
 				document.getElementById('themes_body').style.display = 'none'
 				document.getElementById('tags_body').style.display = 'none'
 				
 			document.getElementById('backfromsvyaz').onclick = function() {
 				document.getElementById('svyazissues').style.display = 'none'
-				document.getElementById('themes_body').style.display = ''
-				document.getElementById('tags_body').style.display = ''
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
 				}
 			}
 	}
