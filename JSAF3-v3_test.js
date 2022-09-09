@@ -975,7 +975,7 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 						
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1717" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
+							<button name="themesbtn" value="1714" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
 							<button name="themesbtn" value="1708" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
 							<button name="themesbtn" value="1713" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
 							<button name="themesbtn" value="1707" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>	
