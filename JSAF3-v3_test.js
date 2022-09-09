@@ -908,22 +908,22 @@ var win_Themes =  // описание элементов окна Тематик
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color:bisque; width:300px;">Теги</label>
 							<br>
-							<button style="margin-left:2px; width:150px; height: 25px;">ОшибкаКЦ</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Очередь</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Даны рекомендации</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Запрос решен</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Недозвон</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Действий не требуется</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Отказ от помощи</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Контент</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Дубль</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">2ЛТП</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Исход</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">QA</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">TC</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">SC</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Серверные</button>
-							<button style="margin-left:2px; width:150px; height: 25px;">Jira</button>
+							<button name="tagssbtn" value="oo" style="margin-left:2px; width:150px; height: 25px;">ОшибкаКЦ</button>
+							<button name="tagssbtn" value="queue" style="margin-left:2px; width:150px; height: 25px;">Очередь</button>
+							<button name="tagssbtn" value="recommendations_given " style="margin-left:2px; width:150px; height: 25px;">Даны рекомендации</button>
+							<button name="tagssbtn" value="request_solved" style="margin-left:2px; width:150px; height: 25px;">Запрос решен</button>
+							<button name="tagssbtn" value="missed_call" style="margin-left:2px; width:150px; height: 25px;">Недозвон</button>
+							<button name="tagssbtn" value="no_action_required" style="margin-left:2px; width:150px; height: 25px;">Действий не требуется</button>
+							<button name="tagssbtn" value="refusal_of_help" style="margin-left:2px; width:150px; height: 25px;">Отказ от помощи</button>
+							<button name="tagssbtn" value="request_forwarded_to_content" style="margin-left:2px; width:150px; height: 25px;">Контент</button>
+							<button name="tagssbtn" value="double" style="margin-left:2px; width:150px; height: 25px;">Дубль</button>
+							<button name="tagssbtn" value="request_forwarded_to_2l_tp" style="margin-left:2px; width:150px; height: 25px;">2ЛТП</button>
+							<button name="tagssbtn" value="request_forwarded_to_outgoing_tp_crm2" style="margin-left:2px; width:150px; height: 25px;">Исход</button>
+							<button name="tagssbtn" value="request_forwarded_to_channel_qa" style="margin-left:2px; width:150px; height: 25px;">QA</button>
+							<button name="tagssbtn" value="request_forwarded_to_tc" style="margin-left:2px; width:150px; height: 25px;">TC</button>
+							<button name="tagssbtn" value="request_forwarded_to_sc" style="margin-left:2px; width:150px; height: 25px;">SC</button>
+							<button name="tagssbtn" value="server_issues" style="margin-left:2px; width:150px; height: 25px;">Серверные</button>
+							<button name="tagssbtn" value="request_forwarded_to_development" style="margin-left:2px; width:150px; height: 25px;">Jira</button>
 						</div>
 						
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -5735,7 +5735,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			for (let i=0; i<document.getElementsByName('themesbtn').length;i++) {
 				document.getElementsByName('themesbtn')[i].onclick = function() {
 					newTag(this.value)
-				//	console.log(this.value)
+				}
+			}
+			
+			for (let j=0; j< document.getElementById('tagssbtn').length; j++) {
+				document.getElementById('tagssbtn')[j].onclick = function() {
+					newTaggg(this.value)
 				}
 			}
 			
