@@ -1062,10 +1062,10 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 						
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="2018" style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Оператор</button>
-							<button name="themesbtn" value="2017" style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Система</button>
-							<button name="themesbtn" value="2020" style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у П👽</button>
-							<button name="themesbtn" value="2019" style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у У👨‍🎓</button>
+							<button name="themesbtn" value="2018" style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Оператор🧐</button>
+							<button name="themesbtn" value="2017" style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Система🤖</button>
+							<button name="themesbtn" value="2020" style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у П👽</button>
+							<button name="themesbtn" value="2019" style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у У👨‍🎓</button>
 						</div>
 
 						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
