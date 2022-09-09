@@ -886,20 +886,20 @@ var win_Themes =  // описание элементов окна Тематик
                         </div>
 						
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
-							<button style="margin-left:2px;">🔇Связь</button>
-							<button style="margin-le ft:2px;">🔌Вход и подкл к уроку</button>
-							<button style="margin-left:2px;">🧯Функц на уроке</button>
-							<button style="margin-left:2px;">🏡ЛК</button>
-							<button style="margin-left:2px;">💼ДЗ (вимбокс)</button>
-							<button style="margin-left:2px;">💳Оплата</button>
-							<button style="margin-left:2px;">📱Skyeng</button>
-							<button style="margin-left:2px;">📱Teachers</button>
-							<button style="margin-left:2px;">📱Skysmart Parents</button>
-							<button style="margin-left:2px;">🔥Серверные неполадки</button>
-							<button style="margin-left:2px;">💭Отзывы и пожелания</button>
-							<button style="margin-left:2px;">🔎Поиск по БД</button>
-							<button style="margin-left:2px;">💨Внутренние запросы</button>
-							<button style="margin-left:2px;">💫Прочее</button>
+							<button style="margin-left:2px; width:150xp;">🔇Связь</button>
+							<button style="margin-le ft:2px; width:150xp;">🔌Вход и подкл к уроку</button>
+							<button style="margin-left:2px; width:150xp;">🧯Функц на уроке</button>
+							<button style="margin-left:2px; width:150xp;">🏡ЛК</button>
+							<button style="margin-left:2px; width:150xp;">💼ДЗ (вимбокс)</button>
+							<button style="margin-left:2px; width:150xp;">💳Оплата</button>
+							<button style="margin-left:2px; width:150xp;">📱Skyeng</button>
+							<button style="margin-left:2px; width:150xp;">📱Teachers</button>
+							<button style="margin-left:2px; width:150xp;">📱Skysmart Parents</button>
+							<button style="margin-left:2px; width:150xp;">🔥Серверные</button>
+							<button style="margin-left:2px; width:150xp;">💭Отзывы и пожелания</button>
+							<button style="margin-left:2px; width:150xp;">🔎Поиск по БД</button>
+							<button style="margin-left:2px; width:150xp;">💨Внутр запр</button>
+							<button style="margin-left:2px; width:150xp;">💫Прочее</button>
 							
 						</div>	
                 </span>
