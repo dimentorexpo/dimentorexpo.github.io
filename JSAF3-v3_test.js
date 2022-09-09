@@ -946,7 +946,7 @@ var win_Themes =  // описание элементов окна Тематик
 						</div> 
 						
 						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1632" style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
+							<button name="themesbtn" value="1632" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
 							<button name="themesbtn" value="1635" style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Даные для входа</button>
 							<button name="themesbtn" value="1634" style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Сброс пароля</button>
 							<button name="themesbtn" value="1624" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У⏳</button>
