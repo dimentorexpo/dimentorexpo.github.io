@@ -887,8 +887,8 @@ var win_Themes =  // описание элементов окна Тематик
 						
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<button style="margin-left:2px;">🔇Проблемы со связью</button>
-							<button style="margin-le ft:2px;">🔌Проблемы со входом и подключением к уроку</button>
-							<button style="margin-left:2px;">🧯Проблемы с функционалом на странице урока</button>
+							<button style="margin-le ft:2px;">🔌Проблемы со вход и подкл к уроку</button>
+							<button style="margin-left:2px;">🧯Проблемы с функц на уроке</button>
 							<button style="margin-left:2px;">🏡Проблемы с ЛК</button>
 							<button style="margin-left:2px;">💼ДЗ (вимбокс)</button>
 							<button style="margin-left:2px;">💳Оплата</button>
