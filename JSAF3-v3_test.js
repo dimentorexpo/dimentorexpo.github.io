@@ -5738,8 +5738,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 			}
 			
-			for (let j=0; j< document.getElementById('tagssbtn').length; j++) {
-				document.getElementById('tagssbtn')[j].onclick = function() {
+			for (let j=0; j< document.getElementsByName('tagssbtn').length; j++) {
+				document.getElementsByName('tagssbtn')[j].onclick = function() {
 					newTaggg(this.value)
 				}
 			}
