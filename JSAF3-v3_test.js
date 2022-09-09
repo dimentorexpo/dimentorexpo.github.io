@@ -888,6 +888,7 @@ var win_Themes =  // описание элементов окна Тематик
 
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color:bisque; width:300px;">Темы</label>
+							<br>
 							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
 							<button id="enterlesson" style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
 							<button id="lessonfunc" style="margin-left:2px; width:150px; height: 44px;">🧯Функц на уроке</button>
@@ -905,6 +906,7 @@ var win_Themes =  // описание элементов окна Тематик
 						
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color:bisque; width:300px;">Теги</label>
+							<br>
 							<button style="margin-left:2px; width:150px; height: 25px;">ОшибкаКЦ</button>
 							<button style="margin-left:2px; width:150px; height: 25px;">2ЛТП</button>
 							<button style="margin-left:2px; width:150px; height: 25px;">Исход</button>
