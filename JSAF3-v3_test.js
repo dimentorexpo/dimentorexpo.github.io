@@ -885,19 +885,18 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						
-						<div id="themes_body>
-							<button>Проблемы с ЛК</button>
-							<button>Домашнее задание (вимбокс)</button>
-							<button>Оплата</button>
-							<button>Поиск по БД</button>
-							<button>Приложение Skyeng</button>
-							<button>Приложение Teachers</button>
-							<button>Приложение Skysmart Parents</button>
-							<button>Приложение Skysmart Класс</button>
-							<button>Серверные неполадки</button>
-							<button>Отзывы и пожелания</button>
-						</div>
-						
+						<div id="themes_body" style="margin-left:20px;">
+							<button style="margin-left:2px; width:80px;">Проблемы с ЛК</button>
+							<button style="margin-left:2px; width:80px;">Домашнее задание (вимбокс)</button>
+							<button style="margin-left:2px; width:80px;">Оплата</button>
+							<button style="margin-left:2px; width:80px;">Поиск по БД</button>
+							<button style="margin-left:2px; width:80px;">Приложение Skyeng</button>
+							<button style="margin-left:2px; width:80px;">Приложение Teachers</button>
+							<button style="margin-left:2px; width:80px;">Приложение Skysmart Parents</button>
+							<button style="margin-left:2px; width:80px;">Приложение Skysmart Класс</button>
+							<button style="margin-left:2px; width:80px;">Серверные неполадки</button>
+							<button style="margin-left:2px; width:80px;">Отзывы и пожелания</button>
+						</div>	
                 </span>
         </span>
 </div>`;
