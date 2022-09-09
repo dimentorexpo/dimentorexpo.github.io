@@ -935,51 +935,133 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 						
 						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Не привязана 📧/📱 как логин<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Даные для входа<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Сброс пароля<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Консульт по вх на урок<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутсn кноп<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Консульт по авториз<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сбой с авторизацией<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Не привязана 📧/📱 как логин</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Даные для входа</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Сброс пароля</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Консульт по вх на урок</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутсn кноп</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Консульт по авториз</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сбой с авторизацией</button>
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">STT</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">TTT</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Вложения</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Демонстрация экрана</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Доска</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Заметки</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Отправка ДЗ на уроке</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Переключение материалов</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Проблема с плеером (аудио/видеоролики)</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Словарь на уроке</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Упражнения на уроке</button>
 						</div>
 						
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Группы</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Карта роста</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Настройки</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Перерыв</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Профиль</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Работы на проверку</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Расписание</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Упражнения</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Финансы</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Чат в лк</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Виджет прогресса</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Грамматика</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - История занятий/портфолио</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Навыки</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Настройки</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Профиль</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Семья</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Чат в лк</button>
 						</div>
 						
 						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Контент</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Оценка</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Словарь</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Упражнения</button>
 						</div>
 
 						<div id="paymn" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Вина школы</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Консультация по оплате</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Нет нужного пакета/услуги</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Подписки</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Проблема с картой У</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сбой при оплате</button>
 						</div>
 						
 						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Авторизация</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Домашка</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Оплата</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Профиль</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Тренажер слов</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Уроки</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Чат</button>
 						</div>
 						
 						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Авторизация</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет расписания</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Виджет финансов</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Профиль</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Сторис</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Страница расписания</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Страница финансов</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Чат</button>
 						</div>
 
 						<div id="skysmartrodpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Другое<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Материалы<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Предметы и баланс<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Профиль родителя<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Расписание<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Чат<button>
 						</div>
 						
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос\\\\отмена урока</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
 						</div>
 						
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Оператор</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Система</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у П</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у У</button>
 						</div>
 
 						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Вопросы по Slack - Проблемы со входом<button>
 						</div>
 						
 						<div id="prochee" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
 						</div>
                 </span>
         </span>
@@ -5659,6 +5741,138 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('vhodurok').style.display = 'none'
 				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}		
+
+			document.getElementById('lessonfunc').onclick = function() {
+				document.getElementById('funcurok').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('funcurok').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}			
+			
+			document.getElementById('perscab').onclick = function() {
+				document.getElementById('cabusr').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('cabusr').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}	
+
+			document.getElementById('userhomework').onclick = function() {
+				document.getElementById('HWvim').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('HWvim').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}		
+
+			document.getElementById('payments').onclick = function() {
+				document.getElementById('paymn').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('paymn').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}	
+			
+			document.getElementById('skyengapp').onclick = function() {
+				document.getElementById('skyengpril').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('skyengpril').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}	
+
+			document.getElementById('teachersapp').onclick = function() {
+				document.getElementById('teacherpril').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('teacherpril').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}			
+			
+			document.getElementById('parentsapp').onclick = function() {
+				document.getElementById('skysmartrodpril').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('skysmartrodpril').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}		
+
+			document.getElementById('feedbacksuggest').onclick = function() {
+				document.getElementById('feedbackpog').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('feedbackpog').style.display = 'none'
+				document.getElementById('themes_body').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}	
+
+			document.getElementById('dblook').onclick = function() {
+				document.getElementById('poiskbd').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('poiskbd').style.display = 'none'
+				document.getElementById('poiskbd').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}	
+
+			document.getElementById('innerissue').onclick = function() {
+				document.getElementById('vnutrzapr').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('vnutrzapr').style.display = 'none'
+				document.getElementById('poiskbd').style.display = 'flex'
+				document.getElementById('tags_body').style.display = 'flex'
+				}
+			}	
+
+			document.getElementById('etc').onclick = function() {
+				document.getElementById('prochee').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'none'
+				document.getElementById('tags_body').style.display = 'none'
+				
+			document.getElementById('backtomenu').onclick = function() {
+				document.getElementById('prochee').style.display = 'none'
+				document.getElementById('poiskbd').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
 				}
 			}
