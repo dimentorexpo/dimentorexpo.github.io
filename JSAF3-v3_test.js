@@ -915,7 +915,8 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 						
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button id="backfromsvyaz">🔙</button>
+							<button id="backfromsvyaz" style="width: 45px; height: 45px; font-size: 22px;">🔙</button>
+							<br>
 							<button style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">Корп сеть/ус-во</button>
