@@ -978,10 +978,11 @@ var win_Themes =  // описание элементов окна Тематик
 							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
 							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>							
 							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>							
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>							
 							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>							
 							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>	
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
+
 						</div>
 						
 						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
