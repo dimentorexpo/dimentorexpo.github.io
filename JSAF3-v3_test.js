@@ -928,8 +928,8 @@ var win_Themes =  // описание элементов окна Тематик
 						
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1589" style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
-							<button name="themesbtn" value="1582" style="margin-left:2px; width:150px; height: 44px;">©Корп сеть/ус-во</button>
-							<button name="themesbtn" value="1583" style="margin-left:2px; width:150px; height: 44px;">ОС/Браузер</button>	
+							<button name="themesbtn" value="1582" style="margin-left:2px; width:150px; height: 44px;">🛡Корп сеть/ус-во</button>
+							<button name="themesbtn" value="1583" style="margin-left:2px; width:150px; height: 44px;">🥏ОС/Браузер</button>	
 							<button name="themesbtn" value="1586" style="margin-left:2px; width:150px; height: 44px;">💻ПК</button>
 							<button name="themesbtn" value="1584" style="margin-left:2px; width:150px; height: 44px;">🎧Гарнитура</button>
 							<button name="themesbtn" value="1585" style="margin-left:2px; width:150px; height: 44px;">📸Камера</button>
