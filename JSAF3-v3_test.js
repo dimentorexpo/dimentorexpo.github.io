@@ -5848,7 +5848,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('poiskbd').style.display = 'none'
-				document.getElementById('poiskbd').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
 				}
 			}	
@@ -5860,7 +5860,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('vnutrzapr').style.display = 'none'
-				document.getElementById('poiskbd').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
 				}
 			}	
@@ -5872,7 +5872,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			document.getElementById('backtomenu').onclick = function() {
 				document.getElementById('prochee').style.display = 'none'
-				document.getElementById('poiskbd').style.display = 'flex'
+				document.getElementById('themes_body').style.display = 'flex'
 				document.getElementById('tags_body').style.display = 'flex'
 				}
 			}
