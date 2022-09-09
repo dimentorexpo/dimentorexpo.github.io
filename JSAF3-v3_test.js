@@ -878,30 +878,39 @@ var win_Jira =  // описание элементов окна Поиска п�
 </div>`;
 
 var win_Themes =  // описание элементов окна Тематик
-    `<div style="display: flex; width: 550px;">
-        <span style="width: 550px">
+    `<div style="display: flex; width: 350px;">
+        <span style="width: 350px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;" id="themes_header">
+                        <div style="margin: 5px; width: 350;" id="themes_header">
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						
+
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
-							<button style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
-							<button style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">🧯Функц на уроке</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">🏡ЛК</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">💼ДЗ (вимбокс)</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">💳Оплата</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">📱Skyeng</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">📱Teachers</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">📱Skysmart Parents</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">🔥Серверные</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">💭Отзывы и пожелания</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">🔎Поиск по БД</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">💨Внутр запр</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
-							
+							<label style="color:bisque">Темы</label>
+							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
+							<button id="enterlesson" style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
+							<button id="lessonfunc" style="margin-left:2px; width:150px; height: 44px;">🧯Функц на уроке</button>
+							<button id="perscab" style="margin-left:2px; width:150px; height: 44px;">🏡ЛК</button>
+							<button id="userhomework" style="margin-left:2px; width:150px; height: 44px;">💼ДЗ (вимбокс)</button>
+							<button id="payments" style="margin-left:2px; width:150px; height: 44px;">💳Оплата</button>
+							<button id="skyengapp" style="margin-left:2px; width:150px; height: 44px;">📱Skyeng</button>
+							<button id="teachersapp" style="margin-left:2px; width:150px; height: 44px;">📱Teachers</button>
+							<button id="parentsapp" style="margin-left:2px; width:150px; height: 44px;">📱Skysmart Parents</button>
+							<button id="feedbacksuggest" style="margin-left:2px; width:150px; height: 44px;">💭Отзывы и пожелания</button>
+							<button id="dblook" style="margin-left:2px; width:150px; height: 44px;">🔎Поиск по БД</button>
+							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутр запр</button>
+							<button id="etc" style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
 						</div>	
+						
+						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+							<label style="color:bisque">Теги</label>
+							<button style="margin-left:2px; width:150px; height: 44px;">ОшибкаКЦ</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">2ЛТП</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Исход</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">QA</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Jira</button>
+						</div>
                 </span>
         </span>
 </div>`;
