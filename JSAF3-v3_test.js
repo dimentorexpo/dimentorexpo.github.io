@@ -916,153 +916,153 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 						
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Корп сеть/ус-во</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ОС/Браузер</button>	
-							<button style="margin-left:2px; width:150px; height: 44px;">ПК</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Гарнитура</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Камера</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Не поддерж брауз/ОС</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Не поддерж ус (камера, гарнитура,комп)</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - 🔊:задерж/искаж</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - блок/прерыв</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сб на плат - 📷: задерж/плох карт</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Связь блок ПО</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Хар-ки устр 🔽мин</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Корп сеть/ус-во</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ОС/Браузер</button>	
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ПК</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Гарнитура</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Камера</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Не поддерж брауз/ОС</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Не поддерж ус (камера, гарнитура,комп)</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Сб на плат</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Сб на плат - 🔊:задерж/искаж</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Сб на плат - блок/прерыв</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Сб на плат - 📷: задерж/плох карт</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Связь блок ПО</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Хар-ки устр 🔽мин</button>
 						</div>
 						
 						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Не привязана 📧/📱 как логин</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Даные для входа</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Авториз - Сброс пароля</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Консульт по вх на урок</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутсn кноп</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Консульт по авториз</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сбой с авторизацией</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Авториз - Не привязана 📧/📱 как логин</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Авториз - Даные для входа</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Авториз - Сброс пароля</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Истекла подписка У</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Консульт по вх на урок</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутсn кноп</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Консульт по авториз</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Сбой с авторизацией</button>
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">STT</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">TTT</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Вложения</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Демонстрация экрана</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Доска</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Заметки</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Отправка ДЗ на уроке</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Переключение материалов</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Проблема с плеером (аудио/видеоролики)</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Словарь на уроке</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Упражнения на уроке</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">STT</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">TTT</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Вложения</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Демонстрация экрана</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Доска</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Заметки</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Отправка ДЗ на уроке</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Переключение материалов</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Проблема с плеером (аудио/видеоролики)</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Словарь на уроке</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Упражнения на уроке</button>
 						</div>
 						
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>	
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>							
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>							
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>	
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>							
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>							
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>							
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>	
-							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>	
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>							
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>							
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>	
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>							
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>							
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>							
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>	
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
 
 						</div>
 						
 						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Контент</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Оценка</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Словарь</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Упражнения</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Контент</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Оценка</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Словарь</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Упражнения</button>
 						</div>
 
 						<div id="paymn" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Вина школы</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Консультация по оплате</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Нет нужного пакета/услуги</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Подписки</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Проблема с картой У</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сбой при оплате</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Вина школы</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Консультация по оплате</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Нет нужного пакета/услуги</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Подписки</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Проблема с картой У</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Сбой при оплате</button>
 						</div>
 						
 						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Авторизация</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Домашка</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Оплата</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Профиль</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Тренажер слов</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Уроки</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Чат</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Авторизация</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Домашка</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Оплата</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Профиль</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Тренажер слов</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Уроки</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Чат</button>
 						</div>
 						
 						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Авторизация</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет расписания</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Виджет финансов</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Профиль</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Сторис</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Страница расписания</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Страница финансов</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Чат</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Авторизация</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет расписания</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Виджет финансов</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Профиль</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Сторис</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Страница расписания</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Страница финансов</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Чат</button>
 						</div>
 
 						<div id="skysmartrodpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Другое</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Материалы</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Предметы и баланс</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Профиль родителя</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Расписание</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Чат</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Другое</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Материалы</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Предметы и баланс</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Профиль родителя</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Расписание</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Чат</button>
 						</div>
 						
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос\\\\отмена урока</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос\\\\отмена урока</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
 						</div>
 						
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Оператор</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Система</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у П</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у У</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Оператор</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Кто удалил урок - Система</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у П</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Логи урока - Проблемы у У</button>
 						</div>
 
 						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Вопросы по Slack - Проблемы со входом</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Вопросы по Slack - Проблемы со входом</button>
 						</div>
 						
 						<div id="prochee" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
+							<button name="themesbtn" style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
 						</div>
                 </span>
         </span>
