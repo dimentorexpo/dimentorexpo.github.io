@@ -5734,7 +5734,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			for (let i=0; i<document.getElementsByName('themesbtn').length;i++) {
 				document.getElementsByName('themesbtn')[i].onclick = function() {
-					console.log(this.value)
+					newTag(this.value)
+				//	console.log(this.value)
 				}
 			}
 			
