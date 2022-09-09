@@ -886,16 +886,21 @@ var win_Themes =  // описание элементов окна Тематик
                         </div>
 						
 						<div id="themes_body" style="margin-left:20px;">
+							<button style="margin-left:2px; width:80px;">Проблемы со связью</button>
+							<button style="margin-le ft:2px; width:80px;">Проблемы со входом и подключением к уроку</button>
+							<button style="margin-left:2px; width:80px;">Проблемы с функционалом на странице урока</button>
 							<button style="margin-left:2px; width:80px;">Проблемы с ЛК</button>
 							<button style="margin-left:2px; width:80px;">Домашнее задание (вимбокс)</button>
 							<button style="margin-left:2px; width:80px;">Оплата</button>
-							<button style="margin-left:2px; width:80px;">Поиск по БД</button>
 							<button style="margin-left:2px; width:80px;">Приложение Skyeng</button>
 							<button style="margin-left:2px; width:80px;">Приложение Teachers</button>
 							<button style="margin-left:2px; width:80px;">Приложение Skysmart Parents</button>
 							<button style="margin-left:2px; width:80px;">Приложение Skysmart Класс</button>
 							<button style="margin-left:2px; width:80px;">Серверные неполадки</button>
 							<button style="margin-left:2px; width:80px;">Отзывы и пожелания</button>
+							<button style="margin-left:2px; width:80px;">Поиск по БД</button>
+							<button style="margin-left:2px; width:80px;">Прочее</button>
+							
 						</div>	
                 </span>
         </span>
