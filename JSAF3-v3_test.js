@@ -892,7 +892,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<br>
 							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
 							<button id="enterlesson" style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
-							<button id="lessonfunc" style="margin-left:2px; width:150px; height: 44px;">🧯Функц на уроке</button>
+							<button id="lessonfunc" style="margin-left:2px; width:150px; height: 44px;">🧯Функционал на уроке</button>
 							<button id="perscab" style="margin-left:2px; width:150px; height: 44px;">🏡ЛК</button>
 							<button id="userhomework" style="margin-left:2px; width:150px; height: 44px;">💼ДЗ (вимбокс)</button>
 							<button id="payments" style="margin-left:2px; width:150px; height: 44px;">💳Оплата</button>
@@ -901,7 +901,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button id="parentsapp" style="margin-left:2px; width:150px; height: 44px;">📱Skysmart Parents</button>
 							<button id="feedbacksuggest" style="margin-left:2px; width:150px; height: 44px;">💭Отзывы и пожелания</button>
 							<button id="dblook" style="margin-left:2px; width:150px; height: 44px;">🔎Поиск по БД</button>
-							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутр запр</button>
+							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутренние запросы</button>
 							<button id="etc" style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
 						</div>	
 						
@@ -964,24 +964,24 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 						
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Группы</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Карта роста</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Настройки</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Перерыв</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Профиль</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Работы на проверку</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Расписание</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Упражнения</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Финансы</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКП - Чат в лк</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Виджет прогресса</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Грамматика</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - История занятий/портфолио</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Навыки</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Настройки</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Профиль</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Семья</button>
-							<button style="margin-left:2px; width:150px; height: 44px;">ЛКУ - Чат в лк</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>	
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>							
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>							
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>	
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>							
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>							
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>							
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>	
 						</div>
 						
 						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
