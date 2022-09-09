@@ -913,7 +913,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="tagssbtn" value="recommendations_given " style="margin-left:2px; width:150px; height: 25px;">Даны рекомендации</button>
 							<button name="tagssbtn" value="request_solved" style="margin-left:2px; width:150px; height: 25px;">Запрос решен</button>
 							<button name="tagssbtn" value="missed_call" style="margin-left:2px; width:150px; height: 25px;">Недозвон</button>
-							<button name="tagssbtn" value="no_action_required" style="margin-left:2px; width:150px; height: 25px;">Действий не требуется</button>
+							<button name="tagssbtn" value="no_action_required" style="margin-left:2px; width:150px; height: 25px; font-size:10px;">Действий не требуется</button>
 							<button name="tagssbtn" value="refusal_of_help" style="margin-left:2px; width:150px; height: 25px;">Отказ от помощи</button>
 							<button name="tagssbtn" value="request_forwarded_to_content" style="margin-left:2px; width:150px; height: 25px;">Контент</button>
 							<button name="tagssbtn" value="double" style="margin-left:2px; width:150px; height: 25px;">Дубль</button>
@@ -923,7 +923,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="tagssbtn" value="request_forwarded_to_tc" style="margin-left:2px; width:150px; height: 25px;">TC</button>
 							<button name="tagssbtn" value="request_forwarded_to_sc" style="margin-left:2px; width:150px; height: 25px;">SC</button>
 							<button name="tagssbtn" value="server_issues" style="margin-left:2px; width:150px; height: 25px;">Серверные</button>
-							<button name="tagssbtn" value="request_forwarded_to_development" style="margin-left:2px; width:150px; height: 25px;">Jira</button>
+							<button name="tagssbtn" value="request_forwarded_to_development" style="margin-left:2px; width:150px; height: 25px;">Разработка</button>
 						</div>
 						
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -12952,9 +12952,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[11])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[12])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[11])
+            headmenulist.insertBefore(menubar, headmenulist.children[12])
             menubar.append(document.getElementById('servDsk'))
 			menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
