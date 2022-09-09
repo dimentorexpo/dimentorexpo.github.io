@@ -939,7 +939,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1591" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 🔊:задерж/искаж</button>
 							<button name="themesbtn" value="1590" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - блок/прерыв</button>
 							<button name="themesbtn" value="1592" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 📷: задерж/плох карт</button>
-							<button name="themesbtn" value="1580" style="margin-left:2px; width:150px; height: 44px;">Связь блок ПО</button>
+							<button name="themesbtn" value="1580" style="margin-left:2px; width:150px; height: 44px;">🚨Связь блокировалась ПО</button>
 							<button name="themesbtn" value="1587" style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
 							<button name="themesbtn" value="1588" style="margin-left:2px; width:150px; height: 44px;">Хар-ки 💻устр 🔽мин</button>
 							<button name="themesbtn" value="1581" style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
