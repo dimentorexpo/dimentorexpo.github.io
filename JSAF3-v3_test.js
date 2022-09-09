@@ -3149,8 +3149,8 @@ wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove
 
 
 var listenerThemes= function (e, a) { // сохранение позиции окна Тематик
-    listenerThemes.style.left = Number(e.clientX - myX18) + "px";
-    listenerThemes.style.top = Number(e.clientY - myY18) + "px";
+    wintThemes.style.left = Number(e.clientX - myX18) + "px";
+    wintThemes.style.top = Number(e.clientY - myY18) + "px";
     localStorage.setItem('winTopThemes', String(Number(e.clientY - myY18)));
     localStorage.setItem('winLeftThemes', String(Number(e.clientX - myX18)));
 };
