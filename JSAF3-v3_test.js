@@ -888,7 +888,7 @@ var win_Themes =  // описание элементов окна Тематик
 						
 
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
-							<label style="color:bisque; width:300px;">Темы</label>
+							<label sstyle="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Темы</label>
 							<br>
 							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
 							<button id="enterlesson" style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
@@ -906,7 +906,7 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>	
 						
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
-							<label style="color:bisque; width:300px;">Теги</label>
+							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Теги</label>
 							<br>
 							<button name="tagssbtn" value="oo" style="margin-left:2px; width:150px; height: 25px;">ОшибкаКЦ</button>
 							<button name="tagssbtn" value="queue" style="margin-left:2px; width:150px; height: 25px;">Очередь</button>
