@@ -2876,9 +2876,9 @@ wintServDsk.innerHTML = win_servicedesk;
 let wintThemes = document.createElement('div'); // создание окна ServiceDesk
 document.body.append(wintThemes);
 wintThemes.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopThemes') + 'px; left: ' + localStorage.getItem('winLeftThemes') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintServDsk.style.display = 'none';
-wintServDsk.setAttribute('id', 'AF_Themes');
-wintServDsk.innerHTML = win_Themes;
+wintThemes.style.display = 'none';
+wintThemes.setAttribute('id', 'AF_Themes');
+wintThemes.innerHTML = win_Themes;
 
 let wintGrList = document.createElement('div'); // создание окна Список группы
 document.body.append(wintGrList);
@@ -3207,6 +3207,9 @@ document.getElementById('AF_Createtask').ondblclick = function (a) { // скры
 }
 document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
     if (checkelementtype(a)){document.getElementById('hideMeSrvDsk').click();}
+}
+document.getElementById('AF_THemes').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
+    if (checkelementtype(a)){document.getElementById('hideMeThemes').click();}
 }
 // Конец модуля скрытия окон по двойному клику
 
