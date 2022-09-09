@@ -911,6 +911,26 @@ var win_Themes =  // описание элементов окна Тематик
 							<button style="margin-left:2px; width:150px; height: 25px;">QA</button>
 							<button style="margin-left:2px; width:150px; height: 25px;">Jira</button>
 						</div>
+						
+						<div id="svyazissues" style="display:none">
+							<button id="backfromsvyaz">🔙</button>
+							<button>ПО(ОС/браузер)🔽 мин</button>
+							<button>Консульт раб связи</button>
+							<button>Корп сеть/ус-во</button>
+							<button>ОС/Браузер</button>	
+							<button>ПК</button>
+							<button>Гарнитура</button>
+							<button>Камера</button>
+							<button>Не поддерж брауз/ОС</button>
+							<button>Не поддерж ус (камера, гарнитура,комп)</button>
+							<button>Сб на плат</button>
+							<button>Сб на плат - аудио:задержки/искажения</button>
+							<button>Сб на плат - блок/прерыв связь</button>
+							<button>Сб на плат - видео: задержки/плох карт</button>
+							<button>Связь блок ПО</button>
+							<button>Хар-ки инета 🔽мин</button>
+							<button>Хар-ки устр 🔽мин</button>
+						</div>
                 </span>
         </span>
 </div>`;
@@ -5563,10 +5583,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
 	document.getElementById('themes').onclick = function() {
-			   if (document.getElementById('AF_Themes').style.display == '')
+			if (document.getElementById('AF_Themes').style.display == '')
 				document.getElementById('AF_Themes').style.display = 'none'
 			else
 				document.getElementById('AF_Themes').style.display = ''
+			
+			
+			document.getElementById('vimcall').onclick = function() {
+				document.getElementById('svyazissues').style.display = ''
+				document.getElementById('themes_body').style.display = 'none'
+				
+			document.getElementById('backfromsvyaz'}.onclick = function() {
+				document.getElementById('svyazissues').style.display = 'none'
+				document.getElementById('themes_body').style.display = ''
+				}
+			}
 	}
 
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
