@@ -1022,12 +1022,12 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="skysmartrodpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Другое<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Материалы<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Предметы и баланс<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Профиль родителя<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Расписание<button>
-							<button style="margin-left:2px; width:150px; height: 44px;">Чат<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Другое</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Материалы</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Предметы и баланс</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Профиль родителя</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Расписание</button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Чат</button>
 						</div>
 						
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -1057,7 +1057,7 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button style="margin-left:2px; width:150px; height: 44px;">Вопросы по Slack - Проблемы со входом<button>
+							<button style="margin-left:2px; width:150px; height: 44px;">Вопросы по Slack - Проблемы со входом</button>
 						</div>
 						
 						<div id="prochee" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
