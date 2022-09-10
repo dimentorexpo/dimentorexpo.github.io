@@ -960,17 +960,17 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1772" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>
-							<button name="themesbtn" value="1773" style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>
-							<button name="themesbtn" value="1767" style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>
-							<button name="themesbtn" value="1771" style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>
-							<button name="themesbtn" value="1768" style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>
-							<button name="themesbtn" value="2037" style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>
-							<button name="themesbtn" value="1775" style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>
-							<button name="themesbtn" value="1770" style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>
-							<button name="themesbtn" value="1776" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>
-							<button name="themesbtn" value="1769" style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>
-							<button name="themesbtn" value="1774" style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>
+							<button name="themesbtn" value="1772" title="Возникают проблемы с корректным отображением показателя STT." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>						
+							<button name="themesbtn" value="1773" title="Возникают проблемы с корректным отображением показателя TTT." style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>						
+							<button name="themesbtn" value="1767" title="Возникают проблемы с отображением, синхронизацией вложений во время урока." style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>						
+							<button name="themesbtn" value="1771" title="Возникают проблемы с запуском демонстрации экрана (понимание как включить и управлять демонстрацией, технические требования для запуска демонстрации)." style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>						
+							<button name="themesbtn" value="1768" title="Возникают проблемы с отображением, синхронизацией доски во время урока." style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>						
+							<button name="themesbtn" value="2037" title="Возникают проблемы с отображением, синхронизацией заметок во время урока." style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>						
+							<button name="themesbtn" value="1775" title="Возникают проблемы с отправкой ДЗ во время урока ( понимание, поломка на платформе)." style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>						
+							<button name="themesbtn" value="1770" title="Возникают проблемы с отображением, синхронизацией материалов." style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>						
+							<button name="themesbtn" value="1776" title="Возникают проблемы с отображением, работой и синхронизацией аудио/ видеороликов во время уроков. Поломка может быть вызвана технической стороной У/П, так и проблемой на стороне платформы." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>						
+							<button name="themesbtn" value="1769" title="Возникают проблемы с отображением, синхронизацией словаря во время урока. Не добавляются слова в словарь во время урока." style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>						
+							<button name="themesbtn" value="1774" title="Возникают проблемы с выполнением, синхронизацией, проверкой упражнений в уроке." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>						
 						</div>
 
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
