@@ -3277,184 +3277,8 @@ $('.sdbtn').click(function () {
             document.getElementById('crm2srvdskoptions').style.display = 'none';
             document.getElementById('mrktsrvdskoptions').style.display = 'none';
 
-            document.getElementById('billcheques').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "none";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billdataanal').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "none";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billtaskfordev').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "none";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billadmreturn').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "none";
-                    document.getElementById('customfield_32').style.display = "none";
-                }
-            }
-
-            document.getElementById('billtroublcodecard').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "none";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billpaymentbot').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billschemes').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billselfemployee').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billrequisites').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billpayments').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billspisanie').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billreturns').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billpaymentmesystems').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billwidgetpayment').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billpay').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billcredit').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billoferta').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billlendings').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billterms').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billsubscribtions').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billbundles').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billtehproblemsprod').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billroles').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billbusanalys').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
-            document.getElementById('billtechconv').onclick = function () {
-                if (document.getElementById('billingform').style.display == '') {
-                    document.getElementById('customfield_33').style.display = "";
-                    document.getElementById('customfield_32').style.display = "";
-                }
-            }
-
             document.getElementById('create_6').onclick = function () {
                 let idstd = encodeURIComponent(document.getElementById('customfield_32').value);
-                let servid = encodeURIComponent(document.getElementById('customfield_33').value);
                 let str = encodeURIComponent(document.getElementById('customfield_34').value);
                 let erx = encodeURIComponent(document.getElementById('customfield_35').value);
                 let ary = encodeURIComponent(document.getElementById('customfield_36').value);
@@ -3580,7 +3404,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpaymentbot').textContent) {
-                    console.log("Billing payment bot: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Billing payment bot: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3591,7 +3415,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/664",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3604,7 +3428,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billschemes').textContent) {
-                    console.log("Схемы вознаграждения: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Схемы вознаграждения: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3615,7 +3439,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/663",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3628,7 +3452,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billselfemployee').textContent) {
-                    console.log("Самозанятые: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Самозанятые: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3639,7 +3463,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/662",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3652,7 +3476,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billrequisites').textContent) {
-                    console.log("Реквизиты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Реквизиты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3663,7 +3487,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/661",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3676,7 +3500,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpayments').textContent) {
-                    console.log("Выплаты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Выплаты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3687,7 +3511,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/660",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3700,7 +3524,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billspisanie').textContent) {
-                    console.log("Списание средств: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Списание средств: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3711,7 +3535,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/659",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3724,7 +3548,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billreturns').textContent) {
-                    console.log("Возвраты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Возвраты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3735,7 +3559,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/658",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18976=${idstd}&customfield_18975=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18976=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3748,7 +3572,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpaymentmesystems').textContent) {
-                    console.log("Платежные системы: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Платежные системы: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3759,7 +3583,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/657",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3772,7 +3596,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billwidgetpayment').textContent) {
-                    console.log("Виджет оплаты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Виджет оплаты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3783,7 +3607,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/656",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18976=${servid}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3796,7 +3620,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpay').textContent) {
-                    console.log("Оплата: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Оплата: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3807,7 +3631,7 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/655",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
@@ -3820,7 +3644,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getslacklnk, 8000);
 
                 } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billcredit').textContent) {
-                    console.log("Рассрочка: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
+                    console.log("Рассрочка: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
 
                     document.getElementById('responseTextarea1').value = `{  "headers": {
 					 "content-type": "application/x-www-form-urlencoded",
@@ -3831,84 +3655,12 @@ $('.sdbtn').click(function () {
 					  },
 					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/654",
 					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
+					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
 					 "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
 					  }`
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/654";
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
-
-                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billoferta').textContent) {
-                    console.log("Оферты: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-                    document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/653",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/653";
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
-
-                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billlendings').textContent) {
-                    console.log("Лендинги: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-                    document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/652",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/652";
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
-
-                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billterms').textContent) {
-                    console.log("Terms: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-                    document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/651",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/651";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
@@ -3933,54 +3685,6 @@ $('.sdbtn').click(function () {
 					  "credentials": "include"
 					  }`
                     document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/650";
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
-
-                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billbundles').textContent) {
-                    console.log("Бандлы: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-                    document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/649",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/649";
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
-
-                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtehproblemsprod').textContent) {
-                    console.log("Технические проблемы на production: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-                    document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/648",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/648";
                     document.getElementById('responseTextarea3').value = ''
                     document.getElementById('sendResponse').click()
 
@@ -4035,31 +3739,7 @@ $('.sdbtn').click(function () {
                     setTimeout(getprsup, 5000);
                     setTimeout(getslacklnk, 8000);
 
-                } else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtechconv').textContent) {
-                    console.log("Техническое обсуждение: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-                    document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/645",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/645";
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(getprsup, 5000);
-                    setTimeout(getslacklnk, 8000);
-
-                }
+                } 
                 else console.log("Not found");
             }
         } else {

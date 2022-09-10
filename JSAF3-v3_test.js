@@ -1524,15 +1524,9 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="billbtn" id="billwidgetpayment">Виджет оплаты</button>
 					<button class="billbtn" id="billpay">Оплата</button>
 					<button class="billbtn" id="billcredit">Рассрочка</button>
-					<button class="billbtn" id="billoferta">Оферты</button>
-					<button class="billbtn" id="billlendings">Лендинги</button>
-					<button class="billbtn" id="billterms">Terms</button>
 					<button class="billbtn" id="billsubscribtions">Подписки</button>
-					<button class="billbtn" id="billbundles">Бандлы</button>
-					<button class="billbtn" id="billtehproblemsprod">Технические проблемы на production</button>
 					<button class="billbtn" id="billroles">Роли и доступы</button>
 					<button class="billbtn" id="billbusanalys">Бизнес-анализ</button>
-					<button class="billbtn" id="billtechconv">Техническое обсуждение</button>
 				</div>
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
@@ -1724,9 +1718,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="billingform" style="display: none; margin-left:20px;">
-					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
-					<br>
-					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
+					<input id="customfield_32" placeholder="ID пользователя" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
 					<br>
 					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<br>
