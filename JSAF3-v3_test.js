@@ -1042,22 +1042,22 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1970" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>
-							<button name="themesbtn" value="1971" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>
-							<button name="themesbtn" value="1972" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>
-							<button name="themesbtn" value="1973" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>
-							<button name="themesbtn" value="1966" style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>
-							<button name="themesbtn" value="1965" style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>
-							<button name="themesbtn" value="1967" style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>
-							<button name="themesbtn" value="1968" style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>
-							<button name="themesbtn" value="1969" style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>
-							<button name="themesbtn" value="1974" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>
-							<button name="themesbtn" value="1975" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>
-							<button name="themesbtn" value="1979" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>
-							<button name="themesbtn" value="1976" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>
-							<button name="themesbtn" value="1977" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>
-							<button name="themesbtn" value="1978" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>
-							<button name="themesbtn" value="1980" style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
+							<button name="themesbtn" value="1970" title="Пользователь оставил пожелания о качестве контента, необходимости добавить/убрать материалы." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>						
+							<button name="themesbtn" value="1971" title="Пользователь оставил пожелания о процессе выставления/начисления/отображения/синхронизации оценки." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>						
+							<button name="themesbtn" value="1972" title="Пользователь оставил пожелания о функционале, синхронизации, отображении словаря." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>						
+							<button name="themesbtn" value="1973" title="Пользователь оставил пожелания о способах выполнения, синхроницации упражнений." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>						
+							<button name="themesbtn" value="1966" title="Пользователь оставил пожелания о функционале, условиях отключения и подключения ОС." style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>						
+							<button name="themesbtn" value="1965" title="Пользователь оставил пожелания о функционале, условиях переноса/отмены уроков." style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>						
+							<button name="themesbtn" value="1967" title="Пользователь оставил пожелания о способах заполнения, сохранения и редактировании данных в указанном разделе." style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>						
+							<button name="themesbtn" value="1968" title="Пользователь оставил пожелания об отображении и функционале на странице "Семья"." style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>						
+							<button name="themesbtn" value="1969" title="Пользователь оставил пожелания о функционале и отображении чата, правилам удаления/добавления/отображения чата." style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>						
+							<button name="themesbtn" value="1974" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>						
+							<button name="themesbtn" value="1975" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>						
+							<button name="themesbtn" value="1979" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>						
+							<button name="themesbtn" value="1976" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>						
+							<button name="themesbtn" value="1977" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>						
+							<button name="themesbtn" value="1978" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>						
+							<button name="themesbtn" value="1980" title="Пожелания, которые невозможно отнести к вышеперечисленным категориям." style="margin-left:2px; width:150px; height: 44px;">Прочее</button>						
 						</div>
 
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
