@@ -946,17 +946,17 @@ var win_Themes =  // описание элементов окна Тематик
 
 						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1632" title="У/П не могут войти в свой ЛК, т.к. нет привязанных данных для входа. Выставление нужных данный." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
+							<button name="themesbtn" value="1629" title="🧭Виджет входа на урок - Отсутствует кнопка" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутстств кноп⁉</button>
 							<button name="themesbtn" value="1635" title="У/П указывают неверные данные для входа, нет ролей, которые дают право на вход." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Даные для входа</button>
+							<button name="themesbtn" value="1630" title="Нет возможности перейти по кнопке входа в урок." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Кнопка не активна🔘</button>
 							<button name="themesbtn" value="1634" title="У/П забыли пароль от своего ЛК, не могут войти. Решение — сброс пароля." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Сброс пароля</button>
 							<button name="themesbtn" value="1631" title="Оказание консультации У/П о том, как можно войти в свой личный кабинет." style="margin-left:2px; width:150px; height: 44px;">🔐Консультация по авторизации</button>
 							<button name="themesbtn" value="1633" title="Не удается войти в ЛКУ/ЛКП, отображается ошибка доступа при входе." style="margin-left:2px; width:150px; height: 44px;">🔐Сбой с авторизацией</button>
 							<button name="themesbtn" value="1627" title="Консультация У о том, как входить в урок при помощи виджета." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">Виджет вх урок - Консульт по вх на урок</button>
-							<button name="themesbtn" value="1629" title="Виджет входа на урок - Отсутствует кнопка" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутстств кноп⁉</button>
-							<button name="themesbtn" value="1628" title="Виджет входа на урок не отображается в ЛКУ по причине того, что У не состоит в группу ГУ или был добавлен слишком поздно." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
-							<button name="themesbtn" value="1626" title="Виджет входа на урок не отображается в ЛКУ по причине того, что У или П в отпуске." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске🏝</button>
-							<button name="themesbtn" value="1624" title="Не отображается виджет входа на урок в ЛК по причине истекшей подписки У" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">Виджет вх урок - Истекла подписка У⏳</button>
-							<button name="themesbtn" value="1630" title="Нет возможности перейти по кнопке входа в урок." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Кнопка не активна🔘</button>
-							<button name="themesbtn" value="1625" title="Виджет входа на урок не отображается в ЛКУ по причине того, что занятие запланировано в другое время." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
+							<button name="themesbtn" value="1628" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У не состоит в группу ГУ или был добавлен слишком поздно." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
+							<button name="themesbtn" value="1626" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У или П в отпуске." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске🏝</button>
+							<button name="themesbtn" value="1624" title="Не отображается виджет входа на урок в ЛК по причине истекшей подписки У" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🧭Виджет вх урок - Истекла подписка У⏳</button>
+							<button name="themesbtn" value="1625" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что занятие запланировано в другое время." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -974,24 +974,24 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1714" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
-							<button name="themesbtn" value="1708" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
-							<button name="themesbtn" value="1713" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
-							<button name="themesbtn" value="1707" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>
-							<button name="themesbtn" value="1715" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>
-							<button name="themesbtn" value="1710" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>
-							<button name="themesbtn" value="1716" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>
-							<button name="themesbtn" value="1711" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>
-							<button name="themesbtn" value="1719" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>
-							<button name="themesbtn" value="1709" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>
-							<button name="themesbtn" value="1712" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>
-							<button name="themesbtn" value="1706" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
-							<button name="themesbtn" value="1718" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>
-							<button name="themesbtn" value="1704" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>
-							<button name="themesbtn" value="1717" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
-							<button name="themesbtn" value="1705" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>
-							<button name="themesbtn" value="1720" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>
-							<button name="themesbtn" value="1721" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
+							<button name="themesbtn" value="1714" title="Не отображается, не загружается чат, проблемы с отображением чата, добавление чата с У или отделом школы." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>						
+							<button name="themesbtn" value="1708" title="Возникает ошибка с работой чата в ЛК (нет чата, некорректная работа)." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>						
+							<button name="themesbtn" value="1713" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>						
+							<button name="themesbtn" value="1707" title="Возникает ошибка отображения, работы в разделе ЛКУ - История занятий/портфолио. Нет пройденных уроков, их аудиозаписей." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>						
+							<button name="themesbtn" value="1715" title="Возникают проблемы с отображением, выставлением информации в разделе." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>						
+							<button name="themesbtn" value="1710" title="Возникает ошибка в редактировании, правке профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>						
+							<button name="themesbtn" value="1716" title="Возникают проблемы с выставлением настроек ЛКП." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>						
+							<button name="themesbtn" value="1711" title="Возникает ошибка в установке настроек пользователем (время, часовой пояс, данные для входа и т.д.)" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>						
+							<button name="themesbtn" value="1719" title="Ошибка в отображении информации, отсутствие информации по финансам." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>						
+							<button name="themesbtn" value="1709" title="Нужно совершить действия в уже существующей семье (прикрепить/открепить пользователя), создать семью." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>						
+							<button name="themesbtn" value="1712" title="Возникает ошибка в отображении достижений П, своевременности их появления." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>						
+							<button name="themesbtn" value="1706" title="Неверное отображение данных в ЛКУ в виджете прогресса." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>						
+							<button name="themesbtn" value="1718" title="Отображается ошибка при выставлении перерыва, неверное отображение." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>						
+							<button name="themesbtn" value="1704" title="Возникает ошибка отображения, работы в разделе ЛКУ - Грамматика." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>						
+							<button name="themesbtn" value="1717" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>						
+							<button name="themesbtn" value="1705" title="Возникает ошибка отображения, работы в разделе ЛКУ - Навыки." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>						
+							<button name="themesbtn" value="1720" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>						
+							<button name="themesbtn" value="1721" title="Возникают ошибки в отображении групп У, их формировании, численности и возможности создания урока с ними." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>						
 
 						</div>
 
