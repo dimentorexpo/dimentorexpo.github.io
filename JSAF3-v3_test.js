@@ -13061,7 +13061,8 @@ btnsid.onclick = async function () { // копирует в буфер логи�
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
 
         }, 1000)
-
+        document.getElementById('sidcode').style.background = 'coral'
+        setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
