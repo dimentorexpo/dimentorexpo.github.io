@@ -317,7 +317,6 @@ function mystyles() {
 			font-weight:700;
 		}
 
-
 		.hyperlnk {
 			height:0px;
 			opacity:0;
@@ -337,13 +336,13 @@ function mystyles() {
 		font-size: 16px;
 		transition: all 0.5s ease;
 		}
-		
+
 		.sugops:hover {
 			font-size:18px;
 			color: SteelBlue;
 			font-weight: 600;
 		}
-		
+
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
@@ -352,7 +351,7 @@ function mystyles() {
 			background:lightgrey;
 			cursor:wait;
 		}
-		
+
 		.otherfieldon{
 			text-align: center;
 			width: 400px;
@@ -640,13 +639,13 @@ var win_refusefrom =  // описание элементов окна отказ
         </span>
 </div>`;
 
-var win_taskform  = //описание формы создания задач в СРМ2
+var win_taskform = //описание формы создания задач в СРМ2
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 410px;" id="create_form_header">
                             <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
-                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button>
 							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
 							<span style="color:bisque">Статус урока: </span>
 							<span id="statusuroka"></span>
@@ -661,7 +660,7 @@ var win_taskform  = //описание формы создания задач в
 							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
-						
+
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
                             <input disabled="" required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
 							<br>
@@ -681,7 +680,7 @@ var win_taskform  = //описание формы создания задач в
 								<option value="teachers_support" style="background: white">Teachers Support</option>
 								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
 							</select>
-							
+
 							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
 							<br>
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
@@ -860,7 +859,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 								<span style="color:bisque">Token Status: </span>
 								<span id="searchjiratknstatus"></span>
                         </div>
-						
+
 						<div id="control_jira_search">
 							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
 							<button id="freshQuery">Fresh</button>
@@ -869,7 +868,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 						</div>
-						
+
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
                         </div>
@@ -885,7 +884,7 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
 								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
                         </div>
-						
+
 
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Темы</label>
@@ -902,8 +901,8 @@ var win_Themes =  // описание элементов окна Тематик
 							<button id="feedbacksuggest" style="margin-left:2px; width:150px; height: 44px;">💭Отзывы и пожелания</button>
 							<button id="dblook" style="margin-left:2px; width:150px; height: 44px;">🔎Поиск по БД</button>
 							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутренние запросы, прочее</button>
-						</div>	
-						
+						</div>
+
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Теги</label>
 							<br>
@@ -924,11 +923,11 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="tagssbtn" value="server_issues" style="margin-left:2px; width:150px; height: 25px;">Серверные</button>
 							<button name="tagssbtn" value="request_forwarded_to_development" style="margin-left:2px; width:150px; height: 25px;">Разработка</button>
 						</div>
-						
+
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1589" style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
 							<button name="themesbtn" value="1582" style="margin-left:2px; width:150px; height: 44px;">🛡Корп сеть/ус-во</button>
-							<button name="themesbtn" value="1583" style="margin-left:2px; width:150px; height: 44px;">🥏ОС/Браузер</button>	
+							<button name="themesbtn" value="1583" style="margin-left:2px; width:150px; height: 44px;">🥏ОС/Браузер</button>
 							<button name="themesbtn" value="1586" style="margin-left:2px; width:150px; height: 44px;">💻ПК</button>
 							<button name="themesbtn" value="1584" style="margin-left:2px; width:150px; height: 44px;">🎧Гарнитура</button>
 							<button name="themesbtn" value="1585" style="margin-left:2px; width:150px; height: 44px;">📸Камера</button>
@@ -942,8 +941,8 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1587" style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
 							<button name="themesbtn" value="1588" style="margin-left:2px; width:150px; height: 44px;">Хар-ки 💻устр 🔽мин</button>
 							<button name="themesbtn" value="1581" style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
-						</div> 
-						
+						</div>
+
 						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1632" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
 							<button name="themesbtn" value="1635" style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Даные для входа</button>
@@ -972,29 +971,29 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1769" style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>
 							<button name="themesbtn" value="1774" style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>
 						</div>
-						
+
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1714" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
 							<button name="themesbtn" value="1708" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
 							<button name="themesbtn" value="1713" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
-							<button name="themesbtn" value="1707" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>	
-							<button name="themesbtn" value="1715" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>							
+							<button name="themesbtn" value="1707" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>
+							<button name="themesbtn" value="1715" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>
 							<button name="themesbtn" value="1710" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>
-							<button name="themesbtn" value="1716" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>							
+							<button name="themesbtn" value="1716" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>
 							<button name="themesbtn" value="1711" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>
 							<button name="themesbtn" value="1719" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>
-							<button name="themesbtn" value="1709" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>	
+							<button name="themesbtn" value="1709" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>
 							<button name="themesbtn" value="1712" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>
 							<button name="themesbtn" value="1706" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
-							<button name="themesbtn" value="1718" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>							
-							<button name="themesbtn" value="1704" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>							
+							<button name="themesbtn" value="1718" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>
+							<button name="themesbtn" value="1704" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>
 							<button name="themesbtn" value="1717" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
-							<button name="themesbtn" value="1705" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>							
-							<button name="themesbtn" value="1720" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>	
+							<button name="themesbtn" value="1705" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>
+							<button name="themesbtn" value="1720" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>
 							<button name="themesbtn" value="1721" style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
 
 						</div>
-						
+
 						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1744" style="margin-left:2px; width:150px; height: 44px;">📝Контент</button>
 							<button name="themesbtn" value="1745" style="margin-left:2px; width:150px; height: 44px;">🔟Оценка</button>
@@ -1010,7 +1009,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1661" style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>
 							<button name="themesbtn" value="1662" style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>
 						</div>
-						
+
 						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1804" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
 							<button name="themesbtn" value="1805" style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>
@@ -1020,7 +1019,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1809" style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>
 							<button name="themesbtn" value="1810" style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
 						</div>
-						
+
 						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1833" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
 							<button name="themesbtn" value="1836" style="margin-left:2px; width:150px; height: 44px;">📅Виджет расписания</button>
@@ -1040,7 +1039,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1879" style="margin-left:2px; width:150px; height: 44px;">📆Расписание</button>
 							<button name="themesbtn" value="1882" style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
 						</div>
-						
+
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1970" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>
 							<button name="themesbtn" value="1971" style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>
@@ -1059,7 +1058,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="1978" style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>
 							<button name="themesbtn" value="1980" style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
 						</div>
-						
+
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="2018" style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Оператор🧐</button>
 							<button name="themesbtn" value="2017" style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Система🤖</button>
@@ -1071,7 +1070,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="themesbtn" value="2030" style="margin-left:2px; width:150px; height: 44px;">❓Slack - Проблемы со входом</button>
 							<button name="themesbtn" value="2034" style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
 						</div>
-						
+
                 </span>
         </span>
 </div>`;
@@ -2579,8 +2578,8 @@ menubar.id = 'idmymenu'
 butmenu.onclick = () => { // кнопка открытия Меню
     if (menubar.style.display == 'none') {
         menubar.style.display = ''
-		let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
-		menubar.style.left = xvarmenu + 'px';
+        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
+        menubar.style.left = xvarmenu + 'px';
         if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
             document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function (event) {
                 var e = document.getElementById('idmymenu');
@@ -2658,305 +2657,305 @@ maskBackHide.onclick = function () { // кнопка скрыть
         }
 }
 
-taskBut.onclick = function() { // функция открытия окна для работы с созданием задач на СРМ
-	let conversid;
-	if (document.getElementById('AF_Createtask').style.display == 'none') {
-		document.getElementById('AF_Createtask').style.display = ''
-		
-			if (document.getElementsByClassName('expert-user_details-list').length >0) {
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
-						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
-							document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
-							document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
-						} else {
-							document.getElementById('statusuroka').innerHTML = "Урок не идет"
-							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
-						}
-			}
-		}
-	}
-	
-	if (location.pathname.length > 17) {
-		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
-		conversid = document.getElementById('chathashlnk').value;
-		
-		fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/click", {
-		  "headers": {
-			"content-type": "application/json",
-		  },
-		  "body": `{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"${conversid}\"}`,
-		  "method": "POST",
-		  "mode": "cors",
-		  "credentials": "include"
-		});
+taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
+    let conversid;
+    if (document.getElementById('AF_Createtask').style.display == 'none') {
+        document.getElementById('AF_Createtask').style.display = ''
 
-	}
-	
-	document.getElementById('refreshhashcreateform').onclick = function() {
-			if (location.pathname.length > 17) {
-		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
-		}
-				
-		if (document.getElementsByClassName('expert-user_details-list').length >0) {
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
-						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
-							document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
-							document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
-						} else {
-							document.getElementById('statusuroka').innerHTML = "Урок не идет"
-							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
-						}
-			}
-		}
-		}
-	}
-	
-	document.getElementById('hideMeCreateForm').onclick = function() {
-		document.getElementById('AF_Createtask').style.display = 'none'
-		
-				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
-				  "headers": {
-					"content-type": "application/json",
-				  },
-				  "body": `{\"conversationId\":\"${conversid}\"}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-	}
-	
-	function changeprioritycolor() {
-		if (document.getElementById('priority').children[1].selected == true)
-			document.getElementById('priority').style ="color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		else if (document.getElementById('priority').children[2].selected == true)
-			document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		else if (document.getElementById('priority').children[3].selected == true)
-			document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		else document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
-	}
-	
-	document.getElementById('priority').onchange = changeprioritycolor;
-	
-	document.getElementById('clearcreateform').onclick = function() {
-        document.getElementById('chathashlnk').style.background = '#cac1b1';
-		document.getElementById('taskcomment').value = '';
-        document.getElementById('taskcomment').style.background = '';
-		document.getElementById('taskserviceid').value = '';
-        document.getElementById('taskserviceid').style.background = '';
-        document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
-		document.getElementById('taskuserid').value = '';
-        document.getElementById('taskuserid').style.background = '';
-		document.getElementById('priority').children[0].selected = true
-		document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
-        document.getElementById('customerservice').children[0].selected = true
-		document.getElementById('customerservice').style.background = '';		
-	}
-
-	document.getElementById('critteachertostudent').onclick = function() {
-		document.getElementById('priority').children[3].selected = true;
-		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[1].selected = true;
-		
-				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-						document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
-						document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-				}
-			}
-			
-			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
-		}
-
-		document.getElementById('critstudenttoteacher').onclick = function() {
-		document.getElementById('priority').children[3].selected = true;
-		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[1].selected = true;
-		
-		let services;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
-            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
-        }
-		}
-
-		if (services.length == 1) {
-			document.getElementById('taskserviceid').value = services[0].replace('service-','')
-		} else {
-			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
-			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
-		}
-			
-			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
-		}
-	
-	
-	document.getElementById('critstudent').onclick = function() {
-		document.getElementById('priority').children[3].selected = true;
-		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[1].selected = true;
-		let services;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
-            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
-        }
-		}
-
-		if (services.length == 1) {
-			document.getElementById('taskserviceid').value = services[0].replace('service-','')
-		} else {
-			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
-			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
-		}
-		
-	}
-	
-
-	document.getElementById('highsecondline').onclick = function() {
-		document.getElementById('priority').children[2].selected = true;
-		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[6].selected = true;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-		
-		document.getElementById('taskserviceid').value = '';
-	}
-	
-	
-	document.getElementById('highteachersc').onclick = function() {
-		document.getElementById('priority').children[2].selected = true;
-		document.getElementById('customerservice').children[5].selected = true;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-	}
-	
-	document.getElementById('highteachertc').onclick = function() {
-		document.getElementById('priority').children[2].selected = true;
-		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[2].selected = true;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-	}
-
-    document.getElementById('createtask').onclick = function() {
-		let prioritystate;
-		let csstate;
-		let usluga;
-
-        let taskflagempty = 0;
-
-        if (document.getElementById('chathashlnk').value.length < 3){
-            document.getElementById('chathashlnk').style.background = 'Coral';
-            taskflagempty = 1;
-        } else { document.getElementById('chathashlnk').style.background = '#cac1b1'; }
-
-        if (document.getElementById('priority').value != 'Приоритет'){
-            document.getElementById('priority').style.background = '';
-            for (let i=0; i<document.getElementById('priority').children.length;i++) {
-                if (document.getElementById('priority').children[i].selected == true)
-                    prioritystate = document.getElementById('priority').children[i].value
+        if (document.getElementsByClassName('expert-user_details-list').length > 0) {
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+                        document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+                        document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+                    } else {
+                        document.getElementById('statusuroka').innerHTML = "Урок не идет"
+                        document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+                    }
+                }
             }
-        } else {
-            document.getElementById('priority').style.background = 'Coral';
-            taskflagempty = 1;
         }
 
-        if (document.getElementById('customerservice').value != 'Отдел'){
+        if (location.pathname.length > 17) {
+            document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
+            conversid = document.getElementById('chathashlnk').value;
+
+            fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/click", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": `{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"${conversid}\"}`,
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            });
+
+        }
+
+        document.getElementById('refreshhashcreateform').onclick = function () {
+            if (location.pathname.length > 17) {
+                document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
+            }
+
+            if (document.getElementsByClassName('expert-user_details-list').length > 0) {
+                for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+                            document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+                            document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+                        } else {
+                            document.getElementById('statusuroka').innerHTML = "Урок не идет"
+                            document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+                        }
+                    }
+                }
+            }
+        }
+
+        document.getElementById('hideMeCreateForm').onclick = function () {
+            document.getElementById('AF_Createtask').style.display = 'none'
+
+            fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": `{\"conversationId\":\"${conversid}\"}`,
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            });
+        }
+
+        function changeprioritycolor() {
+            if (document.getElementById('priority').children[1].selected == true)
+                document.getElementById('priority').style = "color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            else if (document.getElementById('priority').children[2].selected == true)
+                document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            else if (document.getElementById('priority').children[3].selected == true)
+                document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            else document.getElementById('priority').style = "color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+        }
+
+        document.getElementById('priority').onchange = changeprioritycolor;
+
+        document.getElementById('clearcreateform').onclick = function () {
+            document.getElementById('chathashlnk').style.background = '#cac1b1';
+            document.getElementById('taskcomment').value = '';
+            document.getElementById('taskcomment').style.background = '';
+            document.getElementById('taskserviceid').value = '';
+            document.getElementById('taskserviceid').style.background = '';
+            document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
+            document.getElementById('taskuserid').value = '';
+            document.getElementById('taskuserid').style.background = '';
+            document.getElementById('priority').children[0].selected = true
+            document.getElementById('priority').style = "color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[0].selected = true
             document.getElementById('customerservice').style.background = '';
-            for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
-                if (document.getElementById('customerservice').children[i].selected == true)
-                    csstate = document.getElementById('customerservice').children[i].value
-            }
-		} else {
-            document.getElementById('customerservice').style.background = 'Coral';
-            taskflagempty = 1;
         }
-        
-        if (document.getElementById('taskserviceid').value.length < 3){
-            if (document.getElementById('priority').value == 'highest'){
-                document.getElementById('taskserviceid').style.background = 'Coral';
+
+        document.getElementById('critteachertostudent').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+                    document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                }
+            }
+
+            document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
+        }
+
+        document.getElementById('critstudenttoteacher').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+
+            let services;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+                    services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+                }
+            }
+
+            if (services.length == 1) {
+                document.getElementById('taskserviceid').value = services[0].replace('service-', '')
+            } else {
+                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
+                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+            }
+
+            document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
+        }
+
+
+        document.getElementById('critstudent').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+            let services;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+                    services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+                }
+            }
+
+            if (services.length == 1) {
+                document.getElementById('taskserviceid').value = services[0].replace('service-', '')
+            } else {
+                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
+                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+            }
+
+        }
+
+
+        document.getElementById('highsecondline').onclick = function () {
+            document.getElementById('priority').children[2].selected = true;
+            document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[6].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            document.getElementById('taskserviceid').value = '';
+        }
+
+
+        document.getElementById('highteachersc').onclick = function () {
+            document.getElementById('priority').children[2].selected = true;
+            document.getElementById('customerservice').children[5].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+        }
+
+        document.getElementById('highteachertc').onclick = function () {
+            document.getElementById('priority').children[2].selected = true;
+            document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[2].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+        }
+
+        document.getElementById('createtask').onclick = function () {
+            let prioritystate;
+            let csstate;
+            let usluga;
+
+            let taskflagempty = 0;
+
+            if (document.getElementById('chathashlnk').value.length < 3) {
+                document.getElementById('chathashlnk').style.background = 'Coral';
                 taskflagempty = 1;
+            } else { document.getElementById('chathashlnk').style.background = '#cac1b1'; }
+
+            if (document.getElementById('priority').value != 'Приоритет') {
+                document.getElementById('priority').style.background = '';
+                for (let i = 0; i < document.getElementById('priority').children.length; i++) {
+                    if (document.getElementById('priority').children[i].selected == true)
+                        prioritystate = document.getElementById('priority').children[i].value
+                }
+            } else {
+                document.getElementById('priority').style.background = 'Coral';
+                taskflagempty = 1;
+            }
+
+            if (document.getElementById('customerservice').value != 'Отдел') {
+                document.getElementById('customerservice').style.background = '';
+                for (let i = 0; i < document.getElementById('customerservice').children.length; i++) {
+                    if (document.getElementById('customerservice').children[i].selected == true)
+                        csstate = document.getElementById('customerservice').children[i].value
+                }
+            } else {
+                document.getElementById('customerservice').style.background = 'Coral';
+                taskflagempty = 1;
+            }
+
+            if (document.getElementById('taskserviceid').value.length < 3) {
+                if (document.getElementById('priority').value == 'highest') {
+                    document.getElementById('taskserviceid').style.background = 'Coral';
+                    taskflagempty = 1;
+                } else {
+                    document.getElementById('taskserviceid').style.background = '';
+                }
             } else {
                 document.getElementById('taskserviceid').style.background = '';
             }
-        } else {
-            document.getElementById('taskserviceid').style.background = '';
+
+            if (document.getElementById('taskuserid').value.length < 3) {
+                document.getElementById('taskuserid').style.background = 'Coral';
+                taskflagempty = 1;
+            } else { document.getElementById('taskuserid').style.background = ''; }
+
+            if (document.getElementById('taskcomment').value.length < 3) {
+                document.getElementById('taskcomment').style.background = 'Coral';
+                taskflagempty = 1;
+            } else { document.getElementById('taskcomment').style.background = ''; }
+
+            if (taskflagempty == 0) {
+
+                if (document.getElementById('taskserviceid').value == '')
+                    usluga = document.getElementById('taskserviceid').value = null;
+                else usluga = document.getElementById('taskserviceid').value
+
+                fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                    "headers": {
+                        "content-type": "application/json",
+                    },
+                    "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n", "\\n")}\"}]}`,
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+
+                document.getElementById('taskcomment').value = '';
+                document.getElementById('taskserviceid').value = '';
+                document.getElementById('taskuserid').value = '';
+                document.getElementById('priority').children[0].selected = true
+                document.getElementById('customerservice').children[0].selected = true
+                document.getElementById('AF_Createtask').style.display = 'none'
+
+            } else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
         }
 
-        if (document.getElementById('taskuserid').value.length < 3){
-            document.getElementById('taskuserid').style.background = 'Coral';
-            taskflagempty = 1;
-        } else { document.getElementById('taskuserid').style.background = ''; }
 
-        if (document.getElementById('taskcomment').value.length < 3){
-            document.getElementById('taskcomment').style.background = 'Coral';
-            taskflagempty = 1;
-        } else { document.getElementById('taskcomment').style.background = ''; }
+    } else {
+        document.getElementById('AF_Createtask').style.display = 'none'
+        conversid = document.getElementById('chathashlnk').value;
+        fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": `{\"conversationId\":\"${conversid}\"}`,
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+    }
 
-        if (taskflagempty == 0){
-
-            if (document.getElementById('taskserviceid').value == '')
-                usluga = document.getElementById('taskserviceid').value = null;
-            else usluga = document.getElementById('taskserviceid').value
-		
-		    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
-			  "headers": {
-				"content-type": "application/json",
-			  },
-			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n",  "\\n")}\"}]}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			});			
-		
-			document.getElementById('taskcomment').value = '';
-			document.getElementById('taskserviceid').value = '';
-			document.getElementById('taskuserid').value = '';
-			document.getElementById('priority').children[0].selected = true
-			document.getElementById('customerservice').children[0].selected = true
-			document.getElementById('AF_Createtask').style.display = 'none'
-			
-		} else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
-	}
-		
-	
-	} else {
-		document.getElementById('AF_Createtask').style.display = 'none'
-				conversid = document.getElementById('chathashlnk').value;
-				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
-				  "headers": {
-					"content-type": "application/json",
-				  },
-				  "body": `{\"conversationId\":\"${conversid}\"}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-		}
-	
 }
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата
@@ -3104,7 +3103,7 @@ var listenerLinks = function (e, a) { // сохранение позиции о�
 };
 
 wintLinks.onmousedown = function (a) { // изменение позиции окна ссылок
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX4 = a.layerX;
         window.myY4 = a.layerY;
         document.addEventListener('mousemove', listenerLinks);
@@ -3120,7 +3119,7 @@ var listenerJira = function (e, a) { // сохранение позиции ок
 };
 
 wintJira.onmousedown = function (a) { // изменение позиции окна поиска по Jira
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX5 = a.layerX;
         window.myY5 = a.layerY;
         document.addEventListener('mousemove', listenerJira);
@@ -3136,7 +3135,7 @@ var listenerStat = function (e, a) { // сохранение позиции ок
 };
 
 wintStat.onmousedown = function (a) { // изменение позиции окна работы со статистикой
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX6 = a.layerX;
         window.myY6 = a.layerY;
         document.addEventListener('mousemove', listenerStat);
@@ -3152,7 +3151,7 @@ var listenerServices = function (e, a) { // сохранение позиции 
 };
 
 wintServices.onmousedown = function (a) {
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX7 = a.layerX;
         window.myY7 = a.layerY;
         document.addEventListener('mousemove', listenerServices); // изменение позиции вензель user info
@@ -3168,7 +3167,7 @@ var listenerLessonStatus = function (e, a) { // сохранение позиц�
 };
 
 wintLessonStatus.onmousedown = function (a) { // изменение позиции окна статус урока
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX8 = a.layerX;
         window.myY8 = a.layerY;
         document.addEventListener('mousemove', listenerLessonStatus);
@@ -3184,7 +3183,7 @@ var listenerLinksd = function (e, a) { // сохранение позиции о
 };
 
 wintLinksd.onmousedown = function (a) { // изменение позиции окна доступов
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX9 = a.layerX;
         window.myY9 = a.layerY;
         document.addEventListener('mousemove', listenerLinksd);
@@ -3200,7 +3199,7 @@ var listenerTimetable = function (e, a) { // сохранение позиции
 };
 
 wintTimetable.onmousedown = function (a) { // изменение позиции окна предстоящих и прошедших занятиях
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX10 = a.layerX;
         window.myY10 = a.layerY;
         document.addEventListener('mousemove', listenerTimetable);
@@ -3216,7 +3215,7 @@ var listenerTechSummary = function (e, a) { // сохранение позици
 };
 
 wintTechSummary.onmousedown = function (a) { // изменение позиции окна инфо об устройстве пользователя
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX11 = a.layerX;
         window.myY11 = a.layerY;
         document.addEventListener('mousemove', listenerTechSummary);
@@ -3232,7 +3231,7 @@ var listenerServDsk = function (e, a) { // сохранение позиции �
 };
 
 wintServDsk.onmousedown = function (a) { // изменение позиции окна ServiceDesk
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX12 = a.layerX;
         window.myY12 = a.layerY;
         document.addEventListener('mousemove', listenerServDsk);
@@ -3248,7 +3247,7 @@ var listenerGrList = function (e, a) { // сохранение позиции о
 };
 
 wintGrList.onmousedown = function (a) { // изменение позиции окна Список группы
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX13 = a.layerX;
         window.myY13 = a.layerY;
         document.addEventListener('mousemove', listenerGrList);
@@ -3264,7 +3263,7 @@ var listenerMarks = function (e, a) { // сохранение позиции о�
 };
 
 wintMarks.onmousedown = function (a) { // изменение позиции окна поиска оценок от пользователя
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX14 = a.layerX;
         window.myY14 = a.layerY;
         document.addEventListener('mousemove', listenerMarks);
@@ -3280,7 +3279,7 @@ var listenerSugform = function (e, a) { // сохранение позиции �
 };
 
 wintSugform.onmousedown = function (a) { // изменение позиции окна предложения
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX15 = a.layerX;
         window.myY15 = a.layerY;
         document.addEventListener('mousemove', listenerSugform);
@@ -3296,7 +3295,7 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
 };
 
 wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listenerRefuseForm);
@@ -3314,7 +3313,7 @@ var listenerTaskCreate = function (e, a) { // сохранение позици�
 };
 
 wintCreateTask.onmousedown = function (a) {
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX17 = a.layerX;
         window.myY17 = a.layerY;
         document.addEventListener('mousemove', listenerTaskCreate);
@@ -3323,7 +3322,7 @@ wintCreateTask.onmousedown = function (a) {
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
 
 
-var listenerThemes= function (e, a) { // сохранение позиции окна Тематик
+var listenerThemes = function (e, a) { // сохранение позиции окна Тематик
     wintThemes.style.left = Number(e.clientX - myX18) + "px";
     wintThemes.style.top = Number(e.clientY - myY18) + "px";
     localStorage.setItem('winTopThemes', String(Number(e.clientY - myY18)));
@@ -3331,7 +3330,7 @@ var listenerThemes= function (e, a) { // сохранение позиции о�
 };
 
 wintThemes.onmousedown = function (a) {
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX18 = a.layerX;
         window.myY18 = a.layerY;
         document.addEventListener('mousemove', listenerThemes);
@@ -3341,10 +3340,10 @@ wintThemes.onmouseup = function () { document.removeEventListener('mousemove', l
 
 
 
-function checkelementtype (a){ // проверка на какой элемент нажали
-    let elem = document.elementFromPoint(a.clientX,a.clientY)
-    
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT'){
+function checkelementtype(a) { // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX, a.clientY)
+
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT') {
         return true;
     }
     return false;
@@ -3352,61 +3351,61 @@ function checkelementtype (a){ // проверка на какой элемен�
 
 // Модуль скрытия окон по двойному клику
 document.getElementById('AF_Links').ondblclick = function (a) { // скрытие окна ссылок по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Links').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Links').style.display = 'none'; }
 }
 document.getElementById('AF_Linksd').ondblclick = function (a) { // скрытие окна доступов по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Linksd').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Linksd').style.display = 'none'; }
 }
 document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие окна Jira по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Jira').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Jira').style.display = 'none'; }
 }
 document.getElementById('AF_GrList').ondblclick = function (a) { // скрытие окна Список группы по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_GrList').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_GrList').style.display = 'none'; }
 }
 document.getElementById('AF_Timetable').ondblclick = function (a) { // скрытие окна предстоящих и прошедших занятиях по двойному клику
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         document.getElementById('AF_Timetable').style.display = 'none';
         document.getElementById('timetabledata').innerHTML = "";
     }
 }
 document.getElementById('AF_TechSummary').ondblclick = function (a) { // скрытие окна инфо об устройстве пользователя по двойному клику
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         document.getElementById('AF_TechSummary').style.display = 'none';
         document.getElementById('techsumdata').innerHTML = "";
     }
 }
 document.getElementById('AF_Stat').ondblclick = function (a) { // скрытие окна работы со статистикой
-    if (checkelementtype(a)){document.getElementById('AF_Stat').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Stat').style.display = 'none'; }
 }
 document.getElementById('AF_Sugform').ondblclick = function (a) { // скрытие окна окна предложений по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Sugform').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Sugform').style.display = 'none'; }
 }
 document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Refuseformnew').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Refuseformnew').style.display = 'none'; }
 }
 document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Marks').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Marks').style.display = 'none'; }
 }
 document.getElementById('servicehead').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Service').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Service').style.display = 'none'; }
 }
 document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_LessonStatus').style.display = 'none'; }
 }
 document.getElementById('AF_Createtask').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
-    if (checkelementtype(a)){document.getElementById('hideMeCreateForm').click();}
+    if (checkelementtype(a)) { document.getElementById('hideMeCreateForm').click(); }
 }
 document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
-    if (checkelementtype(a)){document.getElementById('hideMeSrvDsk').click();}
+    if (checkelementtype(a)) { document.getElementById('hideMeSrvDsk').click(); }
 }
 document.getElementById('AF_Themes').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
-    if (checkelementtype(a)){document.getElementById('hideMeThemes').click();}
+    if (checkelementtype(a)) { document.getElementById('hideMeThemes').click(); }
 }
 // Конец модуля скрытия окон по двойному клику
 
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
-    if (checkelementtype(a)){
-        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
+    if (checkelementtype(a)) {
+        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
             localStorage.setItem('Hidetestid', '0');
@@ -3445,7 +3444,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_helper').style.display = 'none';
     }
 
-    var listenerAF = function (e, a) { // сохранение позиции главного окна 
+    var listenerAF = function (e, a) { // сохранение позиции главного окна
         wintAF.style.left = Number(e.clientX - myX2) + "px";
         wintAF.style.top = Number(e.clientY - myY2) + "px";
         localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
@@ -3453,7 +3452,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     };
 
     wintAF.onmousedown = function (a) { // изменение позиции главного окна
-        if (checkelementtype(a)){
+        if (checkelementtype(a)) {
             window.myX2 = a.layerX;
             window.myY2 = a.layerY;
             document.addEventListener('mousemove', listenerAF);
@@ -5416,9 +5415,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.sdbtn').not(this).removeClass('activebtnsd');
                 $(this).toggleClass('activebtnsd');
             });
-			
-			function remres(a) {
-				$('.kidsbtn').not(a).removeClass('activebtn');
+
+            function remres(a) {
+                $('.kidsbtn').not(a).removeClass('activebtn');
                 $('.edumodbtn').not(a).removeClass('activebtn');
                 $('.bilqabtn').not(a).removeClass('activebtn');
                 $('.teacbtn').not(a).removeClass('activebtn');
@@ -5443,103 +5442,103 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.marketprojbugsbtn').not(a).removeClass('activebtn');
                 $('.infrabtn').not(a).removeClass('activebtn');
                 $(a).toggleClass('activebtn');
-			}
-			
+            }
+
             $('.teacbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.kidsbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.edumodbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.bilqabtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.c1sbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.schdbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.telepbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.authbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.crm2sbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.mrktbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.billbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.vimbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.vimvidsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.studcabbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.chatqabtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.tripwbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.analystbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.corpbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.marketingbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.mobbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.academymobbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.stcabmbsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.marketprojbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
 
             });
 
             $('.infrabtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
 
             });
 
@@ -5653,18 +5652,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             lngbtnonoff.onclick = function () {
 
                 if (!lngbtnonoff.checked) {
-					document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
                     flaglng = 0;
                     localStorage.setItem('disablelngpmwindow', flaglng)
                 } else {   // поставить checked, если он не установлен
-					document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
                     flaglng = 1;
                     localStorage.setItem('disablelngpmwindow', flaglng)
                 }
             }
 
             if (localStorage.getItem('disablelngpmwindow') == 1) {
-				document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
                 lngbtnonoff.checked = true;
             } else {
                 lngbtnonoff.checked = false;
@@ -5723,193 +5722,193 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Linksd').style.display = ''
     }
 
-	document.getElementById('themes').onclick = function() {
-			if (document.getElementById('AF_Themes').style.display == '')
-				document.getElementById('AF_Themes').style.display = 'none'
-			else
-				document.getElementById('AF_Themes').style.display = ''
-			
-			for (let i=0; i<document.getElementsByName('themesbtn').length;i++) {
-				document.getElementsByName('themesbtn')[i].onclick = function() {
-					newTag(this.value)
-				}
-			}
-			
-			for (let j=0; j< document.getElementsByName('tagssbtn').length; j++) {
-				document.getElementsByName('tagssbtn')[j].onclick = function() {
-					newTaggg(this.value)
-				}
-			}
-			
-			
-			document.getElementById('vimcall').onclick = function() {
-				document.getElementById('svyazissues').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('svyazissues').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}	
+    document.getElementById('themes').onclick = function () {
+        if (document.getElementById('AF_Themes').style.display == '')
+            document.getElementById('AF_Themes').style.display = 'none'
+        else
+            document.getElementById('AF_Themes').style.display = ''
 
-			document.getElementById('enterlesson').onclick = function() {
-				document.getElementById('vhodurok').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('vhodurok').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}		
+        for (let i = 0; i < document.getElementsByName('themesbtn').length; i++) {
+            document.getElementsByName('themesbtn')[i].onclick = function () {
+                newTag(this.value)
+            }
+        }
 
-			document.getElementById('lessonfunc').onclick = function() {
-				document.getElementById('funcurok').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('funcurok').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}			
-			
-			document.getElementById('perscab').onclick = function() {
-				document.getElementById('cabusr').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('cabusr').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}	
+        for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
+            document.getElementsByName('tagssbtn')[j].onclick = function () {
+                newTaggg(this.value)
+            }
+        }
 
-			document.getElementById('userhomework').onclick = function() {
-				document.getElementById('HWvim').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('HWvim').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}		
 
-			document.getElementById('payments').onclick = function() {
-				document.getElementById('paymn').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('paymn').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}	
-			
-			document.getElementById('skyengapp').onclick = function() {
-				document.getElementById('skyengpril').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('skyengpril').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}	
+        document.getElementById('vimcall').onclick = function () {
+            document.getElementById('svyazissues').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
 
-			document.getElementById('teachersapp').onclick = function() {
-				document.getElementById('teacherpril').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('teacherpril').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}			
-			
-			document.getElementById('parentsapp').onclick = function() {
-				document.getElementById('skysmartrodpril').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('skysmartrodpril').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}		
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('svyazissues').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
 
-			document.getElementById('feedbacksuggest').onclick = function() {
-				document.getElementById('feedbackpog').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('feedbackpog').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}	
+        document.getElementById('enterlesson').onclick = function () {
+            document.getElementById('vhodurok').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
 
-			document.getElementById('dblook').onclick = function() {
-				document.getElementById('poiskbd').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('poiskbd').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}	
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('vhodurok').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
 
-			document.getElementById('innerissue').onclick = function() {
-				document.getElementById('vnutrzapr').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('vnutrzapr').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}	
-	}
+        document.getElementById('lessonfunc').onclick = function () {
+            document.getElementById('funcurok').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('funcurok').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('perscab').onclick = function () {
+            document.getElementById('cabusr').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('cabusr').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('userhomework').onclick = function () {
+            document.getElementById('HWvim').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('HWvim').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('payments').onclick = function () {
+            document.getElementById('paymn').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('paymn').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('skyengapp').onclick = function () {
+            document.getElementById('skyengpril').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('skyengpril').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('teachersapp').onclick = function () {
+            document.getElementById('teacherpril').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('teacherpril').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('parentsapp').onclick = function () {
+            document.getElementById('skysmartrodpril').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('skysmartrodpril').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('feedbacksuggest').onclick = function () {
+            document.getElementById('feedbackpog').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('feedbackpog').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('dblook').onclick = function () {
+            document.getElementById('poiskbd').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('poiskbd').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('innerissue').onclick = function () {
+            document.getElementById('vnutrzapr').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('vnutrzapr').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+    }
 
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
         if (document.getElementById('AF_Service').style.display == '')
@@ -5924,7 +5923,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
+        document.getElementById('idmymenu').style.display = 'none'
 
         changeviewtheme()
 
@@ -6493,7 +6492,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenu').style.display = 'none'
 
             let topiclisttgcls = document.getElementsByName('topicofsuggest')
 
@@ -6599,90 +6598,90 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }
     }
-	
-document.getElementById('JiraOpenForm').onclick = function() { // открывает поле для работой с JIRA поиском
-	    if (document.getElementById('AF_Jira').style.display == 'none') {
+
+    document.getElementById('JiraOpenForm').onclick = function () { // открывает поле для работой с JIRA поиском
+        if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
-			
-			let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
-			document.getElementById('JQLquery').innerText = defqueryitem;
-			let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
-			let customquery = '';
-			
-			let jiratkn;
-			
-			async function checkJiraToken() {
-				document.getElementById('responseTextarea1').value = '{}'
-				document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-				document.getElementById('responseTextarea3').value = 'getjiratoken'
-				document.getElementById('sendResponse').click()
 
-				setTimeout(async function () {
+            let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+            document.getElementById('JQLquery').innerText = defqueryitem;
+            let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+            let customquery = '';
 
-					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-					document.getElementById('responseTextarea3').value = 'getjiratoken'
-					document.getElementById('sendResponse').click()
+            let jiratkn;
 
-					jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-					if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
-						jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
-						document.getElementById('searchjiratknstatus').innerText = "🟢"
-					} else {
-						alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
-						document.getElementById('searchjiratknstatus').innerText = "🔴"
-					}
-					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-					console.log("TOKEN: " + jiratkn);
-				}, 5000)
-			}
-			
-			checkJiraToken()
-			
-	document.getElementById('ClearJiraData').onclick = function() {
-		document.getElementById('testJira').value = '';
-		document.getElementById('issuetable').innerText = ''
-	}
-				 
-	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
-	
-	
-	document.getElementById('defaultQuery').onclick = function()  {
-		defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
-		document.getElementById('JQLquery').value = defqueryitem;
-		this.classList.toggle('active-query')
-		document.getElementById('freshQuery').classList.remove('active-query')
-		document.getElementById('customQuery').classList.remove('active-query')
-	}
-	
-	document.getElementById('freshQuery').onclick = function()  {
-		frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
-		document.getElementById('JQLquery').value = frqueryitem;
-		this.classList.toggle('active-query')
-		document.getElementById('defaultQuery').classList.remove('active-query')
-		document.getElementById('customQuery').classList.remove('active-query')
-	}
-	
-	document.getElementById('customQuery').onclick = function()  {
-		document.getElementById('JQLquery').oninput = function() {
-			localStorage.setItem('customquery', this.value)
-		}
-		document.getElementById('JQLquery').value = localStorage.getItem('customquery');
-		this.classList.toggle('active-query')
-		document.getElementById('freshQuery').classList.remove('active-query')
-		document.getElementById('defaultQuery').classList.remove('active-query')
-	}
-			
-	document.getElementById('getJiraTasks').onclick = function () {
-		
-			  let rezissuetable;
-			  
-		if (document.getElementById('defaultQuery').classList.contains('active-query')) {	
-			defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
-			document.getElementById('JQLquery').value = defqueryitem;
-			defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
-			
-			 document.getElementById('responseTextarea1').value = `{
+            async function checkJiraToken() {
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+                document.getElementById('responseTextarea3').value = 'getjiratoken'
+                document.getElementById('sendResponse').click()
+
+                setTimeout(async function () {
+
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+                    document.getElementById('responseTextarea3').value = 'getjiratoken'
+                    document.getElementById('sendResponse').click()
+
+                    jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+                    if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
+                        jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+                        document.getElementById('searchjiratknstatus').innerText = "🟢"
+                    } else {
+                        alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+                        document.getElementById('searchjiratknstatus').innerText = "🔴"
+                    }
+                    document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+                    console.log("TOKEN: " + jiratkn);
+                }, 5000)
+            }
+
+            checkJiraToken()
+
+            document.getElementById('ClearJiraData').onclick = function () {
+                document.getElementById('testJira').value = '';
+                document.getElementById('issuetable').innerText = ''
+            }
+
+            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
+
+
+            document.getElementById('defaultQuery').onclick = function () {
+                defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+                document.getElementById('JQLquery').value = defqueryitem;
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+            }
+
+            document.getElementById('freshQuery').onclick = function () {
+                frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                document.getElementById('JQLquery').value = frqueryitem;
+                this.classList.toggle('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+            }
+
+            document.getElementById('customQuery').onclick = function () {
+                document.getElementById('JQLquery').oninput = function () {
+                    localStorage.setItem('customquery', this.value)
+                }
+                document.getElementById('JQLquery').value = localStorage.getItem('customquery');
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+            }
+
+            document.getElementById('getJiraTasks').onclick = function () {
+
+                let rezissuetable;
+
+                if (document.getElementById('defaultQuery').classList.contains('active-query')) {
+                    defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+                    document.getElementById('JQLquery').value = defqueryitem;
+                    defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+
+                    document.getElementById('responseTextarea1').value = `{
                      "headers": {
                         "__amdmodulename": "jira/issue/utils/xsrf-token-header",
                        "accept": "*/*",
@@ -6696,13 +6695,13 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                      "mode": "cors",
                      "credentials": "include"
                }`
-			
-		} else if (document.getElementById('freshQuery').classList.contains('active-query')) {
-			frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
-			document.getElementById('JQLquery').value = frqueryitem;
-			frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
-			
-			document.getElementById('responseTextarea1').value = `{
+
+                } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
+                    frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                    document.getElementById('JQLquery').value = frqueryitem;
+                    frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+
+                    document.getElementById('responseTextarea1').value = `{
                      "headers": {
                         "__amdmodulename": "jira/issue/utils/xsrf-token-header",
                        "accept": "*/*",
@@ -6716,11 +6715,11 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                      "mode": "cors",
                      "credentials": "include"
                }`
-		} else if (document.getElementById('customQuery').classList.contains('active-query')) {
-			customquery = `${localStorage.getItem('customquery')}`
-			document.getElementById('JQLquery').value = customquery
-			customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>','%3E').replaceAll('"','%22').replaceAll('<','%3C')
-						document.getElementById('responseTextarea1').value = `{
+                } else if (document.getElementById('customQuery').classList.contains('active-query')) {
+                    customquery = `${localStorage.getItem('customquery')}`
+                    document.getElementById('JQLquery').value = customquery
+                    customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+                    document.getElementById('responseTextarea1').value = `{
                      "headers": {
                         "__amdmodulename": "jira/issue/utils/xsrf-token-header",
                        "accept": "*/*",
@@ -6734,103 +6733,103 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                      "mode": "cors",
                      "credentials": "include"
                }`
-		}
-
-
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-        document.getElementById('responseTextarea3').value = 'getissuetable'
-        document.getElementById('sendResponse').click()
-
-        async function getJiraTask() {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-            document.getElementById('responseTextarea3').value = ''
-            document.getElementById('sendResponse').click()
-
-            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-            rezissuetable = await rezissuetable;
-            if (rezissuetable == null)
-                setTimeout(getJiraTask, 1000)
-            else {
-                //   rezissuetable = JSON.parse(rezissuetable)
-                document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-
-                let issues = [];
-				let temporarka;
-                if (rezissuetable.issueTable.issueKeys.length > 50)
-                    rezissuetable.issueTable.issueKeys.length = 50;
-                for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
-
-                    if (rezissuetable.issueTable.issueKeys[i] != undefined) {
-						
-						if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) !=-1) {
-							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(new RegExp(document.getElementById('testJira').value,'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
-						} else {
-							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ')
-						}
-								
-
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' '  + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-
-                    }
-
                 }
 
-                document.getElementById('issuetable').innerHTML = issues;
 
-                let barray = document.querySelectorAll('.jiraissues');
-                for (let j = 0; j < barray.length; j++) {
-                    barray[j].onclick = function () {
-                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
-                        let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                            "headers": {
-                                "accept": "*/*",
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                    }
-                }
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+                document.getElementById('responseTextarea3').value = 'getissuetable'
+                document.getElementById('sendResponse').click()
 
-                let refreshissuesarr = document.querySelectorAll('.refreshissues');
-                for (let f = 0; f < refreshissuesarr.length; f++) {
-                    refreshissuesarr[f].onclick = function () {
+                async function getJiraTask() {
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
 
-                        document.getElementById('responseTextarea1').value = '{}'
-                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                        document.getElementById('responseTextarea3').value = 'reportscount'
-                        document.getElementById('sendResponse').click()
+                    rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+                    rezissuetable = await rezissuetable;
+                    if (rezissuetable == null)
+                        setTimeout(getJiraTask, 1000)
+                    else {
+                        //   rezissuetable = JSON.parse(rezissuetable)
+                        document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 
-                        let count;
-                        let jira_token;
-                        let increasedcount;
-                        setTimeout(async function () {
-                            document.getElementById('responseTextarea1').value = '{}'
-                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                            document.getElementById('responseTextarea3').value = 'reportscount'
-                            document.getElementById('sendResponse').click()
+                        let issues = [];
+                        let temporarka;
+                        if (rezissuetable.issueTable.issueKeys.length > 50)
+                            rezissuetable.issueTable.issueKeys.length = 50;
+                        for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
-                            let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
-                            repcount = await repcount;
-                            jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-                            document.getElementById('responseTextarea1').removeAttribute('reportscount')
+                            if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 
-                            count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-                            count = parseInt(count);
-                            increasedcount = count + 1;
-                            increasedcount = increasedcount.toString();
-                            console.log("count=" + count + " increasedcount " + increasedcount);
+                                if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) != -1) {
+                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').replace(new RegExp(document.getElementById('testJira').value, 'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
+                                } else {
+                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ')
+                                }
 
-                            setTimeout(function () {
 
-                                document.getElementById('responseTextarea1').value = `{
+                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+
+                            }
+
+                        }
+
+                        document.getElementById('issuetable').innerHTML = issues;
+
+                        let barray = document.querySelectorAll('.jiraissues');
+                        for (let j = 0; j < barray.length; j++) {
+                            barray[j].onclick = function () {
+                                sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
+                                let b = document.URL.split('/')
+                                fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                    "headers": {
+                                        "accept": "*/*",
+                                        "content-type": "application/json",
+                                        "sec-fetch-dest": "empty",
+                                        "sec-fetch-mode": "cors",
+                                        "sec-fetch-site": "same-origin"
+                                    },
+                                    "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
+                                    "method": "POST",
+                                    "mode": "cors",
+                                    "credentials": "include"
+                                })
+                            }
+                        }
+
+                        let refreshissuesarr = document.querySelectorAll('.refreshissues');
+                        for (let f = 0; f < refreshissuesarr.length; f++) {
+                            refreshissuesarr[f].onclick = function () {
+
+                                document.getElementById('responseTextarea1').value = '{}'
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                                document.getElementById('responseTextarea3').value = 'reportscount'
+                                document.getElementById('sendResponse').click()
+
+                                let count;
+                                let jira_token;
+                                let increasedcount;
+                                setTimeout(async function () {
+                                    document.getElementById('responseTextarea1').value = '{}'
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                                    document.getElementById('responseTextarea3').value = 'reportscount'
+                                    document.getElementById('sendResponse').click()
+
+                                    let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+                                    repcount = await repcount;
+                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                    document.getElementById('responseTextarea1').removeAttribute('reportscount')
+
+                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                    count = parseInt(count);
+                                    increasedcount = count + 1;
+                                    increasedcount = increasedcount.toString();
+                                    console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                    setTimeout(function () {
+
+                                        document.getElementById('responseTextarea1').value = `{
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -6843,36 +6842,36 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 						  "mode": "cors",
 						  "credentials": "include"
 							}`
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-                                document.getElementById('responseTextarea3').value = ''
-                                document.getElementById('sendResponse').click()
-                                let newinfocount = document.querySelectorAll('.newcount');
-                                newinfocount[f].innerHTML = increasedcount;
-                                increasedcount = "";
-                            }, 1000);
-                        }, 1000)
+                                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                        document.getElementById('responseTextarea3').value = ''
+                                        document.getElementById('sendResponse').click()
+                                        let newinfocount = document.querySelectorAll('.newcount');
+                                        newinfocount[f].innerHTML = increasedcount;
+                                        increasedcount = "";
+                                    }, 1000);
+                                }, 1000)
+                            }
+                        }
+
+                        console.log(rezissuetable.issueTable.issueKeys);
+                        setTimeout(function () { issues = []; }, 5000)
                     }
+
                 }
 
-                console.log(rezissuetable.issueTable.issueKeys);
-                setTimeout(function () { issues = []; }, 5000)
+                setTimeout(getJiraTask, 1000)
+
             }
-
-        }
-
-        setTimeout(getJiraTask, 1000)
-		
-		}
-		    // Просмотр таски по джира по ее коду и номеру
-    document.getElementById('getJiraTasks').ondblclick = function () {
-        if (document.getElementById('AF_Jira').style.display == 'none') {
-            document.getElementById('AF_Jira').style.display = ''
-        }
+            // Просмотр таски по джира по ее коду и номеру
+            document.getElementById('getJiraTasks').ondblclick = function () {
+                if (document.getElementById('AF_Jira').style.display == 'none') {
+                    document.getElementById('AF_Jira').style.display = ''
+                }
 
 
-        let rezissuetable;
+                let rezissuetable;
 
-        document.getElementById('responseTextarea1').value = `{
+                document.getElementById('responseTextarea1').value = `{
 				  "headers": {
 					"accept": "*/*",
 					"sec-fetch-dest": "empty",
@@ -6885,78 +6884,78 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 				  "mode": "cors",
 				  "credentials": "include"
                }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-        document.getElementById('responseTextarea3').value = 'getissuetable1'
-        document.getElementById('sendResponse').click()
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
+                document.getElementById('responseTextarea3').value = 'getissuetable1'
+                document.getElementById('sendResponse').click()
 
-        async function getJiraTask1() {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-            document.getElementById('responseTextarea3').value = 'getissuetable1'
-            document.getElementById('sendResponse').click()
+                async function getJiraTask1() {
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
+                    document.getElementById('responseTextarea3').value = 'getissuetable1'
+                    document.getElementById('sendResponse').click()
 
 
-            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
-            rezissuetable = await rezissuetable;
-            document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
-            if (rezissuetable != null) {
-                let issues = [];
-                issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
+                    rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+                    rezissuetable = await rezissuetable;
+                    document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
+                    if (rezissuetable != null) {
+                        let issues = [];
+                        issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
 
-                document.getElementById('issuetable').innerHTML = issues;
+                        document.getElementById('issuetable').innerHTML = issues;
 
-                let barray = document.querySelector('.jiraissues');
-                barray.onclick = function () {
-                    sendComment(rezissuetable[0].items[0].url)
-                    let b = document.URL.split('/')
-                    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                        "headers": {
-                            "accept": "*/*",
-                            "content-type": "application/json",
-                            "sec-fetch-dest": "empty",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    })
+                        let barray = document.querySelector('.jiraissues');
+                        barray.onclick = function () {
+                            sendComment(rezissuetable[0].items[0].url)
+                            let b = document.URL.split('/')
+                            fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                "headers": {
+                                    "accept": "*/*",
+                                    "content-type": "application/json",
+                                    "sec-fetch-dest": "empty",
+                                    "sec-fetch-mode": "cors",
+                                    "sec-fetch-site": "same-origin"
+                                },
+                                "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
+                                "method": "POST",
+                                "mode": "cors",
+                                "credentials": "include"
+                            })
+                        }
+
+                        setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+                    }
                 }
 
-                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+                setTimeout(getJiraTask1, 1000)
             }
-        }
 
-        setTimeout(getJiraTask1, 1000)
-    }
+            let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
+            searchJiraByEnter.addEventListener('keydown', event => {
+                if (event.key === "Enter") {
+                    document.querySelector('#getJiraTasks').click()
+                }
+            })
 
-    let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
-    searchJiraByEnter.addEventListener('keydown', event => {
-        if (event.key === "Enter") {
-            document.querySelector('#getJiraTasks').click()
-        }
-    })
+            let searchJiraByEnterInput = document.querySelector('#JQLquery'); //по Enter запускает поиск по Jira
+            searchJiraByEnterInput.addEventListener('keydown', event => {
+                if (event.key === "Enter") {
+                    document.querySelector('#getJiraTasks').click()
+                }
+            })
 
-    let searchJiraByEnterInput = document.querySelector('#JQLquery'); //по Enter запускает поиск по Jira
-    searchJiraByEnterInput.addEventListener('keydown', event => {
-        if (event.key === "Enter") {
-            document.querySelector('#getJiraTasks').click()
-        }
-    })
-			
-			
+
         } else if (document.getElementById('AF_Jira').style.display == '') {
-			document.getElementById('AF_Jira').style.display = 'none'
-		}
-}
+            document.getElementById('AF_Jira').style.display = 'none'
+        }
+    }
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
             document.getElementById('AF_Refuseformnew').style.display = 'none'
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenu').style.display = 'none'
 
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
@@ -7092,7 +7091,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                 else document.getElementById('chatlnk').value = ''
             }
 
-            document.getElementById('clearrefuseform').onclick = () => { 
+            document.getElementById('clearrefuseform').onclick = () => {
                 document.getElementById('chatlnk').style.background = '';
                 document.getElementById('chatlnk').value = '';
                 document.getElementById('userissue').style.background = '';
@@ -7133,42 +7132,42 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 
                 let flagempty = 0;
 
-                if (document.getElementById('chatlnk').value.length < 3){
+                if (document.getElementById('chatlnk').value.length < 3) {
                     document.getElementById('chatlnk').style.backgroundColor = 'Coral';
                     flagempty = 1;
                 } else {
                     document.getElementById('chatlnk').style.backgroundColor = '';
                 }
-                
-                if (document.getElementById('userissue').children[0].selected == true){
-                    document.getElementById('userissue').style.backgroundColor = 'Coral';
-                    flagempty = 1;    
-                    } else {
-                        document.getElementById('userissue').style.backgroundColor = '';
-                    }
 
-                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3){
+                if (document.getElementById('userissue').children[0].selected == true) {
+                    document.getElementById('userissue').style.backgroundColor = 'Coral';
+                    flagempty = 1;
+                } else {
+                    document.getElementById('userissue').style.backgroundColor = '';
+                }
+
+                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3) {
                     document.getElementById('otherproblem').style.backgroundColor = 'Coral';
                     flagempty = 1;
-                    } else {
-                        document.getElementById('otherproblem').style.backgroundColor = '';    
-                    }
+                } else {
+                    document.getElementById('otherproblem').style.backgroundColor = '';
+                }
 
-                if (document.getElementById('howissuesolverd').children[0].selected == true){
+                if (document.getElementById('howissuesolverd').children[0].selected == true) {
                     document.getElementById('howissuesolverd').style.backgroundColor = 'Coral';
-                    flagempty = 1;    
-                    } else {
-                        document.getElementById('howissuesolverd').style.backgroundColor = '';
-                    }
-                
-                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3){
+                    flagempty = 1;
+                } else {
+                    document.getElementById('howissuesolverd').style.backgroundColor = '';
+                }
+
+                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3) {
                     document.getElementById('othersolved').style.backgroundColor = 'Coral';
-                    flagempty = 1;    
+                    flagempty = 1;
                 } else {
                     document.getElementById('othersolved').style.backgroundColor = '';
                 }
 
-                if (flagempty == 0){
+                if (flagempty == 0) {
                     let chatlink = document.getElementById('chatlnk').value
 
                     for (let i = 0; i < document.getElementById('userissue').children.length; i++) {
@@ -7247,7 +7246,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                     document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
                     document.getElementById('otherproblem').value = ''
                     document.getElementById('othersolved').value = ''
-                }                
+                }
             }
         }
     }
@@ -7257,8 +7256,8 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
             document.getElementById('AF_Marks').style.display = 'none'
         else {
             document.getElementById('AF_Marks').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
-					
+            document.getElementById('idmymenu').style.display = 'none'
+
             document.getElementById('findmarksstat').onclick = async function () {
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
@@ -7365,9 +7364,9 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
     document.getElementById('hideMej').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
-    }  
+    }
 
-	document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
+    document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Themes').style.display == '')
             document.getElementById('AF_Themes').style.display = 'none'
     }
@@ -7797,10 +7796,10 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
         //скрывает окна при выбранно опции скрытия КОД
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
-        
-		if (localStorage.getItem('disablelngpmwindow') == 1)
-        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-    
+
+        if (localStorage.getItem('disablelngpmwindow') == 1)
+            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+
         if (localStorage.getItem('disableomelchenkowindow') == 1)
             document.getElementById('main_easy_win').style.display = "none";
 
@@ -7874,7 +7873,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
     loginer.onmousedown = function (a) {
-        if (checkelementtype(a)){
+        if (checkelementtype(a)) {
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenerloginer);
@@ -8363,7 +8362,7 @@ function newTag(valueId) { // функция выставления тега ч�
 function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
-			tempindex = [l];
+            tempindex = [l];
             if (table[l][8] == undefined || table[l][8] == null || table[l][8] == " " || table[l][8] == "") {
                 console.log("Не значения тематики")
             } else {
@@ -8904,8 +8903,8 @@ function startTimer() {
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-				if (typeof buttonmobpas == 'object')
-                btn.appendChild(buttonmobpas)
+                if (typeof buttonmobpas == 'object')
+                    btn.appendChild(buttonmobpas)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
@@ -9435,7 +9434,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
 }
 
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] !=undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
         document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
 }
 
@@ -9556,36 +9555,36 @@ function fillchatbox() { //функция наполнения элемента,
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator != undefined && i.operator.id == operid))
-					if (opername != '') {
-						document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					} else document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на оператора' +  '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на оператора' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status == 'AssignedToOperator' && convdata.messages[i].payload.oid != undefined) {
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-					if (opername != '') {
-						document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName + ' взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					} else {
-						document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Оператор взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					}
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName + ' взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Оператор взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender != undefined && convdata.messages[i].payload.sender != 'timer') {
                     let operid = convdata.messages[i].payload.sender;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-					if (opername != '') {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					} else {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					}
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender == undefined) {
                     let operid = convdata.messages[i].payload.prevOid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-					if (opername != '') {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог вернулся в общую очередь от ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					} else {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог вернулся в общую очередь от оператора' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					}
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог вернулся в общую очередь от ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог вернулся в общую очередь от оператора' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender != undefined && convdata.messages[i].payload.sender == 'timer') {
                     document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог автоматически возвращен в очередь по отсутствию активности оператора' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
@@ -9594,22 +9593,22 @@ function fillchatbox() { //функция наполнения элемента,
                     let operidcls = convdata.messages[i].payload.sender;
                     let opernamecls;
                     opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-					if (opernamecls != '') {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					} else {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					}
+                    if (opernamecls != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) == '') {
                     document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'CreatedByOperator') {
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-					if (opername != '') {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					} else {
-						document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
-					}
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 }
                 break;
 
@@ -9633,11 +9632,11 @@ function fillchatbox() { //функция наполнения элемента,
                     let operidanswcom = convdata.messages[i].operatorId
                     let opernameanswcom;
                     opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
-					if (opernameanswcom != '') {
-						document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>' 
-					}  else {
-						document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + 'Оператор' + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>' 
-					}
+                    if (opernameanswcom != '') {
+                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + 'Оператор' + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                    }
                 } else {
                     document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                 }
@@ -10497,7 +10496,7 @@ async function remandressl() { // функция удаления и сброс�
     function dosetclasswork(subject) {
         fetch(subject + document.URL.split('/')[6], {
             "headers": {
-				"accept": "application/json",
+                "accept": "application/json",
                 "content-type": "application/json",
             },
             "body": "{\"status\":\"classwork\",\"name\":\"\"}",
@@ -11078,15 +11077,15 @@ function timerHideButtons() { //функция добавления скрыти
 }
 
 function requestsRed() { //функция окрашивает в красный цвет, кнопка взять запрос не будет (0) иметь, а любое другое значение
-	if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
-		document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
-			txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-			if (txt != "Взять запрос (0)")
-				document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
-			else
-				document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
-		});
-	}
+    if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
+        document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
+            txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
+            if (txt != "Взять запрос (0)")
+                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
+            else
+                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
+        });
+    }
 }
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
@@ -12141,7 +12140,7 @@ function customTemplates(language = '') { //собственные шаблон�
     };
 
     cstmTmp.onmousedown = function (a) {
-        if (checkelementtype(a)){
+        if (checkelementtype(a)) {
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenercstmTmp);
@@ -12840,9 +12839,9 @@ function prepTp() { //функция подготовки расширения �
         document.getElementById('testUsers').style.display = "none";
     else document.getElementById('testUsers').style.display = ''
 
-	if (localStorage.getItem('disablelngpmwindow') == 1)
-		document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-	else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+    if (localStorage.getItem('disablelngpmwindow') == 1)
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
@@ -12934,7 +12933,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
 
-        if (localStorage.getItem('Hidetestid') == 0){
+        if (localStorage.getItem('Hidetestid') == 0) {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
         }
@@ -12945,17 +12944,17 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-			btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
-			btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[8])
-			btnAdd1.insertBefore(butThemes, btnAdd1.children[9])
-			btnAdd1.insertBefore(taskBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[8])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[9])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[10])
         }, 2000)
- 
+
         setTimeout(() => {
             let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             let menubutarea = document.createElement('div')
@@ -12965,7 +12964,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubutarea.append(butmenu)
             headmenulist.insertBefore(menubar, headmenulist.children[12])
             menubar.append(document.getElementById('servDsk'))
-			menubar.append(document.getElementById('JiraOpenForm'))
+            menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
