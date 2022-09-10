@@ -901,7 +901,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<button id="parentsapp" style="margin-left:2px; width:150px; height: 44px;">📱Skysmart Parents👪</button>
 							<button id="feedbacksuggest" style="margin-left:2px; width:150px; height: 44px;">💭Отзывы и пожелания</button>
 							<button id="dblook" style="margin-left:2px; width:150px; height: 44px;">🔎Поиск по БД</button>
-							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутренние запросы</button>
+							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутренние запросы, прочее</button>
 						</div>	
 						
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
