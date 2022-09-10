@@ -317,7 +317,6 @@ function mystyles() {
 			font-weight:700;
 		}
 
-
 		.hyperlnk {
 			height:0px;
 			opacity:0;
@@ -337,11 +336,13 @@ function mystyles() {
 		font-size: 16px;
 		transition: all 0.5s ease;
 		}
+
 		.sugops:hover {
 			font-size:18px;
 			color: SteelBlue;
 			font-weight: 600;
 		}
+
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
@@ -350,6 +351,7 @@ function mystyles() {
 			background:lightgrey;
 			cursor:wait;
 		}
+
 		.otherfieldon{
 			text-align: center;
 			width: 400px;
@@ -357,6 +359,14 @@ function mystyles() {
 			margin-top: 5px;
 			background:white;
 			cursor:text;
+		}
+		.active-query {
+			border-left:6px solid #1ff400;
+			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			font-weight: 700;
+			color: greenyellow;
+			transition: all 1s ease;
 		}
 	.radio {
 		width:15px;
@@ -629,13 +639,13 @@ var win_refusefrom =  // описание элементов окна отказ
         </span>
 </div>`;
 
-var win_taskform  = //описание формы создания задач в СРМ2
+var win_taskform = //описание формы создания задач в СРМ2
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 410px;" id="create_form_header">
                             <button title="скрывает меню" id="hideMeCreateForm" style="width:50px; background: #228B22;">hide</button>
-                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button> 
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashcreateform" style="width:24px;">♻</button>
 							<button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px;">🧹</button>
 							<span style="color:bisque">Статус урока: </span>
 							<span id="statusuroka"></span>
@@ -650,7 +660,7 @@ var win_taskform  = //описание формы создания задач в
 							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
-						
+
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
                             <input disabled="" required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
 							<br>
@@ -670,7 +680,7 @@ var win_taskform  = //описание формы создания задач в
 								<option value="teachers_support" style="background: white">Teachers Support</option>
 								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
 							</select>
-							
+
 							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
 							<br>
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
@@ -849,15 +859,219 @@ var win_Jira =  // описание элементов окна Поиска п�
 								<span style="color:bisque">Token Status: </span>
 								<span id="searchjiratknstatus"></span>
                         </div>
-						
+
 						<div id="control_jira_search">
+							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
+							<button id="freshQuery">Fresh</button>
+							<button id="customQuery">Custom</button>
+							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 500px; color: black; margin-top: 5px; margin-left: 5%;"></textarea>
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
 						</div>
-						
+
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
                         </div>
+                </span>
+        </span>
+</div>`;
+
+var win_Themes =  // описание элементов окна Тематик
+    `<div style="display: flex; width: 350px; padding-bottom:15px;">
+        <span style="width: 350px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 350;" id="themes_header">
+                                <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
+								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
+                        </div>
+
+
+						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Темы</label>
+							<br>
+							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
+							<button id="enterlesson" style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
+							<button id="lessonfunc" style="margin-left:2px; width:150px; height: 44px;">🧯Функционал на уроке</button>
+							<button id="perscab" style="margin-left:2px; width:150px; height: 44px;">🏡ЛК</button>
+							<button id="userhomework" style="margin-left:2px; width:150px; height: 44px;">💼ДЗ (вимбокс)</button>
+							<button id="payments" style="margin-left:2px; width:150px; height: 44px;">💳Оплата</button>
+							<button id="skyengapp" style="margin-left:2px; width:150px; height: 44px;">📱Skyeng👨‍🎓</button>
+							<button id="teachersapp" style="margin-left:2px; width:150px; height: 44px;">📱Teachers👽</button>
+							<button id="parentsapp" style="margin-left:2px; width:150px; height: 44px;">📱Skysmart Parents👪</button>
+							<button id="feedbacksuggest" style="margin-left:2px; width:150px; height: 44px;">💭Отзывы и пожелания</button>
+							<button id="dblook" style="margin-left:2px; width:150px; height: 44px;">🔎Поиск по БД</button>
+							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутренние запросы, прочее</button>
+						</div>
+
+						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Теги</label>
+							<br>
+							<button name="tagssbtn" value="oo" style="margin-left:2px; width:150px; height: 25px;">ОшибкаКЦ</button>
+							<button name="tagssbtn" value="queue" style="margin-left:2px; width:150px; height: 25px;">Очередь</button>
+							<button name="tagssbtn" value="recommendations_given " style="margin-left:2px; width:150px; height: 25px;">Даны рекомендации</button>
+							<button name="tagssbtn" value="request_solved" style="margin-left:2px; width:150px; height: 25px;">Запрос решен</button>
+							<button name="tagssbtn" value="missed_call" style="margin-left:2px; width:150px; height: 25px;">Недозвон</button>
+							<button name="tagssbtn" value="no_action_required" style="margin-left:2px; width:150px; height: 25px; font-size:10px;">Действий не требуется</button>
+							<button name="tagssbtn" value="refusal_of_help" style="margin-left:2px; width:150px; height: 25px;">Отказ от помощи</button>
+							<button name="tagssbtn" value="request_forwarded_to_content" style="margin-left:2px; width:150px; height: 25px;">Контент</button>
+							<button name="tagssbtn" value="double" style="margin-left:2px; width:150px; height: 25px;">Дубль</button>
+							<button name="tagssbtn" value="request_forwarded_to_2l_tp" style="margin-left:2px; width:150px; height: 25px;">2ЛТП</button>
+							<button name="tagssbtn" value="request_forwarded_to_outgoing_tp_crm2" style="margin-left:2px; width:150px; height: 25px;">Исход</button>
+							<button name="tagssbtn" value="request_forwarded_to_channel_qa" style="margin-left:2px; width:150px; height: 25px;">QA</button>
+							<button name="tagssbtn" value="request_forwarded_to_tc" style="margin-left:2px; width:150px; height: 25px;">TC</button>
+							<button name="tagssbtn" value="request_forwarded_to_sc" style="margin-left:2px; width:150px; height: 25px;">SC</button>
+							<button name="tagssbtn" value="server_issues" style="margin-left:2px; width:150px; height: 25px;">Серверные</button>
+							<button name="tagssbtn" value="request_forwarded_to_development" style="margin-left:2px; width:150px; height: 25px;">Разработка</button>
+						</div>
+
+						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+								<button name="themesbtn" value="1580" title="Связь на платформе блокировалась каким-то программным обеспечением на стороне пользователя" style="margin-left:2px; width:150px; height: 44px;">🚨Связь блокировалась ПО</button>
+								<button name="themesbtn" value="1581" title="Проблемы со связью возникли из-за того, что версия операционной системы или браузера ниже минимальных для работы на платформе" style="margin-left:2px; width:150px; height: 44px;">ПО(ОС/браузер)🔽 мин</button>
+								<button name="themesbtn" value="1582" title="Проблемы со связью возникли из-за корпоративного устройства или корпоративной сети пользователя" style="margin-left:2px; width:150px; height: 44px;">🛡Корп сеть/ус-во</button>
+								<button name="themesbtn" value="1583" title="Проблемы со связью возникли из-за неполадок с браузером и/или операционной системы пользователя" style="margin-left:2px; width:150px; height: 44px;">🥏ОС/Браузер</button>
+								<button name="themesbtn" value="1584" title="Проблемы со связью возникли из-за неполадок с гарнитурой (устройствами ввода и вывода звука), конкретно из-за индивидуальных настроек конкретной модели или физического дефекта/поломки. В эту же категорию попадают кейсы в которых пользователь случайно отключил микрофон или уменьшил громкость через кнопку на наушниках/микрофоне" style="margin-left:2px; width:150px; height: 44px;">🎧Гарнитура</button>
+								<button name="themesbtn" value="1585" title="Проблемы со связью возникли из-за неполадок с камерой (физические неисправности, не было разрешений в браузере/устройстве, блокировка антивирусом, индивидуальные настройки конкретной модели устройства)" style="margin-left:2px; width:150px; height: 44px;">📸Камера</button>
+								<button name="themesbtn" value="1586" title="Проблемы со связью возникли из-за несоответствия минимальным требованиям, перегруженность ЦП, ОЗУ. Неактуальные версии ОС." style="margin-left:2px; width:150px; height: 44px;">💻ПК</button>
+								<button name="themesbtn" value="1587" title="Проблемы со связью возникли из-за скорости интернета ниже 5 Мбит/сек в оба направления (скачать/загрузить)" style="margin-left:2px; width:150px; height: 44px;">Хар-ки инета 🔽мин</button>
+								<button name="themesbtn" value="1588" title="Проблемы со связью возникли из-за несоответствия показателей устройства минимальным критериям" style="margin-left:2px; width:150px; height: 44px;">Хар-ки 💻устр 🔽мин</button>
+								<button name="themesbtn" value="1589" title="Пользователю потребовалось разъяснение по работе связи в уроке, как заходить в урок, что нажимать, как установить связь с преподавателем/учеником." style="margin-left:2px; width:150px; height: 44px;">Консульт раб связи</button>
+								<button name="themesbtn" value="1590" title="Причину блокирования или прерывания связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - блок/прерыв</button>
+								<button name="themesbtn" value="1591" title="Причину аудио: задержки или искажения связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 🔊:задерж/искаж</button>
+								<button name="themesbtn" value="1592" title="Причину видео: задержки или плохой картинке связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 📷: задерж/плох карт</button>
+								<button name="themesbtn" value="1593" title="Причину проблемы со связью не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо 
+								P.S. Эта категория используется в случае если сбой не подходит ни под какую подтему в этой теме" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат</button>
+								<button name="themesbtn" value="1594" title="Проблемы со связью возникли по причине использования браузера, несоответствующему минимальным требованиям." style="margin-left:2px; width:150px; height: 44px;">❌Не поддерж брауз/ОС</button>
+								<button name="themesbtn" value="1595" title="Проблемы со связью возникли по причине использования устройства (камера/гарнитура/ПК), которые не соответствуют минимальным требованиям, не поддерживаются платформой (гарнитура от телефона и т.п.)" style="margin-left:2px; width:150px; height: 44px; font-size:10px;">❌Не поддерж ус (📸камера, 🎧гарнитура,💻комп)</button>
+						</div>
+
+						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1632" title="У/П не могут войти в свой ЛК, т.к. нет привязанных данных для входа. Выставление нужных данный." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
+							<button name="themesbtn" value="1629" title="🧭Виджет входа на урок - Отсутствует кнопка" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутстств кноп⁉</button>
+							<button name="themesbtn" value="1635" title="У/П указывают неверные данные для входа, нет ролей, которые дают право на вход." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Даные для входа</button>
+							<button name="themesbtn" value="1630" title="Нет возможности перейти по кнопке входа в урок." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Кнопка не активна🔘</button>
+							<button name="themesbtn" value="1634" title="У/П забыли пароль от своего ЛК, не могут войти. Решение — сброс пароля." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Сброс пароля</button>
+							<button name="themesbtn" value="1631" title="Оказание консультации У/П о том, как можно войти в свой личный кабинет." style="margin-left:2px; width:150px; height: 44px;">🔐Консультация по авторизации</button>
+							<button name="themesbtn" value="1633" title="Не удается войти в ЛКУ/ЛКП, отображается ошибка доступа при входе." style="margin-left:2px; width:150px; height: 44px;">🔐Сбой с авторизацией</button>
+							<button name="themesbtn" value="1627" title="Консультация У о том, как входить в урок при помощи виджета." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">Виджет вх урок - Консульт по вх на урок</button>
+							<button name="themesbtn" value="1628" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У не состоит в группу ГУ или был добавлен слишком поздно." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
+							<button name="themesbtn" value="1626" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У или П в отпуске." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске🏝</button>
+							<button name="themesbtn" value="1624" title="Не отображается виджет входа на урок в ЛК по причине истекшей подписки У" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🧭Виджет вх урок - Истекла подписка У⏳</button>
+							<button name="themesbtn" value="1625" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что занятие запланировано в другое время." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
+						</div>
+
+						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1772" title="Возникают проблемы с корректным отображением показателя STT." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>						
+							<button name="themesbtn" value="1773" title="Возникают проблемы с корректным отображением показателя TTT." style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>						
+							<button name="themesbtn" value="1767" title="Возникают проблемы с отображением, синхронизацией вложений во время урока." style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>						
+							<button name="themesbtn" value="1771" title="Возникают проблемы с запуском демонстрации экрана (понимание как включить и управлять демонстрацией, технические требования для запуска демонстрации)." style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>						
+							<button name="themesbtn" value="1768" title="Возникают проблемы с отображением, синхронизацией доски во время урока." style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>						
+							<button name="themesbtn" value="2037" title="Возникают проблемы с отображением, синхронизацией заметок во время урока." style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>						
+							<button name="themesbtn" value="1775" title="Возникают проблемы с отправкой ДЗ во время урока ( понимание, поломка на платформе)." style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>						
+							<button name="themesbtn" value="1770" title="Возникают проблемы с отображением, синхронизацией материалов." style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>						
+							<button name="themesbtn" value="1776" title="Возникают проблемы с отображением, работой и синхронизацией аудио/ видеороликов во время уроков. Поломка может быть вызвана технической стороной У/П, так и проблемой на стороне платформы." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>						
+							<button name="themesbtn" value="1769" title="Возникают проблемы с отображением, синхронизацией словаря во время урока. Не добавляются слова в словарь во время урока." style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>						
+							<button name="themesbtn" value="1774" title="Возникают проблемы с выполнением, синхронизацией, проверкой упражнений в уроке." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>						
+						</div>
+
+						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1714" title="Не отображается, не загружается чат, проблемы с отображением чата, добавление чата с У или отделом школы." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>						
+							<button name="themesbtn" value="1708" title="Возникает ошибка с работой чата в ЛК (нет чата, некорректная работа)." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>						
+							<button name="themesbtn" value="1713" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>						
+							<button name="themesbtn" value="1707" title="Возникает ошибка отображения, работы в разделе ЛКУ - История занятий/портфолио. Нет пройденных уроков, их аудиозаписей." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>						
+							<button name="themesbtn" value="1715" title="Возникают проблемы с отображением, выставлением информации в разделе." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>						
+							<button name="themesbtn" value="1710" title="Возникает ошибка в редактировании, правке профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>						
+							<button name="themesbtn" value="1716" title="Возникают проблемы с выставлением настроек ЛКП." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>						
+							<button name="themesbtn" value="1711" title="Возникает ошибка в установке настроек пользователем (время, часовой пояс, данные для входа и т.д.)" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>						
+							<button name="themesbtn" value="1719" title="Ошибка в отображении информации, отсутствие информации по финансам." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>						
+							<button name="themesbtn" value="1709" title="Нужно совершить действия в уже существующей семье (прикрепить/открепить пользователя), создать семью." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>						
+							<button name="themesbtn" value="1712" title="Возникает ошибка в отображении достижений П, своевременности их появления." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>						
+							<button name="themesbtn" value="1706" title="Неверное отображение данных в ЛКУ в виджете прогресса." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>						
+							<button name="themesbtn" value="1718" title="Отображается ошибка при выставлении перерыва, неверное отображение." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>						
+							<button name="themesbtn" value="1704" title="Возникает ошибка отображения, работы в разделе ЛКУ - Грамматика." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>						
+							<button name="themesbtn" value="1717" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>						
+							<button name="themesbtn" value="1705" title="Возникает ошибка отображения, работы в разделе ЛКУ - Навыки." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>						
+							<button name="themesbtn" value="1720" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>						
+							<button name="themesbtn" value="1721" title="Возникают ошибки в отображении групп У, их формировании, численности и возможности создания урока с ними." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>						
+
+						</div>
+
+						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1744" title="Возникают ошибки в отображении материалов, их несоответствие заданиям, плохое качество материалов, все виды ошибок грамматического/орфографического характера." style="margin-left:2px; width:150px; height: 44px;">📝Контент</button>
+							<button name="themesbtn" value="1745" title="Возникают ошибки в выставлении оценки на слайдах, в уроке в целом." style="margin-left:2px; width:150px; height: 44px;">🔟Оценка</button>
+							<button name="themesbtn" value="1746" title="Возникают ошибки в работе со словарем, не отображается перевод, не добавляются слова." style="margin-left:2px; width:150px; height: 44px;">📚Словарь</button>
+							<button name="themesbtn" value="1747" title="Возникают ошибки в механике выполнения заданий, не работает механика выполнения, неправильно верифицируется ответ в заданиях." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения</button>
+						</div>
+
+						<div id="paymn" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1077" title="По вине школы не проходит оплата, допущена ошибка обработки менеджером." style="margin-left:2px; width:150px; height: 44px;">🏰Вина школы</button>						
+							<button name="themesbtn" value="1658" title="Предоставление консультации по оплате, возможных способах оплаты и в целом как совершать оплату." style="margin-left:2px; width:150px; height: 44px;">🤑Консультация по оплате</button>						
+							<button name="themesbtn" value="1659" title="Возникает ошибка оплаты по причине отсутствия нужного У пакета/услуги." style="margin-left:2px; width:150px; height: 44px;">⭕Нет нужного пакета/услуги</button>						
+							<button name="themesbtn" value="1660" title="Возникает проблема совершения оплаты подписки, не продлевается подписка, подписка списана ранее, списано неверное количество уроков." style="margin-left:2px; width:150px; height: 44px;">💸Подписки</button>						
+							<button name="themesbtn" value="1661" title="Возникает ошибка оплаты по причине проблем с картой У: лимиты, 3d-secure, ограничения банка." style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>						
+							<button name="themesbtn" value="1662" title="Возникает ошибка оплаты по причине возникновения ошибки на платформе." style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>						
+						</div>
+
+						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1804" title="Возникают проблемы с входом в ЛКУ" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>						
+							<button name="themesbtn" value="1805" title="Возникают проблемы с пониманием механики выполнения заданий, ошибкой приложения во время выполнения заданий." style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>						
+							<button name="themesbtn" value="1806" title="Возникают проблемы с оплатой через приложение вызванные непониманием пользователя или ошибкой платформы." style="margin-left:2px; width:150px; height: 44px;">💲Оплата</button>						
+							<button name="themesbtn" value="1807" title="Возникают проблемы с выставлением настроек профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓Профиль</button>						
+							<button name="themesbtn" value="1808" title="Возникают проблемы с пониманием, выполнение упражнений в тренажере слов." style="margin-left:2px; width:150px; height: 44px;">📚Тренажер слов</button>						
+							<button name="themesbtn" value="1809" title="Возникают проблемы со связью во время уроков, синхронизация материалов, заметок, словаря, выполнение упражнений." style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>						
+							<button name="themesbtn" value="1810" title="Чат не отображается вовсе, нет определенных чатов (с П или с ПМ, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>						
+						</div>
+
+						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1833" title="Возникают проблемы с входом в ЛКП" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
+							<button name="themesbtn" value="1836" title="Возникает ошибка с отображением расписания, синхронизации данных." style="margin-left:2px; width:150px; height: 44px;">📅Виджет расписания</button>
+							<button name="themesbtn" value="1835" title="Отображается некорректная информация в разделе." style="margin-left:2px; width:150px; height: 44px;">💱Виджет финансов</button>
+							<button name="themesbtn" value="1838" title="Возникает ошибка с отображением данных в профиле." style="margin-left:2px; width:150px; height: 44px;">👽Профиль</button>
+							<button name="themesbtn" value="1840" title="Возникает ошибка при загрузке/ отображении сторис." style="margin-left:2px; width:150px; height: 44px;">📢Сторис</button>
+							<button name="themesbtn" value="1837" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">📆Страница расписания</button>
+							<button name="themesbtn" value="1834" title="Отображается некорректная информация в разделе." style="margin-left:2px; width:150px; height: 44px;">💰Страница финансов</button>
+							<button name="themesbtn" value="1839" title="Чат не отображается вовсе, нет определенных чатов (с У или с другим отделом школы, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
+						</div>
+
+						<div id="skysmartrodpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1884" title="Консультация, организационные вопросы." style="margin-left:2px; width:150px; height: 44px;">💫Другое</button>
+							<button name="themesbtn" value="1883" title="Возникает ошибка в отображении материалов, отображаются не все материалы." style="margin-left:2px; width:150px; height: 44px;">📖Материалы</button>
+							<button name="themesbtn" value="1880" title="Не отображается информации по подключенным предметам ( или отображается только о некоторых), неактуальнвя информация, ошибка при запросе проверки баланса, нет синхронизации." style="margin-left:2px; width:150px; height: 44px;">💰Предметы и баланс</button>
+							<button name="themesbtn" value="1881" title="Возникает ошибка в редактировании, формировании, отображении информации профиля." style="margin-left:2px; width:150px; height: 44px;">👪Профиль родителя</button>
+							<button name="themesbtn" value="1879" title="Возникает ошибка в отображении информации, синхронизации данных." style="margin-left:2px; width:150px; height: 44px;">📆Расписание</button>
+							<button name="themesbtn" value="1882" title="Не работает чат, не отображается, не синхронизируется. Необходимо добавить/удалить чат." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
+						</div>
+
+						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="1970" title="Пользователь оставил пожелания о качестве контента, необходимости добавить/убрать материалы." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>						
+							<button name="themesbtn" value="1971" title="Пользователь оставил пожелания о процессе выставления/начисления/отображения/синхронизации оценки." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>						
+							<button name="themesbtn" value="1972" title="Пользователь оставил пожелания о функционале, синхронизации, отображении словаря." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>						
+							<button name="themesbtn" value="1973" title="Пользователь оставил пожелания о способах выполнения, синхроницации упражнений." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>						
+							<button name="themesbtn" value="1966" title="Пользователь оставил пожелания о функционале, условиях отключения и подключения ОС." style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>						
+							<button name="themesbtn" value="1965" title="Пользователь оставил пожелания о функционале, условиях переноса/отмены уроков." style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>						
+							<button name="themesbtn" value="1967" title="Пользователь оставил пожелания о способах заполнения, сохранения и редактировании данных в указанном разделе." style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>						
+							<button name="themesbtn" value="1968" title="Пользователь оставил пожелания об отображении и функционале на странице "Семья"." style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>						
+							<button name="themesbtn" value="1969" title="Пользователь оставил пожелания о функционале и отображении чата, правилам удаления/добавления/отображения чата." style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>						
+							<button name="themesbtn" value="1974" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>						
+							<button name="themesbtn" value="1975" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>						
+							<button name="themesbtn" value="1979" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>						
+							<button name="themesbtn" value="1976" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>						
+							<button name="themesbtn" value="1977" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>						
+							<button name="themesbtn" value="1978" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>						
+							<button name="themesbtn" value="1980" title="Пожелания, которые невозможно отнести к вышеперечисленным категориям." style="margin-left:2px; width:150px; height: 44px;">Прочее</button>						
+						</div>
+
+						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="2018" title="Запрос на информацию о причине удаления урока и инициаторе." style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Оператор🧐</button>
+							<button name="themesbtn" value="2017" title="Запрос на информацию о причине удаления урока и инициаторе." style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Система🤖</button>
+							<button name="themesbtn" value="2020" title="Запрос на информацию об ошибках, которые возникли на стороне У для дальнейшей более детальной проверки." style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у П👽</button>
+							<button name="themesbtn" value="2019" title="Запрос на информацию об ошибках, которые возникли на стороне П для дальнейшей более детальной проверки." style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у У👨‍🎓</button>
+						</div>
+
+						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
+							<button name="themesbtn" value="2030" title="Возникает ошибка с авторизацией, входом в слак, недостаточность ролей или понимание системы входа." style="margin-left:2px; width:150px; height: 44px;">❓Slack - Проблемы со входом</button>
+							<button name="themesbtn" value="2034" title="Вопросы, не связанные с вышеперечисленными." style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
+						</div>
+
                 </span>
         </span>
 </div>`;
@@ -1311,15 +1525,9 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="billbtn" id="billwidgetpayment">Виджет оплаты</button>
 					<button class="billbtn" id="billpay">Оплата</button>
 					<button class="billbtn" id="billcredit">Рассрочка</button>
-					<button class="billbtn" id="billoferta">Оферты</button>
-					<button class="billbtn" id="billlendings">Лендинги</button>
-					<button class="billbtn" id="billterms">Terms</button>
 					<button class="billbtn" id="billsubscribtions">Подписки</button>
-					<button class="billbtn" id="billbundles">Бандлы</button>
-					<button class="billbtn" id="billtehproblemsprod">Технические проблемы на production</button>
 					<button class="billbtn" id="billroles">Роли и доступы</button>
 					<button class="billbtn" id="billbusanalys">Бизнес-анализ</button>
-					<button class="billbtn" id="billtechconv">Техническое обсуждение</button>
 				</div>
 				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
@@ -1511,9 +1719,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button id="create_8" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="billingform" style="display: none; margin-left:20px;">
-					<input id="customfield_32" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
-					<br>
-					<input id="customfield_33" placeholder="ID Услуги" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
+					<input id="customfield_32" placeholder="ID пользователя" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
 					<br>
 					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<br>
@@ -1840,6 +2046,11 @@ if (localStorage.getItem('winTopTechSum') == null) { // начальное по�
 if (localStorage.getItem('winTopServDsk') == null) { // начальное положение окна Service Desk
     localStorage.setItem('winTopServDsk', '120');
     localStorage.setItem('winLeftServDsk', '295');
+}
+
+if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
+    localStorage.setItem('winTopThemes', '120');
+    localStorage.setItem('winLeftThemes', '295');
 }
 
 if (localStorage.getItem('winTopGrList') == null) {  // начальное положение окна списка группы
@@ -2337,6 +2548,11 @@ butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butThemes = document.createElement('div')
+butThemes.id = "themes"
+butThemes.innerHTML = "Темы"
+butThemes.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
@@ -2355,8 +2571,8 @@ menubar.id = 'idmymenu'
 butmenu.onclick = () => { // кнопка открытия Меню
     if (menubar.style.display == 'none') {
         menubar.style.display = ''
-		let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
-		menubar.style.left = xvarmenu + 'px';
+        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
+        menubar.style.left = xvarmenu + 'px';
         if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
             document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function (event) {
                 var e = document.getElementById('idmymenu');
@@ -2434,305 +2650,305 @@ maskBackHide.onclick = function () { // кнопка скрыть
         }
 }
 
-taskBut.onclick = function() { // функция открытия окна для работы с созданием задач на СРМ
-	let conversid;
-	if (document.getElementById('AF_Createtask').style.display == 'none') {
-		document.getElementById('AF_Createtask').style.display = ''
-		
-			if (document.getElementsByClassName('expert-user_details-list').length >0) {
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
-						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
-							document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
-							document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
-						} else {
-							document.getElementById('statusuroka').innerHTML = "Урок не идет"
-							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
-						}
-			}
-		}
-	}
-	
-	if (location.pathname.length > 17) {
-		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
-		conversid = document.getElementById('chathashlnk').value;
-		
-		fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/click", {
-		  "headers": {
-			"content-type": "application/json",
-		  },
-		  "body": `{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"${conversid}\"}`,
-		  "method": "POST",
-		  "mode": "cors",
-		  "credentials": "include"
-		});
+taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
+    let conversid;
+    if (document.getElementById('AF_Createtask').style.display == 'none') {
+        document.getElementById('AF_Createtask').style.display = ''
 
-	}
-	
-	document.getElementById('refreshhashcreateform').onclick = function() {
-			if (location.pathname.length > 17) {
-		document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
-		}
-				
-		if (document.getElementsByClassName('expert-user_details-list').length >0) {
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
-						if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
-							document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
-							document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
-						} else {
-							document.getElementById('statusuroka').innerHTML = "Урок не идет"
-							document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
-						}
-			}
-		}
-		}
-	}
-	
-	document.getElementById('hideMeCreateForm').onclick = function() {
-		document.getElementById('AF_Createtask').style.display = 'none'
-		
-				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
-				  "headers": {
-					"content-type": "application/json",
-				  },
-				  "body": `{\"conversationId\":\"${conversid}\"}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-	}
-	
-	function changeprioritycolor() {
-		if (document.getElementById('priority').children[1].selected == true)
-			document.getElementById('priority').style ="color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		else if (document.getElementById('priority').children[2].selected == true)
-			document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		else if (document.getElementById('priority').children[3].selected == true)
-			document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		else document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
-	}
-	
-	document.getElementById('priority').onchange = changeprioritycolor;
-	
-	document.getElementById('clearcreateform').onclick = function() {
-        document.getElementById('chathashlnk').style.background = '#cac1b1';
-		document.getElementById('taskcomment').value = '';
-        document.getElementById('taskcomment').style.background = '';
-		document.getElementById('taskserviceid').value = '';
-        document.getElementById('taskserviceid').style.background = '';
-        document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
-		document.getElementById('taskuserid').value = '';
-        document.getElementById('taskuserid').style.background = '';
-		document.getElementById('priority').children[0].selected = true
-		document.getElementById('priority').style ="color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
-        document.getElementById('customerservice').children[0].selected = true
-		document.getElementById('customerservice').style.background = '';		
-	}
-
-	document.getElementById('critteachertostudent').onclick = function() {
-		document.getElementById('priority').children[3].selected = true;
-		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[1].selected = true;
-		
-				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-						document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
-						document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-				}
-			}
-			
-			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
-		}
-
-		document.getElementById('critstudenttoteacher').onclick = function() {
-		document.getElementById('priority').children[3].selected = true;
-		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[1].selected = true;
-		
-		let services;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
-            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
-        }
-		}
-
-		if (services.length == 1) {
-			document.getElementById('taskserviceid').value = services[0].replace('service-','')
-		} else {
-			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
-			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
-		}
-			
-			document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
-		}
-	
-	
-	document.getElementById('critstudent').onclick = function() {
-		document.getElementById('priority').children[3].selected = true;
-		document.getElementById('priority').style ="color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[1].selected = true;
-		let services;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-		if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
-            services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
-        }
-		}
-
-		if (services.length == 1) {
-			document.getElementById('taskserviceid').value = services[0].replace('service-','')
-		} else {
-			document.getElementById('taskserviceid').value =  'У ученика несколько услуг, выберите подходящую!'
-			document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
-		}
-		
-	}
-	
-
-	document.getElementById('highsecondline').onclick = function() {
-		document.getElementById('priority').children[2].selected = true;
-		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[6].selected = true;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-		
-		document.getElementById('taskserviceid').value = '';
-	}
-	
-	
-	document.getElementById('highteachersc').onclick = function() {
-		document.getElementById('priority').children[2].selected = true;
-		document.getElementById('customerservice').children[5].selected = true;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-	}
-	
-	document.getElementById('highteachertc').onclick = function() {
-		document.getElementById('priority').children[2].selected = true;
-		document.getElementById('priority').style ="color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-		document.getElementById('customerservice').children[2].selected = true;
-		
-		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
-	}
-
-    document.getElementById('createtask').onclick = function() {
-		let prioritystate;
-		let csstate;
-		let usluga;
-
-        let taskflagempty = 0;
-
-        if (document.getElementById('chathashlnk').value.length < 3){
-            document.getElementById('chathashlnk').style.background = 'Coral';
-            taskflagempty = 1;
-        } else { document.getElementById('chathashlnk').style.background = '#cac1b1'; }
-
-        if (document.getElementById('priority').value != 'Приоритет'){
-            document.getElementById('priority').style.background = '';
-            for (let i=0; i<document.getElementById('priority').children.length;i++) {
-                if (document.getElementById('priority').children[i].selected == true)
-                    prioritystate = document.getElementById('priority').children[i].value
+        if (document.getElementsByClassName('expert-user_details-list').length > 0) {
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+                        document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+                        document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+                    } else {
+                        document.getElementById('statusuroka').innerHTML = "Урок не идет"
+                        document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+                    }
+                }
             }
-        } else {
-            document.getElementById('priority').style.background = 'Coral';
-            taskflagempty = 1;
         }
 
-        if (document.getElementById('customerservice').value != 'Отдел'){
+        if (location.pathname.length > 17) {
+            document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
+            conversid = document.getElementById('chathashlnk').value;
+
+            fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/click", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": `{\"buttonId\":\"b49609f3-9ff7-4ba5-a8a8-f2cef770bf19\",\"conversationId\":\"${conversid}\"}`,
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            });
+
+        }
+
+        document.getElementById('refreshhashcreateform').onclick = function () {
+            if (location.pathname.length > 17) {
+                document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
+            }
+
+            if (document.getElementsByClassName('expert-user_details-list').length > 0) {
+                for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML") {
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок") {
+                            document.getElementById('statusuroka').innerHTML = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerHTML
+                            document.getElementById('statusuroka').style = "background:rgb(70, 68, 81); padding:0px;"
+                        } else {
+                            document.getElementById('statusuroka').innerHTML = "Урок не идет"
+                            document.getElementById('statusuroka').style = "background:#69a4c7; padding:5px; color:#fff;  font-weight:600; border:1px solid black;"
+                        }
+                    }
+                }
+            }
+        }
+
+        document.getElementById('hideMeCreateForm').onclick = function () {
+            document.getElementById('AF_Createtask').style.display = 'none'
+
+            fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": `{\"conversationId\":\"${conversid}\"}`,
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            });
+        }
+
+        function changeprioritycolor() {
+            if (document.getElementById('priority').children[1].selected == true)
+                document.getElementById('priority').style = "color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            else if (document.getElementById('priority').children[2].selected == true)
+                document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            else if (document.getElementById('priority').children[3].selected == true)
+                document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            else document.getElementById('priority').style = "color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+        }
+
+        document.getElementById('priority').onchange = changeprioritycolor;
+
+        document.getElementById('clearcreateform').onclick = function () {
+            document.getElementById('chathashlnk').style.background = '#cac1b1';
+            document.getElementById('taskcomment').value = '';
+            document.getElementById('taskcomment').style.background = '';
+            document.getElementById('taskserviceid').value = '';
+            document.getElementById('taskserviceid').style.background = '';
+            document.getElementById('taskserviceid').style = 'color:#000; font-weight:400;width:100%'
+            document.getElementById('taskuserid').value = '';
+            document.getElementById('taskuserid').style.background = '';
+            document.getElementById('priority').children[0].selected = true
+            document.getElementById('priority').style = "color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[0].selected = true
             document.getElementById('customerservice').style.background = '';
-            for (let i=0; i<document.getElementById('customerservice').children.length;i++) {
-                if (document.getElementById('customerservice').children[i].selected == true)
-                    csstate = document.getElementById('customerservice').children[i].value
-            }
-		} else {
-            document.getElementById('customerservice').style.background = 'Coral';
-            taskflagempty = 1;
         }
-        
-        if (document.getElementById('taskserviceid').value.length < 3){
-            if (document.getElementById('priority').value == 'highest'){
-                document.getElementById('taskserviceid').style.background = 'Coral';
+
+        document.getElementById('critteachertostudent').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+                    document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                }
+            }
+
+            document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
+        }
+
+        document.getElementById('critstudenttoteacher').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+
+            let services;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+                    services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+                }
+            }
+
+            if (services.length == 1) {
+                document.getElementById('taskserviceid').value = services[0].replace('service-', '')
+            } else {
+                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
+                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+            }
+
+            document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
+        }
+
+
+        document.getElementById('critstudent').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+            let services;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+                    services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+                }
+            }
+
+            if (services.length == 1) {
+                document.getElementById('taskserviceid').value = services[0].replace('service-', '')
+            } else {
+                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
+                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+            }
+
+        }
+
+
+        document.getElementById('highsecondline').onclick = function () {
+            document.getElementById('priority').children[2].selected = true;
+            document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[6].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            document.getElementById('taskserviceid').value = '';
+        }
+
+
+        document.getElementById('highteachersc').onclick = function () {
+            document.getElementById('priority').children[2].selected = true;
+            document.getElementById('customerservice').children[5].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+        }
+
+        document.getElementById('highteachertc').onclick = function () {
+            document.getElementById('priority').children[2].selected = true;
+            document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[2].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+        }
+
+        document.getElementById('createtask').onclick = function () {
+            let prioritystate;
+            let csstate;
+            let usluga;
+
+            let taskflagempty = 0;
+
+            if (document.getElementById('chathashlnk').value.length < 3) {
+                document.getElementById('chathashlnk').style.background = 'Coral';
                 taskflagempty = 1;
+            } else { document.getElementById('chathashlnk').style.background = '#cac1b1'; }
+
+            if (document.getElementById('priority').value != 'Приоритет') {
+                document.getElementById('priority').style.background = '';
+                for (let i = 0; i < document.getElementById('priority').children.length; i++) {
+                    if (document.getElementById('priority').children[i].selected == true)
+                        prioritystate = document.getElementById('priority').children[i].value
+                }
+            } else {
+                document.getElementById('priority').style.background = 'Coral';
+                taskflagempty = 1;
+            }
+
+            if (document.getElementById('customerservice').value != 'Отдел') {
+                document.getElementById('customerservice').style.background = '';
+                for (let i = 0; i < document.getElementById('customerservice').children.length; i++) {
+                    if (document.getElementById('customerservice').children[i].selected == true)
+                        csstate = document.getElementById('customerservice').children[i].value
+                }
+            } else {
+                document.getElementById('customerservice').style.background = 'Coral';
+                taskflagempty = 1;
+            }
+
+            if (document.getElementById('taskserviceid').value.length < 3) {
+                if (document.getElementById('priority').value == 'highest') {
+                    document.getElementById('taskserviceid').style.background = 'Coral';
+                    taskflagempty = 1;
+                } else {
+                    document.getElementById('taskserviceid').style.background = '';
+                }
             } else {
                 document.getElementById('taskserviceid').style.background = '';
             }
-        } else {
-            document.getElementById('taskserviceid').style.background = '';
+
+            if (document.getElementById('taskuserid').value.length < 3) {
+                document.getElementById('taskuserid').style.background = 'Coral';
+                taskflagempty = 1;
+            } else { document.getElementById('taskuserid').style.background = ''; }
+
+            if (document.getElementById('taskcomment').value.length < 3) {
+                document.getElementById('taskcomment').style.background = 'Coral';
+                taskflagempty = 1;
+            } else { document.getElementById('taskcomment').style.background = ''; }
+
+            if (taskflagempty == 0) {
+
+                if (document.getElementById('taskserviceid').value == '')
+                    usluga = document.getElementById('taskserviceid').value = null;
+                else usluga = document.getElementById('taskserviceid').value
+
+                fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                    "headers": {
+                        "content-type": "application/json",
+                    },
+                    "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n", "\\n")}\"}]}`,
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+
+                document.getElementById('taskcomment').value = '';
+                document.getElementById('taskserviceid').value = '';
+                document.getElementById('taskuserid').value = '';
+                document.getElementById('priority').children[0].selected = true
+                document.getElementById('customerservice').children[0].selected = true
+                document.getElementById('AF_Createtask').style.display = 'none'
+
+            } else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
         }
 
-        if (document.getElementById('taskuserid').value.length < 3){
-            document.getElementById('taskuserid').style.background = 'Coral';
-            taskflagempty = 1;
-        } else { document.getElementById('taskuserid').style.background = ''; }
 
-        if (document.getElementById('taskcomment').value.length < 3){
-            document.getElementById('taskcomment').style.background = 'Coral';
-            taskflagempty = 1;
-        } else { document.getElementById('taskcomment').style.background = ''; }
+    } else {
+        document.getElementById('AF_Createtask').style.display = 'none'
+        conversid = document.getElementById('chathashlnk').value;
+        fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": `{\"conversationId\":\"${conversid}\"}`,
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+    }
 
-        if (taskflagempty == 0){
-
-            if (document.getElementById('taskserviceid').value == '')
-                usluga = document.getElementById('taskserviceid').value = null;
-            else usluga = document.getElementById('taskserviceid').value
-		
-		    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
-			  "headers": {
-				"content-type": "application/json",
-			  },
-			  "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n",  "\\n")}\"}]}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			});			
-		
-			document.getElementById('taskcomment').value = '';
-			document.getElementById('taskserviceid').value = '';
-			document.getElementById('taskuserid').value = '';
-			document.getElementById('priority').children[0].selected = true
-			document.getElementById('customerservice').children[0].selected = true
-			document.getElementById('AF_Createtask').style.display = 'none'
-			
-		} else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
-	}
-		
-	
-	} else {
-		document.getElementById('AF_Createtask').style.display = 'none'
-				conversid = document.getElementById('chathashlnk').value;
-				fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
-				  "headers": {
-					"content-type": "application/json",
-				  },
-				  "body": `{\"conversationId\":\"${conversid}\"}`,
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				});
-		}
-	
 }
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата
@@ -2823,6 +3039,13 @@ wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
+let wintThemes = document.createElement('div'); // создание окна ServiceDesk
+document.body.append(wintThemes);
+wintThemes.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopThemes') + 'px; left: ' + localStorage.getItem('winLeftThemes') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintThemes.style.display = 'none';
+wintThemes.setAttribute('id', 'AF_Themes');
+wintThemes.innerHTML = win_Themes;
+
 let wintGrList = document.createElement('div'); // создание окна Список группы
 document.body.append(wintGrList);
 wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrList') + 'px; left: ' + localStorage.getItem('winLeftGrList') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -2873,7 +3096,7 @@ var listenerLinks = function (e, a) { // сохранение позиции о�
 };
 
 wintLinks.onmousedown = function (a) { // изменение позиции окна ссылок
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX4 = a.layerX;
         window.myY4 = a.layerY;
         document.addEventListener('mousemove', listenerLinks);
@@ -2889,7 +3112,7 @@ var listenerJira = function (e, a) { // сохранение позиции ок
 };
 
 wintJira.onmousedown = function (a) { // изменение позиции окна поиска по Jira
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX5 = a.layerX;
         window.myY5 = a.layerY;
         document.addEventListener('mousemove', listenerJira);
@@ -2905,7 +3128,7 @@ var listenerStat = function (e, a) { // сохранение позиции ок
 };
 
 wintStat.onmousedown = function (a) { // изменение позиции окна работы со статистикой
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX6 = a.layerX;
         window.myY6 = a.layerY;
         document.addEventListener('mousemove', listenerStat);
@@ -2921,7 +3144,7 @@ var listenerServices = function (e, a) { // сохранение позиции 
 };
 
 wintServices.onmousedown = function (a) {
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX7 = a.layerX;
         window.myY7 = a.layerY;
         document.addEventListener('mousemove', listenerServices); // изменение позиции вензель user info
@@ -2937,7 +3160,7 @@ var listenerLessonStatus = function (e, a) { // сохранение позиц�
 };
 
 wintLessonStatus.onmousedown = function (a) { // изменение позиции окна статус урока
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX8 = a.layerX;
         window.myY8 = a.layerY;
         document.addEventListener('mousemove', listenerLessonStatus);
@@ -2953,7 +3176,7 @@ var listenerLinksd = function (e, a) { // сохранение позиции о
 };
 
 wintLinksd.onmousedown = function (a) { // изменение позиции окна доступов
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX9 = a.layerX;
         window.myY9 = a.layerY;
         document.addEventListener('mousemove', listenerLinksd);
@@ -2969,7 +3192,7 @@ var listenerTimetable = function (e, a) { // сохранение позиции
 };
 
 wintTimetable.onmousedown = function (a) { // изменение позиции окна предстоящих и прошедших занятиях
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX10 = a.layerX;
         window.myY10 = a.layerY;
         document.addEventListener('mousemove', listenerTimetable);
@@ -2985,7 +3208,7 @@ var listenerTechSummary = function (e, a) { // сохранение позици
 };
 
 wintTechSummary.onmousedown = function (a) { // изменение позиции окна инфо об устройстве пользователя
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX11 = a.layerX;
         window.myY11 = a.layerY;
         document.addEventListener('mousemove', listenerTechSummary);
@@ -3001,7 +3224,7 @@ var listenerServDsk = function (e, a) { // сохранение позиции �
 };
 
 wintServDsk.onmousedown = function (a) { // изменение позиции окна ServiceDesk
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX12 = a.layerX;
         window.myY12 = a.layerY;
         document.addEventListener('mousemove', listenerServDsk);
@@ -3017,7 +3240,7 @@ var listenerGrList = function (e, a) { // сохранение позиции о
 };
 
 wintGrList.onmousedown = function (a) { // изменение позиции окна Список группы
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX13 = a.layerX;
         window.myY13 = a.layerY;
         document.addEventListener('mousemove', listenerGrList);
@@ -3033,7 +3256,7 @@ var listenerMarks = function (e, a) { // сохранение позиции о�
 };
 
 wintMarks.onmousedown = function (a) { // изменение позиции окна поиска оценок от пользователя
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX14 = a.layerX;
         window.myY14 = a.layerY;
         document.addEventListener('mousemove', listenerMarks);
@@ -3049,7 +3272,7 @@ var listenerSugform = function (e, a) { // сохранение позиции �
 };
 
 wintSugform.onmousedown = function (a) { // изменение позиции окна предложения
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX15 = a.layerX;
         window.myY15 = a.layerY;
         document.addEventListener('mousemove', listenerSugform);
@@ -3065,7 +3288,7 @@ var listenerRefuseForm = function (e, a) { // сохранение позици�
 };
 
 wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX16 = a.layerX;
         window.myY16 = a.layerY;
         document.addEventListener('mousemove', listenerRefuseForm);
@@ -3083,7 +3306,7 @@ var listenerTaskCreate = function (e, a) { // сохранение позици�
 };
 
 wintCreateTask.onmousedown = function (a) {
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         window.myX17 = a.layerX;
         window.myY17 = a.layerY;
         document.addEventListener('mousemove', listenerTaskCreate);
@@ -3092,11 +3315,28 @@ wintCreateTask.onmousedown = function (a) {
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
 
 
+var listenerThemes = function (e, a) { // сохранение позиции окна Тематик
+    wintThemes.style.left = Number(e.clientX - myX18) + "px";
+    wintThemes.style.top = Number(e.clientY - myY18) + "px";
+    localStorage.setItem('winTopThemes', String(Number(e.clientY - myY18)));
+    localStorage.setItem('winLeftThemes', String(Number(e.clientX - myX18)));
+};
 
-function checkelementtype (a){ // проверка на какой элемент нажали
-    let elem = document.elementFromPoint(a.clientX,a.clientY)
-    
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT'){
+wintThemes.onmousedown = function (a) {
+    if (checkelementtype(a)) {
+        window.myX18 = a.layerX;
+        window.myY18 = a.layerY;
+        document.addEventListener('mousemove', listenerThemes);
+    }
+}
+wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); }
+
+
+
+function checkelementtype(a) { // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX, a.clientY)
+
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT') {
         return true;
     }
     return false;
@@ -3104,58 +3344,61 @@ function checkelementtype (a){ // проверка на какой элемен�
 
 // Модуль скрытия окон по двойному клику
 document.getElementById('AF_Links').ondblclick = function (a) { // скрытие окна ссылок по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Links').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Links').style.display = 'none'; }
 }
 document.getElementById('AF_Linksd').ondblclick = function (a) { // скрытие окна доступов по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Linksd').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Linksd').style.display = 'none'; }
 }
 document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие окна Jira по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Jira').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Jira').style.display = 'none'; }
 }
 document.getElementById('AF_GrList').ondblclick = function (a) { // скрытие окна Список группы по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_GrList').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_GrList').style.display = 'none'; }
 }
 document.getElementById('AF_Timetable').ondblclick = function (a) { // скрытие окна предстоящих и прошедших занятиях по двойному клику
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         document.getElementById('AF_Timetable').style.display = 'none';
         document.getElementById('timetabledata').innerHTML = "";
     }
 }
 document.getElementById('AF_TechSummary').ondblclick = function (a) { // скрытие окна инфо об устройстве пользователя по двойному клику
-    if (checkelementtype(a)){
+    if (checkelementtype(a)) {
         document.getElementById('AF_TechSummary').style.display = 'none';
         document.getElementById('techsumdata').innerHTML = "";
     }
 }
 document.getElementById('AF_Stat').ondblclick = function (a) { // скрытие окна работы со статистикой
-    if (checkelementtype(a)){document.getElementById('AF_Stat').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Stat').style.display = 'none'; }
 }
 document.getElementById('AF_Sugform').ondblclick = function (a) { // скрытие окна окна предложений по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Sugform').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Sugform').style.display = 'none'; }
 }
 document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Refuseformnew').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Refuseformnew').style.display = 'none'; }
 }
 document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Marks').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Marks').style.display = 'none'; }
 }
 document.getElementById('servicehead').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_Service').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_Service').style.display = 'none'; }
 }
 document.getElementById('AF_LessonStatus').ondblclick = function (a) { // скрытие окна статус урока по двойному клику
-    if (checkelementtype(a)){document.getElementById('AF_LessonStatus').style.display = 'none';}
+    if (checkelementtype(a)) { document.getElementById('AF_LessonStatus').style.display = 'none'; }
 }
 document.getElementById('AF_Createtask').ondblclick = function (a) { // скрытие окна создания задачи в CRM2 по двойному клику
-    if (checkelementtype(a)){document.getElementById('hideMeCreateForm').click();}
+    if (checkelementtype(a)) { document.getElementById('hideMeCreateForm').click(); }
 }
 document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
-    if (checkelementtype(a)){document.getElementById('hideMeSrvDsk').click();}
+    if (checkelementtype(a)) { document.getElementById('hideMeSrvDsk').click(); }
+}
+document.getElementById('AF_Themes').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
+    if (checkelementtype(a)) { document.getElementById('hideMeThemes').click(); }
 }
 // Конец модуля скрытия окон по двойному клику
 
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
-    if (checkelementtype(a)){
-        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == ''){
+    if (checkelementtype(a)) {
+        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
             localStorage.setItem('Hidetestid', '0');
@@ -3194,7 +3437,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_helper').style.display = 'none';
     }
 
-    var listenerAF = function (e, a) { // сохранение позиции главного окна 
+    var listenerAF = function (e, a) { // сохранение позиции главного окна
         wintAF.style.left = Number(e.clientX - myX2) + "px";
         wintAF.style.top = Number(e.clientY - myY2) + "px";
         localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
@@ -3202,7 +3445,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     };
 
     wintAF.onmousedown = function (a) { // изменение позиции главного окна
-        if (checkelementtype(a)){
+        if (checkelementtype(a)) {
             window.myX2 = a.layerX;
             window.myY2 = a.layerY;
             document.addEventListener('mousemove', listenerAF);
@@ -5165,9 +5408,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.sdbtn').not(this).removeClass('activebtnsd');
                 $(this).toggleClass('activebtnsd');
             });
-			
-			function remres(a) {
-				$('.kidsbtn').not(a).removeClass('activebtn');
+
+            function remres(a) {
+                $('.kidsbtn').not(a).removeClass('activebtn');
                 $('.edumodbtn').not(a).removeClass('activebtn');
                 $('.bilqabtn').not(a).removeClass('activebtn');
                 $('.teacbtn').not(a).removeClass('activebtn');
@@ -5192,103 +5435,103 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.marketprojbugsbtn').not(a).removeClass('activebtn');
                 $('.infrabtn').not(a).removeClass('activebtn');
                 $(a).toggleClass('activebtn');
-			}
-			
+            }
+
             $('.teacbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.kidsbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.edumodbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.bilqabtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.c1sbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.schdbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.telepbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.authbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.crm2sbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.mrktbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.billbtn').click(function () {
-				remres(this)
+                remres(this)
             });
 
             $('.vimbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.vimvidsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.studcabbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.chatqabtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.tripwbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.analystbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.corpbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.marketingbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.mobbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.academymobbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.stcabmbsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
             });
 
             $('.marketprojbugsbtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
 
             });
 
             $('.infrabtn').click(function () {  //поправить
-				remres(this)
+                remres(this)
 
             });
 
@@ -5402,18 +5645,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             lngbtnonoff.onclick = function () {
 
                 if (!lngbtnonoff.checked) {
-					document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
                     flaglng = 0;
                     localStorage.setItem('disablelngpmwindow', flaglng)
                 } else {   // поставить checked, если он не установлен
-					document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
                     flaglng = 1;
                     localStorage.setItem('disablelngpmwindow', flaglng)
                 }
             }
 
             if (localStorage.getItem('disablelngpmwindow') == 1) {
-				document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
                 lngbtnonoff.checked = true;
             } else {
                 lngbtnonoff.checked = false;
@@ -5472,6 +5715,194 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Linksd').style.display = ''
     }
 
+    document.getElementById('themes').onclick = function () {
+        if (document.getElementById('AF_Themes').style.display == '')
+            document.getElementById('AF_Themes').style.display = 'none'
+        else
+            document.getElementById('AF_Themes').style.display = ''
+
+        for (let i = 0; i < document.getElementsByName('themesbtn').length; i++) {
+            document.getElementsByName('themesbtn')[i].onclick = function () {
+                newTag(this.value)
+            }
+        }
+
+        for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
+            document.getElementsByName('tagssbtn')[j].onclick = function () {
+                newTaggg(this.value)
+            }
+        }
+
+
+        document.getElementById('vimcall').onclick = function () {
+            document.getElementById('svyazissues').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('svyazissues').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('enterlesson').onclick = function () {
+            document.getElementById('vhodurok').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('vhodurok').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('lessonfunc').onclick = function () {
+            document.getElementById('funcurok').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('funcurok').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('perscab').onclick = function () {
+            document.getElementById('cabusr').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('cabusr').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('userhomework').onclick = function () {
+            document.getElementById('HWvim').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('HWvim').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('payments').onclick = function () {
+            document.getElementById('paymn').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('paymn').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('skyengapp').onclick = function () {
+            document.getElementById('skyengpril').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('skyengpril').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('teachersapp').onclick = function () {
+            document.getElementById('teacherpril').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('teacherpril').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('parentsapp').onclick = function () {
+            document.getElementById('skysmartrodpril').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('skysmartrodpril').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('feedbacksuggest').onclick = function () {
+            document.getElementById('feedbackpog').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('feedbackpog').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('dblook').onclick = function () {
+            document.getElementById('poiskbd').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('poiskbd').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+
+        document.getElementById('innerissue').onclick = function () {
+            document.getElementById('vnutrzapr').style.display = 'flex'
+            document.getElementById('themes_body').style.display = 'none'
+            document.getElementById('tags_body').style.display = 'none'
+            document.getElementById('backtomenu').style.display = ''
+
+            document.getElementById('backtomenu').onclick = function () {
+                document.getElementById('vnutrzapr').style.display = 'none'
+                document.getElementById('themes_body').style.display = 'flex'
+                document.getElementById('tags_body').style.display = 'flex'
+                document.getElementById('backtomenu').style.display = 'none'
+            }
+        }
+    }
+
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
@@ -5485,7 +5916,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
+        document.getElementById('idmymenu').style.display = 'none'
 
         changeviewtheme()
 
@@ -6054,7 +6485,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Sugform').style.display = 'none'
         else {
             document.getElementById('AF_Sugform').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenu').style.display = 'none'
 
             let topiclisttgcls = document.getElementsByName('topicofsuggest')
 
@@ -6160,52 +6591,90 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }
     }
-	
-document.getElementById('JiraOpenForm').onclick = function() { // открывает поле для работой с JIRA поиском
-	    if (document.getElementById('AF_Jira').style.display == 'none') {
+
+    document.getElementById('JiraOpenForm').onclick = function () { // открывает поле для работой с JIRA поиском
+        if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
-			
-			let jiratkn;
-			
-			async function checkJiraToken() {
-				document.getElementById('responseTextarea1').value = '{}'
-				document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-				document.getElementById('responseTextarea3').value = 'getjiratoken'
-				document.getElementById('sendResponse').click()
 
-				setTimeout(async function () {
+            let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+            document.getElementById('JQLquery').innerText = defqueryitem;
+            let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+            let customquery = '';
 
-					document.getElementById('responseTextarea1').value = '{}'
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-					document.getElementById('responseTextarea3').value = 'getjiratoken'
-					document.getElementById('sendResponse').click()
+            let jiratkn;
 
-					jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-					if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
-						jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
-						document.getElementById('searchjiratknstatus').innerText = "🟢"
-					} else {
-						alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
-						document.getElementById('searchjiratknstatus').innerText = "🔴"
-					}
-					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-					console.log("TOKEN: " + jiratkn);
-				}, 5000)
-			}
-			
-			checkJiraToken()
-			
-	document.getElementById('ClearJiraData').onclick = function() {
-		document.getElementById('testJira').value = '';
-		document.getElementById('issuetable').innerText = ''
-	}
-				 
-	document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
-			
-	document.getElementById('getJiraTasks').onclick = function () {
-			  let rezissuetable;
+            async function checkJiraToken() {
+                document.getElementById('responseTextarea1').value = '{}'
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+                document.getElementById('responseTextarea3').value = 'getjiratoken'
+                document.getElementById('sendResponse').click()
 
-        document.getElementById('responseTextarea1').value = `{
+                setTimeout(async function () {
+
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+                    document.getElementById('responseTextarea3').value = 'getjiratoken'
+                    document.getElementById('sendResponse').click()
+
+                    jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+                    if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
+                        jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+                        document.getElementById('searchjiratknstatus').innerText = "🟢"
+                    } else {
+                        alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+                        document.getElementById('searchjiratknstatus').innerText = "🔴"
+                    }
+                    document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+                    console.log("TOKEN: " + jiratkn);
+                }, 5000)
+            }
+
+            checkJiraToken()
+
+            document.getElementById('ClearJiraData').onclick = function () {
+                document.getElementById('testJira').value = '';
+                document.getElementById('issuetable').innerText = ''
+            }
+
+            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
+
+
+            document.getElementById('defaultQuery').onclick = function () {
+                defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+                document.getElementById('JQLquery').value = defqueryitem;
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+            }
+
+            document.getElementById('freshQuery').onclick = function () {
+                frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                document.getElementById('JQLquery').value = frqueryitem;
+                this.classList.toggle('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+            }
+
+            document.getElementById('customQuery').onclick = function () {
+                document.getElementById('JQLquery').oninput = function () {
+                    localStorage.setItem('customquery', this.value)
+                }
+                document.getElementById('JQLquery').value = localStorage.getItem('customquery');
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+            }
+
+            document.getElementById('getJiraTasks').onclick = function () {
+
+                let rezissuetable;
+
+                if (document.getElementById('defaultQuery').classList.contains('active-query')) {
+                    defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+                    document.getElementById('JQLquery').value = defqueryitem;
+                    defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+
+                    document.getElementById('responseTextarea1').value = `{
                      "headers": {
                         "__amdmodulename": "jira/issue/utils/xsrf-token-header",
                        "accept": "*/*",
@@ -6214,105 +6683,146 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                        "x-atlassian-token": "no-check",
                        "x-requested-with": "XMLHttpRequest"
                      },
-                     "body": "startIndex=0&filterId=21266&jql=project+in+(VIM%2C+MP%2C+MV%2C+KIDS%2C+TS%2C+ADULT%2C+ESM%2C+AUTH%2C+BILL%2C+COMM%2C+KG%2C+KIDSMOB%2C+MATH%2C+MOBACK%2C+MOBT%2C+SS%2C+ST%2C+SMMOB%2C+STUDCAB)+AND+issuetype+in+(Bug%2C+Task)+AND+status+!%3D+closed+AND+Reports+%3E+0+AND+resolution+in+(Unresolved%2C+Incomplete%2C+%22Cannot+Reproduce%22)+AND+text+~%22+${testJira.value}+%22+ORDER+BY+updated&layoutKey=list-view",
+                     "body": "startIndex=0&filterId=21266&jql=${defqueryitem}&layoutKey=list-view",
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
                }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-        document.getElementById('responseTextarea3').value = 'getissuetable'
-        document.getElementById('sendResponse').click()
 
-        async function getJiraTask() {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-            document.getElementById('responseTextarea3').value = ''
-            document.getElementById('sendResponse').click()
+                } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
+                    frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                    document.getElementById('JQLquery').value = frqueryitem;
+                    frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-            rezissuetable = await rezissuetable;
-            if (rezissuetable == null)
-                setTimeout(getJiraTask, 1000)
-            else {
-                //   rezissuetable = JSON.parse(rezissuetable)
-                document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-
-                let issues = [];
-				let temporarka;
-                if (rezissuetable.issueTable.issueKeys.length > 50)
-                    rezissuetable.issueTable.issueKeys.length = 50;
-                for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
-
-                    if (rezissuetable.issueTable.issueKeys[i] != undefined) {
-						
-						if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) !=-1) {
-							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ').replace(new RegExp(document.getElementById('testJira').value,'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
-						} else {
-							temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">',' – ')
-						}
-								
-
-                        issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' +'<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
-
-                    }
-
+                    document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${frqueryitem}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
+                } else if (document.getElementById('customQuery').classList.contains('active-query')) {
+                    customquery = `${localStorage.getItem('customquery')}`
+                    document.getElementById('JQLquery').value = customquery
+                    customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+                    document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${customquery}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
                 }
 
-                document.getElementById('issuetable').innerHTML = issues;
 
-                let barray = document.querySelectorAll('.jiraissues');
-                for (let j = 0; j < barray.length; j++) {
-                    barray[j].onclick = function () {
-                        sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
-                        let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                            "headers": {
-                                "accept": "*/*",
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                    }
-                }
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+                document.getElementById('responseTextarea3').value = 'getissuetable'
+                document.getElementById('sendResponse').click()
 
-                let refreshissuesarr = document.querySelectorAll('.refreshissues');
-                for (let f = 0; f < refreshissuesarr.length; f++) {
-                    refreshissuesarr[f].onclick = function () {
+                async function getJiraTask() {
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+                    document.getElementById('responseTextarea3').value = ''
+                    document.getElementById('sendResponse').click()
 
-                        document.getElementById('responseTextarea1').value = '{}'
-                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                        document.getElementById('responseTextarea3').value = 'reportscount'
-                        document.getElementById('sendResponse').click()
+                    rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+                    rezissuetable = await rezissuetable;
+                    if (rezissuetable == null)
+                        setTimeout(getJiraTask, 1000)
+                    else {
+                        //   rezissuetable = JSON.parse(rezissuetable)
+                        document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 
-                        let count;
-                        let jira_token;
-                        let increasedcount;
-                        setTimeout(async function () {
-                            document.getElementById('responseTextarea1').value = '{}'
-                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                            document.getElementById('responseTextarea3').value = 'reportscount'
-                            document.getElementById('sendResponse').click()
+                        let issues = [];
+                        let temporarka;
+                        if (rezissuetable.issueTable.issueKeys.length > 50)
+                            rezissuetable.issueTable.issueKeys.length = 50;
+                        for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
-                            let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
-                            repcount = await repcount;
-                            jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-                            document.getElementById('responseTextarea1').removeAttribute('reportscount')
+                            if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 
-                            count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-                            count = parseInt(count);
-                            increasedcount = count + 1;
-                            increasedcount = increasedcount.toString();
-                            console.log("count=" + count + " increasedcount " + increasedcount);
+                                if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) != -1) {
+                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').replace(new RegExp(document.getElementById('testJira').value, 'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
+                                } else {
+                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ')
+                                }
 
-                            setTimeout(function () {
 
-                                document.getElementById('responseTextarea1').value = `{
+                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+
+                            }
+
+                        }
+
+                        document.getElementById('issuetable').innerHTML = issues;
+
+                        let barray = document.querySelectorAll('.jiraissues');
+                        for (let j = 0; j < barray.length; j++) {
+                            barray[j].onclick = function () {
+                                sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
+                                let b = document.URL.split('/')
+                                fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                    "headers": {
+                                        "accept": "*/*",
+                                        "content-type": "application/json",
+                                        "sec-fetch-dest": "empty",
+                                        "sec-fetch-mode": "cors",
+                                        "sec-fetch-site": "same-origin"
+                                    },
+                                    "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
+                                    "method": "POST",
+                                    "mode": "cors",
+                                    "credentials": "include"
+                                })
+                            }
+                        }
+
+                        let refreshissuesarr = document.querySelectorAll('.refreshissues');
+                        for (let f = 0; f < refreshissuesarr.length; f++) {
+                            refreshissuesarr[f].onclick = function () {
+
+                                document.getElementById('responseTextarea1').value = '{}'
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                                document.getElementById('responseTextarea3').value = 'reportscount'
+                                document.getElementById('sendResponse').click()
+
+                                let count;
+                                let jira_token;
+                                let increasedcount;
+                                setTimeout(async function () {
+                                    document.getElementById('responseTextarea1').value = '{}'
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                                    document.getElementById('responseTextarea3').value = 'reportscount'
+                                    document.getElementById('sendResponse').click()
+
+                                    let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
+                                    repcount = await repcount;
+                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                    document.getElementById('responseTextarea1').removeAttribute('reportscount')
+
+                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                    count = parseInt(count);
+                                    increasedcount = count + 1;
+                                    increasedcount = increasedcount.toString();
+                                    console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                    setTimeout(function () {
+
+                                        document.getElementById('responseTextarea1').value = `{
 						"headers": {
 							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 						    "sec-fetch-mode": "cors",
@@ -6325,36 +6835,36 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 						  "mode": "cors",
 						  "credentials": "include"
 							}`
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-                                document.getElementById('responseTextarea3').value = ''
-                                document.getElementById('sendResponse').click()
-                                let newinfocount = document.querySelectorAll('.newcount');
-                                newinfocount[f].innerHTML = increasedcount;
-                                increasedcount = "";
-                            }, 1000);
-                        }, 1000)
+                                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                        document.getElementById('responseTextarea3').value = ''
+                                        document.getElementById('sendResponse').click()
+                                        let newinfocount = document.querySelectorAll('.newcount');
+                                        newinfocount[f].innerHTML = increasedcount;
+                                        increasedcount = "";
+                                    }, 1000);
+                                }, 1000)
+                            }
+                        }
+
+                        console.log(rezissuetable.issueTable.issueKeys);
+                        setTimeout(function () { issues = []; }, 5000)
                     }
+
                 }
 
-                console.log(rezissuetable.issueTable.issueKeys);
-                setTimeout(function () { issues = []; }, 5000)
+                setTimeout(getJiraTask, 1000)
+
             }
-
-        }
-
-        setTimeout(getJiraTask, 1000)
-		
-		}
-		    // Просмотр таски по джира по ее коду и номеру
-    document.getElementById('getJiraTasks').ondblclick = function () {
-        if (document.getElementById('AF_Jira').style.display == 'none') {
-            document.getElementById('AF_Jira').style.display = ''
-        }
+            // Просмотр таски по джира по ее коду и номеру
+            document.getElementById('getJiraTasks').ondblclick = function () {
+                if (document.getElementById('AF_Jira').style.display == 'none') {
+                    document.getElementById('AF_Jira').style.display = ''
+                }
 
 
-        let rezissuetable;
+                let rezissuetable;
 
-        document.getElementById('responseTextarea1').value = `{
+                document.getElementById('responseTextarea1').value = `{
 				  "headers": {
 					"accept": "*/*",
 					"sec-fetch-dest": "empty",
@@ -6367,71 +6877,78 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 				  "mode": "cors",
 				  "credentials": "include"
                }`
-        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-        document.getElementById('responseTextarea3').value = 'getissuetable1'
-        document.getElementById('sendResponse').click()
+                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
+                document.getElementById('responseTextarea3').value = 'getissuetable1'
+                document.getElementById('sendResponse').click()
 
-        async function getJiraTask1() {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-            document.getElementById('responseTextarea3').value = 'getissuetable1'
-            document.getElementById('sendResponse').click()
+                async function getJiraTask1() {
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
+                    document.getElementById('responseTextarea3').value = 'getissuetable1'
+                    document.getElementById('sendResponse').click()
 
 
-            rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
-            rezissuetable = await rezissuetable;
-            document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
-            if (rezissuetable != null) {
-                let issues = [];
-                issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
+                    rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+                    rezissuetable = await rezissuetable;
+                    document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
+                    if (rezissuetable != null) {
+                        let issues = [];
+                        issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
 
-                document.getElementById('issuetable').innerHTML = issues;
+                        document.getElementById('issuetable').innerHTML = issues;
 
-                let barray = document.querySelector('.jiraissues');
-                barray.onclick = function () {
-                    sendComment(rezissuetable[0].items[0].url)
-                    let b = document.URL.split('/')
-                    fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                        "headers": {
-                            "accept": "*/*",
-                            "content-type": "application/json",
-                            "sec-fetch-dest": "empty",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    })
+                        let barray = document.querySelector('.jiraissues');
+                        barray.onclick = function () {
+                            sendComment(rezissuetable[0].items[0].url)
+                            let b = document.URL.split('/')
+                            fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                "headers": {
+                                    "accept": "*/*",
+                                    "content-type": "application/json",
+                                    "sec-fetch-dest": "empty",
+                                    "sec-fetch-mode": "cors",
+                                    "sec-fetch-site": "same-origin"
+                                },
+                                "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
+                                "method": "POST",
+                                "mode": "cors",
+                                "credentials": "include"
+                            })
+                        }
+
+                        setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+                    }
                 }
 
-                setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+                setTimeout(getJiraTask1, 1000)
             }
-        }
 
-        setTimeout(getJiraTask1, 1000)
-    }
+            let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
+            searchJiraByEnter.addEventListener('keydown', event => {
+                if (event.key === "Enter") {
+                    document.querySelector('#getJiraTasks').click()
+                }
+            })
 
-    let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
-    searchJiraByEnter.addEventListener('keydown', event => {
-        if (event.key === "Enter") {
-            document.querySelector('#getJiraTasks').click()
-        }
-    })
-			
-			
+            let searchJiraByEnterInput = document.querySelector('#JQLquery'); //по Enter запускает поиск по Jira
+            searchJiraByEnterInput.addEventListener('keydown', event => {
+                if (event.key === "Enter") {
+                    document.querySelector('#getJiraTasks').click()
+                }
+            })
+
+
         } else if (document.getElementById('AF_Jira').style.display == '') {
-			document.getElementById('AF_Jira').style.display = 'none'
-		}
-}
+            document.getElementById('AF_Jira').style.display = 'none'
+        }
+    }
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
             document.getElementById('AF_Refuseformnew').style.display = 'none'
         else {
             document.getElementById('AF_Refuseformnew').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenu').style.display = 'none'
 
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
@@ -6567,7 +7084,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                 else document.getElementById('chatlnk').value = ''
             }
 
-            document.getElementById('clearrefuseform').onclick = () => { 
+            document.getElementById('clearrefuseform').onclick = () => {
                 document.getElementById('chatlnk').style.background = '';
                 document.getElementById('chatlnk').value = '';
                 document.getElementById('userissue').style.background = '';
@@ -6608,42 +7125,42 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
 
                 let flagempty = 0;
 
-                if (document.getElementById('chatlnk').value.length < 3){
+                if (document.getElementById('chatlnk').value.length < 3) {
                     document.getElementById('chatlnk').style.backgroundColor = 'Coral';
                     flagempty = 1;
                 } else {
                     document.getElementById('chatlnk').style.backgroundColor = '';
                 }
-                
-                if (document.getElementById('userissue').children[0].selected == true){
-                    document.getElementById('userissue').style.backgroundColor = 'Coral';
-                    flagempty = 1;    
-                    } else {
-                        document.getElementById('userissue').style.backgroundColor = '';
-                    }
 
-                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3){
+                if (document.getElementById('userissue').children[0].selected == true) {
+                    document.getElementById('userissue').style.backgroundColor = 'Coral';
+                    flagempty = 1;
+                } else {
+                    document.getElementById('userissue').style.backgroundColor = '';
+                }
+
+                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3) {
                     document.getElementById('otherproblem').style.backgroundColor = 'Coral';
                     flagempty = 1;
-                    } else {
-                        document.getElementById('otherproblem').style.backgroundColor = '';    
-                    }
+                } else {
+                    document.getElementById('otherproblem').style.backgroundColor = '';
+                }
 
-                if (document.getElementById('howissuesolverd').children[0].selected == true){
+                if (document.getElementById('howissuesolverd').children[0].selected == true) {
                     document.getElementById('howissuesolverd').style.backgroundColor = 'Coral';
-                    flagempty = 1;    
-                    } else {
-                        document.getElementById('howissuesolverd').style.backgroundColor = '';
-                    }
-                
-                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3){
+                    flagempty = 1;
+                } else {
+                    document.getElementById('howissuesolverd').style.backgroundColor = '';
+                }
+
+                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3) {
                     document.getElementById('othersolved').style.backgroundColor = 'Coral';
-                    flagempty = 1;    
+                    flagempty = 1;
                 } else {
                     document.getElementById('othersolved').style.backgroundColor = '';
                 }
 
-                if (flagempty == 0){
+                if (flagempty == 0) {
                     let chatlink = document.getElementById('chatlnk').value
 
                     for (let i = 0; i < document.getElementById('userissue').children.length; i++) {
@@ -6722,7 +7239,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
                     document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
                     document.getElementById('otherproblem').value = ''
                     document.getElementById('othersolved').value = ''
-                }                
+                }
             }
         }
     }
@@ -6732,8 +7249,8 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
             document.getElementById('AF_Marks').style.display = 'none'
         else {
             document.getElementById('AF_Marks').style.display = ''
-			document.getElementById('idmymenu').style.display = 'none'
-					
+            document.getElementById('idmymenu').style.display = 'none'
+
             document.getElementById('findmarksstat').onclick = async function () {
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
@@ -6842,6 +7359,11 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
             document.getElementById('AF_Jira').style.display = 'none'
     }
 
+    document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
+        if (document.getElementById('AF_Themes').style.display == '')
+            document.getElementById('AF_Themes').style.display = 'none'
+    }
+
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
             document.getElementById('AF_Marks').style.display = 'none'
@@ -6899,7 +7421,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
     }
 
     document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d8kpQcPzwX8C8gLHV;32");
+        alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: QGe6^lY]xW=kvXY9tdqG@iIpfJl8bgmEv_L5");
     }
 
     document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
@@ -7267,10 +7789,10 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
         //скрывает окна при выбранно опции скрытия КОД
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
-        
-		if (localStorage.getItem('disablelngpmwindow') == 1)
-        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-    
+
+        if (localStorage.getItem('disablelngpmwindow') == 1)
+            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+
         if (localStorage.getItem('disableomelchenkowindow') == 1)
             document.getElementById('main_easy_win').style.display = "none";
 
@@ -7344,7 +7866,7 @@ document.getElementById('JiraOpenForm').onclick = function() { // открыва
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
     loginer.onmousedown = function (a) {
-        if (checkelementtype(a)){
+        if (checkelementtype(a)) {
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenerloginer);
@@ -7833,7 +8355,7 @@ function newTag(valueId) { // функция выставления тега ч�
 function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
-			tempindex = [l];
+            tempindex = [l];
             if (table[l][8] == undefined || table[l][8] == null || table[l][8] == " " || table[l][8] == "") {
                 console.log("Не значения тематики")
             } else {
@@ -8374,8 +8896,8 @@ function startTimer() {
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-				if (typeof buttonmobpas == 'object')
-                btn.appendChild(buttonmobpas)
+                if (typeof buttonmobpas == 'object')
+                    btn.appendChild(buttonmobpas)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
@@ -8905,7 +9427,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
 }
 
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] !=undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
         document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
 }
 
@@ -9025,23 +9547,37 @@ function fillchatbox() { //функция наполнения элемента,
                 } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status == 'OnOperator' && convdata.messages[i].payload.oid != undefined) {
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
-                    opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                    document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    opername = operatorsarray.filter(i => (i.operator != null && i.operator != undefined && i.operator.id == operid))
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Диалог назначен на оператора' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'AssignToOperator' && convdata.messages[i].payload.status == 'AssignedToOperator' && convdata.messages[i].payload.oid != undefined) {
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                    document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName + ' взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + opername[0].operator.fullName + ' взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-container">' + 'Оператор взял(а) диалог в работу' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender != undefined && convdata.messages[i].payload.sender != 'timer') {
                     let operid = convdata.messages[i].payload.sender;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                    document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор вернул(а) диалог в очередь с тематикой ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender == undefined) {
                     let operid = convdata.messages[i].payload.prevOid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                    document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог вернулся в общую очередь от ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог вернулся в общую очередь от ' + opername[0].operator.fullName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог вернулся в общую очередь от оператора' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'ReturnToQueue' && convdata.messages[i].payload.sender != undefined && convdata.messages[i].payload.sender == 'timer') {
                     document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Диалог автоматически возвращен в очередь по отсутствию активности оператора' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'CloseConversation' && convdata.messages[i].payload.status != 'ClosedByBot' && convdata.messages[i].payload.sender == 'userAnswerTimer') {
@@ -9050,14 +9586,22 @@ function fillchatbox() { //функция наполнения элемента,
                     let operidcls = convdata.messages[i].payload.sender;
                     let opernamecls;
                     opernamecls = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidcls))
-                    document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    if (opernamecls != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opernamecls[0].operator.fullName + ' закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор закрыл чат с тематикой:  ' + '<br>' + convdata.messages[i].payload.afsName + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 } else if (convdata.messages[i].eventTpe == 'CloseConversation' && Object.values(convdata.messages[i].payload) == '') {
                     document.getElementById('infofield').innerHTML += '<div class="event-name">' + convdata.messages[i].eventTpe + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
                 } else if (convdata.messages[i].eventTpe == 'CreatedByOperator') {
                     let operid = convdata.messages[i].payload.oid;
                     let opername;
                     opername = operatorsarray.filter(i => (i.operator != null && i.operator.id == operid))
-                    document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    if (opername != '') {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + opername[0].operator.fullName + ' открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<div class="event-name">' + 'Оператор открыл(а) новый диалог' + '<span class="event-other-date">' + timearr2[i] + '</span>' + '</div>'
+                    }
                 }
                 break;
 
@@ -9081,7 +9625,11 @@ function fillchatbox() { //функция наполнения элемента,
                     let operidanswcom = convdata.messages[i].operatorId
                     let opernameanswcom;
                     opernameanswcom = operatorsarray.filter(i => (i.operator != null && i.operator.id == operidanswcom))
-                    document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                    if (opernameanswcom != '') {
+                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + opernameanswcom[0].operator.fullName + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                    } else {
+                        document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-name">' + 'Оператор' + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
+                    }
                 } else {
                     document.getElementById('infofield').innerHTML += '<br>' + '<div class="oper-comment-container">' + '<span class="oper-comment-operator">' + convdata.messages[i].operatorId + '</span>' + '<span class="question-event-date">' + timearr[i] + '</span>' + '<div class="question-event-text">' + '<br>' + convdata.messages[i].txt + '</div>' + '</div>'
                 }
@@ -9252,7 +9800,7 @@ function addbuttonsintegration() { // добавляет подсветку пр
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl() { // функция удаления и сброса слайдов но с добавлением также функций просмотра ID методиста которому была отправлена работае, информации об уроке в контенте
-    if (document.URL.split('/').length > 4 && location.host != 'ttc.skyeng.ru' && document.URL.split('/')[3] != 'portfolio' && document.URL.split('/')[2] != 'skyeng.autofaq.ai' && document.URL.split('/')[3] != 'circles' && document.URL.split('/')[3] != 'profile' && document.URL.split('/')[3] != 'adults' && document.URL.split('/')[3] != 'kids' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] != 'vimbox.skyeng.ru/lesson' && document.URL.split('/')[3] != 'inspector-showcase') {
+    if (document.URL.split('/').length > 4 && location.host != 'ttc.skyeng.ru' && document.URL.split('/')[3] != 'portfolio' && document.URL.split('/')[2] != 'skyeng.autofaq.ai' && document.URL.split('/')[3] != 'circles' && document.URL.split('/')[3] != 'profile' && document.URL.split('/')[3] != 'start' && document.URL.split('/')[3] != 'adults' && document.URL.split('/')[3] != 'kids' && document.URL.split('/')[2] + "/" + document.URL.split('/')[3] != 'vimbox.skyeng.ru/lesson' && document.URL.split('/')[3] != 'inspector-showcase') {
         if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=') {
             let remove = document.createElement('span')
             remove.id = "removebtn"
@@ -9941,7 +10489,7 @@ async function remandressl() { // функция удаления и сброс�
     function dosetclasswork(subject) {
         fetch(subject + document.URL.split('/')[6], {
             "headers": {
-				"accept": "application/json",
+                "accept": "application/json",
                 "content-type": "application/json",
             },
             "body": "{\"status\":\"classwork\",\"name\":\"\"}",
@@ -10522,13 +11070,15 @@ function timerHideButtons() { //функция добавления скрыти
 }
 
 function requestsRed() { //функция окрашивает в красный цвет, кнопка взять запрос не будет (0) иметь, а любое другое значение
-    document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
-        txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-        if (txt != "Взять запрос (0)")
-            document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
-        else
-            document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
-    });
+    if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
+        document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
+            txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
+            if (txt != "Взять запрос (0)")
+                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
+            else
+                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
+        });
+    }
 }
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
@@ -11583,7 +12133,7 @@ function customTemplates(language = '') { //собственные шаблон�
     };
 
     cstmTmp.onmousedown = function (a) {
-        if (checkelementtype(a)){
+        if (checkelementtype(a)) {
             window.myX3 = a.layerX;
             window.myY3 = a.layerY;
             document.addEventListener('mousemove', listenercstmTmp);
@@ -12282,9 +12832,9 @@ function prepTp() { //функция подготовки расширения �
         document.getElementById('testUsers').style.display = "none";
     else document.getElementById('testUsers').style.display = ''
 
-	if (localStorage.getItem('disablelngpmwindow') == 1)
-		document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-	else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+    if (localStorage.getItem('disablelngpmwindow') == 1)
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
@@ -12376,7 +12926,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
 
-        if (localStorage.getItem('Hidetestid') == 0){
+        if (localStorage.getItem('Hidetestid') == 0) {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
         }
@@ -12387,26 +12937,27 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
             btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-			btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
-			btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
-			btnAdd1.insertBefore(butServ, btnAdd1.children[8])
-			btnAdd1.insertBefore(taskBut, btnAdd1.children[9])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[8])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[9])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[10])
         }, 2000)
- 
+
         setTimeout(() => {
             let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[11])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[12])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[11])
+            headmenulist.insertBefore(menubar, headmenulist.children[12])
             menubar.append(document.getElementById('servDsk'))
-			menubar.append(document.getElementById('JiraOpenForm'))
+            menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
@@ -12443,11 +12994,6 @@ if (localStorage.getItem('hesoyam') == 1) {
 let lginfo;
 let tokenlog;
 
-let btnpm = document.createElement('button')
-btnpm.innerText = "ПМ";
-btnpm.id = "mathteachercode";
-btnpm.style = "background-color: #3CB371 ; margin: 5px;";
-
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
@@ -12456,64 +13002,11 @@ btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371 ; margin-left: 5px;";
+btntid.style = "background-color: #3CB371 ; margin-left: 5px; margin-right: 5px;";
 
-document.getElementById('testMath').replaceWith(btnpm);
+document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
-
-btnpm.onclick = async function () { // копирует в буфер логиннер для ПМ
-    document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=3622918&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}`
-    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-    document.getElementById('responseTextarea3').value = 'senddata'
-    document.getElementById('sendResponse').click()
-
-    setTimeout(async function () {
-
-        document.getElementById('responseTextarea1').value = `{
-				   "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-			}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-        document.getElementById('responseTextarea3').value = 'senddata'
-        document.getElementById('sendResponse').click()
-
-        lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata');
-        lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-        lginfo = lginfo[lginfo.length - 1].split("\"");
-        copyToClipboard1(lginfo[1])
-        document.getElementById('responseTextarea1').removeAttribute('senddata')
-
-    }, 1000)
-}
 
 btnsid.onclick = async function () { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
@@ -12568,7 +13061,8 @@ btnsid.onclick = async function () { // копирует в буфер логи�
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
 
         }, 1000)
-
+        document.getElementById('sidcode').style.background = 'coral'
+        setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
@@ -12625,7 +13119,8 @@ btntid.onclick = async function () { // копирует в буфер логи�
             document.getElementById('responseTextarea1').removeAttribute('senddata2')
 
         }, 1000)
-
+        document.getElementById('tidcode').style.background = 'coral'
+        setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
