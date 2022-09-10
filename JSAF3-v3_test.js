@@ -902,7 +902,6 @@ var win_Themes =  // описание элементов окна Тематик
 							<button id="feedbacksuggest" style="margin-left:2px; width:150px; height: 44px;">💭Отзывы и пожелания</button>
 							<button id="dblook" style="margin-left:2px; width:150px; height: 44px;">🔎Поиск по БД</button>
 							<button id="innerissue" style="margin-left:2px; width:150px; height: 44px;">💨Внутренние запросы</button>
-							<button id="etc" style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
 						</div>	
 						
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
@@ -1070,11 +1069,9 @@ var win_Themes =  // описание элементов окна Тематик
 
 						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="2030" style="margin-left:2px; width:150px; height: 44px;">❓Slack - Проблемы со входом</button>
-						</div>
-						
-						<div id="prochee" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="2034" style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
 						</div>
+						
                 </span>
         </span>
 </div>`;
@@ -5912,20 +5909,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('backtomenu').style.display ='none'
 				}
 			}	
-
-			document.getElementById('etc').onclick = function() {
-				document.getElementById('prochee').style.display = 'flex'
-				document.getElementById('themes_body').style.display = 'none'
-				document.getElementById('tags_body').style.display = 'none'
-				document.getElementById('backtomenu').style.display =''
-				
-			document.getElementById('backtomenu').onclick = function() {
-				document.getElementById('prochee').style.display = 'none'
-				document.getElementById('themes_body').style.display = 'flex'
-				document.getElementById('tags_body').style.display = 'flex'
-				document.getElementById('backtomenu').style.display ='none'
-				}
-			}
 	}
 
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
