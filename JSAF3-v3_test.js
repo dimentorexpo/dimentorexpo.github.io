@@ -996,49 +996,49 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="HWvim" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1744" style="margin-left:2px; width:150px; height: 44px;">📝Контент</button>
-							<button name="themesbtn" value="1745" style="margin-left:2px; width:150px; height: 44px;">🔟Оценка</button>
-							<button name="themesbtn" value="1746" style="margin-left:2px; width:150px; height: 44px;">📚Словарь</button>
-							<button name="themesbtn" value="1747" style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения</button>
+							<button name="themesbtn" value="1744" title="Возникают ошибки в отображении материалов, их несоответствие заданиям, плохое качество материалов, все виды ошибок грамматического/орфографического характера." style="margin-left:2px; width:150px; height: 44px;">📝Контент</button>
+							<button name="themesbtn" value="1745" title="Возникают ошибки в выставлении оценки на слайдах, в уроке в целом." style="margin-left:2px; width:150px; height: 44px;">🔟Оценка</button>
+							<button name="themesbtn" value="1746" title="Возникают ошибки в работе со словарем, не отображается перевод, не добавляются слова." style="margin-left:2px; width:150px; height: 44px;">📚Словарь</button>
+							<button name="themesbtn" value="1747" title="Возникают ошибки в механике выполнения заданий, не работает механика выполнения, неправильно верифицируется ответ в заданиях." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения</button>
 						</div>
 
 						<div id="paymn" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1077" style="margin-left:2px; width:150px; height: 44px;">🏰Вина школы</button>
-							<button name="themesbtn" value="1658" style="margin-left:2px; width:150px; height: 44px;">🤑Консультация по оплате</button>
-							<button name="themesbtn" value="1659" style="margin-left:2px; width:150px; height: 44px;">⭕Нет нужного пакета/услуги</button>
-							<button name="themesbtn" value="1660" style="margin-left:2px; width:150px; height: 44px;">💸Подписки</button>
-							<button name="themesbtn" value="1661" style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>
-							<button name="themesbtn" value="1662" style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>
+							<button name="themesbtn" value="1077" title="По вине школы не проходит оплата, допущена ошибка обработки менеджером." style="margin-left:2px; width:150px; height: 44px;">🏰Вина школы</button>						
+							<button name="themesbtn" value="1658" title="Предоставление консультации по оплате, возможных способах оплаты и в целом как совершать оплату." style="margin-left:2px; width:150px; height: 44px;">🤑Консультация по оплате</button>						
+							<button name="themesbtn" value="1659" title="Возникает ошибка оплаты по причине отсутствия нужного У пакета/услуги." style="margin-left:2px; width:150px; height: 44px;">⭕Нет нужного пакета/услуги</button>						
+							<button name="themesbtn" value="1660" title="Возникает проблема совершения оплаты подписки, не продлевается подписка, подписка списана ранее, списано неверное количество уроков." style="margin-left:2px; width:150px; height: 44px;">💸Подписки</button>						
+							<button name="themesbtn" value="1661" title="Возникает ошибка оплаты по причине проблем с картой У: лимиты, 3d-secure, ограничения банка." style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>						
+							<button name="themesbtn" value="1662" title="Возникает ошибка оплаты по причине возникновения ошибки на платформе." style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>						
 						</div>
 
 						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1804" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
-							<button name="themesbtn" value="1805" style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>
-							<button name="themesbtn" value="1806" style="margin-left:2px; width:150px; height: 44px;">💲Оплата</button>
-							<button name="themesbtn" value="1807" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓Профиль</button>
-							<button name="themesbtn" value="1808" style="margin-left:2px; width:150px; height: 44px;">📚Тренажер слов</button>
-							<button name="themesbtn" value="1809" style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>
-							<button name="themesbtn" value="1810" style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
+							<button name="themesbtn" value="1804" title="Возникают проблемы с входом в ЛКУ" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>						
+							<button name="themesbtn" value="1805" title="Возникают проблемы с пониманием механики выполнения заданий, ошибкой приложения во время выполнения заданий." style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>						
+							<button name="themesbtn" value="1806" title="Возникают проблемы с оплатой через приложение вызванные непониманием пользователя или ошибкой платформы." style="margin-left:2px; width:150px; height: 44px;">💲Оплата</button>						
+							<button name="themesbtn" value="1807" title="Возникают проблемы с выставлением настроек профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓Профиль</button>						
+							<button name="themesbtn" value="1808" title="Возникают проблемы с пониманием, выполнение упражнений в тренажере слов." style="margin-left:2px; width:150px; height: 44px;">📚Тренажер слов</button>						
+							<button name="themesbtn" value="1809" title="Возникают проблемы со связью во время уроков, синхронизация материалов, заметок, словаря, выполнение упражнений." style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>						
+							<button name="themesbtn" value="1810" title="Чат не отображается вовсе, нет определенных чатов (с П или с ПМ, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>						
 						</div>
 
 						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1833" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
-							<button name="themesbtn" value="1836" style="margin-left:2px; width:150px; height: 44px;">📅Виджет расписания</button>
-							<button name="themesbtn" value="1835" style="margin-left:2px; width:150px; height: 44px;">💱Виджет финансов</button>
-							<button name="themesbtn" value="1838" style="margin-left:2px; width:150px; height: 44px;">👽Профиль</button>
-							<button name="themesbtn" value="1840" style="margin-left:2px; width:150px; height: 44px;">📢Сторис</button>
-							<button name="themesbtn" value="1837" style="margin-left:2px; width:150px; height: 44px;">📆Страница расписания</button>
-							<button name="themesbtn" value="1834" style="margin-left:2px; width:150px; height: 44px;">💰Страница финансов</button>
-							<button name="themesbtn" value="1839" style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
+							<button name="themesbtn" value="1833" title="Возникают проблемы с входом в ЛКП" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
+							<button name="themesbtn" value="1836" title="Возникает ошибка с отображением расписания, синхронизации данных." style="margin-left:2px; width:150px; height: 44px;">📅Виджет расписания</button>
+							<button name="themesbtn" value="1835" title="Отображается некорректная информация в разделе." style="margin-left:2px; width:150px; height: 44px;">💱Виджет финансов</button>
+							<button name="themesbtn" value="1838" title="Возникает ошибка с отображением данных в профиле." style="margin-left:2px; width:150px; height: 44px;">👽Профиль</button>
+							<button name="themesbtn" value="1840" title="Возникает ошибка при загрузке/ отображении сторис." style="margin-left:2px; width:150px; height: 44px;">📢Сторис</button>
+							<button name="themesbtn" value="1837" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">📆Страница расписания</button>
+							<button name="themesbtn" value="1834" title="Отображается некорректная информация в разделе." style="margin-left:2px; width:150px; height: 44px;">💰Страница финансов</button>
+							<button name="themesbtn" value="1839" title="Чат не отображается вовсе, нет определенных чатов (с У или с другим отделом школы, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
 						</div>
 
 						<div id="skysmartrodpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1884" style="margin-left:2px; width:150px; height: 44px;">💫Другое</button>
-							<button name="themesbtn" value="1883" style="margin-left:2px; width:150px; height: 44px;">📖Материалы</button>
-							<button name="themesbtn" value="1880" style="margin-left:2px; width:150px; height: 44px;">💰Предметы и баланс</button>
-							<button name="themesbtn" value="1881" style="margin-left:2px; width:150px; height: 44px;">👪Профиль родителя</button>
-							<button name="themesbtn" value="1879" style="margin-left:2px; width:150px; height: 44px;">📆Расписание</button>
-							<button name="themesbtn" value="1882" style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
+							<button name="themesbtn" value="1884" title="Консультация, организационные вопросы." style="margin-left:2px; width:150px; height: 44px;">💫Другое</button>
+							<button name="themesbtn" value="1883" title="Возникает ошибка в отображении материалов, отображаются не все материалы." style="margin-left:2px; width:150px; height: 44px;">📖Материалы</button>
+							<button name="themesbtn" value="1880" title="Не отображается информации по подключенным предметам ( или отображается только о некоторых), неактуальнвя информация, ошибка при запросе проверки баланса, нет синхронизации." style="margin-left:2px; width:150px; height: 44px;">💰Предметы и баланс</button>
+							<button name="themesbtn" value="1881" title="Возникает ошибка в редактировании, формировании, отображении информации профиля." style="margin-left:2px; width:150px; height: 44px;">👪Профиль родителя</button>
+							<button name="themesbtn" value="1879" title="Возникает ошибка в отображении информации, синхронизации данных." style="margin-left:2px; width:150px; height: 44px;">📆Расписание</button>
+							<button name="themesbtn" value="1882" title="Не работает чат, не отображается, не синхронизируется. Необходимо добавить/удалить чат." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
 						</div>
 
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -1061,15 +1061,15 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="2018" style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Оператор🧐</button>
-							<button name="themesbtn" value="2017" style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Система🤖</button>
-							<button name="themesbtn" value="2020" style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у П👽</button>
-							<button name="themesbtn" value="2019" style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у У👨‍🎓</button>
+							<button name="themesbtn" value="2018" title="Запрос на информацию о причине удаления урока и инициаторе." style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Оператор🧐</button>
+							<button name="themesbtn" value="2017" title="Запрос на информацию о причине удаления урока и инициаторе." style="margin-left:2px; width:150px; height: 44px;">🧾Кто удалил урок - Система🤖</button>
+							<button name="themesbtn" value="2020" title="Запрос на информацию об ошибках, которые возникли на стороне У для дальнейшей более детальной проверки." style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у П👽</button>
+							<button name="themesbtn" value="2019" title="Запрос на информацию об ошибках, которые возникли на стороне П для дальнейшей более детальной проверки." style="margin-left:2px; width:150px; height: 44px;">🧾Логи урока - Проблемы у У👨‍🎓</button>
 						</div>
 
 						<div id="vnutrzapr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="2030" style="margin-left:2px; width:150px; height: 44px;">❓Slack - Проблемы со входом</button>
-							<button name="themesbtn" value="2034" style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
+							<button name="themesbtn" value="2030" title="Возникает ошибка с авторизацией, входом в слак, недостаточность ролей или понимание системы входа." style="margin-left:2px; width:150px; height: 44px;">❓Slack - Проблемы со входом</button>
+							<button name="themesbtn" value="2034" title="Вопросы, не связанные с вышеперечисленными." style="margin-left:2px; width:150px; height: 44px;">💫Прочее</button>
 						</div>
 
                 </span>
