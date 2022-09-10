@@ -13118,7 +13118,8 @@ btntid.onclick = async function () { // копирует в буфер логи�
             document.getElementById('responseTextarea1').removeAttribute('senddata2')
 
         }, 1000)
-
+        document.getElementById('tidcode').style.background = 'coral'
+        setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
