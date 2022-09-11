@@ -6692,7 +6692,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
-									sndmsgafterdeletebug()
+									// sndmsgafterdeletebug()
 						}
 				}
 				
@@ -6705,7 +6705,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
-									sndmsgafterdeletebug()
+									// sndmsgafterdeletebug()
 						}
 					}
 				}
@@ -6717,13 +6717,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					}
 				}
 				
-				function sndmsgafterdeletebug() {
-					for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
-						document.getElementsByName('addtonotesbug')[j].onclick = function () {
-							sendComment(favissues[j].match(/href.=(\S+).style/)[1])
-						}
-					}
-				}
+				// function sndmsgafterdeletebug() {
+					// for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
+						// document.getElementsByName('addtonotesbug')[j].onclick = function () {
+							// sendComment(favissues[j].match(/href.=(\S+).style/)[1])
+						// }
+					// }
+				// }
 											
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
