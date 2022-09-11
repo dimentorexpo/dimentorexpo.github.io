@@ -6711,7 +6711,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								
 				for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
 					document.getElementsByName('addtonotesbug')[j].onclick = function () {
-						sendComment(favissues[j])
+						sendComment(favissues[j].match(/href.=(\S+).style/)[1])
 					}
 				}
 											
