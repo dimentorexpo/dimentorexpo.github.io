@@ -6818,13 +6818,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             }
                         }
 						
+
 						let addtofarr = document.getElementsByName('addtofavourites')
 						for (let v=0; v<addtofarr.length; v++) {
 							addtofarr[v].onclick = function() {
+							let tagsarray = document.getElementsByTagName('a');
 								addtofarr[v].innerText = "❤"
-								for (let k=0; k<document.getElementsByTagName('a').length; k++) {
-									if (document.getElementsByTagName('a')[k].host == 'jira.skyeng.tech' && k == v) {
-										favissues.push(document.getElementsByTagName('a')[k])
+								for (let x=0; x<tagsarray.length; x++) {
+									if ( tagsarray[x].host == 'jira.skyeng.tech' && x == v) {
+										favissues.push(tagsarray[x])
 									}
 								}
 								
