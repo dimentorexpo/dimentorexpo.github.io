@@ -6647,6 +6647,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
             }
 
             document.getElementById('freshQuery').onclick = function () {
@@ -6655,6 +6656,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
             }
 
             document.getElementById('customQuery').onclick = function () {
@@ -6665,7 +6667,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
             }
+			
+			document.getElementById('favouriteBugs').onclick = function() {
+				if(document.getElementById('favouriteissuetable').style.display != "") {
+				document.getElementById('issuetable').style.display="none"
+				document.getElementById('favouriteissuetable').style.display=""
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+				document.getElementById('customQuery').classList.remove('active-query')				
+				} else {
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
+				document.getElementById('favouriteBugs').classList.remove('active-query')				
+				}
+			}
+			
 
             document.getElementById('getJiraTasks').onclick = function () {
 
