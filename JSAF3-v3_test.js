@@ -6683,9 +6683,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
 					favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 					document.getElementById('favouriteissuetable').innerHTML = favissues;
-				}								
-										
-					for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
+				}		
+					
+				for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
 						document.getElementsByName('removefromfavourites')[i].onclick = function () {
 									favissues.splice([i],1)
 									localStorage.setItem('bugsarray', JSON.stringify(favissues))
@@ -6693,7 +6693,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
 						}
-					}
+				}
 				
 				function removebug() {
 					let arroffavbugs = document.getElementsByName('removefromfavourites');
@@ -6705,6 +6705,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
 						}
+					}
+				}
+				
+								
+				for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
+					document.getElementsByName('addtonotesbug')[j].onclick = function () {
+						sendComment(favissues[j])
 					}
 				}
 											
@@ -6854,7 +6861,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								for (let x=0; x<tagsarray.length; x++) {
 									if (tagsarray[x].host == 'jira.skyeng.tech') {
 										if (x-1 == v) {
-											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a href =${tagsarray[x].href} style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<br>')
+											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a href =${tagsarray[x].href} style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>'  + '<br>')
 											localStorage.setItem('bugsarray', JSON.stringify(favissues))
 										}
 									}
