@@ -6685,14 +6685,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					document.getElementById('favouriteissuetable').innerHTML = favissues;
 				}								
 										
-				
-				for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
-					document.getElementsByName('removefromfavourites')[i].onclick = function () {
-								favissues.splice([i],1)
-								localStorage.setItem('bugsarray', JSON.stringify(favissues))
-								favissues =  JSON.parse(localStorage.getItem('bugsarray'))
-								document.getElementById('favouriteissuetable').innerHTML = favissues;
-								// removebug()
+				while (document.getElementsByName('removefromfavourites').length != 0) {
+					for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
+						document.getElementsByName('removefromfavourites')[i].onclick = function () {
+									favissues.splice([i],1)
+									localStorage.setItem('bugsarray', JSON.stringify(favissues))
+									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+									document.getElementById('favouriteissuetable').innerHTML = favissues;
+									// removebug()
+						}
 					}
 				}
 				
