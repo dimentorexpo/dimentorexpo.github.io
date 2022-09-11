@@ -6689,11 +6689,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i = 0; i<arroffavbugs.length; i++) {
 					arroffavbugs[i].onclick = function() {
 						favissues.splice([i],1)
-						localStorage.setItem('bugsarray', JSON.stringify(favissues))
-						favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 						document.getElementById('favouriteissuetable').innerHTML = favissues;
+						localStorage.setItem('bugsarray', JSON.stringify(favissues))
 					}
 				}
+										
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
