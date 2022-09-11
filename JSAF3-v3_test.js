@@ -6691,7 +6691,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									localStorage.setItem('bugsarray', JSON.stringify(favissues))
 									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
-									// removebug()
+									removebug();
 						}
 					}
 				
@@ -6703,7 +6703,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									localStorage.setItem('bugsarray', JSON.stringify(favissues))
 									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
-									removebug()
+									removebug();
 						}
 					}
 				}
