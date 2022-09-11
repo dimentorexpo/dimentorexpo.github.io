@@ -6687,7 +6687,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				} else {
 				document.getElementById('issuetable').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
-				document.getElementById('favouriteBugs').classList.remove('active-query')				
+				document.getElementById('favouriteBugs').classList.remove('active-query')	
+				document.getElementById('defaultQuery').classList.toggle('active-query')				
 				}
 			}
 			
