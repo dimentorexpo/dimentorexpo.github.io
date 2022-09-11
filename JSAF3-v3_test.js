@@ -6822,13 +6822,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						for (let v=0; v<addtofarr.length; v++) {
 							addtofarr[v].onclick = function() {
 								addtofarr[v].innerText = "❤"
-								for (let k=0; k< document.getElementsByTagName('a').length; k++) {
-									if (document.getElementsByTagName('a')[k].host == 'jira.skyeng.tech') {
-										if (v == k) {
+								for (let k=0; k<document.getElementsByTagName('a').length; k++) {
+									if (document.getElementsByTagName('a')[k].host == 'jira.skyeng.tech' && k == v) {
 										favissues.push(document.getElementsByTagName('a')[k])
-										}
 									}
-
 								}
 								
 								// favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="favnewcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[v] + '</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[v] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + '</a>' + '<span class = "favjiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "favrefreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '</br>')
