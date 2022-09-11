@@ -6649,6 +6649,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
 				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
             }
 
@@ -6660,6 +6662,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
 				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
             }
 
@@ -6673,13 +6677,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
 				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display="none"
+				document.getElementById('getJiraTasks').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
             }
 			
 			document.getElementById('favouriteBugs').onclick = function() {
 				if(document.getElementById('favouriteissuetable').style.display != "") {
-				document.getElementById('issuetable').style.display="none"
-				document.getElementById('favouriteissuetable').style.display=""
+					document.getElementById('issuetable').style.display="none"
+					document.getElementById('favouriteissuetable').style.display=""
+					document.getElementById('testJira').style.display="none"
+					document.getElementById('getJiraTasks').style.display="none"
 				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
 					favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 					document.getElementById('favouriteissuetable').innerHTML = favissues;
