@@ -6686,7 +6686,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let arroffavbugs = document.getElementsByName('removefromfavourites');
 				for (let i = 0; i<arroffavbugs.length; i++) {
 					arroffavbugs[i].onclick = function() {
-						console.log(this[i])
+						console.log([i])
 					}
 				}
                 this.classList.toggle('active-query')
