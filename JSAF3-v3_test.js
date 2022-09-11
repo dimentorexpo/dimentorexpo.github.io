@@ -6680,8 +6680,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if(document.getElementById('favouriteissuetable').style.display != "") {
 				document.getElementById('issuetable').style.display="none"
 				document.getElementById('favouriteissuetable').style.display=""
+				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
 				favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 				document.getElementById('favouriteissuetable').innerHTML = favissues;
+				}
 				
 				let arroffavbugs = document.getElementsByName('removefromfavourites');
 				for (let i = 0; i<arroffavbugs.length; i++) {
