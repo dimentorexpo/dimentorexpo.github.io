@@ -6682,6 +6682,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('favouriteissuetable').style.display=""
 				favissues = localStorage.getItem('bugsarray')
 				document.getElementById('favouriteissuetable').innerHTML = favissues;
+				
+				let arroffavbugs = document.getElementsByName('removefromfavourites');
+				for (let i = 0; i<arroffavbugs.length; i++) {
+					arroffavbugs[i].onclick = function() {
+						console.log(this[i])
+					}
+				}
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
@@ -6828,7 +6835,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								for (let x=0; x<tagsarray.length; x++) {
 									if (tagsarray[x].host == 'jira.skyeng.tech') {
 										if (x-1 == v) {
-											favissues.push(`<a href =${tagsarray[x].href}>` + tagsarray[x].innerHTML + '</a>' + '<br>')
+											favissues.push(`<a href =${tagsarray[x].href}>` + tagsarray[x].innerHTML + '</a>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<br>')
 											localStorage.setItem('bugsarray', favissues)
 										}
 									}
