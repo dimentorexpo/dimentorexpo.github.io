@@ -6824,8 +6824,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								addtofarr[v].innerText = "❤"
 								for (let k=0; k< document.getElementsByTagName('a').length; k++) {
 									if (document.getElementsByTagName('a')[k].host == 'jira.skyeng.tech') {
-										if ([k] == [v])
+										if (v == k) {
 										favissues.push(document.getElementsByTagName('a')[k])
+										}
 									}
 
 								}
