@@ -6677,7 +6677,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
 				document.getElementById('issuetable').style.display=""
-				document.getElementById('testJira').style.display="none"
+				document.getElementById('testJira').style.display=""
 				document.getElementById('getJiraTasks').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
             }
