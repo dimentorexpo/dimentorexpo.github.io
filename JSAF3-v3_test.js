@@ -6826,8 +6826,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								addtofarr[v].innerText = "❤"
 								for (let x=0; x<tagsarray.length; x++) {
 									if (tagsarray[x].host == 'jira.skyeng.tech') {
-										if (x == v) {
-											favissues.push(`<a href =${tagsarray[x+1].href}>` + tagsarray[x+1].innerHTML + '</a>' + '<br>')
+										if (x-1 == v) {
+											favissues.push(`<a href =${tagsarray[x].href}>` + tagsarray[x].innerHTML + '</a>' + '<br>')
 										}
 									}
 								}
