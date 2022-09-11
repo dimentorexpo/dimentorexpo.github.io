@@ -6648,6 +6648,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
             }
 
             document.getElementById('freshQuery').onclick = function () {
@@ -6657,6 +6658,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
             }
 
             document.getElementById('customQuery').onclick = function () {
@@ -6668,6 +6670,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
             }
 			
 			document.getElementById('favouriteBugs').onclick = function() {
