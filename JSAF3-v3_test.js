@@ -6825,8 +6825,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							addtofarr[v].onclick = function() {
 								addtofarr[v].innerText = "❤"
 								for (let x=0; x<tagsarray.length; x++) {
-									if (x == v && tagsarray[x].host == 'jira.skyeng.tech') {
-										favissues.push(`<a href =${tagsarray[x+1].href}>` + tagsarray[x+1].innerHTML + '</a>' + '<br>')
+									if (tagsarray[x].host == 'jira.skyeng.tech') {
+										if (x == v) {
+											favissues.push(`<a href =${tagsarray[x+1].href}>` + tagsarray[x+1].innerHTML + '</a>' + '<br>')
+										}
 									}
 								}
 							}
