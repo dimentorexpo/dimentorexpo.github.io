@@ -6685,15 +6685,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					document.getElementById('favouriteissuetable').innerHTML = favissues;
 				}
 				
+				function doremove() {
+					let arroffavbugs = document.getElementsByName('removefromfavourites');
+						for (let i = 0; i<arroffavbugs.length; i++) {
+							arroffavbugs[i].onclick = function() {
+								favissues.splice([i],1)
+								document.getElementById('favouriteissuetable').innerHTML = favissues;
+								localStorage.setItem('bugsarray', JSON.stringify(favissues))
+								arroffavbugs = document.getElementsByName('removefromfavourites');
+							}
+						}
+				}
+						
 				let arroffavbugs = document.getElementsByName('removefromfavourites');
 				for (let i = 0; i<arroffavbugs.length; i++) {
-					arroffavbugs[i].onclick = function() {
-						favissues.splice([i],1)
-						document.getElementById('favouriteissuetable').innerHTML = favissues;
-						localStorage.setItem('bugsarray', JSON.stringify(favissues))
-					}
+					arroffavbugs[i].onclick = doremove
 				}
-										
+
+					
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
