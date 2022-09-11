@@ -861,9 +861,10 @@ var win_Jira =  // описание элементов окна Поиска п�
                         </div>
 
 						<div id="control_jira_search">
-							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
-							<button id="freshQuery">Fresh</button>
-							<button id="customQuery">Custom</button>
+							<button id="defaultQuery" title="Страница для поиска по умолчанию с заранее записанным JQL запросом" class="active-query" style="margin-left: 35%;">Default</button>
+							<button id="freshQuery" title="Страница при поиске по ключевому слову, выводящая свежесозданные баги в порядке убывания и с 0 Support Tab с заранее записанным JQL запросом">Fresh</button>
+							<button id="customQuery" title="Страница для ручного составления JQL запроса. Поле для ввода поиска не используется, только лишь верхняя часть от выбора отдела до ввода искомого текста в двойных кавычках после надписи text~">Custom</button>
+							<button id="favouriteBugs" title="Страница с сохраненными багами для быстрого доступа">❤</button>
 							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 500px; color: black; margin-top: 5px; margin-left: 5%;"></textarea>
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
@@ -871,6 +872,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
+                                <p id="favouriteissuetable" style="max-height:400px; margin-left:5px; overflow:auto; display:none"></p>
                         </div>
                 </span>
         </span>
@@ -946,17 +948,17 @@ var win_Themes =  // описание элементов окна Тематик
 
 						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1632" title="У/П не могут войти в свой ЛК, т.к. нет привязанных данных для входа. Выставление нужных данный." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
-							<button name="themesbtn" value="1629" title="🧭Виджет входа на урок - Отсутствует кнопка" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутстств кноп⁉</button>
+							<button name="themesbtn" value="1629" title="Виджет входа на урок - Отсутствует кнопка" style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Отсутстств кноп⁉</button>
 							<button name="themesbtn" value="1635" title="У/П указывают неверные данные для входа, нет ролей, которые дают право на вход." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Даные для входа</button>
 							<button name="themesbtn" value="1630" title="Нет возможности перейти по кнопке входа в урок." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Кнопка не активна🔘</button>
 							<button name="themesbtn" value="1634" title="У/П забыли пароль от своего ЛК, не могут войти. Решение — сброс пароля." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Сброс пароля</button>
-							<button name="themesbtn" value="1631" title="Оказание консультации У/П о том, как можно войти в свой личный кабинет." style="margin-left:2px; width:150px; height: 44px;">🔐Консультация по авторизации</button>
+							<button name="themesbtn" value="1626" title="Виджет входа на урок не отображается в ЛКУ по причине того, что У или П в отпуске." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - У в отпуске🏝</button>
 							<button name="themesbtn" value="1633" title="Не удается войти в ЛКУ/ЛКП, отображается ошибка доступа при входе." style="margin-left:2px; width:150px; height: 44px;">🔐Сбой с авторизацией</button>
-							<button name="themesbtn" value="1627" title="Консультация У о том, как входить в урок при помощи виджета." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">Виджет вх урок - Консульт по вх на урок</button>
-							<button name="themesbtn" value="1628" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У не состоит в группу ГУ или был добавлен слишком поздно." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
-							<button name="themesbtn" value="1626" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У или П в отпуске." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске🏝</button>
+							<button name="themesbtn" value="1627" title="Консультация У о том, как входить в урок при помощи виджета." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🧭Виджет вх урок - Консульт по вх на урок</button>
+							<button name="themesbtn" value="1631" title="Оказание консультации У/П о том, как можно войти в свой личный кабинет." style="margin-left:2px; width:150px; height: 44px;">🔐Консультация по авторизации</button>
+							<button name="themesbtn" value="1628" title="Виджет входа на урок не отображается в ЛКУ по причине того, что У не состоит в группу ГУ или был добавлен слишком поздно." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - У не сост в гр (ГУ)</button>
 							<button name="themesbtn" value="1624" title="Не отображается виджет входа на урок в ЛК по причине истекшей подписки У" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🧭Виджет вх урок - Истекла подписка У⏳</button>
-							<button name="themesbtn" value="1625" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что занятие запланировано в другое время." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
+							<button name="themesbtn" value="1625" title="Виджет входа на урок не отображается в ЛКУ по причине того, что занятие запланировано в другое время." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Урок в др ⌚</button>
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -6637,7 +6639,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
 
             document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
-
+			let favissues = [];
 
             document.getElementById('defaultQuery').onclick = function () {
                 defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
@@ -6645,6 +6647,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
             }
 
             document.getElementById('freshQuery').onclick = function () {
@@ -6653,6 +6660,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
             }
 
             document.getElementById('customQuery').onclick = function () {
@@ -6663,7 +6675,75 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
             }
+			
+			document.getElementById('favouriteBugs').onclick = function() {
+				if(document.getElementById('favouriteissuetable').style.display != "") {
+					document.getElementById('issuetable').style.display="none"
+					document.getElementById('favouriteissuetable').style.display=""
+					document.getElementById('testJira').style.display="none"
+					document.getElementById('getJiraTasks').style.display="none"
+				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
+					favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+					document.getElementById('favouriteissuetable').innerHTML = favissues;
+				}		
+					
+				for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
+						document.getElementsByName('removefromfavourites')[i].onclick = function () {
+									favissues.splice([i],1)
+									localStorage.setItem('bugsarray', JSON.stringify(favissues))
+									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+									document.getElementById('favouriteissuetable').innerHTML = favissues;
+									removebug();
+									sndmsgafterdeletebug()
+						}
+				}
+				
+				function removebug() {
+					let arroffavbugs = document.getElementsByName('removefromfavourites');
+					for (let i = 0; i<arroffavbugs.length; i++) {
+						arroffavbugs[i].onclick = function () {
+									favissues.splice([i],1)
+									localStorage.setItem('bugsarray', JSON.stringify(favissues))
+									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+									document.getElementById('favouriteissuetable').innerHTML = favissues;
+									removebug();
+									sndmsgafterdeletebug()
+						}
+					}
+				}
+				
+								
+				for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
+					document.getElementsByName('addtonotesbug')[j].onclick = function () {
+						sendComment(favissues[j].match(/href.=(\S+).style/)[1])
+					}
+				}
+				
+				function sndmsgafterdeletebug() {
+					for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
+						document.getElementsByName('addtonotesbug')[j].onclick = function () {
+							sendComment(favissues[j].match(/href.=(\S+).style/)[1])
+						}
+					}
+				}
+											
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+				document.getElementById('customQuery').classList.remove('active-query')				
+				} else {
+				document.getElementById('issuetable').style.display="none"
+				document.getElementById('favouriteissuetable').style.display="none"
+				document.getElementById('favouriteBugs').classList.remove('active-query')					
+				}
+			}
+			
 
             document.getElementById('getJiraTasks').onclick = function () {
 
@@ -6746,7 +6826,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     else {
                         //   rezissuetable = JSON.parse(rezissuetable)
                         document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-
                         let issues = [];
                         let temporarka;
                         if (rezissuetable.issueTable.issueKeys.length > 50)
@@ -6762,7 +6841,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 }
 
 
-                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<a name="buglinks" href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
 
                             }
 
@@ -6790,7 +6869,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 })
                             }
                         }
+						
 
+						let addtofarr = document.getElementsByName('addtofavourites')
+						let tagsarray = document.getElementsByName('buglinks');
+						for (let v=0; v<addtofarr.length; v++) {
+							addtofarr[v].onclick = function() {
+								addtofarr[v].innerText = "❤"
+								for (let x=0; x<tagsarray.length; x++) {
+										if (x == v) {
+											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a href =${tagsarray[x].href} target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>'  + '<br>')
+											localStorage.setItem('bugsarray', JSON.stringify(favissues))
+										}
+								}
+							}
+						}
+						
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
                             refreshissuesarr[f].onclick = function () {
@@ -7362,6 +7456,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Themes').style.display == '')
             document.getElementById('AF_Themes').style.display = 'none'
+		
+		if (document.getElementById('backtomenu').style.display == '')
+			document.getElementById('backtomenu').click()
     }
 
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
