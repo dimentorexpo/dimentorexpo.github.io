@@ -6686,12 +6686,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}								
 										
 				let arroffavbugs = document.getElementsByName('removefromfavourites');
-				for (let i = 0; i<arroffavbugs.length; i++) {
+				for (let i = arroffavbugs.length; i>0; i--) {
 					arroffavbugs[i].onclick = function () {
 								favissues.splice([i],1)
 								localStorage.setItem('bugsarray', JSON.stringify(favissues))
-								// favissues =  JSON.parse(localStorage.getItem('bugsarray'))
-								// document.getElementById('favouriteissuetable').innerHTML = favissues;
+								favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+								document.getElementById('favouriteissuetable').innerHTML = favissues;
 					}
 				}
 											
