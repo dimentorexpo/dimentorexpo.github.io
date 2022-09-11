@@ -6685,10 +6685,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('defaultQuery').classList.remove('active-query')
 				document.getElementById('customQuery').classList.remove('active-query')				
 				} else {
-				document.getElementById('issuetable').style.display=""
+				document.getElementById('issuetable').style.display="none"
 				document.getElementById('favouriteissuetable').style.display="none"
-				document.getElementById('favouriteBugs').classList.remove('active-query')	
-				document.getElementById('defaultQuery').classList.toggle('active-query')				
+				document.getElementById('favouriteBugs').classList.remove('active-query')					
 				}
 			}
 			
