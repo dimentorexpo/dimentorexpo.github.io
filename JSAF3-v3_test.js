@@ -6688,7 +6688,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let arroffavbugs = document.getElementsByName('removefromfavourites');
 				for (let i = 0; i<arroffavbugs.length; i++) {
 					arroffavbugs[i].onclick = function() {
-						console.log([i])
+						favissues.splice([i],1)
+						document.getElementById('favouriteissuetable').innerHTML = favissues;
 					}
 				}
                 this.classList.toggle('active-query')
