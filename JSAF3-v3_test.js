@@ -6820,9 +6820,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 
 						let addtofarr = document.getElementsByName('addtofavourites')
+						let tagsarray = document.getElementsByTagName('a');
 						for (let v=0; v<addtofarr.length; v++) {
 							addtofarr[v].onclick = function() {
-							let tagsarray = document.getElementsByTagName('a');
 								addtofarr[v].innerText = "❤"
 								for (let x=0; x<tagsarray.length; x++) {
 									if ( tagsarray[x].host == 'jira.skyeng.tech' && x == v) {
