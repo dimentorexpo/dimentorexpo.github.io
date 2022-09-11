@@ -6680,6 +6680,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if(document.getElementById('favouriteissuetable').style.display != "") {
 				document.getElementById('issuetable').style.display="none"
 				document.getElementById('favouriteissuetable').style.display=""
+				favissues = localStorage.getItem('bugsarray')
 				document.getElementById('favouriteissuetable').innerHTML = favissues;
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
@@ -6828,6 +6829,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									if (tagsarray[x].host == 'jira.skyeng.tech') {
 										if (x-1 == v) {
 											favissues.push(`<a href =${tagsarray[x].href}>` + tagsarray[x].innerHTML + '</a>' + '<br>')
+											localStorage.setItem('bugsarray', favissues)
 										}
 									}
 								}
