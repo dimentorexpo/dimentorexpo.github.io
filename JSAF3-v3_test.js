@@ -6685,28 +6685,28 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					document.getElementById('favouriteissuetable').innerHTML = favissues;
 				}								
 										
-				let arroffavbugs = document.getElementsByName('removefromfavourites');
-				for (let i = 0; i<arroffavbugs.length; i++) {
-					arroffavbugs[i].onclick = function () {
+				
+				for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
+					document.getElementsByName('removefromfavourites')[i].onclick = function () {
 								favissues.splice([i],1)
 								localStorage.setItem('bugsarray', JSON.stringify(favissues))
 								favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 								document.getElementById('favouriteissuetable').innerHTML = favissues;
-								removebug()
+								// removebug()
 					}
 				}
 				
-				function removebug() {
-					let arroffavbugs = document.getElementsByName('removefromfavourites');
-					for (let i = 0; i<arroffavbugs.length; i++) {
-						arroffavbugs[i].onclick = function () {
-									favissues.splice([i],1)
-									localStorage.setItem('bugsarray', JSON.stringify(favissues))
-									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
-									document.getElementById('favouriteissuetable').innerHTML = favissues;
-						}
-					}
-				}
+				// function removebug() {
+					// let arroffavbugs = document.getElementsByName('removefromfavourites');
+					// for (let i = 0; i<arroffavbugs.length; i++) {
+						// arroffavbugs[i].onclick = function () {
+									// favissues.splice([i],1)
+									// localStorage.setItem('bugsarray', JSON.stringify(favissues))
+									// favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+									// document.getElementById('favouriteissuetable').innerHTML = favissues;
+						// }
+					// }
+				// }
 											
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
