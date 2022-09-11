@@ -6817,6 +6817,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 })
                             }
                         }
+						
+						let addtofarr = document.getElementsByName('addtofavourites')
+						for (let v=0; v<addtofarr.length; v++) {
+							addtofarr[v].onclick = function() {
+								addtofarr[v].innerText = "❤"
+							}
+						}
 
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
