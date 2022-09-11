@@ -6835,7 +6835,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								for (let x=0; x<tagsarray.length; x++) {
 									if (tagsarray[x].host == 'jira.skyeng.tech') {
 										if (x-1 == v) {
-											[...favissues].push(`<a href =${tagsarray[x].href}>` + tagsarray[x].innerHTML + '</a>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<br>')
+											favissues.push(`<a href =${tagsarray[x].href}>` + tagsarray[x].innerHTML + '</a>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<br>')
 											localStorage.setItem('bugsarray', favissues)
 										}
 									}
