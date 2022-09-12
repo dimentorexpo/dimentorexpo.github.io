@@ -8484,7 +8484,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                     let splittedarr = table[l][2 + newL].split('$')
                     console.log(splittedarr)
                     if (splittedarr[0] == "Текст")
-                        sendAnswer(splittedarr[1])
+                        sendAnswer(transfPageButtons(splittedarr[1]))
                     else if (splittedarr[0] == "Шаблон") {
                         sendAnswerTemplate(splittedarr[1], splittedarr[1])
                     } else {
