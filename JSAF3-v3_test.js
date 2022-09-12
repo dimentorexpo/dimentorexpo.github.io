@@ -657,7 +657,7 @@ var win_taskform = //описание формы создания задач в 
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<br>
 							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
-							<button id="highteachersc" style="height:25px; width: 130px;">👽Исходящие звонки</button>
+							<button id="highteachersc" style="height:25px; width: 130px;">👽Исход звонки</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
 
