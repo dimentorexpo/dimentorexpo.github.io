@@ -657,7 +657,7 @@ var win_taskform = //описание формы создания задач в 
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<br>
 							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
-							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
+							<button id="highteachersc" style="height:25px; width: 130px;">👽Исходящие звонки</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
 
@@ -677,7 +677,7 @@ var win_taskform = //описание формы создания задач в 
 								<option value="teachers_care_crm" style="background: white">Teachers Care</option>
 								<option value="content_management_dictionary" style="background: white">Словарь</option>
 								<option value="content_management" style="background: white">Контент</option>
-								<option value="teachers_support" style="background: white">Teachers Support</option>
+								<option value="outgoing_calls_crm2" style="background: white">Исходящие звонки</option>
 								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
 							</select>
 
