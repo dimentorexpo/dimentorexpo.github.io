@@ -6721,7 +6721,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								
 				for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
 					document.getElementsByName('addtonotesbug')[j].onclick = function () {
-						sendComment(favissues[j].match(/href.=(\S+).style/)[1])
+						sendComment(favissues[j].match(/href.=(\S+)/)[1])
+						
+						        let b = document.URL.split('/')
+                                fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                    "headers": {
+                                        "accept": "*/*",
+                                        "content-type": "application/json",
+                                        "sec-fetch-dest": "empty",
+                                        "sec-fetch-mode": "cors",
+                                        "sec-fetch-site": "same-origin"
+                                    },
+                                    "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"${favissues[j].match(/href.=(\S+)/)[1]}\"}]}`,
+                                    "method": "POST",
+                                    "mode": "cors",
+                                    "credentials": "include"
+                                })
+						
 					}
 				}
 				
