@@ -6802,7 +6802,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
 										
-										alert(`Support Tab для задачи ${favissues[c].match(/href.=(\S+)/)[1]} увеличен на 1 и сейчас равен: ${increasedcount}`)
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href}увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
 					}
@@ -6813,8 +6813,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					let itarrs = document.getElementsByName('favissuemassive')
 						for (let c=0; c<cnttoincrease.length; c++) {
 							cnttoincrease[c].onclick = function() {
-								console.log('clicked')
-								
+								console.log('clicked')						
 								
 								document.getElementById('responseTextarea1').value = '{}'
                                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
@@ -6852,7 +6851,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 												"x-requested-with": "XMLHttpRequest",
 												"x-sitemesh-off": "true"
 														},
-											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].value}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
 											  "method": "POST",
 											  "mode": "cors",
 											  "credentials": "include"
@@ -6861,12 +6860,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
 										
-										alert(`Support Tab для задачи ${favissues[c].match(/href.=(\S+)/)[1]}&atl_token=${jira_token} увеличен на 1 и сейчас равен: ${increasedcount}`)
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href}увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
-								
-								
-								
 							}
 					}
 				}
