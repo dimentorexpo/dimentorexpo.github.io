@@ -6752,12 +6752,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 				
 				let cnttoincrease = document.getElementsByName('increasecount');
+				let itarrs = document.getElementsByName('favbugs')
 						for (let c=0; c<cnttoincrease.length; c++) {
 							cnttoincrease[c].onclick = function() {
-								console.log('clicked')
+								console.log('clicked')						
 								
 								document.getElementById('responseTextarea1').value = '{}'
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + favissues[c].match(/href.=(\S+)/)[1].split('/')[4]
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].value
                                 document.getElementById('responseTextarea3').value = 'suptabcnt'
                                 document.getElementById('sendResponse').click()
 
@@ -6766,7 +6767,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let increasedcount;
                                 setTimeout(async function () {
                                     document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + favissues[c].match(/href.=(\S+)/)[1].split('/')[4]
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].value
 
                                     document.getElementById('responseTextarea3').value = 'suptabcnt'
                                     document.getElementById('sendResponse').click()
@@ -6792,7 +6793,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 												"x-requested-with": "XMLHttpRequest",
 												"x-sitemesh-off": "true"
 														},
-											"body": "customfield_15410=${increasedcount}&issueId=${favissues[c].match(/href.=(\S+)/)[1]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].value}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
 											  "method": "POST",
 											  "mode": "cors",
 											  "credentials": "include"
@@ -6804,7 +6805,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 										alert(`Support Tab для задачи ${favissues[c].match(/href.=(\S+)/)[1]}&atl_token=${jira_token} увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
-							}
+					}
 				}
 				
 				function plusonecount() {
@@ -7016,7 +7017,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								addtofarr[v].innerText = "❤"
 								for (let x=0; x<tagsarray.length; x++) {
 										if (x == v) {
-											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" value=${tagsarray[x].value} href =${tagsarray[x].href} target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
+											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" value="${tagsarray[x].value}" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
 											localStorage.setItem('bugsarray', JSON.stringify(favissues))
 										}
 								}
