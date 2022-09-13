@@ -6701,6 +6701,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
 									sndmsgafterdeletebug()
+									plusonecount()
 						}
 				}
 				
@@ -6714,6 +6715,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
 									sndmsgafterdeletebug()
+									plusonecount()
 						}
 					}
 				}
@@ -6748,6 +6750,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						}
 					}
 				}
+				
+				let cnttoincrease = document.getElementsByName('increasecount');
+						for (let c=0; c<cnttoincrease.length; c++) {
+							cnttoincrease[c].onclick = function() {
+								console.log('clicked')
+								plusonecount()
+							}
+				}
+				
+				function plusonecount() {
+					let cnttoincrease = document.getElementsByName('increasecount');
+						for (let c=0; c<cnttoincrease.length; c++) {
+							cnttoincrease[c].onclick = function() {
+								console.log('clicked')
+							}
+					}
+				}
+				
 											
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
@@ -6900,14 +6920,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								}
 							}
 						}
-						
-						let cnttoincrease = document.getElementsByName('increasecount');
-						for (let c=0; c<cnttoincrease.length; c++) {
-							cnttoincrease[c].onclick = function() {
-								console.log('clicked')
-							}
-						}
-						
+												
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
                             refreshissuesarr[f].onclick = function () {
