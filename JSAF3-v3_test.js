@@ -6752,13 +6752,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 				
 				let cnttoincrease = document.getElementsByName('increasecount');
-				let itarrs = document.getElementsByName('favbugs')
+				let itarrs = document.getElementsByName('favissuemassive')
 						for (let c=0; c<cnttoincrease.length; c++) {
 							cnttoincrease[c].onclick = function() {
 								console.log('clicked')						
 								
 								document.getElementById('responseTextarea1').value = '{}'
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].value
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
                                 document.getElementById('responseTextarea3').value = 'suptabcnt'
                                 document.getElementById('sendResponse').click()
 
@@ -6767,7 +6767,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let increasedcount;
                                 setTimeout(async function () {
                                     document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].value
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
 
                                     document.getElementById('responseTextarea3').value = 'suptabcnt'
                                     document.getElementById('sendResponse').click()
@@ -6810,14 +6810,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 				function plusonecount() {
 					let cnttoincrease = document.getElementsByName('increasecount');
-					let itarrs = document.getElementsByName('favbugs')
+					let itarrs = document.getElementsByName('favissuemassive')
 						for (let c=0; c<cnttoincrease.length; c++) {
 							cnttoincrease[c].onclick = function() {
 								console.log('clicked')
 								
 								
 								document.getElementById('responseTextarea1').value = '{}'
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].value
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
                                 document.getElementById('responseTextarea3').value = 'suptabcnt'
                                 document.getElementById('sendResponse').click()
 
@@ -6826,7 +6826,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let increasedcount;
                                 setTimeout(async function () {
                                     document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].value
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
 
                                     document.getElementById('responseTextarea3').value = 'suptabcnt'
                                     document.getElementById('sendResponse').click()
