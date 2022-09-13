@@ -6701,6 +6701,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
 									sndmsgafterdeletebug()
+									plusonecount()
 						}
 				}
 				
@@ -6714,6 +6715,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('favouriteissuetable').innerHTML = favissues;
 									removebug();
 									sndmsgafterdeletebug()
+									plusonecount()
 						}
 					}
 				}
@@ -6744,10 +6746,127 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				function sndmsgafterdeletebug() {
 					for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
 						document.getElementsByName('addtonotesbug')[j].onclick = function () {
-							sendComment(favissues[j].match(/href.=(\S+).style/)[1])
+							sendComment(favissues[j].match(/href.=(\S+)/)[1])
 						}
 					}
 				}
+				
+				let cnttoincrease = document.getElementsByName('increasecount');
+				let itarrs = document.getElementsByName('favissuemassive')
+						for (let c=0; c<cnttoincrease.length; c++) {
+							cnttoincrease[c].onclick = function() {
+								console.log('clicked')						
+								
+								document.getElementById('responseTextarea1').value = '{}'
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+                                document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                document.getElementById('sendResponse').click()
+
+                                let count;
+                                let jira_token;
+                                let increasedcount;
+                                setTimeout(async function () {
+                                    document.getElementById('responseTextarea1').value = '{}'
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+
+                                    document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                    document.getElementById('sendResponse').click()
+
+                                    let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
+                                    repcount = await repcount;
+                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                    document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
+
+                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                    count = parseInt(count);
+                                    increasedcount = count + 1;
+                                    increasedcount = increasedcount.toString();
+                                    console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                    setTimeout(function () {
+
+                                        document.getElementById('responseTextarea1').value = `{
+											"headers": {
+												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+												"sec-fetch-mode": "cors",
+												"sec-fetch-site": "same-origin",
+												"x-requested-with": "XMLHttpRequest",
+												"x-sitemesh-off": "true"
+														},
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											  "method": "POST",
+											  "mode": "cors",
+											  "credentials": "include"
+												}`
+                                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                        document.getElementById('responseTextarea3').value = ''
+                                        document.getElementById('sendResponse').click()
+										
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
+                                    }, 1000);
+                                }, 1000)
+					}
+				}
+				
+				function plusonecount() {
+					let cnttoincrease = document.getElementsByName('increasecount');
+					let itarrs = document.getElementsByName('favissuemassive')
+						for (let c=0; c<cnttoincrease.length; c++) {
+							cnttoincrease[c].onclick = function() {
+								console.log('clicked')						
+								
+								document.getElementById('responseTextarea1').value = '{}'
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+                                document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                document.getElementById('sendResponse').click()
+
+                                let count;
+                                let jira_token;
+                                let increasedcount;
+                                setTimeout(async function () {
+                                    document.getElementById('responseTextarea1').value = '{}'
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+
+                                    document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                    document.getElementById('sendResponse').click()
+
+                                    let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
+                                    repcount = await repcount;
+                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                    document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
+
+                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                    count = parseInt(count);
+                                    increasedcount = count + 1;
+                                    increasedcount = increasedcount.toString();
+                                    console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                    setTimeout(function () {
+
+                                        document.getElementById('responseTextarea1').value = `{
+											"headers": {
+												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+												"sec-fetch-mode": "cors",
+												"sec-fetch-site": "same-origin",
+												"x-requested-with": "XMLHttpRequest",
+												"x-sitemesh-off": "true"
+														},
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											  "method": "POST",
+											  "mode": "cors",
+											  "credentials": "include"
+												}`
+                                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                        document.getElementById('responseTextarea3').value = ''
+                                        document.getElementById('sendResponse').click()
+										
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
+                                    }, 1000);
+                                }, 1000)
+							}
+					}
+				}
+				
 											
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
@@ -6857,7 +6976,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 }
 
 
-                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<a name="buglinks" href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
+                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>'+ '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
 
                             }
 
@@ -6889,18 +7008,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 						let addtofarr = document.getElementsByName('addtofavourites')
 						let tagsarray = document.getElementsByName('buglinks');
+						let massivissueids = document.getElementsByName('issueIds')
 						for (let v=0; v<addtofarr.length; v++) {
 							addtofarr[v].onclick = function() {
 								addtofarr[v].innerText = "❤"
 								for (let x=0; x<tagsarray.length; x++) {
 										if (x == v) {
-											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a href =${tagsarray[x].href} target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>'  + '<br>')
+											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
 											localStorage.setItem('bugsarray', JSON.stringify(favissues))
 										}
 								}
 							}
 						}
-						
+												
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
                             refreshissuesarr[f].onclick = function () {

@@ -6802,7 +6802,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
 										
-										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href}увеличен на 1 и сейчас равен: ${increasedcount}`)
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
 					}
@@ -6860,7 +6860,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
 										
-										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href}увеличен на 1 и сейчас равен: ${increasedcount}`)
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
 							}
