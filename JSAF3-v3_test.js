@@ -6793,7 +6793,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 												"x-requested-with": "XMLHttpRequest",
 												"x-sitemesh-off": "true"
 														},
-											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].value}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
 											  "method": "POST",
 											  "mode": "cors",
 											  "credentials": "include"
