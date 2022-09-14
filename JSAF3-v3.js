@@ -930,7 +930,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Темы</label>
 							<br>
 							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
-							<button id="enterlesson" style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
+							<button id="enterlesson" style="margin-left:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
 							<button id="lessonfunc" style="margin-left:2px; width:150px; height: 44px;">🧯Функционал на уроке</button>
 							<button id="perscab" style="margin-left:2px; width:150px; height: 44px;">🏡ЛК</button>
 							<button id="userhomework" style="margin-left:2px; width:150px; height: 44px;">💼ДЗ (вимбокс)</button>
