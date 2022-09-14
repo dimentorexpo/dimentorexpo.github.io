@@ -7262,10 +7262,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if (document.getElementsByName('whatobratform')[i].checked == true)
 					checkedquestion=document.getElementsByName('whatobratform')[i].value;
 			}
-				
-				
-				
-			 let body2 = 'entry.466256037=' + checkedclienttype + '&entry.505070950=' + document.getElementById('clientid').value +  + '&entry.876256156=' + checkedquestion + '&entry.1879097323=' + document.getElementById('fullcomentsmartroom').value
+						
+			 let body2 = 'entry.466256037=' + checkedclienttype + '&entry.505070950=' + document.getElementById('clientid').value  + '&entry.876256156=' + checkedquestion + '&entry.1879097323=' + document.getElementById('fullcomentsmartroom').value
 
 			let options2 = {
 				"headers": {
@@ -7280,6 +7278,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			if (document.getElementById('responseTextarea3') != null)
 				document.getElementById('responseTextarea3').value = ''
 			document.getElementById('sendResponse').click()
+			
+			document.getElementById('AF_Smartroomform').style.display = 'none'
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
 			
 		}
 		
