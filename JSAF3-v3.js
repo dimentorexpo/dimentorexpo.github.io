@@ -285,11 +285,6 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-		#butServ:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
 		#butMarks:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -312,6 +307,11 @@ function mystyles() {
 		}
 
 		#JiraOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#smartroomform:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
@@ -636,6 +636,44 @@ var win_refusefrom =  // описание элементов окна отказ
 							<button title="Отправляет заполненные поля формы в док" id="send2doc" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 						</div>
 		</span>
+        </span>
+</div>`;
+
+
+var win_smartroomform =  // описание элементов окна отказа от помощи
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
+                            <button title="скрывает меню" id="hideMeSmartRoomForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashsmartform" style="width:24px;">♻</button>
+                            <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
+                        </div>
+						
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
+						
+							<label style="color:#c4ffd3; padding:5px; font-weight: 600;">Тип клиента</label>
+							<br>
+							<div style="margin-top:5px; color:bisque;">
+								<input type="radio" id="typestud" name="typetoform" value="Ученик">
+								<label for="typestud">Ученик</label>
+							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
+								<label for="typeteach">Преподаватель</label>
+							</div>
+							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
+							<br>
+							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</div>
+							<div style="margin-top:5px; color:bisque;">
+								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
+								<label for="whatobratsugest">Пожелание по мультирум</label>
+							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
+								<label for="whatobratbugerror">Баг/ошибка в мультирум</label>
+							</div>
+								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий по улучшению или багу \n(шаги воспроизведения)" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="send2smartroom" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+				</span>
         </span>
 </div>`;
 
@@ -2075,6 +2113,11 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
+if (localStorage.getItem('winTopSmartroom') == null) { //начальное положение окна Smartroom
+    localStorage.setItem('winTopSmartroom', '295');
+    localStorage.setItem('winLeftSmartroom', '295');
+}
+
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
@@ -2549,6 +2592,11 @@ let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butsmartroom = document.createElement('div')
+butsmartroom.id = "smartroomform"
+butsmartroom.innerHTML = "🦐Smartroom"
+butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
@@ -3076,6 +3124,13 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+let wintSmartroom = document.createElement('div'); // создание окна отказов
+document.body.append(wintSmartroom);
+wintSmartroom.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopSmartroom') + 'px; left: ' + localStorage.getItem('winLeftSmartroom') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintSmartroom.style.display = 'none';
+wintSmartroom.setAttribute('id', 'AF_Smartroomform');
+wintSmartroom.innerHTML = win_smartroomform;
+
 let wintChatHis = document.createElement('div'); // создание окна работы с историей чата
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -3332,6 +3387,22 @@ wintThemes.onmousedown = function (a) {
     }
 }
 wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); }
+
+var listenerSmartroom = function (e, a) { // сохранение позиции окна Тематик
+    wintSmartroom.style.left = Number(e.clientX - myX19) + "px";
+    wintSmartroom.style.top = Number(e.clientY - myY19) + "px";
+    localStorage.setItem('winTopSmartroom', String(Number(e.clientY - myY19)));
+    localStorage.setItem('winLeftSmartroom', String(Number(e.clientX - myX19)));
+};
+
+wintSmartroom.onmousedown = function (a) {
+    if (checkelementtype(a)) {
+        window.myX19 = a.layerX;
+        window.myY19 = a.layerY;
+        document.addEventListener('mousemove', listenerSmartroom);
+    }
+}
+wintSmartroom.onmouseup = function () { document.removeEventListener('mousemove', listenerSmartroom); }
 
 
 
@@ -7170,6 +7241,61 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Jira').style.display = 'none'
         }
     }
+	
+	document.getElementById('smartroomform').onclick = function() {
+		if (document.getElementById('AF_Smartroomform').style.display == '')
+            document.getElementById('AF_Smartroomform').style.display = 'none'
+		else
+            document.getElementById('AF_Smartroomform').style.display = ''
+		
+		
+		document.getElementById('send2smartroom').onclick = function() {
+			
+			let checkedclienttype;
+			let checkedquestion;
+			for (let i=0; i<document.getElementsByName('typetoform').length;i++) {
+				if (document.getElementsByName('typetoform')[i].checked == true)
+					checkedclienttype=document.getElementsByName('typetoform')[i].value;
+			}	
+
+			for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
+				if (document.getElementsByName('whatobratform')[i].checked == true)
+					checkedquestion=document.getElementsByName('whatobratform')[i].value;
+			}
+						
+			 let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
+
+			let options2 = {
+				"headers": {
+					"content-type": "application/x-www-form-urlencoded",
+				},
+				"body": body2,
+				"method": "POST",
+			}
+
+			document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+			document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+			if (document.getElementById('responseTextarea3') != null)
+				document.getElementById('responseTextarea3').value = ''
+			document.getElementById('sendResponse').click()
+			
+			document.getElementById('AF_Smartroomform').style.display = 'none'
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
+			
+		}
+		
+		document.getElementById('clearsmartroomform').onclick = function() {
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
+		}
+		
+		document.getElementById('hideMeSmartRoomForm').onclick = function() {
+			document.getElementById('AF_Smartroomform').style.display = 'none'
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
+		}
+}
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
@@ -9355,6 +9481,9 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn14)
         btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Smartroom</a>';
         btn14.setAttribute('onClick', 'newTaggg("smartroom");')
+		btn14.addEventListener('click', function() {
+			document.getElementById('smartroomform').click();
+		})
 
         let btn15 = document.createElement('span');
         btn15.id = 'refuse'
@@ -9364,7 +9493,6 @@ function startTimer() {
         btn15.addEventListener('click', function () {
             document.getElementById('otkaz').click();
         })
-
 
         let btn16 = document.createElement('span');
         btn16.id = 'solvd'
@@ -13175,12 +13303,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[8])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[9])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[7])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[8])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[9])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[10])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[11])
         }, 2000)
 
         setTimeout(() => {
@@ -13188,15 +13317,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[12])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[13])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[12])
+            headmenulist.insertBefore(menubar, headmenulist.children[13])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
+            menubar.append(document.getElementById('smartroomform'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
