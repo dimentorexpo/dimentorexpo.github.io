@@ -654,7 +654,7 @@ var win_smartroomform =  // описание элементов окна Мул�
 						
 							<label style="color:#c4ffd3; padding:5px; font-weight: 600;">Тип клиента</label>
 							<br>
-							<div style="margin-top:5px; color:bisque;">
+							<div style="margin-top:5px; color:bisque;" id = "smartroomuser">
 								<input type="radio" id="typestud" name="typetoform" value="Ученик">
 								<label for="typestud">Ученик</label>
 							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
@@ -663,7 +663,7 @@ var win_smartroomform =  // описание элементов окна Мул�
 							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
 							<br>
 							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</div>
-							<div style="margin-top:5px; color:bisque;">
+							<div style="margin-top:5px; color:bisque;" id = "smartroomquestion">
 								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
 								<label for="whatobratsugest">Пожелание по мультирум</label>
 							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
