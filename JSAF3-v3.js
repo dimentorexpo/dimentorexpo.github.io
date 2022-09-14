@@ -640,7 +640,7 @@ var win_refusefrom =  // описание элементов окна отказ
 </div>`;
 
 
-var win_smartroomform =  // описание элементов окна отказа от помощи
+var win_smartroomform =  // описание элементов окна Мультирум пожелания/баги
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
@@ -3124,7 +3124,7 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
-let wintSmartroom = document.createElement('div'); // создание окна отказов
+let wintSmartroom = document.createElement('div'); // создание окна Мультирум пожелания/баги
 document.body.append(wintSmartroom);
 wintSmartroom.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopSmartroom') + 'px; left: ' + localStorage.getItem('winLeftSmartroom') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintSmartroom.style.display = 'none';
@@ -3362,7 +3362,7 @@ var listenerTaskCreate = function (e, a) { // сохранение позици�
     localStorage.setItem('winLeftTaskCreate', String(Number(e.clientX - myX17)));
 };
 
-wintCreateTask.onmousedown = function (a) {
+wintCreateTask.onmousedown = function (a) { 
     if (checkelementtype(a)) {
         window.myX17 = a.layerX;
         window.myY17 = a.layerY;
@@ -3379,30 +3379,30 @@ var listenerThemes = function (e, a) { // сохранение позиции о
     localStorage.setItem('winLeftThemes', String(Number(e.clientX - myX18)));
 };
 
-wintThemes.onmousedown = function (a) {
+wintThemes.onmousedown = function (a) { // изменение позиции окна Тематик
     if (checkelementtype(a)) {
         window.myX18 = a.layerX;
         window.myY18 = a.layerY;
         document.addEventListener('mousemove', listenerThemes);
     }
 }
-wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); }
+wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); } // прекращение изменения позиции окна Тематик
 
-var listenerSmartroom = function (e, a) { // сохранение позиции окна Тематик
+var listenerSmartroom = function (e, a) { // сохранение позиции окна Мультирум пожелания/баги
     wintSmartroom.style.left = Number(e.clientX - myX19) + "px";
     wintSmartroom.style.top = Number(e.clientY - myY19) + "px";
     localStorage.setItem('winTopSmartroom', String(Number(e.clientY - myY19)));
     localStorage.setItem('winLeftSmartroom', String(Number(e.clientX - myX19)));
 };
 
-wintSmartroom.onmousedown = function (a) {
+wintSmartroom.onmousedown = function (a) { // изменение позиции окна Мультирум пожелания/баги
     if (checkelementtype(a)) {
         window.myX19 = a.layerX;
         window.myY19 = a.layerY;
         document.addEventListener('mousemove', listenerSmartroom);
     }
 }
-wintSmartroom.onmouseup = function () { document.removeEventListener('mousemove', listenerSmartroom); }
+wintSmartroom.onmouseup = function () { document.removeEventListener('mousemove', listenerSmartroom); } // прекращение изменения позиции окна Мультирум пожелания/баги
 
 
 
@@ -3448,6 +3448,9 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
 }
 document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
     if (checkelementtype(a)) { document.getElementById('AF_Refuseformnew').style.display = 'none'; }
+}
+document.getElementById('AF_Smartroomform').ondblclick = function (a) { // скрытие окна Мультирум пожелания/баги от помощи по двойному клику
+    if (checkelementtype(a)) {document.getElementById('AF_Smartroomform').style.display = 'none'; }
 }
 document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
     if (checkelementtype(a)) { document.getElementById('AF_Marks').style.display = 'none'; }
