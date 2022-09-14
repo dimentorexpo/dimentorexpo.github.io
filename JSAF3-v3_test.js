@@ -13462,12 +13462,12 @@ let tokenlog;
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
-btnsid.style = "background-color: #3CB371 ; margin-left: 5px; margin-top:5px; margin-bottom: 5px;";
+btnsid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; width: 20px; cursor: pointer;";
 
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371 ; margin-left: 5px; margin-right: 5px;";
+btntid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; width: 20px; cursor: pointer;";
 
 document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
