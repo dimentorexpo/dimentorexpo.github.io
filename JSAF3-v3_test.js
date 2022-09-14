@@ -7248,7 +7248,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		else
             document.getElementById('AF_Smartroomform').style.display = ''
 		
-		
+		for(let j=0; j<2;j++) {
+			document.getElementsByName('typetoform')[j].checked = false
+			document.getElementsByName('whatobratform')[j].checked = false
+		}
+
 		document.getElementById('send2smartroom').onclick = function() {
 			
 			let checkedclienttype;
@@ -7282,6 +7286,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			document.getElementById('AF_Smartroomform').style.display = 'none'
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
+			
+			for(let j=0; j<2;j++) {
+				document.getElementsByName('typetoform')[j].checked = false
+				document.getElementsByName('whatobratform')[j].checked = false
+			}
 			
 		}
 		
