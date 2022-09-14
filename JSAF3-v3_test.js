@@ -750,8 +750,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
-					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="showcaseHW" style="width: 25.23px;">💾</button>
+					<input id="trshooterhash" placeholder="hash trshooter" title="Вводим хеш комнаты чтобы посмотреть сразу инфу в трабл шутере" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<button id="gettrshinfo" style="width: 25.23px;">💾</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -4485,16 +4485,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         creditstatus.value = "";
     }
 
-    document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
-        let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
-        if (HWstudID.value == "")
+    document.getElementById('gettrshinfo').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
+        let trshootlnk = 'https://video-trouble-shooter.skyeng.ru/?hash=';
+        if (trshooterhash.value == "")
             console.log('Введите id  ученика в поле')
         else {
-            copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
+            window.open(trshootlnk + trshooterhash.value);
         };
-        document.getElementById('showcaseHW').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('showcaseHW').innerHTML = "💾" }, 2000);
-        HWstudID.value = "";
+        trshooterhash.value = "";
     }
 
     document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
