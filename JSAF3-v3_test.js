@@ -13381,6 +13381,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
         document.getElementById('AF_Links').style.display = 'none';
     } else {
         mystyles()
+		
+		document.getElementById('testid').remove()
+		document.getElementById('idlogin').remove()
+		
 
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
@@ -13458,7 +13462,7 @@ let tokenlog;
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
-btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
+btnsid.style = "background-color: #3CB371 ; margin-left: 5px; margin-top:5px; margin-bottom: 5px;";
 
 let btntid = document.createElement('button')
 btntid.innerText = "П";
