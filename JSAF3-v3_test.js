@@ -5800,6 +5800,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
             document.getElementsByName('tagssbtn')[j].onclick = function () {
+				if(this.value == 'refusal_of_help')
+					document.getElementById('otkaz').click();
+				
                 newTaggg(this.value)
             }
         }
