@@ -7248,6 +7248,41 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		else
             document.getElementById('AF_Smartroomform').style.display = ''
 		
+		
+		document.getElementById('send2smartroom').onclick = function() {
+			
+			let checkedclienttype;
+			let checkedquestion;
+			for (let i=0; i<document.getElementsByName('typetoform').length;i++) {
+				if (document.getElementsByName('typetoform')[i].checked == true)
+					checkedclienttype=document.getElementsByName('typetoform')[i].value;
+			}	
+
+			for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
+				if (document.getElementsByName('whatobratform')[i].checked == true)
+					checkedquestion=document.getElementsByName('whatobratform')[i].value;
+			}
+				
+				
+				
+			 let body2 = 'entry.466256037=' + checkedclienttype + '&entry.505070950=' + document.getElementById('clientid').value +  + '&entry.876256156=' + checkedquestion + '&entry.1879097323=' + document.getElementById('fullcomentsmartroom').value
+
+			let options2 = {
+				"headers": {
+					"content-type": "application/x-www-form-urlencoded",
+				},
+				"body": body2,
+				"method": "POST",
+			}
+
+			document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+			document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+			if (document.getElementById('responseTextarea3') != null)
+				document.getElementById('responseTextarea3').value = ''
+			document.getElementById('sendResponse').click()
+			
+		}
+		
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
