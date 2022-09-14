@@ -649,12 +649,12 @@ var win_smartroomform =  // описание элементов окна Мул�
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashsmartform" style="width:24px;">♻</button>
                             <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
                         </div>
-
+						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
-
+						
 							<label style="color:#c4ffd3; padding:5px; font-weight: 600;">Тип клиента</label>
 							<br>
-							<div style="margin-top:5px; color:bisque;">
+							<div style="margin-top:5px; color:bisque;" id = "smartroomuser">
 								<input type="radio" id="typestud" name="typetoform" value="Ученик">
 								<label for="typestud">Ученик</label>
 							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
@@ -663,7 +663,7 @@ var win_smartroomform =  // описание элементов окна Мул�
 							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
 							<br>
 							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</div>
-							<div style="margin-top:5px; color:bisque;">
+							<div style="margin-top:5px; color:bisque;" id = "smartroomquestion">
 								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
 								<label for="whatobratsugest">Пожелание по мультирум</label>
 							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
@@ -7281,42 +7281,78 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 	}
 
-		document.getElementById('send2smartroom').onclick = function() {
+    document.getElementById('send2smartroom').onclick = function() {
+			
+        let checkedclienttype;
+        let checkedquestion;
 
-			let checkedclienttype;
-			let checkedquestion;
-			for (let i=0; i<document.getElementsByName('typetoform').length;i++) {
-				if (document.getElementsByName('typetoform')[i].checked == true)
-					checkedclienttype=document.getElementsByName('typetoform')[i].value;
-			}
+        let flagemptysmart = 0;
 
-			for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
-				if (document.getElementsByName('whatobratform')[i].checked == true)
-					checkedquestion=document.getElementsByName('whatobratform')[i].value;
-			}
+        if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked) {
+            document.getElementById('smartroomuser').style.backgroundColor = 'Coral'; 
+            document.getElementById('smartroomuser').style.color = 'black';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('smartroomuser').style.backgroundColor = ''; 
+            document.getElementById('smartroomuser').style.color = '#c4ffd3';
+        }
 
-			 let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
+        if (document.getElementById('clientid').value.length < 3) {
+            document.getElementById('clientid').style.backgroundColor = 'Coral';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('clientid').style.backgroundColor = '';
+        }
 
-			let options2 = {
-				"headers": {
-					"content-type": "application/x-www-form-urlencoded",
-				},
-				"body": body2,
-				"method": "POST",
-			}
+        if (!document.getElementsByName('whatobratform')[0].checked && !document.getElementsByName('whatobratform')[1].checked) {
+            document.getElementById('smartroomquestion').style.backgroundColor = 'Coral';
+            document.getElementById('smartroomquestion').style.color = 'black';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('smartroomquestion').style.backgroundColor = ''; 
+            document.getElementById('smartroomquestion').style.color = '#c4ffd3';
+        }
 
-			document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-			document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
-			if (document.getElementById('responseTextarea3') != null)
-				document.getElementById('responseTextarea3').value = ''
-			document.getElementById('sendResponse').click()
+        if (document.getElementById('fullcomentsmartroom').value.length < 3) {
+            document.getElementById('fullcomentsmartroom').style.backgroundColor = 'Coral';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
+        }
 
-			document.getElementById('AF_Smartroomform').style.display = 'none'
-			document.getElementById('clientid').value = ''
-			document.getElementById('fullcomentsmartroom').value = ''
-			clearradio()
+        if (flagemptysmart == 0) {
+            for (let i=0; i<document.getElementsByName('typetoform').length;i++) {
+                if (document.getElementsByName('typetoform')[i].checked == true)
+                    checkedclienttype=document.getElementsByName('typetoform')[i].value;
+            }	
 
-		}
+            for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
+                if (document.getElementsByName('whatobratform')[i].checked == true)
+                    checkedquestion=document.getElementsByName('whatobratform')[i].value;
+            }
+                        
+            let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
+
+            let options2 = {
+                "headers": {
+                    "content-type": "application/x-www-form-urlencoded",
+                },
+                "body": body2,
+                "method": "POST",
+            }
+
+            document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+            document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+            if (document.getElementById('responseTextarea3') != null)
+                document.getElementById('responseTextarea3').value = ''
+            document.getElementById('sendResponse').click()
+            
+            document.getElementById('AF_Smartroomform').style.display = 'none'
+            document.getElementById('clientid').value = ''
+            document.getElementById('fullcomentsmartroom').value = ''
+            clearradio()
+        }	
+    }
 
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
