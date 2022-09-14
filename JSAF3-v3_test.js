@@ -652,23 +652,27 @@ var win_smartroomform =  // описание элементов окна отк�
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
 						
-							<label>Тип клиента</label>
+							<label style="color:bisque; padding:5px;">Тип клиента</label>
 							<br>
+							<div style="margin-top:5px; color:bisque;">
 								<input type="radio" id="typestud" name="typetoform" value="Ученик">
 								<label for="typestud">Ученик</label>
 							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
 								<label for="typeteach">Преподаватель</label>
+							</div>
 							<br>
-							<label>ID клиента</label>
+							<label style="margin-top:5px; color:bisque;">ID клиента</label>
 							<br>
 							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
 							<br>
-							<label>С чем обратились?</label>
+							<label style="margin-top:5px; color:bisque;">С чем обратились?</label>
 							<br>
+							<div style="margin-top:5px; color:bisque;">
 								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
 								<label for="typestud">Пожелание по мультирум</label>
 							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
 								<label for="typeteach">Баг/ошибка в мультирум</label>
+							</div>
 							<br>
 								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий по улучшению или багу (шаги воспроизведения)" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 							<br>
