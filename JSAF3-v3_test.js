@@ -7263,7 +7263,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					checkedquestion=document.getElementsByName('whatobratform')[i].value;
 			}
 						
-			 let body2 = 'entry.466256037=' + checkedclienttype + '&entry.505070950=' + document.getElementById('clientid').value  + '&entry.876256156=' + checkedquestion + '&entry.1879097323=' + document.getElementById('fullcomentsmartroom').value
+			 let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
 
 			let options2 = {
 				"headers": {
