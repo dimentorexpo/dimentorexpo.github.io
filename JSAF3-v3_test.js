@@ -2602,7 +2602,7 @@ let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-taskBut.classList.add('ant-btn')
+butThemes.classList.add('ant-btn')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
