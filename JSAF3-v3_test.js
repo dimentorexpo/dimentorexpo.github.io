@@ -7249,6 +7249,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             document.getElementById('AF_Smartroomform').style.display = ''
 	}
+	}
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
