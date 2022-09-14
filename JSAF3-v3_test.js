@@ -9446,7 +9446,7 @@ function startTimer() {
         btn14.setAttribute('onClick', 'newTaggg("smartroom");')
 		btn14.addEventListener('click', function() {
 			document.getElementById('smartroomform').click();
-		}
+		})
 
         let btn15 = document.createElement('span');
         btn15.id = 'refuse'
