@@ -9351,10 +9351,10 @@ function startTimer() {
         btn13.setAttribute('onClick', 'newTaggg("server_issues");')
 
         let btn14 = document.createElement('span');
-        btn14.id = 'controln'
+        btn14.id = 'smartroomtag'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn14)
-        btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Контроль</a>';
-        btn14.setAttribute('onClick', 'newTaggg("request_control");')
+        btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Smartroom</a>';
+        btn14.setAttribute('onClick', 'newTaggg("smartroom");')
 
         let btn15 = document.createElement('span');
         btn15.id = 'refuse'
