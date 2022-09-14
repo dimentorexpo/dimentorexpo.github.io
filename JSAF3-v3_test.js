@@ -649,9 +649,9 @@ var win_smartroomform =  // описание элементов окна Мул�
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashsmartform" style="width:24px;">♻</button>
                             <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
                         </div>
-						
+
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
-						
+
 							<label style="color:#c4ffd3; padding:5px; font-weight: 600;">Тип клиента</label>
 							<br>
 							<div style="margin-top:5px; color:bisque;">
@@ -978,7 +978,7 @@ var win_Themes =  // описание элементов окна Тематик
 								<button name="themesbtn" value="1590" title="Причину блокирования или прерывания связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - блок/прерыв</button>
 								<button name="themesbtn" value="1591" title="Причину аудио: задержки или искажения связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 🔊:задерж/искаж</button>
 								<button name="themesbtn" value="1592" title="Причину видео: задержки или плохой картинке связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 📷: задерж/плох карт</button>
-								<button name="themesbtn" value="1593" title="Причину проблемы со связью не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо 
+								<button name="themesbtn" value="1593" title="Причину проблемы со связью не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо
 								P.S. Эта категория используется в случае если сбой не подходит ни под какую подтему в этой теме" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат</button>
 								<button name="themesbtn" value="1594" title="Проблемы со связью возникли по причине использования браузера, несоответствующему минимальным требованиям." style="margin-left:2px; width:150px; height: 44px;">❌Не поддерж брауз/ОС</button>
 								<button name="themesbtn" value="1595" title="Проблемы со связью возникли по причине использования устройства (камера/гарнитура/ПК), которые не соответствуют минимальным требованиям, не поддерживаются платформой (гарнитура от телефона и т.п.)" style="margin-left:2px; width:150px; height: 44px; font-size:10px;">❌Не поддерж ус (📸камера, 🎧гарнитура,💻комп)</button>
@@ -1000,38 +1000,38 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1772" title="Возникают проблемы с корректным отображением показателя STT." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>						
-							<button name="themesbtn" value="1773" title="Возникают проблемы с корректным отображением показателя TTT." style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>						
-							<button name="themesbtn" value="1767" title="Возникают проблемы с отображением, синхронизацией вложений во время урока." style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>						
-							<button name="themesbtn" value="1771" title="Возникают проблемы с запуском демонстрации экрана (понимание как включить и управлять демонстрацией, технические требования для запуска демонстрации)." style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>						
-							<button name="themesbtn" value="1768" title="Возникают проблемы с отображением, синхронизацией доски во время урока." style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>						
-							<button name="themesbtn" value="2037" title="Возникают проблемы с отображением, синхронизацией заметок во время урока." style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>						
-							<button name="themesbtn" value="1775" title="Возникают проблемы с отправкой ДЗ во время урока ( понимание, поломка на платформе)." style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>						
-							<button name="themesbtn" value="1770" title="Возникают проблемы с отображением, синхронизацией материалов." style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>						
-							<button name="themesbtn" value="1776" title="Возникают проблемы с отображением, работой и синхронизацией аудио/ видеороликов во время уроков. Поломка может быть вызвана технической стороной У/П, так и проблемой на стороне платформы." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>						
-							<button name="themesbtn" value="1769" title="Возникают проблемы с отображением, синхронизацией словаря во время урока. Не добавляются слова в словарь во время урока." style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>						
-							<button name="themesbtn" value="1774" title="Возникают проблемы с выполнением, синхронизацией, проверкой упражнений в уроке." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>						
+							<button name="themesbtn" value="1772" title="Возникают проблемы с корректным отображением показателя STT." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>
+							<button name="themesbtn" value="1773" title="Возникают проблемы с корректным отображением показателя TTT." style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>
+							<button name="themesbtn" value="1767" title="Возникают проблемы с отображением, синхронизацией вложений во время урока." style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>
+							<button name="themesbtn" value="1771" title="Возникают проблемы с запуском демонстрации экрана (понимание как включить и управлять демонстрацией, технические требования для запуска демонстрации)." style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>
+							<button name="themesbtn" value="1768" title="Возникают проблемы с отображением, синхронизацией доски во время урока." style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>
+							<button name="themesbtn" value="2037" title="Возникают проблемы с отображением, синхронизацией заметок во время урока." style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>
+							<button name="themesbtn" value="1775" title="Возникают проблемы с отправкой ДЗ во время урока ( понимание, поломка на платформе)." style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>
+							<button name="themesbtn" value="1770" title="Возникают проблемы с отображением, синхронизацией материалов." style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>
+							<button name="themesbtn" value="1776" title="Возникают проблемы с отображением, работой и синхронизацией аудио/ видеороликов во время уроков. Поломка может быть вызвана технической стороной У/П, так и проблемой на стороне платформы." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>
+							<button name="themesbtn" value="1769" title="Возникают проблемы с отображением, синхронизацией словаря во время урока. Не добавляются слова в словарь во время урока." style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>
+							<button name="themesbtn" value="1774" title="Возникают проблемы с выполнением, синхронизацией, проверкой упражнений в уроке." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>
 						</div>
 
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1714" title="Не отображается, не загружается чат, проблемы с отображением чата, добавление чата с У или отделом школы." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>						
-							<button name="themesbtn" value="1708" title="Возникает ошибка с работой чата в ЛК (нет чата, некорректная работа)." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>						
-							<button name="themesbtn" value="1713" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>						
-							<button name="themesbtn" value="1707" title="Возникает ошибка отображения, работы в разделе ЛКУ - История занятий/портфолио. Нет пройденных уроков, их аудиозаписей." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>						
-							<button name="themesbtn" value="1715" title="Возникают проблемы с отображением, выставлением информации в разделе." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>						
-							<button name="themesbtn" value="1710" title="Возникает ошибка в редактировании, правке профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>						
-							<button name="themesbtn" value="1716" title="Возникают проблемы с выставлением настроек ЛКП." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>						
-							<button name="themesbtn" value="1711" title="Возникает ошибка в установке настроек пользователем (время, часовой пояс, данные для входа и т.д.)" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>						
-							<button name="themesbtn" value="1719" title="Ошибка в отображении информации, отсутствие информации по финансам." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>						
-							<button name="themesbtn" value="1709" title="Нужно совершить действия в уже существующей семье (прикрепить/открепить пользователя), создать семью." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>						
-							<button name="themesbtn" value="1712" title="Возникает ошибка в отображении достижений П, своевременности их появления." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>						
-							<button name="themesbtn" value="1706" title="Неверное отображение данных в ЛКУ в виджете прогресса." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>						
-							<button name="themesbtn" value="1718" title="Отображается ошибка при выставлении перерыва, неверное отображение." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>						
-							<button name="themesbtn" value="1704" title="Возникает ошибка отображения, работы в разделе ЛКУ - Грамматика." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>						
-							<button name="themesbtn" value="1717" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>						
-							<button name="themesbtn" value="1705" title="Возникает ошибка отображения, работы в разделе ЛКУ - Навыки." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>						
-							<button name="themesbtn" value="1720" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>						
-							<button name="themesbtn" value="1721" title="Возникают ошибки в отображении групп У, их формировании, численности и возможности создания урока с ними." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>						
+							<button name="themesbtn" value="1714" title="Не отображается, не загружается чат, проблемы с отображением чата, добавление чата с У или отделом школы." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
+							<button name="themesbtn" value="1708" title="Возникает ошибка с работой чата в ЛК (нет чата, некорректная работа)." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
+							<button name="themesbtn" value="1713" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
+							<button name="themesbtn" value="1707" title="Возникает ошибка отображения, работы в разделе ЛКУ - История занятий/портфолио. Нет пройденных уроков, их аудиозаписей." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>
+							<button name="themesbtn" value="1715" title="Возникают проблемы с отображением, выставлением информации в разделе." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>
+							<button name="themesbtn" value="1710" title="Возникает ошибка в редактировании, правке профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>
+							<button name="themesbtn" value="1716" title="Возникают проблемы с выставлением настроек ЛКП." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>
+							<button name="themesbtn" value="1711" title="Возникает ошибка в установке настроек пользователем (время, часовой пояс, данные для входа и т.д.)" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>
+							<button name="themesbtn" value="1719" title="Ошибка в отображении информации, отсутствие информации по финансам." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>
+							<button name="themesbtn" value="1709" title="Нужно совершить действия в уже существующей семье (прикрепить/открепить пользователя), создать семью." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>
+							<button name="themesbtn" value="1712" title="Возникает ошибка в отображении достижений П, своевременности их появления." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>
+							<button name="themesbtn" value="1706" title="Неверное отображение данных в ЛКУ в виджете прогресса." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
+							<button name="themesbtn" value="1718" title="Отображается ошибка при выставлении перерыва, неверное отображение." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>
+							<button name="themesbtn" value="1704" title="Возникает ошибка отображения, работы в разделе ЛКУ - Грамматика." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>
+							<button name="themesbtn" value="1717" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
+							<button name="themesbtn" value="1705" title="Возникает ошибка отображения, работы в разделе ЛКУ - Навыки." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>
+							<button name="themesbtn" value="1720" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>
+							<button name="themesbtn" value="1721" title="Возникают ошибки в отображении групп У, их формировании, численности и возможности создания урока с ними." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
 
 						</div>
 
@@ -1043,22 +1043,22 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="paymn" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1077" title="По вине школы не проходит оплата, допущена ошибка обработки менеджером." style="margin-left:2px; width:150px; height: 44px;">🏰Вина школы</button>						
-							<button name="themesbtn" value="1658" title="Предоставление консультации по оплате, возможных способах оплаты и в целом как совершать оплату." style="margin-left:2px; width:150px; height: 44px;">🤑Консультация по оплате</button>						
-							<button name="themesbtn" value="1659" title="Возникает ошибка оплаты по причине отсутствия нужного У пакета/услуги." style="margin-left:2px; width:150px; height: 44px;">⭕Нет нужного пакета/услуги</button>						
-							<button name="themesbtn" value="1660" title="Возникает проблема совершения оплаты подписки, не продлевается подписка, подписка списана ранее, списано неверное количество уроков." style="margin-left:2px; width:150px; height: 44px;">💸Подписки</button>						
-							<button name="themesbtn" value="1661" title="Возникает ошибка оплаты по причине проблем с картой У: лимиты, 3d-secure, ограничения банка." style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>						
-							<button name="themesbtn" value="1662" title="Возникает ошибка оплаты по причине возникновения ошибки на платформе." style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>						
+							<button name="themesbtn" value="1077" title="По вине школы не проходит оплата, допущена ошибка обработки менеджером." style="margin-left:2px; width:150px; height: 44px;">🏰Вина школы</button>
+							<button name="themesbtn" value="1658" title="Предоставление консультации по оплате, возможных способах оплаты и в целом как совершать оплату." style="margin-left:2px; width:150px; height: 44px;">🤑Консультация по оплате</button>
+							<button name="themesbtn" value="1659" title="Возникает ошибка оплаты по причине отсутствия нужного У пакета/услуги." style="margin-left:2px; width:150px; height: 44px;">⭕Нет нужного пакета/услуги</button>
+							<button name="themesbtn" value="1660" title="Возникает проблема совершения оплаты подписки, не продлевается подписка, подписка списана ранее, списано неверное количество уроков." style="margin-left:2px; width:150px; height: 44px;">💸Подписки</button>
+							<button name="themesbtn" value="1661" title="Возникает ошибка оплаты по причине проблем с картой У: лимиты, 3d-secure, ограничения банка." style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>
+							<button name="themesbtn" value="1662" title="Возникает ошибка оплаты по причине возникновения ошибки на платформе." style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>
 						</div>
 
 						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1804" title="Возникают проблемы с входом в ЛКУ" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>						
-							<button name="themesbtn" value="1805" title="Возникают проблемы с пониманием механики выполнения заданий, ошибкой приложения во время выполнения заданий." style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>						
-							<button name="themesbtn" value="1806" title="Возникают проблемы с оплатой через приложение вызванные непониманием пользователя или ошибкой платформы." style="margin-left:2px; width:150px; height: 44px;">💲Оплата</button>						
-							<button name="themesbtn" value="1807" title="Возникают проблемы с выставлением настроек профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓Профиль</button>						
-							<button name="themesbtn" value="1808" title="Возникают проблемы с пониманием, выполнение упражнений в тренажере слов." style="margin-left:2px; width:150px; height: 44px;">📚Тренажер слов</button>						
-							<button name="themesbtn" value="1809" title="Возникают проблемы со связью во время уроков, синхронизация материалов, заметок, словаря, выполнение упражнений." style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>						
-							<button name="themesbtn" value="1810" title="Чат не отображается вовсе, нет определенных чатов (с П или с ПМ, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>						
+							<button name="themesbtn" value="1804" title="Возникают проблемы с входом в ЛКУ" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
+							<button name="themesbtn" value="1805" title="Возникают проблемы с пониманием механики выполнения заданий, ошибкой приложения во время выполнения заданий." style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>
+							<button name="themesbtn" value="1806" title="Возникают проблемы с оплатой через приложение вызванные непониманием пользователя или ошибкой платформы." style="margin-left:2px; width:150px; height: 44px;">💲Оплата</button>
+							<button name="themesbtn" value="1807" title="Возникают проблемы с выставлением настроек профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓Профиль</button>
+							<button name="themesbtn" value="1808" title="Возникают проблемы с пониманием, выполнение упражнений в тренажере слов." style="margin-left:2px; width:150px; height: 44px;">📚Тренажер слов</button>
+							<button name="themesbtn" value="1809" title="Возникают проблемы со связью во время уроков, синхронизация материалов, заметок, словаря, выполнение упражнений." style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>
+							<button name="themesbtn" value="1810" title="Чат не отображается вовсе, нет определенных чатов (с П или с ПМ, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
 						</div>
 
 						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -1082,22 +1082,22 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1970" title="Пользователь оставил пожелания о качестве контента, необходимости добавить/убрать материалы." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>						
-							<button name="themesbtn" value="1971" title="Пользователь оставил пожелания о процессе выставления/начисления/отображения/синхронизации оценки." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>						
-							<button name="themesbtn" value="1972" title="Пользователь оставил пожелания о функционале, синхронизации, отображении словаря." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>						
-							<button name="themesbtn" value="1973" title="Пользователь оставил пожелания о способах выполнения, синхроницации упражнений." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>						
-							<button name="themesbtn" value="1966" title="Пользователь оставил пожелания о функционале, условиях отключения и подключения ОС." style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>						
-							<button name="themesbtn" value="1965" title="Пользователь оставил пожелания о функционале, условиях переноса/отмены уроков." style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>						
-							<button name="themesbtn" value="1967" title="Пользователь оставил пожелания о способах заполнения, сохранения и редактировании данных в указанном разделе." style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>						
-							<button name="themesbtn" value="1968" title="Пользователь оставил пожелания об отображении и функционале на странице "Семья"." style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>						
-							<button name="themesbtn" value="1969" title="Пользователь оставил пожелания о функционале и отображении чата, правилам удаления/добавления/отображения чата." style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>						
-							<button name="themesbtn" value="1974" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>						
-							<button name="themesbtn" value="1975" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>						
-							<button name="themesbtn" value="1979" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>						
-							<button name="themesbtn" value="1976" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>						
-							<button name="themesbtn" value="1977" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>						
-							<button name="themesbtn" value="1978" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>						
-							<button name="themesbtn" value="1980" title="Пожелания, которые невозможно отнести к вышеперечисленным категориям." style="margin-left:2px; width:150px; height: 44px;">Прочее</button>						
+							<button name="themesbtn" value="1970" title="Пользователь оставил пожелания о качестве контента, необходимости добавить/убрать материалы." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>
+							<button name="themesbtn" value="1971" title="Пользователь оставил пожелания о процессе выставления/начисления/отображения/синхронизации оценки." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>
+							<button name="themesbtn" value="1972" title="Пользователь оставил пожелания о функционале, синхронизации, отображении словаря." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>
+							<button name="themesbtn" value="1973" title="Пользователь оставил пожелания о способах выполнения, синхроницации упражнений." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>
+							<button name="themesbtn" value="1966" title="Пользователь оставил пожелания о функционале, условиях отключения и подключения ОС." style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>
+							<button name="themesbtn" value="1965" title="Пользователь оставил пожелания о функционале, условиях переноса/отмены уроков." style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>
+							<button name="themesbtn" value="1967" title="Пользователь оставил пожелания о способах заполнения, сохранения и редактировании данных в указанном разделе." style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>
+							<button name="themesbtn" value="1968" title="Пользователь оставил пожелания об отображении и функционале на странице "Семья"." style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>
+							<button name="themesbtn" value="1969" title="Пользователь оставил пожелания о функционале и отображении чата, правилам удаления/добавления/отображения чата." style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>
+							<button name="themesbtn" value="1974" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>
+							<button name="themesbtn" value="1975" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>
+							<button name="themesbtn" value="1979" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>
+							<button name="themesbtn" value="1976" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>
+							<button name="themesbtn" value="1977" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>
+							<button name="themesbtn" value="1978" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>
+							<button name="themesbtn" value="1980" title="Пожелания, которые невозможно отнести к вышеперечисленным категориям." style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
 						</div>
 
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -3363,7 +3363,7 @@ var listenerTaskCreate = function (e, a) { // сохранение позици�
     localStorage.setItem('winLeftTaskCreate', String(Number(e.clientX - myX17)));
 };
 
-wintCreateTask.onmousedown = function (a) { 
+wintCreateTask.onmousedown = function (a) {
     if (checkelementtype(a)) {
         window.myX17 = a.layerX;
         window.myY17 = a.layerY;
@@ -5806,7 +5806,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementsByName('tagssbtn')[j].onclick = function () {
 				if(this.value == 'refusal_of_help')
 					document.getElementById('otkaz').click();
-				
+
                 newTaggg(this.value)
             }
         }
@@ -6757,7 +6757,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('getJiraTasks').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
             }
-			
+
 			document.getElementById('favouriteBugs').onclick = function() {
 				if(document.getElementById('favouriteissuetable').style.display != "") {
 					document.getElementById('issuetable').style.display="none"
@@ -6767,8 +6767,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
 					favissues =  JSON.parse(localStorage.getItem('bugsarray'))
 					document.getElementById('favouriteissuetable').innerHTML = favissues;
-				}		
-					
+				}
+
 				for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
 						document.getElementsByName('removefromfavourites')[i].onclick = function () {
 									favissues.splice([i],1)
@@ -6780,7 +6780,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									plusonecount()
 						}
 				}
-				
+
 				function removebug() {
 					let arroffavbugs = document.getElementsByName('removefromfavourites');
 					for (let i = 0; i<arroffavbugs.length; i++) {
@@ -6795,12 +6795,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						}
 					}
 				}
-				
-								
+
+
 				for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
 					document.getElementsByName('addtonotesbug')[j].onclick = function () {
 						sendComment(favissues[j].match(/href.=(\S+)/)[1])
-						
+
 						        let b = document.URL.split('/')
                                 fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                                     "headers": {
@@ -6815,10 +6815,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                     "mode": "cors",
                                     "credentials": "include"
                                 })
-						
+
 					}
 				}
-				
+
 				function sndmsgafterdeletebug() {
 					for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
 						document.getElementsByName('addtonotesbug')[j].onclick = function () {
@@ -6826,13 +6826,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						}
 					}
 				}
-				
+
 				let cnttoincrease = document.getElementsByName('increasecount');
 				let itarrs = document.getElementsByName('favissuemassive')
 						for (let c=0; c<cnttoincrease.length; c++) {
 							cnttoincrease[c].onclick = function() {
-								console.log('clicked')						
-								
+								console.log('clicked')
+
 								document.getElementById('responseTextarea1').value = '{}'
                                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
                                 document.getElementById('responseTextarea3').value = 'suptabcnt'
@@ -6877,20 +6877,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
-										
+
 										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
 					}
 				}
-				
+
 				function plusonecount() {
 					let cnttoincrease = document.getElementsByName('increasecount');
 					let itarrs = document.getElementsByName('favissuemassive')
 						for (let c=0; c<cnttoincrease.length; c++) {
 							cnttoincrease[c].onclick = function() {
-								console.log('clicked')						
-								
+								console.log('clicked')
+
 								document.getElementById('responseTextarea1').value = '{}'
                                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
                                 document.getElementById('responseTextarea3').value = 'suptabcnt'
@@ -6935,26 +6935,26 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
-										
+
 										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
 							}
 					}
 				}
-				
-											
+
+
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
-				document.getElementById('customQuery').classList.remove('active-query')				
+				document.getElementById('customQuery').classList.remove('active-query')
 				} else {
 				document.getElementById('issuetable').style.display="none"
 				document.getElementById('favouriteissuetable').style.display="none"
-				document.getElementById('favouriteBugs').classList.remove('active-query')					
+				document.getElementById('favouriteBugs').classList.remove('active-query')
 				}
 			}
-			
+
 
             document.getElementById('getJiraTasks').onclick = function () {
 
@@ -7080,7 +7080,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 })
                             }
                         }
-						
+
 
 						let addtofarr = document.getElementsByName('addtofavourites')
 						let tagsarray = document.getElementsByName('buglinks');
@@ -7096,7 +7096,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								}
 							}
 						}
-												
+
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
                             refreshissuesarr[f].onclick = function () {
@@ -7248,20 +7248,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Jira').style.display = 'none'
         }
     }
-	
+
 	document.getElementById('smartroomform').onclick = function() {
 		if (document.getElementById('AF_Smartroomform').style.display == '')
             document.getElementById('AF_Smartroomform').style.display = 'none'
 		else
             document.getElementById('AF_Smartroomform').style.display = ''
-		
+
 		function clearradio() {
 			for(let j=0; j<2;j++) {
 				document.getElementsByName('typetoform')[j].checked = false
 				document.getElementsByName('whatobratform')[j].checked = false
 			}
 		}
-		
+
 			if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
 		    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -7280,21 +7280,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 			}
 	}
-			
+
 		document.getElementById('send2smartroom').onclick = function() {
-			
+
 			let checkedclienttype;
 			let checkedquestion;
 			for (let i=0; i<document.getElementsByName('typetoform').length;i++) {
 				if (document.getElementsByName('typetoform')[i].checked == true)
 					checkedclienttype=document.getElementsByName('typetoform')[i].value;
-			}	
+			}
 
 			for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
 				if (document.getElementsByName('whatobratform')[i].checked == true)
 					checkedquestion=document.getElementsByName('whatobratform')[i].value;
 			}
-						
+
 			 let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
 
 			let options2 = {
@@ -7310,27 +7310,27 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			if (document.getElementById('responseTextarea3') != null)
 				document.getElementById('responseTextarea3').value = ''
 			document.getElementById('sendResponse').click()
-			
+
 			document.getElementById('AF_Smartroomform').style.display = 'none'
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
 			clearradio()
-			
+
 		}
-		
+
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
 			clearradio()
 		}
-		
+
 		document.getElementById('hideMeSmartRoomForm').onclick = function() {
 			document.getElementById('AF_Smartroomform').style.display = 'none'
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
 			clearradio()
 		}
-		
+
 		document.getElementById('refreshhashsmartform').onclick = function() {
 			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -7770,7 +7770,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Themes').style.display == '')
             document.getElementById('AF_Themes').style.display = 'none'
-		
+
 		if (document.getElementById('backtomenu').style.display == '')
 			document.getElementById('backtomenu').click()
     }
