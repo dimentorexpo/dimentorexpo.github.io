@@ -285,11 +285,6 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-		#butServ:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
 		#butMarks:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -312,6 +307,11 @@ function mystyles() {
 		}
 
 		#JiraOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#smartroomform:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
@@ -662,8 +662,7 @@ var win_smartroomform =  // описание элементов окна отк�
 							</div>
 							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
 							<br>
-							<label style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</label>
-							<br>
+							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</div>
 							<div style="margin-top:5px; color:bisque;">
 								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
 								<label for="whatobratsugest">Пожелание по мультирум</label>
@@ -7246,6 +7245,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 	document.getElementById('smartroomform').onclick = function() {
 		if (document.getElementById('AF_Smartroomform').style.display == '')
             document.getElementById('AF_Smartroomform').style.display = 'none'
+		
+		document.getElementById('clearsmartroomform').onclick = function() {
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
+		}
+		
+		document.getElementById('hideMeSmartRoomForm').onclick = function() {
+			document.getElementById('AF_Smartroomform').style.display = 'none'
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
+		}
+		
         else {
             document.getElementById('AF_Smartroomform').style.display = ''
 	}
