@@ -639,6 +639,45 @@ var win_refusefrom =  // описание элементов окна отказ
         </span>
 </div>`;
 
+
+var win_smartroomform =  // описание элементов окна отказа от помощи
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
+                            <button title="скрывает меню" id="hideMeSmartRoomForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashsmartform" style="width:24px;">♻</button>
+                            <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
+                        </div>
+						
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
+						
+							<label>Тип клиента</label>
+							<br>
+								<input type="radio" id="typestud" name="typetoform" value="Ученик">
+								<label for="typestud">Ученик</label>
+							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
+								<label for="typeteach">Преподаватель</label>
+							<br>
+							<label>ID клиента</label>
+							<br>
+							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
+							<br>
+							<label>С чем обратились?</label>
+							<br>
+								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
+								<label for="typestud">Пожелание по мультирум</label>
+							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
+								<label for="typeteach">Баг/ошибка в мультирум</label>
+							<br>
+								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий по улучшению или багу (шаги воспроизведения)" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="send2doc" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+		</span>
+        </span>
+</div>`;
+
 var win_taskform = //описание формы создания задач в СРМ2
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
@@ -2075,6 +2114,11 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
+if (localStorage.getItem('winTopSmartroom') == null) { //начальное положение окна Smartroom
+    localStorage.setItem('winTopSmartroom', '295');
+    localStorage.setItem('winLeftSmartroom', '295');
+}
+
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
@@ -2549,6 +2593,11 @@ let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butsmartroom = document.createElement('div')
+butsmartroom.id = "smartroomform"
+butsmartroom.innerHTML = "🦐Smartroom"
+butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
@@ -3076,6 +3125,13 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+let wintSmartroom = document.createElement('div'); // создание окна отказов
+document.body.append(wintSmartroom);
+wintSmartroom.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopSmartroom') + 'px; left: ' + localStorage.getItem('winLeftSmartroom') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintSmartroom.style.display = 'none';
+wintSmartroom.setAttribute('id', 'AF_Smartroomform');
+wintSmartroom.innerHTML = win_smartroomform;
+
 let wintChatHis = document.createElement('div'); // создание окна работы с историей чата
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -3332,6 +3388,22 @@ wintThemes.onmousedown = function (a) {
     }
 }
 wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); }
+
+var listenerSmartroom = function (e, a) { // сохранение позиции окна Тематик
+    wintSmartroom.style.left = Number(e.clientX - myX19) + "px";
+    wintSmartroom.style.top = Number(e.clientY - myY19) + "px";
+    localStorage.setItem('winTopSmartroom', String(Number(e.clientY - myY19)));
+    localStorage.setItem('winLeftSmartroom', String(Number(e.clientX - myX19)));
+};
+
+wintSmartroom.onmousedown = function (a) {
+    if (checkelementtype(a)) {
+        window.myX19 = a.layerX;
+        window.myY19 = a.layerY;
+        document.addEventListener('mousemove', listenerSmartroom);
+    }
+}
+wintSmartroom.onmouseup = function () { document.removeEventListener('mousemove', listenerSmartroom); }
 
 
 
