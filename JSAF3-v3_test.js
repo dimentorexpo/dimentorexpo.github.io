@@ -9446,6 +9446,9 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn14)
         btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Smartroom</a>';
         btn14.setAttribute('onClick', 'newTaggg("smartroom");')
+		btn14.addEventListener('click', function() {
+			document.getElementById('smartroomform').click();
+		}
 
         let btn15 = document.createElement('span');
         btn15.id = 'refuse'
