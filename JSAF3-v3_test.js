@@ -7248,10 +7248,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		else
             document.getElementById('AF_Smartroomform').style.display = ''
 		
-		for(let j=0; j<2;j++) {
-			document.getElementsByName('typetoform')[j].checked = false
-			document.getElementsByName('whatobratform')[j].checked = false
+		function clearradio() {
+			for(let j=0; j<2;j++) {
+				document.getElementsByName('typetoform')[j].checked = false
+				document.getElementsByName('whatobratform')[j].checked = false
+			}
 		}
+		
+		clearradio()
 
 		document.getElementById('send2smartroom').onclick = function() {
 			
@@ -7286,23 +7290,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			document.getElementById('AF_Smartroomform').style.display = 'none'
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
-			
-			for(let j=0; j<2;j++) {
-				document.getElementsByName('typetoform')[j].checked = false
-				document.getElementsByName('whatobratform')[j].checked = false
-			}
+			clearradio()
 			
 		}
 		
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
+			clearradio()
 		}
 		
 		document.getElementById('hideMeSmartRoomForm').onclick = function() {
 			document.getElementById('AF_Smartroomform').style.display = 'none'
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
+			clearradio()
 		}
 }
 
