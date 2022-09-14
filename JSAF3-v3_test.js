@@ -3476,9 +3476,11 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)) {
         if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
+			if(document.getElementById('testid') != null && document.getElementById('idlogin')!=null) {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
             localStorage.setItem('Hidetestid', '0');
+			}
         }
         else {
             document.getElementById('testid').style.display = '';
@@ -13462,12 +13464,12 @@ let tokenlog;
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
-btnsid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; width: 20px; cursor: pointer;";
+btnsid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer;";
 
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; width: 20px; cursor: pointer;";
+btntid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer;";
 
 document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
