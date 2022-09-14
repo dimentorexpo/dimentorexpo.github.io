@@ -7254,7 +7254,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementsByName('whatobratform')[j].checked = false
 			}
 		}
-
+		
+		    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+			if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+				document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+				}
+			}
+			
 		document.getElementById('send2smartroom').onclick = function() {
 			
 			let checkedclienttype;
