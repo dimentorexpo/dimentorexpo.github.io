@@ -13543,7 +13543,6 @@ btntid.onclick = async function () { // копирует в буфер логи�
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
-
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
         localStorage.setItem('hesoyam', '0')
