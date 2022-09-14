@@ -3475,17 +3475,18 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
 
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)) {
-        if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null && document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
+        // if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null &&
+		if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
             localStorage.setItem('Hidetestid', '0');
 			
         }
-        // else {
-            // document.getElementById('testid').style.display = '';
-            // document.getElementById('idlogin').style.display = '';
-            // localStorage.setItem('Hidetestid', '1');
-        // }
+        else {
+            document.getElementById('testid').style.display = '';
+            document.getElementById('idlogin').style.display = '';
+            localStorage.setItem('Hidetestid', '1');
+        }
     }
 }
 
@@ -13383,8 +13384,8 @@ function firstLoadPage() { //первичаня загрузка страниц�
     } else {
         mystyles()
 		
-		document.getElementById('testid').remove()
-		document.getElementById('idlogin').remove()
+		// document.getElementById('testid').remove() удаление с логинером кнопки/поля
+		// document.getElementById('idlogin').remove() удаление с логинером кнопки/поля
 		
 
         if (localStorage.getItem('disablelpmwindow') == 1)
