@@ -660,10 +660,9 @@ var win_smartroomform =  // описание элементов окна отк�
 							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
 								<label for="typeteach">Преподаватель</label>
 							</div>
-							<br>
 							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
 							<br>
-							<label style="margin-top:5px; color:bisque; padding:5px; font-weight: 600;">С чем обратились?</label>
+							<label style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</label>
 							<br>
 							<div style="margin-top:5px; color:bisque;">
 								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
@@ -671,8 +670,7 @@ var win_smartroomform =  // описание элементов окна отк�
 							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
 								<label for="whatobratbugerror">Баг/ошибка в мультирум</label>
 							</div>
-							<br>
-								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий по улучшению или багу (шаги воспроизведения)" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий по улучшению или багу \n(шаги воспроизведения)" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="send2smartroom" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 						</div>
@@ -7244,6 +7242,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Jira').style.display = 'none'
         }
     }
+	
+	document.getElementById('smartroomform').onclick = function() {
+		if (document.getElementById('AF_Smartroomform').style.display == '')
+            document.getElementById('AF_Smartroomform').style.display = 'none'
+        else {
+            document.getElementById('AF_Smartroomform').style.display = ''
+	}
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
@@ -9438,7 +9443,6 @@ function startTimer() {
         btn15.addEventListener('click', function () {
             document.getElementById('otkaz').click();
         })
-
 
         let btn16 = document.createElement('span');
         btn16.id = 'solvd'
@@ -13249,12 +13253,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[8])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[9])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[7])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[8])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[9])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[10])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[11])
         }, 2000)
 
         setTimeout(() => {
@@ -13262,15 +13267,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[12])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[13])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[12])
+            headmenulist.insertBefore(menubar, headmenulist.children[13])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
+            menubar.append(document.getElementById('smartroomform'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
