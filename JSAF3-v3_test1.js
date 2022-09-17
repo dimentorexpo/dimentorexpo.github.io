@@ -9252,6 +9252,7 @@ function startTimer() {
                     audio.play()
                     soudintervalset = setInterval(() => {audio.play()},localStorage.getItem('splinter')*1000)
                     soudflag = 1
+                    console.log("запущен интервал" + localStorage.getItem('splinter')*1000)
                 }
             } else {
                 soudflag = 0
