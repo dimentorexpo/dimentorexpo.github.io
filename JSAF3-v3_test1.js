@@ -285,11 +285,6 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-		#butServ:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
 		#butMarks:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -312,6 +307,11 @@ function mystyles() {
 		}
 
 		#JiraOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#smartroomform:hover {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
@@ -639,6 +639,44 @@ var win_refusefrom =  // описание элементов окна отказ
         </span>
 </div>`;
 
+
+var win_smartroomform =  // описание элементов окна Мультирум пожелания/баги
+    `<div style="display: flex; width: 414px;">
+        <span style="width: 414px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 410px;" id="refuse_form_header">
+                            <button title="скрывает меню" id="hideMeSmartRoomForm" style="width:50px; background: #228B22;">hide</button>
+                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashsmartform" style="width:24px;">♻</button>
+                            <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
+                        </div>
+						
+                        <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
+						
+							<label style="color:#c4ffd3; padding:5px; font-weight: 600;">Тип клиента</label>
+							<br>
+							<div style="margin-top:5px; color:bisque;" id = "smartroomuser">
+								<input type="radio" id="typestud" name="typetoform" value="Ученик">
+								<label for="typestud">Ученик</label>
+							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
+								<label for="typeteach">Преподаватель</label>
+							</div>
+							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
+							<br>
+							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</div>
+							<div style="margin-top:5px; color:bisque;" id = "smartroomquestion">
+								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
+								<label for="whatobratsugest">Пожелание по мультирум</label>
+							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
+								<label for="whatobratbugerror">Баг/ошибка в мультирум</label>
+							</div>
+								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий по улучшению или багу \n(шаги воспроизведения)" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							<br>
+							<button title="Отправляет заполненные поля формы в док" id="send2smartroom" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
+						</div>
+				</span>
+        </span>
+</div>`;
+
 var win_taskform = //описание формы создания задач в СРМ2
     `<div style="display: flex; width: 414px;">
         <span style="width: 414px">
@@ -657,7 +695,7 @@ var win_taskform = //описание формы создания задач в 
 							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<br>
 							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
-							<button id="highteachersc" style="height:25px; width: 130px;">👽П Student Care</button>
+							<button id="highteachersc" style="height:25px; width: 130px;">👽Исход звонки</button>
 							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
 						</div>
 
@@ -677,7 +715,7 @@ var win_taskform = //описание формы создания задач в 
 								<option value="teachers_care_crm" style="background: white">Teachers Care</option>
 								<option value="content_management_dictionary" style="background: white">Словарь</option>
 								<option value="content_management" style="background: white">Контент</option>
-								<option value="teachers_support" style="background: white">Teachers Support</option>
+								<option value="outgoing_calls_crm2" style="background: white">Исходящие звонки</option>
 								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
 							</select>
 
@@ -750,8 +788,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
-					<input id="HWstudID" placeholder="ID У для HW" title="вводим ID У, чтобы получить прямую ссылку при открытии с П сразу увидим список ДЗ У" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="showcaseHW" style="width: 25.23px;">💾</button>
+					<input id="trshooterhash" placeholder="hash trshooter" title="Вводим хеш комнаты чтобы посмотреть сразу инфу в трабл шутере" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<button id="gettrshinfo" style="width: 25.23px;">🚀</button>
 					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -861,9 +899,10 @@ var win_Jira =  // описание элементов окна Поиска п�
                         </div>
 
 						<div id="control_jira_search">
-							<button id="defaultQuery" class="active-query" style="margin-left: 35%;">Default</button>
-							<button id="freshQuery">Fresh</button>
-							<button id="customQuery">Custom</button>
+							<button id="defaultQuery" title="Страница для поиска по умолчанию с заранее записанным JQL запросом" class="active-query" style="margin-left: 35%;">Default</button>
+							<button id="freshQuery" title="Страница при поиске по ключевому слову, выводящая свежесозданные баги в порядке убывания и с 0 Support Tab с заранее записанным JQL запросом">Fresh</button>
+							<button id="customQuery" title="Страница для ручного составления JQL запроса. Поле для ввода поиска не используется, только лишь верхняя часть от выбора отдела до ввода искомого текста в двойных кавычках после надписи text~">Custom</button>
+							<button id="favouriteBugs" title="Страница с сохраненными багами для быстрого доступа">❤</button>
 							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 500px; color: black; margin-top: 5px; margin-left: 5%;"></textarea>
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
 							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
@@ -871,6 +910,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
+                                <p id="favouriteissuetable" style="max-height:400px; margin-left:5px; overflow:auto; display:none"></p>
                         </div>
                 </span>
         </span>
@@ -890,7 +930,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Темы</label>
 							<br>
 							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
-							<button id="enterlesson" style="margin-le ft:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
+							<button id="enterlesson" style="margin-left:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
 							<button id="lessonfunc" style="margin-left:2px; width:150px; height: 44px;">🧯Функционал на уроке</button>
 							<button id="perscab" style="margin-left:2px; width:150px; height: 44px;">🏡ЛК</button>
 							<button id="userhomework" style="margin-left:2px; width:150px; height: 44px;">💼ДЗ (вимбокс)</button>
@@ -938,7 +978,7 @@ var win_Themes =  // описание элементов окна Тематик
 								<button name="themesbtn" value="1590" title="Причину блокирования или прерывания связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - блок/прерыв</button>
 								<button name="themesbtn" value="1591" title="Причину аудио: задержки или искажения связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 🔊:задерж/искаж</button>
 								<button name="themesbtn" value="1592" title="Причину видео: задержки или плохой картинке связи не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат - 📷: задерж/плох карт</button>
-								<button name="themesbtn" value="1593" title="Причину проблемы со связью не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо 
+								<button name="themesbtn" value="1593" title="Причину проблемы со связью не удалось обнаружить и при проверке связи на тестовом уроке всё работало хорошо
 								P.S. Эта категория используется в случае если сбой не подходит ни под какую подтему в этой теме" style="margin-left:2px; width:150px; height: 44px;">🔥Сбой на плат</button>
 								<button name="themesbtn" value="1594" title="Проблемы со связью возникли по причине использования браузера, несоответствующему минимальным требованиям." style="margin-left:2px; width:150px; height: 44px;">❌Не поддерж брауз/ОС</button>
 								<button name="themesbtn" value="1595" title="Проблемы со связью возникли по причине использования устройства (камера/гарнитура/ПК), которые не соответствуют минимальным требованиям, не поддерживаются платформой (гарнитура от телефона и т.п.)" style="margin-left:2px; width:150px; height: 44px; font-size:10px;">❌Не поддерж ус (📸камера, 🎧гарнитура,💻комп)</button>
@@ -946,52 +986,52 @@ var win_Themes =  // описание элементов окна Тематик
 
 						<div id="vhodurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
 							<button name="themesbtn" value="1632" title="У/П не могут войти в свой ЛК, т.к. нет привязанных данных для входа. Выставление нужных данный." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🔐Авториз - Не привязана 📧/📱 как логин</button>
-							<button name="themesbtn" value="1629" title="🧭Виджет входа на урок - Отсутствует кнопка" style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Отсутстств кноп⁉</button>
+							<button name="themesbtn" value="1629" title="Виджет входа на урок - Отсутствует кнопка" style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Отсутстств кноп⁉</button>
 							<button name="themesbtn" value="1635" title="У/П указывают неверные данные для входа, нет ролей, которые дают право на вход." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Даные для входа</button>
 							<button name="themesbtn" value="1630" title="Нет возможности перейти по кнопке входа в урок." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Кнопка не активна🔘</button>
 							<button name="themesbtn" value="1634" title="У/П забыли пароль от своего ЛК, не могут войти. Решение — сброс пароля." style="margin-left:2px; width:150px; height: 44px;">🔐Авториз - Сброс пароля</button>
-							<button name="themesbtn" value="1631" title="Оказание консультации У/П о том, как можно войти в свой личный кабинет." style="margin-left:2px; width:150px; height: 44px;">🔐Консультация по авторизации</button>
+							<button name="themesbtn" value="1626" title="Виджет входа на урок не отображается в ЛКУ по причине того, что У или П в отпуске." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - У в отпуске🏝</button>
 							<button name="themesbtn" value="1633" title="Не удается войти в ЛКУ/ЛКП, отображается ошибка доступа при входе." style="margin-left:2px; width:150px; height: 44px;">🔐Сбой с авторизацией</button>
-							<button name="themesbtn" value="1627" title="Консультация У о том, как входить в урок при помощи виджета." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">Виджет вх урок - Консульт по вх на урок</button>
-							<button name="themesbtn" value="1628" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У не состоит в группу ГУ или был добавлен слишком поздно." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У не сост в гр (ГУ)</button>
-							<button name="themesbtn" value="1626" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что У или П в отпуске." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - У в отпуске🏝</button>
+							<button name="themesbtn" value="1627" title="Консультация У о том, как входить в урок при помощи виджета." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🧭Виджет вх урок - Консульт по вх на урок</button>
+							<button name="themesbtn" value="1631" title="Оказание консультации У/П о том, как можно войти в свой личный кабинет." style="margin-left:2px; width:150px; height: 44px;">🔐Консультация по авторизации</button>
+							<button name="themesbtn" value="1628" title="Виджет входа на урок не отображается в ЛКУ по причине того, что У не состоит в группу ГУ или был добавлен слишком поздно." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - У не сост в гр (ГУ)</button>
 							<button name="themesbtn" value="1624" title="Не отображается виджет входа на урок в ЛК по причине истекшей подписки У" style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🧭Виджет вх урок - Истекла подписка У⏳</button>
-							<button name="themesbtn" value="1625" title="🧭Виджет входа на урок не отображается в ЛКУ по причине того, что занятие запланировано в другое время." style="margin-left:2px; width:150px; height: 44px;">Виджет вх урок - Урок в др ⌚</button>
+							<button name="themesbtn" value="1625" title="Виджет входа на урок не отображается в ЛКУ по причине того, что занятие запланировано в другое время." style="margin-left:2px; width:150px; height: 44px;">🧭Виджет вх урок - Урок в др ⌚</button>
 						</div>
 
 						<div id="funcurok" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1772" title="Возникают проблемы с корректным отображением показателя STT." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>						
-							<button name="themesbtn" value="1773" title="Возникают проблемы с корректным отображением показателя TTT." style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>						
-							<button name="themesbtn" value="1767" title="Возникают проблемы с отображением, синхронизацией вложений во время урока." style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>						
-							<button name="themesbtn" value="1771" title="Возникают проблемы с запуском демонстрации экрана (понимание как включить и управлять демонстрацией, технические требования для запуска демонстрации)." style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>						
-							<button name="themesbtn" value="1768" title="Возникают проблемы с отображением, синхронизацией доски во время урока." style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>						
-							<button name="themesbtn" value="2037" title="Возникают проблемы с отображением, синхронизацией заметок во время урока." style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>						
-							<button name="themesbtn" value="1775" title="Возникают проблемы с отправкой ДЗ во время урока ( понимание, поломка на платформе)." style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>						
-							<button name="themesbtn" value="1770" title="Возникают проблемы с отображением, синхронизацией материалов." style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>						
-							<button name="themesbtn" value="1776" title="Возникают проблемы с отображением, работой и синхронизацией аудио/ видеороликов во время уроков. Поломка может быть вызвана технической стороной У/П, так и проблемой на стороне платформы." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>						
-							<button name="themesbtn" value="1769" title="Возникают проблемы с отображением, синхронизацией словаря во время урока. Не добавляются слова в словарь во время урока." style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>						
-							<button name="themesbtn" value="1774" title="Возникают проблемы с выполнением, синхронизацией, проверкой упражнений в уроке." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>						
+							<button name="themesbtn" value="1772" title="Возникают проблемы с корректным отображением показателя STT." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓STT</button>
+							<button name="themesbtn" value="1773" title="Возникают проблемы с корректным отображением показателя TTT." style="margin-left:2px; width:150px; height: 44px;">👽TTT</button>
+							<button name="themesbtn" value="1767" title="Возникают проблемы с отображением, синхронизацией вложений во время урока." style="margin-left:2px; width:150px; height: 44px;">🔗Вложения</button>
+							<button name="themesbtn" value="1771" title="Возникают проблемы с запуском демонстрации экрана (понимание как включить и управлять демонстрацией, технические требования для запуска демонстрации)." style="margin-left:2px; width:150px; height: 44px;">🖥Демонстрация экрана</button>
+							<button name="themesbtn" value="1768" title="Возникают проблемы с отображением, синхронизацией доски во время урока." style="margin-left:2px; width:150px; height: 44px;">⌨Доска</button>
+							<button name="themesbtn" value="2037" title="Возникают проблемы с отображением, синхронизацией заметок во время урока." style="margin-left:2px; width:150px; height: 44px;">📝Заметки</button>
+							<button name="themesbtn" value="1775" title="Возникают проблемы с отправкой ДЗ во время урока ( понимание, поломка на платформе)." style="margin-left:2px; width:150px; height: 44px;">💨Отправка ДЗ на уроке</button>
+							<button name="themesbtn" value="1770" title="Возникают проблемы с отображением, синхронизацией материалов." style="margin-left:2px; width:150px; height: 44px;">🔀Переключение материалов</button>
+							<button name="themesbtn" value="1776" title="Возникают проблемы с отображением, работой и синхронизацией аудио/ видеороликов во время уроков. Поломка может быть вызвана технической стороной У/П, так и проблемой на стороне платформы." style="margin-left:2px; width:150px; height: 44px; font-size:11px;">🎵/📽Проблема с плеером (аудио/видеоролики)</button>
+							<button name="themesbtn" value="1769" title="Возникают проблемы с отображением, синхронизацией словаря во время урока. Не добавляются слова в словарь во время урока." style="margin-left:2px; width:150px; height: 44px;">📙Словарь на уроке</button>
+							<button name="themesbtn" value="1774" title="Возникают проблемы с выполнением, синхронизацией, проверкой упражнений в уроке." style="margin-left:2px; width:150px; height: 44px;">🎯Упражнения на уроке</button>
 						</div>
 
 						<div id="cabusr" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1714" title="Не отображается, не загружается чат, проблемы с отображением чата, добавление чата с У или отделом школы." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>						
-							<button name="themesbtn" value="1708" title="Возникает ошибка с работой чата в ЛК (нет чата, некорректная работа)." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>						
-							<button name="themesbtn" value="1713" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>						
-							<button name="themesbtn" value="1707" title="Возникает ошибка отображения, работы в разделе ЛКУ - История занятий/портфолио. Нет пройденных уроков, их аудиозаписей." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>						
-							<button name="themesbtn" value="1715" title="Возникают проблемы с отображением, выставлением информации в разделе." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>						
-							<button name="themesbtn" value="1710" title="Возникает ошибка в редактировании, правке профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>						
-							<button name="themesbtn" value="1716" title="Возникают проблемы с выставлением настроек ЛКП." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>						
-							<button name="themesbtn" value="1711" title="Возникает ошибка в установке настроек пользователем (время, часовой пояс, данные для входа и т.д.)" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>						
-							<button name="themesbtn" value="1719" title="Ошибка в отображении информации, отсутствие информации по финансам." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>						
-							<button name="themesbtn" value="1709" title="Нужно совершить действия в уже существующей семье (прикрепить/открепить пользователя), создать семью." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>						
-							<button name="themesbtn" value="1712" title="Возникает ошибка в отображении достижений П, своевременности их появления." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>						
-							<button name="themesbtn" value="1706" title="Неверное отображение данных в ЛКУ в виджете прогресса." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>						
-							<button name="themesbtn" value="1718" title="Отображается ошибка при выставлении перерыва, неверное отображение." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>						
-							<button name="themesbtn" value="1704" title="Возникает ошибка отображения, работы в разделе ЛКУ - Грамматика." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>						
-							<button name="themesbtn" value="1717" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>						
-							<button name="themesbtn" value="1705" title="Возникает ошибка отображения, работы в разделе ЛКУ - Навыки." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>						
-							<button name="themesbtn" value="1720" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>						
-							<button name="themesbtn" value="1721" title="Возникают ошибки в отображении групп У, их формировании, численности и возможности создания урока с ними." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>						
+							<button name="themesbtn" value="1714" title="Не отображается, не загружается чат, проблемы с отображением чата, добавление чата с У или отделом школы." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Чат в лк</button>
+							<button name="themesbtn" value="1708" title="Возникает ошибка с работой чата в ЛК (нет чата, некорректная работа)." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Чат в лк</button>
+							<button name="themesbtn" value="1713" title="Возникает ошибка с отображением расписания, выставлением статуса, времени занятий, свободных/занятых часов." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Расписание</button>
+							<button name="themesbtn" value="1707" title="Возникает ошибка отображения, работы в разделе ЛКУ - История занятий/портфолио. Нет пройденных уроков, их аудиозаписей." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - История занятий/портфолио</button>
+							<button name="themesbtn" value="1715" title="Возникают проблемы с отображением, выставлением информации в разделе." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Профиль</button>
+							<button name="themesbtn" value="1710" title="Возникает ошибка в редактировании, правке профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Профиль</button>
+							<button name="themesbtn" value="1716" title="Возникают проблемы с выставлением настроек ЛКП." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Настройки</button>
+							<button name="themesbtn" value="1711" title="Возникает ошибка в установке настроек пользователем (время, часовой пояс, данные для входа и т.д.)" style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Настройки</button>
+							<button name="themesbtn" value="1719" title="Ошибка в отображении информации, отсутствие информации по финансам." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Финансы</button>
+							<button name="themesbtn" value="1709" title="Нужно совершить действия в уже существующей семье (прикрепить/открепить пользователя), создать семью." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Семья</button>
+							<button name="themesbtn" value="1712" title="Возникает ошибка в отображении достижений П, своевременности их появления." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Карта роста</button>
+							<button name="themesbtn" value="1706" title="Неверное отображение данных в ЛКУ в виджете прогресса." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Виджет прогресса</button>
+							<button name="themesbtn" value="1718" title="Отображается ошибка при выставлении перерыва, неверное отображение." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Перерыв</button>
+							<button name="themesbtn" value="1704" title="Возникает ошибка отображения, работы в разделе ЛКУ - Грамматика." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Грамматика</button>
+							<button name="themesbtn" value="1717" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Упражнения</button>
+							<button name="themesbtn" value="1705" title="Возникает ошибка отображения, работы в разделе ЛКУ - Навыки." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓ЛКУ - Навыки</button>
+							<button name="themesbtn" value="1720" title="Возникают проблемы с отображением работ на проверку (не отображаются, отображаются не нужные, нужно открепить работу на проверку)." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Работы на проверку</button>
+							<button name="themesbtn" value="1721" title="Возникают ошибки в отображении групп У, их формировании, численности и возможности создания урока с ними." style="margin-left:2px; width:150px; height: 44px;">👽ЛКП - Группы</button>
 
 						</div>
 
@@ -1003,22 +1043,22 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="paymn" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1077" title="По вине школы не проходит оплата, допущена ошибка обработки менеджером." style="margin-left:2px; width:150px; height: 44px;">🏰Вина школы</button>						
-							<button name="themesbtn" value="1658" title="Предоставление консультации по оплате, возможных способах оплаты и в целом как совершать оплату." style="margin-left:2px; width:150px; height: 44px;">🤑Консультация по оплате</button>						
-							<button name="themesbtn" value="1659" title="Возникает ошибка оплаты по причине отсутствия нужного У пакета/услуги." style="margin-left:2px; width:150px; height: 44px;">⭕Нет нужного пакета/услуги</button>						
-							<button name="themesbtn" value="1660" title="Возникает проблема совершения оплаты подписки, не продлевается подписка, подписка списана ранее, списано неверное количество уроков." style="margin-left:2px; width:150px; height: 44px;">💸Подписки</button>						
-							<button name="themesbtn" value="1661" title="Возникает ошибка оплаты по причине проблем с картой У: лимиты, 3d-secure, ограничения банка." style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>						
-							<button name="themesbtn" value="1662" title="Возникает ошибка оплаты по причине возникновения ошибки на платформе." style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>						
+							<button name="themesbtn" value="1077" title="По вине школы не проходит оплата, допущена ошибка обработки менеджером." style="margin-left:2px; width:150px; height: 44px;">🏰Вина школы</button>
+							<button name="themesbtn" value="1658" title="Предоставление консультации по оплате, возможных способах оплаты и в целом как совершать оплату." style="margin-left:2px; width:150px; height: 44px;">🤑Консультация по оплате</button>
+							<button name="themesbtn" value="1659" title="Возникает ошибка оплаты по причине отсутствия нужного У пакета/услуги." style="margin-left:2px; width:150px; height: 44px;">⭕Нет нужного пакета/услуги</button>
+							<button name="themesbtn" value="1660" title="Возникает проблема совершения оплаты подписки, не продлевается подписка, подписка списана ранее, списано неверное количество уроков." style="margin-left:2px; width:150px; height: 44px;">💸Подписки</button>
+							<button name="themesbtn" value="1661" title="Возникает ошибка оплаты по причине проблем с картой У: лимиты, 3d-secure, ограничения банка." style="margin-left:2px; width:150px; height: 44px;">💳Проблема с картой У</button>
+							<button name="themesbtn" value="1662" title="Возникает ошибка оплаты по причине возникновения ошибки на платформе." style="margin-left:2px; width:150px; height: 44px;">⛔Сбой при оплате</button>
 						</div>
 
 						<div id="skyengpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1804" title="Возникают проблемы с входом в ЛКУ" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>						
-							<button name="themesbtn" value="1805" title="Возникают проблемы с пониманием механики выполнения заданий, ошибкой приложения во время выполнения заданий." style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>						
-							<button name="themesbtn" value="1806" title="Возникают проблемы с оплатой через приложение вызванные непониманием пользователя или ошибкой платформы." style="margin-left:2px; width:150px; height: 44px;">💲Оплата</button>						
-							<button name="themesbtn" value="1807" title="Возникают проблемы с выставлением настроек профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓Профиль</button>						
-							<button name="themesbtn" value="1808" title="Возникают проблемы с пониманием, выполнение упражнений в тренажере слов." style="margin-left:2px; width:150px; height: 44px;">📚Тренажер слов</button>						
-							<button name="themesbtn" value="1809" title="Возникают проблемы со связью во время уроков, синхронизация материалов, заметок, словаря, выполнение упражнений." style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>						
-							<button name="themesbtn" value="1810" title="Чат не отображается вовсе, нет определенных чатов (с П или с ПМ, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>						
+							<button name="themesbtn" value="1804" title="Возникают проблемы с входом в ЛКУ" style="margin-left:2px; width:150px; height: 44px;">🔐Авторизация</button>
+							<button name="themesbtn" value="1805" title="Возникают проблемы с пониманием механики выполнения заданий, ошибкой приложения во время выполнения заданий." style="margin-left:2px; width:150px; height: 44px;">💼Домашка</button>
+							<button name="themesbtn" value="1806" title="Возникают проблемы с оплатой через приложение вызванные непониманием пользователя или ошибкой платформы." style="margin-left:2px; width:150px; height: 44px;">💲Оплата</button>
+							<button name="themesbtn" value="1807" title="Возникают проблемы с выставлением настроек профиля." style="margin-left:2px; width:150px; height: 44px;">👨‍🎓Профиль</button>
+							<button name="themesbtn" value="1808" title="Возникают проблемы с пониманием, выполнение упражнений в тренажере слов." style="margin-left:2px; width:150px; height: 44px;">📚Тренажер слов</button>
+							<button name="themesbtn" value="1809" title="Возникают проблемы со связью во время уроков, синхронизация материалов, заметок, словаря, выполнение упражнений." style="margin-left:2px; width:150px; height: 44px;">👨‍🏫Уроки</button>
+							<button name="themesbtn" value="1810" title="Чат не отображается вовсе, нет определенных чатов (с П или с ПМ, не прогружается чат, чат не синхронизируется)." style="margin-left:2px; width:150px; height: 44px;">💬Чат</button>
 						</div>
 
 						<div id="teacherpril" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -1042,22 +1082,22 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="feedbackpog" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
-							<button name="themesbtn" value="1970" title="Пользователь оставил пожелания о качестве контента, необходимости добавить/убрать материалы." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>						
-							<button name="themesbtn" value="1971" title="Пользователь оставил пожелания о процессе выставления/начисления/отображения/синхронизации оценки." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>						
-							<button name="themesbtn" value="1972" title="Пользователь оставил пожелания о функционале, синхронизации, отображении словаря." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>						
-							<button name="themesbtn" value="1973" title="Пользователь оставил пожелания о способах выполнения, синхроницации упражнений." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>						
-							<button name="themesbtn" value="1966" title="Пользователь оставил пожелания о функционале, условиях отключения и подключения ОС." style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>						
-							<button name="themesbtn" value="1965" title="Пользователь оставил пожелания о функционале, условиях переноса/отмены уроков." style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>						
-							<button name="themesbtn" value="1967" title="Пользователь оставил пожелания о способах заполнения, сохранения и редактировании данных в указанном разделе." style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>						
-							<button name="themesbtn" value="1968" title="Пользователь оставил пожелания об отображении и функционале на странице "Семья"." style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>						
-							<button name="themesbtn" value="1969" title="Пользователь оставил пожелания о функционале и отображении чата, правилам удаления/добавления/отображения чата." style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>						
-							<button name="themesbtn" value="1974" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>						
-							<button name="themesbtn" value="1975" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>						
-							<button name="themesbtn" value="1979" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>						
-							<button name="themesbtn" value="1976" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>						
-							<button name="themesbtn" value="1977" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>						
-							<button name="themesbtn" value="1978" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>						
-							<button name="themesbtn" value="1980" title="Пожелания, которые невозможно отнести к вышеперечисленным категориям." style="margin-left:2px; width:150px; height: 44px;">Прочее</button>						
+							<button name="themesbtn" value="1970" title="Пользователь оставил пожелания о качестве контента, необходимости добавить/убрать материалы." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Контент</button>
+							<button name="themesbtn" value="1971" title="Пользователь оставил пожелания о процессе выставления/начисления/отображения/синхронизации оценки." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Оценка</button>
+							<button name="themesbtn" value="1972" title="Пользователь оставил пожелания о функционале, синхронизации, отображении словаря." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Словарь</button>
+							<button name="themesbtn" value="1973" title="Пользователь оставил пожелания о способах выполнения, синхроницации упражнений." style="margin-left:2px; width:150px; height: 44px;">Вимбокс - Упражнения</button>
+							<button name="themesbtn" value="1966" title="Пользователь оставил пожелания о функционале, условиях отключения и подключения ОС." style="margin-left:2px; width:150px; height: 44px;">ЛК - ОС с родителями</button>
+							<button name="themesbtn" value="1965" title="Пользователь оставил пожелания о функционале, условиях переноса/отмены уроков." style="margin-left:2px; width:150px; height: 44px;">ЛК - Перенос/отмена урока</button>
+							<button name="themesbtn" value="1967" title="Пользователь оставил пожелания о способах заполнения, сохранения и редактировании данных в указанном разделе." style="margin-left:2px; width:150px; height: 44px;">ЛК - Профиль</button>
+							<button name="themesbtn" value="1968" title="Пользователь оставил пожелания об отображении и функционале на странице "Семья"." style="margin-left:2px; width:150px; height: 44px;">ЛК - Семья</button>
+							<button name="themesbtn" value="1969" title="Пользователь оставил пожелания о функционале и отображении чата, правилам удаления/добавления/отображения чата." style="margin-left:2px; width:150px; height: 44px;">ЛК - Чат в лк</button>
+							<button name="themesbtn" value="1974" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng</button>
+							<button name="themesbtn" value="1975" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skyeng Teachers</button>
+							<button name="themesbtn" value="1979" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skypro</button>
+							<button name="themesbtn" value="1976" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Класс</button>
+							<button name="themesbtn" value="1977" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Решения</button>
+							<button name="themesbtn" value="1978" title="Пользователь оставил пожелания о функционале приложения." style="margin-left:2px; width:150px; height: 44px;">Приложение - Skysmart Родителям</button>
+							<button name="themesbtn" value="1980" title="Пожелания, которые невозможно отнести к вышеперечисленным категориям." style="margin-left:2px; width:150px; height: 44px;">Прочее</button>
 						</div>
 
 						<div id="poiskbd" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
@@ -2073,6 +2113,11 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
+if (localStorage.getItem('winTopSmartroom') == null) { //начальное положение окна Smartroom
+    localStorage.setItem('winTopSmartroom', '295');
+    localStorage.setItem('winLeftSmartroom', '295');
+}
+
 if (localStorage.getItem('winTopChatHis') == null) { //начальное положение окна истории чатов
     localStorage.setItem('winTopChatHis', '0');
     localStorage.setItem('winLeftChatHis', '80.6');
@@ -2548,10 +2593,16 @@ butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
 butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butsmartroom = document.createElement('div')
+butsmartroom.id = "smartroomform"
+butsmartroom.innerHTML = "🦐Smartroom"
+butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
-butThemes.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
+butThemes.classList.add('ant-btn')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
@@ -3074,6 +3125,13 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+let wintSmartroom = document.createElement('div'); // создание окна Мультирум пожелания/баги
+document.body.append(wintSmartroom);
+wintSmartroom.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopSmartroom') + 'px; left: ' + localStorage.getItem('winLeftSmartroom') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintSmartroom.style.display = 'none';
+wintSmartroom.setAttribute('id', 'AF_Smartroomform');
+wintSmartroom.innerHTML = win_smartroomform;
+
 let wintChatHis = document.createElement('div'); // создание окна работы с историей чата
 document.body.append(wintChatHis);
 wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
@@ -3322,14 +3380,30 @@ var listenerThemes = function (e, a) { // сохранение позиции о
     localStorage.setItem('winLeftThemes', String(Number(e.clientX - myX18)));
 };
 
-wintThemes.onmousedown = function (a) {
+wintThemes.onmousedown = function (a) { // изменение позиции окна Тематик
     if (checkelementtype(a)) {
         window.myX18 = a.layerX;
         window.myY18 = a.layerY;
         document.addEventListener('mousemove', listenerThemes);
     }
 }
-wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); }
+wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); } // прекращение изменения позиции окна Тематик
+
+var listenerSmartroom = function (e, a) { // сохранение позиции окна Мультирум пожелания/баги
+    wintSmartroom.style.left = Number(e.clientX - myX19) + "px";
+    wintSmartroom.style.top = Number(e.clientY - myY19) + "px";
+    localStorage.setItem('winTopSmartroom', String(Number(e.clientY - myY19)));
+    localStorage.setItem('winLeftSmartroom', String(Number(e.clientX - myX19)));
+};
+
+wintSmartroom.onmousedown = function (a) { // изменение позиции окна Мультирум пожелания/баги
+    if (checkelementtype(a)) {
+        window.myX19 = a.layerX;
+        window.myY19 = a.layerY;
+        document.addEventListener('mousemove', listenerSmartroom);
+    }
+}
+wintSmartroom.onmouseup = function () { document.removeEventListener('mousemove', listenerSmartroom); } // прекращение изменения позиции окна Мультирум пожелания/баги
 
 
 
@@ -3376,6 +3450,9 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
 document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
     if (checkelementtype(a)) { document.getElementById('AF_Refuseformnew').style.display = 'none'; }
 }
+document.getElementById('AF_Smartroomform').ondblclick = function (a) { // скрытие окна Мультирум пожелания/баги от помощи по двойному клику
+    if (checkelementtype(a)) {document.getElementById('AF_Smartroomform').style.display = 'none'; }
+}
 document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
     if (checkelementtype(a)) { document.getElementById('AF_Marks').style.display = 'none'; }
 }
@@ -3398,10 +3475,12 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
 
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)) {
-        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
+        // if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null &&
+		if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
             localStorage.setItem('Hidetestid', '0');
+			
         }
         else {
             document.getElementById('testid').style.display = '';
@@ -4483,16 +4562,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         creditstatus.value = "";
     }
 
-    document.getElementById('showcaseHW').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
-        let hwstidlnk = 'https://vimbox.skyeng.ru/student/';
-        if (HWstudID.value == "")
+    document.getElementById('gettrshinfo').onclick = function () {               // сохранение в буфере айди ученика для просмотра всего списка ДЗ по нему
+        let trshootlnk = 'https://video-trouble-shooter.skyeng.ru/?hash=';
+        if (trshooterhash.value == "")
             console.log('Введите id  ученика в поле')
         else {
-            copyToClipboard(hwstidlnk + HWstudID.value + "/homework");
+            window.open(trshootlnk + trshooterhash.value);
         };
-        document.getElementById('showcaseHW').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('showcaseHW').innerHTML = "💾" }, 2000);
-        HWstudID.value = "";
+        trshooterhash.value = "";
     }
 
     document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
@@ -5729,6 +5806,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
             document.getElementsByName('tagssbtn')[j].onclick = function () {
+				if(this.value == 'refusal_of_help')
+					document.getElementById('otkaz').click();
+
                 newTaggg(this.value)
             }
         }
@@ -6637,7 +6717,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
 
             document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
-
+			let favissues = [];
 
             document.getElementById('defaultQuery').onclick = function () {
                 defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
@@ -6645,6 +6725,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
             }
 
             document.getElementById('freshQuery').onclick = function () {
@@ -6653,6 +6738,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
             }
 
             document.getElementById('customQuery').onclick = function () {
@@ -6663,7 +6753,210 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 this.classList.toggle('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
             }
+
+			document.getElementById('favouriteBugs').onclick = function() {
+				if(document.getElementById('favouriteissuetable').style.display != "") {
+					document.getElementById('issuetable').style.display="none"
+					document.getElementById('favouriteissuetable').style.display=""
+					document.getElementById('testJira').style.display="none"
+					document.getElementById('getJiraTasks').style.display="none"
+				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
+					favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+					document.getElementById('favouriteissuetable').innerHTML = favissues;
+				}
+
+				for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
+						document.getElementsByName('removefromfavourites')[i].onclick = function () {
+									favissues.splice([i],1)
+									localStorage.setItem('bugsarray', JSON.stringify(favissues))
+									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+									document.getElementById('favouriteissuetable').innerHTML = favissues;
+									removebug();
+									sndmsgafterdeletebug()
+									plusonecount()
+						}
+				}
+
+				function removebug() {
+					let arroffavbugs = document.getElementsByName('removefromfavourites');
+					for (let i = 0; i<arroffavbugs.length; i++) {
+						arroffavbugs[i].onclick = function () {
+									favissues.splice([i],1)
+									localStorage.setItem('bugsarray', JSON.stringify(favissues))
+									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
+									document.getElementById('favouriteissuetable').innerHTML = favissues;
+									removebug();
+									sndmsgafterdeletebug()
+									plusonecount()
+						}
+					}
+				}
+
+
+				for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
+					document.getElementsByName('addtonotesbug')[j].onclick = function () {
+						sendComment(favissues[j].match(/href.=(\S+)/)[1])
+
+						        let b = document.URL.split('/')
+                                fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                    "headers": {
+                                        "accept": "*/*",
+                                        "content-type": "application/json",
+                                        "sec-fetch-dest": "empty",
+                                        "sec-fetch-mode": "cors",
+                                        "sec-fetch-site": "same-origin"
+                                    },
+                                    "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"${favissues[j].match(/href.=(\S+)/)[1]}\"}]}`,
+                                    "method": "POST",
+                                    "mode": "cors",
+                                    "credentials": "include"
+                                })
+
+					}
+				}
+
+				function sndmsgafterdeletebug() {
+					for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
+						document.getElementsByName('addtonotesbug')[j].onclick = function () {
+							sendComment(favissues[j].match(/href.=(\S+)/)[1])
+						}
+					}
+				}
+
+				let cnttoincrease = document.getElementsByName('increasecount');
+				let itarrs = document.getElementsByName('favissuemassive')
+						for (let c=0; c<cnttoincrease.length; c++) {
+							cnttoincrease[c].onclick = function() {
+								console.log('clicked')
+
+								document.getElementById('responseTextarea1').value = '{}'
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+                                document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                document.getElementById('sendResponse').click()
+
+                                let count;
+                                let jira_token;
+                                let increasedcount;
+                                setTimeout(async function () {
+                                    document.getElementById('responseTextarea1').value = '{}'
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+
+                                    document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                    document.getElementById('sendResponse').click()
+
+                                    let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
+                                    repcount = await repcount;
+                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                    document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
+
+                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                    count = parseInt(count);
+                                    increasedcount = count + 1;
+                                    increasedcount = increasedcount.toString();
+                                    console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                    setTimeout(function () {
+
+                                        document.getElementById('responseTextarea1').value = `{
+											"headers": {
+												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+												"sec-fetch-mode": "cors",
+												"sec-fetch-site": "same-origin",
+												"x-requested-with": "XMLHttpRequest",
+												"x-sitemesh-off": "true"
+														},
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											  "method": "POST",
+											  "mode": "cors",
+											  "credentials": "include"
+												}`
+                                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                        document.getElementById('responseTextarea3').value = ''
+                                        document.getElementById('sendResponse').click()
+
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
+                                    }, 1000);
+                                }, 1000)
+					}
+				}
+
+				function plusonecount() {
+					let cnttoincrease = document.getElementsByName('increasecount');
+					let itarrs = document.getElementsByName('favissuemassive')
+						for (let c=0; c<cnttoincrease.length; c++) {
+							cnttoincrease[c].onclick = function() {
+								console.log('clicked')
+
+								document.getElementById('responseTextarea1').value = '{}'
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+                                document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                document.getElementById('sendResponse').click()
+
+                                let count;
+                                let jira_token;
+                                let increasedcount;
+                                setTimeout(async function () {
+                                    document.getElementById('responseTextarea1').value = '{}'
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+
+                                    document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                    document.getElementById('sendResponse').click()
+
+                                    let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
+                                    repcount = await repcount;
+                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                    document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
+
+                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                    count = parseInt(count);
+                                    increasedcount = count + 1;
+                                    increasedcount = increasedcount.toString();
+                                    console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                    setTimeout(function () {
+
+                                        document.getElementById('responseTextarea1').value = `{
+											"headers": {
+												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+												"sec-fetch-mode": "cors",
+												"sec-fetch-site": "same-origin",
+												"x-requested-with": "XMLHttpRequest",
+												"x-sitemesh-off": "true"
+														},
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											  "method": "POST",
+											  "mode": "cors",
+											  "credentials": "include"
+												}`
+                                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                        document.getElementById('responseTextarea3').value = ''
+                                        document.getElementById('sendResponse').click()
+
+										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
+                                    }, 1000);
+                                }, 1000)
+							}
+					}
+				}
+
+
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+				document.getElementById('customQuery').classList.remove('active-query')
+				} else {
+				document.getElementById('issuetable').style.display="none"
+				document.getElementById('favouriteissuetable').style.display="none"
+				document.getElementById('favouriteBugs').classList.remove('active-query')
+				}
+			}
+
 
             document.getElementById('getJiraTasks').onclick = function () {
 
@@ -6746,7 +7039,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     else {
                         //   rezissuetable = JSON.parse(rezissuetable)
                         document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-
                         let issues = [];
                         let temporarka;
                         if (rezissuetable.issueTable.issueKeys.length > 50)
@@ -6762,7 +7054,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 }
 
 
-                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + '<a href="https://jira.skyeng.tech/browse/' + rezissuetable.issueTable.issueKeys[i] + '" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">' + temporarka + '</a>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</br>'
+                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>'+ '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
 
                             }
 
@@ -6790,6 +7082,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 })
                             }
                         }
+
+
+						let addtofarr = document.getElementsByName('addtofavourites')
+						let tagsarray = document.getElementsByName('buglinks');
+						let massivissueids = document.getElementsByName('issueIds')
+						for (let v=0; v<addtofarr.length; v++) {
+							addtofarr[v].onclick = function() {
+								addtofarr[v].innerText = "❤"
+								for (let x=0; x<tagsarray.length; x++) {
+										if (x == v) {
+											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
+											localStorage.setItem('bugsarray', JSON.stringify(favissues))
+										}
+								}
+							}
+						}
 
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
@@ -6942,6 +7250,150 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Jira').style.display = 'none'
         }
     }
+
+	document.getElementById('smartroomform').onclick = function() {
+		if (document.getElementById('AF_Smartroomform').style.display == '')
+            document.getElementById('AF_Smartroomform').style.display = 'none'
+		else
+            document.getElementById('AF_Smartroomform').style.display = ''
+
+		function clearradio() {
+			for(let j=0; j<2;j++) {
+				document.getElementsByName('typetoform')[j].checked = false
+				document.getElementsByName('whatobratform')[j].checked = false
+			}
+		}
+
+			if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
+		    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+					document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+				} else if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
+						document.getElementsByName('typetoform')[0].checked = true
+						document.getElementsByName('typetoform')[1].checked = false
+					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
+						document.getElementsByName('typetoform')[0].checked = false
+						document.getElementsByName('typetoform')[1].checked = true
+					} else {
+						document.getElementsByName('typetoform')[0].checked = false
+						document.getElementsByName('typetoform')[1].checked = false
+					}
+				}
+			}
+	}
+
+    document.getElementById('send2smartroom').onclick = function() {
+			
+        let checkedclienttype;
+        let checkedquestion;
+
+        let flagemptysmart = 0;
+
+        if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked) {
+            document.getElementById('smartroomuser').style.backgroundColor = 'Coral'; 
+            document.getElementById('smartroomuser').style.color = 'black';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('smartroomuser').style.backgroundColor = ''; 
+            document.getElementById('smartroomuser').style.color = '#c4ffd3';
+        }
+
+        if (document.getElementById('clientid').value.length < 3) {
+            document.getElementById('clientid').style.backgroundColor = 'Coral';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('clientid').style.backgroundColor = '';
+        }
+
+        if (!document.getElementsByName('whatobratform')[0].checked && !document.getElementsByName('whatobratform')[1].checked) {
+            document.getElementById('smartroomquestion').style.backgroundColor = 'Coral';
+            document.getElementById('smartroomquestion').style.color = 'black';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('smartroomquestion').style.backgroundColor = ''; 
+            document.getElementById('smartroomquestion').style.color = '#c4ffd3';
+        }
+
+        if (document.getElementById('fullcomentsmartroom').value.length < 3) {
+            document.getElementById('fullcomentsmartroom').style.backgroundColor = 'Coral';
+            flagemptysmart = 1;
+        } else {
+            document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
+        }
+
+        if (flagemptysmart == 0) {
+            for (let i=0; i<document.getElementsByName('typetoform').length;i++) {
+                if (document.getElementsByName('typetoform')[i].checked == true)
+                    checkedclienttype=document.getElementsByName('typetoform')[i].value;
+            }	
+
+            for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
+                if (document.getElementsByName('whatobratform')[i].checked == true)
+                    checkedquestion=document.getElementsByName('whatobratform')[i].value;
+            }
+                        
+            let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
+
+            let options2 = {
+                "headers": {
+                    "content-type": "application/x-www-form-urlencoded",
+                },
+                "body": body2,
+                "method": "POST",
+            }
+
+            document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+            document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+            if (document.getElementById('responseTextarea3') != null)
+                document.getElementById('responseTextarea3').value = ''
+            document.getElementById('sendResponse').click()
+            
+            document.getElementById('AF_Smartroomform').style.display = 'none'
+            document.getElementById('clientid').value = ''
+            document.getElementById('fullcomentsmartroom').value = ''
+            clearradio()
+        }	
+    }
+
+		document.getElementById('clearsmartroomform').onclick = function() {
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
+            document.getElementById('smartroomuser').style.backgroundColor = ''; 
+            document.getElementById('smartroomuser').style.color = '#c4ffd3';
+            document.getElementById('clientid').style.backgroundColor = '';
+            document.getElementById('smartroomquestion').style.backgroundColor = ''; 
+            document.getElementById('smartroomquestion').style.color = '#c4ffd3';
+            document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
+			clearradio()
+		}
+
+		document.getElementById('hideMeSmartRoomForm').onclick = function() {
+			document.getElementById('AF_Smartroomform').style.display = 'none'
+			document.getElementById('clientid').value = ''
+			document.getElementById('fullcomentsmartroom').value = ''
+			clearradio()
+		}
+
+		document.getElementById('refreshhashsmartform').onclick = function() {
+			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+					document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+				} else if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
+						document.getElementsByName('typetoform')[0].checked = true
+						document.getElementsByName('typetoform')[1].checked = false
+					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
+						document.getElementsByName('typetoform')[0].checked = false
+						document.getElementsByName('typetoform')[1].checked = true
+					} else {
+						document.getElementsByName('typetoform')[0].checked = false
+						document.getElementsByName('typetoform')[1].checked = false
+					}
+				}
+			}
+		}
+}
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
@@ -7362,6 +7814,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Themes').style.display == '')
             document.getElementById('AF_Themes').style.display = 'none'
+
+		if (document.getElementById('backtomenu').style.display == '')
+			document.getElementById('backtomenu').click()
     }
 
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
@@ -8387,7 +8842,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                     let splittedarr = table[l][2 + newL].split('$')
                     console.log(splittedarr)
                     if (splittedarr[0] == "Текст")
-                        sendAnswer(splittedarr[1])
+                        sendAnswer(transfPageButtons(splittedarr[1]))
                     else if (splittedarr[0] == "Шаблон") {
                         sendAnswerTemplate(splittedarr[1], splittedarr[1])
                     } else {
@@ -9120,10 +9575,13 @@ function startTimer() {
         btn13.setAttribute('onClick', 'newTaggg("server_issues");')
 
         let btn14 = document.createElement('span');
-        btn14.id = 'controln'
+        btn14.id = 'smartroomtag'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn14)
-        btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Контроль</a>';
-        btn14.setAttribute('onClick', 'newTaggg("request_control");')
+        btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Smartroom</a>';
+        btn14.setAttribute('onClick', 'newTaggg("smartroom");')
+		btn14.addEventListener('click', function() {
+			document.getElementById('smartroomform').click();
+		})
 
         let btn15 = document.createElement('span');
         btn15.id = 'refuse'
@@ -9133,7 +9591,6 @@ function startTimer() {
         btn15.addEventListener('click', function () {
             document.getElementById('otkaz').click();
         })
-
 
         let btn16 = document.createElement('span');
         btn16.id = 'solvd'
@@ -9449,10 +9906,12 @@ function fillchatbox() { //функция наполнения элемента,
     // след 2 строки - скрипт заполняет значения уже при открытии самого чата по его хешу или при клике на чат из списка в истории
     if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe == 'Telegram')
         document.getElementById('placeusid').innerText = "Telegram";
-    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe != 'Widget')
+    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe != 'Widget' && convdata.channelUser.channelTpe != 'WhatsApp')
         document.getElementById('placeusid').innerText = convdata.channelUser.id;
-    else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget')
+    else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe != 'WhatsApp' && convdata.channelUser.channelTpe == 'Widget')
         document.getElementById('placeusid').innerText = "Widget";
+	else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'WhatsApp')
+        document.getElementById('placeusid').innerText = "WhatsApp";
     else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget')
         document.getElementById('placeusid').innerText = convdata.channelUser.payload.id;
 
@@ -9735,13 +10194,15 @@ async function findchatsoper() { // ищет активные чаты на вы
                         tsmin = "0" + tmestmp.getMinutes();
                     else tsmin = tmestmp.getMinutes();
 
-                    if (operchatsdata.items[i].channelUser.channelTpe != 'Telegram' && operchatsdata.items[i].channelUser.channelTpe != 'Widget' && operchatsdata.items[i].channelUser.payload.userFullName == undefined)
+                    if (operchatsdata.items[i].channelUser.channelTpe != 'Telegram' && operchatsdata.items[i].channelUser.channelTpe != 'Widget' && operchatsdata.items[i].channelUser.channelTpe != 'WhatsApp' && operchatsdata.items[i].channelUser.payload.userFullName == undefined)
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
-                    else if (operchatsdata.items[i].channelUser.channelTpe != 'Telegram' && operchatsdata.items[i].channelUser.channelTpe != 'Widget' && operchatsdata.items[i].channelUser.payload.userFullName != undefined)
+                    else if (operchatsdata.items[i].channelUser.channelTpe != 'Telegram' && operchatsdata.items[i].channelUser.channelTpe != 'Widget' && operchatsdata.items[i].channelUser.channelTpe != 'WhatsApp' && operchatsdata.items[i].channelUser.payload.userFullName != undefined)
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.payload.userType + '</span>' + ' ' + operchatsdata.items[i].channelUser.payload.userFullName + '</span>' + '<br>'
                     else if (operchatsdata.items[i].channelUser.channelTpe == 'Telegram' && operchatsdata.items[i].channelUser.payload == undefined)
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
                     else if (operchatsdata.items[i].channelUser.channelTpe == 'Widget' && operchatsdata.items[i].channelUser.payload == undefined)
+                        foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
+					else if (operchatsdata.items[i].channelUser.channelTpe == 'WhatsApp' && operchatsdata.items[i].channelUser.payload == undefined)
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
                 }
 
@@ -10866,20 +11327,6 @@ function paintstatus() { //функция перекрашивания стат�
     if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
         if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
-            if (document.querySelectorAll('.ant-btn')[3].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[3].innerText == 'Перерыв')
-                document.querySelectorAll('.ant-btn')[3].style.background = "red";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
-            document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
-            if (document.querySelectorAll('.ant-btn')[3].innerText == 'Онлайн')
-                document.querySelectorAll('.ant-btn')[3].style.background = "green";
-        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
-            document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
-            if (document.querySelectorAll('.ant-btn')[3].innerText == 'Занят')
-                document.querySelectorAll('.ant-btn')[3].style.background = "yellow";
-        }
-    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
-        if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
-            document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
             if (document.querySelectorAll('.ant-btn')[4].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[4].innerText == 'Перерыв')
                 document.querySelectorAll('.ant-btn')[4].style.background = "red";
         } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
@@ -10890,6 +11337,20 @@ function paintstatus() { //функция перекрашивания стат�
             document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
             if (document.querySelectorAll('.ant-btn')[4].innerText == 'Занят')
                 document.querySelectorAll('.ant-btn')[4].style.background = "yellow";
+        }
+    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && document.querySelectorAll('.user_menu-status-name')[1] != undefined && document.querySelectorAll('.user_menu-status-name')[1] != null) {
+        if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Офлайн" || document.querySelectorAll('.user_menu-status-name')[1].innerText == "Перерыв") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: red; color: white; font-weight: 700";
+            if (document.querySelectorAll('.ant-btn')[5].innerText == 'Офлайн' || document.querySelectorAll('.ant-btn')[5].innerText == 'Перерыв')
+                document.querySelectorAll('.ant-btn')[5].style.background = "red";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Онлайн") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: green; color: white; font-weight: 700";
+            if (document.querySelectorAll('.ant-btn')[5].innerText == 'Онлайн')
+                document.querySelectorAll('.ant-btn')[5].style.background = "green";
+        } else if (document.querySelectorAll('.user_menu-status-name')[1].innerText == "Занят") {
+            document.querySelectorAll('.user_menu-status-name')[1].style = " background: yellow; color: black; font-weight: 700";
+            if (document.querySelectorAll('.ant-btn')[5].innerText == 'Занят')
+                document.querySelectorAll('.ant-btn')[5].style.background = "yellow";
         }
     }
 
@@ -12922,6 +13383,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
         document.getElementById('AF_Links').style.display = 'none';
     } else {
         mystyles()
+		
+		// document.getElementById('testid').remove() удаление с логинером кнопки/поля
+		// document.getElementById('idlogin').remove() удаление с логинером кнопки/поля
+		
 
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
@@ -12940,12 +13405,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[6])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[7])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[8])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[9])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[7])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[8])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[9])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[10])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[11])
         }, 2000)
 
         setTimeout(() => {
@@ -12953,15 +13419,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[12])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[13])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[12])
+            headmenulist.insertBefore(menubar, headmenulist.children[13])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
             menubar.append(document.getElementById('butMarks'))
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
+            menubar.append(document.getElementById('smartroomform'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
@@ -12997,12 +13464,12 @@ let tokenlog;
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
-btnsid.style = "background-color: #3CB371 ; margin-left: 5px;";
+btnsid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer;";
 
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371 ; margin-left: 5px; margin-right: 5px;";
+btntid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer; margin-right: 5px;";
 
 document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
@@ -13123,7 +13590,6 @@ btntid.onclick = async function () { // копирует в буфер логи�
         setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
-
 
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
