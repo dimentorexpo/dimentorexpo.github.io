@@ -9249,6 +9249,7 @@ function startTimer() {
             txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
             if (txt[14] > 0){
                 if (soudflag == 0){
+                    audio.play()
                     soudintervalset = setInterval(() => {audio.play()},localStorage.getItem('splinter')*1000)
                     soudflag = 1
                 }
