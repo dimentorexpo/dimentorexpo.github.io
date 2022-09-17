@@ -9196,6 +9196,7 @@ var timeStart = new Date()
 var studentIdSearch2 = 0
 var studentIdSearch = 0
 let soudflag = 0
+let soudintervalset
 function startTimer() {
     var timeNow = new Date()
     if (timeNow - timeStart > 60 * 60 * 1000) {
@@ -9247,18 +9248,13 @@ function startTimer() {
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
             txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
             if (txt[14] > 0){
-                if (soudflag ==0 ){
-                    audio.play()
+                if (soudflag == 0){
+                    soudintervalset = setInterval(() => {audio.play()},localStorage.getItem('splinter')*1000)
                     soudflag = 1
                 }
-                if (audio.paused){
-                    setTimeout(() => {audio.play()},localStorage.getItem('splinter')*1000)
-                }                
             } else {
                 soudflag = 0
-                if (!audio.paused){
-                    audio.stop()
-                }   
+                clearInterval(soudintervalset)   
             }
         }
 
