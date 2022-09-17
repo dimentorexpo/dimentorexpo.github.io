@@ -480,7 +480,12 @@ var win_AFhelper =  // описание элементов главного ок
 				<br>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
+                    <br>
+				<span style="color:bisque">Интервал воспроизведения звука:</span>
+				<input title="Ввод интервала в секундах между повторами звука нового чата" id="soundplayinterval" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;">
+				<button title="Внести изменения в интервал между повторами звука нового чата" id="setsoundplayinterval" style="margin-top: 5px">SET⌚</button>
 					<br>
+                    <br>
 				<span style="color:bisque">Таймер автозакрытия:</span>
 				<input title="Ввод числа для автозакрытия, при этом от этого числа будет отнято 2 минуты чтобы чат закрасился в фиолетовый цвет, то есть при значении по-умолчанию 12 на 10 минуте чат зальется фиолетовым цветом оповещая, что скоро будет закрыт" id="autoclosetime" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="2" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;">
 				<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
@@ -2136,6 +2141,11 @@ if (localStorage.getItem('theme') == null) {
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
     localStorage.setItem('aclstime', 12);
+}
+
+//Для интервала воспроизведения звука
+if (localStorage.getItem('splinter') == null) {
+    localStorage.setItem('splinter', 3);
 }
 
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
@@ -5678,6 +5688,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.getElementById('autoclosetime').value != '') {
                     localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
                 } else console.log("Базовое значение равно 12 минут")
+            }
+
+            //Для интервала между воспроизведением звука
+            if (localStorage.getItem('splinter') != null || localStorage.getItem('splinter') != "") {
+                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+            } else {
+                localStorage.setItem('splinter', 3);
+                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+            }
+
+            document.getElementById('setsoundplayinterval').onclick = function () {
+                if (document.getElementById('soundplayinterval').value != '') {
+                    localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
+                } else console.log("Базовое значение равно 3 секунды")
             }
 
             //
@@ -9223,7 +9247,7 @@ function startTimer() {
             txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
             if (txt[14] > 0){
                 if (audio.paused){
-                    setTimeout(() => {audio.play()},3000)
+                    setTimeout(() => {audio.play()},localStorage.getItem('splinter')*1000)
                 }                
             } else {
                 if (!audio.paused){
