@@ -2149,7 +2149,7 @@ if (localStorage.getItem('splinter') == null) {
 
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
-    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbwdxcxmEfTxiLVvXbfGngLUW_1solDBDMHB0rLBGd2G75Jne8BJSx137fNegsP1ykR4/exec');
+    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
 
 let infouserbut = document.createElement('p');
@@ -3507,7 +3507,7 @@ wintAF.innerHTML = win_AFhelper;
 var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
-var TP_addr = 'https://script.google.com/macros/s/AKfycbwdxcxmEfTxiLVvXbfGngLUW_1solDBDMHB0rLBGd2G75Jne8BJSx137fNegsP1ykR4/exec'
+var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 
 var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
