@@ -8517,8 +8517,8 @@ function getText() { //получить текст
         if (xhr.status == 200) {
             try {
                 var 
-                    r = xhr.responseText,
-                    result = r.jsonObj['result'],
+                    r = xhr.response,
+                    result = r.jsonObj["result"],
                     resultso = r["sounds"],
                     resultrea = r["reasons"],
                     resultres = r["results"];
