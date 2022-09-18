@@ -8115,7 +8115,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
         if (document.getElementById('sound_adr').value == "")
-            audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
+            audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
         else {
             audio = new Audio(document.getElementById('sound_adr').value);
             document.getElementById('sound_save').innerText = "✅";
