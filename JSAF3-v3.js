@@ -7376,6 +7376,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('clientid').value = ''
             document.getElementById('fullcomentsmartroom').value = ''
             clearradio()
+            sendComment('Отправка в документ "Smartroom пожелания" прошла успешно')
         }	
     }
 
