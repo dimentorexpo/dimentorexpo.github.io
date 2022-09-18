@@ -8503,6 +8503,9 @@ function servFromDoc(butName) { // отправка комента и сообщ
 
 var bool = 0;
 var table
+var soundstable
+var reasonsteble
+var resultstable
 
 function getText() { //получить текст
     var app = localStorage.getItem('scriptAdr'),
@@ -8514,9 +8517,15 @@ function getText() { //получить текст
         if (xhr.status == 200) {
             try {
                 var r = JSON.parse(xhr.responseText),
-                    result = r["result"];
+                    result = r["result"],
+                    resultso = r["sounds"],
+                    resultrea = r["reasons"],
+                    resultres = r["results"];
 
                 table = result;
+                soundstable = resultso;
+                reasonsteble = resultrea;
+                resultstable = resultres;
                 console.log('Обновили шаблоны')
                 refreshTemplates()
 
