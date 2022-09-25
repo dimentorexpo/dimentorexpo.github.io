@@ -2253,7 +2253,7 @@ buttonhistory.onclick = function () { //функция приска пр ист�
     }
 }
 
-function dategetter() {
+async function dategetter() {
 	
 	
         var date = new Date()
@@ -2289,7 +2289,7 @@ marksstata.onclick = async function () { //проверка статистики
     if (document.getElementById('AF_Marks').style.display == 'none') {
         document.getElementById('AF_Marks').style.display = ''
 
-		dategetter()
+		await dategetter()
 		
         secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
@@ -2356,7 +2356,7 @@ marksstata.onclick = async function () { //проверка статистики
             let tempval = document.getElementById('useridsearch').value.trim();
             document.getElementById('markstable').innerText = "Загрузка..."
 
-			dategetter()
+			await dategetter()
 
             secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
@@ -7698,7 +7698,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
 
-				dategetter()
+				await dategetter()
 
                 secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
