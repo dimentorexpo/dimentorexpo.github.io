@@ -377,6 +377,9 @@ function mystyles() {
 		transform: scale(1.5);
 		font-weight: 600;
 	}
+	.widthofsd {
+		width:420px;
+	}
 	.switch-btn {
 		display: inline-block;
 		width: 62px; /* ширина переключателя */
@@ -1460,15 +1463,15 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
-					<button class="stcabmbsbtn" id="mpskyengmainsrv">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
-					<button class="stcabmbsbtn" id="mpskyengschedule">МП Skyeng: расписание и переносы</button>
-					<button class="stcabmbsbtn" id="mpskyengpodbor">МП Skyeng: подбор П</button>
-					<button class="stcabmbsbtn" id="mpskyengprofile">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
-					<button class="stcabmbsbtn" id="mpskyengbalance">МП Skyeng: стр оплаты и трансферы</button>
-					<button class="stcabmbsbtn" id="mpskyengreferal">МП Skyeng: рефералка</button>
-					<button class="stcabmbsbtn" id="mpskyengstories">Skyeng: Stories</button>
-					<button class="stcabmbsbtn" id="mpskysmartparents">МП Skysmart Parents</button>
-					<button class="stcabmbsbtn" id="mpunderground">Подземный стук</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskyengmainsrv">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskyengschedule">МП Skyeng: расписание и переносы</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskyengpodbor">МП Skyeng: подбор П</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskyengprofile">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskyengbalance">МП Skyeng: стр оплаты и трансферы</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskyengreferal">МП Skyeng: рефералка</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskyengstories">Skyeng: Stories</button>
+					<button class="stcabmbsbtn widthofsd" id="mpskysmartparents">МП Skysmart Parents</button>
+					<button class="stcabmbsbtn widthofsd" id="mpunderground">Подземный стук</button>
 				</div>
 				<div id="infraoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">Здесь можно получить помощь от команды Инфраструктуры</p>
@@ -1476,137 +1479,137 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#teachers-qa-support; канал по вопросам ЛКП, ТРМ</p>
-					<button class="teacbtn" id="teacherstatistic">Статистика</button>
-					<button class="teacbtn" id="teacherstudy">Моё обучение</button>
-					<button class="teacbtn" id="teacherbreak">Перерыв</button>
-					<button class="teacbtn" id="teachermoney">Финансы</button>
-					<button class="teacbtn" id="teachermap">Карта роста</button>
-					<button class="teacbtn" id="teachertimetable">Расписание</button>
-					<button class="teacbtn" id="teacherperenos">Запрос на перенос</button>
-					<button class="teacbtn" id="teacherwidgetbalance">Виджет баланса</button>
-					<button class="teacbtn" id="teacherwidgetlessonmark">Виджет отметки уроков</button>
-					<button class="teacbtn" id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
-					<button class="teacbtn" id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
-					<button class="teacbtn" id="teacherwidgetKPI">Виджет KPI</button>
-					<button class="teacbtn" id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
-					<button class="teacbtn" id="teacherTRMquestions">Вопросы по ТРМ</button>
-					<button class="teacbtn" id="teacherunderground">Подземный стук</button>
+					<button class="teacbtn widthofsd" id="teacherstatistic">Статистика</button>
+					<button class="teacbtn widthofsd" id="teacherstudy">Моё обучение</button>
+					<button class="teacbtn widthofsd" id="teacherbreak">Перерыв</button>
+					<button class="teacbtn widthofsd" id="teachermoney">Финансы</button>
+					<button class="teacbtn widthofsd" id="teachermap">Карта роста</button>
+					<button class="teacbtn widthofsd" id="teachertimetable">Расписание</button>
+					<button class="teacbtn  widthofsd" id="teacherperenos">Запрос на перенос</button>
+					<button class="teacbtn widthofsd" id="teacherwidgetbalance">Виджет баланса</button>
+					<button class="teacbtn widthofsd" id="teacherwidgetlessonmark">Виджет отметки уроков</button>
+					<button class="teacbtn widthofsd" id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
+					<button class="teacbtn  widthofsd" id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
+					<button class="teacbtn widthofsd" id="teacherwidgetKPI">Виджет KPI</button>
+					<button class="teacbtn widthofsd" id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
+					<button class="teacbtn widthofsd" id="teacherTRMquestions">Вопросы по ТРМ</button>
+					<button class="teacbtn widthofsd" id="teacherunderground">Подземный стук</button>
 				</div>
 				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px;">#crm2-support</p>
-					<button class="crm2sbtn" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
-					<button class="crm2sbtn" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
-					<button class="crm2sbtn" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
-					<button class="crm2sbtn" id="crm2paymenthistory">Вопросы про виджет "История платежей"</button>
-					<button class="crm2sbtn" id="crm2convertsrc">Вопросы по "Визардам конвертации услуги"</button>
-					<button class="crm2sbtn" id="crm2actionshistory">Вопросы о "История действий"</button>
-					<button class="crm2sbtn" id="crm2familycard">Вопросы о карточке "Семья"</button>
-					<button class="crm2sbtn" id="crm2profile">Вопросы о "Профиле" заявки</button>
-					<button class="crm2sbtn" id="crm2communications">Вопросы по разделу "Коммуникации"</button>
-					<button class="crm2sbtn" id="crm2taskpoolsoporovd">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
-					<button class="crm2sbtn" id="crm2taskpoolsales">Проблемы с функционалом пула задач "список задач" продажи</button>
-					<button class="crm2sbtn" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
-					<button class="crm2sbtn" id="crm2changestk">Смена STK услуги</button>
+					<button class="crm2sbtn widthofsd" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
+					<button class="crm2sbtn widthofsd" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
+					<button class="crm2sbtn widthofsd" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
+					<button class="crm2sbtn widthofsd" id="crm2paymenthistory">Вопросы про виджет "История платежей"</button>
+					<button class="crm2sbtn widthofsd" id="crm2convertsrc">Вопросы по "Визардам конвертации услуги"</button>
+					<button class="crm2sbtn widthofsd" id="crm2actionshistory">Вопросы о "История действий"</button>
+					<button class="crm2sbtn  widthofsd" id="crm2familycard">Вопросы о карточке "Семья"</button>
+					<button class="crm2sbtn widthofsd" id="crm2profile">Вопросы о "Профиле" заявки</button>
+					<button class="crm2sbtn widthofsd" id="crm2communications">Вопросы по разделу "Коммуникации"</button>
+					<button class="crm2sbtn widthofsd" id="crm2taskpoolsoporovd">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
+					<button class="crm2sbtn widthofsd" id="crm2taskpoolsales">Проблемы с функционалом пула задач "список задач" продажи</button>
+					<button class="crm2sbtn widthofsd" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
+					<button class="crm2sbtn widthofsd" id="crm2changestk">Смена STK услуги</button>
 				</div>
 				<div id="authsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#auth; Обсуждение общих вопросов по проектам Auth/ID (авторизация, роли и доступы, данные пользователей и т. д.)</p>
-					<button class="authbtn" id="authdevq">Вопросы к разработке</button>
-					<button class="authbtn" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
-					<button class="authbtn" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
-					<button class="authbtn" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
-					<button class="authbtn" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
-					<button class="authbtn" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
-					<button class="authbtn" id="authlogcheck">Проверка логов в ID</button>
-					<button class="authbtn" id="authunderground">Подземный стук</button>
+					<button class="authbtn widthofsd" id="authdevq">Вопросы к разработке</button>
+					<button class="authbtn  widthofsd" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
+					<button class="authbtn widthofsd" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
+					<button class="authbtn widthofsd" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
+					<button class="authbtn widthofsd" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
+					<button class="authbtn widthofsd" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
+					<button class="authbtn widthofsd" id="authlogcheck">Проверка логов в ID</button>
+					<button class="authbtn widthofsd" id="authunderground">Подземный стук</button>
 				</div>
 				<div id="schedulesrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#schedule-qa-support; Канал по вопросам расписания ученика, ТТ, автоподбора и ручного подбора</p>
-					<button class="schdbtn" id="ttenableAP">Подключение АП</button>
-					<button class="schdbtn" id="ttdisableAP">Отключить АП в ЛКУ</button>
-					<button class="schdbtn" id="ttquestions">Вопросы по ТТ</button>
-					<button class="schdbtn" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
-					<button class="schdbtn" id="ttunderground">Подземный стук</button>
+					<button class="schdbtn widthofsd" id="ttenableAP">Подключение АП</button>
+					<button class="schdbtn widthofsd" id="ttdisableAP">Отключить АП в ЛКУ</button>
+					<button class="schdbtn widthofsd" id="ttquestions">Вопросы по ТТ</button>
+					<button class="schdbtn widthofsd" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
+					<button class="schdbtn widthofsd" id="ttunderground">Подземный стук</button>
 				</div>
 				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#billing-qa-support; Канал для рассмотрения причины расхождений баланса учеников</p>
-					<button class="bilqabtn" id="billqarassroch">Вопросы по рассрочке ученика</button>
-					<button class="bilqabtn" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
+					<button class="bilqabtn widthofsd" id="billqarassroch">Вопросы по рассрочке ученика</button>
+					<button class="bilqabtn widthofsd" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
 				</div>
 				<div id="c1srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#c1-support; Поддержка витрины оплаты (Не виджет оплаты в pcs), Onboarding (Kids&Adult), Scoring, AutoIntroLesson (АвтоВУ)</p>
-					<button class="c1sbtn" id="c1verstka">Проблемы с версткой</button>
-					<button class="c1sbtn" id="c1payonboarding">Не завершился онбординг после оплаты</button>
-					<button class="c1sbtn" id="c1redirects">Циклические редиректы</button>
-					<button class="c1sbtn" id="c1underground">Подземный стук</button>
+					<button class="c1sbtn widthofsd" id="c1verstka">Проблемы с версткой</button>
+					<button class="c1sbtn widthofsd" id="c1payonboarding">Не завершился онбординг после оплаты</button>
+					<button class="c1sbtn widthofsd" id="c1redirects">Циклические редиректы</button>
+					<button class="c1sbtn widthofsd" id="c1underground">Подземный стук</button>
 				</div>
 				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#telephony-support; Канал для поддержки внутренней телефонии</p>
-					<button class="telepbtn" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
-					<button class="telepbtn" id="teloutgoing">Проблема с исходящим вызовом</button>
-					<button class="telepbtn" id="telincoming">Проблема с входящим вызовом</button>
-					<button class="telepbtn" id="telspeaking">Проблема во время разговора</button>
-					<button class="telepbtn" id="telrtstat">Проблема с реал-тайм статистикой</button>
-					<button class="telepbtn" id="telcallinfo">Запрос информации по звонку</button>
-					<button class="telepbtn" id="telredicall">Проблема при переводе вызова</button>
-					<button class="telepbtn" id="telunderground">Подземный стук</button>
+					<button class="telepbtn widthofsd" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
+					<button class="telepbtn widthofsd" id="teloutgoing">Проблема с исходящим вызовом</button>
+					<button class="telepbtn widthofsd" id="telincoming">Проблема с входящим вызовом</button>
+					<button class="telepbtn widthofsd" id="telspeaking">Проблема во время разговора</button>
+					<button class="telepbtn widthofsd" id="telrtstat">Проблема с реал-тайм статистикой</button>
+					<button class="telepbtn widthofsd" id="telcallinfo">Запрос информации по звонку</button>
+					<button class="telepbtn widthofsd" id="telredicall">Проблема при переводе вызова</button>
+					<button class="telepbtn widthofsd" id="telunderground">Подземный стук</button>
 				</div>
 				<div id="billingsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px;">#billing</p>
-					<button class="billbtn" id="billcheques">Чеки/Инвойсы</button>
-					<button class="billbtn" id="billdataanal">Data analytics</button>
-					<button class="billbtn" id="billtaskfordev">Задача для разработки</button>
-					<button class="billbtn" id="billadmreturn">Админка возвратов</button>
-					<button class="billbtn" id="billtroublcodecard">Проблема с кодом для привязки карты</button>
-					<button class="billbtn" id="billpaymentbot">Вilling Payment Bot</button>
-					<button class="billbtn" id="billschemes">Схемы вознаграждения </button>
-					<button class="billbtn" id="billselfemployee">Самозанятые </button>
-					<button class="billbtn" id="billrequisites">Реквизиты</button>
-					<button class="billbtn" id="billpayments">Выплаты</button>
-					<button class="billbtn" id="billspisanie">Списание средств</button>
-					<button class="billbtn" id="billreturns">Возвраты</button>
-					<button class="billbtn" id="billpaymentmesystems">Платежные системы</button>
-					<button class="billbtn" id="billwidgetpayment">Виджет оплаты</button>
-					<button class="billbtn" id="billpay">Оплата</button>
-					<button class="billbtn" id="billcredit">Рассрочка</button>
-					<button class="billbtn" id="billsubscribtions">Подписки</button>
-					<button class="billbtn" id="billroles">Роли и доступы</button>
-					<button class="billbtn" id="billbusanalys">Бизнес-анализ</button>
+					<button class="billbtn widthofsd" id="billcheques">Чеки/Инвойсы</button>
+					<button class="billbtn widthofsd" id="billdataanal">Data analytics</button>
+					<button class="billbtn widthofsd" id="billtaskfordev">Задача для разработки</button>
+					<button class="billbtn widthofsd" id="billadmreturn">Админка возвратов</button>
+					<button class="billbtn widthofsd" id="billtroublcodecard">Проблема с кодом для привязки карты</button>
+					<button class="billbtn widthofsd" id="billpaymentbot">Вilling Payment Bot</button>
+					<button class="billbtn widthofsd" id="billschemes">Схемы вознаграждения </button>
+					<button class="billbtn widthofsd" id="billselfemployee">Самозанятые </button>
+					<button class="billbtn widthofsd" id="billrequisites">Реквизиты</button>
+					<button class="billbtn widthofsd" id="billpayments">Выплаты</button>
+					<button class="billbtn widthofsd" id="billspisanie">Списание средств</button>
+					<button class="billbtn widthofsd" id="billreturns">Возвраты</button>
+					<button class="billbtn widthofsd" id="billpaymentmesystems">Платежные системы</button>
+					<button class="billbtn widthofsd" id="billwidgetpayment">Виджет оплаты</button>
+					<button class="billbtn widthofsd" id="billpay">Оплата</button>
+					<button class="billbtn widthofsd" id="billcredit">Рассрочка</button>
+					<button class="billbtn widthofsd" id="billsubscribtions">Подписки</button>
+					<button class="billbtn widthofsd" id="billroles">Роли и доступы</button>
+					<button class="billbtn widthofsd" id="billbusanalys">Бизнес-анализ</button>
 				</div>
 				<div id="edumodeloptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#em-qa-support: Канал для обращений по функционалу Educational Model</p>
-					<button class="edumodbtn" id="edumgoal">Анкета целей</button>
-					<button class="edumodbtn" id="skysmartcertificate">Сертификаты</button>
-					<button class="edumodbtn" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
-					<button class="edumodbtn" id="skysmartprogress">Страница прогресса</button>
-					<button class="edumodbtn" id="skysmartfeedback">Обратная связь</button>
+					<button class="edumodbtn widthofsd" id="edumgoal">Анкета целей</button>
+					<button class="edumodbtn widthofsd" id="skysmartcertificate">Сертификаты</button>
+					<button class="edumodbtn widthofsd" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
+					<button class="edumodbtn widthofsd" id="skysmartprogress">Страница прогресса</button>
+					<button class="edumodbtn widthofsd" id="skysmartfeedback">Обратная связь</button>
 				</div>
 				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
-					<button class="mrktbtn" id="mrktsubscribptions">Подписки</button>
-					<button class="mrktbtn" id="mrktcertificates">Заказ сертификатов</button>
-					<button class="mrktbtn" id="mrktpromocodes">Заказ промокодов</button>
-					<button class="mrktbtn" id="mrktdisablends">Отключение НДС</button>
-					<button class="mrktbtn" id="mrktnachisl">Начисления (срочные, журналисты, PR)</button>
-					<button class="mrktbtn" id="mrktdoublelessons">Удвоение уроков (сотрудники)</button>
-					<button class="mrktbtn" id="mrktpriceq">Вопросы по прайсам</button>
-					<button class="mrktbtn" id="mrktreferal">Реферальная программа</button>
-					<button class="mrktbtn" id="mrktcertconsult">Сертификаты консультация / тех. проблема</button>
-					<button class="mrktbtn" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
-					<button class="mrktbtn" id="mrktunderground">Подземный стук</button>
+					<button class="mrktbtn widthofsd" id="mrktsubscribptions">Подписки</button>
+					<button class="mrktbtn widthofsd" id="mrktcertificates">Заказ сертификатов</button>
+					<button class="mrktbtn widthofsd" id="mrktpromocodes">Заказ промокодов</button>
+					<button class="mrktbtn widthofsd" id="mrktdisablends">Отключение НДС</button>
+					<button class="mrktbtn widthofsd" id="mrktnachisl">Начисления (срочные, журналисты, PR)</button>
+					<button class="mrktbtn widthofsd" id="mrktdoublelessons">Удвоение уроков (сотрудники)</button>
+					<button class="mrktbtn widthofsd" id="mrktpriceq">Вопросы по прайсам</button>
+					<button class="mrktbtn widthofsd" id="mrktreferal">Реферальная программа</button>
+					<button class="mrktbtn widthofsd" id="mrktcertconsult">Сертификаты консультация / тех. проблема</button>
+					<button class="mrktbtn widthofsd" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
+					<button class="mrktbtn widthofsd" id="mrktunderground">Подземный стук</button>
 				</div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-bugs; Проблемы со взрослой платформой vimbox</p>
-					<button class="vimbugsbtn" id="smartroomonetoone">Smartroom уроки 1:1</button>
-					<button class="vimbugsbtn" id="smartroomgroupl">Smartroom групп и параллельные уроки</button>
-					<button class="vimbugsbtn" id="smartroomhwtests">Smartroom страница ДЗ и тестов</button>
-					<button class="vimbugsbtn" id="adultselfstudy">Adults Self-Study</button>
-					<button class="vimbugsbtn" id="premiumflip">Flip (web версия, не мобилка)</button>
-					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
-					<button class="vimbugsbtn" id="automark">Автоотметка по урокам взрослых У</button>
-					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
-					<button class="vimbugsbtn" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
-					<button class="vimbugsbtn" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
-					<button class="vimbugsbtn" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-bugs; Проблемы с Vimbox/Smartroom</p>
+					<button class="vimbugsbtn widthofsd" id="smartroomonetoone">Smartroom уроки 1:1</button>
+					<button class="vimbugsbtn widthofsd" id="smartroomgroupl">Smartroom групп и параллельные уроки</button>
+					<button class="vimbugsbtn widthofsd" id="smartroomhwtests">Smartroom страница ДЗ и тестов</button>
+					<button class="vimbugsbtn widthofsd" id="adultselfstudy">Adults Self-Study</button>
+					<button class="vimbugsbtn widthofsd" id="premiumflip">Flip (web версия, не мобилка)</button>
+					<button class="vimbugsbtn widthofsd" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
+					<button class="vimbugsbtn widthofsd" id="automark">Автоотметка по урокам взрослых У</button>
+					<button class="vimbugsbtn widthofsd" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
+					<button class="vimbugsbtn widthofsd" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
+					<button class="vimbugsbtn widthofsd" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
+					<button class="vimbugsbtn widthofsd" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 				</div>
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-video-call; Разработка модуля видеосвязи</p>
@@ -1638,46 +1641,46 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
-					<button class="mobbugsbtn" id="skymobauthorize">Skyeng МП: авторизация</button>
-					<button class="mobbugsbtn" id="skymobregister">Skyeng МП: регистрация</button>
-					<button class="mobbugsbtn" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
-					<button class="mobbugsbtn" id="skymobpayment">Skyeng МП: оплата</button>
-					<button class="mobbugsbtn" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
-					<button class="mobbugsbtn" id="skymobchats">Skyeng МП: чаты</button>
-					<button class="mobbugsbtn" id="skymobpush">Skyeng МП: пуши</button>
-					<button class="mobbugsbtn" id="skymobforcupd">Skyeng МП: force update</button>
-					<button class="mobbugsbtn" id="skymobasettings">Skyeng МП: настройки</button>
-					<button class="mobbugsbtn" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
-					<button class="mobbugsbtn" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
-					<button class="mobbugsbtn" id="skyteachmob">Teachers МП</button>
+					<button class="mobbugsbtn widthofsd" id="skymobauthorize">Skyeng МП: авторизация</button>
+					<button class="mobbugsbtn widthofsd" id="skymobregister">Skyeng МП: регистрация</button>
+					<button class="mobbugsbtn widthofsd" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" id="skymobpayment">Skyeng МП: оплата</button>
+					<button class="mobbugsbtn widthofsd" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" id="skymobchats">Skyeng МП: чаты</button>
+					<button class="mobbugsbtn widthofsd" id="skymobpush">Skyeng МП: пуши</button>
+					<button class="mobbugsbtn widthofsd" id="skymobforcupd">Skyeng МП: force update</button>
+					<button class="mobbugsbtn widthofsd" id="skymobasettings">Skyeng МП: настройки</button>
+					<button class="mobbugsbtn widthofsd" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
+					<button class="mobbugsbtn widthofsd" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
+					<button class="mobbugsbtn widthofsd" id="skyteachmob">Teachers МП</button>
 				</div>
 
 				<div id="academymobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#academic-mobile-bugs; Канал обработки обращений по МП Skyeng связанных с обучением.</p>
-					<button class="academymobbugsbtn" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
-					<button class="academymobbugsbtn" id="academmobsituations">МП Skyeng: Ситуации</button>
-					<button class="academymobbugsbtn" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
-					<button class="academymobbugsbtn" id="academmobselfstudy">МП Skyeng: Self Study</button>
-					<button class="academymobbugsbtn" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
-					<button class="academymobbugsbtn" id="academmobvocabular">МП Skyeng: Словарь</button>
-					<button class="academymobbugsbtn" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
-					<button class="academymobbugsbtn" id="academmobhomeworks">МП Skyeng: Домашки</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobsituations">МП Skyeng: Ситуации</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobselfstudy">МП Skyeng: Self Study</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobvocabular">МП Skyeng: Словарь</button>
+					<button class="academymobbugsbtn widthofsd" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobhomeworks">МП Skyeng: Домашки</button>
 				</div>
 
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
-                <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
-                <button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница</button>
-                <button class="studcabbtn" id="studkidcab">Детский ЛКУ Главная страница</button>
-			    <button class="studcabbtn" id="studcabfamandcourse">Страница семьи и курсов</button>
-                <button class="studcabbtn" id="studstories">Stories </button>
-                <button class="studcabbtn" id="studcabrefpage">Реферальная страница</button>
-                <button class="studcabbtn" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса</button>
-                <button class="studcabbtn" id="studcabttmovelesson">Страница расписания и переноса урока</button>
-                <button class="studcabbtn" id="studcabteacherpage">Страница преподавателя</button>
-                <button class="studcabbtn" id="studcabprofilesettings">Страница профиля У настройки</button>
-				<button class="studcabbtn" id="studcabmenunav">Меню навигации (лейаут) </button>
-                <button class="studcabbtn" id="studcabshowcase">Страница шоукейса (подключение услуг)</button>
-                <button class="studcabbtn" id="studcabunderground">Подземный стук</button>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
+					<button class="studcabbtn widthofsd" id="studadultcab">Взрослый ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" id="studkidcab">Детский ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" id="studcabfamandcourse">Страница семьи и курсов</button>
+					<button class="studcabbtn widthofsd" id="studstories">Stories </button>
+					<button class="studcabbtn widthofsd" id="studcabrefpage">Реферальная страница</button>
+					<button class="studcabbtn widthofsd" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса</button>
+					<button class="studcabbtn widthofsd" id="studcabttmovelesson">Страница расписания и переноса урока</button>
+					<button class="studcabbtn widthofsd" id="studcabteacherpage">Страница преподавателя</button>
+					<button class="studcabbtn widthofsd" id="studcabprofilesettings">Страница профиля У настройки</button>
+					<button class="studcabbtn widthofsd" id="studcabmenunav">Меню навигации (лейаут) </button>
+					<button class="studcabbtn widthofsd" id="studcabshowcase">Страница шоукейса (подключение услуг)</button>
+					<button class="studcabbtn widthofsd" id="studcabunderground">Подземный стук</button>
                 </div>
 	        </span>
 				<div id="teachersform" style="display: none; margin-left:20px;">
