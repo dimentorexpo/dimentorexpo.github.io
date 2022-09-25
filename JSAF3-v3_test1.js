@@ -474,7 +474,9 @@ var win_AFhelper =  // описание элементов главного ок
     <div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
         <div style="margin: 5px; width: 350px">
                 <select style="height:28px; width:210px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
-                    <option selected="" disabled="">Звук нового сообщения</option></select>
+                    <option selected="" disabled="">Звук нового сообщения</option>
+                    <option value="othersound">Выбрать свой звук</option>
+                    </select>
                 <button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
                 <label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
                     <input id="audioswitcher" type="checkbox" checked="">
@@ -5666,7 +5668,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
 
             for (let i = 0; i < objSoundList.length; i++) {
-                if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
+                if (objSoundList.children[i].value == localStorage.getItem('soundlistaddr')) {
                     objSoundList.children[i].selected = true;
                 }
             }
