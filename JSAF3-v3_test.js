@@ -559,6 +559,7 @@ var win_suggest =  // описание элементов окна предло�
                             <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:24px;">♻</button>
 							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestions" style="width:24px;">🗑</button>
+							<button id="suggestinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="sug_form_box">
                             <input id="operatornamesuggest" placeholder="Представься, пожалуйста" title="Вводим свою фамилию и имя" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
@@ -5443,7 +5444,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     } else {
         prepTp()
     }
-
+	
+	document.getElementById('suggestinstr').onclick = function() {
+		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-suggestionform%F0%9F%93%9D%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F')
+	}
+	
     document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
