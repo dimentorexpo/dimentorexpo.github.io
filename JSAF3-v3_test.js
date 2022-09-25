@@ -1429,8 +1429,8 @@ var win_servicedesk = // описание элементов окна Service De
 		<span style="width: 465px">
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 465;" id="SrvDskSummary">
-                        <button id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
-						<button id="ServiceDeskinstr">❓</button>
+                        <button id="hideMeSrvDsk" style="width:45px; background: #228B22;">hide</button>
+						<button id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
 						<span style="color:bisque">Jira Status:</span>
 						<span id="jiratknstatus">🟢</span>
 						<span style="color:yellow">Prev.task</span>
