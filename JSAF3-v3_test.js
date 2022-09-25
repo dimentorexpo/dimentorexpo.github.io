@@ -2011,7 +2011,7 @@ var win_servicedesk = // описание элементов окна Service De
 let audio
 
 document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
-    if ((event.shiftKey && event.code == '79')  {
+    if (event.shiftKey && event.code == '79')  {
 			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 
 			"headers": {
