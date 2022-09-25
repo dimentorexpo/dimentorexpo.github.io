@@ -7698,29 +7698,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
 
-                var date = new Date()
-
-                day = month = ""
-                if (date.getMonth() < 9)
-                    month = "0" + (date.getMonth() + 1)
-                else
-                    month = (date.getMonth() + 1)
-                if (date.getDate() < 10)
-                    day = "0" + date.getDate()
-                else
-                    day = date.getDate()
-                if (date.getHours() < 10)
-                    hours = '0' + date.getHours()
-                else
-                    hours = date.getHours()
-                if (date.getMinutes() < 10)
-                    minutes = '0' + date.getMinutes()
-                else
-                    minutes = date.getMinutes()
-                if (date.getSeconds() < 10)
-                    seconds = '0' + date.getSeconds()
-                else
-                    seconds = date.getSeconds()
+				dategetter()
 
                 secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
