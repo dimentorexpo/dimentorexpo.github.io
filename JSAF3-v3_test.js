@@ -657,6 +657,7 @@ var win_smartroomform =  // описание элементов окна Мул�
                             <button title="скрывает меню" id="hideMeSmartRoomForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashsmartform" style="width:24px;">♻</button>
                             <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
+							<button title="Инструкция по этой форме" id="smartroomforminstr" style="float:right">❓</button>
                         </div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
@@ -844,7 +845,8 @@ var win_Chathis =  // описание элементов окна Истори�
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:22px;padding:0;">🔎</button>
 				</div>
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
-					<button id="refreshchat" style="width:50px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
+					<button title="Инструкция по этой форме" id="chhisinstr">❓</button>
+					<button id="refreshchat" style="width:30px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
 					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
@@ -1133,7 +1135,7 @@ var win_Marks =  // описание элементов окна оценок о
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 300px;" id="marks_header">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
-								<button id="marksinstr" style="float: right; margin-right: 5px;" title="Инструкция по этой форме">❓</button>
+								<button id="marksinstr" style="float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
                         </div>
 						<div>
 							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
@@ -6311,6 +6313,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         } // конец обработки функции нажатия "Вернуться"
 
+		document.getElementById('chhisinstr').onclick = function() {
+			window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-chathistory%F0%9F%92%ACChatHistory')
+		}
+		
         document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
             if (document.getElementById('placechatid').innerText != '') {
                 document.getElementById('infofield').innerHTML = '';
@@ -7409,6 +7415,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			clearradio()
 		}
 
+		document.getElementById('smartroomforminstr').onclick = function() {
+				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-smartroom%F0%9F%A6%90Smartroom')
+		}
+		
 		document.getElementById('hideMeSmartRoomForm').onclick = function() {
 			document.getElementById('AF_Smartroomform').style.display = 'none'
 			document.getElementById('clientid').value = ''
