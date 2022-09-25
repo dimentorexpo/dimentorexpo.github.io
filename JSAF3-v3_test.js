@@ -1603,8 +1603,11 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-bugs; Проблемы со взрослой платформой vimbox</p>
+					<button class="vimbugsbtn" id="smartroomonetoone">Smartroom уроки 1:1</button>
+					<button class="vimbugsbtn" id="smartroomgroupl">Smartroom групповые и параллельные уроки)</button>
+					<button class="vimbugsbtn" id="smartroomhwtests">Smartroom страница ДЗ и тестов</button>
 					<button class="vimbugsbtn" id="adultselfstudy">Adults Self-Study</button>
-					<button class="vimbugsbtn" id="premiumflip">Premium и Flip</button>
+					<button class="vimbugsbtn" id="premiumflip">Flip (web версия, не мобилка)</button>
 					<button class="vimbugsbtn" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
 					<button class="vimbugsbtn" id="automark">Автоотметка по урокам взрослых У</button>
 					<button class="vimbugsbtn" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
