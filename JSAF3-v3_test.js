@@ -1641,46 +1641,46 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
-					<button class="mobbugsbtn" id="skymobauthorize">Skyeng МП: авторизация</button>
-					<button class="mobbugsbtn" id="skymobregister">Skyeng МП: регистрация</button>
-					<button class="mobbugsbtn" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
-					<button class="mobbugsbtn" id="skymobpayment">Skyeng МП: оплата</button>
-					<button class="mobbugsbtn" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
-					<button class="mobbugsbtn" id="skymobchats">Skyeng МП: чаты</button>
-					<button class="mobbugsbtn" id="skymobpush">Skyeng МП: пуши</button>
-					<button class="mobbugsbtn" id="skymobforcupd">Skyeng МП: force update</button>
-					<button class="mobbugsbtn" id="skymobasettings">Skyeng МП: настройки</button>
-					<button class="mobbugsbtn" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
-					<button class="mobbugsbtn" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
-					<button class="mobbugsbtn" id="skyteachmob">Teachers МП</button>
+					<button class="mobbugsbtn widthofsd" id="skymobauthorize">Skyeng МП: авторизация</button>
+					<button class="mobbugsbtn widthofsd" id="skymobregister">Skyeng МП: регистрация</button>
+					<button class="mobbugsbtn widthofsd" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" id="skymobpayment">Skyeng МП: оплата</button>
+					<button class="mobbugsbtn widthofsd" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" id="skymobchats">Skyeng МП: чаты</button>
+					<button class="mobbugsbtn widthofsd" id="skymobpush">Skyeng МП: пуши</button>
+					<button class="mobbugsbtn widthofsd" id="skymobforcupd">Skyeng МП: force update</button>
+					<button class="mobbugsbtn widthofsd" id="skymobasettings">Skyeng МП: настройки</button>
+					<button class="mobbugsbtn widthofsd" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
+					<button class="mobbugsbtn widthofsd" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
+					<button class="mobbugsbtn widthofsd" id="skyteachmob">Teachers МП</button>
 				</div>
 
 				<div id="academymobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#academic-mobile-bugs; Канал обработки обращений по МП Skyeng связанных с обучением.</p>
-					<button class="academymobbugsbtn" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
-					<button class="academymobbugsbtn" id="academmobsituations">МП Skyeng: Ситуации</button>
-					<button class="academymobbugsbtn" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
-					<button class="academymobbugsbtn" id="academmobselfstudy">МП Skyeng: Self Study</button>
-					<button class="academymobbugsbtn" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
-					<button class="academymobbugsbtn" id="academmobvocabular">МП Skyeng: Словарь</button>
-					<button class="academymobbugsbtn" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
-					<button class="academymobbugsbtn" id="academmobhomeworks">МП Skyeng: Домашки</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobsituations">МП Skyeng: Ситуации</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobselfstudy">МП Skyeng: Self Study</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobvocabular">МП Skyeng: Словарь</button>
+					<button class="academymobbugsbtn widthofsd" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
+					<button class="academymobbugsbtn widthofsd" id="academmobhomeworks">МП Skyeng: Домашки</button>
 				</div>
 
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
-                <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
-                <button class="studcabbtn" id="studadultcab">Взрослый ЛКУ Главная страница</button>
-                <button class="studcabbtn" id="studkidcab">Детский ЛКУ Главная страница</button>
-			    <button class="studcabbtn" id="studcabfamandcourse">Страница семьи и курсов</button>
-                <button class="studcabbtn" id="studstories">Stories </button>
-                <button class="studcabbtn" id="studcabrefpage">Реферальная страница</button>
-                <button class="studcabbtn" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса</button>
-                <button class="studcabbtn" id="studcabttmovelesson">Страница расписания и переноса урока</button>
-                <button class="studcabbtn" id="studcabteacherpage">Страница преподавателя</button>
-                <button class="studcabbtn" id="studcabprofilesettings">Страница профиля У настройки</button>
-				<button class="studcabbtn" id="studcabmenunav">Меню навигации (лейаут) </button>
-                <button class="studcabbtn" id="studcabshowcase">Страница шоукейса (подключение услуг)</button>
-                <button class="studcabbtn" id="studcabunderground">Подземный стук</button>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
+					<button class="studcabbtn widthofsd" id="studadultcab">Взрослый ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" id="studkidcab">Детский ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" id="studcabfamandcourse">Страница семьи и курсов</button>
+					<button class="studcabbtn widthofsd" id="studstories">Stories </button>
+					<button class="studcabbtn widthofsd" id="studcabrefpage">Реферальная страница</button>
+					<button class="studcabbtn widthofsd" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса</button>
+					<button class="studcabbtn widthofsd" id="studcabttmovelesson">Страница расписания и переноса урока</button>
+					<button class="studcabbtn widthofsd" id="studcabteacherpage">Страница преподавателя</button>
+					<button class="studcabbtn widthofsd" id="studcabprofilesettings">Страница профиля У настройки</button>
+					<button class="studcabbtn widthofsd" id="studcabmenunav">Меню навигации (лейаут) </button>
+					<button class="studcabbtn widthofsd" id="studcabshowcase">Страница шоукейса (подключение услуг)</button>
+					<button class="studcabbtn widthofsd" id="studcabunderground">Подземный стук</button>
                 </div>
 	        </span>
 				<div id="teachersform" style="display: none; margin-left:20px;">
