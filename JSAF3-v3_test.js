@@ -9989,8 +9989,9 @@ function fillchatbox() { //функция наполнения элемента,
         document.getElementById('placeusid').innerText = "Widget";
 	else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'WhatsApp')
         document.getElementById('placeusid').innerText = "WhatsApp";
-    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget')
+    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget' && convdata.channelUser.payload.id != undefined)
         document.getElementById('placeusid').innerText = convdata.channelUser.payload.id;
+	else document.getElementById('placeusid').innerText = "Widget";
 
     document.getElementById('placechatid').innerText = convdata.id;
     document.getElementById('somechatinfo').style.display = '';
