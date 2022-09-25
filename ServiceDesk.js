@@ -4477,7 +4477,7 @@ document.getElementById('servDsk').onclick = function () {
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwlife').textContent)) {
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwlife').textContent) {
 					console.log("Life: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 															document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -4500,7 +4500,7 @@ document.getElementById('servDsk').onclick = function () {
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwtalks').textContent)) {
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwtalks').textContent) {
 					console.log("Talks: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 															document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -4523,7 +4523,7 @@ document.getElementById('servDsk').onclick = function () {
 
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwsimavokado').textContent)) {
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwsimavokado').textContent) {
 					console.log("Simulator + Avokado: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
 										
 															document.getElementById('responseTextarea1').value = `{  "headers": {
