@@ -481,6 +481,8 @@ var win_AFhelper =  // описание элементов главного ок
                         <span class="checkbox-audio-switch"></span>
                 </label>
 				<br>
+                input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 210px; color: black;">
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
                     <br>
