@@ -2253,9 +2253,11 @@ buttonhistory.onclick = function () { //функция приска пр ист�
     }
 }
 
-async function dategetter() {
-	
-	
+marksstata.onclick = async function () { //проверка статистики оценок от пользователя
+
+    if (document.getElementById('AF_Marks').style.display == 'none') {
+        document.getElementById('AF_Marks').style.display = ''
+
         var date = new Date()
 
         day = month = ""
@@ -2279,18 +2281,7 @@ async function dategetter() {
             seconds = '0' + date.getSeconds()
         else
             seconds = date.getSeconds()
-		
-		return date, day, month, seconds, minutes, hours
-	
-}
 
-marksstata.onclick = async function () { //проверка статистики оценок от пользователя
-
-    if (document.getElementById('AF_Marks').style.display == 'none') {
-        document.getElementById('AF_Marks').style.display = ''
-
-		await dategetter()
-		
         secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -2356,7 +2347,29 @@ marksstata.onclick = async function () { //проверка статистики
             let tempval = document.getElementById('useridsearch').value.trim();
             document.getElementById('markstable').innerText = "Загрузка..."
 
-			await dategetter()
+            var date = new Date()
+
+            day = month = ""
+            if (date.getMonth() < 9)
+                month = "0" + (date.getMonth() + 1)
+            else
+                month = (date.getMonth() + 1)
+            if (date.getDate() < 10)
+                day = "0" + date.getDate()
+            else
+                day = date.getDate()
+            if (date.getHours() < 10)
+                hours = '0' + date.getHours()
+            else
+                hours = date.getHours()
+            if (date.getMinutes() < 10)
+                minutes = '0' + date.getMinutes()
+            else
+                minutes = date.getMinutes()
+            if (date.getSeconds() < 10)
+                seconds = '0' + date.getSeconds()
+            else
+                seconds = date.getSeconds()
 
             secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
@@ -7698,7 +7711,29 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
 
-				await dategetter()
+                var date = new Date()
+
+                day = month = ""
+                if (date.getMonth() < 9)
+                    month = "0" + (date.getMonth() + 1)
+                else
+                    month = (date.getMonth() + 1)
+                if (date.getDate() < 10)
+                    day = "0" + date.getDate()
+                else
+                    day = date.getDate()
+                if (date.getHours() < 10)
+                    hours = '0' + date.getHours()
+                else
+                    hours = date.getHours()
+                if (date.getMinutes() < 10)
+                    minutes = '0' + date.getMinutes()
+                else
+                    minutes = date.getMinutes()
+                if (date.getSeconds() < 10)
+                    seconds = '0' + date.getSeconds()
+                else
+                    seconds = date.getSeconds()
 
                 secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
