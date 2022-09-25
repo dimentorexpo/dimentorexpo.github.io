@@ -1131,6 +1131,7 @@ var win_Marks =  // описание элементов окна оценок о
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 300px;" id="marks_header">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
+								<button id="marksinstr" style="float:right" title="Инструкция по этой форме">❓</button>
                         </div>
 						<div>
 							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
@@ -7856,6 +7857,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		if (document.getElementById('backtomenu').style.display == '')
 			document.getElementById('backtomenu').click()
     }
+
+	document.getElementById('marksinstr').onclick = function() {
+		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-Score%F0%9F%93%8A%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B8')
+	}
 
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
