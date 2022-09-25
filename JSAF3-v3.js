@@ -6039,7 +6039,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-        document.getElementById('idmymenu').style.display = 'none'
+		if (document.getElementById('idmymenu') != null && document.getElementById('idmymenu').style.display ==''){
+			document.getElementById('idmymenu').style.display = 'none'
+		}
 
         changeviewtheme()
 
@@ -9989,8 +9991,9 @@ function fillchatbox() { //функция наполнения элемента,
         document.getElementById('placeusid').innerText = "Widget";
 	else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'WhatsApp')
         document.getElementById('placeusid').innerText = "WhatsApp";
-    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget')
+    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget' && convdata.channelUser.payload.id != undefined)
         document.getElementById('placeusid').innerText = convdata.channelUser.payload.id;
+	else document.getElementById('placeusid').innerText = "Widget";
 
     document.getElementById('placechatid').innerText = convdata.id;
     document.getElementById('somechatinfo').style.display = '';
@@ -10022,6 +10025,8 @@ function fillchatbox() { //функция наполнения элемента,
                             brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
                         else brarray = null;
                     }
+					
+					convdata.channelUser.fullName == undefined ? convdata.channelUser.fullName = "Widget" : convdata.channelUser.fullName = convdata.channelUser.fullName
 
                     if (testarray != null) {
                         temppics = [];
