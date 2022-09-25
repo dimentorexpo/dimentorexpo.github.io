@@ -1442,7 +1442,6 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
                     <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">📞Telephn</button>
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
-                    <button class="sdbtn" id="optionSkysmart" style="margin-left:2px; margin-top:2px; width:80px;">🎠Skysmar</button>
                     <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">🎪MRKT</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
                     <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
@@ -1573,12 +1572,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="billbtn" id="billroles">Роли и доступы</button>
 					<button class="billbtn" id="billbusanalys">Бизнес-анализ</button>
 				</div>
-				<div id="skysmartsrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#skysmart-qa-support: канал поддержки платформы Skysmart</p>
-					<button class="kidsbtn" id="skysmarthomework">Страница ДЗ и тестов</button>
-					<button class="kidsbtn" id="skysmartgroup">Групп и параллельные уроки</button>
-					<button class="kidsbtn" id="skysmartonetoone">Уроки 1:1</button>
-				</div>
 				<div id="edumodeloptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#em-qa-support: Канал для обращений по функционалу Educational Model</p>
 					<button class="edumodbtn" id="edumgoal">Анкета целей</button>
@@ -1687,19 +1680,6 @@ var win_servicedesk = // описание элементов окна Service De
                 <button class="studcabbtn" id="studcabunderground">Подземный стук</button>
                 </div>
 	        </span>
-				<div id="kidsform" style="display: none; margin-left:20px;">
-					<input id="customfield_1" placeholder="ID Пользователей (Id П, Id У)" class="sdcustfieldformlines removefield"></input>
-					<br>
-					<textarea id="customfield_2" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<br>
-					<textarea id="customfield_3" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
-					<br>
-					<textarea id="customfield_4" placeholder="Ожидаемое поведение" class="sdexpecactual removefield"></textarea>
-					<br>
-					<textarea id="customfield_5" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<br>
-					<button id="create_1" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
 				<div id="teachersform" style="display: none; margin-left:20px;">
 					<input id="customfield_6" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<br>
@@ -5499,7 +5479,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             });
 
             function remres(a) {
-                $('.kidsbtn').not(a).removeClass('activebtn');
                 $('.edumodbtn').not(a).removeClass('activebtn');
                 $('.bilqabtn').not(a).removeClass('activebtn');
                 $('.teacbtn').not(a).removeClass('activebtn');
@@ -5527,10 +5506,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
 
             $('.teacbtn').click(function () {
-                remres(this)
-            });
-
-            $('.kidsbtn').click(function () {
                 remres(this)
             });
 
