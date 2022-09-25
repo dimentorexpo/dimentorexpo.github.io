@@ -1131,7 +1131,7 @@ var win_Marks =  // описание элементов окна оценок о
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 300px;" id="marks_header">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
-								<button id="marksinstr" style="float:right" title="Инструкция по этой форме">❓</button>
+								<button id="marksinstr" title="Инструкция по этой форме">❓</button>
                         </div>
 						<div>
 							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
