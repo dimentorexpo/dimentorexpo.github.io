@@ -903,6 +903,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 								<button id="ClearJiraData" title="Очищает поля с результатами и полем для ввода">🧹</button>
 								<span style="color:bisque">Token Status: </span>
 								<span id="searchjiratknstatus"></span>
+								<button id="jirainstr" style="float:right;" title="Инструкция по этой форме">❓</button>
                         </div>
 
 						<div id="control_jira_search">
@@ -6739,6 +6740,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('issuetable').innerText = ''
             }
 
+			document.getElementById('jirainstr').onclick = function() {
+				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-jirasearch%F0%9F%94%8EJiraSearch')
+			}
+			
             document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
 			let favissues = [];
 
