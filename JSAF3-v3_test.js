@@ -845,7 +845,7 @@ var win_Chathis =  // описание элементов окна Истори�
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:22px;padding:0;">🔎</button>
 				</div>
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
-					<button title="Инструкция по этой форме" id="chhisinstr">❓</button>
+					<button title="Инструкция по этой форме" id="chhisinstr" style="margin-right: 5px;">❓</button>
 					<button id="refreshchat" style="width:30px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
 					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
@@ -1629,6 +1629,10 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
+					<button class="tripwbtn widthofsd" id="vimboxtranslate">Расширение Vimbox Translate</button>
+					<button class="tripwbtn widthofsd" id="tripwlife">Life</button>
+					<button class="tripwbtn widthofsd" id="tripwtalks">Talks</button>
+					<button class="tripwbtn widthofsd" id="tripwsimavokado">Simulator + Avokado</button>
 					<button class="tripwbtn widthofsd" id="tripwqa">Обращение для QA</button>
 				</div>
 				<div id="analystoptions" style="display: none; margin-left:20px;">
