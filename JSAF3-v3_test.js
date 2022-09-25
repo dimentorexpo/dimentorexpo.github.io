@@ -6039,7 +6039,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-        document.getElementById('idmymenu').style.display = 'none'
+		if (document.getElementById('idmymenu') != null && document.getElementById('idmymenu').style.display ==''){
+			document.getElementById('idmymenu').style.display = 'none'
+		}
 
         changeviewtheme()
 
