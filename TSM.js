@@ -2437,71 +2437,79 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
         document.getElementById('usersearch').oninput = function () { //функция поикска по айди пользователя
             var text1 = document.getElementById("usersearch");
             var val1 = text1.value;
+			var idcontainer  = [];
             s = '';
 
             for (var i = 0; i < testos.length; ++i) {
-                if (testos[i].id == val1) {
+                if (adultdata[i].id == val1) {
                     s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
-                } else if (testos[i].name.toUpperCase() == val1.toUpperCase()) {
+					idcontainer.push(adultdata[i].id)
+                } else if (adultdata[i].name.toUpperCase() == val1.toUpperCase()) {
                     s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
+					idcontainer.push(adultdata[i].id)
                 }
             }
+			console.log("ID's: " + idcontainer)
             document.getElementById('infobaradult').innerHTML = document.getElementById("usersearch").value != '' ? s : arrtoshow;
 
             let arrmvurep = document.getElementsByName('mvureport')
             for (let j = 0; j < arrmvurep.length; j++) {
                 arrmvurep[j].onclick = function () {
-                    window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + adultdata[j].id)
+                    window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + idcontainer[j])
                 }
             }    
 
 			let removestudent = document.getElementsByName('removeadult')
             for (let z = 0; z < removestudent.length; z++) {
                 removestudent[z].onclick = function () {
-                    fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/"+adultdata[z].id, {
+					
+					let answ = confirm("Вы действительно желаете удалить ученика " + idcontainer[z] + " из списка?");
+                    if (answ) {
+						                    fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/"+idcontainer[z], {
 					  "method": "POST",
 					  "mode": "cors",
 					  "credentials": "include"
 					});
-                }
+					}
+				}
             }
 
             let deleteonechat = document.getElementsByName('delchat')
             for (let l = 0; l < deleteonechat.length; l++) {
                 deleteonechat[l].onclick = function () {
-                    let answ = confirm("Вы действительно желаете удалить чат с учеником? " + adultdata[l].id);
+                    let answ = confirm("Вы действительно желаете удалить чат с учеником? " + idcontainer[l]);
                     if (answ) {
 
-                        fetchaddchat(artId.user.id, adultdata[l].id, "DELETE")
+                        fetchaddchat(artId.user.id, idcontainer[i], "DELETE")
                     }
-                }
+				}
             }
 
             let adultprofile = document.getElementsByName('openprofile')
             for (let l = 0; l < adultprofile.length; l++) {
                 adultprofile[l].onclick = function () {
-                    window.open("https://vimbox.skyeng.ru/profile/" + adultdata[l].id)
+						window.open("https://vimbox.skyeng.ru/profile/" + idcontainer[l])
                 }
             }
 
             let showpaymentshistory = document.getElementsByName('openpaymentshistory')
             for (let l = 0; l < showpaymentshistory.length; l++) {
                 showpaymentshistory[l].onclick = function () {
-                    window.open('https://vimbox.skyeng.ru/profile/student/' + adultdata[l].id + '/last-classes')
+						window.open('https://vimbox.skyeng.ru/profile/student/' + idcontainer[l] + '/last-classes')
                 }
             }
 
             let hwlist = document.getElementsByName('listofhomework')
             for (let l = 0; l < hwlist.length; l++) {
                 hwlist[l].onclick = function () {
-                    window.open('https://vimbox.skyeng.ru/student/' + adultdata[l].id + '/homework')
+						window.open('https://vimbox.skyeng.ru/student/' + idcontainer[l]+ '/homework')
                 }
             }
 
             let portflist = document.getElementsByName('portfolioadult')
             for (let l = 0; l < portflist.length; l++) {
                 portflist[l].onclick = function () {
-                    window.open('https://vimbox.skyeng.ru/portfolio?studentId=' + adultdata[l].id)
+						window.open('https://vimbox.skyeng.ru/portfolio?studentId=' + idcontainer[l])
                 }
             }
         }
