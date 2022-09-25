@@ -2010,6 +2010,25 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
+document.onkeydown = function (event) { // горячие клавиши для смены статуса в Оффлайн
+    if (event.shiftKey && event.code == 'KeyO')  {
+			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+
+			"headers": {
+			"content-type": "application/json",
+			},
+
+			"referrer": "https://skyeng.autofaq.ai/tickets/archive",
+			"referrerPolicy": "strict-origin-when-cross-origin",
+			"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Offline\",\"source\":\"Operator\"}",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+			});
+			console.log("Status changed to Offline")
+	}
+}
+
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
     if (object.value.length > object.maxLength)

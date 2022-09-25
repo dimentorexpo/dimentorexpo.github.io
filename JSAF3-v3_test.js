@@ -2010,7 +2010,7 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
-document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
+document.onkeydown = function (event) { // горячие клавиши для смены статуса в Оффлайн
     if (event.shiftKey && event.code == 'KeyO')  {
 			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 
