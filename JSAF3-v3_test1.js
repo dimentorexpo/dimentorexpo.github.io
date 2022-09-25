@@ -473,7 +473,10 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
-				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
+				<input list="soundlistaddr" id="sound_adr" autocomplete="off" type="text" style="text-align: center; width: 210px; color: black;">
+                <datalist id="soundlistaddr">
+                    <option selected="" disabled="">Звук нового сообщения</option></select>
+                </datalist>
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button>
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
 				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
@@ -495,9 +498,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 					<br>
                     <label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
-					<br>
-					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
-					<option selected="" disabled="">Звук нового сообщения</option></select>
 					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>
@@ -2221,7 +2221,7 @@ marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 
 function changesoundaddr() {
-    let objSoundList = document.getElementById('soundlistaddr')
+    let objSoundList = document.getElementById('sound_adr')
 
     if (objSoundList.length > 1) {
         for (let i = 1; i < objSoundList.length; i++) {
@@ -5619,7 +5619,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
 
-            let objSoundList = document.getElementById('soundlistaddr')
+            let objSoundList = document.getElementById('sound_adr')
             let flagsound;
             function addOption(oListbox, text, value)  //функция добавления опции в список
             {
