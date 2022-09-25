@@ -2221,7 +2221,7 @@ marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 
 function changesoundaddr() {
-    let objSoundList = document.getElementById('sound_adr')
+    let objSoundList = document.getElementById('soundlistaddr')
 
     if (objSoundList.length > 1) {
         for (let i = 1; i < objSoundList.length; i++) {
@@ -5619,7 +5619,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('reminder_bar').style.display = 'none'
             document.getElementById('addTmp').style.display = 'none'
 
-            let objSoundList = document.getElementById('sound_adr')
+            let objSoundList = document.getElementById('soundlistaddr')
             let flagsound;
             function addOption(oListbox, text, value)  //функция добавления опции в список
             {
