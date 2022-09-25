@@ -10023,6 +10023,8 @@ function fillchatbox() { //функция наполнения элемента,
                             brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
                         else brarray = null;
                     }
+					
+					convdata.channelUser.fullName == undefined ? convdata.channelUser.fullName = "Widget" : convdata.channelUser.fullName = convdata.channelUser.fullName
 
                     if (testarray != null) {
                         temppics = [];
