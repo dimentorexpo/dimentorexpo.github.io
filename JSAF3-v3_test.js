@@ -1613,31 +1613,31 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#vim-video-call; Разработка модуля видеосвязи</p>
-					<button class="vimvidsbtn" id="vimvidqa">Обращение для QA</button>
+					<button class="vimvidsbtn widthofsd" id="vimvidqa">Обращение для QA</button>
 				</div>
                 <div id="chatqaoptions" style="display: none; margin-left:20px;">
                 <p style="color:bisque; font-size:18px; position:relative; top:7px; left:10px;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
-                <button class="chatqabtn" id="chatqa">Обращение для QA</button>
+                <button class="chatqabtn widthofsd" id="chatqa">Обращение для QA</button>
                 </div>
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
-					<button class="tripwbtn" id="tripwqa">Обращение для QA</button>
+					<button class="tripwbtn widthofsd" id="tripwqa">Обращение для QA</button>
 				</div>
 				<div id="analystoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#analysts-gm-tl; канал аналитиков teachers продукта</p>
-					<button class="analystbtn" id="analystsqa">Обращение для QA</button>
+					<button class="analystbtn widthofsd" id="analystsqa">Обращение для QA</button>
 				</div>
 				<div id="corpoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#corp-support; Канал поддержки по вопросам корпоративных клиентов: ЛККК (не ЛКУ), начислялка, self-study, карточка компании.</p>
-					<button class="corpbtn" id="corpqa">Обращение для QA</button>
+					<button class="corpbtn widthofsd" id="corpqa">Обращение для QA</button>
 				</div>
 				<div id="marketingptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#marketing-qa; (регистрации, детские главные, взрослые главные, лендосы на лпг/тильде)</p>
-					<button class="marketingbtn" id="marketingqa">Обращение для QA</button>
+					<button class="marketingbtn widthofsd" id="marketingqa">Обращение для QA</button>
 				</div>
 				<div id="marketprojbugsptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
-					<button class="marketprojbugsbtn" id="marketprojbugsqa">Обращение для QA</button>
+					<button class="marketprojbugsbtn widthofsd" id="marketprojbugsqa">Обращение для QA</button>
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
