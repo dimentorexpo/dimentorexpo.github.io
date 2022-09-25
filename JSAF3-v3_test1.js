@@ -483,8 +483,8 @@ var win_AFhelper =  // описание элементов главного ок
                         <span class="checkbox-audio-switch"></span>
                 </label>
 				    <br>
-                <input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 210px; color: black;">
-				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button>
+                <input id="sound_adr" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save" style="display: none">💾</button>
                     <br>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
@@ -2250,10 +2250,16 @@ function changesoundaddr() {
     if (objSoundList.length > 1) {
         for (let i = 1; i < objSoundList.length; i++) {
             if (objSoundList[i].selected == true) {
-                console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
-                localStorage.setItem('sound_str', objSoundList[i].value)
-                audio = new Audio(localStorage.getItem('sound_str'))
-
+                if (objSoundList[i].value == "othersound"){
+                    document.getElementById('sound_adr').style.display = ''
+                    document.getElementById('sound_save').style.display = ''
+                } else {
+                    document.getElementById('sound_adr').style.display = 'none'
+                    document.getElementById('sound_save').style.display = 'none'
+                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
+                    localStorage.setItem('sound_str', objSoundList[i].value)
+                    audio = new Audio(localStorage.getItem('sound_str'))
+                }
             }
         }
     }
