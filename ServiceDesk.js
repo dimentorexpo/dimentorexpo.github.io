@@ -4374,7 +4374,6 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('tripwireoptions').style.display = '';
 			document.getElementById('tripwireform').style.display = '';
 
-
 			document.getElementById('teachersform').style.display = 'none';
 			document.getElementById('onboardingform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
@@ -4455,6 +4454,98 @@ document.getElementById('servDsk').onclick = function () {
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxtranslate').textContent) {
+					console.log("Vimbox Translate: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+										
+					document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/987",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/987";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwlife').textContent) {
+					console.log("Life: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+										
+															document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/986",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/986";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwtalks').textContent) {
+					console.log("Talks: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+										
+															document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/985",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/985";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
+				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwsimavokado').textContent) {
+					console.log("Simulator + Avokado: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
+										
+															document.getElementById('responseTextarea1').value = `{  "headers": {
+					 "content-type": "application/x-www-form-urlencoded",
+					 "sec-fetch-mode": "cors",
+					 "sec-fetch-site": "same-origin",
+					 "x-requested-with": "XMLHttpRequest",
+					 "x-sitemesh-off": "true"
+					  },
+					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/988",
+					  "referrerPolicy": "strict-origin-when-cross-origin",
+					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+					 "method": "POST",
+					  "mode": "cors",
+					  "credentials": "include"
+					  }`
+					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/988";
+					document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+
+					setTimeout(getprsup, 5000);
+					setTimeout(getslacklnk, 8000);
 				} else console.log("Not found");
 			}
 		} else {
