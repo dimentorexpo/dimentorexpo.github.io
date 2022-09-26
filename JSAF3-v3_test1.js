@@ -5676,7 +5676,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             for (let i = 0; i < objSoundList.length; i++) {
                 if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
                     objSoundList.children[i].selected = true;
-                } else {objSoundList.children[1].selected = true}
+                }
             }
 
             if (objSoundList.children[1].selected){
