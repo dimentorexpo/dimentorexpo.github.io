@@ -2091,6 +2091,25 @@ document.onkeydown = function (event) { // горячие клавиши для 
 	}
 }
 
+document.onkeydown = function (event) { // горячие клавиши для смены статуса в Занят
+    if (event.altKey && event.code == 'KeyI')  {
+			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+
+			"headers": {
+			"content-type": "application/json",
+			},
+
+			"referrer": "https://skyeng.autofaq.ai/tickets/archive",
+			"referrerPolicy": "strict-origin-when-cross-origin",
+			"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+			});
+			console.log("Status changed to Busy")
+	}
+}
+
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
     if (object.value.length > object.maxLength)
