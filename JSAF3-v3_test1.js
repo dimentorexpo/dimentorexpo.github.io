@@ -471,20 +471,20 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
-    <div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
-        <div style="margin: 5px; width: 350px">
+	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
+		<div style="margin: 5px; width: 350px">
                 <select style="height:28px; width:210px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
                     <option selected="" disabled="">Звук нового сообщения</option>
                     <option value="othersound">Выбрать свой звук</option>
                     </select>
-                <button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
-                <label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
-                    <input id="audioswitcher" type="checkbox" checked="">
-                        <span class="checkbox-audio-switch"></span>
-                </label>
+				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
+				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
+					<input id="audioswitcher" type="checkbox" checked="">
+						<span class="checkbox-audio-switch"></span>
+				</label>
                 <input id="sound_adr" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save" style="display: none">💾</button>
-                    <br>
+				<br>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
                     <br>
@@ -2265,9 +2265,9 @@ function changesoundaddr() {
                     document.getElementById('sound_adr').style.display = 'none'
                     document.getElementById('sound_save').style.display = 'none'
                     document.getElementById('sound_adr').value = ""
-                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
-                    localStorage.setItem('sound_str', objSoundList[i].value)
-                    audio = new Audio(localStorage.getItem('sound_str'))
+                console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
+                localStorage.setItem('sound_str', objSoundList[i].value)
+                audio = new Audio(localStorage.getItem('sound_str'))
                 }
             }
         }
@@ -5459,7 +5459,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     } else {
         prepTp()
     }
-
+	
 	document.getElementById('suggestinstr').onclick = function() {
 		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-suggestionform%F0%9F%93%9D%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F')
 	}
@@ -5867,9 +5867,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
             document.getElementsByName('tagssbtn')[j].onclick = function () {
-				if(this.value == 'refusal_of_help')
-					document.getElementById('otkaz').click();
-
+				if(this.value == 'refusal_of_help'){
+                    if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                        document.getElementById('otkaz').click();
+                    }
+                }
                 newTaggg(this.value)
             }
         }
@@ -7570,7 +7572,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
             }
-
+			
 			document.getElementById('refuseforminstr').onclick = function() {
 				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-otkazotpom%E2%9D%8C%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%82%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8')
 			}
@@ -8530,7 +8532,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
         return
     }
 
-    if (butName == '🖕Отказ')
+    if (butName == '🖕Отказ' && document.getElementById('AF_Refuseformnew').style.display == 'none') // если кнопка отказ открывает форму отказа и если повторно нажали не закрываем форму
         document.getElementById('otkaz').click();
 
     msgFromTable(butName)
@@ -9685,7 +9687,9 @@ function startTimer() {
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
         btn15.addEventListener('click', function () {
-            document.getElementById('otkaz').click();
+            if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                document.getElementById('otkaz').click();
+            }            
         })
 
         let btn16 = document.createElement('span');
@@ -10042,7 +10046,7 @@ function fillchatbox() { //функция наполнения элемента,
                             brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
                         else brarray = null;
                     }
-
+					
 					convdata.channelUser.fullName == undefined ? convdata.channelUser.fullName = "Widget" : convdata.channelUser.fullName = convdata.channelUser.fullName
 
                     if (testarray != null) {

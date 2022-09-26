@@ -5867,9 +5867,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
             document.getElementsByName('tagssbtn')[j].onclick = function () {
-				if(this.value == 'refusal_of_help')
-					document.getElementById('otkaz').click();
-
+				if(this.value == 'refusal_of_help'){
+                    if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                        document.getElementById('otkaz').click();
+                    }
+                }
                 newTaggg(this.value)
             }
         }
@@ -9685,7 +9687,9 @@ function startTimer() {
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
         btn15.addEventListener('click', function () {
-            document.getElementById('otkaz').click();
+            if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                document.getElementById('otkaz').click();
+            }            
         })
 
         let btn16 = document.createElement('span');
