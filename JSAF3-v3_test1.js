@@ -560,6 +560,7 @@ var win_suggest =  // описание элементов окна предло�
                             <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:24px;">♻</button>
 							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestions" style="width:24px;">🗑</button>
+							<button id="suggestinstr" style="float:right; margin-right: 5px;" title="Инструкция по этой форме">❓</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="sug_form_box">
                             <input id="operatornamesuggest" placeholder="Представься, пожалуйста" title="Вводим свою фамилию и имя" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
@@ -619,6 +620,7 @@ var win_refusefrom =  // описание элементов окна отказ
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashrefuseform" style="width:24px;">♻</button>
                             <button title="По нажатию обновляет перечень опций в разделе Проблема и Как решилось" id="refreshoptions" style="width:24px;">🔄</button>
                             <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearrefuseform" style="width:24px;">🧹</button>
+							<button title="Инструкция по этой форме" id="refuseforminstr" style="float:right">❓</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="refuse_form_menu">
                             <input id="chatlnk" placeholder="Ссылка на чат" title="Вставьте сюда ссылку на чат" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px">
@@ -656,6 +658,7 @@ var win_smartroomform =  // описание элементов окна Мул�
                             <button title="скрывает меню" id="hideMeSmartRoomForm" style="width:50px; background: #228B22;">hide</button>
                             <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshhashsmartform" style="width:24px;">♻</button>
                             <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
+							<button title="Инструкция по этой форме" id="smartroomforminstr" style="float:right">❓</button>
                         </div>
 						
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
@@ -843,7 +846,8 @@ var win_Chathis =  // описание элементов окна Истори�
 					<button title="Находит историю чатов или открывает по хешу чата диалог" id="btn_search_history" style="width:50px;font-size:22px;padding:0;">🔎</button>
 				</div>
 				<div style="margin-top: 5px; width: 410px;display:flex; justify-content:center;margin-bottom:5px;" id="databoxchathis">
-					<button id="refreshchat" style="width:50px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
+					<button title="Инструкция по этой форме" id="chhisinstr" style="margin-right: 5px;">❓</button>
+					<button id="refreshchat" style="width:30px; font-size:16px;" title="Обновляет содержимое окна с чатом, если он активный, чтобы увидеть новые записи">🔄</button>
 					<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
 					<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataChHis" id="dateFromChHis">
 					<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
@@ -1132,6 +1136,7 @@ var win_Marks =  // описание элементов окна оценок о
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 300px;" id="marks_header">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
+								<button id="marksinstr" style="float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
                         </div>
 						<div>
 							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
@@ -1625,6 +1630,10 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
+					<button class="tripwbtn widthofsd" id="vimboxtranslate">Расширение Vimbox Translate</button>
+					<button class="tripwbtn widthofsd" id="tripwlife">Life</button>
+					<button class="tripwbtn widthofsd" id="tripwtalks">Talks</button>
+					<button class="tripwbtn widthofsd" id="tripwsimavokado">Simulator + Avokado</button>
 					<button class="tripwbtn widthofsd" id="tripwqa">Обращение для QA</button>
 				</div>
 				<div id="analystoptions" style="display: none; margin-left:20px;">
@@ -2255,6 +2264,7 @@ function changesoundaddr() {
                 } else {
                     document.getElementById('sound_adr').style.display = 'none'
                     document.getElementById('sound_save').style.display = 'none'
+                    document.getElementById('sound_adr').value = ""
                     console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
                     localStorage.setItem('sound_str', objSoundList[i].value)
                     audio = new Audio(localStorage.getItem('sound_str'))
@@ -5450,6 +5460,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         prepTp()
     }
 
+	document.getElementById('suggestinstr').onclick = function() {
+		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-suggestionform%F0%9F%93%9D%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F')
+	}
+	
     document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
@@ -5683,12 +5697,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
 
             if (objSoundList.children[0].selected){
-                if (localStorage.getItem('sound_str') !== null && localStorage.getItem('sound_str') !== ""){
-                    objSoundList.children[1].selected = true
-                    document.getElementById('sound_adr').style.display = ''
+                objSoundList.children[1].selected = true
+                document.getElementById('sound_adr').style.display = ''
                 document.getElementById('sound_save').style.display = ''
-                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
-                }                
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')              
             }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
@@ -6045,7 +6057,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-        document.getElementById('idmymenu').style.display = 'none'
+		if (document.getElementById('idmymenu') != null && document.getElementById('idmymenu').style.display ==''){
+			document.getElementById('idmymenu').style.display = 'none'
+		}
 
         changeviewtheme()
 
@@ -6323,6 +6337,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         } // конец обработки функции нажатия "Вернуться"
 
+		document.getElementById('chhisinstr').onclick = function() {
+			window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-chathistory%F0%9F%92%ACChatHistory')
+		}
+		
         document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
             if (document.getElementById('placechatid').innerText != '') {
                 document.getElementById('infofield').innerHTML = '';
@@ -7421,6 +7439,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			clearradio()
 		}
 
+		document.getElementById('smartroomforminstr').onclick = function() {
+				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-smartroom%F0%9F%A6%90Smartroom')
+		}
+		
 		document.getElementById('hideMeSmartRoomForm').onclick = function() {
 			document.getElementById('AF_Smartroomform').style.display = 'none'
 			document.getElementById('clientid').value = ''
@@ -7548,6 +7570,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
             }
+
+			document.getElementById('refuseforminstr').onclick = function() {
+				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-otkazotpom%E2%9D%8C%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%82%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8')
+			}
 
             document.getElementById('refreshoptions').onclick = async function () {
                 objSelIssue.length = 1;
@@ -7875,6 +7901,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		if (document.getElementById('backtomenu').style.display == '')
 			document.getElementById('backtomenu').click()
     }
+
+	document.getElementById('marksinstr').onclick = function() {
+		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-Score%F0%9F%93%8A%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B8')
+	}
 
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
@@ -9978,8 +10008,9 @@ function fillchatbox() { //функция наполнения элемента,
         document.getElementById('placeusid').innerText = "Widget";
 	else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'WhatsApp')
         document.getElementById('placeusid').innerText = "WhatsApp";
-    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget')
+    else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget' && convdata.channelUser.payload.id != undefined)
         document.getElementById('placeusid').innerText = convdata.channelUser.payload.id;
+	else document.getElementById('placeusid').innerText = "Widget";
 
     document.getElementById('placechatid').innerText = convdata.id;
     document.getElementById('somechatinfo').style.display = '';
@@ -10011,6 +10042,8 @@ function fillchatbox() { //функция наполнения элемента,
                             brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
                         else brarray = null;
                     }
+
+					convdata.channelUser.fullName == undefined ? convdata.channelUser.fullName = "Widget" : convdata.channelUser.fullName = convdata.channelUser.fullName
 
                     if (testarray != null) {
                         temppics = [];
