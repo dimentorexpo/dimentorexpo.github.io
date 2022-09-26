@@ -7447,6 +7447,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
         let checkedclienttype;
         let checkedquestion;
+		let alloptions 
 
         let flagemptysmart = 0;
 
@@ -7487,33 +7488,57 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.getElementsByName('typetoform')[i].checked == true)
                     checkedclienttype=document.getElementsByName('typetoform')[i].value;
             }	
+                    checkedquestion=document.getElementsByName('whatobratform')[0].value;
+			
+			alloptions = document.getElementsByName('catsmartroom')
 
-            for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
-                if (document.getElementsByName('whatobratform')[i].checked == true)
-                    checkedquestion=document.getElementsByName('whatobratform')[i].value;
-            }
+			for (let i = 0; i < alloptions.length; i++) {
+                if (alloptions[i].checked && alloptions[i].value != 'Другое') {
                         
-            let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
+					let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156=' + encodeURIComponent(alloptions[i].value)
 
-            let options2 = {
-                "headers": {
-                    "content-type": "application/x-www-form-urlencoded",
-                },
-                "body": body2,
-                "method": "POST",
-            }
+					let options2 = {
+						"headers": {
+							"content-type": "application/x-www-form-urlencoded",
+						},
+						"body": body2,
+						"method": "POST",
+					}
 
-            document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-            document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
-            if (document.getElementById('responseTextarea3') != null)
-                document.getElementById('responseTextarea3').value = ''
-            document.getElementById('sendResponse').click()
-            
-            document.getElementById('AF_Smartroomform').style.display = 'none'
-            document.getElementById('clientid').value = ''
-            document.getElementById('fullcomentsmartroom').value = ''
-            clearradio()
-        }	
+					document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+					document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+					if (document.getElementById('responseTextarea3') != null)
+						document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+					
+					document.getElementById('AF_Smartroomform').style.display = 'none'
+					document.getElementById('clientid').value = ''
+					document.getElementById('fullcomentsmartroom').value = ''
+					clearradio()
+					
+				} else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
+					let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
+
+					let options2 = {
+						"headers": {
+							"content-type": "application/x-www-form-urlencoded",
+						},
+						"body": body2,
+						"method": "POST",
+					}
+
+					document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+					document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+					if (document.getElementById('responseTextarea3') != null)
+						document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+					
+					document.getElementById('AF_Smartroomform').style.display = 'none'
+					document.getElementById('clientid').value = ''
+					document.getElementById('fullcomentsmartroom').value = ''
+					clearradio()
+				}	
+		}
     }
 
 		document.getElementById('clearsmartroomform').onclick = function() {
