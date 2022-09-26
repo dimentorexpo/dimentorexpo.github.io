@@ -990,8 +990,10 @@ var win_Themes =  // описание элементов окна Тематик
 							<button name="tagssbtn" value="server_issues" style="margin-left:2px; width:125px; height: 25px;">Серверные</button>
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
 							<button name="tagssbtn" value="request_forwarded_to_development" style="margin-left:2px; width:125px; height: 25px;">Разработка</button>
-							<input type="checkbox" id="ocheredkc" style="margin: 5px;">
-							<button>Multi-tag</button>
+							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<button name="tagssbtn" value="smartroom" style="margin-left:2px; width:125px; height: 25px;">Smartroom</button>
+							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<button id="multitag" style="width: 300px;">Multi-tag</button>
 						</div>
 
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
