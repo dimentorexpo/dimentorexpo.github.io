@@ -5879,14 +5879,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('multitag').onclick = function() {
 			let allcheckboxtags = document.getElementsByName('tagcheck')
+			let alltagsbtns = document.getElementsByName('tagssbtn')
+			let tagsvaluesarr = [];
 			    let chatId = ''
 				if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
 					chatId = document.location.pathname.split('/')[3]
 				else
 					chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+				
 			for (let i=0; i<allcheckboxtags.length;i++) {
 				if (allcheckboxtags[i].checked) {
+					tagsvaluesarr.push(alltagsbtns[i].value)
 					console.log("Index checked: " + [i])
+					console.log("tagsvaluesarr: " + tagsvaluesarr)
 				}
 			}
 		}
