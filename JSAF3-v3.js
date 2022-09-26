@@ -5973,6 +5973,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
 				}
 			}
+			if (tagsvaluesarr.length>0) {
 					tagsvaluesarr = tagsvaluesarr.join(',')
 					console.log("tagsvaluesarr: " + tagsvaluesarr)
 					
@@ -5990,6 +5991,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     allcheckboxtags[i].checked = false;
                 }
             }
+			} else alert("Не выбраны чекбоксы, выберите, пожалуйста, 1 или несколько и повторите попытку")
 		}
 
 
