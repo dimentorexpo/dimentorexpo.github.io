@@ -3627,6 +3627,12 @@ intOldShow = setInterval(addOldShowcaseBtn, 3000) // переменная кот
 
 function addOldShowcaseBtn() { //функция добавляющая в левое меню Showcase * 
 	if (location.host == 'new-teachers.skyeng.ru' || location.href.split('/')[6] =="multi-classroom" || location.host =='teachers.skyeng.ru') { 
+	
+			let clearterms = document.querySelectorAll('.terms-popup-accept-button')
+			for (let i=0; i<clearterms.length; i++) {
+				clearterms[i].click()
+			}
+			
 		if (document.getElementById('oldShowcase') == null) {
 			let oldshowcase = document.createElement('div')
 			oldshowcase.innerText = "🎓 Showcase*"
