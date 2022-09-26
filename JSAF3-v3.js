@@ -9741,118 +9741,43 @@ function startTimer() {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
-        btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
-        btn1.setAttribute('onClick', 'newTaggg("untargeted");')
-
-        let btn2 = document.createElement('span');
-        btn2.id = 'operatormistake'
+        btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Дубль</a>';
+        btn1.setAttribute('onClick', 'newTaggg("double");')
+		
+		let btn2 = document.createElement('span');
+        btn2.id = 'refuse'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">ОшибкаКЦ</a>';
-        btn2.setAttribute('onClick', 'newTaggg("oo");')
-
-        let btn3 = document.createElement('span');
-        btn3.id = 'queue'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
-        btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
-        btn3.setAttribute('onClick', 'newTaggg("queue");')
-
-        let btn4 = document.createElement('span');
-        btn4.id = 'nothelp'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
-        btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Не помогли</a>';
-        btn4.setAttribute('onClick', 'newTaggg("didnt_help");')
-
-        let btn5 = document.createElement('span');
-        btn5.id = 'recgiv'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
-        btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Даны реком</a>';
-        btn5.setAttribute('onClick', 'newTaggg("recommendations_given ");')
-
-        let btn6 = document.createElement('span');
-        btn6.id = 'noactreq'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
-        btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Действ не треб</a>';
-        btn6.setAttribute('onClick', 'newTaggg("no_action_required");')
-
-        let btn7 = document.createElement('span');
-        btn7.id = 'TCsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
-        btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">TC</a>';
-        btn7.setAttribute('onClick', 'newTaggg("request_forwarded_to_tc");')
-
-        let btn8 = document.createElement('span');
-        btn8.id = 'SCsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
-        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">SC</a>';
-        btn8.setAttribute('onClick', 'newTaggg("request_forwarded_to_sc");')
-
-        let btn9 = document.createElement('span');
-        btn9.id = 'QAsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn9)
-        btn9.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">QA</a>';
-        btn9.setAttribute('onClick', 'newTaggg("request_forwarded_to_channel_qa");')
-
-        let btn10 = document.createElement('span');
-        btn10.id = 'TPcallsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
-        btn10.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
-        btn10.setAttribute('onClick', 'newTaggg("request_forwarded_to_outgoing_tp_crm2");')
-
-        let btn11 = document.createElement('span');
-        btn11.id = 'contentsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
-        btn11.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Контент</a>';
-        btn11.setAttribute('onClick', 'newTaggg("request_forwarded_to_content");')
-
-        let btn12 = document.createElement('span');
-        btn12.id = 'doublechat'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn12)
-        btn12.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Дубль</a>';
-        btn12.setAttribute('onClick', 'newTaggg("double");')
-
-        let btn13 = document.createElement('span');
-        btn13.id = 'servis'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn13)
-        btn13.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Серверные</a>';
-        btn13.setAttribute('onClick', 'newTaggg("server_issues");')
-
-        let btn14 = document.createElement('span');
-        btn14.id = 'smartroomtag'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn14)
-        btn14.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Smartroom</a>';
-        btn14.setAttribute('onClick', 'newTaggg("smartroom");')
-		btn14.addEventListener('click', function() {
-			document.getElementById('smartroomform').click();
-		})
-
-        let btn15 = document.createElement('span');
-        btn15.id = 'refuse'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn15)
-        btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
-        btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
-        btn15.addEventListener('click', function () {
+        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
+        btn2.setAttribute('onClick', 'newTaggg("refusal_of_help");')
+        btn2.addEventListener('click', function () {
             if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
                 document.getElementById('otkaz').click();
             }            
         })
+		
+		let btn3 = document.createElement('span');
+        btn3.id = 'TPcallsend'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
+        btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
+        btn3.setAttribute('onClick', 'newTaggg("request_forwarded_to_outgoing_tp_crm2");')
 
-        let btn16 = document.createElement('span');
-        btn16.id = 'solvd'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn16)
-        btn16.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Решен</a>';
-        btn16.setAttribute('onClick', 'newTaggg("request_solved");')
+        let btn4 = document.createElement('span');
+        btn4.id = 'recgiv'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
+        btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Даны реком</a>';
+        btn4.setAttribute('onClick', 'newTaggg("recommendations_given ");')
+		
+		let btn5 = document.createElement('span');
+        btn5.id = 'solvd'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
+        btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Решен</a>';
+        btn5.setAttribute('onClick', 'newTaggg("request_solved");')
 
-        let btn17 = document.createElement('span');
-        btn17.id = '2lsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn17)
-        btn17.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">2Л</a>';
-        btn17.setAttribute('onClick', 'newTaggg("request_forwarded_to_2l_tp");')
-
-        let btn18 = document.createElement('span');
-        btn18.id = 'devsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn18)
-        btn18.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Jira</a>';
-        btn18.setAttribute('onClick', 'newTaggg("request_forwarded_to_development");')
+        let btn6 = document.createElement('span');
+        btn6.id = 'servis'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
+        btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Серверные</a>';
+        btn6.setAttribute('onClick', 'newTaggg("server_issues");')
     }
 }
 
