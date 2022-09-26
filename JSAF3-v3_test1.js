@@ -482,7 +482,6 @@ var win_AFhelper =  // описание элементов главного ок
                     <input id="audioswitcher" type="checkbox" checked="">
                         <span class="checkbox-audio-switch"></span>
                 </label>
-				    <br>
                 <input id="sound_adr" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save" style="display: none">💾</button>
                     <br>
@@ -5677,7 +5676,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             for (let i = 0; i < objSoundList.length; i++) {
                 if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
                     objSoundList.children[i].selected = true;
-                }
+                } else {objSoundList.children[1].selected = true}
+            }
+
+            if (objSoundList.children[1].selected){
+                document.getElementById('sound_adr').style.display = ''
+                document.getElementById('sound_save').style.display = ''
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
             }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
