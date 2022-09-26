@@ -991,7 +991,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
 							<button name="tagssbtn" value="queue" style="margin-left:2px; width:125px; height: 25px;">Очередь</button>
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
-							<button name="tagssbtn" value="recommendations_given " style="margin-left:2px; width:125px; height: 25px;">Даны рекомендации</button>
+							<button name="tagssbtn" value="recommendations_given " style="margin-left:2px; width:125px; height: 25px; font-size:12px;">Даны рекомендации</button>
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
 							<button name="tagssbtn" value="request_solved" style="margin-left:2px; width:125px; height: 25px;">Запрос решен</button>
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
@@ -5936,11 +5936,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			for (let i=0; i<allcheckboxtags.length;i++) {
 				if (allcheckboxtags[i].checked) {
-					tagsvaluesarr.push(alltagsbtns[i].value)
+					tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
 				}
 			}
-					console.log("Index checked: " + [i])
+					tagsvaluesarr = tagsvaluesarr.join(',')
 					console.log("tagsvaluesarr: " + tagsvaluesarr)
+					
+			fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[${tagsvaluesarr}]}]}",
+            "method": "POST",
+            "credentials": "include"
+			});
 		}
 
 
