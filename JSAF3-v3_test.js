@@ -7537,6 +7537,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					document.getElementById('clientid').value = ''
 					document.getElementById('fullcomentsmartroom').value = ''
 					clearradio()
+					document.getElementById('otheroptionsmartchecked').value = ''
 				}	
 		}
     }
@@ -7545,6 +7546,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
+			document.getElementById('otheroptionsmartchecked').value = ''
             document.getElementById('smartroomuser').style.background = ''; 
             document.getElementById('clientid').style.background = '';
             document.getElementById('smartroomquestion').style.background = ''; 
