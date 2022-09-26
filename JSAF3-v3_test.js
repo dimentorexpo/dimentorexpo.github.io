@@ -5890,10 +5890,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			for (let i=0; i<allcheckboxtags.length;i++) {
 				if (allcheckboxtags[i].checked) {
 					tagsvaluesarr.push(alltagsbtns[i].value)
-					console.log("Index checked: " + [i])
-					console.log("tagsvaluesarr: " + tagsvaluesarr)
 				}
 			}
+					console.log("Index checked: " + [i])
+					console.log("tagsvaluesarr: " + tagsvaluesarr)
 		}
 
 
