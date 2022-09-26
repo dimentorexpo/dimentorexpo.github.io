@@ -8530,7 +8530,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
         return
     }
 
-    if (butName == '🖕Отказ')
+    if (butName == '🖕Отказ' && document.getElementById('AF_Refuseformnew').style.display == 'none')
         document.getElementById('otkaz').click();
 
     msgFromTable(butName)
