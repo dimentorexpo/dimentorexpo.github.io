@@ -8153,7 +8153,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             audio = new Audio(document.getElementById('sound_adr').value);
             document.getElementById('sound_save').innerText = "✅";
-            document.getElementById('sound_adr').value = "";
             setTimeout(function () {
                 document.getElementById('sound_save').innerText = "💾";
             }, 3000);
