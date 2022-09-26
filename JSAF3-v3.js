@@ -2072,8 +2072,9 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
-document.onkeydown = function (event) { // горячие клавиши для смены статуса в Оффлайн
-    if (event.shiftKey && event.code == 'KeyO')  {
+// Блок горячих клавиш
+document.onkeydown = function (event) { 
+    if (event.altKey && event.code == 'KeyO')  { // горячие клавиши для смены статуса в Оффлайн
 			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 
 			"headers": {
@@ -2088,8 +2089,25 @@ document.onkeydown = function (event) { // горячие клавиши для 
 			"credentials": "include"
 			});
 			console.log("Status changed to Offline")
+	} else if (event.altKey && event.code == 'KeyI')  { // горячие клавиши для смены статуса в Занят
+			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+
+			"headers": {
+			"content-type": "application/json",
+			},
+
+			"referrer": "https://skyeng.autofaq.ai/tickets/archive",
+			"referrerPolicy": "strict-origin-when-cross-origin",
+			"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+			});
+			console.log("Status changed to Busy")
 	}
 }
+
+// Конец блока горячих клавиш
 
 function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
 {
