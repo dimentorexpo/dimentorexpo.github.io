@@ -962,6 +962,7 @@ var win_Themes =  // описание элементов окна Тематик
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 350;" id="themes_header">
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
+								<button id="ClearSmartroomData" title="Очищает выбранные тэги">🧹</button>
 								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
 								<button id="themesinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
                         </div>
@@ -988,41 +989,41 @@ var win_Themes =  // описание элементов окна Тематик
 							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Теги</label>
 							<br>
 							<button name="tagssbtn" value="oo" style="margin-left:2px; width:125px; height: 25px;">ОшибкаКЦ</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="queue" style="margin-left:2px; width:125px; height: 25px;">Очередь</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="recommendations_given " style="margin-left:2px; width:125px; height: 25px; font-size:12px;">Даны рекомендации</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_solved" style="margin-left:2px; width:125px; height: 25px;">Запрос решен</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="missed_call" style="margin-left:2px; width:125px; height: 25px;">Недозвон</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="no_action_required" style="margin-left:2px; width:125px; height: 25px; font-size:10px;">Действий не требуется</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="refusal_of_help" style="margin-left:2px; width:125px; height: 25px;">Отказ от помощи</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_forwarded_to_content" style="margin-left:2px; width:125px; height: 25px;">Контент</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="double" style="margin-left:2px; width:125px; height: 25px;">Дубль</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_forwarded_to_2l_tp" style="margin-left:2px; width:125px; height: 25px;">2ЛТП</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_forwarded_to_outgoing_tp_crm2" style="margin-left:2px; width:125px; height: 25px;">Исход</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_forwarded_to_channel_qa" style="margin-left:2px; width:125px; height: 25px;">QA</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_forwarded_to_tc" style="margin-left:2px; width:125px; height: 25px;">TC</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_forwarded_to_sc" style="margin-left:2px; width:125px; height: 25px;">SC</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="server_issues" style="margin-left:2px; width:125px; height: 25px;">Серверные</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="request_forwarded_to_development" style="margin-left:2px; width:125px; height: 25px;">Разработка</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="smartroom" style="margin-left:2px; width:125px; height: 25px;">Smartroom</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="didnt_help" style="margin-left:2px; width:125px; height: 25px;">Не помогли</button>
-							<input type="checkbox" name="tagcheck" style="margin: 5px;">
+							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button id="multitag" style="width: 300px;">Multi-tag</button>
 						</div>
 
@@ -5923,6 +5924,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 newTaggg(this.value)
             }
         }
+		
+		document.getElementById('ClearSmartroomData').onclick = function () {
+			let allcheckboxtags = document.getElementsByName('tagcheck')	
+                for (let i=0; i<allcheckboxtags.length;i++) { 
+                  if (allcheckboxtags[i].checked) {
+                    allcheckboxtags[i].checked = false;
+                  }
+                }
+            }
 		
 		document.getElementById('multitag').onclick = function() {
 			let allcheckboxtags = document.getElementsByName('tagcheck')

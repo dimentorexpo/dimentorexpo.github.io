@@ -962,6 +962,7 @@ var win_Themes =  // описание элементов окна Тематик
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 350;" id="themes_header">
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
+								<button id="ClearSmartroomData" title="Очищает выбранные тэги">🧹</button>
 								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
 								<button id="themesinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
                         </div>
@@ -5924,6 +5925,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }
 		
+		document.getElementById('ClearSmartroomData').onclick = function () {
+			let allcheckboxtags = document.getElementsByName('tagcheck')	
+                for (let i=0; i<allcheckboxtags.length;i++) { 
+                  if (allcheckboxtags[i].checked) {
+                    allcheckboxtags[i].checked = false;
+                  }
+                }
+            }
+		
 		document.getElementById('multitag').onclick = function() {
 			let allcheckboxtags = document.getElementsByName('tagcheck')
 			let alltagsbtns = document.getElementsByName('tagssbtn')
@@ -5937,6 +5947,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			for (let i=0; i<allcheckboxtags.length;i++) {
 				if (allcheckboxtags[i].checked) {
 					tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
+                    if (allcheckboxtags[i].value == 'refusal_of_help' && document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                        document.getElementById('otkaz').click()
+                    }
+                    if (allcheckboxtags[i].value == 'smartroom' && document.getElementById('AF_Smartroomform').style.display == 'none'){
+                        document.getElementById('smartroomform').click()
+                    }
 				}
 			}
 					tagsvaluesarr = tagsvaluesarr.join(',')
@@ -5950,14 +5966,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "method": "POST",
             "credentials": "include"
 			});
-			
-			for (let i=0; i<allcheckboxtags.length;i++) { 
-				if (allcheckboxtags[i].checked) {
-					allcheckboxtags[i].checked = false;
-				}
-			}
-			
-			
+
+            for (let i=0; i<allcheckboxtags.length;i++) { 
+                if (allcheckboxtags[i].checked) {
+                    allcheckboxtags[i].checked = false;
+                }
+            }
 		}
 
 
