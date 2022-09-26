@@ -342,6 +342,19 @@ function mystyles() {
 			color: SteelBlue;
 			font-weight: 600;
 		}
+		
+		.catsmartroom {
+			margin-left: 5px;
+			color: bisque;
+			font-size: 16px;
+			transition: all 0.5s ease;
+		}
+		
+		.catsmartroom:hover {
+			font-size:18px;
+			color: SteelBlue;
+			font-weight: 600;
+		}
 
 		.otherfieldoff {
 			text-align: center;
