@@ -7544,12 +7544,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
-            document.getElementById('smartroomuser').style.backgroundColor = ''; 
-            document.getElementById('smartroomuser').style.color = '#c4ffd3';
-            document.getElementById('clientid').style.backgroundColor = '';
-            document.getElementById('smartroomquestion').style.backgroundColor = ''; 
-            document.getElementById('smartroomquestion').style.color = '#c4ffd3';
-            document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
+            document.getElementById('smartroomuser').style.background = ''; 
+            document.getElementById('clientid').style.background = '';
+            document.getElementById('smartroomquestion').style.background = ''; 
+            document.getElementById('fullcomentsmartroom').style.background = '';
 			clearradio()
 		}
 
