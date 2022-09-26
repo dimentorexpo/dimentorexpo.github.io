@@ -5913,7 +5913,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
 				}
 			}
-                    tagsvaluelist = tagsvaluesarr.join(',')
+            tagsvaluelist = tagsvaluesarr.join(',')
+            newTaggg(tagsvaluelist)
 					console.log("Index checked: " + [i])
 					console.log("tagsvaluesarr: " + tagsvaluesarr)
                     console.log("tagsvaluelist: " + tagsvaluelist)
