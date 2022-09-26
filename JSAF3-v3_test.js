@@ -7540,6 +7540,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}	
 		}
     }
+	}
 
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
