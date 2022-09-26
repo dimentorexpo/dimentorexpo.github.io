@@ -9217,7 +9217,7 @@ str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
     audio = new Audio(str);
 else
-    audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
+    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
 var timeStart = new Date()
 var studentIdSearch2 = 0
