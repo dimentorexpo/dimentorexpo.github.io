@@ -482,7 +482,6 @@ var win_AFhelper =  // описание элементов главного ок
                     <input id="audioswitcher" type="checkbox" checked="">
                         <span class="checkbox-audio-switch"></span>
                 </label>
-				    <br>
                 <input id="sound_adr" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
 				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save" style="display: none">💾</button>
                     <br>
@@ -5655,14 +5654,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let objSoundList = document.getElementById('soundlistaddr')
             let flagsound;
-            function addOption(oListbox, text, value)  //функция добавления опции в список
-            {
-                var oOption = document.createElement("option");
-                oOption.appendChild(document.createTextNode(text));
-                oOption.setAttribute("value", value);
+            if (objSoundList.length < 3){
+                function addOption(oListbox, text, value)  //функция добавления опции в список
+                 {
+                    var oOption = document.createElement("option");
+                    oOption.appendChild(document.createTextNode(text));
+                    oOption.setAttribute("value", value);
 
-                oListbox.appendChild(oOption);
+                    oListbox.appendChild(oOption);
+                }
             }
+            
             for (let i = 0; i < table.length; i++) {
                 if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
                     flagsound = [i + 1]
@@ -5678,6 +5680,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
                     objSoundList.children[i].selected = true;
                 }
+            }
+
+            if (objSoundList.children[0].selected){
+                if (localStorage.getItem('sound_str') !== null && localStorage.getItem('sound_str') !== ""){
+                    objSoundList.children[1].selected = true
+                    document.getElementById('sound_adr').style.display = ''
+                document.getElementById('sound_save').style.display = ''
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
+                }                
             }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
@@ -8142,7 +8153,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             audio = new Audio(document.getElementById('sound_adr').value);
             document.getElementById('sound_save').innerText = "✅";
-            document.getElementById('sound_adr').value = "";
             setTimeout(function () {
                 document.getElementById('sound_save').innerText = "💾";
             }, 3000);
@@ -9212,7 +9222,7 @@ str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
     audio = new Audio(str);
 else
-    audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
+    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
 var timeStart = new Date()
 var studentIdSearch2 = 0
