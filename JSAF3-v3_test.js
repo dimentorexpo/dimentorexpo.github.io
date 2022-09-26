@@ -993,7 +993,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
 							<button name="tagssbtn" value="smartroom" style="margin-left:2px; width:125px; height: 25px;">Smartroom</button>
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
-							<button name="tagssbtn" value="untargeted" style="margin-left:2px; width:125px; height: 25px;">Нецелевой</button>
+							<button name="tagssbtn" value="didnt_help" style="margin-left:2px; width:125px; height: 25px;">Не помогли</button>
 							<input type="checkbox" name="tagcheck" style="margin: 5px;">
 							<button id="multitag" style="width: 300px;">Multi-tag</button>
 						</div>
