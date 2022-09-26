@@ -5879,6 +5879,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('multitag').onclick = function() {
 			let allcheckboxtags = document.getElementsByName('tagcheck')
+			    let chatId = ''
+				if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+					chatId = document.location.pathname.split('/')[3]
+				else
+					chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
 			for (let i=0; i<allcheckboxtags.length;i++) {
 				if (allcheckboxtags[i].checked) {
 					console.log("Index checked: " + [i])
