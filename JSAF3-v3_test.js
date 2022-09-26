@@ -5878,9 +5878,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
 		
 		document.getElementById('multitag').onclick = function() {
-			let allcheckboxtags = documnet.getElementsByName('tagcheck')
+			let allcheckboxtags = document.getElementsByName('tagcheck')
 			for (let i=0; i<allcheckboxtags.length;i++) {
-				console.log(allcheckboxtags[i].checked)
+				if (allcheckboxtags[i].checked) {
+					console.log("Index checked: " + [i])
+				}
 			}
 		}
 
