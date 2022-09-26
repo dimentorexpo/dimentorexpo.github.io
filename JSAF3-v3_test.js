@@ -2072,8 +2072,8 @@ var win_servicedesk = // описание элементов окна Service De
 
 let audio
 
-document.onkeydown = function (event) { // горячие клавиши для смены статуса в Оффлайн
-    if (event.altKey && event.code == 'KeyO')  {
+document.onkeydown = function (event) { 
+    if (event.altKey && event.code == 'KeyO')  { // горячие клавиши для смены статуса в Оффлайн
 			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 
 			"headers": {
@@ -2088,11 +2088,7 @@ document.onkeydown = function (event) { // горячие клавиши для 
 			"credentials": "include"
 			});
 			console.log("Status changed to Offline")
-	}
-}
-
-document.onkeydown = function (event) { // горячие клавиши для смены статуса в Занят
-    if (event.altKey && event.code == 'KeyI')  {
+	} else     if (event.altKey && event.code == 'KeyI')  { // горячие клавиши для смены статуса в Занят
 			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 
 			"headers": {
