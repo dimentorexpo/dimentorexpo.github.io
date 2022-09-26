@@ -959,10 +959,10 @@ var win_Themes =  // описание элементов окна Тематик
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Теги</label>
 							<br>
-							<input type="checkbox" id=”kcmistake”>
 							<button name="tagssbtn" value="oo" style="margin-left:2px; width:125px; height: 25px;">ОшибкаКЦ</button>
-							<input type="checkbox" id=”ocheredkc”>
+							<input type="checkbox" id="kcmistake" style="margin: 5px;">
 							<button name="tagssbtn" value="queue" style="margin-left:2px; width:125px; height: 25px;">Очередь</button>
+							<input type="checkbox" id="ocheredkc" style="margin: 5px;">
 							<button name="tagssbtn" value="recommendations_given " style="margin-left:2px; width:125px; height: 25px;">Даны рекомендации</button>
 							<button name="tagssbtn" value="request_solved" style="margin-left:2px; width:125px; height: 25px;">Запрос решен</button>
 							<button name="tagssbtn" value="missed_call" style="margin-left:2px; width:125px; height: 25px;">Недозвон</button>
