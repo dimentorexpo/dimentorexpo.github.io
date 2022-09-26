@@ -1024,7 +1024,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="didnt_help" style="margin-left:2px; width:125px; height: 25px;">Не помогли</button>
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
-							<button id="multitag" style="width: 300px; margin-top:5px;">Мультитэг</button>
+							<button id="multitag" style="width: 300px; margin-top:5px;">Мультитег</button>
 						</div>
 
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
