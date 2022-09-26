@@ -7400,9 +7400,29 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		function clearradio() {
 			for(let j=0; j<2;j++) {
 				document.getElementsByName('typetoform')[j].checked = false
-				document.getElementsByName('whatobratform')[j].checked = false
 			}
 		}
+		
+		//
+		    let catsmartroom = document.getElementsByName('catsmartroom')
+
+            for (let i = 0; i < catsmartroom.length; i++) {
+                catsmartroom[i].onclick = () => {
+                    if (catsmartroom[i].checked && catsmartroom[i].value == 'Другое') {
+
+                        document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldoff')
+                        document.getElementById('otheroptionsmartchecked').classList.add('otherfieldon')
+                        document.getElementById('otheroptionsmartchecked').removeAttribute('disabled')
+
+                    } else {
+                        document.getElementById('otheroptionsmartchecked').classList.add('otherfieldoff')
+                        document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldon')
+                        document.getElementById('otheroptionsmartchecked').setAttribute('disabled', 'disabled')
+                    }
+                }
+            }
+			
+			//
 
 			if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
 		    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
