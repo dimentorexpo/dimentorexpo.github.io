@@ -2255,6 +2255,7 @@ function changesoundaddr() {
                 } else {
                     document.getElementById('sound_adr').style.display = 'none'
                     document.getElementById('sound_save').style.display = 'none'
+                    document.getElementById('sound_adr').value = ""
                     console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
                     localStorage.setItem('sound_str', objSoundList[i].value)
                     audio = new Audio(localStorage.getItem('sound_str'))
