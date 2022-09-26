@@ -342,6 +342,19 @@ function mystyles() {
 			color: SteelBlue;
 			font-weight: 600;
 		}
+		
+		.catsmartroom {
+			margin-left: 5px;
+			color: bisque;
+			font-size: 16px;
+			transition: all 0.5s ease;
+		}
+		
+		.catsmartroom:hover {
+			font-size:18px;
+			color: SteelBlue;
+			font-weight: 600;
+		}
 
 		.otherfieldoff {
 			text-align: center;
@@ -675,12 +688,26 @@ var win_smartroomform =  // описание элементов окна Мул�
 							<br>
 							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</div>
 							<div style="margin-top:5px; color:bisque;" id = "smartroomquestion">
-								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
+								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум" checked>
 								<label for="whatobratsugest">Пожелание по мультирум</label>
-							    <input type="radio" id="whatobratbugerror" name="whatobratform" value="Баг/ошибка в мультирум">
-								<label for="whatobratbugerror">Баг/ошибка в мультирум</label>
 							</div>
-								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий по улучшению или багу \n(шаги воспроизведения)" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория запроса</div>
+								<div>
+								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Персональный трек" resolved=""> Персональный трек</label>
+								<br>
+								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Домашние задания" resolved=""> Домашние задания</label>
+								<br>
+								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Функционал на уроке" resolved=""> Функционал на уроке</label>
+								<br>
+								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Вернуть старую платформу" resolved=""> Вернуть старую платформу</label>
+								<br>
+								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Интерфейс платформы" resolved=""> Интерфейс платформы</label>
+								<br>
+								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Другое" resolved=""> Другое</label>
+								<br>
+								<input id="otheroptionsmartchecked" class="otherfieldoff" disabled="true" placeholder="Если выбрали 'другое' иначе оставляете пустым" title="Описываем функнционал, если выбрали опцию Другое" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
+							</div>
+								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий предложения по улучшению" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 							<br>
 							<button title="Отправляет заполненные поля формы в док" id="send2smartroom" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 						</div>
@@ -5900,7 +5927,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('multitag').onclick = function() {
 			let allcheckboxtags = document.getElementsByName('tagcheck')
 			let alltagsbtns = document.getElementsByName('tagssbtn')
-            let tagsvaluelist = ''
 			let tagsvaluesarr = [];
 			    let chatId = ''
 				if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
@@ -5910,14 +5936,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			for (let i=0; i<allcheckboxtags.length;i++) {
 				if (allcheckboxtags[i].checked) {
-					tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
+					tagsvaluesarr.push(alltagsbtns[i].value)
 				}
 			}
-            tagsvaluelist = tagsvaluesarr.join(',')
-            newTaggg(tagsvaluelist)
 					console.log("Index checked: " + [i])
 					console.log("tagsvaluesarr: " + tagsvaluesarr)
-                    console.log("tagsvaluelist: " + tagsvaluelist)
 		}
 
 
@@ -7377,9 +7400,29 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		function clearradio() {
 			for(let j=0; j<2;j++) {
 				document.getElementsByName('typetoform')[j].checked = false
-				document.getElementsByName('whatobratform')[j].checked = false
 			}
 		}
+		
+		//
+		    let catsmartroom = document.getElementsByName('catsmartroom')
+
+            for (let i = 0; i < catsmartroom.length; i++) {
+                catsmartroom[i].onclick = () => {
+                    if (catsmartroom[i].checked && catsmartroom[i].value == 'Другое') {
+
+                        document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldoff')
+                        document.getElementById('otheroptionsmartchecked').classList.add('otherfieldon')
+                        document.getElementById('otheroptionsmartchecked').removeAttribute('disabled')
+
+                    } else {
+                        document.getElementById('otheroptionsmartchecked').classList.add('otherfieldoff')
+                        document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldon')
+                        document.getElementById('otheroptionsmartchecked').setAttribute('disabled', 'disabled')
+                    }
+                }
+            }
+			
+			//
 
 			if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
 		    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -7404,6 +7447,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
         let checkedclienttype;
         let checkedquestion;
+		let alloptions 
 
         let flagemptysmart = 0;
 
@@ -7444,44 +7488,67 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.getElementsByName('typetoform')[i].checked == true)
                     checkedclienttype=document.getElementsByName('typetoform')[i].value;
             }	
+                    checkedquestion=document.getElementsByName('whatobratform')[0].value;
+			
+			alloptions = document.getElementsByName('catsmartroom')
 
-            for (let i=0; i<document.getElementsByName('whatobratform').length;i++) {
-                if (document.getElementsByName('whatobratform')[i].checked == true)
-                    checkedquestion=document.getElementsByName('whatobratform')[i].value;
-            }
+			for (let i = 0; i < alloptions.length; i++) {
+                if (alloptions[i].checked && alloptions[i].value != 'Другое') {
                         
-            let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value)
+					let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156=' + encodeURIComponent(alloptions[i].value)
 
-            let options2 = {
-                "headers": {
-                    "content-type": "application/x-www-form-urlencoded",
-                },
-                "body": body2,
-                "method": "POST",
-            }
+					let options2 = {
+						"headers": {
+							"content-type": "application/x-www-form-urlencoded",
+						},
+						"body": body2,
+						"method": "POST",
+					}
 
-            document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-            document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
-            if (document.getElementById('responseTextarea3') != null)
-                document.getElementById('responseTextarea3').value = ''
-            document.getElementById('sendResponse').click()
-            
-            document.getElementById('AF_Smartroomform').style.display = 'none'
-            document.getElementById('clientid').value = ''
-            document.getElementById('fullcomentsmartroom').value = ''
-            clearradio()
-        }	
+					document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+					document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+					if (document.getElementById('responseTextarea3') != null)
+						document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+					
+					document.getElementById('AF_Smartroomform').style.display = 'none'
+					document.getElementById('clientid').value = ''
+					document.getElementById('fullcomentsmartroom').value = ''
+					clearradio()
+					
+				} else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
+					let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
+
+					let options2 = {
+						"headers": {
+							"content-type": "application/x-www-form-urlencoded",
+						},
+						"body": body2,
+						"method": "POST",
+					}
+
+					document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+					document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+					if (document.getElementById('responseTextarea3') != null)
+						document.getElementById('responseTextarea3').value = ''
+					document.getElementById('sendResponse').click()
+					
+					document.getElementById('AF_Smartroomform').style.display = 'none'
+					document.getElementById('clientid').value = ''
+					document.getElementById('fullcomentsmartroom').value = ''
+					clearradio()
+				}	
+		}
     }
+	}
 
 		document.getElementById('clearsmartroomform').onclick = function() {
 			document.getElementById('clientid').value = ''
 			document.getElementById('fullcomentsmartroom').value = ''
-            document.getElementById('smartroomuser').style.backgroundColor = ''; 
-            document.getElementById('smartroomuser').style.color = '#c4ffd3';
-            document.getElementById('clientid').style.backgroundColor = '';
-            document.getElementById('smartroomquestion').style.backgroundColor = ''; 
-            document.getElementById('smartroomquestion').style.color = '#c4ffd3';
-            document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
+            document.getElementById('smartroomuser').style.background = ''; 
+            document.getElementById('clientid').style.background = '';
+            document.getElementById('smartroomquestion').style.background = ''; 
+            document.getElementById('fullcomentsmartroom').style.background = '';
 			clearradio()
 		}
 
