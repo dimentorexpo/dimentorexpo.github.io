@@ -5876,6 +5876,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 newTaggg(this.value)
             }
         }
+		
+		document.getElementById('multitag').onclick = function() {
+			let allcheckboxtags = documnet.getElementsByName('tagcheck')
+			for (let i=0; i<allcheckboxtags.length;i++) {
+				console.log(allcheckboxtags[i].checked)
+			}
+		}
 
 
         document.getElementById('vimcall').onclick = function () {
