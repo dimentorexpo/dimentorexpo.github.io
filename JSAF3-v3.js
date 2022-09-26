@@ -5900,6 +5900,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('multitag').onclick = function() {
 			let allcheckboxtags = document.getElementsByName('tagcheck')
 			let alltagsbtns = document.getElementsByName('tagssbtn')
+            let tagsvaluelist = ''
 			let tagsvaluesarr = [];
 			    let chatId = ''
 				if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
@@ -5909,11 +5910,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				
 			for (let i=0; i<allcheckboxtags.length;i++) {
 				if (allcheckboxtags[i].checked) {
-					tagsvaluesarr.push(alltagsbtns[i].value)
+					tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
 				}
 			}
+                    tagsvaluelist = tagsvaluesarr.join(',')
 					console.log("Index checked: " + [i])
 					console.log("tagsvaluesarr: " + tagsvaluesarr)
+                    console.log("tagsvaluelist: " + tagsvaluelist)
 		}
 
 
