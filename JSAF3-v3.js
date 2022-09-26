@@ -5950,6 +5950,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "method": "POST",
             "credentials": "include"
 			});
+			
+			for (let i=0; i<allcheckboxtags.length;i++) { 
+				if (allcheckboxtags[i].checked) {
+					allcheckboxtags[i].checked = false;
+				}
+			}
+			
+			
 		}
 
 
