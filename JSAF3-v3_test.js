@@ -688,7 +688,7 @@ var win_smartroomform =  // описание элементов окна Мул�
 							<br>
 							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">С чем обратились?</div>
 							<div style="margin-top:5px; color:bisque;" id = "smartroomquestion">
-								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум">
+								<input type="radio" id="whatobratsugest" name="whatobratform" value="Пожелание по мультирум" checked>
 								<label for="whatobratsugest">Пожелание по мультирум</label>
 							</div>
 							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория запроса</div>
