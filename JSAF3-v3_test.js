@@ -5946,7 +5946,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             "headers": {
                 "content-type": "application/json",
             },
-            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\""+tagsvaluesarr+"\"]}]}",
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[tagsvaluesarr]}]}",
             "method": "POST",
             "credentials": "include"
 			});
