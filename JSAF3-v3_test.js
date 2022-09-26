@@ -5938,7 +5938,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
                         document.getElementById('otkaz').click();
                     }
-                }
+                } else if (this.value == 'smartroom'){ 
+						(document.getElementById('AF_Smartroomform').style.display == 'none'){
+                        document.getElementById('smartroomform').click();
+                    }
                 newTaggg(this.value)
             }
         }
