@@ -5654,14 +5654,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let objSoundList = document.getElementById('soundlistaddr')
             let flagsound;
-            function addOption(oListbox, text, value)  //функция добавления опции в список
-            {
-                var oOption = document.createElement("option");
-                oOption.appendChild(document.createTextNode(text));
-                oOption.setAttribute("value", value);
+            if (objSoundList.length < 3){
+                function addOption(oListbox, text, value)  //функция добавления опции в список
+                 {
+                    var oOption = document.createElement("option");
+                    oOption.appendChild(document.createTextNode(text));
+                    oOption.setAttribute("value", value);
 
-                oListbox.appendChild(oOption);
+                    oListbox.appendChild(oOption);
+                }
             }
+            
             for (let i = 0; i < table.length; i++) {
                 if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
                     flagsound = [i + 1]
@@ -5679,10 +5682,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }
             }
 
-            if (objSoundList.children[1].selected){
-                document.getElementById('sound_adr').style.display = ''
+            if (objSoundList.children[0].selected){
+                if (localStorage.getItem('sound_str') !== null && localStorage.getItem('sound_str') !== ""){
+                    objSoundList.children[1].selected = true
+                    document.getElementById('sound_adr').style.display = ''
                 document.getElementById('sound_save').style.display = ''
                 document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
+                }                
             }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
