@@ -969,7 +969,7 @@ var win_Themes =  // описание элементов окна Тематик
 
 
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
-							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Темы</label>
+							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Темы</label>
 							<br>
 							<button id="vimcall" style="margin-left:2px; width:150px; height: 44px;">🔇Связь</button>
 							<button id="enterlesson" style="margin-left:2px; width:150px; height: 44px;">🔌Вход и подкл к уроку</button>
@@ -986,7 +986,7 @@ var win_Themes =  // описание элементов окна Тематик
 						</div>
 
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
-							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)">Теги</label>
+							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Теги</label>
 							<br>
 							<button name="tagssbtn" value="oo" style="margin-left:2px; width:125px; height: 25px;">ОшибкаКЦ</button>
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
@@ -1024,7 +1024,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="didnt_help" style="margin-left:2px; width:125px; height: 25px;">Не помогли</button>
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
-							<button id="multitag" style="width: 300px; margin-top:5px;">Multi-tag</button>
+							<button id="multitag" style="width: 300px; margin-top:5px;">Мультитэг</button>
 						</div>
 
 						<div id="svyazissues" style="margin-left:20px;display:flex; flex-wrap:wrap;display:none">
