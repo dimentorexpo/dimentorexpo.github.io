@@ -473,13 +473,17 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
-				<input id="sound_adr" placeholder="Адрес звука" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black;">
-				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save">💾</button>
+                <select style="height:28px; width:210px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
+                    <option selected="" disabled="">Звук нового сообщения</option>
+                    <option value="othersound">Выбрать свой звук</option>
+                    </select>
 				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
 				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
 					<input id="audioswitcher" type="checkbox" checked="">
 						<span class="checkbox-audio-switch"></span>
 				</label>
+                <input id="sound_adr" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save" style="display: none">💾</button>
 				<br>
 				<span style="color:bisque">Громкость звука в АФ</span>
 				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
@@ -495,9 +499,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П ПМ</label>
 					<br>
                     <label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
-					<br>
-					<select style="height:28px; width:260px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
-					<option selected="" disabled="">Звук нового сообщения</option></select>
 					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>
@@ -2278,10 +2279,17 @@ function changesoundaddr() {
     if (objSoundList.length > 1) {
         for (let i = 1; i < objSoundList.length; i++) {
             if (objSoundList[i].selected == true) {
+                if (objSoundList[i].value == "othersound"){
+                    document.getElementById('sound_adr').style.display = ''
+                    document.getElementById('sound_save').style.display = ''
+                } else {
+                    document.getElementById('sound_adr').style.display = 'none'
+                    document.getElementById('sound_save').style.display = 'none'
+                    document.getElementById('sound_adr').value = ""
                 console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
                 localStorage.setItem('sound_str', objSoundList[i].value)
                 audio = new Audio(localStorage.getItem('sound_str'))
-
+                }
             }
         }
     }
@@ -5681,14 +5689,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let objSoundList = document.getElementById('soundlistaddr')
             let flagsound;
-            function addOption(oListbox, text, value)  //функция добавления опции в список
-            {
-                var oOption = document.createElement("option");
-                oOption.appendChild(document.createTextNode(text));
-                oOption.setAttribute("value", value);
+            if (objSoundList.length < 3){
+                function addOption(oListbox, text, value)  //функция добавления опции в список
+                 {
+                    var oOption = document.createElement("option");
+                    oOption.appendChild(document.createTextNode(text));
+                    oOption.setAttribute("value", value);
 
-                oListbox.appendChild(oOption);
+                    oListbox.appendChild(oOption);
+                }
             }
+            
             for (let i = 0; i < table.length; i++) {
                 if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
                     flagsound = [i + 1]
@@ -5704,6 +5715,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
                     objSoundList.children[i].selected = true;
                 }
+            }
+
+            if (objSoundList.children[0].selected){
+                objSoundList.children[1].selected = true
+                document.getElementById('sound_adr').style.display = ''
+                document.getElementById('sound_save').style.display = ''
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')              
             }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
@@ -5870,9 +5888,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
             document.getElementsByName('tagssbtn')[j].onclick = function () {
-				if(this.value == 'refusal_of_help')
-					document.getElementById('otkaz').click();
-
+				if(this.value == 'refusal_of_help'){
+                    if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                        document.getElementById('otkaz').click();
+                    }
+                }
                 newTaggg(this.value)
             }
         }
@@ -8205,7 +8225,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else {
             audio = new Audio(document.getElementById('sound_adr').value);
             document.getElementById('sound_save').innerText = "✅";
-            document.getElementById('sound_adr').value = "";
             setTimeout(function () {
                 document.getElementById('sound_save').innerText = "💾";
             }, 3000);
@@ -8553,7 +8572,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
         return
     }
 
-    if (butName == '🖕Отказ')
+    if (butName == '🖕Отказ' && document.getElementById('AF_Refuseformnew').style.display == 'none') // если кнопка отказ открывает форму отказа и если повторно нажали не закрываем форму
         document.getElementById('otkaz').click();
 
     msgFromTable(butName)
@@ -9275,7 +9294,7 @@ str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
     audio = new Audio(str);
 else
-    audio = new Audio("https://drive.google.com/u/0/uc?id=1832JE2IuK7AnfgkljLYytEeFL99Mt2Gv&export=download");
+    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
 var timeStart = new Date()
 var studentIdSearch2 = 0
@@ -9708,7 +9727,9 @@ function startTimer() {
         btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn15.setAttribute('onClick', 'newTaggg("refusal_of_help");')
         btn15.addEventListener('click', function () {
-            document.getElementById('otkaz').click();
+            if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                document.getElementById('otkaz').click();
+            }            
         })
 
         let btn16 = document.createElement('span');
