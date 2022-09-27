@@ -34,8 +34,11 @@ function mystyles() {
 	.activebtn {
 		background-color: #1e90ff;
 	}
-	.labelhover:focus {
+	
+	input:hover ~ label, label:focus {
 		background: #6A5ACD;
+	}
+		
 	}
 	.activebtnsd {
 		background-color: #ff6347;
