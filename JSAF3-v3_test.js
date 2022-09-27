@@ -3641,16 +3641,53 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         audio.play()
     }
 
-    document.getElementById('setteststd').onclick = function () {
+    document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
         if (document.getElementById('test_std').value != '') {
             localStorage.setItem('test_stud', document.getElementById('test_std').value);
         } else console.log("Ведите ID тестового ученика")
     }
-    document.getElementById('settestteach').onclick = function () {
+	
+    document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
         if (document.getElementById('test_teach').value != '') {
             localStorage.setItem('test_teach', document.getElementById('test_teach').value);
         } else console.log("Ведите ID тестового преподавателя")
     }
+	
+	function getLocalstorageToFile(fileName) { 
+  
+		  /* dump local storage to string */
+		  
+		  var a = {};
+		  for (var i = 0; i < localStorage.length; i++) {
+			var k = localStorage.key(i);
+			var v = localStorage.getItem(k);
+			a[k] = v;
+		  }
+		  
+		  /* save as blob */
+		  
+		  var textToSave = JSON.stringify(a)
+		  var textToSaveAsBlob = new Blob([textToSave], {
+			type: "application/json"
+		  });
+		  var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+		  
+		  /* download without button hack */
+		  
+		  var downloadLink = document.createElement("a");
+		  downloadLink.download = fileName;
+		  downloadLink.innerHTML = "Download File";
+		  downloadLink.href = textToSaveAsURL;
+		  downloadLink.onclick = function () {
+			document.body.removeChild(event.target);
+		  };
+		  downloadLink.style.display = "none";
+		  document.body.appendChild(downloadLink);
+		  downloadLink.click();
+		  
+		}
+	
+	document.getElementById('savesettingstofile').onclick = getLocalstorageToFile('settings-af') // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
