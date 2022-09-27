@@ -3687,7 +3687,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		  
 		}
 	
-	document.getElementById('savesettingstofile').onclick = getLocalstorageToFile('settings-af') // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+	document.getElementById('savesettingstofile').onclick = function() {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+		getLocalstorageToFile('settings-af')
+	} 
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
