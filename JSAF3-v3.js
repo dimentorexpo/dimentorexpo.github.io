@@ -514,9 +514,13 @@ var win_AFhelper =  // описание элементов главного ок
                     <label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
 					<br>
 				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="color: lightgreen; margin-top: 5px">💾</button>
+				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="color: lightgreen; margin-top: 5px">💾</button>
+				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
+				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
+				<input type="file" id="fileinput" title="Загружает все настройки в localstorage из ранее сохраненного файла настроек в формте .json" style="display:none;">
+				<label style="color: #e5ece6; background: #768d87; padding: 5px; border-radius: 5px; border: 1px solid #566963;" for="fileinput">⤵ Загрузить настройки</label>
+
 			</div>
 		</div>
 	</span>
@@ -3637,16 +3641,84 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         audio.play()
     }
 
-    document.getElementById('setteststd').onclick = function () {
+    document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
         if (document.getElementById('test_std').value != '') {
             localStorage.setItem('test_stud', document.getElementById('test_std').value);
         } else console.log("Ведите ID тестового ученика")
     }
-    document.getElementById('settestteach').onclick = function () {
+	
+    document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
         if (document.getElementById('test_teach').value != '') {
             localStorage.setItem('test_teach', document.getElementById('test_teach').value);
         } else console.log("Ведите ID тестового преподавателя")
     }
+	
+	function getLocalstorageToFile(fileName) { 
+  
+		  /* dump local storage to string */
+		  
+		  var a = {};
+		  for (var i = 0; i < localStorage.length; i++) {
+			var k = localStorage.key(i);
+			var v = localStorage.getItem(k);
+			a[k] = v;
+		  }
+		  
+		  /* save as blob */
+		  
+		  var textToSave = JSON.stringify(a)
+		  var textToSaveAsBlob = new Blob([textToSave], {
+			type: "application/json"
+		  });
+		  var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+		  
+		  /* download without button hack */
+		  
+		  var downloadLink = document.createElement("a");
+		  downloadLink.download = fileName;
+		  downloadLink.innerHTML = "Download File";
+		  downloadLink.href = textToSaveAsURL;
+		  downloadLink.onclick = function () {
+			document.body.removeChild(event.target);
+		  };
+		  downloadLink.style.display = "none";
+		  document.body.appendChild(downloadLink);
+		  downloadLink.click();
+		  
+		}
+	
+	document.getElementById('savesettingstofile').onclick = function() {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+		getLocalstorageToFile('settings-af')
+	} 
+	
+	document.getElementById('fileinput').onclick = function() { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+		let fileInput = document.getElementById('fileinput');
+        let jsonparsed;
+
+		fileInput.addEventListener('change', function(e) {
+			let file = fileInput.files[0];
+			let textType = /.json/;
+
+			if (file.type.match(textType)) {
+				let reader = new FileReader();
+
+				reader.onload = function(e) {
+					console.log(reader.result)
+                    jsonparsed = JSON.parse(reader.result)
+                    console.log(jsonparsed)
+                    console.log(Object.keys(jsonparsed).length)
+                    for (let i=0; i<Object.keys(jsonparsed).length; i++) {
+                        localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
+                    }
+					alert("Настройки расширения в localstorage загружены успешно!")
+				}
+
+				reader.readAsText(file);	
+			} else {
+				console.log("File not supported!")
+			}
+		});
+	}
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
@@ -5938,7 +6010,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
                         document.getElementById('otkaz').click();
                     }
-                }
+                } else if (this.value == 'smartroom'){ 
+						if (document.getElementById('AF_Smartroomform').style.display == 'none') {
+                        document.getElementById('smartroomform').click();
+						}
+                    }
                 newTaggg(this.value)
             }
         }
