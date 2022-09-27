@@ -37,7 +37,7 @@ function mystyles() {
 	.activebtnsd {
 		background-color: #ff6347;
 	}
-	#loadset:hover {
+	label > #loadset:hover {
 		background: #6A5ACD;
 	}
     .usinfoops{
