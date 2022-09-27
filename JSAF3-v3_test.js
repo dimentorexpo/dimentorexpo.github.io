@@ -3690,6 +3690,35 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 	document.getElementById('savesettingstofile').onclick = function() {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
 		getLocalstorageToFile('settings-af')
 	} 
+	
+	document.getElementById('fileinput').onclick = function() { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+		let fileInput = document.getElementById('fileinput');
+        let jsonparsed;
+
+		fileInput.addEventListener('change', function(e) {
+			let file = fileInput.files[0];
+			let textType = /.json/;
+
+			if (file.type.match(textType)) {
+				let reader = new FileReader();
+
+				reader.onload = function(e) {
+					console.log(reader.result)
+                    jsonparsed = JSON.parse(reader.result)
+                    console.log(jsonparsed)
+                    console.log(Object.keys(jsonparsed).length)
+                    for (let i=0; i<Object.keys(jsonparsed).length; i++) {
+                        localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
+                    }
+					alert("Настройки расширения в localstorage загружены успешно!")
+				}
+
+				reader.readAsText(file);	
+			} else {
+				console.log("File not supported!")
+			}
+		});
+	}
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
