@@ -31,7 +31,7 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
-	.btn-hover {
+	.btn-hover:hover {
 		background: #6A5ACD;
 	}
 	.activebtn {
