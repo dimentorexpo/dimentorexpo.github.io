@@ -12311,13 +12311,13 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                                 text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-                            text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | удален (проверить CRM на предмет отпуска) | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('textarea');
                         document.getElementById('statustable').append(tempor);
                         //tempor.setAttribute('type', 'text');
-                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px; height:44px;');
+                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:47px;');
                         tempor.setAttribute('wrap','soft');
                         tempor.value = text;
                         //    console.log(text);
@@ -12336,13 +12336,13 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                                 text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-                            text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | удален (проверить CRM на предмет отпуска) | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('textarea');
                         document.getElementById('statustable').append(tempor);
                         // tempor.setAttribute('type', 'text');
-                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px; height:44px;');
+                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:47px;');
                         tempor.setAttribute('wrap','soft');
                         tempor.value = text;
                     }
