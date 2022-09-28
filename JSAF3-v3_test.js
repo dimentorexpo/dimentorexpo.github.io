@@ -6945,6 +6945,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('JQLquery').innerText = defqueryitem;
             let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
             let customquery = '';
+            let iosbugsqueryitem = '';
+            let androidbugsqueryitem = '';
 
             let jiratkn;
 
@@ -7005,8 +7007,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
 			
 			document.getElementById('getiosbugs').onclick = function() {
-				defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "ios" ORDER BY updated`
-                document.getElementById('JQLquery').value = defqueryitem;
 				document.getElementById('testJira').value = "ios"
                 this.classList.toggle('active-query')
 				document.getElementById('getandroidbugs').classList.remove('active-query')
@@ -7022,8 +7022,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}	
 
 			document.getElementById('getandroidbugs').onclick = function() {
-				defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "android" ORDER BY updated`
-                document.getElementById('JQLquery').value = defqueryitem;
 				document.getElementById('testJira').value = "android"
                 this.classList.toggle('active-query')
 				document.getElementById('getiosbugs').classList.remove('active-query')
@@ -7334,9 +7332,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "credentials": "include"
                }`
                 } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
-                    frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "ios" ORDER BY Created`
-                    document.getElementById('JQLquery').value = frqueryitem;
-                    frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+                    iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "ios" ORDER BY Created`
+                    document.getElementById('JQLquery').value = iosbugsqueryitem;
+                    iosbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
                     document.getElementById('responseTextarea1').value = `{
                      "headers": {
@@ -7347,15 +7345,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                        "x-atlassian-token": "no-check",
                        "x-requested-with": "XMLHttpRequest"
                      },
-                     "body": "startIndex=0&filterId=21266&jql=${frqueryitem}&layoutKey=list-view",
+                     "body": "startIndex=0&filterId=21266&jql=${iosbugsqueryitem}&layoutKey=list-view",
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
                }`
                 } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
-                    frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "android" ORDER BY Created`
-                    document.getElementById('JQLquery').value = frqueryitem;
-                    frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+                    androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "android" ORDER BY Created`
+                    document.getElementById('JQLquery').value = androidbugsqueryitem;
+                    androidbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
                     document.getElementById('responseTextarea1').value = `{
                      "headers": {
@@ -7366,7 +7364,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                        "x-atlassian-token": "no-check",
                        "x-requested-with": "XMLHttpRequest"
                      },
-                     "body": "startIndex=0&filterId=21266&jql=${frqueryitem}&layoutKey=list-view",
+                     "body": "startIndex=0&filterId=21266&jql=${androidbugsqueryitem}&layoutKey=list-view",
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
