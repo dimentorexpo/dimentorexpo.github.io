@@ -943,7 +943,7 @@ var win_Jira =  // описание элементов окна Поиска п�
                         </div>
 
 						<div id="control_jira_search">
-							<button id="defaultQuery" title="Страница для поиска по умолчанию с заранее записанным JQL запросом" class="active-query" style="margin-left: 35%;">Default</button>
+							<button id="defaultQuery" title="Страница для поиска по умолчанию с заранее записанным JQL запросом" class="active-query" style="margin-left: 25%;">Default</button>
 							<button id="freshQuery" title="Страница при поиске по ключевому слову, выводящая свежесозданные баги в порядке убывания и с 0 Support Tab с заранее записанным JQL запросом">Fresh</button>
 							<button id="customQuery" title="Страница для ручного составления JQL запроса. Поле для ввода поиска не используется, только лишь верхняя часть от выбора отдела до ввода искомого текста в двойных кавычках после надписи text~">Custom</button>
 							<button id="getiosbugs" title="По клику сразу ищет баги по iOS как если бы выискали стандартно с вводом текста поиска iOS">iOS</button>
@@ -7000,6 +7000,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('getJiraTasks').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
             }
+			
+			document.getElementById('getiosbugs').onclick = function() {
+				defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "ios" ORDER BY updated`
+                document.getElementById('JQLquery').value = defqueryitem;
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
+			}	
+
+			document.getElementById('getandroidbugs').onclick = function() {
+				defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "android" ORDER BY updated`
+                document.getElementById('JQLquery').value = defqueryitem;
+                this.classList.toggle('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
+			}
 
             document.getElementById('freshQuery').onclick = function () {
                 frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
