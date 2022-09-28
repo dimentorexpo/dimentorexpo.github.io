@@ -6992,6 +6992,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
                 this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -7005,6 +7007,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "ios" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
                 this.classList.toggle('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
+				document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -7018,6 +7022,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "android" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
                 this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -7031,6 +7037,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = frqueryitem;
                 this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -7046,6 +7054,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }
                 document.getElementById('JQLquery').value = localStorage.getItem('customquery');
                 this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -7059,6 +7069,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if(document.getElementById('favouriteissuetable').style.display != "") {
 					document.getElementById('issuetable').style.display="none"
 					document.getElementById('favouriteissuetable').style.display=""
+					document.getElementById('getiosbugs').classList.remove('active-query')
+					document.getElementById('getandroidbugs').classList.remove('active-query')
 					document.getElementById('testJira').style.display="none"
 					document.getElementById('getJiraTasks').style.display="none"
 				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
