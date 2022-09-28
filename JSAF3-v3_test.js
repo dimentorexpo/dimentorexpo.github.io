@@ -12314,11 +12314,11 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                             text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
-                        let tempor = document.createElement('input');
+                        let tempor = document.createElement('div');
                         document.getElementById('statustable').append(tempor);
-                        tempor.setAttribute('type', 'text');
+                        // tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px;');
-                        tempor.value = text;
+                        tempor.innerHTML = text;
                         //    console.log(text);
                     } else if (document.getElementById('idstudentforsearch').value == "") {
                         let text = 'У: ' + arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
@@ -12338,11 +12338,11 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                             text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
-                        let tempor = document.createElement('input');
+                        let tempor = document.createElement('div');
                         document.getElementById('statustable').append(tempor);
-                        tempor.setAttribute('type', 'text');
+                        // tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px;');
-                        tempor.value = text;
+                        tempor.innerHTML = text;
                     }
                 }
             } else {
