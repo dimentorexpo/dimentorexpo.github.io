@@ -12303,12 +12303,12 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
                             text = text + ' | услуга : ' + arregetted[0].result[0].classes[i].educationServiceId;
-                            text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                            text = text + ' | статус: ' + '<span style="color:green;">' + arregetted[0].result[0].classes[i].classStatus.status + '</span>';
                             text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                             text = text + ' | кем: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
                             text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
                             if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                text = text + '\nкомментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
                             text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
@@ -12327,12 +12327,12 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
                             text = text + ' | услуга : ' + arregetted[0].result[0].classes[i].educationServiceId;
-                            text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                            text = text + ' | статус: ' + '<span style="color:green;">' + arregetted[0].result[0].classes[i].classStatus.status + '</span>';
                             text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                             text = text + ' | кем: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
                             text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
                             if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                text = text + '\nкомментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
                             text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
