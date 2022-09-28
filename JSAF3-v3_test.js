@@ -12303,22 +12303,22 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
                             text = text + ' | услуга : ' + arregetted[0].result[0].classes[i].educationServiceId;
-                            text = text + ' | статус: ' + '<span style="color:green;">' + arregetted[0].result[0].classes[i].classStatus.status + '</span>';
+                            text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
                             text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                             text = text + ' | кем: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
                             text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
                             if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                text = text + '\nкомментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
                             text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
-                        let tempor = document.createElement('div');
+                        let tempor = document.createElement('input');
                         document.getElementById('statustable').append(tempor);
-                        // tempor.setAttribute('type', 'text');
+                        tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px;');
-                        tempor.innerHTML = text;
+                        tempor.value = text;
                         //    console.log(text);
                     } else if (document.getElementById('idstudentforsearch').value == "") {
                         let text = 'У: ' + arregetted[0].result[0].classes[i].studentId + ' | ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
@@ -12327,22 +12327,22 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
                             text = text + ' | услуга : ' + arregetted[0].result[0].classes[i].educationServiceId;
-                            text = text + ' | статус: ' + '<span style="color:green;">' + arregetted[0].result[0].classes[i].classStatus.status + '</span>';
+                            text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
                             text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                             text = text + ' | кем: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
                             text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
                             if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                text = text + '\nкомментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
                             text = text + ' | удален | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
-                        let tempor = document.createElement('div');
+                        let tempor = document.createElement('input');
                         document.getElementById('statustable').append(tempor);
-                        // tempor.setAttribute('type', 'text');
+                        tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px;');
-                        tempor.innerHTML = text;
+                        tempor.value = text;
                     }
                 }
             } else {
