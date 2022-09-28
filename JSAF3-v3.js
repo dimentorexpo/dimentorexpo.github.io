@@ -943,9 +943,11 @@ var win_Jira =  // описание элементов окна Поиска п�
                         </div>
 
 						<div id="control_jira_search">
-							<button id="defaultQuery" title="Страница для поиска по умолчанию с заранее записанным JQL запросом" class="active-query" style="margin-left: 35%;">Default</button>
-							<button id="freshQuery" title="Страница при поиске по ключевому слову, выводящая свежесозданные баги в порядке убывания и с 0 Support Tab с заранее записанным JQL запросом">Fresh</button>
-							<button id="customQuery" title="Страница для ручного составления JQL запроса. Поле для ввода поиска не используется, только лишь верхняя часть от выбора отдела до ввода искомого текста в двойных кавычках после надписи text~">Custom</button>
+							<button id="defaultQuery" title="Страница для поиска по умолчанию с заранее записанным JQL запросом" class="active-query" style="margin-left: 17%;">📇Default</button>
+							<button id="freshQuery" title="Страница при поиске по ключевому слову, выводящая свежесозданные баги в порядке убывания и с 0 Support Tab с заранее записанным JQL запросом">🍀Fresh</button>
+							<button id="customQuery" title="Страница для ручного составления JQL запроса. Поле для ввода поиска не используется, только лишь верхняя часть от выбора отдела до ввода искомого текста в двойных кавычках после надписи text~">📝Custom</button>
+							<button id="getiosbugs" title="По клику сразу ищет баги по iOS как если бы выискали стандартно с вводом текста поиска iOS">🍏iOS</button>
+							<button id="getandroidbugs" title="По клику сразу ищет баги по iOS как если бы выискали стандартно с вводом текста поиска Android">🤖Android</button>
 							<button id="favouriteBugs" title="Страница с сохраненными багами для быстрого доступа">❤</button>
 							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 500px; color: black; margin-top: 5px; margin-left: 5%;"></textarea>
 							<input id="testJira" placeholder="Jira Tasks Bar" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
@@ -6943,6 +6945,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('JQLquery').innerText = defqueryitem;
             let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
             let customquery = '';
+            let iosbugsqueryitem = '';
+            let androidbugsqueryitem = '';
 
             let jiratkn;
 
@@ -6989,7 +6993,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('defaultQuery').onclick = function () {
                 defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
+				document.getElementById('testJira').value = ""
                 this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -6998,11 +7005,44 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('getJiraTasks').style.display=""
 				document.getElementById('favouriteissuetable').style.display="none"
             }
+			
+			document.getElementById('getiosbugs').onclick = function() {
+				document.getElementById('testJira').value = "ios"
+                this.classList.toggle('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
+				document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
+				document.getElementById('getJiraTasks').click()
+			}	
+
+			document.getElementById('getandroidbugs').onclick = function() {
+				document.getElementById('testJira').value = "android"
+                this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+				document.getElementById('issuetable').style.display=""
+				document.getElementById('testJira').style.display=""
+				document.getElementById('getJiraTasks').style.display=""
+				document.getElementById('favouriteissuetable').style.display="none"
+				document.getElementById('getJiraTasks').click()
+			}
 
             document.getElementById('freshQuery').onclick = function () {
                 frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = frqueryitem;
+				document.getElementById('testJira').value = ""
                 this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -7017,7 +7057,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     localStorage.setItem('customquery', this.value)
                 }
                 document.getElementById('JQLquery').value = localStorage.getItem('customquery');
+				document.getElementById('testJira').value = ""
                 this.classList.toggle('active-query')
+				document.getElementById('getiosbugs').classList.remove('active-query')
+				document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
@@ -7031,6 +7074,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				if(document.getElementById('favouriteissuetable').style.display != "") {
 					document.getElementById('issuetable').style.display="none"
 					document.getElementById('favouriteissuetable').style.display=""
+					document.getElementById('getiosbugs').classList.remove('active-query')
+					document.getElementById('getandroidbugs').classList.remove('active-query')
 					document.getElementById('testJira').style.display="none"
 					document.getElementById('getJiraTasks').style.display="none"
 				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
@@ -7282,6 +7327,44 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                        "x-requested-with": "XMLHttpRequest"
                      },
                      "body": "startIndex=0&filterId=21266&jql=${customquery}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
+                } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
+                    iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                    document.getElementById('JQLquery').value = iosbugsqueryitem;
+                    iosbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+
+                    document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${iosbugsqueryitem}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+               }`
+                } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
+                    androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                    document.getElementById('JQLquery').value = androidbugsqueryitem;
+                    androidbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+
+                    document.getElementById('responseTextarea1').value = `{
+                     "headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${androidbugsqueryitem}&layoutKey=list-view",
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
