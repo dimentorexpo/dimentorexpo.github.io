@@ -12313,7 +12313,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                                 text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-                            text = text + ' | удален (проверить CRM на отпуск или удаление оператором):' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;  
+                            text = text + ' | удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;  
 							text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
@@ -12340,7 +12340,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                                 text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-                            text = text + ' | удален (проверить CRM на отпуск или удаление оператором):' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;  
+                            text = text + ' | удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;  
 							text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
