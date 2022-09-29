@@ -1428,13 +1428,13 @@ var win_serviceinfo =  // описание элементов окна инфо�
 </div>`;
 
 var win_LessonStatus =  // описание элементов окна статуса уроков
-    `<div style="display: flex; width: 700px;">
-        <span style="width: 700px">
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 700;" id="lessomstatdata">
+                        <div style="margin: 5px; width: 550px;" id="lessomstatdata">
                                 <button id="hideMeLessonStatus" style="width:50px; background: #228B22;">hide</button>
                         </div>
-						 <div style="margin: 5px; width: 700px" id="databox">
+						 <div style="margin: 5px; width: 550px" id="databox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartDataLS" id="dateFromLS"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="EndDataLS" id="dateToLS"</span>
                         </div>
@@ -12317,7 +12317,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                         let tempor = document.createElement('textarea');
                         document.getElementById('statustable').append(tempor);
                         //tempor.setAttribute('type', 'text');
-                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:47px;');
+                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
                         tempor.setAttribute('wrap','soft');
                         tempor.value = text;
                         //    console.log(text);
@@ -12342,7 +12342,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                         let tempor = document.createElement('textarea');
                         document.getElementById('statustable').append(tempor);
                         // tempor.setAttribute('type', 'text');
-                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:47px;');
+                        tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
                         tempor.setAttribute('wrap','soft');
                         tempor.value = text;
                     }
