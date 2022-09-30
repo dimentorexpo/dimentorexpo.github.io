@@ -12251,7 +12251,7 @@ let arregetted;
 document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
-        document.querySelector('#statustable').innerText = "";
+        document.querySelector('#statustable').innerText = "Загрузка...";
         let time_t = new Date();
         let ticherid = document.getElementById('idteacherforsearch').value;
         let uchenikid = document.getElementById('idstudentforsearch').value;
