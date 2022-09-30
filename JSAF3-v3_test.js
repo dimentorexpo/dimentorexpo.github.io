@@ -342,14 +342,14 @@ function mystyles() {
 			color: SteelBlue;
 			font-weight: 600;
 		}
-		
+
 		.catsmartroom {
 			margin-left: 5px;
 			color: bisque;
 			font-size: 16px;
 			transition: all 0.5s ease;
 		}
-		
+
 		.catsmartroom:hover {
 			font-size:18px;
 			color: SteelBlue;
@@ -677,9 +677,9 @@ var win_smartroomform =  // описание элементов окна Мул�
                             <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearsmartroomform" style="width:24px;">🧹</button>
 							<button title="Инструкция по этой форме" id="smartroomforminstr" style="float:right">❓</button>
                         </div>
-						
+
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="smartroom_form_menu">
-						
+
 							<label style="color:#c4ffd3; padding:5px; font-weight: 600;">Тип клиента</label>
 							<br>
 							<div style="margin-top:5px; color:bisque;" id = "smartroomuser">
@@ -2079,38 +2079,38 @@ var win_servicedesk = // описание элементов окна Service De
 let audio
 
 // Блок горячих клавиш
-document.onkeydown = function (event) { 
-    if (event.altKey && event.code == 'KeyO')  { // горячие клавиши для смены статуса в Оффлайн
-			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+document.onkeydown = function (event) {
+    if (event.altKey && event.code == 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
+        fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 
-			"headers": {
-			"content-type": "application/json",
-			},
+            "headers": {
+                "content-type": "application/json",
+            },
 
-			"referrer": "https://skyeng.autofaq.ai/tickets/archive",
-			"referrerPolicy": "strict-origin-when-cross-origin",
-			"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Offline\",\"source\":\"Operator\"}",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-			});
-			console.log("Status changed to Offline")
-	} else if (event.altKey && event.code == 'KeyI')  { // горячие клавиши для смены статуса в Занят
-			fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Offline\",\"source\":\"Operator\"}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        console.log("Status changed to Offline")
+    } else if (event.altKey && event.code == 'KeyI') { // горячие клавиши для смены статуса в Занят
+        fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 
-			"headers": {
-			"content-type": "application/json",
-			},
+            "headers": {
+                "content-type": "application/json",
+            },
 
-			"referrer": "https://skyeng.autofaq.ai/tickets/archive",
-			"referrerPolicy": "strict-origin-when-cross-origin",
-			"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-			});
-			console.log("Status changed to Busy")
-	}
+            "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        console.log("Status changed to Busy")
+    }
 }
 
 // Конец блока горячих клавиш
@@ -2331,16 +2331,16 @@ function changesoundaddr() {
     if (objSoundList.length > 1) {
         for (let i = 1; i < objSoundList.length; i++) {
             if (objSoundList[i].selected == true) {
-                if (objSoundList[i].value == "othersound"){
+                if (objSoundList[i].value == "othersound") {
                     document.getElementById('sound_adr').style.display = ''
                     document.getElementById('sound_save').style.display = ''
                 } else {
                     document.getElementById('sound_adr').style.display = 'none'
                     document.getElementById('sound_save').style.display = 'none'
                     document.getElementById('sound_adr').value = ""
-                console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
-                localStorage.setItem('sound_str', objSoundList[i].value)
-                audio = new Audio(localStorage.getItem('sound_str'))
+                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
+                    localStorage.setItem('sound_str', objSoundList[i].value)
+                    audio = new Audio(localStorage.getItem('sound_str'))
                 }
             }
         }
@@ -3558,7 +3558,7 @@ document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // ск�
     if (checkelementtype(a)) { document.getElementById('AF_Refuseformnew').style.display = 'none'; }
 }
 document.getElementById('AF_Smartroomform').ondblclick = function (a) { // скрытие окна Мультирум пожелания/баги от помощи по двойному клику
-    if (checkelementtype(a)) {document.getElementById('AF_Smartroomform').style.display = 'none'; }
+    if (checkelementtype(a)) { document.getElementById('AF_Smartroomform').style.display = 'none'; }
 }
 document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
     if (checkelementtype(a)) { document.getElementById('AF_Marks').style.display = 'none'; }
@@ -3583,11 +3583,11 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)) {
         // if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null &&
-		if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
+        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
             document.getElementById('testid').style.display = 'none';
             document.getElementById('idlogin').style.display = 'none';
             localStorage.setItem('Hidetestid', '0');
-			
+
         }
         else {
             document.getElementById('testid').style.display = '';
@@ -3648,79 +3648,79 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             localStorage.setItem('test_stud', document.getElementById('test_std').value);
         } else console.log("Ведите ID тестового ученика")
     }
-	
+
     document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
         if (document.getElementById('test_teach').value != '') {
             localStorage.setItem('test_teach', document.getElementById('test_teach').value);
         } else console.log("Ведите ID тестового преподавателя")
     }
-	
-	function getLocalstorageToFile(fileName) { 
-  
-		  /* dump local storage to string */
-		  
-		  var a = {};
-		  for (var i = 0; i < localStorage.length; i++) {
-			var k = localStorage.key(i);
-			var v = localStorage.getItem(k);
-			a[k] = v;
-		  }
-		  
-		  /* save as blob */
-		  
-		  var textToSave = JSON.stringify(a)
-		  var textToSaveAsBlob = new Blob([textToSave], {
-			type: "application/json"
-		  });
-		  var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-		  
-		  /* download without button hack */
-		  
-		  var downloadLink = document.createElement("a");
-		  downloadLink.download = fileName;
-		  downloadLink.innerHTML = "Download File";
-		  downloadLink.href = textToSaveAsURL;
-		  downloadLink.onclick = function () {
-			document.body.removeChild(event.target);
-		  };
-		  downloadLink.style.display = "none";
-		  document.body.appendChild(downloadLink);
-		  downloadLink.click();
-		  
-		}
-	
-	document.getElementById('savesettingstofile').onclick = function() {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
-		getLocalstorageToFile('settings-af')
-	} 
-	
-	document.getElementById('fileinput').onclick = function() { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
-		let fileInput = document.getElementById('fileinput');
+
+    function getLocalstorageToFile(fileName) {
+
+        /* dump local storage to string */
+
+        var a = {};
+        for (var i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i);
+            var v = localStorage.getItem(k);
+            a[k] = v;
+        }
+
+        /* save as blob */
+
+        var textToSave = JSON.stringify(a)
+        var textToSaveAsBlob = new Blob([textToSave], {
+            type: "application/json"
+        });
+        var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+
+        /* download without button hack */
+
+        var downloadLink = document.createElement("a");
+        downloadLink.download = fileName;
+        downloadLink.innerHTML = "Download File";
+        downloadLink.href = textToSaveAsURL;
+        downloadLink.onclick = function () {
+            document.body.removeChild(event.target);
+        };
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+    }
+
+    document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+        getLocalstorageToFile('settings-af')
+    }
+
+    document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+        let fileInput = document.getElementById('fileinput');
         let jsonparsed;
 
-		fileInput.addEventListener('change', function(e) {
-			let file = fileInput.files[0];
-			let textType = /.json/;
+        fileInput.addEventListener('change', function (e) {
+            let file = fileInput.files[0];
+            let textType = /.json/;
 
-			if (file.type.match(textType)) {
-				let reader = new FileReader();
+            if (file.type.match(textType)) {
+                let reader = new FileReader();
 
-				reader.onload = function(e) {
-					console.log(reader.result)
+                reader.onload = function (e) {
+                    console.log(reader.result)
                     jsonparsed = JSON.parse(reader.result)
                     console.log(jsonparsed)
                     console.log(Object.keys(jsonparsed).length)
-                    for (let i=0; i<Object.keys(jsonparsed).length; i++) {
+                    for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
                         localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
                     }
-					alert("Настройки расширения в localstorage загружены успешно!")
-				}
+                    alert("Настройки расширения в localstorage загружены успешно!")
+                }
 
-				reader.readAsText(file);	
-			} else {
-				console.log("File not supported!")
-			}
-		});
-	}
+                reader.readAsText(file);
+            } else {
+                console.log("File not supported!")
+            }
+        });
+    }
 
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
@@ -5600,11 +5600,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     } else {
         prepTp()
     }
-	
-	document.getElementById('suggestinstr').onclick = function() {
-		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-suggestionform%F0%9F%93%9D%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F')
-	}
-	
+
+    document.getElementById('suggestinstr').onclick = function () {
+        window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-suggestionform%F0%9F%93%9D%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F')
+    }
+
     document.getElementById('hideMeSugForm').onclick = () => { //форма hide
         if (document.getElementById('AF_Sugform').style.display == '')
             document.getElementById('AF_Sugform').style.display = 'none'
@@ -5657,10 +5657,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
-	
-	document.getElementById('ServiceDeskinstr').onclick = function() {
-		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
-	}
+
+    document.getElementById('ServiceDeskinstr').onclick = function () {
+        window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
+    }
 
     document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
         if (document.getElementById('AF_ServDsk').style.display == '') {
@@ -5809,9 +5809,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let objSoundList = document.getElementById('soundlistaddr')
             let flagsound;
-            if (objSoundList.length < 3){
+            if (objSoundList.length < 3) {
                 function addOption(oListbox, text, value)  //функция добавления опции в список
-                 {
+                {
                     var oOption = document.createElement("option");
                     oOption.appendChild(document.createTextNode(text));
                     oOption.setAttribute("value", value);
@@ -5819,7 +5819,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     oListbox.appendChild(oOption);
                 }
             }
-            
+
             for (let i = 0; i < table.length; i++) {
                 if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
                     flagsound = [i + 1]
@@ -5837,11 +5837,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }
             }
 
-            if (objSoundList.children[0].selected){
+            if (objSoundList.children[0].selected) {
                 objSoundList.children[1].selected = true
                 document.getElementById('sound_adr').style.display = ''
                 document.getElementById('sound_save').style.display = ''
-                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')              
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
             }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
@@ -6008,69 +6008,69 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         for (let j = 0; j < document.getElementsByName('tagssbtn').length; j++) {
             document.getElementsByName('tagssbtn')[j].onclick = function () {
-				if(this.value == 'refusal_of_help'){
-                    if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+                if (this.value == 'refusal_of_help') {
+                    if (document.getElementById('AF_Refuseformnew').style.display == 'none') {
                         document.getElementById('otkaz').click();
                     }
-                } else if (this.value == 'smartroom'){ 
-						if (document.getElementById('AF_Smartroomform').style.display == 'none') {
+                } else if (this.value == 'smartroom') {
+                    if (document.getElementById('AF_Smartroomform').style.display == 'none') {
                         document.getElementById('smartroomform').click();
-						}
                     }
+                }
                 newTaggg(this.value)
             }
         }
-		
-		document.getElementById('ClearSmartroomData').onclick = function () {
-			let allcheckboxtags = document.getElementsByName('tagcheck')	
-                for (let i=0; i<allcheckboxtags.length;i++) { 
-                  if (allcheckboxtags[i].checked) {
-                    allcheckboxtags[i].checked = false;
-                  }
-                }
-            }
-		
-		document.getElementById('multitag').onclick = function() {
-			let allcheckboxtags = document.getElementsByName('tagcheck')
-			let alltagsbtns = document.getElementsByName('tagssbtn')
-			let tagsvaluesarr = [];
-			    let chatId = ''
-				if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
-					chatId = document.location.pathname.split('/')[3]
-				else
-					chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-				
-			for (let i=0; i<allcheckboxtags.length;i++) {
-				if (allcheckboxtags[i].checked) {
-					tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
-                    if (allcheckboxtags[i].value == 'refusal_of_help' && document.getElementById('AF_Refuseformnew').style.display == 'none'){
-                        document.getElementById('otkaz').click()
-                    }
-                    if (allcheckboxtags[i].value == 'smartroom' && document.getElementById('AF_Smartroomform').style.display == 'none'){
-                        document.getElementById('smartroomform').click()
-                    }
-				}
-			}
-			if (tagsvaluesarr.length>0) {
-					tagsvaluesarr = tagsvaluesarr.join(',')
-					console.log("tagsvaluesarr: " + tagsvaluesarr)
-					
-			fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[" + tagsvaluesarr + "]}]}",
-            "method": "POST",
-            "credentials": "include"
-			});
 
-            for (let i=0; i<allcheckboxtags.length;i++) { 
+        document.getElementById('ClearSmartroomData').onclick = function () {
+            let allcheckboxtags = document.getElementsByName('tagcheck')
+            for (let i = 0; i < allcheckboxtags.length; i++) {
                 if (allcheckboxtags[i].checked) {
                     allcheckboxtags[i].checked = false;
                 }
             }
-			} else alert("Не выбраны чекбоксы, выберите, пожалуйста, 1 или несколько и повторите попытку")
-		}
+        }
+
+        document.getElementById('multitag').onclick = function () {
+            let allcheckboxtags = document.getElementsByName('tagcheck')
+            let alltagsbtns = document.getElementsByName('tagssbtn')
+            let tagsvaluesarr = [];
+            let chatId = ''
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+                chatId = document.location.pathname.split('/')[3]
+            else
+                chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+
+            for (let i = 0; i < allcheckboxtags.length; i++) {
+                if (allcheckboxtags[i].checked) {
+                    tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
+                    if (allcheckboxtags[i].value == 'refusal_of_help' && document.getElementById('AF_Refuseformnew').style.display == 'none') {
+                        document.getElementById('otkaz').click()
+                    }
+                    if (allcheckboxtags[i].value == 'smartroom' && document.getElementById('AF_Smartroomform').style.display == 'none') {
+                        document.getElementById('smartroomform').click()
+                    }
+                }
+            }
+            if (tagsvaluesarr.length > 0) {
+                tagsvaluesarr = tagsvaluesarr.join(',')
+                console.log("tagsvaluesarr: " + tagsvaluesarr)
+
+                fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+                    "headers": {
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[" + tagsvaluesarr + "]}]}",
+                    "method": "POST",
+                    "credentials": "include"
+                });
+
+                for (let i = 0; i < allcheckboxtags.length; i++) {
+                    if (allcheckboxtags[i].checked) {
+                        allcheckboxtags[i].checked = false;
+                    }
+                }
+            } else alert("Не выбраны чекбоксы, выберите, пожалуйста, 1 или несколько и повторите попытку")
+        }
 
 
         document.getElementById('vimcall').onclick = function () {
@@ -6255,9 +6255,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_ChatHis').style.display = 'none'
         else
             document.getElementById('AF_ChatHis').style.display = ''
-		if (document.getElementById('idmymenu') != null && document.getElementById('idmymenu').style.display ==''){
-			document.getElementById('idmymenu').style.display = 'none'
-		}
+        if (document.getElementById('idmymenu') != null && document.getElementById('idmymenu').style.display == '') {
+            document.getElementById('idmymenu').style.display = 'none'
+        }
 
         changeviewtheme()
 
@@ -6535,10 +6535,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         } // конец обработки функции нажатия "Вернуться"
 
-		document.getElementById('chhisinstr').onclick = function() {
-			window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-chathistory%F0%9F%92%ACChatHistory')
-		}
-		
+        document.getElementById('chhisinstr').onclick = function () {
+            window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-chathistory%F0%9F%92%ACChatHistory')
+        }
+
         document.getElementById('refreshchat').onclick = async () => { // функция обработки нажатия кнопки "обновить"
             if (document.getElementById('placechatid').innerText != '') {
                 document.getElementById('infofield').innerHTML = '';
@@ -6983,73 +6983,73 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('issuetable').innerText = ''
             }
 
-			document.getElementById('jirainstr').onclick = function() {
-				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-jirasearch%F0%9F%94%8EJiraSearch')
-			}
-			
+            document.getElementById('jirainstr').onclick = function () {
+                window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-jirasearch%F0%9F%94%8EJiraSearch')
+            }
+
             document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
-			let favissues = [];
+            let favissues = [];
 
             document.getElementById('defaultQuery').onclick = function () {
                 defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
-				document.getElementById('testJira').value = ""
+                document.getElementById('testJira').value = ""
                 this.classList.toggle('active-query')
-				document.getElementById('getiosbugs').classList.remove('active-query')
-				document.getElementById('getandroidbugs').classList.remove('active-query')
+                document.getElementById('getiosbugs').classList.remove('active-query')
+                document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
-				document.getElementById('issuetable').style.display=""
-				document.getElementById('testJira').style.display=""
-				document.getElementById('getJiraTasks').style.display=""
-				document.getElementById('favouriteissuetable').style.display="none"
+                document.getElementById('issuetable').style.display = ""
+                document.getElementById('testJira').style.display = ""
+                document.getElementById('getJiraTasks').style.display = ""
+                document.getElementById('favouriteissuetable').style.display = "none"
             }
-			
-			document.getElementById('getiosbugs').onclick = function() {
-				document.getElementById('testJira').value = "ios"
-                this.classList.toggle('active-query')
-				document.getElementById('getandroidbugs').classList.remove('active-query')
-				document.getElementById('defaultQuery').classList.remove('active-query')
-                document.getElementById('freshQuery').classList.remove('active-query')
-                document.getElementById('customQuery').classList.remove('active-query')
-                document.getElementById('favouriteBugs').classList.remove('active-query')
-				document.getElementById('issuetable').style.display=""
-				document.getElementById('testJira').style.display=""
-				document.getElementById('getJiraTasks').style.display=""
-				document.getElementById('favouriteissuetable').style.display="none"
-				document.getElementById('getJiraTasks').click()
-			}	
 
-			document.getElementById('getandroidbugs').onclick = function() {
-				document.getElementById('testJira').value = "android"
+            document.getElementById('getiosbugs').onclick = function () {
+                document.getElementById('testJira').value = "ios"
                 this.classList.toggle('active-query')
-				document.getElementById('getiosbugs').classList.remove('active-query')
-				document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('getandroidbugs').classList.remove('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
-				document.getElementById('issuetable').style.display=""
-				document.getElementById('testJira').style.display=""
-				document.getElementById('getJiraTasks').style.display=""
-				document.getElementById('favouriteissuetable').style.display="none"
-				document.getElementById('getJiraTasks').click()
-			}
+                document.getElementById('issuetable').style.display = ""
+                document.getElementById('testJira').style.display = ""
+                document.getElementById('getJiraTasks').style.display = ""
+                document.getElementById('favouriteissuetable').style.display = "none"
+                document.getElementById('getJiraTasks').click()
+            }
+
+            document.getElementById('getandroidbugs').onclick = function () {
+                document.getElementById('testJira').value = "android"
+                this.classList.toggle('active-query')
+                document.getElementById('getiosbugs').classList.remove('active-query')
+                document.getElementById('defaultQuery').classList.remove('active-query')
+                document.getElementById('freshQuery').classList.remove('active-query')
+                document.getElementById('customQuery').classList.remove('active-query')
+                document.getElementById('favouriteBugs').classList.remove('active-query')
+                document.getElementById('issuetable').style.display = ""
+                document.getElementById('testJira').style.display = ""
+                document.getElementById('getJiraTasks').style.display = ""
+                document.getElementById('favouriteissuetable').style.display = "none"
+                document.getElementById('getJiraTasks').click()
+            }
 
             document.getElementById('freshQuery').onclick = function () {
                 frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = frqueryitem;
-				document.getElementById('testJira').value = ""
+                document.getElementById('testJira').value = ""
                 this.classList.toggle('active-query')
-				document.getElementById('getiosbugs').classList.remove('active-query')
-				document.getElementById('getandroidbugs').classList.remove('active-query')
+                document.getElementById('getiosbugs').classList.remove('active-query')
+                document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('customQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
-				document.getElementById('issuetable').style.display=""
-				document.getElementById('testJira').style.display=""
-				document.getElementById('getJiraTasks').style.display=""
-				document.getElementById('favouriteissuetable').style.display="none"
+                document.getElementById('issuetable').style.display = ""
+                document.getElementById('testJira').style.display = ""
+                document.getElementById('getJiraTasks').style.display = ""
+                document.getElementById('favouriteissuetable').style.display = "none"
             }
 
             document.getElementById('customQuery').onclick = function () {
@@ -7057,97 +7057,155 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     localStorage.setItem('customquery', this.value)
                 }
                 document.getElementById('JQLquery').value = localStorage.getItem('customquery');
-				document.getElementById('testJira').value = ""
+                document.getElementById('testJira').value = ""
                 this.classList.toggle('active-query')
-				document.getElementById('getiosbugs').classList.remove('active-query')
-				document.getElementById('getandroidbugs').classList.remove('active-query')
+                document.getElementById('getiosbugs').classList.remove('active-query')
+                document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('freshQuery').classList.remove('active-query')
                 document.getElementById('defaultQuery').classList.remove('active-query')
                 document.getElementById('favouriteBugs').classList.remove('active-query')
-				document.getElementById('issuetable').style.display=""
-				document.getElementById('testJira').style.display=""
-				document.getElementById('getJiraTasks').style.display=""
-				document.getElementById('favouriteissuetable').style.display="none"
+                document.getElementById('issuetable').style.display = ""
+                document.getElementById('testJira').style.display = ""
+                document.getElementById('getJiraTasks').style.display = ""
+                document.getElementById('favouriteissuetable').style.display = "none"
             }
 
-			document.getElementById('favouriteBugs').onclick = function() {
-				if(document.getElementById('favouriteissuetable').style.display != "") {
-					document.getElementById('issuetable').style.display="none"
-					document.getElementById('favouriteissuetable').style.display=""
-					document.getElementById('getiosbugs').classList.remove('active-query')
-					document.getElementById('getandroidbugs').classList.remove('active-query')
-					document.getElementById('testJira').style.display="none"
-					document.getElementById('getJiraTasks').style.display="none"
-				if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
-					favissues =  JSON.parse(localStorage.getItem('bugsarray'))
-					document.getElementById('favouriteissuetable').innerHTML = favissues;
-				}
+            document.getElementById('favouriteBugs').onclick = function () {
+                if (document.getElementById('favouriteissuetable').style.display != "") {
+                    document.getElementById('issuetable').style.display = "none"
+                    document.getElementById('favouriteissuetable').style.display = ""
+                    document.getElementById('getiosbugs').classList.remove('active-query')
+                    document.getElementById('getandroidbugs').classList.remove('active-query')
+                    document.getElementById('testJira').style.display = "none"
+                    document.getElementById('getJiraTasks').style.display = "none"
+                    if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
+                        favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                        document.getElementById('favouriteissuetable').innerHTML = favissues;
+                    }
 
-				for (let i = 0; i<document.getElementsByName('removefromfavourites').length; i++) {
-						document.getElementsByName('removefromfavourites')[i].onclick = function () {
-									favissues.splice([i],1)
-									localStorage.setItem('bugsarray', JSON.stringify(favissues))
-									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
-									document.getElementById('favouriteissuetable').innerHTML = favissues;
-									removebug();
-									sndmsgafterdeletebug()
-									plusonecount()
-						}
-				}
+                    for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
+                        document.getElementsByName('removefromfavourites')[i].onclick = function () {
+                            favissues.splice([i], 1)
+                            localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                            favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                            document.getElementById('favouriteissuetable').innerHTML = favissues;
+                            removebug();
+                            sndmsgafterdeletebug()
+                            plusonecount()
+                        }
+                    }
 
-				function removebug() {
-					let arroffavbugs = document.getElementsByName('removefromfavourites');
-					for (let i = 0; i<arroffavbugs.length; i++) {
-						arroffavbugs[i].onclick = function () {
-									favissues.splice([i],1)
-									localStorage.setItem('bugsarray', JSON.stringify(favissues))
-									favissues =  JSON.parse(localStorage.getItem('bugsarray'))
-									document.getElementById('favouriteissuetable').innerHTML = favissues;
-									removebug();
-									sndmsgafterdeletebug()
-									plusonecount()
-						}
-					}
-				}
+                    function removebug() {
+                        let arroffavbugs = document.getElementsByName('removefromfavourites');
+                        for (let i = 0; i < arroffavbugs.length; i++) {
+                            arroffavbugs[i].onclick = function () {
+                                favissues.splice([i], 1)
+                                localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                                document.getElementById('favouriteissuetable').innerHTML = favissues;
+                                removebug();
+                                sndmsgafterdeletebug()
+                                plusonecount()
+                            }
+                        }
+                    }
 
 
-				for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
-					document.getElementsByName('addtonotesbug')[j].onclick = function () {
-						sendComment(favissues[j].match(/href.=(\S+)/)[1])
+                    for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
+                        document.getElementsByName('addtonotesbug')[j].onclick = function () {
+                            sendComment(favissues[j].match(/href.=(\S+)/)[1])
 
-						        let b = document.URL.split('/')
-                                fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                                    "headers": {
-                                        "accept": "*/*",
-                                        "content-type": "application/json",
-                                        "sec-fetch-dest": "empty",
-                                        "sec-fetch-mode": "cors",
-                                        "sec-fetch-site": "same-origin"
-                                    },
-                                    "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"${favissues[j].match(/href.=(\S+)/)[1]}\"}]}`,
-                                    "method": "POST",
-                                    "mode": "cors",
-                                    "credentials": "include"
-                                })
+                            let b = document.URL.split('/')
+                            fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                "headers": {
+                                    "accept": "*/*",
+                                    "content-type": "application/json",
+                                    "sec-fetch-dest": "empty",
+                                    "sec-fetch-mode": "cors",
+                                    "sec-fetch-site": "same-origin"
+                                },
+                                "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"${favissues[j].match(/href.=(\S+)/)[1]}\"}]}`,
+                                "method": "POST",
+                                "mode": "cors",
+                                "credentials": "include"
+                            })
 
-					}
-				}
+                        }
+                    }
 
-				function sndmsgafterdeletebug() {
-					for (let j=0; j<document.getElementsByName('addtonotesbug').length; j++) {
-						document.getElementsByName('addtonotesbug')[j].onclick = function () {
-							sendComment(favissues[j].match(/href.=(\S+)/)[1])
-						}
-					}
-				}
+                    function sndmsgafterdeletebug() {
+                        for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
+                            document.getElementsByName('addtonotesbug')[j].onclick = function () {
+                                sendComment(favissues[j].match(/href.=(\S+)/)[1])
+                            }
+                        }
+                    }
 
-				let cnttoincrease = document.getElementsByName('increasecount');
-				let itarrs = document.getElementsByName('favissuemassive')
-						for (let c=0; c<cnttoincrease.length; c++) {
-							cnttoincrease[c].onclick = function() {
-								console.log('clicked')
+                    let cnttoincrease = document.getElementsByName('increasecount');
+                    let itarrs = document.getElementsByName('favissuemassive')
+                    for (let c = 0; c < cnttoincrease.length; c++) {
+                        cnttoincrease[c].onclick = function () {
+                            console.log('clicked')
 
-								document.getElementById('responseTextarea1').value = '{}'
+                            document.getElementById('responseTextarea1').value = '{}'
+                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+                            document.getElementById('responseTextarea3').value = 'suptabcnt'
+                            document.getElementById('sendResponse').click()
+
+                            let count;
+                            let jira_token;
+                            let increasedcount;
+                            setTimeout(async function () {
+                                document.getElementById('responseTextarea1').value = '{}'
+                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+
+                                document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                document.getElementById('sendResponse').click()
+
+                                let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
+                                repcount = await repcount;
+                                jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
+
+                                count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                count = parseInt(count);
+                                increasedcount = count + 1;
+                                increasedcount = increasedcount.toString();
+                                console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                setTimeout(function () {
+
+                                    document.getElementById('responseTextarea1').value = `{
+											"headers": {
+												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+												"sec-fetch-mode": "cors",
+												"sec-fetch-site": "same-origin",
+												"x-requested-with": "XMLHttpRequest",
+												"x-sitemesh-off": "true"
+														},
+											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+											  "method": "POST",
+											  "mode": "cors",
+											  "credentials": "include"
+												}`
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
+                                    document.getElementById('responseTextarea3').value = ''
+                                    document.getElementById('sendResponse').click()
+
+                                    alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
+                                }, 1000);
+                            }, 1000)
+                        }
+                    }
+
+                    function plusonecount() {
+                        let cnttoincrease = document.getElementsByName('increasecount');
+                        let itarrs = document.getElementsByName('favissuemassive')
+                        for (let c = 0; c < cnttoincrease.length; c++) {
+                            cnttoincrease[c].onclick = function () {
+                                console.log('clicked')
+
+                                document.getElementById('responseTextarea1').value = '{}'
                                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
                                 document.getElementById('responseTextarea3').value = 'suptabcnt'
                                 document.getElementById('sendResponse').click()
@@ -7192,82 +7250,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
 
-										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
+                                        alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
                                     }, 1000);
                                 }, 1000)
-					}
-				}
-
-				function plusonecount() {
-					let cnttoincrease = document.getElementsByName('increasecount');
-					let itarrs = document.getElementsByName('favissuemassive')
-						for (let c=0; c<cnttoincrease.length; c++) {
-							cnttoincrease[c].onclick = function() {
-								console.log('clicked')
-
-								document.getElementById('responseTextarea1').value = '{}'
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-                                document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                document.getElementById('sendResponse').click()
-
-                                let count;
-                                let jira_token;
-                                let increasedcount;
-                                setTimeout(async function () {
-                                    document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-
-                                    document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                    document.getElementById('sendResponse').click()
-
-                                    let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
-                                    repcount = await repcount;
-                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-                                    document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
-
-                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-                                    count = parseInt(count);
-                                    increasedcount = count + 1;
-                                    increasedcount = increasedcount.toString();
-                                    console.log("count=" + count + " increasedcount " + increasedcount);
-
-                                    setTimeout(function () {
-
-                                        document.getElementById('responseTextarea1').value = `{
-											"headers": {
-												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-												"sec-fetch-mode": "cors",
-												"sec-fetch-site": "same-origin",
-												"x-requested-with": "XMLHttpRequest",
-												"x-sitemesh-off": "true"
-														},
-											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-											  "method": "POST",
-											  "mode": "cors",
-											  "credentials": "include"
-												}`
-                                        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-                                        document.getElementById('responseTextarea3').value = ''
-                                        document.getElementById('sendResponse').click()
-
-										alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
-                                    }, 1000);
-                                }, 1000)
-							}
-					}
-				}
+                            }
+                        }
+                    }
 
 
-                this.classList.toggle('active-query')
-                document.getElementById('freshQuery').classList.remove('active-query')
-                document.getElementById('defaultQuery').classList.remove('active-query')
-				document.getElementById('customQuery').classList.remove('active-query')
-				} else {
-				document.getElementById('issuetable').style.display="none"
-				document.getElementById('favouriteissuetable').style.display="none"
-				document.getElementById('favouriteBugs').classList.remove('active-query')
-				}
-			}
+                    this.classList.toggle('active-query')
+                    document.getElementById('freshQuery').classList.remove('active-query')
+                    document.getElementById('defaultQuery').classList.remove('active-query')
+                    document.getElementById('customQuery').classList.remove('active-query')
+                } else {
+                    document.getElementById('issuetable').style.display = "none"
+                    document.getElementById('favouriteissuetable').style.display = "none"
+                    document.getElementById('favouriteBugs').classList.remove('active-query')
+                }
+            }
 
 
             document.getElementById('getJiraTasks').onclick = function () {
@@ -7404,7 +7404,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 }
 
 
-                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>'+ '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
+                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
 
                             }
 
@@ -7434,20 +7434,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         }
 
 
-						let addtofarr = document.getElementsByName('addtofavourites')
-						let tagsarray = document.getElementsByName('buglinks');
-						let massivissueids = document.getElementsByName('issueIds')
-						for (let v=0; v<addtofarr.length; v++) {
-							addtofarr[v].onclick = function() {
-								addtofarr[v].innerText = "❤"
-								for (let x=0; x<tagsarray.length; x++) {
-										if (x == v) {
-											favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
-											localStorage.setItem('bugsarray', JSON.stringify(favissues))
-										}
-								}
-							}
-						}
+                        let addtofarr = document.getElementsByName('addtofavourites')
+                        let tagsarray = document.getElementsByName('buglinks');
+                        let massivissueids = document.getElementsByName('issueIds')
+                        for (let v = 0; v < addtofarr.length; v++) {
+                            addtofarr[v].onclick = function () {
+                                addtofarr[v].innerText = "❤"
+                                for (let x = 0; x < tagsarray.length; x++) {
+                                    if (x == v) {
+                                        favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
+                                        localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                    }
+                                }
+                            }
+                        }
 
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
@@ -7601,199 +7601,199 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-	document.getElementById('smartroomform').onclick = function() {
-		if (document.getElementById('AF_Smartroomform').style.display == '')
+    document.getElementById('smartroomform').onclick = function () {
+        if (document.getElementById('AF_Smartroomform').style.display == '')
             document.getElementById('AF_Smartroomform').style.display = 'none'
-		else
+        else
             document.getElementById('AF_Smartroomform').style.display = ''
 
-		function clearradio() {
-			for(let j=0; j<2;j++) {
-				document.getElementsByName('typetoform')[j].checked = false
-			}
-		}
-		
-		//
-		    let catsmartroom = document.getElementsByName('catsmartroom')
+        function clearradio() {
+            for (let j = 0; j < 2; j++) {
+                document.getElementsByName('typetoform')[j].checked = false
+            }
+        }
 
-            for (let i = 0; i < catsmartroom.length; i++) {
-                catsmartroom[i].onclick = () => {
-                    if (catsmartroom[i].checked && catsmartroom[i].value == 'Другое') {
+        //
+        let catsmartroom = document.getElementsByName('catsmartroom')
 
-                        document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldoff')
-                        document.getElementById('otheroptionsmartchecked').classList.add('otherfieldon')
-                        document.getElementById('otheroptionsmartchecked').removeAttribute('disabled')
+        for (let i = 0; i < catsmartroom.length; i++) {
+            catsmartroom[i].onclick = () => {
+                if (catsmartroom[i].checked && catsmartroom[i].value == 'Другое') {
 
+                    document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldoff')
+                    document.getElementById('otheroptionsmartchecked').classList.add('otherfieldon')
+                    document.getElementById('otheroptionsmartchecked').removeAttribute('disabled')
+
+                } else {
+                    document.getElementById('otheroptionsmartchecked').classList.add('otherfieldoff')
+                    document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldon')
+                    document.getElementById('otheroptionsmartchecked').setAttribute('disabled', 'disabled')
+                }
+            }
+        }
+
+        //
+
+        if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                    document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
+                        document.getElementsByName('typetoform')[0].checked = true
+                        document.getElementsByName('typetoform')[1].checked = false
+                    } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
+                        document.getElementsByName('typetoform')[0].checked = false
+                        document.getElementsByName('typetoform')[1].checked = true
                     } else {
-                        document.getElementById('otheroptionsmartchecked').classList.add('otherfieldoff')
-                        document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldon')
-                        document.getElementById('otheroptionsmartchecked').setAttribute('disabled', 'disabled')
+                        document.getElementsByName('typetoform')[0].checked = false
+                        document.getElementsByName('typetoform')[1].checked = false
                     }
                 }
             }
-			
-			//
-
-			if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
-		    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-					document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-				} else if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
-					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
-						document.getElementsByName('typetoform')[0].checked = true
-						document.getElementsByName('typetoform')[1].checked = false
-					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
-						document.getElementsByName('typetoform')[0].checked = false
-						document.getElementsByName('typetoform')[1].checked = true
-					} else {
-						document.getElementsByName('typetoform')[0].checked = false
-						document.getElementsByName('typetoform')[1].checked = false
-					}
-				}
-			}
-	}
-
-    document.getElementById('send2smartroom').onclick = function() {
-			
-        let checkedclienttype;
-        let checkedquestion;
-		let alloptions 
-
-        let flagemptysmart = 0;
-
-        if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked) {
-            document.getElementById('smartroomuser').style.backgroundColor = 'Coral'; 
-            document.getElementById('smartroomuser').style.color = 'black';
-            flagemptysmart = 1;
-        } else {
-            document.getElementById('smartroomuser').style.backgroundColor = ''; 
-            document.getElementById('smartroomuser').style.color = '#c4ffd3';
         }
 
-        if (document.getElementById('clientid').value.length < 3) {
-            document.getElementById('clientid').style.backgroundColor = 'Coral';
-            flagemptysmart = 1;
-        } else {
-            document.getElementById('clientid').style.backgroundColor = '';
+        document.getElementById('send2smartroom').onclick = function () {
+
+            let checkedclienttype;
+            let checkedquestion;
+            let alloptions
+
+            let flagemptysmart = 0;
+
+            if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked) {
+                document.getElementById('smartroomuser').style.backgroundColor = 'Coral';
+                document.getElementById('smartroomuser').style.color = 'black';
+                flagemptysmart = 1;
+            } else {
+                document.getElementById('smartroomuser').style.backgroundColor = '';
+                document.getElementById('smartroomuser').style.color = '#c4ffd3';
+            }
+
+            if (document.getElementById('clientid').value.length < 3) {
+                document.getElementById('clientid').style.backgroundColor = 'Coral';
+                flagemptysmart = 1;
+            } else {
+                document.getElementById('clientid').style.backgroundColor = '';
+            }
+
+            if (!document.getElementsByName('whatobratform')[0].checked && !document.getElementsByName('whatobratform')[1].checked) {
+                document.getElementById('smartroomquestion').style.backgroundColor = 'Coral';
+                document.getElementById('smartroomquestion').style.color = 'black';
+                flagemptysmart = 1;
+            } else {
+                document.getElementById('smartroomquestion').style.backgroundColor = '';
+                document.getElementById('smartroomquestion').style.color = '#c4ffd3';
+            }
+
+            if (document.getElementById('fullcomentsmartroom').value.length < 3) {
+                document.getElementById('fullcomentsmartroom').style.backgroundColor = 'Coral';
+                flagemptysmart = 1;
+            } else {
+                document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
+            }
+
+            if (flagemptysmart == 0) {
+                for (let i = 0; i < document.getElementsByName('typetoform').length; i++) {
+                    if (document.getElementsByName('typetoform')[i].checked == true)
+                        checkedclienttype = document.getElementsByName('typetoform')[i].value;
+                }
+                checkedquestion = document.getElementsByName('whatobratform')[0].value;
+
+                alloptions = document.getElementsByName('catsmartroom')
+
+                for (let i = 0; i < alloptions.length; i++) {
+                    if (alloptions[i].checked && alloptions[i].value != 'Другое') {
+
+                        let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156=' + encodeURIComponent(alloptions[i].value)
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        document.getElementById('AF_Smartroomform').style.display = 'none'
+                        document.getElementById('clientid').value = ''
+                        document.getElementById('fullcomentsmartroom').value = ''
+                        clearradio()
+
+                    } else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
+                        let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        document.getElementById('AF_Smartroomform').style.display = 'none'
+                        document.getElementById('clientid').value = ''
+                        document.getElementById('fullcomentsmartroom').value = ''
+                        clearradio()
+                        document.getElementById('otheroptionsmartchecked').value = ''
+                    }
+                }
+            }
         }
 
-        if (!document.getElementsByName('whatobratform')[0].checked && !document.getElementsByName('whatobratform')[1].checked) {
-            document.getElementById('smartroomquestion').style.backgroundColor = 'Coral';
-            document.getElementById('smartroomquestion').style.color = 'black';
-            flagemptysmart = 1;
-        } else {
-            document.getElementById('smartroomquestion').style.backgroundColor = ''; 
-            document.getElementById('smartroomquestion').style.color = '#c4ffd3';
-        }
-
-        if (document.getElementById('fullcomentsmartroom').value.length < 3) {
-            document.getElementById('fullcomentsmartroom').style.backgroundColor = 'Coral';
-            flagemptysmart = 1;
-        } else {
-            document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
-        }
-
-        if (flagemptysmart == 0) {
-            for (let i=0; i<document.getElementsByName('typetoform').length;i++) {
-                if (document.getElementsByName('typetoform')[i].checked == true)
-                    checkedclienttype=document.getElementsByName('typetoform')[i].value;
-            }	
-                    checkedquestion=document.getElementsByName('whatobratform')[0].value;
-			
-			alloptions = document.getElementsByName('catsmartroom')
-
-			for (let i = 0; i < alloptions.length; i++) {
-                if (alloptions[i].checked && alloptions[i].value != 'Другое') {
-                        
-					let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156=' + encodeURIComponent(alloptions[i].value)
-
-					let options2 = {
-						"headers": {
-							"content-type": "application/x-www-form-urlencoded",
-						},
-						"body": body2,
-						"method": "POST",
-					}
-
-					document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-					document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
-					if (document.getElementById('responseTextarea3') != null)
-						document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-					
-					document.getElementById('AF_Smartroomform').style.display = 'none'
-					document.getElementById('clientid').value = ''
-					document.getElementById('fullcomentsmartroom').value = ''
-					clearradio()
-					
-				} else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
-					let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value)  + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
-
-					let options2 = {
-						"headers": {
-							"content-type": "application/x-www-form-urlencoded",
-						},
-						"body": body2,
-						"method": "POST",
-					}
-
-					document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-					document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
-					if (document.getElementById('responseTextarea3') != null)
-						document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-					
-					document.getElementById('AF_Smartroomform').style.display = 'none'
-					document.getElementById('clientid').value = ''
-					document.getElementById('fullcomentsmartroom').value = ''
-					clearradio()
-					document.getElementById('otheroptionsmartchecked').value = ''
-				}	
-		}
-    }
-	}
-
-		document.getElementById('clearsmartroomform').onclick = function() {
-			document.getElementById('clientid').value = ''
-			document.getElementById('fullcomentsmartroom').value = ''
-			document.getElementById('otheroptionsmartchecked').value = ''
-            document.getElementById('smartroomuser').style.background = ''; 
+        document.getElementById('clearsmartroomform').onclick = function () {
+            document.getElementById('clientid').value = ''
+            document.getElementById('fullcomentsmartroom').value = ''
+            document.getElementById('otheroptionsmartchecked').value = ''
+            document.getElementById('smartroomuser').style.background = '';
             document.getElementById('clientid').style.background = '';
-            document.getElementById('smartroomquestion').style.background = ''; 
+            document.getElementById('smartroomquestion').style.background = '';
             document.getElementById('fullcomentsmartroom').style.background = '';
-			clearradio()
-		}
+            clearradio()
+        }
 
-		document.getElementById('smartroomforminstr').onclick = function() {
-				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-smartroom%F0%9F%A6%90Smartroom')
-		}
-		
-		document.getElementById('hideMeSmartRoomForm').onclick = function() {
-			document.getElementById('AF_Smartroomform').style.display = 'none'
-			document.getElementById('clientid').value = ''
-			document.getElementById('fullcomentsmartroom').value = ''
-			clearradio()
-		}
+        document.getElementById('smartroomforminstr').onclick = function () {
+            window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-smartroom%F0%9F%A6%90Smartroom')
+        }
 
-		document.getElementById('refreshhashsmartform').onclick = function() {
-			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-					document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-				} else if(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
-					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
-						document.getElementsByName('typetoform')[0].checked = true
-						document.getElementsByName('typetoform')[1].checked = false
-					} else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
-						document.getElementsByName('typetoform')[0].checked = false
-						document.getElementsByName('typetoform')[1].checked = true
-					} else {
-						document.getElementsByName('typetoform')[0].checked = false
-						document.getElementsByName('typetoform')[1].checked = false
-					}
-				}
-			}
-		}
-}
+        document.getElementById('hideMeSmartRoomForm').onclick = function () {
+            document.getElementById('AF_Smartroomform').style.display = 'none'
+            document.getElementById('clientid').value = ''
+            document.getElementById('fullcomentsmartroom').value = ''
+            clearradio()
+        }
+
+        document.getElementById('refreshhashsmartform').onclick = function () {
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                    document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
+                        document.getElementsByName('typetoform')[0].checked = true
+                        document.getElementsByName('typetoform')[1].checked = false
+                    } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
+                        document.getElementsByName('typetoform')[0].checked = false
+                        document.getElementsByName('typetoform')[1].checked = true
+                    } else {
+                        document.getElementsByName('typetoform')[0].checked = false
+                        document.getElementsByName('typetoform')[1].checked = false
+                    }
+                }
+            }
+        }
+    }
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '')
@@ -7895,10 +7895,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
             }
-			
-			document.getElementById('refuseforminstr').onclick = function() {
-				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-otkazotpom%E2%9D%8C%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%82%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8')
-			}
+
+            document.getElementById('refuseforminstr').onclick = function () {
+                window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-otkazotpom%E2%9D%8C%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%82%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8')
+            }
 
             document.getElementById('refreshoptions').onclick = async function () {
                 objSelIssue.length = 1;
@@ -8214,22 +8214,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         if (document.getElementById('AF_Jira').style.display == '')
             document.getElementById('AF_Jira').style.display = 'none'
     }
-	
-	document.getElementById('themesinstr').onclick = function() {
-		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-themes%D0%9A%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0%D0%A2%D0%B5%D0%BC%D1%8B')
-	}
+
+    document.getElementById('themesinstr').onclick = function () {
+        window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-themes%D0%9A%D0%BD%D0%BE%D0%BF%D0%BA%D0%B0%D0%A2%D0%B5%D0%BC%D1%8B')
+    }
 
     document.getElementById('hideMeThemes').onclick = function () { // скрытие окна поиска по Jira
         if (document.getElementById('AF_Themes').style.display == '')
             document.getElementById('AF_Themes').style.display = 'none'
 
-		if (document.getElementById('backtomenu').style.display == '')
-			document.getElementById('backtomenu').click()
+        if (document.getElementById('backtomenu').style.display == '')
+            document.getElementById('backtomenu').click()
     }
 
-	document.getElementById('marksinstr').onclick = function() {
-		window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-Score%F0%9F%93%8A%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B8')
-	}
+    document.getElementById('marksinstr').onclick = function () {
+        window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-Score%F0%9F%93%8A%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B8')
+    }
 
     document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
         if (document.getElementById('AF_Marks').style.display == '')
@@ -9634,15 +9634,15 @@ function startTimer() {
     if (document.getElementById('audioswitcher').checked == true)
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
             txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-            if (txt[14] > 0){
-                if (soudflag == 0){
+            if (txt[14] > 0) {
+                if (soudflag == 0) {
                     audio.play()
-                    soudintervalset = setInterval(() => {audio.play()},localStorage.getItem('splinter')*1000)
+                    soudintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
                     soudflag = 1
                 }
             } else {
                 soudflag = 0
-                clearInterval(soudintervalset)   
+                clearInterval(soudintervalset)
             }
         }
 
@@ -9922,19 +9922,19 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
         btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Дубль</a>';
         btn1.setAttribute('onClick', 'newTaggg("double");')
-		
-		let btn2 = document.createElement('span');
+
+        let btn2 = document.createElement('span');
         btn2.id = 'refuse'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
         btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
         btn2.setAttribute('onClick', 'newTaggg("refusal_of_help");')
         btn2.addEventListener('click', function () {
-            if(document.getElementById('AF_Refuseformnew').style.display == 'none'){
+            if (document.getElementById('AF_Refuseformnew').style.display == 'none') {
                 document.getElementById('otkaz').click();
-            }            
+            }
         })
-		
-		let btn3 = document.createElement('span');
+
+        let btn3 = document.createElement('span');
         btn3.id = 'TPcallsend'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
         btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
@@ -9945,8 +9945,8 @@ function startTimer() {
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
         btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Даны реком</a>';
         btn4.setAttribute('onClick', 'newTaggg("recommendations_given ");')
-		
-		let btn5 = document.createElement('span');
+
+        let btn5 = document.createElement('span');
         btn5.id = 'solvd'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
         btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Решен</a>';
@@ -10258,11 +10258,11 @@ function fillchatbox() { //функция наполнения элемента,
         document.getElementById('placeusid').innerText = convdata.channelUser.id;
     else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe != 'WhatsApp' && convdata.channelUser.channelTpe == 'Widget')
         document.getElementById('placeusid').innerText = "Widget";
-	else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'WhatsApp')
+    else if (Object.entries(convdata.channelUser.payload) == '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'WhatsApp')
         document.getElementById('placeusid').innerText = "WhatsApp";
     else if (Object.entries(convdata.channelUser.payload) != '' && convdata.channelUser.channelTpe != 'Telegram' && convdata.channelUser.channelTpe == 'Widget' && convdata.channelUser.payload.id != undefined)
         document.getElementById('placeusid').innerText = convdata.channelUser.payload.id;
-	else document.getElementById('placeusid').innerText = "Widget";
+    else document.getElementById('placeusid').innerText = "Widget";
 
     document.getElementById('placechatid').innerText = convdata.id;
     document.getElementById('somechatinfo').style.display = '';
@@ -10294,8 +10294,8 @@ function fillchatbox() { //функция наполнения элемента,
                             brarray.push(convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpeg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*jpg/gm), convdata.messages[i].txt.match(/https:\/\/vimbox-resource.*png/gm))
                         else brarray = null;
                     }
-					
-					convdata.channelUser.fullName == undefined ? convdata.channelUser.fullName = "Widget" : convdata.channelUser.fullName = convdata.channelUser.fullName
+
+                    convdata.channelUser.fullName == undefined ? convdata.channelUser.fullName = "Widget" : convdata.channelUser.fullName = convdata.channelUser.fullName
 
                     if (testarray != null) {
                         temppics = [];
@@ -10553,9 +10553,9 @@ async function findchatsoper() { // ищет активные чаты на вы
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
                     else if (operchatsdata.items[i].channelUser.channelTpe == 'Widget' && operchatsdata.items[i].channelUser.payload == undefined)
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
-					else if (operchatsdata.items[i].channelUser.channelTpe == 'WhatsApp' && operchatsdata.items[i].channelUser.payload == undefined)
+                    else if (operchatsdata.items[i].channelUser.channelTpe == 'WhatsApp' && operchatsdata.items[i].channelUser.payload == undefined)
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
-					else if (operchatsdata.items[i].channelUser.channelTpe == 'WhatsApp' && operchatsdata.items[i].channelUser.payload != undefined) // проверить вывод чата с  WA при таких критериях!
+                    else if (operchatsdata.items[i].channelUser.channelTpe == 'WhatsApp' && operchatsdata.items[i].channelUser.payload != undefined) // проверить вывод чата с  WA при таких критериях!
                         foundarr += '<span class="chatlist" style="cursor:pointer;">' + day + '.' + month + '.' + year + ' ' + tshrs + ':' + tsmin + ' ' + '<span style ="color:#00BFFF; font-weight:700">' + operchatsdata.items[i].channelUser.channelTpe + '</span>' + ' ' + operchatsdata.items[i].channelUser.fullName + '</span>' + '<br>'
                 }
 
@@ -12297,8 +12297,8 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                         //	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-							arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
-							
+                            arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+
                             text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
                             text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
                             text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
@@ -12308,21 +12308,21 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                                 text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-							
-							arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-							arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
-														
-														
+                            arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+
+                            arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+
+
                             text = text + ' | удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-							text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('textarea');
                         document.getElementById('statustable').append(tempor);
                         //tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-                        tempor.setAttribute('wrap','soft');
+                        tempor.setAttribute('wrap', 'soft');
                         tempor.value = text;
                         //    console.log(text);
                     } else if (document.getElementById('idstudentforsearch').value == "") {
@@ -12331,7 +12331,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                         //	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-							arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+                            arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
                             text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
                             text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
                             text = text + ' | когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
@@ -12341,20 +12341,20 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                                 text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
-							
-							arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-							arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId						
-														
+                            arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+
+                            arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+
                             text = text + ' | удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-							text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('textarea');
                         document.getElementById('statustable').append(tempor);
                         // tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-                        tempor.setAttribute('wrap','soft');
+                        tempor.setAttribute('wrap', 'soft');
                         tempor.value = text;
                     }
                 }
@@ -13749,10 +13749,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
         document.getElementById('AF_Links').style.display = 'none';
     } else {
         mystyles()
-		
-		// document.getElementById('testid').remove() удаление с логинером кнопки/поля
-		// document.getElementById('idlogin').remove() удаление с логинером кнопки/поля
-		
+
+        // document.getElementById('testid').remove() удаление с логинером кнопки/поля
+        // document.getElementById('idlogin').remove() удаление с логинером кнопки/поля
+
 
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
