@@ -12314,12 +12314,14 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                             arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
 
-                            text = text + ' | удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-                            text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
+                            text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('textarea');
+						document.querySelector('#statustable').innerText = "";
                         document.getElementById('statustable').append(tempor);
+						
                         //tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
                         tempor.setAttribute('wrap', 'soft');
@@ -12346,11 +12348,12 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
                             arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-                            text = text + ' | удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-                            text = text + ' | дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
+                            text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                         }
 
                         let tempor = document.createElement('textarea');
+						document.querySelector('#statustable').innerText = "";
                         document.getElementById('statustable').append(tempor);
                         // tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
