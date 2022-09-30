@@ -12286,10 +12286,10 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         document.getElementById('sendResponse').click()
 
         setTimeout(function () {
-            document.getElementById('responseTextarea1').value = `{}`
-            document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
-            document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
-            document.getElementById('sendResponse').click()
+            // document.getElementById('responseTextarea1').value = `{}`
+            // document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+            // document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+            // document.getElementById('sendResponse').click()
 
             arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
