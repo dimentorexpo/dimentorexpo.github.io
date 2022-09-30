@@ -12309,7 +12309,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                             }
                         } else if (arregetted[0].result[0].classes[i].removedAt) {
 
-                            arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                            arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
                             arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
@@ -12333,7 +12333,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                         //	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
 
                         if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-                            arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+                            arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
                             text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
                             text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
                             text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
