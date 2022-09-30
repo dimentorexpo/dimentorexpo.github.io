@@ -12289,6 +12289,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
             arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
             if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
+				document.querySelector('#statustable').innerText = "";
                 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
                     if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
 
@@ -12319,7 +12320,6 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                         }
 
                         let tempor = document.createElement('textarea');
-						document.querySelector('#statustable').innerText = "";
                         document.getElementById('statustable').append(tempor);
 						
                         //tempor.setAttribute('type', 'text');
@@ -12353,7 +12353,6 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                         }
 
                         let tempor = document.createElement('textarea');
-						document.querySelector('#statustable').innerText = "";
                         document.getElementById('statustable').append(tempor);
                         // tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
