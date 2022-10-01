@@ -4280,33 +4280,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let phoneidentity;
 
     async function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"cache-control": "max-age=0",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "none",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	 }`
+        document.getElementById('responseTextarea1').value = `{}` // убрал тело проверим как будет работать
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
-            document.getElementById('responseTextarea3').value = 'responseupdate'
-            document.getElementById('sendResponse').click()
-
             commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
             commonidentity = await commonidentity;
 
@@ -4326,108 +4305,54 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 
-        }, 550)
+        }, 1000) //было 550, тестирую как будет сейчас 01 октября 2022
     }
 
     let unhidephone;
 
     async function getunhidephone() { // открывает номер телефона
 
-        document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	 }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'phoneishere'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
-            document.getElementById('responseTextarea3').value = 'phoneishere'
-            document.getElementById('sendResponse').click()
-
             unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
             unhidephone = await unhidephone;
             unhidephone = JSON.parse(unhidephone);
             unhidephone = unhidephone.data.value;
             document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 
-        }, 600)
+        }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
     }
 
     let unhidenemail;
     async function getunhideemail() { //открывает почту пользователя
-        document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	 }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'emailishere'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
-            document.getElementById('responseTextarea3').value = 'emailishere'
-            document.getElementById('sendResponse').click()
-
             unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
             unhidenemail = await unhidenemail;
             unhidenemail = JSON.parse(unhidenemail);
             unhidenemail = unhidenemail.data.value;
             document.getElementById('responseTextarea1').removeAttribute('emailishere')
 
-        }, 600)
+        }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
     }
 
     let servicearray = "";
     async function getservicearr() { // получает массив услуг с СРМки
 
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
         document.getElementById('responseTextarea3').value = 'arrayofservices'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
-            document.getElementById('responseTextarea3').value = 'arrayofservices'
-            document.getElementById('sendResponse').click()
-
             servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
             servicearray = await servicearray;
             servicearray = JSON.parse(servicearray);
@@ -4442,30 +4367,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         stid = stid.trim();
         let pastlessondata = "";
         let pastlessoninfo = "";
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
         document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
         document.getElementById('sendResponse').click()
 
         setTimeout(function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-            document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
-            document.getElementById('sendResponse').click()
-
             pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
             pastlessoninfo = JSON.parse(pastlessoninfo);
             document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
@@ -4562,30 +4469,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         stid = stid.trim();
         let futurelessondata = "";
         let futurelessoninfo = "";
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
         document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
         document.getElementById('sendResponse').click()
 
         setTimeout(function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
-            document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
-            document.getElementById('sendResponse').click()
-
             futurelessoninfo = document.getElementById('responseTextarea1').getAttribute('futurelessoninfodata');
             futurelessoninfo = JSON.parse(futurelessoninfo);
             document.getElementById('responseTextarea1').removeAttribute('futurelessoninfodata')
