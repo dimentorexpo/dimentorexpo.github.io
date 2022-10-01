@@ -4280,23 +4280,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let phoneidentity;
 
     async function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"cache-control": "max-age=0",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "none",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	 }`
+        document.getElementById('responseTextarea1').value = `{}` // убрал тело проверим как будет работать
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
