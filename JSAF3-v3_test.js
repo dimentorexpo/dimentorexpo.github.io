@@ -9196,8 +9196,8 @@ function refreshTimer() { //функция обновления таймера
     btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
     j = 0
     while (true) {
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
-            break
+        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] == undefined)
+            break;
         if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
             break;
         if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
