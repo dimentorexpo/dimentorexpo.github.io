@@ -12105,177 +12105,6 @@ function resetFlags() { //функция обнуления флагов
     template_flag = 0
     template_flag2 = 0
 }
-async function checkHistory(id) { //проверка истории по чату чтобы занести переменные и флаги , но тоже проверить  нужна или нет ибо раньше использовалась для проверки повторного обращения чтобы при нажатии привет др шаблон отрабатывался НУЖНА?
-    var date = new Date()
-    var date2 = new Date()
-    date2.setTime(date - 8 * 60 * 60 * 1000)
-
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
-    if (date.getHours() < 10)
-        hours = '0' + date.getHours()
-    else
-        hours = date.getHours()
-    if (date.getMinutes() < 10)
-        minutes = '0' + date.getMinutes()
-    else
-        minutes = date.getMinutes()
-    if (date.getSeconds() < 10)
-        seconds = '0' + date.getSeconds()
-    else
-        seconds = date.getSeconds()
-
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
-
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
-
-    if (date2.getHours() < 10)
-        hours2 = '0' + date2.getHours()
-    else
-        hours2 = date2.getHours()
-    if (date2.getMinutes() < 10)
-        minutes2 = '0' + date2.getMinutes()
-    else
-        minutes2 = date2.getMinutes()
-    if (date2.getSeconds() < 10)
-        seconds2 = '0' + date2.getSeconds()
-    else
-        seconds2 = date2.getSeconds()
-
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T" + hours2 + ":" + minutes2 + ":" + seconds2 + ".000z"
-    count = -1
-    serviceId = localStorage.getItem('serviceIdGlob')
-    a = await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-        "headers": {
-            "accept": "*/*",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            "cache-control": "max-age=0",
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/logs",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"serviceId\":\"" + serviceId + "\",\"mode\":\"Json\",\"channelUserIds\":[\"" + id + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(a => b = a.json()).then(b => { count = b.items.length })
-    return count
-}
-
-async function getNotGoods(stringDate) { // функция проверки нот гуд оценок, рядовыми ТП не используется да и не знаю нужна ли она еще тут! НУЖНА?
-
-    async function goNotgood(list, list2, date1, date2) {
-        var text = ""
-        var text2 = "Дата: " + stringDate2 + "\n"
-        var page = 1
-        for (m = -1; m < list.length; m++) {
-            if (page == 2)
-                m--
-            a = await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-                "headers": {
-                    "accept": "*/*",
-                    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "cache-control": "max-age=0",
-                    "content-type": "application/json",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin"
-                },
-                "referrer": "https://skyeng.autofaq.ai/logs",
-                "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + list[m] + "\"],\"tsFrom\":\"" + date1 + "\",\"tsTo\":\"" + date2 + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
-                "method": "POST",
-                "mode": "cors",
-                "credentials": "include"
-            }).then(a => b = a.json().then(array => {
-                array1 = array
-                n = 1
-                array1.items.forEach(a => {
-                    if (a.stats.rate != undefined)
-                        if (a.stats.rate.rate != undefined) {
-                            if (a.stats.rate.rate < 4) {
-                                text += stringDate2 + "	" + list2[m] + "	https://skyeng.autofaq.ai/logs/" + a.conversationId + "	" + a.stats.rate.rate + "\n"
-                                if (n == 1)
-                                    text2 += "\nАгент: `" + list2[m] + "` C	S	A		T =\n "
-                                text2 += "=HYPERLINK(\"https://skyeng.autofaq.ai/logs/" + a.conversationId + "\"; \"Нотгуд №" + n + "\" 	 (	оценка " + a.stats.rate.rate + ") - \n"
-                                n++
-                            }
-                        }
-                })
-                if (array1.total > 100)
-                    if (page == 2)
-                        page = 1
-                    else
-                        page = 2
-            }))
-        }
-        console.log(text)
-        console.log(text2)
-    }
-
-    var operatorId = []
-    var operatorNames = []
-    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
-        if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
-                operatorId.push(k.operator.id)
-                operatorNames.push(k.operator.fullName.split('-')[1])
-            }
-    }))
-
-    list = operatorId
-    list2 = operatorNames
-
-    stringDate2 = stringDate
-    stringDate = stringDate.split(".")
-    stringDate[1]--
-    var date = new Date(stringDate[2], stringDate[1], stringDate[0])
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
-
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
-
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
-
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-    goNotgood(list, list2, firstDate, secondDate)
-}
 
 function customTemplates(language = '') { //собственные шаблоны и их добавление
     if (localStorage.getItem('winCstmTmpsTop') == null) {
@@ -12296,7 +12125,6 @@ function customTemplates(language = '') { //собственные шаблон�
             document.getElementById('cstmTmplates').children[0].remove()
     }
     countOfTemplates = localStorage.getItem('cntTmplts' + language)
-
 
     var buttonOpenTmpWindow = document.createElement('button')
     buttonOpenTmpWindow.innerHTML = 'tmps'
@@ -12397,7 +12225,6 @@ function customTemplates(language = '') { //собственные шаблон�
             customTemplates(language)
         }
 
-
         var buttonSortUp = document.createElement('button')
         buttonSortUp.innerHTML = '↑'
         buttonSortUp.onclick = function () {
@@ -12472,9 +12299,11 @@ function customTemplates(language = '') { //собственные шаблон�
     newDiv.style = 'cursor: -webkit-grab;'
     newDiv.style.margin = '5px'
     newDiv.style.textAlign = 'center'
+	
     var addTmpl = document.createElement('button')
     addTmpl.textContent = 'Добавить шаблон'
     addTmpl.style.marginRight = '5px'
+	
     addTmpl.onclick = function () {
         countOfTemplates++
         localStorage.setItem('cntTmplts' + language, countOfTemplates)
@@ -12483,6 +12312,7 @@ function customTemplates(language = '') { //собственные шаблон�
         localStorage.setItem('tmp_name_' + language + countOfTemplates, "")
         addNewString(countOfTemplates)
     }
+	
     var saveAllTmp = document.createElement('button')
     saveAllTmp.textContent = 'Сохранить всё'
     saveAllTmp.style.marginRight = '5px'
@@ -12497,9 +12327,11 @@ function customTemplates(language = '') { //собственные шаблон�
 
     var but = document.createElement('button')
     but.innerHTML = 'hide'
+	
     but.onclick = function () {
         this.parentElement.parentElement.style.display = 'none'
     }
+	
     but.style.float = 'right'
 
     newDiv.append(saveAllTmp)
@@ -12526,6 +12358,7 @@ function customTemplates(language = '') { //собственные шаблон�
             document.addEventListener('mousemove', listenercstmTmp);
         }
     }
+	
     cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listenercstmTmp); }
 
     document.getElementById('languageAF').onclick = function () {
@@ -12541,7 +12374,7 @@ function customTemplates(language = '') { //собственные шаблон�
     }
 }
 
-async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
+async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
@@ -12566,22 +12399,7 @@ async function getStats() {           // функция получения ст�
     var array = []
     let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
     console.log("Подразделение - " + opsection);
-    await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1, {
-        "headers": {
-            "accept": "*/*",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            "cache-control": "max-age=0",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/reports/operator-activity",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": null,
-        "method": "GET",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(response => b = response.json().then(b => b.rows.forEach(k => {
+    await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
         if (k.operator.indexOf(opsection) != -1) {
             array.push(k)
         }
