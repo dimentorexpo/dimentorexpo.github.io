@@ -4790,10 +4790,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         useriddata = useriddata.trim();
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
 				"sec-fetch-site": "same-origin",
 				"sec-fetch-user": "?1",
 				"upgrade-insecure-requests": "1"
