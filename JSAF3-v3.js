@@ -4712,30 +4712,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
         let filteredid = document.getElementById('idstudent').value;
         filteredid = filteredid.trim();
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "application/json, text/plain, */*",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
-			  },
-			  "referrer": "https://crm2.skyeng.ru/",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	}`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
-            document.getElementById('responseTextarea3').value = 'getusernameinfo'
-            document.getElementById('sendResponse').click()
-
             studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
             studentname = await studentname;
             studentname = JSON.parse(studentname);
@@ -4795,23 +4777,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 
-        }, 600)
+        }, 1000) // было 600, проверяю как будет работать 01 октября 2022
 
     }
 
     let tokenlogginer;
     let logginerinfo;
 
-    async function postuderdatatologin() { // логгинер для У П ПМ
+    async function postuderdatatologin() { // логгинер для У П , переработать нужно!
         logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
 				"sec-fetch-site": "same-origin",
 				"sec-fetch-user": "?1",
 				"upgrade-insecure-requests": "1"
@@ -4829,26 +4808,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         setTimeout(async function () {
 
-            document.getElementById('responseTextarea1').value = `{
-				   "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-            document.getElementById('responseTextarea3').value = 'postdata'
-            document.getElementById('sendResponse').click()
-
             logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
             logginerinfo = await logginerinfo;
 
@@ -4859,7 +4818,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('responseTextarea1').removeAttribute('postdata')
 
 
-        }, 800)
+        }, 2000)
     }
 
     let getcrmstatusinfo;
@@ -4870,27 +4829,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         document.getElementById('CrmStatus').style.display = "none";
 
-        document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"accept": "application/json, text/plain, */*",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-site"
-				  },
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-	}`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
         document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
         document.getElementById('sendResponse').click()
 
-
-
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = `{}`
-            document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
-            document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-            document.getElementById('sendResponse').click()
+
 
             getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
             getcrmstatusinfo = await getcrmstatusinfo;
@@ -5015,27 +4960,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         // await crmstatus();
 
         setTimeout(function () {
-            document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"accept-language": "ru",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	}`
+            document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
 
             async function getServInfo() {
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
-                document.getElementById('responseTextarea3').value = 'getserviceinfo'
-                document.getElementById('sendResponse').click()
+
 
                 servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
                 servicearr = JSON.parse(servicearr);
@@ -5203,7 +5134,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
 
-                if (arrservice != null && arrservice != undefined) {
+                if (arrservice != null && arrservice.length>0 && arrservice != undefined) {
                     arrservice = arrservice.split(', ')
                 }
 
@@ -13732,10 +13663,7 @@ btnsid.onclick = async function () { // копирует в буфер логи�
     if (teststudid != null || teststudid != '') {
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
 				"sec-fetch-site": "same-origin",
 				"sec-fetch-user": "?1",
 				"upgrade-insecure-requests": "1"
@@ -13753,33 +13681,13 @@ btnsid.onclick = async function () { // копирует в буфер логи�
 
         setTimeout(async function () {
 
-            document.getElementById('responseTextarea1').value = `{
-				   "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-            document.getElementById('responseTextarea3').value = 'senddata1'
-            document.getElementById('sendResponse').click()
-
             lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata1');
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
             copyToClipboard1(lginfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
 
-        }, 1000)
+        }, 2000)
         document.getElementById('sidcode').style.background = 'coral'
         setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового ученика в настройках ⚙");
@@ -13790,10 +13698,7 @@ btntid.onclick = async function () { // копирует в буфер логи�
     if (testteachid != null || testteachid != '') {
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
 				"sec-fetch-site": "same-origin",
 				"sec-fetch-user": "?1",
 				"upgrade-insecure-requests": "1"
@@ -13811,33 +13716,13 @@ btntid.onclick = async function () { // копирует в буфер логи�
 
         setTimeout(async function () {
 
-            document.getElementById('responseTextarea1').value = `{
-				   "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-            document.getElementById('responseTextarea3').value = 'senddata2'
-            document.getElementById('sendResponse').click()
-
             lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata2');
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
             copyToClipboard1(lginfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata2')
 
-        }, 1000)
+        }, 2000)
         document.getElementById('tidcode').style.background = 'coral'
         setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
