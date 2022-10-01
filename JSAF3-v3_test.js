@@ -972,7 +972,7 @@ var win_Themes =  // описание элементов окна Тематик
                         </div>
 
 						<div>
-							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira" style="margin-left: 20px; width: 78%; text-align: center;">
+							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira" style="margin-left: 20px; width: 78%; text-align: center; margin-bottom:5px;">
 							<button id="linktojirasend" title="Отправить введеную ссылку в комментарий чата и в поле Ссылка на Jira в АФ">🚀</button>
 						</div>
 
@@ -5825,7 +5825,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			let getval = document.getElementById('linktojiracoment').value;
 			if (getval != '') {
 				sendComment(getval);
-				    fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
+				    fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
                             "headers": {
                                 "content-type": "application/json",
                             },
