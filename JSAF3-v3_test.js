@@ -4264,9 +4264,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('sendResponse').click()
 
             function getPassInfo1() {
-                // document.getElementById('responseTextarea1').value = '{}'
-                // document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-                // document.getElementById('responseTextarea3').value = ''
 
                 var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
                 document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
