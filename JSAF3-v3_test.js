@@ -11600,7 +11600,7 @@ document.getElementById('changetheme').onclick = function () { //функция 
     else alert("Введите хэш чата в длинное поле по центру");
 }
 
-document.getElementById('gofindit').onclick = async function () { //функция поиска чатов по вытсалвенной тематике с отображениеи и тегов
+document.getElementById('gofindit').onclick = async function () { //функция поиска чатов по выставленной тематике с отображениеи и тегов
     let curval = document.getElementById('thematics').value;
     let strcsatnew = document.getElementById('themesdata');
     strcsatnew.textContent = "Загрузка"
@@ -12043,13 +12043,7 @@ async function sendAnswerTemplate2(word, flag = 0) { //функция отпра
         try {
             a = await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
                 "headers": {
-                    "accept": "*/*",
-                    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "cache-control": "max-age=0",
                     "content-type": "application/json",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin"
                 },
                 "referrer": adr,
                 "referrerPolicy": "no-referrer-when-downgrade",
