@@ -13721,10 +13721,7 @@ btntid.onclick = async function () { // копирует в буфер логи�
     if (testteachid != null || testteachid != '') {
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
 				"sec-fetch-site": "same-origin",
 				"sec-fetch-user": "?1",
 				"upgrade-insecure-requests": "1"
@@ -13741,26 +13738,6 @@ btntid.onclick = async function () { // копирует в буфер логи�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-
-            document.getElementById('responseTextarea1').value = `{
-				   "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-            document.getElementById('responseTextarea3').value = 'senddata2'
-            document.getElementById('sendResponse').click()
 
             lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata2');
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
