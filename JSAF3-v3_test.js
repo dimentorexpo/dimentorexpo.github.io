@@ -13663,10 +13663,7 @@ btnsid.onclick = async function () { // копирует в буфер логи�
     if (teststudid != null || teststudid != '') {
         document.getElementById('responseTextarea1').value = `{
 			  "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
 				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
 				"sec-fetch-site": "same-origin",
 				"sec-fetch-user": "?1",
 				"upgrade-insecure-requests": "1"
@@ -13684,33 +13681,13 @@ btnsid.onclick = async function () { // копирует в буфер логи�
 
         setTimeout(async function () {
 
-            document.getElementById('responseTextarea1').value = `{
-				   "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-            document.getElementById('responseTextarea3').value = 'senddata1'
-            document.getElementById('sendResponse').click()
-
             lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata1');
             lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             lginfo = lginfo[lginfo.length - 1].split("\"");
             copyToClipboard1(lginfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
 
-        }, 1000)
+        }, 2000)
         document.getElementById('sidcode').style.background = 'coral'
         setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового ученика в настройках ⚙");
@@ -13745,7 +13722,7 @@ btntid.onclick = async function () { // копирует в буфер логи�
             copyToClipboard1(lginfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata2')
 
-        }, 1000)
+        }, 2000)
         document.getElementById('tidcode').style.background = 'coral'
         setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
