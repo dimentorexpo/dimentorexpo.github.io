@@ -4270,24 +4270,49 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
+		
+		commonidentity='';
 
         setTimeout(async function () {
+
             commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
             commonidentity = await commonidentity;
-
-            if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-                emailidentity = "📧✖";
-                phoneidentity = "☎✖";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                emailidentity = "📧✔";
-                phoneidentity = "☎✖";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-                emailidentity = "📧✖";
-                phoneidentity = "☎✔";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                emailidentity = "📧✔";
-                phoneidentity = "☎✔";
-            }
+			
+			if (commonidentity == null) {
+				setTimeout(function() {
+					if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+						console.log('It is a teacher!')
+					} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+						emailidentity = "📧✖";
+						phoneidentity = "☎✖";
+					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+						emailidentity = "📧✔";
+						phoneidentity = "☎✖";
+					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+						emailidentity = "📧✖";
+						phoneidentity = "☎✔";
+					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+						emailidentity = "📧✔";
+						phoneidentity = "☎✔";
+					}
+				}, 2000)
+			} else  {
+				if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+					console.log('It is a teacher!')
+				} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+					emailidentity = "📧✖";
+					phoneidentity = "☎✖";
+				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+					emailidentity = "📧✔";
+					phoneidentity = "☎✖";
+				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+					emailidentity = "📧✖";
+					phoneidentity = "☎✔";
+				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+					emailidentity = "📧✔";
+					phoneidentity = "☎✔";
+				}
+			}
 
             document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 
@@ -4888,7 +4913,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
             document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 
-        }, 800)
+        }, 1000) //было 800
     }
 
     document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
@@ -9197,7 +9222,7 @@ function refreshTimer() { //функция обновления таймера
     j = 0
     while (true) {
         if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
-            break
+            break;
         if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
             break;
         if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
