@@ -4347,10 +4347,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
-            document.getElementById('responseTextarea3').value = 'phoneishere'
-            document.getElementById('sendResponse').click()
 
             unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
             unhidephone = await unhidephone;
@@ -4358,7 +4354,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             unhidephone = unhidephone.data.value;
             document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 
-        }, 600)
+        }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
     }
 
     let unhidenemail;
