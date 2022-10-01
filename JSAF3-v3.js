@@ -971,6 +971,10 @@ var win_Themes =  // описание элементов окна Тематик
 								<button id="themesinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
                         </div>
 
+						<div>
+							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira" style="margin-left: 20px; width: 78%; text-align: center; margin-bottom:5px;">
+							<button id="linktojirasend" title="Отправить введеную ссылку в комментарий чата и в поле Ссылка на Jira в АФ">🚀</button>
+						</div>
 
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Темы</label>
@@ -5817,7 +5821,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             } else alert("Не выбраны чекбоксы, выберите, пожалуйста, 1 или несколько и повторите попытку")
         }
 
-
+		document.getElementById('linktojirasend').onclick = function() {
+			let getval = document.getElementById('linktojiracoment').value;
+			if (getval != '') {
+				sendComment(getval);
+				    fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
+                            "headers": {
+                                "content-type": "application/json",
+                            },
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                     document.getElementById('linktojiracoment').value = "";
+			}
+		}
+		
         document.getElementById('vimcall').onclick = function () {
             document.getElementById('svyazissues').style.display = 'flex'
             document.getElementById('themes_body').style.display = 'none'
@@ -8746,101 +8766,6 @@ function refreshTemplates() { // функция обновляет шаблон�
 
                     b.lastElementChild.appendChild(newDiv)
                     countOfStr++
-                }
-
-                if (pageType == "ТемыМоб") { // дорисовка инпута для ссылки на Jira
-                    var newDivInMob = document.createElement('span')
-                    newDivInMob.id = "9page_1str";
-                    newDivInMob.style.margin = "5px"
-
-                    var newInputJiraCmtMob = document.createElement('input')
-                    newInputJiraCmtMob.id = 'jirafieldlinkmob'
-                    newInputJiraCmtMob.placeholder = 'Ссылка на Jira задачу'
-                    newInputJiraCmtMob.autocomplete = 'off'
-                    newInputJiraCmtMob.type = 'text'
-                    newInputJiraCmtMob.style = 'text-align: center; width: 200px; color: black; margin-left: 60px'
-
-                    newDivInMob.appendChild(newInputJiraCmtMob)
-
-                    b.lastElementChild.appendChild(newDivInMob)
-
-                    var newSpanBtnMob = document.createElement('button');
-                    newSpanBtnMob.id = "sendjiramob";
-                    newSpanBtnMob.style.cursor = "pointer";
-                    newSpanBtnMob.style.marginLeft = "20px";
-                    newSpanBtnMob.innerText = "🚀";
-
-                    newDivInMob.appendChild(newSpanBtnMob);
-
-                    b.lastElementChild.appendChild(newSpanBtnMob)
-
-                    document.getElementById('sendjiramob').onclick = function () {
-                        let getval1 = document.getElementById('9page_1str').children[0].value
-                        sendComment(getval1);
-                        let splitter1 = document.URL.split('/')
-                        console.log("Getval = " + getval1)
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter1[5] + "/payload", {
-                            "headers": {
-                                "accept": "*/*",
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval1 + "\"}]}",
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                        document.getElementById('9page_1str').children[0].value = "";
-                    }
-                }
-                if (pageType == "Темы") { // дорисовка инпута для ссылки на Jira
-                    var newDivIn = document.createElement('span')
-                    newDivIn.id = "10page_1str";
-                    newDivIn.style.margin = "5px"
-
-                    var newInputJiraCmt = document.createElement('input')
-                    newInputJiraCmt.id = 'jirafieldlink'
-                    newInputJiraCmt.placeholder = 'Ссылка на Jira задачу'
-                    newInputJiraCmt.autocomplete = 'off'
-                    newInputJiraCmt.type = 'text'
-                    newInputJiraCmt.style = 'text-align: center; width: 200px; color: black; margin-left: 60px'
-
-                    newDivIn.appendChild(newInputJiraCmt)
-
-                    b.lastElementChild.appendChild(newDivIn)
-
-                    var newSpanBtn = document.createElement('button');
-                    newSpanBtn.id = "sendjira";
-                    newSpanBtn.style.cursor = "pointer";
-                    newSpanBtn.style.marginLeft = "20px";
-                    newSpanBtn.innerText = "🚀";
-
-                    newDivIn.appendChild(newSpanBtn);
-
-                    b.lastElementChild.appendChild(newSpanBtn)
-
-                    document.getElementById('sendjira').onclick = function () {
-                        let getval = document.getElementById('10page_1str').children[0].value
-                        sendComment(getval);
-                        let splitter = document.URL.split('/')
-                        console.log("Getval = " + getval)
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
-                            "headers": {
-                                "accept": "*/*",
-                                "content-type": "application/json",
-                                "sec-fetch-dest": "empty",
-                                "sec-fetch-mode": "cors",
-                                "sec-fetch-site": "same-origin"
-                            },
-                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                        document.getElementById('10page_1str').children[0].value = "";
-                    }
                 }
 
                 var newStr = document.createElement('div')
